@@ -3,6 +3,7 @@ view_enabled = true;
 
 // transition cutscene room
 if (room == ___rm_restroom){
+	audio_stop_all();
 	prompt_timer = prompt_timer_max;
 	application_surface_draw_enable(true);
 	surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);

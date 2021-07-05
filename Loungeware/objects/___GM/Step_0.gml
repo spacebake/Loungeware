@@ -46,7 +46,7 @@ if (state == "playing_microgame"){
 				audio_resume_sound(microgame_music);
 				var _fadeout_time = (microgame_end_transition_time/2);
 				microgame_music_stop(_fadeout_time * 16.66);
-				alarm_set(1, _fadeout_time);
+
 			}
 			gb_timerbar_visible = false;
 			larold_alpha = 1//; - gb_timerbar_alpha;
