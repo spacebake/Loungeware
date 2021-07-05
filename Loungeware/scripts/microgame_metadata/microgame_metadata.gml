@@ -2,8 +2,8 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "space_rocket_lander",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "",    // Default ""    | The key for your game, as a string.
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
 	} return {
@@ -53,10 +53,21 @@ function ___init_metadata(){
 		date_added: "21/07/05",
 	},
 	
-
+	nahoo_beenade: {
+		game_name: "Beenade",
+		creator_name: "Nahoo",
+		prompt: "MOVE",
+		init_room: nahoo_beenade_rMain,
+		view_width: 480,
+		view_height: 320,
+		time_seconds: 5,
+		music_track: Nahoo_mMain,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_colour_rgb(255, 244, 101), //make_colour_rgb(93, 128, 54),
+		cartridge_col_secondary: make_colour_rgb(241, 161, 96), //make_colour_rgb(239, 94, 255),
+		cartridge_label: Nahoo_beenade_cartridge,
+		default_is_fail: true,
+		date_added: "21/07/05"
+	}
 }}
-
-
-
-
-

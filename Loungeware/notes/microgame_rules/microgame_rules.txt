@@ -5,7 +5,7 @@
 destroy them when your game ends.
 No persistant objects or global variables (this is to prevent memory leaks, and 
 keep microgames self-contained).
-Functions and macros are allowed, but you must prefix them with your name like an asset.
+Functions are allowed, but you must prefix them with your name like an asset.
 
 ------------------------------------------------------------------------------------
 2. Microgames must be possible to beat your game every single time it is played 
@@ -23,11 +23,11 @@ The reason for this rule is so that we keep a uniform control scheme across all
 games.
 
 ------------------------------------------------------------------------------------
-5. Games cannot be longer than 12 seconds. Ideally you should aim for around 4-6 seconds
+5. Games cannot be longer than 12 seconds. Ideally you should aim for around 4-6 second
 
 ------------------------------------------------------------------------------------
 6. Only use assets that are either yours or you have permission to use 
-(royalty free stuff is ok)
+(asset packs and royalty free stuff is ok)
 
 ------------------------------------------------------------------------------------
 7. Use the audio functions in the "public_functions" script for playing sounds / music
