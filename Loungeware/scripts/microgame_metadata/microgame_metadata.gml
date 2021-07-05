@@ -2,8 +2,8 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "space_rocket_lander",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
 	} return {
