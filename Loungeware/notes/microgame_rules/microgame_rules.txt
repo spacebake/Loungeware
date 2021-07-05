@@ -1,0 +1,42 @@
+0. Nothing lewd, offensive or illegal 
+
+------------------------------------------------------------------------------------
+1. Clean up after yourself. If you create any ds_lists or surfaces, make sure to 
+destroy them when your game ends.
+No persistant objects or global variables (this is to prevent memory leaks, and 
+keep microgames self-contained).
+Functions are allowed, but you must prefix them with your name like an asset.
+
+------------------------------------------------------------------------------------
+2. Microgames must be possible to beat your game every single time it is played 
+(and without being ridiclously difficult)
+
+------------------------------------------------------------------------------------
+3. Microgames should be straight forward enough that someone could figure out what to 
+do within 1-2 plays
+
+------------------------------------------------------------------------------------
+4. For getting inputs you must use the built-in inputs provided in the 
+"public_functions" script (directional controls + a primary and secondary button)
+here's a quick example of how to use them: ```if (KEY_PRIMARY_PRESSED) shoot_bullet();```
+The reason for this rule is so that we keep a uniform control scheme across all
+games.
+
+------------------------------------------------------------------------------------
+5. Games cannot be longer than 12 seconds. Ideally you should aim for around 4-6 second
+
+------------------------------------------------------------------------------------
+6. Only use assets that are either yours or you have permission to use 
+(asset packs and royalty free stuff is ok)
+
+------------------------------------------------------------------------------------
+7. Use the audio functions in the "public_functions" script for playing sounds / music
+the reason for this is because those functions are run through the players volume settings 
+whereas the normal audio functions are not.
+If you want to do something extra special with audio then this rule can be broken but please
+make sure to multiply your volume by the global volume settings. (ask space about this for more info)
+
+------------------------------------------------------------------------------------
+8. please for the love of god if you don't know what Warioware is, look it up on youtube
+or play the game to get an idea of what microgame should be like.
+

@@ -1,0 +1,95 @@
+How to get started making a microgame:
+
+-----------------------------------------------------------------------------------------------
+1. Create a new folder inside the Microgames folder.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+This is the folder where you will put all the assets for your microgame. 
+You should name the folder like this: "yourname_gamename".
+
+Inside this folder you can organise your game however you want, 
+but you must prefix all of your assets with your name so that they don't 
+conflict with other creator's assets.
+
+I also reccomend using your game name in the prefix if you plan to create 
+more than 1 microgame, so your assets should be named something like this:
+"sam_cookiedunk_spr_cookie", "sam_cookiedunk_obj_glass", "sam_cookidunk_rm_initroom"
+
+note: they do not need to be snake case, you can use camel case or whatever you 
+want inside your folder, as long as it is prefixed.
+
+-----------------------------------------------------------------------------------------------
+2. Create a new room inside your microgame folder
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+This will be your initial room that will be loaded when your microgame is launched. 
+Think of it like your home room in a normal project.
+
+----------------------------------------------------------------------------------------------- 
+3. Create the metadata for your game
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+You need to fill out a little bit of info for your microgame so that loungeware 
+knows how to handle it.
+
+Go into the microgame_metadata script in the root folder of the asset browser.
+You will see a list of structs, the first of which is a commented out template struct.
+copy that template and add it to the bottom of the list, replace the placeholder data 
+with the data for your game. You can always go back and change it later if you don't
+know all of the info yet.
+
+For information on what these properties actually mean, check the "_microgame_metadata_help" 
+script in the _HELP_DOCS folder
+
+----------------------------------------------------------------------------------------------- 
+4. Turn on test mode
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Now we're going to turn on test mode. When this is active, your game will launch when you run
+the project. It will also enable a few debug features (like pressing "R" to restart the game).
+
+At the top of the "microgame_metadata" script, where you filled out your game info, you will
+see a lone struct called "SET_TEST_VARS" with 3 properties.
+
+- Set "test_mode_on" to true
+This activates test mode, as you might imagine
+
+- Set "microgame_key" to your microgame's struct key (as a string)
+this tells loungeware which game to load on run.
+
+- Set "difficulty_level" to 1. 
+This is for testing multiple difficulty levels. you don't need to worry about this for now.
+
+----------------------------------------------------------------------------------------------- 
+5. Run the game.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Now run the game and it should show your microgame's prompt-text and start running it. Hooray!
+(although, your "microgame" is probably just a black screen on the gameboy at this point)
+But now you can start building it and testing it.
+
+Here are a few debug tips:
+-Press "R" to quickly restart the game
+-Press "T" to show a preview of the current game cartridge 
+-Press F8 to toggle fullscreen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+6. Building a game
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+You're on your own for this. Make whatever you want, but there are a few rules that need 
+to be followed. Check out the microgame_rules file in the _HELP_DOCS folder for more info
+
+Use the premade input macros to get player inputs, they can be found in the 
+"public_functions" script.
+
+You should call the "microgame_win()" function to signify when your microgame has been
+completed successfully. More info on what this function does also in the "public_functions" script.
+
+please only use camera[0] (macro'd as CAMERA)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+now get on with it
+
+
+
+
+
+
+
+
