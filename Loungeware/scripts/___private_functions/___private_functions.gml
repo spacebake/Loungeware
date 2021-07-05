@@ -113,7 +113,9 @@ function ___microgame_end(){
 	with (___fake_global) instance_destroy();
 	instance_create_layer(0, 0, layer, ___fake_global);
 	// garbage collect any leftover ds structures from microgame
-	___ds_gc_collect()
+	//___ds_gc_collect()
+	workspace_end();
+	workspace_begin();
 	
 	// go to rest room (lol)
 	room_goto(___rm_restroom);

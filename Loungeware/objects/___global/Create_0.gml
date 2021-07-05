@@ -6,4 +6,4 @@ do not use this object to store vars
 for your microgame, it is for base-game use only */
 
 
-song_stop_list = ___ds_list_create_builtin();
+song_stop_list = ds_list_create(); //___ds_list_create_builtin();
