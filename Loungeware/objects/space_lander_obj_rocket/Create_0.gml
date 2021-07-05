@@ -23,7 +23,7 @@ alien_y_mod = 15;
 alien_talked = false;
 
 vsp = 0;
-grav = 0.04;
+grav = 0.04 + (0.12 * ((DIFFICULTY-1)/5));
 grav_max = 5;
 floor_y = 132;
 oy = y;
