@@ -111,7 +111,7 @@ function ___GAME_INIT(){
 
 function ___save_game(){
 	var _str = json_stringify(___global.save_data);
-	var _file = file_text_open_write(___global.save_filename);
+	//var _file = file_text_open_write(___global.save_filename);
 	//file_text_write_string(_file, _str);
 	//file_text_close(_file);
 }
