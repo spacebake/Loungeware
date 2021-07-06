@@ -10,9 +10,7 @@ else gb_timerbar_alpha = max(0, gb_timerbar_alpha - gb_timerbar_fadespeed);
 // -----------------------------------------------------------
 if (state == "playing_microgame"){
 	
-	
 	if (state_begin){
-		
 		gb_timerbar_visible = true;
 		transition_circle_rad = 0;
 		prompt_alpha = 1;
@@ -28,8 +26,6 @@ if (state == "playing_microgame"){
 			exit;
 		}
 	}
-	
-
 	
 	if (substate == 1){
 		if (microgame_timer == 0){
@@ -72,11 +68,6 @@ if (state == "playing_microgame"){
 // STATE | MICROGAME RESULT
 // -----------------------------------------------------------
 if (state == "microgame_result"){
-	if (state_begin){
-		if (!microgame_won){
-			life = max(0, life-1);
-		}
-	}
 
 }
 

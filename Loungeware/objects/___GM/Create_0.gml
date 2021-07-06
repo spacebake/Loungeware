@@ -1,5 +1,6 @@
 ___state_setup("start");
 dev_mode = false;
+dev_mode_loop_game = false;
 gallery_mode = false;
 
 // game window
@@ -24,12 +25,11 @@ microgame_populate_unplayed_list = function(){
 }
 
 microgame_current_metadata = noone;
+microgame_current_name = noone;
+microgame_next_metadata = noone;
 microgame_next_name = noone;
-microgame_next = noone;
-microgame_prop_name = noone;
 microgame_timer = -1;
 microgame_timer_max = -1;
-microgame_active = false;
 microgame_won = false;
 microgame_time_finished = 100000;
 microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
@@ -71,6 +71,18 @@ transition_circle_speed = transition_circle_rad / microgame_end_transition_time;
 transition_appsurf_zoomscale = 1;
 spin_frame = 0;
 prompt_alpha = 1;
+gb_scale = 1;
+gb_offset_x = 0;
+gb_offset_y = 0;
+cart_offset_x = 0;
+cart_offset_y = 0;
+cart_angle = 0;
+cart_draw_over = false;
+spin_speed = 0.75
+gb_min_scale = 0.4;
+gb_max_scale = 1;
+gb_scale_diff =  gb_max_scale - gb_min_scale;
+title_y = 64;
 
 
 // larold reflection
@@ -80,9 +92,6 @@ larold_index = 1;
 
 // game change cutscene
 gb_scale = 1;
-cart_col_primary = ___cart_primary_col_default;
-cart_col_secondary = ___cart_secondary_col_default;
-cart_label = ___cart_label_default;
 cart_sprite = noone;
 garbo_sprites = ds_list_create(); //___ds_list_create_builtin();
 prompt_alpha = 1;
@@ -94,6 +103,7 @@ prompt_timer = prompt_timer_max;
 // IF TEST MODE ACTIVE: turn on dev mode and load the current test microgame on game start
 var _microgame_metadata = ___global.microgame_metadata;
 var _test_vars = ___global.test_vars;
+
 if (_test_vars.test_mode_on){
 	var _game_key = _test_vars.microgame_key;
 	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
@@ -109,17 +119,20 @@ if (_test_vars.test_mode_on){
 	}
 	___state_change("playing_microgame");
 	dev_mode = true;
+	dev_mode_loop_game = bool(_test_vars.loop_game);
+	
 	___microgame_start(_game_key);
 }
 
 
 if (!dev_mode){
 	show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-spaceyboy");
-	// play random game
-	___state_change("playing_microgame");
-	var _game_key = microgame_unplayed_list[| irandom(ds_list_size(microgame_unplayed_list)-1)];
-	___microgame_start(_game_key);
-}
+	
+	___microgame_load_fake();
+	room_goto(___rm_restroom);
+	___state_change("intro");
+	
+} 
 
 
 
@@ -252,14 +265,6 @@ draw_gameboy_overlay = function(){
 	draw_sprite(gameboy_sprite, gameboy_frame, 0, 0);
 	surface_reset_target();
 
-	// draw gameboy shadow onto gameboy surface
-	if (opt_gameboy_screen_shadow){
-		surface_set_target(surf_gameboy);
-		draw_set_alpha(0.08);
-		draw_sprite(gameboy_sprite, 1, 0, 0);
-		draw_set_alpha(1);
-		surface_reset_target();
-	}
 
 	// draw timerbar
 	surface_set_target(surf_gameboy);

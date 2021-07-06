@@ -41,6 +41,25 @@ function ___macro_keyboard_check_released(_keystr){
 }
 
 //--------------------------------------------------------------------------------------------------------
+// LOAD FAKE MICROGAME
+// loads a fake microgame as the first game to pop out of the gameboy, no game is actually attached to it
+//--------------------------------------------------------------------------------------------------------
+function ___microgame_load_fake(){
+
+		var _cart = ___get_fake_label();
+		
+		
+		_cart.cartridge_label = ___spr_fake_labels;
+		cart_sprite = ___cart_sprite_create(_cart);
+		
+		microgame_current_metadata = _cart;
+
+		//show_message(microgame_current_metadata);
+		microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
+		microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+}
+
+//--------------------------------------------------------------------------------------------------------
 // MICROGAME START
 // name says it all tbh
 //--------------------------------------------------------------------------------------------------------
@@ -49,21 +68,24 @@ function ___microgame_start(_microgame_propname){
 	// init new microgame
 	with(___GM){
 		
+		// garbo the sprites from last cutscene
+		while (ds_list_size(garbo_sprites) > 0){
+			sprite_delete(garbo_sprites[| 0]);
+			ds_list_delete(garbo_sprites, 0);
+		}
+		
 		var _metadata = variable_struct_get(___global.microgame_metadata, _microgame_propname);
 		microgame_current_metadata = _metadata;
-		microgame_prop_name = _microgame_propname;
+		microgame_current_name = _microgame_propname;
 		
-		microgame_next = noone;
+		
 		microgame_timer = _metadata.time_seconds * 60;
 		microgame_timer_max = _metadata.time_seconds * 60;
 		if (dev_mode && _metadata.time_seconds > ___global.max_microgame_time){
 			show_message("You are exceeding the maximum amount of time allowed for a microgame. Please make a game that is " + string(___global.max_microgame_time) + " seconds or shorter.\nIf you are just doing this for testing purposes then hit \"ok\" to proceed.");
 		}
-		microgame_active = true;
+
 		microgame_won = false;
-		cart_col_primary = _metadata.cartridge_col_primary;
-		cart_col_secondary = _metadata.cartridge_col_secondary;
-		cart_label = _metadata.cartridge_label;
 		cart_sprite = ___cart_sprite_create(_metadata);
 		gb_timerbar_visible = true;
 		transition_appsurf_zoomscale = 1;
@@ -81,9 +103,11 @@ function ___microgame_start(_microgame_propname){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_end(){
 	
+
+	
 	// update save data
 	if (!dev_mode && !gallery_mode){
-		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___GM.microgame_prop_name);
+		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___GM.microgame_current_name);
 		_save_struct.play_count = _save_struct.play_count + 1;
 		if (___GM.microgame_won){
 			_save_struct.wins = _save_struct.wins + 1;
@@ -121,7 +145,7 @@ function ___microgame_end(){
 	room_goto(___rm_restroom);
 	
 	// remove game from unplayed list 
-	var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_prop_name);
+	var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_current_name);
 	ds_list_delete(microgame_unplayed_list, _index_to_remove);
 	
 	// if uplayed list is empty, repopulate it with all games (excluse the one just played, if possble, see below)
@@ -130,14 +154,14 @@ function ___microgame_end(){
 		
 		// if there is more than 1 game, delete the last played game from the new list as to not get repeats
 		if (ds_list_size(microgame_unplayed_list) > 1){
-			_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_prop_name);
+			_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_current_name);
 			ds_list_delete(microgame_unplayed_list, _index_to_remove);
 		}
 	}
 	
 	// choose next game from uplayed list
 	microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
-	microgame_next_data = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+	microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
 	
 }
 

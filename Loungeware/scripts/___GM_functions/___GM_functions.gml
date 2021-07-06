@@ -1,7 +1,10 @@
 // ------------------------------------------------------------------------------------------
 // CARTRIDGE SHADER | turn on/off shader to recolor the cartridge to the colors specified in the microgame metadata
 // ------------------------------------------------------------------------------------------
-function ___shader_cartridge_on(_col1, _col2){
+function ___shader_cartridge_on(_microgame_metadata_struct){
+
+	 var _col1 = _microgame_metadata_struct.cartridge_col_primary;
+	 var _col2 = _microgame_metadata_struct.cartridge_col_secondary;
 
 	var _r1 = (color_get_red(_col1)/255) + 0.0;
 	var _g1 = (color_get_green(_col1)/255) + 0.0;
@@ -42,7 +45,7 @@ function ___cart_sprite_create(_microgame_metadata){
 	var _label_y = 78;
 	surface_set_target(surf_cart);
 	draw_clear_alpha(c_white, 0);
-	___shader_cartridge_on(_microgame_metadata.cartridge_col_primary, _microgame_metadata.cartridge_col_secondary);
+	___shader_cartridge_on(_microgame_metadata);
 	draw_sprite_ext(___spr_gameboy_back, 1, _cart_x , _cart_y, 1, 1, 0, c_white, 1);
 	___shader_cartridge_off();
 	if (sprite_exists(_microgame_metadata.cartridge_label)){
@@ -109,8 +112,8 @@ function ___prompt_sprite_create(microgame_key){
 function ___draw_title(_x, _y){
 	var _scale = 1;
 	draw_set_font(fnt_frogtype);
-	var _game_name = "\"" + string_upper(microgame_next_data.game_name) + "\"";
-	var _game_creator = string_upper(microgame_next_data.creator_name);
+	var _game_name = "\"" + string_upper(microgame_next_metadata.game_name) + "\"";
+	var _game_creator = string_upper(microgame_next_metadata.creator_name);
 	var _margin = 0;
 	var _padding = 3;
 	var _w = 174;

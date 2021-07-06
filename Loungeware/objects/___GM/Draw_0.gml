@@ -1,3 +1,61 @@
+var _gb_w = (sprite_get_width(___spr_gameboy_overlay)-14) * gb_scale;
+var _gb_margin_left =  ((VIEW_W - _gb_w)/2);
+var _gb_margin_top = 200 * (1-gb_scale);
+var _gbx = _gb_margin_left + gb_offset_x;
+var _gby = _gb_margin_top + gb_offset_y;
+var _gmx = _gb_margin_left + cart_offset_x;
+var _gmy = _gb_margin_top + cart_offset_y;
+
+
+// -----------------------------------------------------------
+// STATE | INTRO
+// -----------------------------------------------------------
+if (state == "intro"){
+	if (state_begin){
+		_fade_alpha = 1;
+		wait = 60;
+	}
+	
+		// move larold
+		var _dir_speed = 2.5;
+		var _larold_rad = 2;
+		larold_dir += _dir_speed;
+		var _y_offset_larold = lengthdir_y(_larold_rad, larold_dir);
+		var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
+		
+		// draw larold
+		draw_set_alpha(0.025)
+		draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
+		
+		// draw glare
+		draw_set_alpha(0.015)
+		draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
+		draw_set_alpha(1);
+	
+		// draw overlay
+		draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
+		
+		//draw fade in
+		draw_set_alpha(_fade_alpha);
+		draw_set_color(c_gbblack);
+		draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	
+	// zoom out gameboy
+	if (substate == 0){
+
+		
+		if (wait <= 0){
+			___state_change("game_switch");
+			exit;
+		}
+		
+		_fade_alpha = max(0, _fade_alpha - (1/30));
+		if (_fade_alpha <= 0) wait--;
+		
+	}
+	
+	
+}
 
 // -----------------------------------------------------------
 // STATE | MICROGAME RESULT
@@ -11,6 +69,7 @@ if (state == "microgame_result"){
 			//var _snd_id = audio_play_sound(___sng_microgame_win, 0, 0);
 			//audio_sound_gain(_snd_id, vol_msc * vol_master, 0);
 		} else {
+			life = max(0, life-1);
 			//var _snd_id = audio_play_sound(___sng_microgame_lose, 0, 0);
 			//audio_sound_gain(_snd_id, vol_msc * vol_master, 0);
 		}
@@ -45,10 +104,25 @@ if (state == "microgame_result"){
 	// draw overlay
 	draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
 	
+	if (dev_mode && dev_mode_loop_game){
+		
+		var _str = (microgame_won ? "WON" : "LOST");
+		draw_set_color(c_white);
+		draw_set_font(fnt_frogtype);
+		draw_set_halign(fa_center);
+		draw_text_transformed(VIEW_W/2, 95, _str, 2, 2, 0);
+		draw_set_halign(fa_left);
+	}
+	
 	// show larold for a hot second
 	if (substate == 0){
 		wait--;
 		if (wait <= 0){
+			if (dev_mode && dev_mode_loop_game){ 
+				___microgame_start(microgame_next_name);
+				___state_change("playing_microgame"); 
+				exit
+			}
 			if (microgame_won){
 				___state_change("game_switch");
 				exit;
@@ -146,16 +220,7 @@ if (state == "game_switch"){
 		title_y = 64;
 	}
 	
-	var _gb_w = (sprite_get_width(___spr_gameboy_overlay)-14) * gb_scale;
-	var _gb_margin_left =  ((VIEW_W - _gb_w)/2);
-	var _gb_margin_top = 200 * (1-gb_scale);
-	var _gbx = _gb_margin_left + gb_offset_x;
-	var _gby = _gb_margin_top + gb_offset_y;
-	var _gmx = _gb_margin_left + cart_offset_x;
-	var _gmy = _gb_margin_top + cart_offset_y;
-	var _larold_scale = (VIEW_W / WINDOW_BASE_SIZE) * gb_scale;
-	var _larold_x = (_gb_margin_left + (gameboy_padding_x * _larold_scale));
-	var _larold_y = (_gb_margin_top + (gameboy_padding_y * _larold_scale));
+
 	
 	
 	// zoom out gameboy
@@ -190,7 +255,7 @@ if (state == "game_switch"){
 		}
 		
 		// draw gameboy
-		___shader_cartridge_on(cart_col_primary, cart_col_secondary);
+		___shader_cartridge_on(microgame_current_metadata);
 		draw_sprite_ext(___spr_gameboy_spin_x, spin_frame, _gb_margin_left, _gb_margin_top, _scale, _scale, 0, c_white, 1);
 		___shader_cartridge_off();
 		wait--;
@@ -212,7 +277,7 @@ if (state == "game_switch"){
 		}
 
 		draw_sprite_ext(___spr_gameboy_back, 0, _gbx, _gby, _scale, _scale, 0, c_white, 1);
-		___shader_cartridge_on(cart_col_primary, cart_col_secondary);
+		___shader_cartridge_on(microgame_current_metadata);
 		draw_sprite_ext(___spr_gameboy_back, 1, _gmx, _gmy, _scale, _scale, cart_angle, c_white, 1);
 		___shader_cartridge_off();
 		draw_sprite_ext(___spr_gameboy_back, 2, _gbx, _gby, _scale, _scale, 0, c_white, 1);
@@ -271,10 +336,7 @@ if (state == "game_switch"){
 	if (substate == 4){
 		if (substate_begin){
 			//change cart color
-			cart_col_primary = microgame_next_data.cartridge_col_primary;
-			cart_col_secondary = microgame_next_data.cartridge_col_secondary;
-			cart_label = microgame_next_data.cartridge_label;
-			cart_sprite = ___cart_sprite_create(microgame_next_data);
+			cart_sprite = ___cart_sprite_create(microgame_next_metadata);
 			cart_offset_y = -90;
 			cart_offset_x = 190;
 			cart_angle = 0;
@@ -328,7 +390,7 @@ if (state == "game_switch"){
 		snapback_dir += 10;
 		snapback_rad = max(0, snapback_rad - (5/25));
 		___draw_title(VIEW_W/2, title_y);
-		___shader_cartridge_on(cart_col_primary, cart_col_secondary);
+		___shader_cartridge_on(microgame_next_metadata);
 		draw_sprite_ext(___spr_gameboy_back, 3, _gbx, _gby, _scale, _scale, 0, c_white, 1);
 		___shader_cartridge_off();
 		if (snapback_rad <= 0){
@@ -347,7 +409,7 @@ if (state == "game_switch"){
 			cart_offset_x = 0;
 			cart_offset_y = 0;
 		}
-		___shader_cartridge_on(cart_col_primary, cart_col_secondary);
+		___shader_cartridge_on(microgame_next_metadata);
 		draw_sprite_ext(___spr_gameboy_spin_x, spin_frame, _gb_margin_left, _gb_margin_top, _scale, _scale, 0, c_white, 1);
 		___shader_cartridge_off();
 		___draw_title(VIEW_W/2, title_y);
@@ -398,7 +460,7 @@ if (state == "game_switch"){
 			prompt_scale = 0;
 			prompt_scale_done = false;
 			wait = 5;
-			prompt_sprite = ___prompt_sprite_create(microgame_next_data);
+			prompt_sprite = ___prompt_sprite_create(microgame_next_metadata);
 			
 		}
 	
@@ -428,11 +490,7 @@ if (state == "game_switch"){
 		draw_sprite_ext(prompt_sprite, 0, _prompt_x, _prompt_y, prompt_scale, prompt_scale, 0, c_white, _prompt_alpha);
 		
 		if (wait <= 0){
-			// garbo the sprites from last cutscene
-			while (ds_list_size(garbo_sprites) > 0){
-				sprite_delete(garbo_sprites[| 0]);
-				ds_list_delete(garbo_sprites, 0);
-			}
+
 			___microgame_start(microgame_next_name);
 			___state_change("playing_microgame");
 			exit;
