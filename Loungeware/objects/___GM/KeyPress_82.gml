@@ -1,1 +1,4 @@
-if (dev_mode) game_restart();
+if (dev_mode){
+	workspace_end();
+	game_restart();
+}

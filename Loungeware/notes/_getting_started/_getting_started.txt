@@ -53,6 +53,8 @@ This activates test mode, as you might imagine
 - Set "microgame_key" to your microgame's struct key (as a string)
 this tells loungeware which game to load on run.
 
+- Set "loop_game" to either true or false (if true, your game will instantly restart when it ends, if false it will play the transition animation and go to the next microgame)
+
 - Set "difficulty_level" to 1. 
 This is for testing multiple difficulty levels. you don't need to worry about this for now.
 

@@ -103,9 +103,6 @@ function ___GAME_INIT(){
 	
 	instance_create_layer(0, 0, layer, ___GM);
 	
-	// options
-	___GM.opt_gameboy_button_animation = false;
-	___GM.opt_gameboy_screen_shadow = false;
 	
 }
 

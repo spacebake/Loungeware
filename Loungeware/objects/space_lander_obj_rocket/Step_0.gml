@@ -48,6 +48,8 @@ if (state == "flying"){
 			ship_index = 1;
 			pause_timer = 25;
 			sfx_play(space_lander_snd_rocket_crash, 1, 0);
+			view_shake_val = 1;
+			view_shake = 6;
 			state_change("fail");
 			exit;
 		} else {
@@ -76,6 +78,7 @@ if (state == "fail"){
 		if (ship_shake <= 0){
 			//create particles here
 			create_smoke_part(20);
+			view_shake_val = 2;
 			view_shake = 12;
 			state_change("invisible");
 		}
@@ -102,7 +105,7 @@ if (state == "won"){
 
 
 if (view_shake){
-	var _shake_val = 2;
+	var _shake_val = view_shake_val;
 	view_shake = max(0, view_shake - 1);
 	camera_set_view_pos(CAMERA, random_range(-_shake_val,_shake_val), random_range(-_shake_val, _shake_val));
 	if (view_shake <= 0) camera_set_view_pos(CAMERA, 0, 0);

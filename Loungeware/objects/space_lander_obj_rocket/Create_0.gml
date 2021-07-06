@@ -15,6 +15,7 @@ ship_shake_val = 0.5;
 ship_index = 0;
 landed = false;
 view_shake = 0;
+view_shake_val = 2;
 lid_dir = 0;
 lid_speed = 15;
 lid_frame = 3;
