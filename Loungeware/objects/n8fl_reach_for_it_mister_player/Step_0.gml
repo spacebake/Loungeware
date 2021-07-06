@@ -1,23 +1,26 @@
-var t = (TIME_MAX - TIME_REMAINING) / TIME_MAX;
+par_scroll += (par_scroll_max - par_scroll) * par_speed;
 
-par_scroll += (100 - par_scroll) * 0.05;
+event_inherited();
+
+
+//if(combo_index >= combo_max){
+//	is_win = true;
+//	exit;	
+//}
+
+var t = (TIME_MAX - TIME_REMAINING) / TIME_MAX;
+if(t >= dead_time){
+	game_over = true;
+	exit;
+}
 
 if(is_dead || is_win){
 	exit;	
 }
 
-if(combo_index >= combo_max){
-	is_win = true;
-	exit;	
-}
 
-if(t >= dead_time){
-	is_dead = true;
-	image_angle=90;
-	exit;
-}
 
-if(t >= draw_time){
+if(t >= draw_time && combo_index < combo_max){
 	var next = combo[combo_index];
 	var pressed = -1;
 	
@@ -27,11 +30,19 @@ if(t >= draw_time){
 		pressed = 1;
 	}else if(KEY_RIGHT_PRESSED){
 		pressed = 2;
+	}else if(KEY_PRIMARY_PRESSED){
+		pressed = 3;	
+	}else if(KEY_SECONDARY_PRESSED){
+		pressed = 4;	
 	}
 	
 	if(pressed == next){
+		spawn_emote(next);
 		combo_index++;
+		shoot(combo_index < combo_max);
 	}else if(pressed != -1){
-		combo_index = 0;	
+		combo_index = 0;
+		spawn_emote(game_pieces_num);
+		shoot(true);
 	}
 }

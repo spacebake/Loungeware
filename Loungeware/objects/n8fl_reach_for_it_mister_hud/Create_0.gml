@@ -1,1 +1,7 @@
-draw_time = random_range(0.5,0.6);
+time = 0;
+win_message = choose(
+	"Reach This",
+	"Yeehaw",
+	"All out of \nbubblegum"
+);
+r = random(360);
