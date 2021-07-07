@@ -366,7 +366,7 @@ draw_microgame = function(){
 //--------------------------------------------------------------------------------------------------------
 create_master_surface = function(){
 	// create the master surface if it doesn't exit
-	if (!surface_exists(surf_master)){
+	if (!surface_exists(surf_master) && window_scale != 0){
 		surf_master = surface_create(WINDOW_BASE_SIZE * window_scale, WINDOW_BASE_SIZE * window_scale);
 	}
 	
