@@ -79,7 +79,7 @@
 #macro Nahoo_WIDTH (480 / 2) / 8
 #macro Nahoo_HEIGHT (320 / 2) / 8
 #macro Nahoo_iterations 6
-#macro Nahoo_atlas [Nahoo_sEmpty, Nahoo_sFull, Nahoo_sGoal]
+#macro Nahoo_atlas [Nahoo_sEmpty, Nahoo_sFull, Nahoo_sGoal, Nahoo_sDark, Nahoo_sHeart]
 #macro Nahoo_colours [make_colour_rgb(51, 24, 24), make_colour_rgb(200, 86, 79), make_colour_rgb(241, 161, 96), make_colour_rgb(255, 244, 101)]
 #macro Nahoo_DEBUG 0
 
@@ -106,6 +106,8 @@ nahoo_font = undefined;
 
 nahoo_enemies = 2;
 
+nahoo_won = -1;
+
 function nahoo_init()
 {
 	map = nahoo_generate(Nahoo_WIDTH, Nahoo_HEIGHT, Nahoo_iterations);
@@ -118,8 +120,6 @@ function nahoo_generate(w, h, iterations)
 {
 	//Remember, this is the correct way to spell it
 	randomise();
-	
-	audio_play_sound(Nahoo_mMain, 1, 0);
 	
 	timer = nahoo_timer();
 	
@@ -272,17 +272,18 @@ function nahoo_run(m)
 	{
 		audio_play_sound(Nahoo_sWin, 0, 0);
 		microgame_win();
-		return nahoo_end();	
+		return nahoo_end(1);	
 	}
 	
 	timer = max(0, timer - 1);
 	
 	if(!timer)
 	{
+		
 		var enemy_address = 0;
 		while(enemy_address < nahoo_enemies)
 		{
-			var pos = [undefined, undefined];
+			var pos = [0, 0];
 		
 			for(var i = 0; i < w; i++)
 			{
@@ -294,7 +295,6 @@ function nahoo_run(m)
 					}
 				}
 			}
-		
 		
 			switch(enemy_address)
 			{
@@ -338,7 +338,7 @@ function nahoo_run(m)
 	{
 		//You fucking died!
 		microgame_fail();
-		return nahoo_end();
+		return nahoo_end(0);
 		nahoo_log("You died!")
 	}
 	
@@ -354,11 +354,14 @@ function nahoo_reset()
 	return map;
 }
 
-function nahoo_end()
+function nahoo_end(won)
 {
 	surface_free(nahoo_surf);
 	nahoo_surf = surface_create(Nahoo_WIDTH * 8, Nahoo_HEIGHT * 8);	
 	nahoo_complete = true;
+	
+	nahoo_won = won;
+	
 	return nahoo_Array2D(Nahoo_WIDTH, Nahoo_HEIGHT, 0)
 }
 
@@ -439,15 +442,25 @@ function nahoo_draw_map(pos, m, arr, xs, ys)
 	//E and S are new characters due to the font, neat right?
 	if(!nahoo_complete) draw_text(0, 0, "Nahoo E" + string(nahoo_enemies) + "  S" + string(DIFFICULTY))
 	
+	if(nahoo_won != -1)
+	{
+		var samplespace = [Nahoo_beenade_lost, Nahoo_beenade_won];
+		draw_sprite_ext(samplespace[nahoo_won], 0, pos[0], pos[1], xs, ys , 0, c_white, 1);
+	}
+	
+	
 	surface_reset_target();
 	
 	draw_surface_ext(nahoo_surf, pos[0], pos[1], xs, ys, 0, c_white, 1);
 	
-	draw_sprite_ext(Nahoo_sBee, 0, (playerpos[0] + 4) * xs, (playerpos[1] + 4) * ys, nahoo_orientation * xs, ys, 0, c_white, 1);
-	
-	for(var e = 0; e < array_length(enemypos); e++)
+	if(nahoo_won == -1)
 	{
-		draw_sprite_ext(Nahoo_sWasp, 0, (enemypos[e][0] + 4) * xs, (enemypos[e][1] + 4) * ys, xs, ys, 0, c_white, 1);
+		draw_sprite_ext(Nahoo_sBee, 0, (playerpos[0] + 4) * xs, (playerpos[1] + 4) * ys, nahoo_orientation * xs, ys, 0, c_white, 1);
+	
+		for(var e = 0; e < array_length(enemypos); e++)
+		{
+			draw_sprite_ext(Nahoo_sWasp, 0, (enemypos[e][0] + 4) * xs, (enemypos[e][1] + 4) * ys, xs, ys, 0, c_white, 1);
+		}
 	}
 	
 }

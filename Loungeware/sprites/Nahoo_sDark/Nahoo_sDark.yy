@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"LayerId":{"name":"3e501012-7fff-40e1-b263-07551a86f8a9","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Nahoo_sWasp","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"resourceVersion":"1.0","name":"4a95383c-92ee-4d37-9317-e7cdcae12663","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"LayerId":{"name":"3e501012-7fff-40e1-b263-07551a86f8a9","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"Nahoo_sDark","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"resourceVersion":"1.0","name":"4a95383c-92ee-4d37-9317-e7cdcae12663","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Nahoo_sWasp","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},
+    "spriteId": {"name":"Nahoo_sDark","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"700f859d-e99e-4e14-9677-3ab1218a0ace","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4af5bf82-7237-4559-a121-387ed500eab2","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4a95383c-92ee-4d37-9317-e7cdcae12663","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 4,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Nahoo_sWasp","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},
+    "parent": {"name":"Nahoo_sDark","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},
     "resourceVersion": "1.3",
-    "name": "Nahoo_sWasp",
+    "name": "Nahoo_sDark",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Microgames/nahoo/Beenade/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Nahoo_sWasp",
+  "name": "Nahoo_sDark",
   "tags": [],
   "resourceType": "GMSprite",
 }

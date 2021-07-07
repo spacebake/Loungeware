@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 7,
+  "bbox_right": 0,
   "bbox_top": 0,
-  "bbox_bottom": 7,
+  "bbox_bottom": 0,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 8,
-  "height": 8,
+  "width": 64,
+  "height": 64,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"91eab30e-6119-4998-8d25-cd3556e949c0","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"91eab30e-6119-4998-8d25-cd3556e949c0","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"LayerId":{"name":"d2cf2875-739d-4bd7-8081-d118ebf9d726","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Nahoo_sGoal","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"resourceVersion":"1.0","name":"91eab30e-6119-4998-8d25-cd3556e949c0","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"220775ae-f906-4111-ba72-ed1dc8390e34","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"220775ae-f906-4111-ba72-ed1dc8390e34","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},"LayerId":{"name":"5413ef85-0d82-423a-893c-3fc2b2dab730","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"Nahoo_beenade_won","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},"resourceVersion":"1.0","name":"220775ae-f906-4111-ba72-ed1dc8390e34","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"Nahoo_sGoal","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},
+    "spriteId": {"name":"Nahoo_beenade_won","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"a1135b68-a818-4539-a3d7-34f2222a1f60","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91eab30e-6119-4998-8d25-cd3556e949c0","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"416d3a12-3356-4383-a2a0-c1286745b2f5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"220775ae-f906-4111-ba72-ed1dc8390e34","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,22 +58,22 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"Nahoo_sGoal","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},
+    "parent": {"name":"Nahoo_beenade_won","path":"sprites/Nahoo_beenade_won/Nahoo_beenade_won.yy",},
     "resourceVersion": "1.3",
-    "name": "Nahoo_sGoal",
+    "name": "Nahoo_beenade_won",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d2cf2875-739d-4bd7-8081-d118ebf9d726","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5413ef85-0d82-423a-893c-3fc2b2dab730","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/nahoo/Beenade/Sprites.yy",
+    "path": "folders/Microgames/nahoo_beenade/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Nahoo_sGoal",
+  "name": "Nahoo_beenade_won",
   "tags": [],
   "resourceType": "GMSprite",
 }
