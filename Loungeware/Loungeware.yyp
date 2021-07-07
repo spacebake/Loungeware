@@ -32,6 +32,7 @@
     {"id":{"name":"Nahoo_sFont","path":"sprites/Nahoo_sFont/Nahoo_sFont.yy",},"order":3,},
     {"id":{"name":"Nahoo_sWasp","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"order":6,},
     {"id":{"name":"___spr_fake_labels","path":"sprites/___spr_fake_labels/___spr_fake_labels.yy",},"order":12,},
+    {"id":{"name":"___spr_gameboy_overlay_abflip","path":"sprites/___spr_gameboy_overlay_abflip/___spr_gameboy_overlay_abflip.yy",},"order":13,},
     {"id":{"name":"Nahoo_beenade_cartridge","path":"sprites/Nahoo_beenade_cartridge/Nahoo_beenade_cartridge.yy",},"order":0,},
     {"id":{"name":"___spr_label_template2","path":"sprites/___spr_label_template2/___spr_label_template2.yy",},"order":6,},
     {"id":{"name":"n8fl_reach_for_it_mister_gunshot_hit_snd","path":"sounds/n8fl_reach_for_it_mister_gunshot_hit_snd/n8fl_reach_for_it_mister_gunshot_hit_snd.yy",},"order":4,},
