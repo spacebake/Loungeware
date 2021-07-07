@@ -1,4 +1,4 @@
-
+randomize();
 ___state_setup("start");
 dev_mode = false;
 dev_mode_loop_game = false;
@@ -128,11 +128,11 @@ if (_test_vars.test_mode_on){
 
 
 if (!dev_mode){
+
 	show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-spaceyboy");
-	
 	___microgame_load_fake();
 	room_goto(___rm_restroom);
-	randomize();
+	
 	___state_change("intro");
 	
 } 
