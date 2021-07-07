@@ -1,8 +1,8 @@
 font = font_add("makoren_conjurer_font.ttf", 6, false, false, 32, 128);
 
 first_words = ["sword", "potion", "hammer", "lounge", "bow"];
-second_words = ["righteous", "normal", "offensive", "blissful", "belated", "bad", "good"];
-third_words = ["banning", "lounging", "fun", "happiness", "sadness", "vibes"];
+second_words = ["righteous", "normal", "offensive", "bad", "good"];
+third_words = ["banning", "lounging", "fun", "sadness", "vibes"];
 
 // the text you need to copy
 var _first_word = string(first_words[irandom(array_length(first_words) - 1)]);
