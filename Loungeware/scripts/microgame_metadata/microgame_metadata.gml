@@ -15,7 +15,7 @@ function ___init_metadata(){
 	/* TEMPLATE:
 	(check the microgame_metadata_help file for more info on what these properties do)
 	
-	// (creator) game name
+	 (creator) game name
 	johndoe_examplegame: {
 		game_name: "Example Game",
 		creator_name: "john doe",
@@ -53,8 +53,42 @@ function ___init_metadata(){
 		default_is_fail: true,
 		date_added: "21/07/05",
 	},
+	n8fl_penguin_blast: {
+		game_name: "Penguin Blast",
+		creator_name: "net8floz",
+		prompt: "Don't Get Blasted",
+		init_room: n8fl_penguin_blast_rm,
+		view_width: 240,
+		view_height: 160,
+		time_seconds: 8,
+		music_track: sng_zandy_descending,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(255, 255, 255),
+		cartridge_col_secondary: make_color_rgb(243, 122, 97),
+		cartridge_label: n8fl_penguin_blast_label,
+		default_is_fail: true,
+		date_added: "21/07/05",
+	},
+	n8fl_reach_for_it_mister: {
+		game_name: "Reach For It, Mister",
+		creator_name: "net8floz",
+		prompt: "Wait for it",
+		init_room: n8fl_reach_for_it_mister_rm,
+		view_width: 240,
+		view_height: 160,
+		time_seconds: 8,
+		music_track: sng_zandy_descending,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_reach_for_it_mister_label,
+		default_is_fail: true,
+		date_added: "21/07/05",
+	},
 	
-
+	
 }}
 
 

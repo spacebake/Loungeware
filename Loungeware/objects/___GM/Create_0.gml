@@ -351,7 +351,7 @@ draw_microgame = function(){
 	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(false);
 	
 	// set gui size (sets the gui scale to fit the gameboy
-	log (surface_get_width(application_surface), surface_get_height(application_surface));
+
 	
 	var _gui_scale = (canvas_w * window_scale) / VIEW_W;
 	var _gui_w = canvas_w;
