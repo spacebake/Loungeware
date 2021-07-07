@@ -3,11 +3,13 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 // the text you need to copy
-draw_text_ext_color(x, y, target_text, 8, 110, c_white, c_white, c_white, c_white, 1);
+draw_text_ext_color(x, y, target_text_label, 8, 110, c_white, c_white, c_white, c_white, 1);
 
 // the text you control
+draw_text_color(x, y + 16, string(selected_text[0]) + " of", c_white, c_white, c_white, c_white, 1);
+draw_text_color(x, y + 24, selected_text[1], c_white, c_white, c_white, c_white, 1);
+draw_text_color(x, y + 32, selected_text[2], c_white, c_white, c_white, c_white, 1);
 
-
+draw_set_font(-1);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-draw_set_font(-1);

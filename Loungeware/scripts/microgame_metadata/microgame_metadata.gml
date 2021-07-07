@@ -62,7 +62,7 @@ function ___init_metadata(){
 		init_room: makoren_conjurer_rm_main,
 		view_width: 120,
 		view_height: 80,
-		time_seconds: 5,
+		time_seconds: 8,
 		music_track: noone,
 		music_loops: true,
 		interpolation_on: false,
