@@ -6,6 +6,7 @@ function ___init_metadata(){
 		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
 		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
+		//mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
 	} return {
 	// please set these values back to the defaults before you submit your game
@@ -31,6 +32,8 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(255, 255, 255),
 		cartridge_label: johndoe_examplegame_spr_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["john doe", "jane doe"],
 		date_added: "YY/MM/DD",
 	},
 	*/
@@ -51,6 +54,8 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(0, 125, 150),
 		cartridge_label: space_lander_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["space"],
 		date_added: "21/07/05",
 	},
 	
