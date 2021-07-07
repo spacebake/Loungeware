@@ -120,6 +120,7 @@ if (_test_vars.test_mode_on){
 	___state_change("playing_microgame");
 	dev_mode = true;
 	dev_mode_loop_game = bool(_test_vars.loop_game);
+	if (_test_vars.mute_test) audio_set_master_gain(0, 0);
 	
 	___microgame_start(_game_key);
 }
@@ -351,8 +352,6 @@ draw_microgame = function(){
 	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(false);
 	
 	// set gui size (sets the gui scale to fit the gameboy
-	log (surface_get_width(application_surface), surface_get_height(application_surface));
-	
 	var _gui_scale = (canvas_w * window_scale) / VIEW_W;
 	var _gui_w = canvas_w;
 	var _gui_h = canvas_h;

@@ -80,6 +80,21 @@
 														the game will automatically be counted as a win on timeout
 														unless microgame_lose() was called
 	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	supports_difficulty_scaling: {boolean}				Whether or not your game supports multiple difficulty levels.
+														DIFFICULTY is a global variable you can check at any time
+														it can be any number from 1-5 and increases as the player
+														plays more microgames without getting a game over.
+														Supporting this is entirely optional. But if you do plan to
+														support difficulty scaling then you should set this var to 
+														true. 
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	credits: {array}									an array of strings containing the names of people you want
+														to credit for your game. you can use this to credit royalty
+														free services too if they require a credit. at some point
+														these names will be displayed in a credits screen that is 
+														accessible from the main menu. they will not be seen during
+														gameplay
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	date_added: {string}								Date the game was added, formatted as a string like this:
 														"YY/MM/DD". this doesn't need to be super accurate.
 														it's just in case we ever need to sort the games by date

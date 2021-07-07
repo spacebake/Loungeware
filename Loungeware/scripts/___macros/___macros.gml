@@ -13,6 +13,10 @@
 #macro ___cart_secondary_col_default ___global.macro_c_cart_secondary
 #macro ___cart_label_default johndoe_examplegame_spr_label
 
+#macro ___KEY_PAUSE ___macro_keyboard_check("pause")
+#macro ___KEY_PAUSE_PRESSED ___macro_keyboard_check_pressed("pause")
+#macro ___KEY_PAUSE_RELEASED ___macro_keyboard_check_released("pause")
+
 #macro SET_TEST_VARS ___global.test_vars = 
 
 
