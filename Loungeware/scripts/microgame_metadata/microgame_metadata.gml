@@ -3,7 +3,7 @@ function ___init_metadata(){
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
 		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "n8fl_penguin_blast",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		microgame_key: "n8fl_admin_simulator",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
 		loop_game: true,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 		mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
@@ -104,6 +104,44 @@ function ___init_metadata(){
 		view_width: 240,
 		view_height: 160,
 		time_seconds: 8,
+		music_track: sng_zandy_descending,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_reach_for_it_mister_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["net8floz"],
+		date_added: "21/07/05",
+	},
+	//n8fl_ice_broom: {
+	//	game_name: "Ice Broom",
+	//	creator_name: "net8floz",
+	//	prompt: "Shuffle",
+	//	init_room: n8fl_ice_broom_rm,
+	//	view_width: 240,
+	//	view_height: 160,
+	//	time_seconds: 5,
+	//	music_track: sng_zandy_descending,
+	//	music_loops: true,
+	//	interpolation_on: false,
+	//	cartridge_col_primary: make_color_rgb(89, 62, 71),
+	//	cartridge_col_secondary: make_color_rgb(122, 88, 89),
+	//	cartridge_label: n8fl_reach_for_it_mister_label,
+	//	default_is_fail: true,
+	//	supports_difficulty_scaling: true,
+	//	credits: ["net8floz"],
+	//	date_added: "21/07/05",
+	//},
+	n8fl_admin_simulator: {
+		game_name: "Admin Simulator",
+		creator_name: "net8floz",
+		prompt: "Please Everybody",
+		init_room: n8fl_admin_simulator_rm,
+		view_width: 240,
+		view_height: 160,
+		time_seconds: 5,
 		music_track: sng_zandy_descending,
 		music_loops: true,
 		interpolation_on: false,
