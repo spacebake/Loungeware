@@ -1,3 +1,4 @@
+
 ___state_setup("start");
 dev_mode = false;
 dev_mode_loop_game = false;
@@ -131,6 +132,7 @@ if (!dev_mode){
 	
 	___microgame_load_fake();
 	room_goto(___rm_restroom);
+	randomize();
 	___state_change("intro");
 	
 } 
