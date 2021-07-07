@@ -57,6 +57,7 @@ function ___init_metadata(){
 		credits: ["space"],
 		date_added: "21/07/05",
 	},
+	/*
 	nahoo_beenade: {
 		game_name: "Beenade",
 		creator_name: "Nahoo",
@@ -75,7 +76,7 @@ function ___init_metadata(){
 		supports_difficulty_scaling: false,
 		credits: ["Nahoo"],
 		date_added: "21/07/05"
-	},
+	},*/
 	n8fl_penguin_blast: {
 		game_name: "Penguin Blast",
 		creator_name: "net8floz",
