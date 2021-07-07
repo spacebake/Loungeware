@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
-    "path": "folders/Microgames/mimpy_loungefire/Objects.yy",
+    "path": "folders/Microgames/mimpy/loungefire/Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "mimpy_firealarm_obj_loungie",

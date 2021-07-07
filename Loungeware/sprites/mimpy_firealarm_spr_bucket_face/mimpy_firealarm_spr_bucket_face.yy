@@ -83,7 +83,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/mimpy_loungefire/Sprites.yy",
+    "path": "folders/Microgames/mimpy/loungefire/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "mimpy_firealarm_spr_bucket_face",

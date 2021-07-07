@@ -73,8 +73,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "mimpy_loungefire",
-    "path": "folders/Microgames/mimpy_loungefire.yy",
+    "name": "loungefire",
+    "path": "folders/Microgames/mimpy/loungefire.yy",
   },
   "resourceVersion": "1.0",
   "name": "mimpy_firealarm_label",

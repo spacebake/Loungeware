@@ -14,7 +14,7 @@
   "duration": 0.453571,
   "parent": {
     "name": "Sounds",
-    "path": "folders/Microgames/mimpy_loungefire/Sounds.yy",
+    "path": "folders/Microgames/mimpy/loungefire/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "mimpy_firealarm_douse",
