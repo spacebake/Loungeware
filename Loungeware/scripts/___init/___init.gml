@@ -43,7 +43,7 @@ function ___GAME_INIT(){
 	}
 	
 	___global.controller_values = [];
-	for (var i=0;i<8;i++) {
+	for (var i=0;i<gamepad_get_device_count();i++) {
 		var connected = gamepad_is_connected(i);
 		___global.controller_values[i] = {
 			active: connected,
