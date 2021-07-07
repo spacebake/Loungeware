@@ -23,8 +23,8 @@ function ___GAME_INIT(){
 		up: [vk_up, ord("W")],
 		left: [vk_left, ord("A")],
 		down: [vk_down, ord("S")],
-		primary: [ord("Z"), ord("K")],
-		secondary: [ord("X"), ord("L")],
+		primary: [ord("X"), ord("L")],
+		secondary: [ord("Z"), ord("K")],
 		pause: [vk_escape, vk_enter],
 	}
 	___global.default_controller_keys = {
