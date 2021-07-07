@@ -1,0 +1,11 @@
+dir = 1;
+spd = random_range(0.5,1);
+image_xscale = -1;
+start_x = x;
+start_y = y;
+offset_x = 0;
+hop_offset = 0;
+hop_speed = 200;
+hop_force = 3;
+r = random(360);
+image_speed = 0;
