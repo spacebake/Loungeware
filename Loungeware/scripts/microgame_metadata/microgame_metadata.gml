@@ -149,6 +149,8 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(102, 30, 32),
 		cartridge_label: mimpy_firealarm_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["Mimpy"],
 		date_added: "21/07/06",
 	},
 }}
