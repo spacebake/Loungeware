@@ -60,7 +60,7 @@ function ___init_metadata(){
 	nahoo_beenade: {
 		game_name: "Beenade",
 		creator_name: "Nahoo",
-		prompt: "MOVE",
+		prompt: "POLLINATE",
 		init_room: nahoo_beenade_rMain,
 		view_width: 480,
 		view_height: 320,
@@ -84,7 +84,7 @@ function ___init_metadata(){
 		view_width: 240,
 		view_height: 160,
 		time_seconds: 8,
-		music_track: sng_zandy_descending,
+		music_track: noone,
 		music_loops: true,
 		interpolation_on: false,
 		cartridge_col_primary: make_color_rgb(255, 255, 255),
@@ -113,7 +113,6 @@ function ___init_metadata(){
 		supports_difficulty_scaling: true,
 		credits: ["net8floz"],
 		date_added: "21/07/05",
-		
 	},
 	
 	
