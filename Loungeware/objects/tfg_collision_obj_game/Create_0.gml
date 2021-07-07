@@ -16,10 +16,15 @@ brokens = [
 "NEWLINE","y"," ","+","="," ","v","s","p",";",],
 ]
 
-cursor_pos = {
+cursor = {
 	x: 0,
 	y: 0,
+	w: 2,
+	flash_delay: 30,
+	t: 0,
+	drawing: true,
 }
-cursor_w = 2;
-cursor_flash_delay = 30 * 2;
-t = 0;
+
+any_dir_key = function() {
+	return KEY_RIGHT || KEY_LEFT || KEY_UP || KEY_DOWN;
+}

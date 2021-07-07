@@ -7,7 +7,6 @@ var j = 0;
 for (var i = 0; i < array_length(brokens); i++) {
 	var broken = brokens[i];
 	
-	show_debug_message(broken);
 	for (var __j = 0; __j < array_length(broken); { __j++; j++ }) {
 		var char = broken[__j];
 		
@@ -20,5 +19,8 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 }
 
-if ((t % cursor_flash_delay) > cursor_flash_delay / 2)
-	draw_sprite_ext(spr_pixel, 0, cursor_pos.x * w, cursor_pos.y * h, cursor_w, h, 0, c_white, 1);
+if ((cursor.t % cursor.flash_delay) == 0 && cursor.t != 0)
+	cursor.drawing = !cursor.drawing;
+
+if (cursor.drawing)
+	draw_sprite_ext(spr_pixel, 0, cursor.x * w, cursor.y * h, cursor.w, h, 0, c_white, 1);
