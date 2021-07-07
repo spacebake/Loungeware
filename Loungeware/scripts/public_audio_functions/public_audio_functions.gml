@@ -60,7 +60,7 @@ function microgame_music_start(_sng, _vol, _loop){
 /// @function               microgame_music_stop(_time);
 /// @param {real}  _time    the fadeout time in milliseconds.
 function microgame_music_stop(_time){
-	var _snd_id = microgame_music;
+	var _snd_id = ___GM.microgame_music;
 	audio_sound_gain(_snd_id, 0, _time);
 	ds_list_add(___global.song_stop_list, _snd_id);
 	return _snd_id;
