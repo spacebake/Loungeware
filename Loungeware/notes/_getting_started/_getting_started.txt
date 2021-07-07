@@ -3,8 +3,11 @@ How to get started making a microgame:
 -----------------------------------------------------------------------------------------------
 1. Create a new folder inside the Microgames folder.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-This is the folder where you will put all the assets for your microgame. 
-You should name the folder like this: "yourname_gamename".
+This is the folder where you will put all the assets for your microgame.
+First, create a folder inside the "Microgames" folder using your name as the folder name
+Inside that folder, create another folder with your microgame name as the name 
+(Don't worry if you don't know your game name yet, you can change this later)
+
 
 Inside this folder you can organise your game however you want, 
 but you must prefix all of your assets with your name so that they don't 
