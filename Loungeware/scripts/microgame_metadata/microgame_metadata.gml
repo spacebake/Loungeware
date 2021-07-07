@@ -2,9 +2,9 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
-		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
+		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "tfg_collision",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		loop_game: true,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
 	} return {
@@ -54,7 +54,24 @@ function ___init_metadata(){
 		date_added: "21/07/05",
 	},
 	
-
+	// (tfg) fix collisions
+	tfg_collision: {
+		game_name: "FIX COLLISION",
+		creator_name: "tfg",
+		prompt: "FIX",
+		init_room: tfg_collision_rm_game,
+		view_width: 480,
+		view_height: 320,
+		time_seconds: 8,
+		music_track: sng_none,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(0, 0, 0),
+		cartridge_col_secondary: make_color_rgb(255, 255, 255),
+		cartridge_label: johndoe_examplegame_spr_label,
+		default_is_fail: true,
+		date_added: "YY/MM/DD",
+	},
 }}
 
 
