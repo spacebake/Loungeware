@@ -7,9 +7,12 @@ var y_dir = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
 cursor.x += x_dir;
 cursor.y += y_dir;
 
-cursor.t++;
 if (any_dir_key()) {
 	cursor.t = 0;
 	cursor.drawing = true;
 }
+cursor.t++;
+
+if ((cursor.t % cursor.flash_delay) == 0)
+	cursor.drawing = !cursor.drawing;
 

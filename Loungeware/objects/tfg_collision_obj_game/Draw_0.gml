@@ -12,15 +12,12 @@ for (var i = 0; i < array_length(brokens); i++) {
 		
 		if (char == "NEWLINE") {
 			yy++;
-			j = 0;
+			j = -1;
 			continue;
 		}
 		draw_text(j * w, yy * h, char);
 	}
 }
-
-if ((cursor.t % cursor.flash_delay) == 0 && cursor.t != 0)
-	cursor.drawing = !cursor.drawing;
 
 if (cursor.drawing)
 	draw_sprite_ext(spr_pixel, 0, cursor.x * w, cursor.y * h, cursor.w, h, 0, c_white, 1);
