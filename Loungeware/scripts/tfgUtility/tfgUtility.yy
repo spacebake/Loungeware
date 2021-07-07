@@ -6,7 +6,7 @@
     "path": "folders/Microgames/tfg_collision.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Utility",
+  "name": "tfgUtility",
   "tags": [],
   "resourceType": "GMScript",
 }
