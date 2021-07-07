@@ -102,7 +102,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/nahoo/beenade/Sprites.yy",
+    "path": "folders/Microgames/nahoo/Beenade/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "Nahoo_sFull",
