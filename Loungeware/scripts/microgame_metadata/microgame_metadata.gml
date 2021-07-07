@@ -61,7 +61,7 @@ function ___init_metadata(){
 		prompt: "FIX",
 		init_room: tfg_collision_rm_game,
 		view_width: 960,
-		view_height: 540,
+		view_height: 640,
 		time_seconds: 8,
 		music_track: sng_none,
 		music_loops: true,
