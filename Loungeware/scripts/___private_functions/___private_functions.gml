@@ -163,6 +163,11 @@ function ___microgame_end(){
 	microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
 	microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
 	
+	if (dev_mode && ___global.test_vars.loop_game){
+		microgame_next_name = microgame_current_name;
+		microgame_next_metadata = microgame_current_metadata;
+	}
+	
 }
 
 
@@ -245,3 +250,13 @@ function ___center_window(){
 	with (___GM) alarm_set(0, 1);
 }
 
+// ------------------------------------------------------------------------------------------
+// RESET DRAW VARS
+// ------------------------------------------------------------------------------------------
+function ___reset_draw_vars(){
+	draw_set_color(c_white);
+	draw_set_font(fnt_frogtype);
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+}
