@@ -25,9 +25,9 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":{"name":"5d294612-8ee9-4817-9fb4-44732c2dc9e8","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":{"name":"4d61c80b-08ec-4dfd-80be-e80a9d673822","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":{"name":"a52a2c19-e077-4f9a-a180-270e1fb6e6e3","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":{"name":"4d61c80b-08ec-4dfd-80be-e80a9d673822","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"LayerId":{"name":"5d294612-8ee9-4817-9fb4-44732c2dc9e8","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"mimpy_firealarm_label","path":"sprites/mimpy_firealarm_label/mimpy_firealarm_label.yy",},"resourceVersion":"1.0","name":"3f0db7cf-9871-490b-a8de-3f5a9fdc5318","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
