@@ -130,6 +130,8 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(255, 255, 255),
 		cartridge_label: johndoe_examplegame_spr_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["Makoren"],
 		date_added: "21/07/07",
 	},
 
