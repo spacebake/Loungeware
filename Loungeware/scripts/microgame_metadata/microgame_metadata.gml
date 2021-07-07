@@ -2,11 +2,11 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
-		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
+		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "space_rocket_lander",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		loop_game: true,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
-		//mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
+		mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
 	} return {
 	// please set these values back to the defaults before you submit your game
@@ -38,7 +38,6 @@ function ___init_metadata(){
 	},
 	*/
 	
-	// (SPACE) Rocket Lander
 	space_rocket_lander: {
 		game_name: "Rocket Lander",
 		creator_name: "Space",
@@ -73,6 +72,8 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(243, 122, 97),
 		cartridge_label: n8fl_penguin_blast_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["net8floz"],
 		date_added: "21/07/05",
 	},
 	n8fl_reach_for_it_mister: {
@@ -90,7 +91,10 @@ function ___init_metadata(){
 		cartridge_col_secondary: make_color_rgb(122, 88, 89),
 		cartridge_label: n8fl_reach_for_it_mister_label,
 		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["net8floz"],
 		date_added: "21/07/05",
+		
 	},
 	
 	

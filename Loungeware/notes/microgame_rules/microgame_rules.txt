@@ -26,8 +26,12 @@ games.
 5. Games cannot be longer than 12 seconds. Ideally you should aim for around 4-6 seconds
 
 ------------------------------------------------------------------------------------
-6. Only use assets that are either yours or you have permission to use 
-(royalty free stuff is ok)
+6. Only use assets that are either yours or you have permission to redistribute.
+Loungeware source code is available in a public repo which means we 
+can't have assets in the project that are not allowed to be redistributed.
+You can use an asset that you didn't make in the following cases:
+	a: the asset is in the public domain or has a CC0 license
+	b: you have explicit, written permission from the authour 
 
 ------------------------------------------------------------------------------------
 7. Use the audio functions in the "public_functions" script for playing sounds / music

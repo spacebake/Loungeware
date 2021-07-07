@@ -14,9 +14,9 @@ if(is_hurt){
 
 	if(KEY_DOWN){
 		image_index = n8fl_penguin_blast_EPlayerAnimation.Dodge;	
-	}else if(KEY_SECONDARY){
-		image_index = n8fl_penguin_blast_EPlayerAnimation.Primary;	
 	}else if(KEY_PRIMARY){
+		image_index = n8fl_penguin_blast_EPlayerAnimation.Primary;	
+	}else if(KEY_SECONDARY){
 		image_index = n8fl_penguin_blast_EPlayerAnimation.Secondary;	
 	}
 }

@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "sprites",
-    "path": "folders/Microgames/space_rocket_lander/sprites.yy",
+    "path": "folders/Microgames/Space/space_rocket_lander/sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_lander_label",
