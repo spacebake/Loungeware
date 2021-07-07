@@ -115,7 +115,25 @@ function ___init_metadata(){
 		credits: ["net8floz"],
 		date_added: "21/07/05",
 	},
-	
+	sidorakh_controller_tester: {
+		game_name: "Controller Tester",
+		creator_name: "Sidorakh",
+		prompt: "TEST",
+		init_room: sid_controller_tester_room,
+		view_width: 240,
+		view_height: 160,
+		time_seconds: 5,
+		music_track: noone,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(0, 0, 0),
+		cartridge_col_secondary: make_color_rgb(255, 255, 255),
+		cartridge_label: johndoe_examplegame_spr_label,
+		default_is_fail: false,
+		supports_difficulty_scaling: false,
+		credits: ["Sidorakh", "NOT. MY. BIRTHDAY."],
+		date_added: "21/07/07",
+	},
 	
 }}
 

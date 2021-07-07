@@ -27,6 +27,62 @@ function ___GAME_INIT(){
 		secondary: [ord("X"), ord("L")],
 		pause: [vk_escape, vk_enter],
 	}
+	___global.default_controller_keys = {
+		right: [gp_padr],
+		up: [gp_padu],
+		left: [gp_padl],
+		down: [gp_padd],
+		primary: [gp_face1],
+		secondary: [gp_face2],
+		pause: [gp_start],
+	}
+	
+	___global.default_controller_axes = {
+		horizontal: [gp_axislh],
+		vertical: [gp_axislv],
+	}
+	
+	___global.controller_values = [];
+	for (var i=0;i<8;i++) {
+		var connected = gamepad_is_connected(i);
+		___global.controller_values[i] = {
+			active: connected,
+			axes: {
+				horizontal: 0,
+				vertical: 0,
+			},
+			state: {
+				pressed: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				},
+				held: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				},
+				released: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				}
+			}
+		}
+	}
+	
 	// default volume
 	___global.default_vol = { sfx: 1, msc: 1,master: 1, }
 	
