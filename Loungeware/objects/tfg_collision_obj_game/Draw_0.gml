@@ -4,19 +4,17 @@ var h = string_height("M");
 var yy = 0;
 var j = 0;
 
-for (var i = 0; i < array_length(brokens); i++) {
-	var broken = brokens[i];
+var broken = brokens[0];
 	
-	for (var __j = 0; __j < array_length(broken); { __j++; j++ }) {
-		var char = broken[__j];
+for (var __j = 0; __j < array_length(broken); { __j++; j++ }) {
+	var char = broken[__j];
 		
-		if (char == "NEWLINE") {
-			yy++;
-			j = -1;
-			continue;
-		}
-		draw_text(j * w, yy * h, char);
+	if (char == "NEWLINE") {
+		yy++;
+		j = -1;
+		continue;
 	}
+	draw_text(j * w, yy * h, char);
 }
 
 if (cursor.drawing)
