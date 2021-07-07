@@ -115,8 +115,6 @@ function ___init_metadata(){
 		credits: ["net8floz"],
 		date_added: "21/07/05",
 	},
-	
-	// (MAKOREN) Conjurer
 	makoren_conjurer: {
 		game_name: "Conjurer",
 		creator_name: "Makoren",

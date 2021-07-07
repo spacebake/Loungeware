@@ -47,7 +47,7 @@
   },
   "parent": {
     "name": "makoren_conjurer",
-    "path": "folders/Microgames/makoren_conjurer.yy",
+    "path": "folders/Microgames/Makoren/makoren_conjurer.yy",
   },
   "resourceVersion": "1.0",
   "name": "makoren_conjurer_rm_main",
