@@ -115,8 +115,23 @@ function ___init_metadata(){
 		credits: ["net8floz"],
 		date_added: "21/07/05",
 	},
-	
-	
+	mimpy_firealarm: {
+		game_name: "Fire Alarm",
+		creator_name: "Mimpy",
+		prompt: "DOUSE",
+		init_room: mimpy_firealarm_rm,
+		view_width: 240,
+		view_height: 160,
+		time_seconds: 5,
+		music_track: sng_ennway_bit_battle,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(200, 64, 28),
+		cartridge_col_secondary: make_color_rgb(102, 30, 32),
+		cartridge_label: mimpy_firealarm_label,
+		default_is_fail: true,
+		date_added: "21/07/06",
+	},
 }}
 
 
