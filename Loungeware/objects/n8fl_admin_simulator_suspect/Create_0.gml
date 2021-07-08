@@ -17,6 +17,7 @@ grav = 0.4;
 
 _init = function(){
 	_fade_in_tween.play();
+	_hop_wave.play();
 }
 
 _tick = function(){
@@ -27,7 +28,7 @@ _tick = function(){
 	}
 	
 	if(_is_allowed){
-		y = _start_y - _hop_wave.get_value_oh_one();
+		y = _start_y - _hop_wave.get_value_one();
 		x = lerp(
 			_start_x, 
 			room_width - 20 * n8fl_admin_simulator_player.score_max + _index * 20, 
