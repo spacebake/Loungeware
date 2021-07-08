@@ -1,19 +1,19 @@
 brokens = [
-	["i","f"," ","(","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","h","s","p",","," ","y",","," ","o","W","a","l","l",")",")"," ","{",
-	"NEWLINE"," "," "," "," ","w","h","i","l","e"," ","(","!","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","s","i","g","n","(","h","s","p",")",","," ","y",","," ","o","W","a","l","l",")",")"," ","{",
-	"NEWLINE"," "," "," "," "," "," "," "," ","x"," ","+","="," ","s","i","g","n","(","h","s","p",")",";",
-	"NEWLINE"," "," "," "," ","}",
-	"NEWLINE"," "," "," "," ","h","s","p"," ","="," ","0",";",
-	"NEWLINE","}",
-	"NEWLINE","x"," ","+","="," ","h","s","p",";",
-	"NEWLINE",
-	"NEWLINE","i","f"," ","(","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x",","," ","y"," ","+"," ","v","s","p",","," ","o","W","a","l","l",")",")"," ","{",
-	"NEWLINE"," "," "," "," ","w","h","i","l","e"," ","(","!","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x",","," ","y"," ","+"," ","s","i","g","n","(","v","s","p",")",","," ","y",","," ","o","W","a","l","l",")",")"," ","{",
-	"NEWLINE"," "," "," "," "," "," "," "," ","y"," ","+","="," ","s","i","g","n","(","v","s","p",")",";",
-	"NEWLINE"," "," "," "," ","}",
-	"NEWLINE"," "," "," "," ","v","s","p"," ","="," ","0",";",
-	"NEWLINE","}",
-	"NEWLINE","y"," ","+","="," ","v","s","p",";",],
+@"if (place_meeting(x + hsp, y, oWall)) {
+    while (!place_meeting(x + sign(hsp), y, oWall)) {
+        x += sign(hsp);
+    }
+    hsp = 0;
+}
+x += hsp;
+
+if (place_meeting(x, y + vsp, oWall)) {
+    while (!place_meeting(x, y + sign(vsp), oWall)) {
+        y += sign(vsp);
+    }
+    vsp = 0;
+}
+y += vsp;",
 ]
 
 for (var i = 0; i < array_length(brokens); i++) {
@@ -22,10 +22,10 @@ for (var i = 0; i < array_length(brokens); i++) {
 	var broken = brokens[i];
 	var temp = [];
 	
-	for (var __j = 0; __j < array_length(broken); { __j++; j++ }) {
-		var char = broken[__j];
+	for (var __j = 1; __j < string_length(broken); { __j++; j++ }) {
+		var char = string_char_at(broken, __j);
 		
-		if (char == "NEWLINE") {
+		if (char == "\n") {
 			temp[yy][j] = " ";
 			yy++;
 			j = -1;
