@@ -3,23 +3,23 @@ A Warioware-style collaboration game
 
 ## Getting Started 
 
-### Prerequisites 
+### 0) Prerequisites 
 - GMS2 License
 - Github Account
 - Basic understanding of GIT ( stage, commit, pull, push, pull request ) 
 
-### Fork the project 
+### 1) Fork the project 
 
 ![Click "Fork" in top right](https://i.imgur.com/5HMmWU1.png)
 
-### Clone your fork 
+### 2) Clone your fork 
 To begin dev you must create your own fork. This is done on github
 
 ```
 git clone https://github.com/your-name/Loungeware
 ```
 
-### Running The Project
+### 3) Running The Project
 
 You will not have a .yyp file in your folder. Create one
 ```
