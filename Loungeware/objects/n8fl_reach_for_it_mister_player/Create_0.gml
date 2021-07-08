@@ -11,8 +11,8 @@ ds_list_add(characters, n8fl_reach_for_it_mister_cpine_spr);
 ds_list_add(characters, n8fl_reach_for_it_mister_cnet_spr);
 ds_list_add(characters, n8fl_reach_for_it_mister_csahaun_spr);
 ds_list_add(characters, n8fl_reach_for_it_mister_cmimps_spr);
-//ds_list_add(characters, n8fl_reach_for_it_mister_cbulbs_spr);
-//ds_list_add(characters, n8fl_reach_for_it_mister_cbulbs_spr);
+ds_list_add(characters, n8fl_reach_for_it_mister_cjosh_spr);
+ds_list_add(characters, n8fl_reach_for_it_mister_cmak_spr);
 
 ds_list_shuffle(characters);
 

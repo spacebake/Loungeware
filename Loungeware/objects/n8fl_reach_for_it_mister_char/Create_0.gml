@@ -44,7 +44,15 @@ shoot = function(_miss){
 			xx = 48;
 			yy = -20;
 		break;
+		case n8fl_reach_for_it_mister_cjosh_spr:
+			xx = 48;
+			yy = -20;
+		break;
 		case n8fl_reach_for_it_mister_cmimps_spr:
+			xx = 48;
+			yy = -20;
+		break;
+		case n8fl_reach_for_it_mister_cmak_spr:
 			xx = 48;
 			yy = -20;
 		break;
