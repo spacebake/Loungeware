@@ -17,7 +17,7 @@ _draw = function(){
 	image_xscale = scale;
 	image_yscale = scale;
 
-	image_index =n8fl_admin_simulator_player.active_button == index ? 1 : 0;
+	image_index =n8fl_admin_simulator_player.get_active_button() == index ? 1 : 0;
 	draw_self();
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);

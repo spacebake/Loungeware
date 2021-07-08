@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "n8fl_admin_simulator_player_spr",
+    "path": "sprites/n8fl_admin_simulator_player_spr/n8fl_admin_simulator_player_spr.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

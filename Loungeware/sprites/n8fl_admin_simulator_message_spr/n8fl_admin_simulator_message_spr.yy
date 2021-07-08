@@ -25,8 +25,11 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"3db88505-5ecf-4a6d-8849-0661a8e4752d","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3db88505-5ecf-4a6d-8849-0661a8e4752d","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"LayerId":{"name":"5f504e41-b3b6-42c1-8f8f-336cd5571b19","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"3db88505-5ecf-4a6d-8849-0661a8e4752d","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"LayerId":{"name":"96593622-3f9e-4299-9385-317b915ebeaa","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"n8fl_admin_simulator_message_spr","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","name":"3db88505-5ecf-4a6d-8849-0661a8e4752d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"3bd8a5a1-b986-46ca-a452-368990474dbd","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"3bd8a5a1-b986-46ca-a452-368990474dbd","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"LayerId":{"name":"96593622-3f9e-4299-9385-317b915ebeaa","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"n8fl_admin_simulator_message_spr","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","name":"3bd8a5a1-b986-46ca-a452-368990474dbd","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"n8fl_admin_simulator_message_spr","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},
@@ -36,12 +39,13 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 2.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"a966f654-eeb6-46f8-b904-2058e4bfe2e4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3db88505-5ecf-4a6d-8849-0661a8e4752d","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c77b276b-2cac-48da-b909-d064cd4977d9","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3bd8a5a1-b986-46ca-a452-368990474dbd","path":"sprites/n8fl_admin_simulator_message_spr/n8fl_admin_simulator_message_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +69,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5f504e41-b3b6-42c1-8f8f-336cd5571b19","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"96593622-3f9e-4299-9385-317b915ebeaa","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

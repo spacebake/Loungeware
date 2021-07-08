@@ -9,69 +9,86 @@ function n8fl_impossible_move_to(current, dest, spd){
 
 function n8fl_FDelegate(handler) constructor
 {
-	handlers = ds_list_create();
-	once_list = ds_list_create();
-	ds_list_add(handlers, handler);	
+	_handlers = ds_list_create();
+	_once_list = ds_list_create();
+	ds_list_add(_handlers, handler);	
 	
 	add = function(handler){
-		if(ds_list_find_index(handlers, handler) > 0){
+		if(ds_list_find_index(_handlers, handler) > 0){
 			return false;	
 		}
-		ds_list_add(handlers, handler);	
+		ds_list_add(_handlers, handler);	
 		return true;
 	}
 	
 	remove = function(handler){
 		var did_delete = false;
-		var index = ds_list_find_index(handlers, handler);
+		var index = ds_list_find_index(_handlers, handler);
 		if(index >= 0){
-			ds_list_delete(handlers, index);	
+			ds_list_delete(_handlers, index);	
 			did_delete = true;
 		}
 		
-		index = ds_list_find_index(once_list, handler);
+		index = ds_list_find_index(_once_list, handler);
 		if(index >= 0){
-			ds_list_delete(once_list, index);	
+			ds_list_delete(_once_list, index);	
 			did_delete = false;
 		}
 	}
 	
 	invoke = function(args){
-		for(var i=0; i < ds_list_size(handlers); i++){
-			handlers[| i](args);	
+		for(var i=0; i < ds_list_size(_handlers); i++){
+			_handlers[| i](args);	
 		}
 		
-		for(var i=0; i < ds_list_size(once_list); i++){
-			once_list[| i](args);
+		for(var i=0; i < ds_list_size(_once_list); i++){
+			_once_list[| i](args);
 		}
-		ds_list_clear(once_list);
+		ds_list_clear(_once_list);
 	}
 	
 	once = function(handler){
-		if(ds_list_find_index(once_list, handler) > 0){
+		if(ds_list_find_index(_once_list, handler) > 0){
 			return false;	
 		}
-		ds_list_add(once_list, handler);	
+		ds_list_add(_once_list, handler);	
 		return true;
 	}
 }
 
-function n8fl_FWave(_freq, _amp) constructor
+function n8fl_FWave(freq, amp) constructor
 {
-	freq = _freq;
-	amp = _amp;
-	offset = random_range(100,1000);
-	time = 0;
-	tick = 0;
+	_freq = freq;
+	_amp = amp;
+	_offset = random_range(100,1000);
+	_time = 0;
+	_tick = 0;
 	
-	static value = function(){
-		if(tick != global.n8fl_tick){
-			time += ((1/freq)/2)/60;
-			tick = global.n8fl_tick;
-		}
-		var t = time % 360;
-		return dsin(t * offset) * amp;
+	/// deprecated - use get_value
+	value = function(){
+		return get_value();
 	}
+	
+	update = function(){
+		if(_tick != global.n8fl_tick){
+			_time += 1 / (60 * (_freq / 2));
+			_tick = global.n8fl_tick;
+		}
+	}
+	
+	get_value = function(){
+		update();
+		var t = _time % 360;
+		return sin(t) * _amp;
+	}
+	
+	get_value_oh_one = function(){
+		update();
+		var t = _time % 360;
+		return ((1 + sin(t)) / 2) * _amp;
+	}
+	
+	get_amp = function() { return _amp; }
 } 
 
 enum n8fl_ETween {
@@ -81,26 +98,37 @@ enum n8fl_ETween {
 	EaseInOutElastic
 }
 
-function n8fl_FTween(_start, _dest, _duration) constructor
+function n8fl_FTween(start, dest, duration) constructor
 {
-	start = _start;
-	dest = _dest;
-	duration = _duration;
-	play_speed = 0;
-	last_play_speed = 0;
-	time = 0;
-	tick = 0;
-	type = n8fl_ETween.EaseInOut;
+	_start = start;
+	_dest = dest;
+	_duration = duration;
+	_play_speed = 0;
+	_last_play_speed = 0;
+	_time = 0;
+	_tick = 0;
+	_type = n8fl_ETween.EaseInOut;
+	
 	completed = new n8fl_FDelegate(function(){});
 	started = new n8fl_FDelegate(function(){});
 	
-	is_started = false;
-	is_completed = false;
+	_is_started = false;
+	_is_completed = false;
+	
+	get_start = function(){ return _start; }
+	set_start = function(start) { _start = start; }
+	get_dest = function() { return _dest; }
+	set_dest = function(dest) { _dest = dest; }
+	get_duration = function() { return _duration; }
+	set_duration = function(duration){ _duration = duration; }
+	set_playspeed = function(playspeed) { _playspeed = playspeed; }
+	get_type = function() { return _type; }
+	set_type = function(type) { type = _type; }
 	
 	normalized_value = function(){
 		update();
-		var t = time/duration;
-		switch(type){
+		var t = _time / _duration;
+		switch(_type){
 			case n8fl_ETween.EaseInOut: return -(cos(pi * t) - 1) / 2;
 			case n8fl_ETween.EaseOutElastic:
 				var c4 = (2 * pi) / 4;
@@ -125,102 +153,322 @@ function n8fl_FTween(_start, _dest, _duration) constructor
 	
 	value = function(){
 		var t = normalized_value();
-		return lerp(start, dest, t);
+		return lerp(_start, _dest, t);
 	}
 	
 	update = function(){
-		if(play_speed == 0){
+		if(_play_speed == 0){
 			return;	
 		}
-		if(tick != global.n8fl_tick){
+		if(_tick != global.n8fl_tick){
 
-			if(time == 0 && is_started == false){
-				is_started = true;
+			if(_time == 0 && _is_started == false){
+				_is_started = true;
 				started.invoke(self);
 			}
 			
-			if((time / duration >= 1) && is_completed == false){
-				is_completed = true;
+			if((_time / _duration >= 1) && _is_completed == false){
+				_is_completed = true;
 				completed.invoke(self);
 			}
 			
-			is_completed = time / duration >= 1;
+			_is_completed = _time / _duration >= 1;
 			
-			time += (1/60) * play_speed;
-			time = clamp(time, 0, duration);
-			tick = global.n8fl_tick;
+			_time += (1/60) * _play_speed;
+			_time = clamp(_time, 0, _duration);
+			_tick = global.n8fl_tick;
 		}
 	}
 	
 	play = function(){
 		if(argument_count > 0){
-			play_speed = argument[0];	
+			_play_speed = argument[0];	
 		}else{
-			last_play_speed = last_play_speed == 0 ? 1 : last_play_speed;
-			play_speed = last_play_speed;
+			_last_play_speed = _last_play_speed == 0 ? 1 : _last_play_speed;
+			_play_speed = _last_play_speed;
 		}
-		last_play_speed = play_speed;
+		_last_play_speed = _play_speed;
 	}
 	
 	pause = function(){
-		if(play_speed == 0){
-			last_play_speed = last_play_speed == 0 ? 1 : last_play_speed;
+		if(_play_speed == 0){
+			_last_play_speed = _last_play_speed == 0 ? 1 : _last_play_speed;
 		}else{
-			last_play_speed = 1;	
+			_last_play_speed = 1;	
 		}
-		play_speed = 0;	
+		_play_speed = 0;	
 	}
 	
 	reset = function(){
-		play_speed = 0;
-		last_play_speed = 0;
-		tick = 0;
-		time = 0;
-		is_started = false;
-		is_completed = false;
+		_play_speed = 0;
+		_last_play_speed = 0;
+		_tick = 0;
+		_time = 0;
+		_is_started = false;
+		_is_completed = false;
 	}
 	
 	is_playing = function(){
-		return is_started && is_completed == false;	
+		return _is_started && _is_completed == false;	
 	}
 }
 
-function n8fl_FVector(_x,_y) constructor
+function n8fl_FOptional() constructor 
 {
-	x = _x;
-	y = _y;
+	_value = undefined;
+	_has_value = false;
+	
+	static set = function(val){
+		_has_value = true;
+		_value = val;
+	}
+	
+	static get = function(){
+		return _value;	
+	}
+	
+	static reset = function(){
+		_value = undefined;
+		_has_value = false;
+	}
+	
+	static has_value = function(){
+		return _has_value;	
+	}
+}
+
+function n8fl_FTransform(x, y) constructor 
+{
+	_x = x;
+	_y = y;
+	_parent = undefined;
+	
+	get_parent = function(){ return _parent; }
+	set_parent = function(parent){ _parent = parent; }
+	get_local_pos = function(){ return new n8fl_FVector(_x, _y); }
+	set_local_pos_f = function(x,y){
+		_x = x;
+		_y = y;
+	}
+	get_pos = function(){ 
+		var local_pos = get_local_pos();
+		var parent_pos = new n8fl_FVector(0, 0);
+		if(_parent != undefined){
+			if(is_struct(_parent) || instance_exists(_parent)){
+				parent_pos = _parent.get_pos();
+			}
+		}
+		local_pos.add_v(parent_pos);
+		return local_pos;
+	}
+	set_pos_f = function(x, y){
+		var world_pos = new n8fl_FVector(x, y);	
+		var parent_pos = get_parent_pos();
+		world_pos.subtract_f(get_parent_pos());
+		_x = world_pos.get_x();
+		_y = world_pos.get_y();
+	}	
+	get_parent_pos = function(){
+		var parent_pos = new n8fl_FVector(0, 0);
+		if(_parent != undefined){
+			if(is_struct(_parent) || instance_exists(_parent)){
+				parent_pos = _parent.get_pos();
+			}
+		}
+		return parent_pos;
+	}
+}
+
+function n8fl_FLabel() : n8fl_FTransform(0,0) constructor 
+{
+	_text = "";
+	_colour = c_white;
+	_font = fnt_frogtype;
+	_valign = fa_left;
+	_halign = fa_top;
+	_padding = new n8fl_FPadding(0, 0, 0, 0);
+	_xscale = 1;
+	_yscale = 1;
+	_angle = 0;
+	_alpha = 1;
+	_max_width = new n8fl_FOptional();
+	_max_width_sep = new n8fl_FOptional();
+	
+	draw_set = function(){
+		draw_set_halign(_halign);
+		draw_set_valign(_valign);
+		draw_set_font(_font);
+		draw_set_colour(_colour);
+		draw_set_alpha(_alpha);
+	}
+	
+	draw = function(){
+		draw_set();
+		var pos = get_pos().add_f(_padding.get_left(), _padding.get_top());
+		if(_max_width.has_value() && _max_width_sep.has_value()){
+			draw_text_ext_transformed(
+				pos.get_x(),
+				pos.get_y(),
+				_text,
+				_max_width_sep.get(),
+				_max_width.get(),
+				_xscale,
+				_yscale,
+				_angle
+			);
+		}else{
+			draw_text_transformed(
+				pos.get_x(), 
+				pos.get_y(), 
+				_text,
+				_xscale,
+				_yscale,
+				_angle
+			);
+		}
+	}
+	
+	draw_debug = function(){
+		var pos = get_pos();
+		var width = get_string_width();
+		var height = get_string_height();
+		draw_set_color(c_red);
+		draw_rectangle(
+			pos.get_x(), 
+			pos.get_y(), 
+			pos.get_x() + width, 
+			pos.get_y() + height, 
+			true
+		);
+		
+		
+		//draw_set_color(c_green);
+		//draw_rectangle(
+		//	pos.get_x() + _padding.get_left(), 
+		//	pos.get_y() + _padding.get_top(), 
+		//	pos.get_x() + width, 
+		//	pos.get_y() + height, 
+		//	true
+		//);
+	}
+	
+	get_text = function(){ return _text; }
+	set_text = function(text){ _text = text; }
+	get_colour = function(){ return _colour; }
+	set_colour = function(colour){ _colour = colour; }
+	get_halign = function(){ return _halign; }
+	set_halign = function(halign){ _halign = halign; }
+	get_valign = function(){ return _valign; }
+	set_valign = function(valign){ _valign = valign; }	
+	set_scale = function(xscale, yscale){
+		_xscale = xscale;
+		_yscale = yscale;
+	}
+	
+	set_padding_f = function(left, top, right, bottom){
+		_padding.set_left(left);
+		_padding.set_right(right);
+		_padding.set_top(top);
+		_padding.set_bottom(bottom);
+	}
+	
+	set_max_width = function(width, sep){
+		_max_width.set(width);
+		_max_width_sep.set(sep);
+	}
+	
+	clear_max_width = function(){
+		_max_width.reset();
+		_max_width_sep.reset();
+	}
+	
+	get_string_width = function(){
+		draw_set();
+		return string_width(_text) * _xscale + _padding.get_left() + _padding.get_right();
+	}
+	
+	get_string_height = function(){
+		draw_set();
+		return string_height(_text) * _yscale + _padding.get_top() + _padding.get_bottom();
+	}
+	
+	get_padding = function(){ return _padding; }
+}
+
+function n8fl_FPadding(left, top, right, bottom) constructor
+{
+	_left = left;
+	_top = top;
+	_right = right;
+	_bottom = bottom;
+	
+	set_left = function(left){ _left = left; }
+	set_top = function(top){ _top = top; }
+	set_right = function(right){ _right = right; }
+	set_bottom = function(bottom){ _bottom = bottom; }
+	get_left = function(){ return _left; }
+	get_top = function(){ return _top; }
+	get_right = function(){ return _right; }
+	get_bottom = function(){ return _bottom; }
+}
+
+function n8fl_FVector(x,y) constructor
+{
+	_x = x;
+	_y = y;
 	
 	magnitude = function(){
-		return point_distance(0, 0, x, y);	
+		return point_distance(0, 0, _x, _y);	
 	}
 	
 	sqr_magnitude = function(){
-		return (x * x) - (y * y);	
+		return (_x * _x) - (_y * _y);	
 	}
 	
 	normalize = function(){
-		var a = point_direction(0, 0, x, y);
-		x = lengthdir_x(1,a);
-		y = lengthdir_y(1,a);
+		var a = point_direction(0, 0, _x, _y);
+		_x = lengthdir_x(1,a);
+		_y = lengthdir_y(1,a);
+		return self;
+	}
+	
+	set_f = function(x, y){
+		_x = x;
+		_y = y;
 	}
 	
 	add_v = function(v) {
-	   x += v.x;
-	   y += v.y;
+	   _x += v._x;
+	   _y += v._y;
+	   return self;
 	}
 	
-	add_f = function(_x,_y) {
-	   x += _x;
-	   y += _x;
+	subtract_v = function(v) {
+	   _x -= v._x;
+	   _y -= v._y;
+	   return self;
+	}
+	
+	add_f = function(x,y) {
+	   _x += x;
+	   _y += y;
+	   return self;
 	}
 	
 	scale_f = function(scalar) {
-	   var a = point_direction(0, 0, x, y);
-	   var d = point_distance(0, 0, x, y);
+	   var a = point_direction(0, 0, _x, _y);
+	   var d = point_distance(0, 0, _x, _y);
 	   d *= scalar;
-	   x = lengthdir_x(d, a);
-	   y = lengthdir_y(d, a);
+	   _x = lengthdir_x(d, a);
+	   _y = lengthdir_y(d, a);
+	   return self;
 	}
+	
+	get_x = function() { return _x; }
+	get_y = function() { return _y; }
+	set_x = function(x) { _x = x; }
+	set_y = function(y) { _y = y; }
+	set = function(x, y) { _x = x; _y = y; }
 	
 	clamp_f = function(scalar) {
 		if(magnitude() > scalar){
