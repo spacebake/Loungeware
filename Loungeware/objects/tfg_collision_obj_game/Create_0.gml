@@ -100,9 +100,15 @@ edit_menu = [
 		broken_code[cursor.y][cursor.x - 1] = " ";
 	}),
 ];
-var edit_menu_item_w = 200;
-edit_menu_w = array_length(edit_menu) * edit_menu_item_w;
-edit_menu_h = 100;
+edit_menu_w = 0;
+edit_menu_x_pad = 10;
+edit_menu_y_pad = 10;
+draw_set_font(tfg_collision_fnt_frogtype);
+for (var i = 0; i < array_length(edit_menu); i++) { 
+	edit_menu_w += string_width(edit_menu[i].name) + edit_menu_x_pad * 2; 
+}
+edit_menu_h = string_height("M") + edit_menu_y_pad * 2;
 is_edit_menu_draw = false;
 edit_menu_select = 0;
+
 

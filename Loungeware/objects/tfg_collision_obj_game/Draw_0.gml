@@ -21,11 +21,11 @@ if (is_edit_menu_draw) {
 	var yy = cursor.y * h
 	var x2 = xx + edit_menu_w;
 	var y2 = yy + edit_menu_h;
-	var x_pad = 10;
+	
 	
 	nine_slice_box_stretched(tfg_collision_nineslice, xx, yy, x2, y2, 0);
 	draw_set_text(c_white, tfg_collision_fnt_frogtype, fa_left, fa_middle);
 	for (var i = 0; i < array_length(edit_menu); i++) {
-		draw_text(xx + x_pad, (yy + y2) / 2, edit_menu[i].name);
+		draw_text(xx + edit_menu_x_pad, (yy + y2) / 2, edit_menu[i].name);
 	}
 }

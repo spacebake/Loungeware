@@ -64,6 +64,7 @@
     {"id":{"name":"public_functions","path":"scripts/public_functions/public_functions.yy",},"order":2,},
     {"id":{"name":"space_lander_snd_thrust","path":"sounds/space_lander_snd_thrust/space_lander_snd_thrust.yy",},"order":2,},
     {"id":{"name":"sng_zandy_descending","path":"sounds/sng_zandy_descending/sng_zandy_descending.yy",},"order":3,},
+    {"id":{"name":"tfg_collision_shd_invert","path":"shaders/tfg_collision_shd_invert/tfg_collision_shd_invert.yy",},"order":7,},
     {"id":{"name":"___sng_microgame_lose","path":"sounds/___sng_microgame_lose/___sng_microgame_lose.yy",},"order":2,},
     {"id":{"name":"space_lander_obj_rocket","path":"objects/space_lander_obj_rocket/space_lander_obj_rocket.yy",},"order":3,},
     {"id":{"name":"___spr_gameboy_dpad","path":"sprites/___spr_gameboy_dpad/___spr_gameboy_dpad.yy",},"order":1,},
