@@ -1,0 +1,21 @@
+// 2021-07-09 00:39:52
+#event properties (no comments/etc. here are saved)
+parent_index = -1;
+visible = false;
+uses_physics = false;
+
+#event create
+
+image_speed = random_range(0.5, 1);
+y_spd = -1;
+x_cos = random(1000);
+og_x = x;
+
+#event step
+
+y += y_spd;
+x = og_x + cos((current_time + x_cos) / 500) * 4;
+
+#event other_animation_end
+
+instance_destroy();
