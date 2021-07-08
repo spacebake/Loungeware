@@ -15,9 +15,10 @@ brokens = [
 	"NEWLINE","}",
 	"NEWLINE","y"," ","+","="," ","v","s","p",";",],
 ]
-var yy = 0;
-var j = 0;
+
 for (var i = 0; i < array_length(brokens); i++) {
+	var yy = 0;
+	var j = 0;
 	var broken = brokens[i];
 	var temp = [];
 	
@@ -25,6 +26,7 @@ for (var i = 0; i < array_length(brokens); i++) {
 		var char = broken[__j];
 		
 		if (char == "NEWLINE") {
+			temp[yy][j] = " ";
 			yy++;
 			j = -1;
 			continue;
@@ -33,6 +35,22 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 	
 	brokens[i] = temp;
+	
+	//fill rest with space characters
+	var max_len = 0;
+	var broken = brokens[i];
+	for (var j = 0; j < array_length(broken); j++) {
+		if (array_length(broken[j]) > max_len) {
+			max_len = array_length(broken[j]);
+		}	
+	}
+	for (var j = 0; j < array_length(broken); j++) {
+		//line
+		for (var k = 0; k < max_len; k++) {
+			//char
+			broken[j][k] = k > (array_length(broken[j]) - 1) ? " " : broken[j][k];
+		}
+	}
 }
 
 draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);

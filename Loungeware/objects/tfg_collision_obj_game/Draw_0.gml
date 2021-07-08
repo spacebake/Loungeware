@@ -2,16 +2,15 @@ draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
 var w = string_width("M");
 var h = string_height("M");
 var yy = 0;
-var j = 0;
+var xx = 0;
 
 var broken = brokens[0];
-	
-for (var __j = 0; __j < array_length(broken); { __j++; j++ }) {
+for (var __j = 0; __j < array_length(broken); j++) {
 	var char = broken[__j];
 		
 	if (char == "NEWLINE") {
 		yy++;
-		j = -1;
+		xx = -1;
 		continue;
 	}
 	draw_text(j * w, yy * h, char);
