@@ -9,7 +9,8 @@ var y_dir = (KEY_DOWN_PRESSED || time_held.down > cursor.buffer_time) - (KEY_UP_
 var hold = time_held.right > cursor.buffer_time || time_held.left > cursor.buffer_time || time_held.down > cursor.buffer_time || time_held.up > cursor.buffer_time;
 
 if (is_edit_menu_draw) {
-	edit_menu_select = (edit_menu_select + x_dir) % array_length(edit_menu);
+	if (KEY_PRIMARY)
+		edit_menu_select = (edit_menu_select + x_dir) % array_length(edit_menu);
 	
 	
 } else {
@@ -33,11 +34,12 @@ if (is_edit_menu_draw) {
 
 
 
-
-
 cursor.t++;
 
 if ((cursor.t % cursor.flash_delay) == 0)
 	cursor.drawing = !cursor.drawing;
 
-if (KEY_SECONDARY_PRESSED) is_edit_menu_draw = !is_edit_menu_draw;
+if (KEY_SECONDARY_PRESSED) {
+	is_edit_menu_draw = !is_edit_menu_draw;
+	edit_menu_select = 0;	
+}

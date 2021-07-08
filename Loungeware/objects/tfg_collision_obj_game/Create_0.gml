@@ -99,6 +99,9 @@ edit_menu = [
 		if (cursor.x <= 0) exit;
 		broken_code[cursor.y][cursor.x - 1] = " ";
 	}),
+	new EditMenuOption("+ hsp", function() {
+		
+	}),
 ];
 edit_menu_w = 0;
 edit_menu_x_pad = 10;

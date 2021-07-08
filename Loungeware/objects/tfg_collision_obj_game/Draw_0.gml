@@ -21,11 +21,22 @@ if (is_edit_menu_draw) {
 	var yy = cursor.y * h
 	var x2 = xx + edit_menu_w;
 	var y2 = yy + edit_menu_h;
-	
+	var str_w = 0;
 	
 	nine_slice_box_stretched(tfg_collision_nineslice, xx, yy, x2, y2, 0);
 	draw_set_text(c_white, tfg_collision_fnt_frogtype, fa_left, fa_middle);
 	for (var i = 0; i < array_length(edit_menu); i++) {
-		draw_text(xx + edit_menu_x_pad, (yy + y2) / 2, edit_menu[i].name);
+		if (edit_menu_select == i) {
+			//draw_rectangle_colour(xx, yy, x2, y2, c_white, c_white, c_white, c_white, false);
+			
+			//shader_set(tfg_collision_shd_invert);
+			draw_text(xx /*+ edit_menu_x_pad*/ + str_w * i, (yy + y2) / 2, edit_menu[i].name);
+			//shader_reset();
+			
+		} else {
+			draw_text(xx + str_w * i, (yy + y2) / 2, edit_menu[i].name);
+		}
+		
+		str_w = string_width(edit_menu[i].name);
 	}
 }
