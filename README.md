@@ -13,7 +13,7 @@ A Warioware-style collaboration game
 ![Click "Fork" in top right](https://i.imgur.com/5HMmWU1.png)
 
 ### 2) Clone your fork 
-To begin dev you must create your own fork. This is done on github
+To begin dev you must create your own fork. This is done on github. When you are finished  clone your fork to your local disk.
 
 ```
 git clone https://github.com/your-name/Loungeware
