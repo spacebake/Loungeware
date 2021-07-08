@@ -2,6 +2,7 @@
   "resources": [
     {"id":{"name":"fnt_frogtype","path":"fonts/fnt_frogtype/fnt_frogtype.yy",},"order":0,},
     {"id":{"name":"credits","path":"notes/credits/credits.yy",},"order":1,},
+    {"id":{"name":"n8fl_escape2_label","path":"sprites/n8fl_escape2_label/n8fl_escape2_label.yy",},"order":0,},
     {"id":{"name":"microgame_rules","path":"notes/microgame_rules/microgame_rules.yy",},"order":0,},
     {"id":{"name":"_getting_started","path":"notes/_getting_started/_getting_started.yy",},"order":1,},
     {"id":{"name":"_microgame_metadata_help","path":"notes/_microgame_metadata_help/_microgame_metadata_help.yy",},"order":2,},
@@ -180,6 +181,7 @@
     {"id":{"name":"Nahoo_sDark","path":"sprites/Nahoo_sDark/Nahoo_sDark.yy",},"order":4,},
     {"id":{"name":"Nahoo_sEmpty","path":"sprites/Nahoo_sEmpty/Nahoo_sEmpty.yy",},"order":5,},
     {"id":{"name":"Nahoo_sFont","path":"sprites/Nahoo_sFont/Nahoo_sFont.yy",},"order":6,},
+    {"id":{"name":"n8fl_escape1_label","path":"sprites/n8fl_escape1_label/n8fl_escape1_label.yy",},"order":4,},
     {"id":{"name":"Nahoo_sFull","path":"sprites/Nahoo_sFull/Nahoo_sFull.yy",},"order":7,},
     {"id":{"name":"Nahoo_sGoal","path":"sprites/Nahoo_sGoal/Nahoo_sGoal.yy",},"order":8,},
     {"id":{"name":"Nahoo_sHeart","path":"sprites/Nahoo_sHeart/Nahoo_sHeart.yy",},"order":9,},
