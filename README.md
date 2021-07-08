@@ -26,7 +26,7 @@ You will not have a .yyp file in your folder. Create one
 ./generateProject.bat
 ```
 
-You may now open the yyp in GMS2 
+You may now open the yyp in GMS2
 
 ## Submitting your game 
 
@@ -47,7 +47,7 @@ After syncing with latest the yyp file may need to be rebuild
 ./generateProject.bat
 ```
 
-You will now have a new YYP file containing your work and latest work.
+You will now have a new YYP file containing your work and latest work. You'd best run the game and make sure everything still works.
 
 ### 3) Stage, Commit, and Push your changes 
 
