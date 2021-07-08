@@ -104,7 +104,7 @@ edit_menu = [
 	}),
 ];
 edit_menu_w = 0;
-edit_menu_x_pad = 10;
+edit_menu_x_pad = 20;
 edit_menu_y_pad = 10;
 draw_set_font(tfg_collision_fnt_frogtype);
 for (var i = 0; i < array_length(edit_menu); i++) { 
