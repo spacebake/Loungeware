@@ -1,4 +1,8 @@
 # Loungeware
 A Warioware-style collaboration game
 
-open the project and check the "_getting_started" file for info on how to make a microgame
+# Getting Started 
+
+## Fork the project 
+
+![Click "Fork" in top right](https://i.imgur.com/5HMmWU1.png "Fork" in top right)
