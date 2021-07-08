@@ -40,7 +40,16 @@ git fetch https://github.com/spacebake/Loungeware
 git pull https://github.com/spacebake/Loungeware
 ```
 
-### 2) Stage, Commit, and Push your changes 
+### 2) Regenerate your YYP file
+
+After syncing with latest the yyp file may need to be rebuild
+```
+./generateProject.bat
+```
+
+You will now have a new YYP file containing your work and latest work.
+
+### 3) Stage, Commit, and Push your changes 
 
 ```
 git add .
@@ -48,7 +57,7 @@ git commit -m "I Made some changes"
 git push 
 ```
 
-### Create a PR 
+### 4) Create a PR 
 
 Visit *your* repo online and click create pull request. Target the main branch of the *this* repo
 
