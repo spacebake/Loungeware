@@ -17,18 +17,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "n8fl_escape1",
-    "path": "folders/Microgames/net8floz/n8fl_escape1.yy",
+    "name": "n8fl_escape2",
+    "path": "folders/Microgames/net8floz/n8fl_escape2.yy",
   },
   "resourceVersion": "1.0",
-  "name": "n8fl_escape1_game",
+  "name": "n8fl_escape2_game",
   "tags": [],
   "resourceType": "GMObject",
 }
