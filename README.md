@@ -40,6 +40,7 @@ git push
 ```
 
 ## Create a PR 
+Visit *your* repo online and click create pull request. Target the main branch of the *this* repo
 ![Click create PullRequest](https://i.imgur.com/ZDijdjB.png)
 
 
