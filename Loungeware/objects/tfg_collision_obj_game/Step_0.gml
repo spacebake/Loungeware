@@ -8,14 +8,16 @@ var x_dir = (KEY_RIGHT_PRESSED || time_held.right > cursor.buffer_time) - (KEY_L
 var y_dir = (KEY_DOWN_PRESSED || time_held.down > cursor.buffer_time) - (KEY_UP_PRESSED || time_held.up > cursor.buffer_time);
 var hold = time_held.right > cursor.buffer_time || time_held.left > cursor.buffer_time || time_held.down > cursor.buffer_time || time_held.up > cursor.buffer_time;
 
+
+
 if (is_edit_menu_draw) {
 	edit_menu_select = mod2(edit_menu_select + x_dir, array_length(edit_menu));
 	
-	if (KEY_PRIMARY) {
+	if (KEY_PRIMARY_PRESSED) {
 		edit_menu[edit_menu_select].callback();
-		close_edit_menu();
+		toggle_edit_menu();
+		alarm[0] = 1;
 	}
-	
 	
 } else {
 	if (hold) {
@@ -42,6 +44,8 @@ cursor.t++;
 
 if ((cursor.t % cursor.flash_delay) == 0)
 	cursor.drawing = !cursor.drawing;
+	
+if (KEY_PRIMARY_PRESSED && alarm[0] != 1) {
+	toggle_edit_menu();
+}
 
-if (KEY_SECONDARY_PRESSED)
-	close_edit_menu();

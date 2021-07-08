@@ -56,6 +56,10 @@ for (var i = 0; i < array_length(brokens); i++) {
 broken_code = brokens[0];
 draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
 line_cols = function(_y) {
+	if (_y > array_length(broken_code) - 1) 
+		return array_length(broken_code[array_length(broken_code) - 1]);
+	if (_y < 0)
+		return array_length(broken_code[0]);
 	return array_length(broken_code[_y]);
 }
 rows = array_length(broken_code);
@@ -97,7 +101,7 @@ function EditMenuOption(_name, _callback) constructor {
 edit_menu = [
 	new EditMenuOption("Backspace", function() {
 		if (cursor.x <= 0) exit;
-		broken_code[cursor.y][cursor.x - 1] = " ";
+		array_delete(broken_code[cursor.y], --cursor.x, 1);
 	}),
 	new EditMenuOption("+ hsp", function() {
 		
@@ -114,7 +118,7 @@ edit_menu_h = string_height("M") + edit_menu_y_pad * 2;
 is_edit_menu_draw = false;
 edit_menu_select = 0;
 
-close_edit_menu = function() {
+toggle_edit_menu = function() {
 	is_edit_menu_draw = !is_edit_menu_draw;
 	edit_menu_select = 0;
 }
