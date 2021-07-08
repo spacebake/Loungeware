@@ -5,4 +5,38 @@ A Warioware-style collaboration game
 
 ## Fork the project 
 
-![Click "Fork" in top right](https://i.imgur.com/5HMmWU1.png "Fork" in top right)
+![Click "Fork" in top right](https://i.imgur.com/5HMmWU1.png)
+
+## Clone your fork 
+```
+git clone https://github.com/your-name/Loungeware
+```
+
+## Running The Project
+
+You will not have a .yyp file in your folder. Create one
+```
+./generateProject.bat
+```
+
+You may now open the yyp in GMS2 
+
+# Submitting your game 
+
+## Ensure you're synced with latest 
+```
+git fetch https://github.com/spacebake/Loungeware
+git pull https://github.com/spacebake/Loungeware
+```
+
+## Stage, Commit, and Push your changes 
+```
+git add .
+git commit -m "I Made some changes"
+git push 
+```
+
+## Create a PR 
+[Click create PullRequest](https://i.imgur.com/ZDijdjB.png)
+
+
