@@ -6,6 +6,18 @@ function n8fl_impossible_move_to(current, dest, spd){
 	return n;
 }
 
+function n8fl_bbox_middle(inst){
+	return new n8fl_FVector(
+		inst.bbox_left + (inst.bbox_right - inst.bbox_left)/2,
+		inst.bbox_top + (inst.bbox_bottom - inst.bbox_top)/2,
+	);
+}
+
+
+function n8fl_draw_bbox(inst){
+	draw_rectangle(inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom, true);	
+}
+
 
 function n8fl_FDelegate(handler) constructor
 {
@@ -62,7 +74,29 @@ function n8fl_FWave(freq, amp) constructor
 	_amp = amp;
 	_offset = random_range(100,1000);
 	_time = 0;
+	_delta = 0;
 	_tick = 0;
+	_playspeed = 0;
+	
+	play = function(){
+		_playspeed = 1;	
+	}
+	
+	pause = function(){
+		_playspeed = 0;
+	}
+	
+	reset = function(){
+		
+	}
+	
+	is_playing = function(){
+		return _playspeed != 0;	
+	}
+	
+	get_time_normalized = function(){
+		return abs(_time) / _freq;	
+	}
 	
 	/// deprecated - use get_value
 	value = function(){
@@ -71,24 +105,43 @@ function n8fl_FWave(freq, amp) constructor
 	
 	update = function(){
 		if(_tick != global.n8fl_tick){
-			_time += 1 / (60 * (_freq / 2));
+			var last_time = _time;
+			_time += (1 / (60 * (_freq / 2))) * _playspeed;
+			_delta = _time - last_time;
 			_tick = global.n8fl_tick;
 		}
 	}
 	
 	get_value = function(){
 		update();
-		var t = _time % 360;
+		var t = (_time + _offset) % 360;
 		return sin(t) * _amp;
 	}
 	
-	get_value_oh_one = function(){
+	get_delta = function(){
 		update();
-		var t = _time % 360;
+		var _last = sin((_time - _delta + _offset) % 360) * _amp;
+		var _current = sin(((_time + _offset) % 360)) * _amp;
+		return _current - _last;
+	}
+	
+	get_delta_one = function(){
+		update();
+		var _last = ((1 + sin((_time - _delta + _offset) % 360)) / 2) * _amp;
+		var _current = (( 1 + sin((_time + _offset) % 360)) / 2) * _amp;
+		return _current - _last;
+	}
+	
+	get_value_one = function(){
+		update();
+		var t = (_time + _offset) % 360;
 		return ((1 + sin(t)) / 2) * _amp;
 	}
 	
 	get_amp = function() { return _amp; }
+	set_amp = function(amp) { _amp = amp; }
+	get_offset = function() { return _offset; }
+	set_offset = function(offset) { _offset = offset; }
 } 
 
 enum n8fl_ETween {
@@ -244,11 +297,36 @@ function n8fl_FTransform(x, y) constructor
 	_parent = undefined;
 	
 	get_parent = function(){ return _parent; }
-	set_parent = function(parent){ _parent = parent; }
+	set_parent = function(parent){
+		if(parent == _parent){
+			return;	
+		}
+		
+		var valid_next_parent = parent != undefined && ( is_struct(parent) || instance_exists(parent));
+		var valid_current_parent = _parent != undefined && ( is_struct(_parent) || instance_exists(_parent))
+		if(valid_current_parent){
+			var pos = get_pos();
+			_parent = undefined;
+			_x = pos._x;
+			_y = pos._y;
+		}
+		
+		if(valid_next_parent){
+			var pos = get_pos();
+			_parent = parent;
+			set_pos_v(pos);
+		}
+		
+		_parent = parent; 
+	}
 	get_local_pos = function(){ return new n8fl_FVector(_x, _y); }
 	set_local_pos_f = function(x,y){
 		_x = x;
 		_y = y;
+	}
+	set_local_pos_v = function(vector){
+		_x = vector._x;
+		_y = vector._y;
 	}
 	get_pos = function(){ 
 		var local_pos = get_local_pos();
@@ -261,13 +339,17 @@ function n8fl_FTransform(x, y) constructor
 		local_pos.add_v(parent_pos);
 		return local_pos;
 	}
+	get_x = function(){ return get_pos().get_x(); }
+	get_y = function(){ return get_pos().get_y(); }
+	set_x = function(x){ set_pos_f(x, get_pos().get_y());}
+	set_y = function(y){ set_pos_f(get_pos().get_x(), y);}
 	set_pos_f = function(x, y){
 		var world_pos = new n8fl_FVector(x, y);	
-		var parent_pos = get_parent_pos();
-		world_pos.subtract_f(get_parent_pos());
+		world_pos.subtract_v(get_parent_pos());
 		_x = world_pos.get_x();
 		_y = world_pos.get_y();
 	}	
+	set_pos_v = function(v){ set_pos_f(v._x, v._y); }
 	get_parent_pos = function(){
 		var parent_pos = new n8fl_FVector(0, 0);
 		if(_parent != undefined){
@@ -435,6 +517,7 @@ function n8fl_FVector(x,y) constructor
 	set_f = function(x, y){
 		_x = x;
 		_y = y;
+		return self;
 	}
 	
 	add_v = function(v) {
@@ -443,9 +526,21 @@ function n8fl_FVector(x,y) constructor
 	   return self;
 	}
 	
+	add_f = function(x, y) {
+	   _x += x;
+	   _y += y;
+	   return self;
+	}
+	
 	subtract_v = function(v) {
 	   _x -= v._x;
 	   _y -= v._y;
+	   return self;
+	}
+	
+	subtract_f = function(x, y) {
+	   _x -= x;
+	   _y -= y;
 	   return self;
 	}
 	
