@@ -40,6 +40,6 @@ git push
 ```
 
 ## Create a PR 
-[Click create PullRequest](https://i.imgur.com/ZDijdjB.png)
+![Click create PullRequest](https://i.imgur.com/ZDijdjB.png)
 
 
