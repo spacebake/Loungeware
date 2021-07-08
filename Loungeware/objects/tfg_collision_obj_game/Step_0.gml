@@ -18,7 +18,7 @@ if (hold) {
 	cursor.y += y_dir;
 }
 
-cursor.x = clamp(cursor.x, 0, cols);
+cursor.x = clamp(cursor.x, 0, line_cols(cursor.y) - 1);
 cursor.y = clamp(cursor.y, 0, rows);
 
 if (any_dir_key()) {
@@ -31,3 +31,7 @@ if ((cursor.t % cursor.flash_delay) == 0)
 	cursor.drawing = !cursor.drawing;
 
 
+if (keyboard_check_pressed(vk_space)) {
+	show_debug_message("HELLO")
+	broken_code[cursor.x][cursor.y] = " ";
+}

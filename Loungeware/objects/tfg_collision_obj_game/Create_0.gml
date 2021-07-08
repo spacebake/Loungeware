@@ -37,25 +37,28 @@ for (var i = 0; i < array_length(brokens); i++) {
 	brokens[i] = temp;
 	
 	//fill rest with space characters
-	var max_len = 0;
-	var broken = brokens[i];
-	for (var j = 0; j < array_length(broken); j++) {
-		if (array_length(broken[j]) > max_len) {
-			max_len = array_length(broken[j]);
-		}	
-	}
-	for (var j = 0; j < array_length(broken); j++) {
-		//line
-		for (var k = 0; k < max_len; k++) {
-			//char
-			broken[j][k] = k > (array_length(broken[j]) - 1) ? " " : broken[j][k];
-		}
-	}
+	//var max_len = 0;
+	//var broken = brokens[i];
+	//for (var j = 0; j < array_length(broken); j++) {
+	//	if (array_length(broken[j]) > max_len) {
+	//		max_len = array_length(broken[j]);
+	//	}	
+	//}
+	//for (var j = 0; j < array_length(broken); j++) {
+	//	//line
+	//	for (var k = 0; k < max_len; k++) {
+	//		//char
+	//		broken[j][k] = k > (array_length(broken[j]) - 1) ? " " : broken[j][k];
+	//	}
+	//}
 }
 
+broken_code = brokens[0];
 draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
-cols = room_width div string_width("M");
-rows = room_height div string_height("M");
+line_cols = function(_y) {
+	return array_length(broken_code[_y]);
+}
+rows = array_length(broken_code);
 
 cursor = {
 	x: 0,
@@ -92,7 +95,7 @@ function EditMenuOption(_name, _callback) constructor {
 	name = _name;
 }
 //edit_menu = [
-//	new EditMenuOption("backspace", function() {
-//		c
+//	new EditMenuOption("Backspace", function() {
+//		broken_code[cursor.x][cursor.y] = " ";
 //	});
 //];
