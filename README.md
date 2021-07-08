@@ -23,13 +23,15 @@ You may now open the yyp in GMS2
 
 # Submitting your game 
 
-## Ensure you're synced with latest 
+## 0) Close GMS2 
+
+## 1) Ensure you're synced with latest 
 ```
 git fetch https://github.com/spacebake/Loungeware
 git pull https://github.com/spacebake/Loungeware
 ```
 
-## Stage, Commit, and Push your changes 
+## 2) Stage, Commit, and Push your changes 
 ```
 git add .
 git commit -m "I Made some changes"
