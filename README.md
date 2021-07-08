@@ -24,6 +24,7 @@ You may now open the yyp in GMS2
 # Submitting your game 
 
 ## 0) Close GMS2 
+Simply close gms2
 
 ## 1) Ensure you're synced with latest 
 ```
