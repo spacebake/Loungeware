@@ -1,4 +1,7 @@
-if (state == "invisible") exit;
+if (state == "invisible"){
+	draw_sprite(space_lander_spr_indicator, (vsp <= land_speed_max), (VIEW_W/2),  (152));
+	exit;
+}
 
 if (ship_shake){
 	var _sv = ship_shake_val;

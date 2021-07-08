@@ -14,7 +14,7 @@
   "duration": 0.034342,
   "parent": {
     "name": "Sounds",
-    "path": "folders/Microgames/nahoo/beenade/Sounds.yy",
+    "path": "folders/Microgames/nahoo/Beenade/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "Nahoo_sWin",
