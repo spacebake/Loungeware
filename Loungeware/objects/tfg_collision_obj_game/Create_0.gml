@@ -94,8 +94,15 @@ function EditMenuOption(_name, _callback) constructor {
 	callback = _callback;
 	name = _name;
 }
-//edit_menu = [
-//	new EditMenuOption("Backspace", function() {
-//		broken_code[cursor.x][cursor.y] = " ";
-//	});
-//];
+edit_menu = [
+	new EditMenuOption("Backspace", function() {
+		if (cursor.x <= 0) exit;
+		broken_code[cursor.y][cursor.x - 1] = " ";
+	}),
+];
+var edit_menu_item_w = 200;
+edit_menu_w = array_length(edit_menu) * edit_menu_item_w;
+edit_menu_h = 100;
+is_edit_menu_draw = false;
+edit_menu_select = 0;
+

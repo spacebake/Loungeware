@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"microgame_metadata","path":"scripts/microgame_metadata/microgame_metadata.yy",},"order":5,},
+    {"id":{"name":"tfg_collision_nineslice","path":"sprites/tfg_collision_nineslice/tfg_collision_nineslice.yy",},"order":5,},
     {"id":{"name":"___spr_larold_reflection","path":"sprites/___spr_larold_reflection/___spr_larold_reflection.yy",},"order":8,},
     {"id":{"name":"___shd_cartridge","path":"shaders/___shd_cartridge/___shd_cartridge.yy",},"order":4,},
     {"id":{"name":"space_lander_spr_indicator","path":"sprites/space_lander_spr_indicator/space_lander_spr_indicator.yy",},"order":6,},
@@ -38,8 +39,9 @@
     {"id":{"name":"___katro_hack","path":"scripts/___katro_hack/___katro_hack.yy",},"order":3,},
     {"id":{"name":"___spr_gameboy_spin_x","path":"sprites/___spr_gameboy_spin_x/___spr_gameboy_spin_x.yy",},"order":2,},
     {"id":{"name":"space_lander_snd_rocket_crash","path":"sounds/space_lander_snd_rocket_crash/space_lander_snd_rocket_crash.yy",},"order":1,},
-    {"id":{"name":"spr_pixel","path":"sprites/spr_pixel/spr_pixel.yy",},"order":4,},
+    {"id":{"name":"tfg_collision_spr_pixel","path":"sprites/tfg_collision_spr_pixel/tfg_collision_spr_pixel.yy",},"order":4,},
     {"id":{"name":"sng_zandy_xylo","path":"sounds/sng_zandy_xylo/sng_zandy_xylo.yy",},"order":2,},
+    {"id":{"name":"tfg_collision_fnt_frogtype","path":"fonts/tfg_collision_fnt_frogtype/tfg_collision_fnt_frogtype.yy",},"order":6,},
     {"id":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"order":3,},
     {"id":{"name":"public_audio_functions","path":"scripts/public_audio_functions/public_audio_functions.yy",},"order":9,},
     {"id":{"name":"space_lander_label","path":"sprites/space_lander_label/space_lander_label.yy",},"order":5,},
