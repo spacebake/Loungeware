@@ -17,8 +17,8 @@ if (cursor.drawing)
 	draw_sprite_ext(tfg_collision_spr_pixel, 0, cursor.x * w, cursor.y * h, cursor.w, h, 0, c_white, 1);
 	
 if (is_edit_menu_draw) {
-	var xx = cursor.x * w
-	var yy = cursor.y * h
+	var xx = cursor.x * w;
+	var yy = cursor.y * h + h;
 	var x2 = xx + edit_menu_w;
 	var y2 = yy + edit_menu_h;
 	var my = (yy + y2) / 2;

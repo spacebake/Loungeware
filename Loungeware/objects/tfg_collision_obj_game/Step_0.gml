@@ -10,7 +10,11 @@ var hold = time_held.right > cursor.buffer_time || time_held.left > cursor.buffe
 
 if (is_edit_menu_draw) {
 	edit_menu_select = mod2(edit_menu_select + x_dir, array_length(edit_menu));
-	log(edit_menu_select);
+	
+	if (KEY_PRIMARY) {
+		edit_menu[edit_menu_select].callback();
+		close_edit_menu();
+	}
 	
 	
 } else {
@@ -39,7 +43,5 @@ cursor.t++;
 if ((cursor.t % cursor.flash_delay) == 0)
 	cursor.drawing = !cursor.drawing;
 
-if (KEY_SECONDARY_PRESSED) {
-	is_edit_menu_draw = !is_edit_menu_draw;
-	edit_menu_select = 0;	
-}
+if (KEY_SECONDARY_PRESSED)
+	close_edit_menu();

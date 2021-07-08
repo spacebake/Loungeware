@@ -114,4 +114,9 @@ edit_menu_h = string_height("M") + edit_menu_y_pad * 2;
 is_edit_menu_draw = false;
 edit_menu_select = 0;
 
+close_edit_menu = function() {
+	is_edit_menu_draw = !is_edit_menu_draw;
+	edit_menu_select = 0;
+}
+
 
