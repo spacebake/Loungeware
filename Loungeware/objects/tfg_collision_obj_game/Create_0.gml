@@ -22,11 +22,10 @@ for (var i = 0; i < array_length(brokens); i++) {
 	var broken = brokens[i];
 	var temp = [];
 	
-	for (var __j = 1; __j < string_length(broken); { __j++; j++ }) {
+	for (var __j = 1; __j < string_length(broken) + 1; { __j++; j++ }) {
 		var char = string_char_at(broken, __j);
 		
-		if (char == "\n") {
-			temp[yy][j] = " ";
+		if (char == "\r") {
 			yy++;
 			j = -1;
 			continue;
