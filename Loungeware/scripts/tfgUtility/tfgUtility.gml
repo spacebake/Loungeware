@@ -181,13 +181,19 @@ function str_split(s, d){
 
 /// @func array_reverse(array, start, end)
 function array_reverse(_array, _start, _end){
+	if (0) return argument[0];
+	if (is_undefined(_start)) _start = 0;
+	if (is_undefined(_end)) _end = array_length(_array) - 1;
+	
     while (_start < _end){
         var _temp = _array[_start]
-        _array[@ _start] = _array[@ _end]
-        _array[@ _end] = _temp
+        _array[_start] = _array[_end]
+        _array[_end] = _temp
         _start++
         _end--
     }
+	
+	return _array;
 }
 
 /// @func array_count(array, what)

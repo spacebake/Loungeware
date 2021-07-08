@@ -104,7 +104,9 @@ edit_menu = [
 		array_delete(broken_code[cursor.y], --cursor.x, 1);
 	}),
 	new EditMenuOption("+ hsp", function() {
-		
+		array_foreach(array_reverse(["+", " ", "h", "s", "p"]), function(_char) {
+			array_insert(broken_code[cursor.y], cursor.x, _char);
+		});
 	}),
 ];
 edit_menu_w = 0;
