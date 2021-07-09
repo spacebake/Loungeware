@@ -113,7 +113,7 @@ function ___init_metadata(){
 		supports_difficulty_scaling: true,
 		credits: ["net8floz", "meseta", "space"],
 		date_added: "21/07/05",
-	},	
+	},
 	n8fl_admin_simulator: {
 		// sound fx : https://mixkit.co/free-sound-effects/hit/
 		game_name: "GM Admin Simulator",
@@ -255,9 +255,23 @@ function ___init_metadata(){
 		credits: ["Mimpy"],
 		date_added: "21/07/06",
 	},
+	baku_chug: {
+		game_name: "Forced Choice of a New Generation",
+		creator_name: "baku",
+		prompt: "CHUG",
+		init_room: baku_chug_rm,
+		view_width: 160,
+		view_height: 107,
+		time_seconds: 7,
+		music_track: sng_zandy_xylo,
+		music_loops: false,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(148, 44, 75),
+		cartridge_col_secondary: make_color_rgb(98, 23, 72),
+		cartridge_label: baku_chug_spr_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["baku"],
+		date_added: "21/08/07",
+	},
 }}
-
-
-
-
-
