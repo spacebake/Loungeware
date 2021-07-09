@@ -1,6 +1,6 @@
 font = font_add("makoren_conjurer_font.ttf", 6, false, false, 32, 128);
 
-first_words = ["sword", "potion", "hammer", "lounge", "bow"];
+first_words = ["sword", "potion", "hammer", "bow"];
 second_words = ["righteous", "explosive", "offensive", "bad", "good"];
 third_words = ["banning", "lounging", "fun", "sadness", "vibes"];
 
@@ -37,6 +37,9 @@ check_if_won = function()
 		microgame_win();
 		inputs_disabled = true;
 		should_draw = false;
+		
+		makoren_conjurer_obj_item.visible = true;
+		makoren_conjurer_obj_item.image_index = selected_indices[0]
 		
 		var bg_layer = layer_get_id("Background");
 		var bg_id = layer_background_get_id(bg_layer);
