@@ -65,13 +65,18 @@ if (state == "microgame_result"){
 	// god bless this mess. will fix it at some point (yeah, right)
 	
 	if (state_begin){
+		transition_music_began = true;
 		if (microgame_won){
-			//var _snd_id = audio_play_sound(___sng_microgame_win, 0, 0);
-			//audio_sound_gain(_snd_id, vol_msc * vol_master, 0);
+			if (!dev_mode ||  !___global.test_vars.loop_game){
+				transition_music  = audio_play_sound(___sng_microgame_win, 0, 0);
+				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+			}
 		} else {
 			life = max(0, life-1);
-			//var _snd_id = audio_play_sound(___sng_microgame_lose, 0, 0);
-			//audio_sound_gain(_snd_id, vol_msc * vol_master, 0);
+			if (!dev_mode ||  !___global.test_vars.loop_game){
+				transition_music  = audio_play_sound(___sng_microgame_lose, 0, 0);
+				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+			}
 		}
 		wait = 30;
 		life_dir = 0;
@@ -190,7 +195,7 @@ if (state == "microgame_result"){
 		
 		
 		if (wait <= 0){
-		
+
 			___state_change("game_switch");
 		}
 		if (life_alpha <= 0 &&  life_alpha_done) wait--;
