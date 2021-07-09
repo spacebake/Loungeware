@@ -1,13 +1,19 @@
-ui_transform = new n8fl_FTransform(46,4);
+get_pos = function(){
+	return new n8fl_FVector(x, y);	
+}
+
+ui_transform = new n8fl_FTransform(58,12);
 ui_transform.set_parent(id);
 
 member_label = new n8fl_FLabel();
 member_label.set_parent(ui_transform);
+member_label.set_local_pos_f(0, 0);
 member_label.set_colour(c_red);
 member_label.set_scale(0.5, 0.5);
 
 ts_label = new n8fl_FLabel();
 ts_label.set_parent(member_label);
+ts_label.set_local_pos_f(0, 0);
 ts_label.set_text("Just Now");
 ts_label.set_colour(c_gbpink);
 ts_label.set_padding_f(2, 1, 0, 0);
@@ -181,8 +187,4 @@ get_message_type = function(){
 	return msg.get_type();	
 }
 
-get_pos = function(){
-	return new n8fl_FVector(x, y);	
-}
-
-_init();
+n8fl_execute_next_once(_init);

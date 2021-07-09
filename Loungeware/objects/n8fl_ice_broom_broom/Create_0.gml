@@ -35,7 +35,7 @@ move = function(_dir){
 _tick = function(){
 	tween.start = room_width / 2 + dir * (room_width / 2) + dir * 20;
 	tween.dest = tween.start - dir * 30;	
-	intensity = tween.normalized_value();
+	intensity = tween.get_normalized_value();
 	
 	if(allow_movement == false){
 		end_push();	
