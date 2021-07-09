@@ -2,9 +2,9 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
-		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
+		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "katsaii_witchwanda",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		loop_game: true,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 		mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
@@ -279,10 +279,10 @@ function ___init_metadata(){
 		creator_name: "Katsaii & Mashmerlow",
 		prompt: "CRAFT",
 		init_room: katsaii_witchwanda_rm,
-		view_width: 160,
-		view_height: 107,
+		view_width: 1,
+		view_height: 1,
 		time_seconds: 6,
-		music_track: katsaii_witchwanda_snd,
+		music_track: katsaii_witchwanda_mu,
 		music_loops: false,
 		interpolation_on: true,
 		cartridge_col_primary: make_color_rgb(148, 44, 75),
