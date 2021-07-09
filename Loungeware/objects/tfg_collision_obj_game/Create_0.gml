@@ -122,7 +122,7 @@ check_win = function() {
 	
 	return false;
 }
-win = false;
+win = undefined;
 
 ///@func draw_code(code, w, h, ?yy);
 draw_code = function(_code, _w, _h, _yy) {
@@ -137,7 +137,6 @@ draw_code = function(_code, _w, _h, _yy) {
 		for (var k = 0, xx = 0; k < array_length(line); { k++; xx++; } ) {
 			var char = line[k];
 			if (array_count(colour_chars, char) > 0) {
-				log(draw_get_color(), c_white);
 				draw_set_colour(switch_colour(char));
 				xx--;
 				continue;
@@ -163,5 +162,7 @@ switch_colour = function(_char) {
 	}
 }
 colour_chars = ["$", "%", "^", "#"];
+
+created_bug = false;
 
 

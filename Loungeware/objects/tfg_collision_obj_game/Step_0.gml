@@ -1,3 +1,16 @@
+if (win) {
+	draw_set_font(tfg_collision_fnt_jetbrains);
+	var h = string_height("M");
+	repeat (5) 
+		instance_create_layer(random(room_width), h * cursor.y, "Layer_Above", tfg_collision_obj_confetti);
+	if (!created_bug) {
+		created_bug = true;
+		instance_create_layer(room_width / 2, h * cursor.y, "Layer_Above", tfg_collision_obj_dead_bug);
+	}
+}
+
+if (!is_undefined(win)) exit;
+
 //var dir = (KEY_RIGHT || KEY_LEFT || KEY_UP || KEY_DOWN) 
 //	? point_direction(0, 0, KEY_RIGHT - KEY_LEFT, KEY_UP - KEY_LEFT)
 //	: undefined;
@@ -43,6 +56,7 @@ if (KEY_PRIMARY) {
 		win = true;
 	} else {
 		microgame_fail();
+		win = false;
 	}
 }
 
