@@ -2,20 +2,20 @@ randomize();
 _chars = ds_list_create();
 
 _init = function(){
-	//inst_n8fl_escape2_player.landed.add(_on_player_land);
+	inst_n8fl_escape3_player.failed.add(_on_player_fail);
+	inst_n8fl_escape3_player.successed.add(_on_player_success);
 }
 
 _cleanup = function(){
 	ds_list_destroy(_chars);
 }
 
-_on_player_land = function(was_success){
-	if(was_success){
-		microgame_win();
-		_travel_speed *= 3;
-	}else{
-		microgame_fail();
-	}
+_on_player_fail = function(){
+	microgame_fail();
+}
+
+_on_player_success = function(){
+	microgame_win();
 }
 
 get_next_char = function(){

@@ -3,7 +3,9 @@ _transform.set_parent(inst_n8fl_escape3_train.get_transform());
 _transform.set_pos_f(x, y);
 _padding = 4;
 _index = -1;
+
 image_speed = 0;
+
 
 _tick = function(){
 	_transform.apply_to_inst(id);
@@ -32,6 +34,11 @@ set_index = function(index){
 		//	var spec = instance_create_depth(0, 0, depth-1, n8fl_escape2_spectator);
 		//	spec.set_cart(id);
 		//}
+	}
+	
+	if(index > 1 && index < 6){
+		_obstacle = instance_create_depth(0, 0, depth, n8fl_escape3_obstacle);
+		_obstacle.set_cart(id);	
 	}
 }
 
