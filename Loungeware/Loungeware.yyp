@@ -380,7 +380,6 @@
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
-    {"CopyToMask":-1,"filePath":"datafiles/n8fl","resourceVersion":"1.0","name":"n8fl_penguin_blast.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/n8fl","resourceVersion":"1.0","name":"n8fl_penguin_blast.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_rocket_lander.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/nahoo","resourceVersion":"1.0","name":"nahoo_beenade.json","resourceType":"GMIncludedFile",},
