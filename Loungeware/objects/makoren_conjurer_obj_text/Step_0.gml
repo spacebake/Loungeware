@@ -36,3 +36,5 @@ if (KEY_LEFT_PRESSED and !inputs_disabled)
 	selected_text = [first_words[selected_indices[0]], second_words[selected_indices[1]], third_words[selected_indices[2]]];
 	check_if_won();
 }
+
+arrow_scale = 0.05 * sin(0.01 * current_time) + 1;

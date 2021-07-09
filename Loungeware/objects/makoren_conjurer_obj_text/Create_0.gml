@@ -17,6 +17,9 @@ selected_text = [first_words[selected_indices[0]], second_words[selected_indices
 selected_section = [first_words, second_words, third_words];
 selected_section_index = 0;
 
+// arrow animation
+arrow_scale = 1;
+
 inputs_disabled = false;
 should_draw = true;
 
