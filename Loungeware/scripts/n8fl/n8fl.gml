@@ -18,6 +18,10 @@ function n8fl_draw_bbox(inst){
 	draw_rectangle(inst.bbox_left, inst.bbox_top, inst.bbox_right, inst.bbox_bottom, true);	
 }
 
+function n8fl_execute_next_once(handler){
+	global.n8fl_ticked.once(handler);	
+}
+
 
 function n8fl_FDelegate(handler) constructor
 {
@@ -295,6 +299,12 @@ function n8fl_FTransform(x, y) constructor
 	_x = x;
 	_y = y;
 	_parent = undefined;
+	
+	apply_to_inst = function(inst){
+		var pos = get_pos();
+		inst.x = pos.get_x();
+		inst.y = pos.get_y();
+	}
 	
 	get_parent = function(){ return _parent; }
 	set_parent = function(parent){
