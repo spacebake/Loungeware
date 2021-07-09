@@ -129,6 +129,7 @@
     {"id":{"name":"n8fl_reach_for_it_mister_ricochet_snd","path":"sounds/n8fl_reach_for_it_mister_ricochet_snd/n8fl_reach_for_it_mister_ricochet_snd.yy",},"order":3,},
     {"id":{"name":"Nahoo_mMain","path":"sounds/Nahoo_mMain/Nahoo_mMain.yy",},"order":0,},
     {"id":{"name":"Nahoo_sHit","path":"sounds/Nahoo_sHit/Nahoo_sHit.yy",},"order":1,},
+    {"id":{"name":"___sng_microgame_winlose_end","path":"sounds/___sng_microgame_winlose_end/___sng_microgame_winlose_end.yy",},"order":2,},
     {"id":{"name":"Nahoo_sWin","path":"sounds/Nahoo_sWin/Nahoo_sWin.yy",},"order":2,},
     {"id":{"name":"sng_ennway_bit_battle","path":"sounds/sng_ennway_bit_battle/sng_ennway_bit_battle.yy",},"order":1,},
     {"id":{"name":"sng_zandy_aliens","path":"sounds/sng_zandy_aliens/sng_zandy_aliens.yy",},"order":2,},
