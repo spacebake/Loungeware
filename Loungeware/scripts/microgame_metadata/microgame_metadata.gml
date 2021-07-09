@@ -113,7 +113,7 @@ function ___init_metadata(){
 		supports_difficulty_scaling: true,
 		credits: ["net8floz", "meseta", "space"],
 		date_added: "21/07/05",
-	},	
+	},
 	n8fl_admin_simulator: {
 		// sound fx : https://mixkit.co/free-sound-effects/hit/
 		game_name: "GM Admin Simulator",
@@ -143,7 +143,7 @@ function ___init_metadata(){
 		view_width: 120,
 		view_height: 80,
 		time_seconds: 5,
-		music_track: sng_zandy_woodblocks,
+		music_track: n8fl_escape1_music,
 		music_loops: true,
 		interpolation_on: false,
 		cartridge_col_primary: make_color_rgb(89, 62, 71),
@@ -154,6 +154,7 @@ function ___init_metadata(){
 		credits: ["net8floz", "meseta", "space", "mixkit.c"],
 		date_added: "21/07/07",
 	},
+
 	yosi_epic_fire_truck: {
 		game_name: "Epic Fire Truck",
 		creator_name: "Yosi",
@@ -193,6 +194,47 @@ function ___init_metadata(){
 	//	credits: ["net8floz", "meseta", "space", "mixkit.c"],
 	//	date_added: "21/07/07",
 	//},
+
+	n8fl_escape2: {
+		// sound fx : https://mixkit.co/free-sound-effects/hit/
+		game_name: "Action Escape Pt 2",
+		creator_name: "net8floz",
+		prompt: "Jump On The Train",
+		init_room: n8fl_escape2_rm,
+		view_width: 120,
+		view_height: 80,
+		time_seconds: 5,
+		music_track: n8fl_escape1_music,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_escape2_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["net8floz", "meseta", "space", "mixkit.c"],
+		date_added: "21/07/07",
+	},
+	n8fl_escape3: {
+		// sound fx : https://mixkit.co/free-sound-effects/hit/
+		game_name: "Action Escape Pt 3",
+		creator_name: "net8floz",
+		prompt: "Jump On The Train",
+		init_room: n8fl_escape3_rm,
+		view_width: 120,
+		view_height: 80,
+		time_seconds: 5,
+		music_track: n8fl_escape1_music,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_escape3_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["net8floz", "meseta", "space", "mixkit.c"],
+		date_added: "21/07/07",
+	},
 	//n8fl_ice_broom: {
 	//	game_name: "Ice Broom",
 	//	creator_name: "net8floz",
@@ -254,9 +296,23 @@ function ___init_metadata(){
 		credits: ["Mimpy"],
 		date_added: "21/07/06",
 	},
+	baku_chug: {
+		game_name: "Forced Choice of a New Generation",
+		creator_name: "baku",
+		prompt: "CHUG",
+		init_room: baku_chug_rm,
+		view_width: 160,
+		view_height: 107,
+		time_seconds: 7,
+		music_track: sng_zandy_xylo,
+		music_loops: false,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(148, 44, 75),
+		cartridge_col_secondary: make_color_rgb(98, 23, 72),
+		cartridge_label: baku_chug_spr_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["baku"],
+		date_added: "21/08/07",
+	},
 }}
-
-
-
-
-
