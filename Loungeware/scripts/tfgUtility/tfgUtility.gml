@@ -295,5 +295,17 @@ function str_wrap(_str, _max_width){
     return _str
 }
 
+///@func array_filter(array, callback)
+function array_filter(_array, _callback) {
+	var ret = [];
+		
+	for (var i = 0; i < array_length(_array); i++) {
+		if (_callback(_array[i]))
+			array_push(ret, _array[i]);
+	}
+		
+	return ret;	
+}
+
 
 

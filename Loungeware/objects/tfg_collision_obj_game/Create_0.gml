@@ -15,6 +15,23 @@ if (place_meeting(x, y + vsp, oWall)) {
 }
 y += vsp;",
 ]
+correct_code = [
+	["i","f"," ","(","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","h","s","p",","," ","y",","," ","o","W","a","l","l",")",")"," ","{" ],
+	[" "," "," "," ","w","h","i","l","e"," ","(","!","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","s","i","g","n","(","h","s","p",")",","," ","y",","," ","o","W","a","l","l",")",")"," ","{" ],
+	[" "," "," "," "," "," "," "," ","x"," ","+","="," ","s","i","g","n","(","h","s","p",")",";" ],
+	[" "," "," "," ","}" ],
+	[" "," "," "," ","h","s","p"," ","="," ","0",";" ],
+	["}" ],
+	["x"," ","+","="," ","h","s","p",";" ],
+	[],
+	["i","f"," ","(","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x",","," ","y"," ","+"," ","v","s","p",","," ","o","W","a","l","l",")",")"," ","{" ],
+	[" "," "," "," ","w","h","i","l","e"," ","(","!","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x",","," ","y"," ","+"," ","s","i","g","n","(","v","s","p",")",","," ","o","W","a","l","l",")",")"," ","{" ],
+	[" "," "," "," "," "," "," "," ","y"," ","+","="," ","s","i","g","n","(","v","s","p",")",";" ],
+	[" "," "," "," ","}" ],
+	[" "," "," "," ","v","s","p"," ","="," ","0",";" ],
+	["}" ],
+	["y"," ","+","="," ","v","s","p",";"],
+];
 
 for (var i = 0; i < array_length(brokens); i++) {
 	var yy = 0;
@@ -34,25 +51,12 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 	
 	brokens[i] = temp;
-	
-	//fill rest with space characters
-	//var max_len = 0;
-	//var broken = brokens[i];
-	//for (var j = 0; j < array_length(broken); j++) {
-	//	if (array_length(broken[j]) > max_len) {
-	//		max_len = array_length(broken[j]);
-	//	}	
-	//}
-	//for (var j = 0; j < array_length(broken); j++) {
-	//	//line
-	//	for (var k = 0; k < max_len; k++) {
-	//		//char
-	//		broken[j][k] = k > (array_length(broken[j]) - 1) ? " " : broken[j][k];
-	//	}
-	//}
 }
 
 broken_code = brokens[0];
+
+show_debug_message(broken_code)
+
 draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
 line_cols = function(_y) {
 	if (_y > array_length(broken_code) - 1) 
@@ -122,6 +126,11 @@ edit_menu_select = 0;
 toggle_edit_menu = function() {
 	is_edit_menu_draw = !is_edit_menu_draw;
 	edit_menu_select = 0;
+}
+
+check_win = function() {
+	var _callback = function(_char) { return _char != " " }
+	return array_filter(broken_code, _callback) == array_filter(correct_code, _callback);
 }
 
 
