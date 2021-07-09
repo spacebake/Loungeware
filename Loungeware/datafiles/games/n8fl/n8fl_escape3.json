@@ -4,7 +4,7 @@
     "game_name": "Action Escape Pt 3",
     "creator_name": "net8floz",
     "prompt": "Jump On The Heli",
-    "init_room": "n8fl_escape1_rm",
+    "init_room": "n8fl_escape3_rm",
     "view_width": 120,
     "view_height": 80,
     "time_seconds": 5,
