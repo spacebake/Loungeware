@@ -51,6 +51,7 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 	
 	brokens[i] = temp;
+	brokens[i] = array_filter(brokens[i], function(_char) { return _char != "\n" })
 }
 
 broken_code = brokens[0];

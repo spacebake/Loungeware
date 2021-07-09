@@ -9,10 +9,6 @@ for (var i = 0; i < array_length(broken_code); { i++; yy++; } ) {
 
 	for (var k = 0, xx = 0; k < array_length(line); { k++; xx++; } ) {
 		var char = line[k];
-		if (char == "\n") {
-			xx--;
-			continue;
-		}
 		draw_text(w * xx, yy * h, char);
 	}
 }
