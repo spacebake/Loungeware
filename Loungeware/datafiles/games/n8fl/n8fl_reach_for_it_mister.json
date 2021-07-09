@@ -1,0 +1,20 @@
+{
+  "config_version": 1,
+  "game_name": "Reach For It, Mister",
+  "creator_name": "net8floz",
+  "prompt": "Wait for it",
+  "init_room": "n8fl_reach_for_it_mister_rm",
+  "view_width": 240,
+  "view_height": 160,
+  "time_seconds": 8,
+  "music_track": false,
+  "music_loops": true,
+  "interpolation_on": false,
+  "cartridge_col_primary": [89, 62, 71],
+  "cartridge_col_secondary": [122, 88, 89],
+  "cartridge_label": "n8fl_reach_for_it_mister_label",
+  "default_is_fail": true,
+  "supports_difficulty_scaling": true,
+  "credits": ["net8floz", "meseta", "space"],
+  "date_added": "21/07/05"
+}

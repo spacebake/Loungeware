@@ -1,0 +1,20 @@
+{
+    "config_version": 1,
+    "game_name": "Example Game",
+    "creator_name": "john doe",
+    "prompt": "SHOOT",
+    "init_room": "johndoe_examplegame_rm_init",
+    "view_width": 240,
+    "view_height": 160,
+    "time_seconds": 5,
+    "music_track": "my_awesome_snd", // nullable, also accepts false
+    "music_loops": true,
+    "interpolation_on": false,
+    "cartridge_col_primary": [0, 0, 0],
+    "cartridge_col_secondary": [55, 255, 255],
+    "cartridge_label": "johndoe_examplegame_spr_label",
+    "default_is_fail": true,
+    "supports_difficulty_scaling": false,
+    "credits": ["john doe", "jane doe"],
+    "date_added": "YY/MM/DD"
+}
