@@ -15,9 +15,9 @@ conflict with other creator's assets.
 
 I also reccomend using your game name in the prefix if you plan to create 
 more than 1 microgame, so your assets should be named something like this:
-"sam_cookiedunk_spr_cookie", "sam_cookiedunk_obj_glass", "sam_cookidunk_rm_initroom"
+"sam_cookiedunk_spr_cookie", "sam_cookiedunk_obj_glass", "sam_cookiedunk_rm_initroom"
 
-note: they do not need to be snake case, you can use camel case or whatever you 
+Note: They do not need to be snake case, you can use camel case or whatever you 
 want inside your folder, as long as it is prefixed.
 
 -----------------------------------------------------------------------------------------------
@@ -34,12 +34,12 @@ knows how to handle it.
 
 Go into the microgame_metadata script in the root folder of the asset browser.
 You will see a list of structs, the first of which is a commented out template struct.
-copy that template and add it to the bottom of the list, replace the placeholder data 
+Copy that template and add it to the bottom of the list, replace the placeholder data 
 with the data for your game. You can always go back and change it later if you don't
 know all of the info yet.
 
 For information on what these properties actually mean, check the "_microgame_metadata_help" 
-script in the _HELP_DOCS folder
+script in the HELP DOCS folder
 
 ----------------------------------------------------------------------------------------------- 
 4. Turn on test mode
@@ -53,13 +53,14 @@ see a lone struct called "SET_TEST_VARS" with 3 properties.
 - Set "test_mode_on" to true
 This activates test mode, as you might imagine
 
-- Set "microgame_key" to your microgame's struct key (as a string)
-this tells loungeware which game to load on run.
+- Set "microgame_key" to your microgame's struct key (as a string).
+This tells loungeware which game to load on run.
 
-- Set "loop_game" to either true or false (if true, your game will instantly restart when it ends, if false it will play the transition animation and go to the next microgame)
+- Set "loop_game" to either true or false (if true, your game will instantly restart when it ends, 
+if false it will play the transition animation and go to the next microgame)
 
 - Set "difficulty_level" to 1. 
-This is for testing multiple difficulty levels. you don't need to worry about this for now.
+This is for testing multiple difficulty levels. You don't need to worry about this for now.
 
 ----------------------------------------------------------------------------------------------- 
 5. Run the game.
@@ -85,7 +86,7 @@ Use the premade input macros to get player inputs, they can be found in the
 You should call the "microgame_win()" function to signify when your microgame has been
 completed successfully. More info on what this function does also in the "public_functions" script.
 
-please only use camera[0] (macro'd as CAMERA)
+Please only use camera[0] (macro'd as CAMERA).
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
