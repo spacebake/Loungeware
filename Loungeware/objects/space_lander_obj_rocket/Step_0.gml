@@ -50,6 +50,7 @@ if (state == "flying"){
 			sfx_play(space_lander_snd_rocket_crash, 1, 0);
 			view_shake_val = 1;
 			view_shake = 6;
+			microgame_music_stop(100);
 			state_change("fail");
 			exit;
 		} else {
@@ -88,6 +89,7 @@ if (state == "fail"){
 
 if (state == "won"){
 	if (state_begin){
+		sfx_play(space_lander_snd_alien, 1, 0);
 	}
 	if (pause_timer <= 0) lid_dir = min(180, lid_dir + lid_speed);
 	var _prog = lid_dir / 180;
@@ -97,7 +99,7 @@ if (state == "won"){
 	if (lid_dir >= 180){
 		alien_y_mod = max(0, alien_y_mod - 1);
 		if (!alien_talked){
-			sfx_play(space_lander_snd_alien, 1, 0);
+			sfx_play(space_lander_snd_bogos, 1, 0);
 			alien_talked = true;
 		}
 	}

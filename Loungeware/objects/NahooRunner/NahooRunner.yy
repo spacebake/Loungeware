@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "beenade",
-    "path": "folders/Microgames/nahoo/beenade.yy",
+    "name": "Beenade",
+    "path": "folders/Microgames/nahoo/Beenade.yy",
   },
   "resourceVersion": "1.0",
   "name": "NahooRunner",

@@ -6,6 +6,9 @@ function ___macro_keyboard_check(_keystr){
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check(_list[i])) return true;
 	}
+	for (var i=0;i<gamepad_get_device_count();i++) {
+		if (___global.controller_values[i].state.held[$ _keystr]) return true;
+	}
 	return false;
 }
 
@@ -26,6 +29,9 @@ function ___macro_keyboard_check_pressed(_keystr){
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_pressed(_list[i])) return true;
 	}
+	for (var i=0;i<gamepad_get_device_count();i++) {
+		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
+	}
 	return false;
 }
 
@@ -36,6 +42,9 @@ function ___macro_keyboard_check_released(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_released(_list[i])) return true;
+	}
+	for (var i=0;i<gamepad_get_device_count();i++) {
+		if (___global.controller_values[i].state.released[$ _keystr]) return true;
 	}
 	return false;
 }
@@ -259,4 +268,11 @@ function ___reset_draw_vars(){
 	draw_set_alpha(1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+}
+
+function ___gamepad_check_button_multiple(device,buttons) {
+	for (var i=0;i<array_length(buttons);i++) {
+		if (gamepad_button_check(device,buttons[i])) return true;	
+	}
+	return false;
 }

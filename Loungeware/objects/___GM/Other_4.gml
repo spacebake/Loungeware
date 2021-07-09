@@ -22,6 +22,10 @@ if (room == microgame_current_metadata.init_room){
 		___GM.microgame_time_finished =  ___GM.microgame_timer_max;
 	}
 	application_surface_draw_enable(false);
-	camera_set_view_size(CAMERA, microgame_current_metadata.view_width, microgame_current_metadata.view_height);
+	var _vw = microgame_current_metadata.view_width;
+	var _vh = microgame_current_metadata.view_height;
+	if (_vw == -1) _vw = room_width;
+	if (_vh == -1) _vh = room_height;
+	camera_set_view_size(CAMERA, _vw, _vh);
 	exit;
 }

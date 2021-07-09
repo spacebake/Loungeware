@@ -1,0 +1,1 @@
+_on_collide_train_goal(other);
