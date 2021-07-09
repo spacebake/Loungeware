@@ -121,6 +121,7 @@
     {"id":{"name":"n8fl_penguin_blast_boom_spr","path":"sprites/n8fl_penguin_blast_boom_spr/n8fl_penguin_blast_boom_spr.yy",},"order":9,},
     {"id":{"name":"n8fl_penguin_blast_damsel","path":"objects/n8fl_penguin_blast_damsel/n8fl_penguin_blast_damsel.yy",},"order":8,},
     {"id":{"name":"sng_zandy_descending","path":"sounds/sng_zandy_descending/sng_zandy_descending.yy",},"order":3,},
+    {"id":{"name":"makoren_conjurer_spr_arrows","path":"sprites/makoren_conjurer_spr_arrows/makoren_conjurer_spr_arrows.yy",},"order":3,},
     {"id":{"name":"___sng_microgame_lose","path":"sounds/___sng_microgame_lose/___sng_microgame_lose.yy",},"order":2,},
     {"id":{"name":"space_lander_obj_rocket","path":"objects/space_lander_obj_rocket/space_lander_obj_rocket.yy",},"order":3,},
     {"id":{"name":"___spr_gameboy_dpad","path":"sprites/___spr_gameboy_dpad/___spr_gameboy_dpad.yy",},"order":1,},

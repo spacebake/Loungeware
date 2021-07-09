@@ -32,6 +32,6 @@ check_if_won = function()
 	{
 		microgame_win();
 		inputs_disabled = true;
-		// win animation, disable inputs
+		// win animation
 	}
 }
