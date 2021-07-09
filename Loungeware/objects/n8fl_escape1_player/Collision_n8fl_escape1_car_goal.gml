@@ -1,0 +1,1 @@
+_on_collide_car_goal(other);
