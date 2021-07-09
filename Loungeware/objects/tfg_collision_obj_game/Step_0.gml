@@ -31,7 +31,7 @@ if (is_edit_menu_draw) {
 	}
 	
 	cursor.x = clamp(cursor.x, 0, line_cols(cursor.y));
-	cursor.y = clamp(cursor.y, 0, rows);
+	cursor.y = clamp(cursor.y, 0, rows - 1);
 	if (any_dir_key()) {
 		cursor.t = 0;
 		cursor.drawing = true;
