@@ -1,7 +1,7 @@
 brokens = [
 @"if (place_meeting(x + hsp, y, oWall)) {
     while (!place_meeting(x + sign(hsp), y, oWall)) {
-        x += sign(hsp);
+        x += sign();
     }
     hsp = 0;
 }
@@ -51,7 +51,9 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 	
 	brokens[i] = temp;
-	brokens[i] = array_filter(brokens[i], function(_char) { return _char != "\n" })
+	for (var j = 0; j < array_length(brokens[i]); j++) {
+		brokens[i][j] = array_filter(brokens[i][j], function(_char) { return _char != "\n" })	
+	}
 }
 
 broken_code = brokens[0];
