@@ -1,1 +1,1 @@
-global.n8fl_tick++;
+global.n8fl_ticked.invoke();
