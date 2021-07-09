@@ -58,7 +58,7 @@ function ___init_metadata(){
 	tfg_collision: {
 		game_name: "FIX COLLISION",
 		creator_name: "tfg",
-		prompt: "FIND ERROR",
+		prompt: "FIND",
 		init_room: tfg_collision_rm_game,
 		view_width: 960,
 		view_height: 640,

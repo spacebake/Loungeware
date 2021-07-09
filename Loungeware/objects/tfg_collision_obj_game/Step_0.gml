@@ -37,6 +37,13 @@ cursor.y = clamp(cursor.y, 0, rows - 1);
 //}
 //}
 
+if (KEY_PRIMARY) {
+	if (check_win()) {
+		microgame_win();
+	} else {
+		microgame_fail();
+	}
+}
 
 
 //cursor.t++;
@@ -47,4 +54,3 @@ cursor.y = clamp(cursor.y, 0, rows - 1);
 //if (KEY_PRIMARY_PRESSED && alarm[0] != 1) {
 //	toggle_edit_menu();
 //}
-

@@ -113,9 +113,14 @@ update_time_held = function() {
 //	edit_menu_select = 0;
 //}
 
-//check_win = function() {
-//	var _callback = function(_char) { return _char != " " }
-//	return array_filter(broken_code, _callback) == array_filter(correct_code, _callback);
-//}
+check_win = function() {
+	for (var i = 0; i < array_length(broken_code); i++) {
+		if (!array_equals(broken_code[i], correct_code[i]) && cursor.y == i) {
+			return true;
+		}
+	}
+	
+	return false;
+}
 
 
