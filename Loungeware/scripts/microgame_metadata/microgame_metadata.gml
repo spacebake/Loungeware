@@ -131,7 +131,7 @@ function ___init_metadata(){
 		default_is_fail: true,
 		supports_difficulty_scaling: false,
 		credits: ["Makoren"],
-		date_added: "21/07/07",
+		date_added: "21/07/10",
 	},
 	n8fl_admin_simulator: {
 		// sound fx : https://mixkit.co/free-sound-effects/hit/
