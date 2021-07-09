@@ -13,6 +13,20 @@ for (var i = 0; i < array_length(broken_code); { i++; yy++; } ) {
 	}
 }
 
+draw_sprite_ext(tfg_collision_spr_pixel, 0, 0, room_height / 2 - 10, room_width, 5, 0, c_white, 1);
+
+var yy = room_height / 2 / h;
+var xx = 0;
+
+for (var i = 0; i < array_length(correct_code); { i++; yy++; } ) {
+	var line = correct_code[i];
+	
+	for (var k = 0, xx = 0; k < array_length(line); { k++; xx++ } ) {
+		var char = line[k];
+		draw_text(w * xx, yy * h, char);
+	}
+}
+
 if (cursor.drawing)
 	draw_sprite_ext(tfg_collision_spr_pixel, 0, cursor.x * w, cursor.y * h, cursor.w, h, 0, c_white, 1);
 	
