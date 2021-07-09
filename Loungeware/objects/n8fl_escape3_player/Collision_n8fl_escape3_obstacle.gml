@@ -1,0 +1,1 @@
+_on_obstacle_collided(other);
