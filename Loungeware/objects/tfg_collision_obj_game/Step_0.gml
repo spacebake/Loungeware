@@ -40,6 +40,7 @@ cursor.y = clamp(cursor.y, 0, rows - 1);
 if (KEY_PRIMARY) {
 	if (check_win()) {
 		microgame_win();
+		win = true;
 	} else {
 		microgame_fail();
 	}

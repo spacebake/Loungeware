@@ -1,21 +1,21 @@
+/*
+$ = orange
+% = green
+^ = red
+# = blue
+*/
+
 brokens = [
-@"if (place_meeting(x + hsp, y, oWall)) {
-    while (!place_meeting(x + sign(hsp), y, oWall)) {
-        x += sign();
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$();
     }
-    hsp = 0;
+    #hsp# = ^0^;
 }
-x += hsp;",
+%x% += #hsp#;",
 ]
-correct_code = [
-	["i","f"," ","(","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","h","s","p",","," ","y",","," ","o","W","a","l","l",")",")"," ","{" ],
-	[" "," "," "," ","w","h","i","l","e"," ","(","!","p","l","a","c","e","_","m","e","e","t","i","n","g","(","x"," ","+"," ","s","i","g","n","(","h","s","p",")",","," ","y",","," ","o","W","a","l","l",")",")"," ","{" ],
-	[" "," "," "," "," "," "," "," ","x"," ","+","="," ","s","i","g","n","(","h","s","p",")",";" ],
-	[" "," "," "," ","}" ],
-	[" "," "," "," ","h","s","p"," ","="," ","0",";" ],
-	["}" ],
-	["x"," ","+","="," ","h","s","p",";" ],
-];
+
+correct_code = [ [ "$","i","f","$"," ","(","$","p","l","a","c","e","_","m","e","e","t","i","n","g","$","(","%","x","%"," ","+"," ","#","h","s","p","#",","," ","%","y","%",","," ","^","o","W","a","l","l","^",")",")"," ","{" ],[ " "," "," "," ","$","w","h","i","l","e","$"," ","(","!","$","p","l","a","c","e","_","m","e","e","t","i","n","g","$","(","%","x","%"," ","+"," ","$","s","i","g","n","$","(","#","h","s","p","#",")",","," ","%","y","%",","," ","^","o","W","a","l","l","^",")",")"," ","{" ],[ " "," "," "," "," "," "," "," ","%","x","%"," ","+","="," ","$","s","i","g","n","$","(","#","h","s","p","#",")",";" ],[ " "," "," "," ","}" ],[ " "," "," "," ","#","h","s","p","#"," ","="," ","^","0","^",";" ],[ "}" ],[ "%","x","%"," ","+","="," ","#","h","s","p","#",";" ] ];
 
 for (var i = 0; i < array_length(brokens); i++) {
 	var yy = 0;
@@ -122,5 +122,46 @@ check_win = function() {
 	
 	return false;
 }
+win = false;
+
+///@func draw_code(code, w, h, ?yy);
+draw_code = function(_code, _w, _h, _yy) {
+	if (is_undefined(_yy)) _yy = 0;
+	draw_set_colour(c_white);
+	
+	var xx = 0;
+	
+	for (var i = 0; i < array_length(_code); { i++; _yy++; } ) {
+		var line = _code[i];
+
+		for (var k = 0, xx = 0; k < array_length(line); { k++; xx++; } ) {
+			var char = line[k];
+			if (array_count(colour_chars, char) > 0) {
+				log(draw_get_color(), c_white);
+				draw_set_colour(switch_colour(char));
+				xx--;
+				continue;
+			}
+			draw_text(_w * xx, _yy * _h, char);
+		}
+	}
+}
+
+switch_colour = function(_char) {
+	if (draw_get_colour() != c_white)
+		return c_white;
+	
+	switch (_char) {
+		case "$":
+			return 0x6BADEF;
+		case "%":
+			return 0x55D554;
+		case "^":
+			return 0x8080FF;
+		case "#":
+			return 0xFFB1B2;
+	}
+}
+colour_chars = ["$", "%", "^", "#"];
 
 
