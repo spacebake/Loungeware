@@ -163,6 +163,7 @@ function n8fl_FTween(start, dest, duration) constructor
 	_play_speed = 0;
 	_last_play_speed = 0;
 	_time = 0;
+	_last_time = 0;
 	_tick = 0;
 	_type = n8fl_ETween.EaseInOut;
 	
@@ -182,9 +183,7 @@ function n8fl_FTween(start, dest, duration) constructor
 	get_type = function() { return _type; }
 	set_type = function(type) { type = _type; }
 	
-	normalized_value = function(){
-		update();
-		var t = _time / _duration;
+	_get_tween = function(t){
 		switch(_type){
 			case n8fl_ETween.EaseInOut: return -(cos(pi * t) - 1) / 2;
 			case n8fl_ETween.EaseOutElastic:
@@ -208,9 +207,27 @@ function n8fl_FTween(start, dest, duration) constructor
 		return t;
 	}
 	
+	
+	get_normalized_value = function(){
+		update();
+		return _get_tween(clamp(0,1,_time / _duration));
+	}
+	
+	/// deprecated, use get_value
 	value = function(){
-		var t = normalized_value();
+		return get_value();
+	}
+	
+	get_value = function(){
+		var t = get_normalized_value();
 		return lerp(_start, _dest, t);
+	}
+	
+	get_delta = function(){
+		update();
+		var last = lerp(_start, _dest, _get_tween(clamp(_last_time / _duration, 0, 1)));
+		var current = lerp(_start, _dest, _get_tween(clamp(_time / _duration, 0, 1)));
+		return current - last;
 	}
 	
 	update = function(){
@@ -218,7 +235,7 @@ function n8fl_FTween(start, dest, duration) constructor
 			return;	
 		}
 		if(_tick != global.n8fl_tick){
-
+			_last_time = _time;
 			if(_time == 0 && _is_started == false){
 				_is_started = true;
 				started.invoke(self);
@@ -259,6 +276,7 @@ function n8fl_FTween(start, dest, duration) constructor
 	reset = function(){
 		_play_speed = 0;
 		_last_play_speed = 0;
+		_last_time = 0;
 		_tick = 0;
 		_time = 0;
 		_is_started = false;
@@ -313,7 +331,7 @@ function n8fl_FTransform(x, y) constructor
 		}
 		
 		var valid_next_parent = parent != undefined && ( is_struct(parent) || instance_exists(parent));
-		var valid_current_parent = _parent != undefined && ( is_struct(_parent) || instance_exists(_parent))
+		var valid_current_parent = _parent != undefined && ( is_struct(_parent) || instance_exists(_parent));
 		if(valid_current_parent){
 			var pos = get_pos();
 			_parent = undefined;

@@ -37,7 +37,7 @@ _cleanup = function(){
 _tick = function(){
 	_hit_tween.update();
 	if(_hit_tween.is_playing()){
-		image_index = lerp(1.8, 0, _hit_tween.normalized_value());
+		image_index = lerp(1.8, 0, _hit_tween.get_normalized_value());
 	}else{
 		image_index = 0;	
 	}
