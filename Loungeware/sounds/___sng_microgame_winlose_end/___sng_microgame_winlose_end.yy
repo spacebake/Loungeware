@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "___sng_microgame_win.wav",
+  "soundFile": "___sng_microgame_winlose_end.wav",
   "duration": 3.31535387,
   "parent": {
     "name": "Music",
     "path": "folders/__Base Game (keep out)/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
-  "name": "___sng_microgame_win",
+  "name": "___sng_microgame_winlose_end",
   "tags": [],
   "resourceType": "GMSound",
 }

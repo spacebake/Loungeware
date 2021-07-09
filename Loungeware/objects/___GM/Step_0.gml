@@ -5,6 +5,15 @@ ___state_handler();
 if (gb_timerbar_visible) gb_timerbar_alpha = min(1, gb_timerbar_alpha + gb_timerbar_fadespeed) 
 else gb_timerbar_alpha = max(0, gb_timerbar_alpha - gb_timerbar_fadespeed);
 
+// handle transition music
+if (transition_music_began && !audio_is_playing(transition_music)){
+	if (!dev_mode ||  !___global.test_vars.loop_game){
+		transition_music_began = false;
+		transition_music  = audio_play_sound(___sng_microgame_winlose_end, 0, 0);
+		audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+	}
+}
+
 // -----------------------------------------------------------
 // STATE | PLAYING_MICROGAME
 // -----------------------------------------------------------
