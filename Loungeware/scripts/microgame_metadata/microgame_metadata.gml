@@ -40,7 +40,7 @@ function ___init_metadata(){
 		.add_rule(new LW_FGameLoaderColourTransformer("cartridge_col_secondary", undefined))
 		.add_rule(new LW_FGameLoaderSpriteTransformer("cartridge_label", undefined))
 		.add_rule(new LW_FGameLoaderBoolTransformer("default_is_fail", undefined))
-		.add_rule(new LW_FGameLoaderBoolTransformer("supports_difficulty_scaling", undefined).set_nullable())
+		.add_rule(new LW_FGameLoaderBoolTransformer("supports_difficulty_scaling", false).set_nullable())
 		.add_rule(
 			new LW_FGameLoaderArrayTransformer("credits", undefined)
 				.set_min(1)

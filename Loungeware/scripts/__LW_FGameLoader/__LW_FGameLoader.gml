@@ -42,7 +42,6 @@ function LW_FGameLoader() constructor{
 			
 			if(rule.is_valid(config_map) == false && rule.get_is_nullable() == false){
 				show_debug_message("WARNING: Invalid field " + rule.get_field_name());
-				show_message("WARNING: Invalid field " + rule.get_field_name());
 				config_is_valid = false;
 			}else{
 				// if you really want verbose
