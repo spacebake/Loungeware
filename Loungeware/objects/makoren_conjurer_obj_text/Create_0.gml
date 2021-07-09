@@ -18,6 +18,7 @@ selected_section = [first_words, second_words, third_words];
 selected_section_index = 0;
 
 inputs_disabled = false;
+should_draw = true;
 
 check_if_won = function()
 {
@@ -32,6 +33,10 @@ check_if_won = function()
 	{
 		microgame_win();
 		inputs_disabled = true;
-		// win animation
+		should_draw = false;
+		
+		var bg_layer = layer_get_id("Background");
+		var bg_id = layer_background_get_id(bg_layer);
+		layer_background_sprite(bg_id, makoren_conjurer_spr_bg_win);
 	}
 }

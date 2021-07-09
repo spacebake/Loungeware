@@ -88,6 +88,7 @@
     {"id":{"name":"n8fl_penguin_blast_damsel_weight_spr","path":"sprites/n8fl_penguin_blast_damsel_weight_spr/n8fl_penguin_blast_damsel_weight_spr.yy",},"order":3,},
     {"id":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"order":3,},
     {"id":{"name":"n8fl_penguin_blast_projectile_spr","path":"sprites/n8fl_penguin_blast_projectile_spr/n8fl_penguin_blast_projectile_spr.yy",},"order":6,},
+    {"id":{"name":"makoren_conjurer_spr_bg_win","path":"sprites/makoren_conjurer_spr_bg_win/makoren_conjurer_spr_bg_win.yy",},"order":4,},
     {"id":{"name":"public_audio_functions","path":"scripts/public_audio_functions/public_audio_functions.yy",},"order":9,},
     {"id":{"name":"n8fl_reach_for_it_mister_bg_spr","path":"sprites/n8fl_reach_for_it_mister_bg_spr/n8fl_reach_for_it_mister_bg_spr.yy",},"order":10,},
     {"id":{"name":"space_lander_label","path":"sprites/space_lander_label/space_lander_label.yy",},"order":5,},
