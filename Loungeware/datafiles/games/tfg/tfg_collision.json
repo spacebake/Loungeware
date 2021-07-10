@@ -15,6 +15,6 @@
     "cartridge_label": "tfg_collision_spr_cartridge",
     "default_is_fail": true,
     "supports_difficulty_scaling": false,
-    "credits": ["tfg"],
+    "credits": ["tfg", "ennway", "zandy"],
     "date_added": "21/07/09"
 }
