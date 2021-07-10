@@ -100,6 +100,8 @@ garbo_sprites = ds_list_create(); //___ds_list_create_builtin();
 prompt_alpha = 1;
 prompt_timer_max = 30;
 prompt_timer = prompt_timer_max;
+prompt = "";
+prompt_sprite = -1;
 
 
 

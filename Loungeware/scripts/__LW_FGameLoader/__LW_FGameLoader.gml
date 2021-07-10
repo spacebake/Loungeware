@@ -308,6 +308,42 @@ function LW_FGameLoaderArrayTransformer(field_name, default_value) : LW_FGameLoa
 	}
 }
 
+function LW_FGameLoaderStringArrayTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
+{	
+	_is_valid_internal = function(val){
+		if(is_string(val)){
+			if(string_length(val) == 0){
+				return false;	
+			}
+			return true;
+		}
+		if (val == undefined){
+			return false;
+		}
+		if(ds_list_size(val) == 0){
+			return false;
+		}
+		for (var i = 0; i < ds_list_size(val); i++){
+			var _content = val[| i];
+			if (!is_string(_content)){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	_get_value_internal = function(val) {
+		if (is_string(val)){
+			return [val];
+		}
+		var array = [];
+		for (var i = 0; i < ds_list_size(val); i++){
+			array_push(array, string(val[| i]));
+		}
+		return array;
+	}
+}
+
 function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
 {
 	_base_validate = _is_valid_internal;

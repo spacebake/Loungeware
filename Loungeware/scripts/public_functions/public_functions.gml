@@ -11,6 +11,8 @@
 #macro TIME_REMAINING ___global.time_remaining_read()
 // returns what the max timer value of your microgame, in steps (divide this by 60 to get seconds)
 #macro TIME_MAX ___global.time_max_read()
+// returns the prompt displayed before the microgame starts (useful if your microgame has multiple prompts)
+#macro PROMPT ___GM.prompt;
 
 //--------------------------------------------------------------------------------------------------------
 // MICROGAME WIN
