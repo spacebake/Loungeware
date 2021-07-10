@@ -152,6 +152,13 @@ check_win = function() {
 	
 	return false;
 }
+get_line = function() {
+	for (var i = 0; i < array_length(broken_code); i++) {
+		if (!array_equals(broken_code[i], correct_code[i]) && cursor.y == i) {
+			return i;
+		}
+	}
+}
 win = undefined;
 
 ///@func draw_code(code, w, h, ?yy);
