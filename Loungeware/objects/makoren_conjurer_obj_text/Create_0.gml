@@ -21,6 +21,9 @@ arrow_scale = 1;
 // screen flash
 screenflash_alpha = 0;
 
+// delay the text for a bit so players can see the prompt
+appear_delay = 0.8;
+
 inputs_disabled = false;
 should_draw = true;
 
