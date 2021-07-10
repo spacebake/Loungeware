@@ -18,14 +18,16 @@ To begin dev you must create your own fork. This is done on github. When you are
 ```
 git clone https://github.com/your-name/Loungeware
 ```
+You may now open the yyp in GMS2
 
 ### 3) Setup your Microgame
 
-- create a room. All rooms are stored under Microgames/author-name. See the good manners article for naming conventions.
-- goto Loungeware/datafiles and create a folder. Usually  the folder is named after your name. This will contain all your configuration files for your many microgames
+- Open gms2 and create a new room. All rooms are stored under `Microgames/author-name/game`. See the good manners article for naming conventions.
+- goto `Loungeware/datafiles` and create a folder. Usually  the folder is named after your name. This will contain all your configuration files for your many microgames
 - create your first game config. Usually this is named after your game + your unique prefix. Check other folders here for examples, and copy and paste example.json for ease
 - configure your game config file, and point it towards your room
 
+![Example screenshot in VSC](https://i.imgur.com/ctQ9jCg.png)
 
 ### 4) (Optional) Set up your test env
 
@@ -33,7 +35,8 @@ By default the game will play all games. To test for your specific game simply c
 - goto `Loungeware/datafiles` and copy `config.example.json`. Create a new file *directly next* to config.example.json called `config.dev.json`
 - customise this file, pointing it to your games name. Your game name is whatever game config file you created in step 3. For example `games/n8fl/n8fl_escape1.json` would mean pointing your test key at `n8fl_escape1`
 
-You may now open the yyp in GMS2
+![Example screenshot in VSC](https://i.imgur.com/AUqy9Os.png)
+
 
 ## Submitting Your Game
 
