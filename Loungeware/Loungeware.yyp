@@ -96,7 +96,6 @@
     {"id":{"name":"___init","path":"scripts/___init/___init.yy",},"order":1,},
     {"id":{"name":"___katro_hack","path":"scripts/___katro_hack/___katro_hack.yy",},"order":2,},
     {"id":{"name":"___macros","path":"scripts/___macros/___macros.yy",},"order":3,},
-    {"id":{"name":"microgame_metadata","path":"scripts/microgame_metadata/microgame_metadata.yy",},"order":5,},
     {"id":{"name":"tfg_collision_nineslice","path":"sprites/tfg_collision_nineslice/tfg_collision_nineslice.yy",},"order":5,},
     {"id":{"name":"tfg_collision_spr_confetti_blue","path":"sprites/tfg_collision_spr_confetti_blue/tfg_collision_spr_confetti_blue.yy",},"order":0,},
     {"id":{"name":"tfg_collision_fnt_jetbrains","path":"fonts/tfg_collision_fnt_jetbrains/tfg_collision_fnt_jetbrains.yy",},"order":3,},
@@ -311,7 +310,6 @@
     {"id":{"name":"tfg_collision_obj_dead_bug","path":"objects/tfg_collision_obj_dead_bug/tfg_collision_obj_dead_bug.yy",},"order":11,},
     {"id":{"name":"tfg_collision_obj_confetti","path":"objects/tfg_collision_obj_confetti/tfg_collision_obj_confetti.yy",},"order":9,},
     {"id":{"name":"tfg_collision_obj_game","path":"objects/tfg_collision_obj_game/tfg_collision_obj_game.yy",},"order":1,},
-    {"id":{"name":"sng_zandy_descending","path":"sounds/sng_zandy_descending/sng_zandy_descending.yy",},"order":3,},
     {"id":{"name":"tfg_collision_shd_invert","path":"shaders/tfg_collision_shd_invert/tfg_collision_shd_invert.yy",},"order":7,},
   ],
   "Options": [
@@ -438,7 +436,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.example.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.290",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
