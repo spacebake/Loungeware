@@ -393,7 +393,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_chug.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games","resourceVersion":"1.0","name":"example.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.example.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",
