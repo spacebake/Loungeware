@@ -1,38 +1,45 @@
 function LW_FGameLoader() constructor{
+
+	function get_configs(rules){
+		var dirs = [];
+		var jsons = [];
+		var configs = {};
+	
+		_get_directories("games", dirs);
+	
+		for(var i=0; i < array_length(dirs); i++){
+			_get_json_files(dirs[i], jsons);
+		}
+	
+		for(var i=0; i < array_length(jsons); i++){
+			_read_game_config(jsons[i], configs, rules);
+		}
+		return configs;
+	}
+	
+	function _get_filename_from_path(filename){
+		var str = "";
+		for(var i=1; i < string_length(filename) + 1; i++){
+			var char = string_char_at(filename,i);
+			if(char == "/"){
+				str = "";	
+				continue;
+			}
+			if(char == "."){
+				return str;	
+			}
+			str += char;
+		}
+		return undefined;
+	}
+	
 	function _read_game_config(filename, configs, rules){
 		show_debug_message("INFO: reading game config " + filename);	
-	
-		if(file_exists(filename) == false){
-			show_debug_message("WARNING: No file " + filename);	
-			return;
-		}
-	
-		var file = file_text_open_read(filename);
-		var str = "";
-		while(file_text_eof(file) == false){
-			var line =  file_text_readln(file);
-			var comment_count = 0;
-			for(var i=1; i < string_length(line) + 1; i++){
-				var char = string_char_at(line, i);
-				if(char == "/"){
-					comment_count++;	
-					if(comment_count == 2){
-						break;	
-					}
-				}else{
-					comment_count = 0;
-					str = str + char;
-				}
-			}
-		
-			if(comment_count == 2){
-				continue;	
-			}
-		}
-		
-		var config_map = json_decode(str)
-		if(config_map < 0){
+
+		var config_map = __try_read_json(filename);
+		if(config_map == undefined){
 			show_debug_message("WARNING: could not read json");	
+			return;
 		}
 		
 		var config_struct = {};
@@ -53,8 +60,8 @@ function LW_FGameLoader() constructor{
 		if(config_is_valid == false){
 			show_debug_message("ERROR: Could not load game config " + string(filename));
 		}else{
-			configs[$ filename] = config_struct;
-			show_debug_message("Info: Loaded " + string(filename) + "!");
+			configs[$  _get_filename_from_path(filename)] = config_struct;
+			show_debug_message("INFO: Loaded " + string(filename) + "!");
 		}
 
 		ds_map_destroy(config_map);
@@ -93,23 +100,6 @@ function LW_FGameLoader() constructor{
 		}
 		file_find_close();	
 		return out;
-	}
-	
-	function get_configs(rules){
-		var dirs = [];
-		var jsons = [];
-		var configs = {};
-	
-		_get_directories("games", dirs);
-	
-		for(var i=0; i < array_length(dirs); i++){
-			_get_json_files(dirs[i], jsons);
-		}
-	
-		for(var i=0; i < array_length(jsons); i++){
-			_read_game_config(jsons[i], configs, rules);
-		}
-		return configs;
 	}
 }
 
