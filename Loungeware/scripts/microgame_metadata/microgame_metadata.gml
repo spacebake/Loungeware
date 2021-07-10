@@ -63,7 +63,7 @@ function ___init_metadata(){
 		view_width: 960,
 		view_height: 640,
 		time_seconds: 8,
-		music_track: sng_none,
+		music_track: sng_ennway_bit_battle,
 		music_loops: true,
 		interpolation_on: false,
 		cartridge_col_primary: make_color_rgb(0, 0, 0),

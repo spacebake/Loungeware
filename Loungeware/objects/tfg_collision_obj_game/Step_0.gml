@@ -4,12 +4,15 @@ if (win == true) {
 	repeat (5) 
 		instance_create_layer(random(room_width), h * cursor.y, "Layer_Above", tfg_collision_obj_confetti);
 	if (!created_bug) {
+		sfx_play(tfg_collision_sfx_win, 1, false);
 		created_bug = true;
 		instance_create_layer(room_width / 2, h * cursor.y, "Layer_Above", tfg_collision_obj_dead_bug);
 	}
-} else if (win == false) {
-	if (!instance_exists(tfg_collision_obj_error))
-		tfg_collision_create_error_box(0);
+} else if (win == false || TIME_REMAINING < 45) {
+	if (!instance_exists(tfg_collision_obj_error)) {
+		sfx_play(tfg_collision_sfx_lose, 1, false)
+		tfg_collision_create_error_box(0);	
+	}
 }
 
 if (!is_undefined(win)) exit;
