@@ -33,6 +33,10 @@ function ___init_metadata(){
 		.add_rule(new LW_FGameLoaderStringArrayTransformer("prompt", undefined))
 		.add_rule(new LW_FGameLoaderRoomTransformer("init_room", undefined))
 		.add_rule(
+			new LW_FGameLoaderBoolTransformer("is_enabled", true)
+				.set_nullable()
+		)
+		.add_rule(
 			new LW_FGameLoaderNumberTransformer("view_width", -1)
 				.set_nullable()
 				.add_validator(function(view_width){
