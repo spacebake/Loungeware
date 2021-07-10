@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Loungeware",
-    "path": "Loungeware.yyp",
+    "name": "Scripts",
+    "path": "folders/__Base Game (keep out)/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "microgame_metadata",
+  "name": "__microgame_metadata",
   "tags": [],
   "resourceType": "GMScript",
 }
