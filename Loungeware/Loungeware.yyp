@@ -24,6 +24,7 @@
     {"id":{"name":"johndoe_examplegame_spr_label","path":"sprites/johndoe_examplegame_spr_label/johndoe_examplegame_spr_label.yy",},"order":5,},
     {"id":{"name":"___global","path":"objects/___global/___global.yy",},"order":2,},
     {"id":{"name":"space_lander_rm_lander","path":"rooms/space_lander_rm_lander/space_lander_rm_lander.yy",},"order":1,},
+    {"id":{"name":"tfg_collision_spr_cartridge","path":"sprites/tfg_collision_spr_cartridge/tfg_collision_spr_cartridge.yy",},"order":16,},
     {"id":{"name":"tfg_collision_sfx_win","path":"sounds/tfg_collision_sfx_win/tfg_collision_sfx_win.yy",},"order":14,},
     {"id":{"name":"spr_button_dpad","path":"sprites/spr_button_dpad/spr_button_dpad.yy",},"order":2,},
     {"id":{"name":"tfgCollisionCreateErrorBox","path":"scripts/tfgCollisionCreateErrorBox/tfgCollisionCreateErrorBox.yy",},"order":13,},
@@ -124,7 +125,10 @@
   "TextureGroups": [
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.example.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
+  ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",
   },
