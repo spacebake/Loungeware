@@ -14,13 +14,12 @@ function ___init_metadata(){
 	if(env != undefined){
 		show_debug_message("INFO: Loading dev env");
 		SET_TEST_VARS { 
-			test_mode_on: ds_map_exists(env, "test_mode_on") ? env[?"test_mode_on"]: false,
-			microgame_key: ds_map_exists(env, "microgame_key") ? env[?"microgame_key"]: "",
-			loop_game: ds_map_exists(env, "loop_game") ? env[?"loop_game"]: false,
-			difficulty_level: ds_map_exists(env, "difficulty_level") ? env[?"difficulty_level"]: false,
-			mute_test: ds_map_exists(env, "mute_test") ? env[?"mute_test"]: false
+			test_mode_on: variable_struct_exists(env, "test_mode_on") ? env[$"test_mode_on"]: false,
+			microgame_key: variable_struct_exists(env, "microgame_key") ? env[$"microgame_key"]: "",
+			loop_game: variable_struct_exists(env, "loop_game") ? env[$"loop_game"]: false,
+			difficulty_level: variable_struct_exists(env, "difficulty_level") ? env[$"difficulty_level"]: false,
+			mute_test: variable_struct_exists(env, "mute_test") ? env[$"mute_test"]: false
 		}
-		ds_map_destroy(env);
 	}
 	
 	var rules =  new LW_FGameLoaderRuleBuilder()
