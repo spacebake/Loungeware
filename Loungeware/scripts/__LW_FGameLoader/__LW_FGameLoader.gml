@@ -314,8 +314,25 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 	
 	_is_valid_internal = function(colour){
 		if(is_string(colour)){
-			show_error("I didn't write hex yet. someone please do this if you want this feature", false);
-			return false;
+			var temp_colour = colour;
+			
+			var valid_hex_char = function(_char) {
+				return string_pos(_char, "0123456789ABCDEFabcdef") != 0;
+			}
+			//id make this a method but no closures :(
+			var first_char = string_char_at(colour, 1);
+			if (first_char == "#" || first_char == "$")
+				temp_colour = string_delete(temp_colour, 1, 1);
+			if (string_copy(temp_colour, 1, 2) == "0x")
+				temp_colour = string_delete(temp_colour, 1, 2);
+			if (string_length(temp_colour) != 6)
+				return false;
+			
+			for (var i = 1; i <= 6; i++)
+				if (!valid_hex_char(string_char_at(temp_colour, i)))
+					return false;
+			return true;
+			
 		}else {
 			if(ds_list_size(colour) != 3){
 				return false;	
@@ -331,8 +348,36 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 	
 	_get_value_internal  = function(colour){ 
 		if(is_string(colour)){
-			show_error("I didn't write hex yet. someone please do this if you want this feature", false);
-			return make_colour_rgb(255, 255, 255);
+			var first_char = string_char_at(colour, 1);
+			if (first_char == "#" || first_char == "$")
+				colour = string_delete(colour, 0, 1);
+			if (string_copy(colour, 1, 2) == "0x")
+				colour = string_delete(colour, 0, 2);
+			
+			var result=0;
+
+			// special unicode values
+			var ZERO=ord("0");
+			var NINE=ord("9");
+			var A=ord("A");
+			var F=ord("F");
+
+			for (var i=1; i<=string_length(colour); i++){
+			    var c=ord(string_char_at(string_upper(colour), i));
+			    // you could also multiply by 16 but you get more nerd points for bitshifts
+			    result=result<<4;
+			    // if the character is a number or letter, add the value
+			    // it represents to the total
+			    if (c>=ZERO&&c<=NINE){
+			        result=result+(c-ZERO);
+			    } else if (c>=A&&c<=F){
+			        result=result+(c-A+10);
+			    // otherwise complain
+			    }
+			}
+			
+			return result;
+			
 		}else{
 			if(ds_list_size(colour) != 3){
 				return make_colour_rgb(255, 255, 255);	
