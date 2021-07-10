@@ -15,6 +15,7 @@
   "layers": [
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"n8fl_penguin_blast_hud","path":"objects/n8fl_penguin_blast_hud/n8fl_penguin_blast_hud.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":276.0,"y":51.0,"resourceVersion":"1.0","name":"inst_538589FE","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"n8fl_global","path":"objects/n8fl_global/n8fl_global.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-64.0,"y":-32.0,"resourceVersion":"1.0","name":"inst_5905FCC1","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":-1200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances_1","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"n8fl_penguin_blast_bg_spr","path":"sprites/n8fl_penguin_blast_bg_spr/n8fl_penguin_blast_bg_spr.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":-40.0,"resourceVersion":"1.0","name":"graphic_F042D54","tags":[],"resourceType":"GMRSpriteGraphic",},
@@ -36,6 +37,7 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
+    {"name":"inst_5905FCC1","path":"rooms/n8fl_penguin_blast_rm/n8fl_penguin_blast_rm.yy",},
     {"name":"inst_5A0B89D","path":"rooms/n8fl_penguin_blast_rm/n8fl_penguin_blast_rm.yy",},
     {"name":"inst_65500DFC","path":"rooms/n8fl_penguin_blast_rm/n8fl_penguin_blast_rm.yy",},
     {"name":"inst_17EA2DD6","path":"rooms/n8fl_penguin_blast_rm/n8fl_penguin_blast_rm.yy",},
