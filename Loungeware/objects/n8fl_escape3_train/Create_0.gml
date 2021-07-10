@@ -1,6 +1,6 @@
 _transform = new n8fl_FTransform(x, y);
-_cart_count = 10;
-_speed = 1;
+_cart_count = 5;
+_speed = 1.2;
 image_speed = 0;
 _player_landed = false;
 _init = function(){

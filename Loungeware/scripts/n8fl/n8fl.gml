@@ -72,6 +72,78 @@ function n8fl_FDelegate(handler) constructor
 	}
 }
 
+function n8fl_FTimer(duration) constructor 
+{
+	_duration = duration;
+	_playspeed = 0;
+	_time = 0;
+	_delta = 0;
+	_tick = 0;
+	_is_completed = false;
+	_is_started = false;
+	
+	completed = new n8fl_FDelegate(function(){});
+	started = new n8fl_FDelegate(function(){});
+	
+	play = function(){
+		_playspeed = 1;	
+	}
+	
+	pause = function(){
+		_playspeed = 0;	
+	}
+	
+	is_completed = function(){ 
+		update();
+		return _is_completed; 
+	}
+	
+	reset = function(){
+		_playspeed = 0;
+		_time = 0;
+		_delta = 0;
+		_tick = 0;
+		_is_completed = false;
+		_is_started = false;
+	}
+	
+	get_value = function(){
+		update();
+		return _time;
+	}
+	
+	get_normalized_value = function(){
+		update();
+		return clamp(_time / _duration, 0, 1);
+	}
+	
+	get_delta = function(){
+		update();
+		return _delta;	
+	}
+	
+	update = function(){
+		if(_tick != global.n8fl_tick){
+			var last_time = _time;
+			_time += (1 / 60) * _playspeed;
+			_delta = _time - last_time;
+			_tick = global.n8fl_tick;
+		
+			if(_time > 0 && _is_started == false){
+				_is_started = true;
+				started.invoke(self);
+			}
+			
+			if((_time / _duration >= 1) && _is_completed == false){
+				_is_completed = true;
+				completed.invoke(self);
+			}
+			
+			_is_completed = _time / _duration >= 1;
+		}
+	}
+}
+
 function n8fl_FWave(freq, amp) constructor
 {
 	_freq = freq;

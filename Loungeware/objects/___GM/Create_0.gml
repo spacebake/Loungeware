@@ -84,6 +84,8 @@ gb_min_scale = 0.4;
 gb_max_scale = 1;
 gb_scale_diff =  gb_max_scale - gb_min_scale;
 title_y = 64;
+transition_music = noone;
+transition_music_began = false;
 
 
 // larold reflection
@@ -98,6 +100,8 @@ garbo_sprites = ds_list_create(); //___ds_list_create_builtin();
 prompt_alpha = 1;
 prompt_timer_max = 30;
 prompt_timer = prompt_timer_max;
+prompt = "";
+prompt_sprite = -1;
 
 
 
@@ -129,7 +133,7 @@ if (_test_vars.test_mode_on){
 
 if (!dev_mode){
 
-	show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-spaceyboy");
+	show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-space");
 	___microgame_load_fake();
 	room_goto(___rm_restroom);
 	
