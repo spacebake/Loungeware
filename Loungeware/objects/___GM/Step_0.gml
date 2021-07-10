@@ -23,7 +23,11 @@ if (state == "playing_microgame"){
 		gb_timerbar_visible = true;
 		transition_circle_rad = 0;
 		prompt_alpha = 1;
-		prompt_sprite = ___prompt_sprite_create(microgame_current_metadata);
+		// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
+		if (prompt == ""){
+			prompt = microgame_current_metadata.prompt[irandom(array_length(microgame_current_metadata.prompt) - 1)];
+		}
+		prompt_sprite = ___prompt_sprite_create(prompt);
 		substate = 0;
 	}
 	

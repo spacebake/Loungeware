@@ -60,7 +60,7 @@ function ___cart_sprite_create(_microgame_metadata){
 // ------------------------------------------------------------------------------------------
 // PROMPT SPRITE CREATE | creates a temp sprite for the microgame prompt text
 // ------------------------------------------------------------------------------------------
-function ___prompt_sprite_create(microgame_key){
+function ___prompt_sprite_create(prompt){
 	var _scale = 0.5;
 	var _w = canvas_w * _scale;
 	var _h = canvas_h * _scale;
@@ -81,7 +81,7 @@ function ___prompt_sprite_create(microgame_key){
 		draw_text_ext(
 			_prompt_x + lengthdir_x(_outline_rad, i),
 			_prompt_y + lengthdir_y(_outline_rad, i),
-			string_upper(microgame_key.prompt) + "!", 
+			string_upper(prompt) + "!", 
 			16, 
 			_w, 
 		);
@@ -91,7 +91,7 @@ function ___prompt_sprite_create(microgame_key){
 	draw_text_ext(
 		_prompt_x,
 		_prompt_y,
-		string_upper(microgame_key.prompt) + "!", 
+		string_upper(prompt) + "!", 
 		16, 
 		_w, 
 	);

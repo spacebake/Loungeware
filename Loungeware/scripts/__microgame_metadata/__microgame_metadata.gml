@@ -30,7 +30,7 @@ function ___init_metadata(){
 		)
 		.add_rule(new LW_FGameLoaderStringTransformer("game_name", undefined))
 		.add_rule(new LW_FGameLoaderStringTransformer("creator_name", undefined))
-		.add_rule(new LW_FGameLoaderStringTransformer("prompt", undefined))
+		.add_rule(new LW_FGameLoaderStringArrayTransformer("prompt", undefined))
 		.add_rule(new LW_FGameLoaderRoomTransformer("init_room", undefined))
 		.add_rule(
 			new LW_FGameLoaderNumberTransformer("view_width", -1)
