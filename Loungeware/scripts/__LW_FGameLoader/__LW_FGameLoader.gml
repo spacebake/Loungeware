@@ -36,35 +36,35 @@ function LW_FGameLoader() constructor{
 	function _read_game_config(filename, configs, rules){
 		show_debug_message("INFO: reading game config " + filename);	
 
-		var config_map = __try_read_json(filename);
-		if(config_map == undefined){
+		var config = __try_read_json(filename);
+		if(config == undefined){
 			show_debug_message("WARNING: could not read json");	
 			return;
 		}
-		
 		var config_struct = {};
 		var config_is_valid = true;
 		for(var i=0; i < array_length(rules); i++){
 			var rule = rules[i];
 			
-			if(rule.is_valid(config_map) == false && rule.get_is_nullable() == false){
+			if(rule.is_valid(config) == false && rule.get_is_nullable() == false){
 				show_debug_message("WARNING: Invalid field " + rule.get_field_name());
 				config_is_valid = false;
 			}else{
 				// if you really want verbose
-				//show_debug_message("INFO: Set " + string(rule.get_field_name()) + " to " + string(rule.get_value(config_map)));
-				config_struct[$ rule.get_field_name()] = rule.get_value(config_map);
+				//show_debug_message("INFO: Set " + string(rule.get_field_name()) + " to " + string(rule.get_value(config_struct)));
+				config_struct[$ rule.get_field_name()] = rule.get_value(config);
 			}
 		}
 		
 		if(config_is_valid == false){
 			show_debug_message("ERROR: Could not load game config " + string(filename));
-		}else{
+		}else if (!config_struct.is_enabled){
+			show_debug_message("SKIP: " + string(filename) + " is not enabled");
+		}
+		else {
 			configs[$  _get_filename_from_path(filename)] = config_struct;
 			show_debug_message("INFO: Loaded " + string(filename) + "!");
 		}
-
-		ds_map_destroy(config_map);
 	}
 
 	function _get_directories(path, out){
@@ -125,18 +125,18 @@ function LW_FGameLoaderTransformer(field_name, default_value) constructor
 	_validators = [];
 	
 	is_valid = function(config){
-		if(ds_map_exists(config, _field_name) == false){
-			return false;	
+		if(variable_struct_exists(config, _field_name) == false){
+			return false;
 		}
-		if(config[? _field_name] == undefined){
-			return false;	
+		if(config[$ _field_name] == undefined){
+			return false;
 		}
-		return _is_valid_internal(config[? _field_name]);
+		return _is_valid_internal(config[$ _field_name]);
 	}
 	
 	get_value = function(config){
 		if(is_valid(config)){
-			return _get_value_internal(config[? _field_name]);	
+			return _get_value_internal(config[$ _field_name]);	
 		}
 		return _default_value;
 	}
@@ -282,16 +282,16 @@ function LW_FGameLoaderArrayTransformer(field_name, default_value) : LW_FGameLoa
 		return self;
 	}
 	
-	_is_valid_internal = function(list){
-		if(list == undefined){
+	_is_valid_internal = function(array){
+		if (!is_array(array)){
 			return false;	
 		}
-		if(_has_min && ds_list_size(list) < _min){
+		if (_has_min && array_length(array) < _min){
 			return false;	
 		}
 		
-		for(var i=0; i < ds_list_size(list); i++){
-			if(_inner_validator(list[| i]) == false){
+		for (var i = 0; i < array_length(array); i++){
+			if(_inner_validator(array[i]) == false){
 				return false;	
 			}
 		}
@@ -299,12 +299,8 @@ function LW_FGameLoaderArrayTransformer(field_name, default_value) : LW_FGameLoa
 		return true;
 	}
 	
-	_get_value_internal = function(list){
-		var arr = [];
-		for(var i=0; i < ds_list_size(list); i++){
-			arr[i] = list[| i];
-		}
-		return arr;
+	_get_value_internal = function(array){
+		return array;
 	}
 }
 
@@ -317,14 +313,14 @@ function LW_FGameLoaderStringArrayTransformer(field_name, default_value) : LW_FG
 			}
 			return true;
 		}
-		if (val == undefined){
+		if (!is_array(val)){
 			return false;
 		}
-		if(ds_list_size(val) == 0){
+		if(array_length(val) == 0){
 			return false;
 		}
-		for (var i = 0; i < ds_list_size(val); i++){
-			var _content = val[| i];
+		for (var i = 0; i < array_length(val); i++){
+			var _content = val[i];
 			if (!is_string(_content)){
 				return false;
 			}
@@ -336,11 +332,7 @@ function LW_FGameLoaderStringArrayTransformer(field_name, default_value) : LW_FG
 		if (is_string(val)){
 			return [val];
 		}
-		var array = [];
-		for (var i = 0; i < ds_list_size(val); i++){
-			array_push(array, string(val[| i]));
-		}
-		return array;
+		return val;
 	}
 }
 
@@ -369,14 +361,13 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 					return false;
 			return true;
 			
-		}else {
-			if(ds_list_size(colour) != 3){
-				return false;	
-			}
-			for(var i=0; i < ds_list_size(colour); i++){
-				if(is_real(colour[| i]) == false){
-					return false;
-				}
+		}
+		if(array_length(colour) != 3){
+			return false;	
+		}
+		for(var i=0; i < array_length(colour); i++){
+			if(is_real(colour[i]) == false){
+				return false;
 			}
 		}
 		return true;
@@ -414,11 +405,7 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 			
 			return result;
 			
-		}else{
-			if(ds_list_size(colour) != 3){
-				return make_colour_rgb(255, 255, 255);	
-			}
-			return make_colour_rgb(colour[| 0], colour[| 1], colour[| 2]);
 		}
+		return make_colour_rgb(colour[0], colour[1], colour[2]);
 	}
 }

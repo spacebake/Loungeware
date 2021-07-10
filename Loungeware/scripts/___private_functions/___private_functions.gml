@@ -277,17 +277,6 @@ function ___gamepad_check_button_multiple(device,buttons) {
 	return false;
 }
 
-function map_to_struct(map){
-    var struct = {};
-    var key = ds_map_find_first(map);
-    while(key != undefined){
-        struct[$ key] = map[? key];
-        key = ds_map_find_next(map, key);    
-    }
-        
-    return struct;
-}
-
 function __try_read_json(filepath){
 	show_debug_message("INFO: reading json file " + filepath);	
 	
@@ -320,5 +309,11 @@ function __try_read_json(filepath){
 	}
 	
 	file_text_close(file);
-	return json_decode(str);
+	
+	try {
+		return json_parse(str);
+	}
+	catch (e) {
+		return undefined;
+	}
 }
