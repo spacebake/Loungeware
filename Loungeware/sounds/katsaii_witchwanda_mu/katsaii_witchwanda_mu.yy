@@ -13,8 +13,8 @@
   "soundFile": "katsaii_witchwanda_mu.wav",
   "duration": 8.91,
   "parent": {
-    "name": "resources",
-    "path": "folders/Microgames/katsaii/witchwanda/resources.yy",
+    "name": "witchwanda",
+    "path": "folders/Microgames/katsaii/witchwanda.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchwanda_mu",

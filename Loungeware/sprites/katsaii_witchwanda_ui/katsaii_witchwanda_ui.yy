@@ -77,8 +77,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "resources",
-    "path": "folders/Microgames/katsaii/witchwanda/resources.yy",
+    "name": "wands",
+    "path": "folders/Microgames/katsaii/witchwanda/wands.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchwanda_ui",
