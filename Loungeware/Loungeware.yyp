@@ -408,9 +408,10 @@
     {"CopyToMask":153157610357391598,"filePath":"datafiles/games/makoren","resourceVersion":"1.0","name":"makoren_conjurer.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games","resourceVersion":"1.0","name":"example.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.example.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":153157610357391598,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.290",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
