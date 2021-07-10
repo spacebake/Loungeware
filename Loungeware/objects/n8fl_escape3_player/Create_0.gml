@@ -14,7 +14,7 @@ _did_success = false;
 failed = new n8fl_FDelegate(function(){});
 successed = new n8fl_FDelegate(function(){});
 
-_fall_off_timer = new n8fl_FTimer(3.7);
+_fall_off_timer = new n8fl_FTimer(3.9);
 
 _run_wave = new n8fl_FWave(0.1, 5);
 
