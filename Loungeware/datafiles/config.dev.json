@@ -1,0 +1,9 @@
+// to enable testing, copy this file and rename it config.dev.json . Place it right next to this file. 
+// if config.dev.json exists, the game will read it.
+{
+    "test_mode_on": false,  // Default false | Whether or not to run the game in test mode
+    "microgame_key": "tfg_collision",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+    "loop_game": false,     // Default false | Whether or not to instantly restart the test microgame when it ends
+    "difficulty_level": 1,  // Default 1     | The difficulty level to run the test at (1-5). 
+    "mute_test": false     // Default false | if true, mutes all audio when running the game in test mode
+}
