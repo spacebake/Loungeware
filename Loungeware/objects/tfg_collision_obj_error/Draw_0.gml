@@ -1,6 +1,8 @@
 var mx = room_width / 2 - w / 2;
 var ty = room_height / 2 - 50;
 
+draw_sprite_ext(tfg_collision_spr_dead_bug, 1, room_width / 2, ty - 85, 4, 4, 357, c_white, 1);
+
 draw_sprite_ext(tfg_collision_spr_pixel, 0, mx, ty, w, top_h, 0, top_c, 1);
 draw_set_text(c_white, tfg_collision_fnt_frogtype_24, fa_left, fa_middle);
 draw_text(mx + top_pad_left, ty + top_h / 2, "Code Error");

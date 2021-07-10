@@ -11,7 +11,7 @@ if (win == true) {
 } else if (win == false || TIME_REMAINING < 45) {
 	if (!instance_exists(tfg_collision_obj_error)) {
 		sfx_play(tfg_collision_sfx_lose, 1, false)
-		tfg_collision_create_error_box(0);	
+		tfg_collision_create_error_box(0);
 	}
 }
 
