@@ -1,0 +1,20 @@
+{
+    "config_version": 1,
+    "game_name": "FIX COLLISION",
+    "creator_name": "Space",
+    "prompt": "FIND ERROR",
+    "init_room": "tfg_collision_rm_game",
+    "view_width": 960,
+    "view_height": 640,
+    "time_seconds": 8,
+    "music_track": "sng_ennway_bit_battle",
+    "music_loops": false,
+    "interpolation_on": false,
+    "cartridge_col_primary": [18, 18, 18],
+    "cartridge_col_secondary": [255, 184, 113],
+    "cartridge_label": "tfg_collision_spr_cartridge",
+    "default_is_fail": true,
+    "supports_difficulty_scaling": false,
+    "credits": ["tfg"],
+    "date_added": "21/07/09"
+}
