@@ -32,7 +32,7 @@ You may now open the yyp in GMS2
 ### 4) (Optional) Set up your test env
 
 By default the game will play all games. To test for your specific game simply create a config.dev.json file. 
-- goto `Loungeware/datafiles` and copy `config.example.json`. Create a new file *directly next* to config.example.json called `config.dev.json`
+- goto `Loungeware/datafiles` and copy `config.example.json`. Create a new file *directly next* to `config.example.json` called `config.dev.json`
 - customise this file, pointing it to your games name. Your game name is whatever game config file you created in step 3. For example `games/n8fl/n8fl_escape1.json` would mean pointing your test key at `n8fl_escape1`
 
 ![Example screenshot in VSC](https://i.imgur.com/AUqy9Os.png)
