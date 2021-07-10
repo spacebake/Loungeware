@@ -226,6 +226,7 @@
     {"id":{"name":"n8fl_reach_for_it_mister_cmimps_spr","path":"sprites/n8fl_reach_for_it_mister_cmimps_spr/n8fl_reach_for_it_mister_cmimps_spr.yy",},"order":6,},
     {"id":{"name":"n8fl_reach_for_it_mister_cnet_spr","path":"sprites/n8fl_reach_for_it_mister_cnet_spr/n8fl_reach_for_it_mister_cnet_spr.yy",},"order":7,},
     {"id":{"name":"baku_chug_spr_confetti_purple","path":"sprites/baku_chug_spr_confetti_purple/baku_chug_spr_confetti_purple.yy",},"order":3,},
+    {"id":{"name":"makoren_conjurer_fnt_main","path":"fonts/makoren_conjurer_fnt_main/makoren_conjurer_fnt_main.yy",},"order":10,},
     {"id":{"name":"n8fl_reach_for_it_mister_cpine_spr","path":"sprites/n8fl_reach_for_it_mister_cpine_spr/n8fl_reach_for_it_mister_cpine_spr.yy",},"order":8,},
     {"id":{"name":"n8fl_reach_for_it_mister_csahaun_spr","path":"sprites/n8fl_reach_for_it_mister_csahaun_spr/n8fl_reach_for_it_mister_csahaun_spr.yy",},"order":9,},
     {"id":{"name":"yosi_EFT_obj_building","path":"objects/yosi_EFT_obj_building/yosi_EFT_obj_building.yy",},"order":12,},
@@ -393,7 +394,6 @@
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
   "IncludedFiles": [
-    {"CopyToMask":153157610357391598,"filePath":"datafiles","resourceVersion":"1.0","name":"makoren_conjurer_font.ttf","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/n8fl","resourceVersion":"1.0","name":"n8fl_penguin_blast.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_rocket_lander.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/nahoo","resourceVersion":"1.0","name":"nahoo_beenade.json","resourceType":"GMIncludedFile",},

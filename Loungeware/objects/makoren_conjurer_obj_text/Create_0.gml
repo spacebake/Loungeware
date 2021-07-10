@@ -1,5 +1,3 @@
-font = font_add("makoren_conjurer_font.ttf", 6, false, false, 32, 128);
-
 first_words = ["sword", "potion", "hammer", "bow"];
 second_words = ["righteous", "explosive", "offensive", "bad", "good"];
 third_words = ["banning", "lounging", "fun", "sadness", "vibes"];
