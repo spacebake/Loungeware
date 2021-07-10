@@ -22,7 +22,6 @@ if (KEY_PRIMARY_PRESSED) {
             win = true;
         } else {
             selectionAmount = random(1);
-            show_debug_message(selectionAmount);
             selectionSpeed *= choose(1, -1);
         }
     } else {

@@ -35,7 +35,7 @@
     "spriteId": {"name":"katsaii_witchwanda_avatar","path":"sprites/katsaii_witchwanda_avatar/katsaii_witchwanda_avatar.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 30.0,
+    "playbackSpeed": 2.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
