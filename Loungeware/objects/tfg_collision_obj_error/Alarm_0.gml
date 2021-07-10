@@ -1,0 +1,1 @@
+error = string_replace(error, "{line_number}", line_num);

@@ -9,7 +9,7 @@
   "bold": false,
   "italic": false,
   "charset": 0,
-  "AntiAlias": 1,
+  "AntiAlias": 0,
   "first": 0,
   "last": 0,
   "sampleText": "abcdef ABCDEF\n0123456789 .,<>\"'&!?\nthe quick brown fox jumps over the lazy dog\nTHE QUICK BROWN FOX JUMPS OVER THE LAZY DOG\nDefault character: ▯ (9647)",
@@ -131,7 +131,7 @@
     "path": "folders/Microgames/tfg_collision.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tfg_collision_fnt_frogtype",
+  "name": "tfg_collision_fnt_frogtype_24",
   "tags": [],
   "resourceType": "GMFont",
 }

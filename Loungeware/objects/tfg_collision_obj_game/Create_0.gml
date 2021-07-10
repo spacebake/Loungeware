@@ -6,6 +6,13 @@ $ = orange
 */
 
 brokens = [
+@"$if$ ($place_meeting$(%x% + #vsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$(#hsp#);
+    }
+    #hsp# = ^0^;
+}
+%x% += #hsp#;",
 @"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
     $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
         %x% += $sign$();
@@ -40,7 +47,7 @@ for (var i = 0; i < array_length(brokens); i++) {
 	}
 }
 
-broken_code = brokens[0];
+broken_code = brokens[irandom(array_length(brokens) - 1)];
 
 //draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
 //line_cols = function(_y) {
