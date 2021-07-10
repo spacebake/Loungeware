@@ -82,9 +82,9 @@ function ___microgame_start(_microgame_propname){
 			sprite_delete(garbo_sprites[| 0]);
 			ds_list_delete(garbo_sprites, 0);
 		}
-
+		var _test_vars = ___global.test_vars;
+		
 		var _metadata = variable_struct_get(___global.microgame_metadata, _microgame_propname);
-
 		microgame_current_metadata = _metadata;
 		microgame_current_name = _microgame_propname;
 		
@@ -173,7 +173,7 @@ function ___microgame_end(){
 	microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
 	microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
 	
-	if (dev_mode && variable_struct_exists(___global.microgame_metadata, ___global.test_vars.microgame_key)){
+	if (dev_mode && ___global.test_vars.loop_game){
 		microgame_next_name = microgame_current_name;
 		microgame_next_metadata = microgame_current_metadata;
 	}
