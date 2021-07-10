@@ -1,6 +1,5 @@
 {
   "resources": [
-<<<<<<< HEAD
     {"id":{"name":"fnt_frogtype","path":"fonts/fnt_frogtype/fnt_frogtype.yy",},"order":0,},
     {"id":{"name":"credits","path":"notes/credits/credits.yy",},"order":1,},
     {"id":{"name":"baku_chug_spr_label","path":"sprites/baku_chug_spr_label/baku_chug_spr_label.yy",},"order":4,},
