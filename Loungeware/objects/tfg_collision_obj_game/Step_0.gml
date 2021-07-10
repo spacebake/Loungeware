@@ -1,4 +1,4 @@
-if (win) {
+if (win == true) {
 	draw_set_font(tfg_collision_fnt_jetbrains);
 	var h = string_height("M");
 	repeat (5) 
@@ -7,6 +7,9 @@ if (win) {
 		created_bug = true;
 		instance_create_layer(room_width / 2, h * cursor.y, "Layer_Above", tfg_collision_obj_dead_bug);
 	}
+} else if (win == false) {
+	if (!instance_exists(tfg_collision_obj_error))
+		tfg_collision_create_error_box(0);
 }
 
 if (!is_undefined(win)) exit;

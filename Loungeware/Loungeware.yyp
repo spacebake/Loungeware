@@ -25,6 +25,7 @@
     {"id":{"name":"___global","path":"objects/___global/___global.yy",},"order":2,},
     {"id":{"name":"space_lander_rm_lander","path":"rooms/space_lander_rm_lander/space_lander_rm_lander.yy",},"order":1,},
     {"id":{"name":"spr_button_dpad","path":"sprites/spr_button_dpad/spr_button_dpad.yy",},"order":2,},
+    {"id":{"name":"tfgCollisionCreateErrorBox","path":"scripts/tfgCollisionCreateErrorBox/tfgCollisionCreateErrorBox.yy",},"order":17,},
     {"id":{"name":"___init","path":"scripts/___init/___init.yy",},"order":1,},
     {"id":{"name":"___sng_microgame_win","path":"sounds/___sng_microgame_win/___sng_microgame_win.yy",},"order":1,},
     {"id":{"name":"tfg_collision_spr_confetti_green","path":"sprites/tfg_collision_spr_confetti_green/tfg_collision_spr_confetti_green.yy",},"order":1,},
