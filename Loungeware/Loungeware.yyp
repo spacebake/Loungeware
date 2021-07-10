@@ -475,6 +475,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/tfg","resourceVersion":"1.0","name":"tfg_collision.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/mimpy","resourceVersion":"1.0","name":"mimpy_dinner_date.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/nahoo","resourceVersion":"1.0","name":"nahoo_carttypebeat.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",
