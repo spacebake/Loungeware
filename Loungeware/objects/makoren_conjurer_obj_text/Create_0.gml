@@ -20,6 +20,9 @@ selected_section_index = 0;
 // arrow animation
 arrow_scale = 1;
 
+// screen flash
+screenflash_alpha = 0;
+
 inputs_disabled = false;
 should_draw = true;
 
@@ -37,9 +40,12 @@ check_if_won = function()
 		microgame_win();
 		inputs_disabled = true;
 		should_draw = false;
+		screenflash_alpha = 1;
 		
 		makoren_conjurer_obj_item.visible = true;
 		makoren_conjurer_obj_item.image_index = selected_indices[0]
+		
+		audio_play_sound(makoren_conjurer_snd_powerup, 100, false);
 		
 		var bg_layer = layer_get_id("Background");
 		var bg_id = layer_background_get_id(bg_layer);

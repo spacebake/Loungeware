@@ -2,6 +2,9 @@ draw_set_font(font);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
+// screen flash
+draw_sprite_ext(makoren_conjurer_spr_screenflash, 0, 0, 0, 1, 1, 0, c_white, screenflash_alpha);
+
 // the text you need to copy
 draw_text_ext_color(x, y, target_text_label, 8, 110, c_white, c_white, c_white, c_white, 1);
 
