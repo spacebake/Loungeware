@@ -7,7 +7,8 @@ function ___init_metadata(){
 		microgame_key: "",
 		loop_game: false,
 		difficulty_level: 1,
-		mute_test: false
+		mute_test: false,
+		skip_transition_animation: false
 	}
 	
 	var env = __try_read_json("config.dev.json");
@@ -18,7 +19,8 @@ function ___init_metadata(){
 			microgame_key: variable_struct_exists(env, "microgame_key") ? env[$"microgame_key"]: "",
 			loop_game: variable_struct_exists(env, "loop_game") ? env[$"loop_game"]: false,
 			difficulty_level: variable_struct_exists(env, "difficulty_level") ? env[$"difficulty_level"]: false,
-			mute_test: variable_struct_exists(env, "mute_test") ? env[$"mute_test"]: false
+			mute_test: variable_struct_exists(env, "mute_test") ? env[$"mute_test"]: false,
+			skip_transition_animation: variable_struct_exists(env, "skip_transition_animation") ? env[$"skip_transition_animation"]: false,
 		}
 	}
 	
