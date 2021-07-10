@@ -54,4 +54,6 @@ Visit *your* repo online and click create pull request. Target the main branch o
 
 ![Click create PullRequest](https://i.imgur.com/ZDijdjB.png)
 
+## Updating Your Game
 
+If you have previously submitted a game and you want to tweak some things, simply make your changes and create another pull request.

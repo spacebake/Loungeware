@@ -2,7 +2,7 @@
     "config_version": 1,
     "game_name": "Conjurer",
     "creator_name": "Makoren",
-    "prompt": "SWAP",
+    "prompt": "MATCH",
     "init_room": "makoren_conjurer_rm_main",
     "view_width": 120,
     "view_height": 80,

@@ -39,3 +39,4 @@ if (KEY_LEFT_PRESSED and !inputs_disabled)
 
 arrow_scale = 0.05 * sin(0.01 * current_time) + 1;
 screenflash_alpha -= 1/30;	// reduce to 0 over 0.5 seconds
+appear_delay -= 1/60;
