@@ -15,4 +15,4 @@ segmentation fault.
 (core dumped)
 #########################";
 
-w = 600;
+w = 700;
