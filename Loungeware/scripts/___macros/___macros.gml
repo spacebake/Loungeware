@@ -19,4 +19,4 @@
 
 #macro SET_TEST_VARS ___global.test_vars = 
 
-
+#macro SHIPPING:show_debug_overlay __noop

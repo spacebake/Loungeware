@@ -112,7 +112,7 @@ function ___microgame_start(_microgame_propname){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_end(){
 	
-
+	show_debug_overlay(false);
 	
 	// update save data
 	if (!dev_mode && !gallery_mode){
@@ -316,4 +316,8 @@ function __try_read_json(filepath){
 	catch (e) {
 		return undefined;
 	}
+}
+
+function __noop(){
+	// noop	
 }
