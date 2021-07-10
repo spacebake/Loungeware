@@ -307,5 +307,32 @@ function array_filter(_array, _callback) {
 	return ret;	
 }
 
+///@func array_to_str(array)
+function array_to_str(_array) {
+	var str = "";
+	for (var i = 0; i < array_length(_array); i++) {
+		str += _array[i];	
+	}
+	return str;
+}
 
+///@func str_ltrim(str)
+//
+//  Returns the given string with whitespace stripped from its start.
+//  Whitespace is defined as SPACE, HT, LF, VT, FF, CR.
+//
+//      str         string of text, string
+//
+/// GMLscripts.com/license
+function str_ltrim(str) {
+    var l,r,o;
+    l = 1;
+    r = string_length(str);
+    repeat (r) {
+        o = ord(string_char_at(str,l));
+        if ((o > 8) && (o < 14) || (o == 32)) l += 1;
+        else break;
+    }
+    return string_copy(str,l,r-l+1);
+}
 

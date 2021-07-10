@@ -9,9 +9,10 @@ main_pad_left = 5;
 error = 
 @"#########################
 ERROR on line {line_num}
+{line_content}
 
 segmentation fault.
 (core dumped)
 #########################";
 
-w = 500;
+w = 600;

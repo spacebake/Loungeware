@@ -8,7 +8,7 @@ if (win == true) {
 		created_bug = true;
 		instance_create_layer(room_width / 2, h * cursor.y, "Layer_Above", tfg_collision_obj_dead_bug);
 	}
-} else if (win == false || TIME_REMAINING < 45) {
+} else if (win == false || TIME_REMAINING < 90) {
 	if (!instance_exists(tfg_collision_obj_error)) {
 		if (win == false) sfx_play(tfg_collision_sfx_lose, 1, false);
 		tfg_collision_create_error_box(get_line());

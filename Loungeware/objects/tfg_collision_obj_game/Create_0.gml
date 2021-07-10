@@ -8,6 +8,7 @@ $ = orange
 randomize();
 
 brokens = [
+// + vsp
 @"$if$ ($place_meeting$(%x% + #vsp#, %y%, ^oWall^)) {
     $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
         %x% += $sign$(#hsp#);
@@ -15,6 +16,7 @@ brokens = [
     #hsp# = ^0^;
 }
 %x% += #hsp#;",
+//nothing in sign
 @"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
     $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
         %x% += $sign$();
@@ -22,6 +24,7 @@ brokens = [
     #hsp# = ^0^;
 }
 %x% += #hsp#;",
+//no + hsp
 @"$if$ ($place_meeting$(%x%, %y%, ^oWall^)) {
     $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
         %x% += $sign$(#hsp#);
@@ -35,7 +38,7 @@ brokens = [
     }
     #hsp# = ^0^;
 }
-%x% += #vsp#;",
+%x% += #vsp#;", //error
 //@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
 //    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
 //        %x% += $sign$(#hsp#);
@@ -154,7 +157,7 @@ check_win = function() {
 }
 get_line = function() {
 	for (var i = 0; i < array_length(broken_code); i++) {
-		if (!array_equals(broken_code[i], correct_code[i]) && cursor.y == i) {
+		if (!array_equals(broken_code[i], correct_code[i])) {
 			return i;
 		}
 	}
