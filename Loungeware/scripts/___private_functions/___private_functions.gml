@@ -82,8 +82,7 @@ function ___microgame_start(_microgame_propname){
 			sprite_delete(garbo_sprites[| 0]);
 			ds_list_delete(garbo_sprites, 0);
 		}
-		var _test_vars = ___global.test_vars;
-		
+
 		var _metadata = variable_struct_get(___global.microgame_metadata, _microgame_propname);
 		microgame_current_metadata = _metadata;
 		microgame_current_name = _microgame_propname;
