@@ -1,10 +1,10 @@
 {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
     "config_version": 1,
-    "game_name": "Action Escape Pt 3",
+    "game_name": "Cheat Seat",
     "creator_name": "net8floz",
-    "prompt": "Jump On The Heli",
-    "init_room": "n8fl_escape3_rm",
+    "prompt": "Mash To Cheat",
+    "init_room": "n8fl_cheat_seat_rm",
     "view_width": 120,
     "view_height": 80,
     "time_seconds": 6,

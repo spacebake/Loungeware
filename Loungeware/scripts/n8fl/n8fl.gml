@@ -696,6 +696,13 @@ function n8fl_FVector(x,y) constructor
 	   return self;
 	}
 	
+	copy = function(){
+		return new n8fl_FVector(
+			_x,
+			_y
+		);
+	}
+	
 	scale_f = function(scalar) {
 	   var a = point_direction(0, 0, _x, _y);
 	   var d = point_distance(0, 0, _x, _y);
