@@ -33,11 +33,17 @@ if (KEY_PRIMARY_PRESSED) {
         if (wandCurrent > 2) {
             microgame_win();
             win = true;
+            audio_emitter_pitch(resultAudio, random_range(0.9, 1));
+            audio_play_sound_on(resultAudio, katsaii_witchwanda_cheer, false, 1);
+        } else {
+            audio_emitter_pitch(resultAudio, random_range(0.8, 1.2));
+            audio_play_sound_on(resultAudio, katsaii_witchwanda_good, false, 1);
         }
         craftAnimation = 0;
     } else {
         microgame_fail();
         microgame_music_stop(0.5);
+        audio_emitter_pitch(resultAudio, random_range(0.8, 1.1));
         audio_play_sound_on(resultAudio, katsaii_witchwanda_bad, false, 1);
         failed = true;
     }
