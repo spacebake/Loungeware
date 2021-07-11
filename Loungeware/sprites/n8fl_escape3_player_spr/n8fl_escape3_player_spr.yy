@@ -9,7 +9,7 @@
   "swfPrecision": 2.525,
   "bbox_left": 5,
   "bbox_right": 9,
-  "bbox_top": 10,
+  "bbox_top": 11,
   "bbox_bottom": 12,
   "HTile": false,
   "VTile": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},"LayerId":{"name":"4814c939-6844-4c5a-84be-25ecd555d868","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"n8fl_escape1_player_spr","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},"resourceVersion":"1.0","name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},"LayerId":{"name":"4814c939-6844-4c5a-84be-25ecd555d868","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"n8fl_escape3_player_spr","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},"resourceVersion":"1.0","name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"n8fl_escape1_player_spr","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},
+    "spriteId": {"name":"n8fl_escape3_player_spr","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"18a51e6c-053b-4f75-9f25-17f26034c333","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"8b7dfc4a-bb11-425e-9932-75239f6aaaad","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"71b0fffa-cc3a-4957-aeed-a1ccacb0a83f","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 6,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"n8fl_escape1_player_spr","path":"sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",},
+    "parent": {"name":"n8fl_escape3_player_spr","path":"sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",},
     "resourceVersion": "1.3",
-    "name": "n8fl_escape1_player_spr",
+    "name": "n8fl_escape3_player_spr",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -70,10 +70,10 @@
   "nineSlice": null,
   "parent": {
     "name": "sprites",
-    "path": "folders/Microgames/net8floz/n8fl_escape1/sprites.yy",
+    "path": "folders/Microgames/net8floz/n8fl_escape3/sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "n8fl_escape1_player_spr",
+  "name": "n8fl_escape3_player_spr",
   "tags": [],
   "resourceType": "GMSprite",
 }
