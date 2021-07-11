@@ -2,9 +2,9 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "space_scooter",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
-		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
+		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		loop_game: true,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 		mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
 							  // You can access the difficutly level in your game using the "DIFFICULTY" var.
@@ -154,46 +154,6 @@ function ___init_metadata(){
 		credits: ["net8floz", "meseta", "space", "mixkit.c"],
 		date_added: "21/07/07",
 	},
-	n8fl_escape2: {
-		// sound fx : https://mixkit.co/free-sound-effects/hit/
-		game_name: "Action Escape Pt 2",
-		creator_name: "net8floz",
-		prompt: "Jump On The Train",
-		init_room: n8fl_escape2_rm,
-		view_width: 120,
-		view_height: 80,
-		time_seconds: 5,
-		music_track: n8fl_escape1_music,
-		music_loops: true,
-		interpolation_on: false,
-		cartridge_col_primary: make_color_rgb(89, 62, 71),
-		cartridge_col_secondary: make_color_rgb(122, 88, 89),
-		cartridge_label: n8fl_escape2_label,
-		default_is_fail: true,
-		supports_difficulty_scaling: false,
-		credits: ["net8floz", "meseta", "space", "mixkit.c"],
-		date_added: "21/07/08",
-	},
-	n8fl_escape3: {
-		// sound fx : https://mixkit.co/free-sound-effects/hit/
-		game_name: "Action Escape Pt 3",
-		creator_name: "net8floz",
-		prompt: "Jump On The Helicopter",
-		init_room: n8fl_escape3_rm,
-		view_width: 120,
-		view_height: 80,
-		time_seconds: 5,
-		music_track: n8fl_escape1_music,
-		music_loops: true,
-		interpolation_on: false,
-		cartridge_col_primary: make_color_rgb(89, 62, 71),
-		cartridge_col_secondary: make_color_rgb(122, 88, 89),
-		cartridge_label: n8fl_escape3_label,
-		default_is_fail: true,
-		supports_difficulty_scaling: false,
-		credits: ["net8floz", "meseta", "space", "mixkit.c"],
-		date_added: "21/07/08",
-	},
 
 	yosi_epic_fire_truck: {
 		game_name: "Epic Fire Truck",
@@ -234,6 +194,47 @@ function ___init_metadata(){
 	//	credits: ["net8floz", "meseta", "space", "mixkit.c"],
 	//	date_added: "21/07/07",
 	//},
+
+	n8fl_escape2: {
+		// sound fx : https://mixkit.co/free-sound-effects/hit/
+		game_name: "Action Escape Pt 2",
+		creator_name: "net8floz",
+		prompt: "Jump On The Train",
+		init_room: n8fl_escape2_rm,
+		view_width: 120,
+		view_height: 80,
+		time_seconds: 5,
+		music_track: n8fl_escape1_music,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_escape2_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["net8floz", "meseta", "space", "mixkit.c"],
+		date_added: "21/07/07",
+	},
+	n8fl_escape3: {
+		// sound fx : https://mixkit.co/free-sound-effects/hit/
+		game_name: "Action Escape Pt 3",
+		creator_name: "net8floz",
+		prompt: "Jump On The Train",
+		init_room: n8fl_escape3_rm,
+		view_width: 120,
+		view_height: 80,
+		time_seconds: 5,
+		music_track: n8fl_escape1_music,
+		music_loops: true,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(89, 62, 71),
+		cartridge_col_secondary: make_color_rgb(122, 88, 89),
+		cartridge_label: n8fl_escape3_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: false,
+		credits: ["net8floz", "meseta", "space", "mixkit.c"],
+		date_added: "21/07/07",
+	},
 	//n8fl_ice_broom: {
 	//	game_name: "Ice Broom",
 	//	creator_name: "net8floz",
@@ -314,23 +315,23 @@ function ___init_metadata(){
 		credits: ["baku"],
 		date_added: "21/08/07",
 	},
-	space_scooter: {
-		game_name: "Rixel Rider",
-		creator_name: "Space",
-		prompt: "BACKFLIP",
-		init_room: space_scoot_rm,
-		view_width: 120,
-		view_height: 80,
+	katsaii_witchwanda: {
+		game_name: "Witch Wanda",
+		creator_name: "Katsaii & Mashmerlow",
+		prompt: "CRAFT",
+		init_room: katsaii_witchwanda_rm,
+		view_width: 1,
+		view_height: 1,
 		time_seconds: 6,
-		music_track: space_scooter_sng_meseta_midnight_drive,
+		music_track: katsaii_witchwanda_mu,
 		music_loops: false,
-		interpolation_on: false,
-		cartridge_col_primary: make_color_rgb(180,92,117),
-		cartridge_col_secondary: make_color_rgb(43,36,56),
-		cartridge_label: space_scooter_spr_label,
+		interpolation_on: true,
+		cartridge_col_primary: make_color_rgb(148, 44, 75),
+		cartridge_col_secondary: make_color_rgb(98, 23, 72),
+		cartridge_label: katsaii_witchwanda_label,
 		default_is_fail: true,
 		supports_difficulty_scaling: true,
-		credits: ["space", "meseta", "freesound.org", "zapsplat.com"],
-		date_added: "21/07/05",
+		credits: ["Katsaii", "Mashmerlow"],
+		date_added: "21/07/09",
 	},
 }}

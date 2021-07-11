@@ -8,5 +8,5 @@ _tick = function(){
 
 set_cart = function(cart){
 	_transform.set_parent(cart.get_transform());
-	_transform.set_local_pos_f(0, -cart.sprite_height+10);
+	_transform.set_local_pos_f(x, -cart.sprite_height+10);
 }

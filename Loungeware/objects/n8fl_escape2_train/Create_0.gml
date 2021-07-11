@@ -1,5 +1,5 @@
 _transform = new n8fl_FTransform(x, y);
-_cart_count = 10;
+_cart_count = 7;
 _speed = 0;
 image_speed = 0;
 _player_landed = false;

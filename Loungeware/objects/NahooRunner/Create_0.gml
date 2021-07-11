@@ -250,6 +250,14 @@ function nahoo_run(m)
 		}
 	}
 	
+	if(playerpos[0] == 0 && playerpos[1] == 0)
+	{
+		//You fucking died!
+		microgame_fail();
+		return nahoo_end(0);
+		nahoo_log("You died!")
+	}
+	
 	if(pdir[0] != 0 || pdir[1] != 0)
 	{
 		var newpos = m[playerpos[0] + pdir[0]][playerpos[1] + pdir[1]];
@@ -332,14 +340,6 @@ function nahoo_run(m)
 		}
 		
 		timer = nahoo_timer();
-	}
-	
-	if(playerpos[0] == 0 && playerpos[1] == 0)
-	{
-		//You fucking died!
-		microgame_fail();
-		return nahoo_end(0);
-		nahoo_log("You died!")
 	}
 	
 	return m;
@@ -596,7 +596,7 @@ function nahoo_font_generate()
 
 function nahoo_timer()
 {
-	return (5 * (5 - DIFFICULTY));
+	return 20; //Magic number? Yes!
 }
 
 nahoo_font_generate();

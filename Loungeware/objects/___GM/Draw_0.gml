@@ -465,7 +465,8 @@ if (state == "game_switch"){
 			prompt_scale = 0;
 			prompt_scale_done = false;
 			wait = 5;
-			prompt_sprite = ___prompt_sprite_create(microgame_next_metadata);
+			prompt = microgame_next_metadata.prompt[irandom(array_length(microgame_next_metadata.prompt) - 1)];
+			prompt_sprite = ___prompt_sprite_create(prompt);
 			
 		}
 	
