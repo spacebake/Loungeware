@@ -1,3 +1,16 @@
+if (craftAnimation != -1) {
+    var last_step = craftAnimation;
+    craftAnimation += craftSpeed;
+    if (craftAnimation > 2) {
+        craftAnimation = -1;
+    } else {
+        if (last_step < 1 && craftAnimation > 1) {
+            selectionAmount = random(1);
+            selectionSpeed *= choose(1, -1);
+        }
+        exit;
+    }
+}
 if (failed || win) {
     exit;
 }
@@ -20,12 +33,12 @@ if (KEY_PRIMARY_PRESSED) {
         if (wandCurrent > 2) {
             microgame_win();
             win = true;
-        } else {
-            selectionAmount = random(1);
-            selectionSpeed *= choose(1, -1);
         }
+        craftAnimation = 0;
     } else {
         microgame_fail();
+        microgame_music_stop(0.5);
+        audio_play_sound_on(resultAudio, katsaii_witchwanda_bad, false, 1);
         failed = true;
     }
 }

@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "katsaii_witchwanda_mu.wav",
-  "duration": 8.91,
+  "soundFile": "katsaii_witchwanda_bad.wav",
+  "duration": 2.619728,
   "parent": {
     "name": "witchwanda",
     "path": "folders/Microgames/katsaii/witchwanda.yy",
   },
   "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_mu",
+  "name": "katsaii_witchwanda_bad",
   "tags": [],
   "resourceType": "GMSound",
 }

@@ -25,4 +25,12 @@ for (var i = 0; i <= 2; i += 1) {
 var angle = lerp(0, 180, selectionAmount);
 var weight = dsin(angle);
 var smooth = (1 - dsin(angle + 90)) / 2;
-draw_sprite_ext(katsaii_witchwanda_cat, 0, lerp(left, right, smooth), bottom, 1, 1, weight * 20 * sign(selectionSpeed), c_white, 1);
+var yoffset = 0;
+if (craftAnimation != -1) {
+    if (craftAnimation < 1) {
+        yoffset = craftAnimation * 300;
+    } else {
+        yoffset = (2 - craftAnimation) * 300;
+    }
+}
+draw_sprite_ext(katsaii_witchwanda_cat, 0, lerp(left, right, smooth), bottom + yoffset, 1, 1, weight * 20 * sign(selectionSpeed), c_white, 1);
