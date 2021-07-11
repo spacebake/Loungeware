@@ -169,6 +169,7 @@
     {"id":{"name":"n8fl_escape2","path":"scripts/n8fl_escape2/n8fl_escape2.yy",},"order":3,},
     {"id":{"name":"katsaii_witchwanda_2","path":"sprites/katsaii_witchwanda_2/katsaii_witchwanda_2.yy",},"order":1,},
     {"id":{"name":"sng_zandy_doctor","path":"sounds/sng_zandy_doctor/sng_zandy_doctor.yy",},"order":3,},
+    {"id":{"name":"katsaii_witchwanda_cat","path":"sprites/katsaii_witchwanda_cat/katsaii_witchwanda_cat.yy",},"order":10,},
     {"id":{"name":"makoren_conjurer_obj_item","path":"objects/makoren_conjurer_obj_item/makoren_conjurer_obj_item.yy",},"order":6,},
     {"id":{"name":"sng_zandy_woodblocks","path":"sounds/sng_zandy_woodblocks/sng_zandy_woodblocks.yy",},"order":4,},
     {"id":{"name":"mimpy_duckdate_snd_love","path":"sounds/mimpy_duckdate_snd_love/mimpy_duckdate_snd_love.yy",},"order":4,},

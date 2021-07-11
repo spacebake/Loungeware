@@ -14,7 +14,15 @@ for (var i = 0; i <= 2; i += 1) {
     var pos_y = bottom - table_height / 2;
     var wiggle = sin(current_time * 0.01 + pos_x);
     var scale = lerp(0.95, 1.05, (wiggle + 1) / 2);
+    if (i == selectionID) {
+        scale *= 2;
+    }
     var img = wandOrder[i];
-    draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale, scale, 2 * wiggle, c_white, 1);
+    if (img >= wandCurrent) {
+        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale, scale, 2 * wiggle, c_white, 1);
+    }
 }
-draw_circle(lerp(left, right, selectionAmount), bottom - 10, 10, false);
+var angle = lerp(0, 180, selectionAmount);
+var weight = dsin(angle);
+var smooth = (1 - dsin(angle + 90)) / 2;
+draw_sprite_ext(katsaii_witchwanda_cat, 0, lerp(left, right, smooth), bottom, 1, 1, weight * 20 * sign(selectionSpeed), c_white, 1);
