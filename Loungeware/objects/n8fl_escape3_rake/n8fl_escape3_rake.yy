@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "n8fl_escape3_heli_spr",
-    "path": "sprites/n8fl_escape3_heli_spr/n8fl_escape3_heli_spr.yy",
+    "name": "n8fl_escape3_rake_spr",
+    "path": "sprites/n8fl_escape3_rake_spr/n8fl_escape3_rake_spr.yy",
   },
   "solid": false,
   "visible": true,
@@ -23,7 +23,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -32,7 +31,7 @@
     "path": "folders/Microgames/net8floz/n8fl_escape3.yy",
   },
   "resourceVersion": "1.0",
-  "name": "n8fl_escape3_heli",
+  "name": "n8fl_escape3_rake",
   "tags": [],
   "resourceType": "GMObject",
 }

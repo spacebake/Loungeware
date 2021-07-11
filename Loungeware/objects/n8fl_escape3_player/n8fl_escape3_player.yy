@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "n8fl_escape1_player_spr",
-    "path": "sprites/n8fl_escape1_player_spr/n8fl_escape1_player_spr.yy",
+    "name": "n8fl_escape3_player_spr",
+    "path": "sprites/n8fl_escape3_player_spr/n8fl_escape3_player_spr.yy",
   },
   "solid": false,
   "visible": true,
