@@ -540,7 +540,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/n8fl","resourceVersion":"1.0","name":"n8fl_cheat_seat.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.300",
+    "IDEVersion": "2.3.2.560",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
