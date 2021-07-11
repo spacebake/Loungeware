@@ -2,8 +2,8 @@ function ___init_metadata(){
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {
-		test_mode_on: false,  // Default false | Whether or not to run the game in test mode
-		microgame_key: "",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+		test_mode_on: true,  // Default false | Whether or not to run the game in test mode
+		microgame_key: "space_scooter",    // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
 		loop_game: false,     // Default false | Whether or not to instantly restart the test microgame when it ends
 		difficulty_level: 1,  // Default 1     | The difficulty level to run the test at (1-5). 
 		mute_test: false,     // Default false | if true, mutes all audio when running the game in test mode
@@ -313,5 +313,24 @@ function ___init_metadata(){
 		supports_difficulty_scaling: true,
 		credits: ["baku"],
 		date_added: "21/08/07",
+	},
+	space_scooter: {
+		game_name: "Rixel Rider",
+		creator_name: "Space",
+		prompt: "BACKFLIP",
+		init_room: space_scoot_rm,
+		view_width: 120,
+		view_height: 80,
+		time_seconds: 6,
+		music_track: space_scooter_sng_meseta_midnight_drive,
+		music_loops: false,
+		interpolation_on: false,
+		cartridge_col_primary: make_color_rgb(180,92,117),
+		cartridge_col_secondary: make_color_rgb(43,36,56),
+		cartridge_label: space_scooter_spr_label,
+		default_is_fail: true,
+		supports_difficulty_scaling: true,
+		credits: ["space", "meseta", "freesound.org", "zapsplat.com"],
+		date_added: "21/07/05",
 	},
 }}

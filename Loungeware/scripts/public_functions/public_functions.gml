@@ -7,10 +7,13 @@
 #macro VIEW_H camera_get_view_height(CAMERA)
 #macro VIEW_X camera_get_view_x(CAMERA)
 #macro VIEW_Y camera_get_view_y(CAMERA)
+
 // returns the numbers of steps remaining on the timer (divide this by 60 to get seconds)
 #macro TIME_REMAINING ___global.time_remaining_read()
 // returns what the max timer value of your microgame, in steps (divide this by 60 to get seconds)
 #macro TIME_MAX ___global.time_max_read()
+
+
 
 //--------------------------------------------------------------------------------------------------------
 // MICROGAME WIN

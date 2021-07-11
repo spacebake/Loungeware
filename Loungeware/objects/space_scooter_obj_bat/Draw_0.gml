@@ -1,0 +1,2 @@
+draw_sprite_ext(space_scooter_spr_bat, image_index, (x), round(y), image_xscale, image_yscale, image_angle, image_blend, 1);
+//draw_sprite_ext(space_scooter_spr_bat_light, image_index, (x), round(y), image_xscale, image_yscale, image_angle, image_blend, light_alpha);
