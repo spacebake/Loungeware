@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "n8fl_escape3_heli_spr",
-    "path": "sprites/n8fl_escape3_heli_spr/n8fl_escape3_heli_spr.yy",
+    "name": "n8fl_escape2_tracks_spr",
+    "path": "sprites/n8fl_escape2_tracks_spr/n8fl_escape2_tracks_spr.yy",
   },
   "solid": false,
   "visible": true,
@@ -32,7 +32,7 @@
     "path": "folders/Microgames/net8floz/n8fl_escape3.yy",
   },
   "resourceVersion": "1.0",
-  "name": "n8fl_escape3_heli",
+  "name": "n8fl_escape3_tracks",
   "tags": [],
   "resourceType": "GMObject",
 }

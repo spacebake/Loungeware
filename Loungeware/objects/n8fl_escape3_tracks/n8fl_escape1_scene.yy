@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "n8fl_escape3_heli_spr",
-    "path": "sprites/n8fl_escape3_heli_spr/n8fl_escape3_heli_spr.yy",
+    "name": "n8fl_escape1_road_spr",
+    "path": "sprites/n8fl_escape1_road_spr/n8fl_escape1_road_spr.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,11 +28,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "n8fl_escape3",
-    "path": "folders/Microgames/net8floz/n8fl_escape3.yy",
+    "name": "n8fl_escape1",
+    "path": "folders/Microgames/net8floz/n8fl_escape1.yy",
   },
   "resourceVersion": "1.0",
-  "name": "n8fl_escape3_heli",
+  "name": "n8fl_escape1_scene",
   "tags": [],
   "resourceType": "GMObject",
 }

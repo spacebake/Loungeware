@@ -7,7 +7,7 @@
     "init_room": "n8fl_escape3_rm",
     "view_width": 120,
     "view_height": 80,
-    "time_seconds": 5,
+    "time_seconds": 6,
     "music_track": "n8fl_escape1_music",
     "music_loops": true,
     "interpolation_on": false,
