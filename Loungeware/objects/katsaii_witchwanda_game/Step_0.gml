@@ -5,7 +5,7 @@ if (craftAnimation != -1) {
         craftAnimation = -1;
     } else {
         if (last_step < 1 && craftAnimation > 1) {
-            selectionAmount = random(1);
+            selectionAmount = random_range(0.2, 0.8);
             selectionSpeed *= choose(1, -1);
         }
         exit;
@@ -14,8 +14,14 @@ if (craftAnimation != -1) {
 if (failed || win) {
     exit;
 }
+if (KEY_LEFT_PRESSED) {
+    selectionSpeed = -abs(selectionSpeed);
+}
+if (KEY_RIGHT_PRESSED) {
+    selectionSpeed = abs(selectionSpeed);
+}
 var next_selection = selectionAmount + selectionSpeed;
-if (next_selection > 1 || next_selection < 0 || KEY_SECONDARY_PRESSED) {
+if (next_selection > 1 || next_selection < 0) {
     selectionSpeed *= -1;
 } else {
     selectionAmount = next_selection;
@@ -27,7 +33,7 @@ if (selectionAmount < 1 / 3) {
 } else {
     selectionID = 1;
 }
-if (KEY_PRIMARY_PRESSED) {
+if (KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
     if (wandCurrent == wandOrder[selectionID]) {
         wandCurrent += 1;
         if (wandCurrent > 2) {
@@ -41,10 +47,15 @@ if (KEY_PRIMARY_PRESSED) {
         }
         craftAnimation = 0;
     } else {
-        microgame_fail();
-        microgame_music_stop(0.5);
-        audio_emitter_pitch(resultAudio, random_range(0.8, 1.1));
-        audio_play_sound_on(resultAudio, katsaii_witchwanda_bad, false, 1);
         failed = true;
     }
+}
+if (TIME_REMAINING < 2 * game_get_speed(gamespeed_fps)) {
+    failed = true;
+}
+if (failed) {
+    microgame_fail();
+    microgame_music_stop(0.5);
+    audio_emitter_pitch(resultAudio, random_range(0.8, 1.1));
+    audio_play_sound_on(resultAudio, katsaii_witchwanda_bad, false, 1);
 }
