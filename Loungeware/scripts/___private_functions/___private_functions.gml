@@ -112,7 +112,7 @@ function ___microgame_start(_microgame_propname){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_end(){
 	
-
+	show_debug_overlay(false);
 	
 	// update save data
 	if (!dev_mode && !gallery_mode){
@@ -277,17 +277,6 @@ function ___gamepad_check_button_multiple(device,buttons) {
 	return false;
 }
 
-function map_to_struct(map){
-    var struct = {};
-    var key = ds_map_find_first(map);
-    while(key != undefined){
-        struct[$ key] = map[? key];
-        key = ds_map_find_next(map, key);    
-    }
-        
-    return struct;
-}
-
 function __try_read_json(filepath){
 	show_debug_message("INFO: reading json file " + filepath);	
 	
@@ -295,30 +284,44 @@ function __try_read_json(filepath){
 		show_debug_message("WARNING: Could not find file " + filepath);	
 		return undefined;
 	}
-	
 	var file = file_text_open_read(filepath);
-	var str = "";
-	while(file_text_eof(file) == false){
-		var line =  file_text_readln(file);
-		var comment_count = 0;
-		for(var i=1; i < string_length(line) + 1; i++){
-			var char = string_char_at(line, i);
-			if(char == "/"){
-				comment_count++;	
-				if(comment_count == 2){
-					break;	
+	if(file == -1){
+		show_debug_message("ERROR: failed to open filepath " + string(filepath));
+		return;
+	}
+	try {
+		var str = "";
+		while(file_text_eof(file) == false){
+			var line =  file_text_readln(file);
+			var comment_count = 0;
+			for(var i=1; i < string_length(line) + 1; i++){
+				var char = string_char_at(line, i);
+				if(char == "/"){
+					comment_count++;	
+					if(comment_count == 2){
+						break;	
+					}
+				}else{
+					comment_count = 0;
+					str = str + char;
 				}
-			}else{
-				comment_count = 0;
-				str = str + char;
+			}
+		
+			if(comment_count == 2){
+				continue;	
 			}
 		}
-		
-		if(comment_count == 2){
-			continue;	
-		}
-	}
 	
-	file_text_close(file);
-	return json_decode(str);
+		file_text_close(file);
+		return json_parse(str);
+	}
+	catch (e) {
+		show_debug_message("ERROR: " + string(e));
+		file_text_close(file);
+		return undefined;
+	}
+}
+
+function ___noop(){
+	// noop	
 }

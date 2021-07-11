@@ -7,20 +7,21 @@ function ___init_metadata(){
 		microgame_key: "",
 		loop_game: false,
 		difficulty_level: 1,
-		mute_test: false
+		mute_test: false,
+		skip_transition_animation: false
 	}
 	
 	var env = __try_read_json("config.dev.json");
 	if(env != undefined){
 		show_debug_message("INFO: Loading dev env");
 		SET_TEST_VARS { 
-			test_mode_on: ds_map_exists(env, "test_mode_on") ? env[?"test_mode_on"]: false,
-			microgame_key: ds_map_exists(env, "microgame_key") ? env[?"microgame_key"]: "",
-			loop_game: ds_map_exists(env, "loop_game") ? env[?"loop_game"]: false,
-			difficulty_level: ds_map_exists(env, "difficulty_level") ? env[?"difficulty_level"]: false,
-			mute_test: ds_map_exists(env, "mute_test") ? env[?"mute_test"]: false
+			test_mode_on: variable_struct_exists(env, "test_mode_on") ? env[$"test_mode_on"]: false,
+			microgame_key: variable_struct_exists(env, "microgame_key") ? env[$"microgame_key"]: "",
+			loop_game: variable_struct_exists(env, "loop_game") ? env[$"loop_game"]: false,
+			difficulty_level: variable_struct_exists(env, "difficulty_level") ? env[$"difficulty_level"]: false,
+			mute_test: variable_struct_exists(env, "mute_test") ? env[$"mute_test"]: false,
+			skip_transition_animation: variable_struct_exists(env, "skip_transition_animation") ? env[$"skip_transition_animation"]: false,
 		}
-		ds_map_destroy(env);
 	}
 	
 	var rules =  new LW_FGameLoaderRuleBuilder()
@@ -32,6 +33,10 @@ function ___init_metadata(){
 		.add_rule(new LW_FGameLoaderStringTransformer("creator_name", undefined))
 		.add_rule(new LW_FGameLoaderStringArrayTransformer("prompt", undefined))
 		.add_rule(new LW_FGameLoaderRoomTransformer("init_room", undefined))
+		.add_rule(
+			new LW_FGameLoaderBoolTransformer("is_enabled", true)
+				.set_nullable()
+		)
 		.add_rule(
 			new LW_FGameLoaderNumberTransformer("view_width", -1)
 				.set_nullable()
