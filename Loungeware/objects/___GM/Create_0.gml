@@ -339,8 +339,7 @@ draw_microgame = function(){
 	var _surf_w_target = canvas_w * window_scale;
 	var _surf_h_target = canvas_h * window_scale;
 
-	if (window_scale != prev_window_scale && window_scale != 0)
-	|| (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target) {
+	if (window_scale > 0) && ((window_scale != prev_window_scale) || (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target)) {
 		surface_resize(application_surface, _surf_w_target , _surf_h_target);
 	}
 
