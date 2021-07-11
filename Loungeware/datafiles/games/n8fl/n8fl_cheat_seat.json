@@ -17,5 +17,6 @@
     "default_is_fail": true,
     "supports_difficulty_scaling": false,
     "credits": ["net8floz", "meseta", "space", "mixkit.c"],
-    "date_added": "21/07/07"
+    "date_added": "21/07/07",
+    "is_enabled": false
 }
