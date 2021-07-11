@@ -7,7 +7,7 @@ var midy = mean(top, bottom);
 var amounts = [0, 0.5, 1];
 var offsets = [0, -0.5, -1];
 var table_height = 150;
-draw_rectangle_colour(left, bottom - table_height, right, bottom, c_gbbacklight, c_gbbacklight, c_gbbacklight, c_gbbacklight, false);
+//draw_rectangle_colour(left, bottom - table_height, right, bottom, c_gbbacklight, c_gbbacklight, c_gbbacklight, c_gbbacklight, false);
 for (var i = 0; i <= 2; i += 1) {
     var amount = lerp(0.15, 0.85, amounts[i]);
     var pos_x = lerp(left, right, amount);
