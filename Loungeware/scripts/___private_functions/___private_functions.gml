@@ -271,8 +271,14 @@ function ___reset_draw_vars(){
 	draw_set_alpha(1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	if (surface_get_target() != -1) surface_reset_target();
+	shader_reset();
+	matrix_set(matrix_world, matrix_build_identity());
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function ___gamepad_check_button_multiple(device,buttons) {
 	for (var i=0;i<array_length(buttons);i++) {
 		if (gamepad_button_check(device,buttons[i])) return true;	
@@ -280,6 +286,9 @@ function ___gamepad_check_button_multiple(device,buttons) {
 	return false;
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function __try_read_json(filepath){
 	show_debug_message("INFO: reading json file " + filepath);	
 	
@@ -325,6 +334,9 @@ function __try_read_json(filepath){
 	}
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function ___noop(){
 	// noop	
 }

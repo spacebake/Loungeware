@@ -17,8 +17,8 @@ I also reccomend using your game name in the prefix if you plan to create
 more than 1 microgame, so your assets should be named something like this:
 "sam_cookiedunk_spr_cookie", "sam_cookiedunk_obj_glass", "sam_cookiedunk_rm_initroom"
 
-Note: They do not need to be snake case, you can use camel case or whatever you 
-want inside your folder, as long as it is prefixed.
+Note: They do not need to be snake case, you can use camel case or whatever standards you want 
+inside your folder. It's yours, go nuts.
 
 -----------------------------------------------------------------------------------------------
 2. Create a new room inside your microgame folder
@@ -27,40 +27,24 @@ This will be your initial room that will be loaded when your microgame is launch
 Think of it like your home room in a normal project.
 
 ----------------------------------------------------------------------------------------------- 
-3. Create the metadata for your game
+3. Create a config file for your game
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 You need to fill out a little bit of info for your microgame so that loungeware 
 knows how to handle it.
-
-Go into the microgame_metadata script in the root folder of the asset browser.
-You will see a list of structs, the first of which is a commented out template struct.
-Copy that template and add it to the bottom of the list, replace the placeholder data 
-with the data for your game. You can always go back and change it later if you don't
-know all of the info yet.
-
-For information on what these properties actually mean, check the "_microgame_metadata_help" 
-script in the HELP DOCS folder
+This step requries creating a file outside of gamemaker, in the project files.
+Full instructions on how to do this can be found here:
+https://github.com/spacebake/Loungeware/wiki/Microgame-Config 
 
 ----------------------------------------------------------------------------------------------- 
 4. Turn on test mode
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-Now we're going to turn on test mode. When this is active, your game will launch when you run
-the project. It will also enable a few debug features (like pressing "R" to restart the game).
+Now we're going to turn on test mode. When this is active, your game will auto-launch whenever you run
+the project. It will also enable a few debug features (like pressing "R" to restart the game.
+And pressing "T" to view a preview of your game's cartridge).
 
-At the top of the "microgame_metadata" script, where you filled out your game info, you will
-see a lone struct called "SET_TEST_VARS" with 3 properties.
-
-- Set "test_mode_on" to true
-This activates test mode, as you might imagine
-
-- Set "microgame_key" to your microgame's struct key (as a string).
-This tells loungeware which game to load on run.
-
-- Set "loop_game" to either true or false (if true, your game will instantly restart when it ends, 
-if false it will play the transition animation and go to the next microgame)
-
-- Set "difficulty_level" to 1. 
-This is for testing multiple difficulty levels. You don't need to worry about this for now.
+This step also requires creating a file.
+Full info here:
+https://github.com/spacebake/Loungeware/wiki/Dev-Config
 
 ----------------------------------------------------------------------------------------------- 
 5. Run the game.
@@ -78,7 +62,7 @@ Here are a few debug tips:
 6. Building a game
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 You're on your own for this. Make whatever you want, but there are a few rules that need 
-to be followed. Check out the microgame_rules file in the _HELP_DOCS folder for more info
+to be followed. Check out the microgame_rules file in the HELP_DOCS folder for more info
 
 Use the premade input macros to get player inputs, they can be found in the 
 "public_functions" script.

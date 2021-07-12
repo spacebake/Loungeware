@@ -34,7 +34,7 @@ microgame_timer_max = -1;
 microgame_won = false;
 microgame_time_finished = 100000;
 microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
-microgame_unplayed_list = ds_list_create(); //___ds_list_create_builtin();
+microgame_unplayed_list = ds_list_create();
 microgame_populate_unplayed_list();
 microgame_music = noone;
 microgame_music_auto_stopped = false;
