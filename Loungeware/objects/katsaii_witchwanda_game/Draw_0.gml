@@ -34,3 +34,11 @@ if (craftAnimation != -1) {
     }
 }
 draw_sprite_ext(katsaii_witchwanda_cat, 0, lerp(left, right, smooth), bottom + yoffset, 1, 1, weight * 20 * sign(selectionSpeed), c_white, 1);
+if (failed || win) {
+    var fg = failed ? katsaii_witchwanda_finish_bad : katsaii_witchwanda_finish_bad;
+    var bg = failed ? katsaii_witchwanda_finish_bad_bg : katsaii_witchwanda_finish_bad_bg;
+    var wiggle1 = sin(current_time * 0.01);
+    var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
+    draw_sprite_ext(bg, 0, midx, midy, lerp(1.4, 2, (wiggle2 + 1) / 2), 1.5, 5 * wiggle1, c_white, resultTimer);
+    draw_sprite_ext(fg, 0, midx + lerp(-600, 0, resultTimer * resultTimer), midy, 1.1, 1.1 + 0.05 * wiggle2, 2 * -wiggle1, c_white, resultTimer);
+}

@@ -12,6 +12,12 @@ if (craftAnimation != -1) {
     }
 }
 if (failed || win) {
+    if (resultTimer < 1) {
+        resultTimer += resultSpeed;
+        if (resultTimer > 1) {
+            resultTimer = 1;
+        }
+    }
     exit;
 }
 if (KEY_LEFT_PRESSED) {
