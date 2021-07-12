@@ -11,15 +11,25 @@ var table_height = 150;
 for (var i = 0; i <= 2; i += 1) {
     var amount = lerp(0.15, 0.85, amounts[i]);
     var pos_x = lerp(left, right, amount);
-    var pos_y = bottom - table_height / 2;
+    var pos_y = bottom - table_height * 1.1;
+    var pos_y_pentagram = bottom - table_height * 0.5;
     var wiggle = sin(current_time * 0.01 + pos_x);
     var scale = lerp(0.95, 1.05, (wiggle + 1) / 2);
+    var scale2 = scale;
     if (i == selectionID) {
-        scale *= 2;
+        scale2 *= 1.25;
     }
     var img = wandOrder[i];
+    if (wandCurrent == img) {
+        var fade = craftAnimation == -1 ? 1 : abs(lerp(-1, 0, craftAnimation));
+        gpu_set_blendmode(bm_add);
+        matrix_set(matrix_world, matrix_build(pos_x, pos_y_pentagram, 0, 0, 0, 0, 1, 0.5, 1));
+        draw_sprite_ext(katsaii_witchwanda_pentagram, 0, 0, 0, 0.5 * scale, 0.5 * scale, current_time * 0.1, c_white, fade * 0.75);
+        matrix_set(matrix_world, matrix_build_identity());
+        gpu_set_blendmode(bm_normal);
+    }
     if (img >= wandCurrent) {
-        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale, scale, 2 * wiggle, c_white, 1);
+        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 1);
     }
 }
 var angle = lerp(0, 180, selectionAmount);
