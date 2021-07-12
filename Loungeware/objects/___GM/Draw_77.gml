@@ -7,6 +7,7 @@ window_scale = _min / WINDOW_BASE_SIZE;
 // -----------------------------------------------------------
 if (state == "playing_microgame"){
 	
+	gpu_set_texfilter(false);
 	create_master_surface();
 	draw_gameboy_overlay();
 	draw_microgame();
@@ -35,7 +36,7 @@ if (state == "playing_microgame"){
 	}
 
 	draw_master_surface();
-	
+	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(true);
 	
 }
 

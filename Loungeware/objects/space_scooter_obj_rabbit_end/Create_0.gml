@@ -1,0 +1,12 @@
+x = space_scooter_obj_scooter.x;
+y = space_scooter_obj_scooter.y-11;
+vsp = -2;
+grav = 0.1;
+grav_max = 5;
+state = 0;
+oy =  y;
+steps = 0;
+max_steps = 38;
+x_offset = 0;
+cam_speed = 0;
+finished = false;

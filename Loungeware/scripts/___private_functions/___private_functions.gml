@@ -74,6 +74,8 @@ function ___microgame_load_fake(){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_start(_microgame_propname){
 	
+	
+	
 	// init new microgame
 	with(___GM){
 		
@@ -263,6 +265,7 @@ function ___center_window(){
 // RESET DRAW VARS
 // ------------------------------------------------------------------------------------------
 function ___reset_draw_vars(){
+	gpu_set_texfilter(false);
 	draw_set_color(c_white);
 	draw_set_font(fnt_frogtype);
 	draw_set_alpha(1);

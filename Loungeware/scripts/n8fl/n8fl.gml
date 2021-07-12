@@ -22,6 +22,46 @@ function n8fl_execute_next_once(handler){
 	global.n8fl_ticked.once(handler);	
 }
 
+function n8fl_raycast_v(start_pos, end_pos, object_index){
+	return collision_line(
+		start_pos._x,
+		start_pos._y,
+		end_pos._x,
+		end_pos._y,
+		object_index,
+		false,
+		true
+	);
+}
+
+function n8fl_FSM() constructor 
+{
+	_current_state = undefined;
+	
+	tick = function(){
+		if(_current_state){
+			_current_state._on_tick();	
+		}
+	}
+	
+	set_state = function(state){
+		if(_current_state != undefined){
+			_current_state._on_exit();	
+		}
+		_current_state = state;
+		if(_current_state != undefined){
+			_current_state._on_enter();	
+		}
+	}
+}
+
+function n8fl_FSMState() constructor 
+{
+	_on_tick = function(){}
+	_on_enter = function(){}
+	_on_exit = function(){}
+}
+
 
 function n8fl_FDelegate(handler) constructor
 {
@@ -358,6 +398,10 @@ function n8fl_FTween(start, dest, duration) constructor
 	is_playing = function(){
 		return _is_started && _is_completed == false;	
 	}
+	
+	is_completed = function(){
+		return _is_completed;	
+	}
 }
 
 function n8fl_FOptional() constructor 
@@ -445,7 +489,9 @@ function n8fl_FTransform(x, y) constructor
 	set_y = function(y){ set_pos_f(get_pos().get_x(), y);}
 	set_pos_f = function(x, y){
 		var world_pos = new n8fl_FVector(x, y);	
-		world_pos.subtract_v(get_parent_pos());
+		//world_pos.subtract_v(get_parent_pos());
+		world_pos._x -= get_parent_pos()._x;// - world_pos._x;
+		world_pos._y -= get_parent_pos()._y;// - world_pos._y;
 		_x = world_pos.get_x();
 		_y = world_pos.get_y();
 	}	
@@ -648,6 +694,13 @@ function n8fl_FVector(x,y) constructor
 	   _x += x;
 	   _y += y;
 	   return self;
+	}
+	
+	copy = function(){
+		return new n8fl_FVector(
+			_x,
+			_y
+		);
 	}
 	
 	scale_f = function(scalar) {
