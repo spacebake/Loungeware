@@ -37,10 +37,12 @@ draw_sprite_ext(katsaii_witchwanda_cat, 0, lerp(left, right, smooth), bottom + y
 if (failed || win) {
     var fg = failed ? katsaii_witchwanda_finish_bad : katsaii_witchwanda_finish_good;
     var bg = failed ? katsaii_witchwanda_finish_bad_bg : katsaii_witchwanda_finish_good_bg;
+    var msg = failed ? katsaii_witchwanda_finish_bad_msg : katsaii_witchwanda_finish_good_msg;
     var scale_multiplier = failed ? 1.4 : 1.1;
     var scale_limit = failed ? 1.4 : 1.1;
     var wiggle1 = sin(current_time * 0.01);
     var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
     draw_sprite_ext(bg, 0, midx, midy, scale_multiplier * lerp(1, scale_limit, (wiggle2 + 1) / 2), scale_multiplier, 5 * wiggle1, c_white, resultTimer);
     draw_sprite_ext(fg, 0, midx + lerp(-600, 0, resultTimer * resultTimer), midy, 1.1, 1.1 + 0.05 * wiggle2, 2 * -wiggle1, c_white, resultTimer);
+    draw_sprite_ext(msg, 0, midx, mean(midy, bottom) + lerp(200, 0, resultTimer * resultTimer), 1 + 0.05 * wiggle2, 1 + 0.05 * wiggle1, 2 * -wiggle2, c_white, resultTimer);
 }
