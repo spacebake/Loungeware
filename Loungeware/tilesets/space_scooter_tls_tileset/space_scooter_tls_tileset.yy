@@ -1,5 +1,4 @@
 {
-  "name": "space_scooter_tls_tileset",
   "spriteId": {
     "name": "space_scooter_spr_tileset",
     "path": "sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",
@@ -59,6 +58,7 @@
     "path": "folders/Microgames/Space/scooter/sprites.yy",
   },
   "resourceVersion": "1.0",
+  "name": "space_scooter_tls_tileset",
   "tags": [],
   "resourceType": "GMTileSet",
 }

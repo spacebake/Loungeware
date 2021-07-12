@@ -582,6 +582,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/n8fl","resourceVersion":"1.0","name":"n8fl_cheat_seat.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_scooter.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",
