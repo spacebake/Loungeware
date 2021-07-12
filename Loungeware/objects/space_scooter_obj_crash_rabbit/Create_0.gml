@@ -1,0 +1,9 @@
+hsp = 1;
+vsp = -4;
+grav = 0.2;
+grav_max = 5;
+state = 0;
+x = round(x);
+y = round(y);
+image_speed = 0;
+while(place_meeting(x, y, space_scooter_obj_block)) y -= 1;

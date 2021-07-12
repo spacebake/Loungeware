@@ -334,7 +334,7 @@ draw_timerbar = function(){
 // DRAW GAME VIEW INTO CANVAS AREA
 //--------------------------------------------------------------------------------------------------------
 draw_microgame = function(){
-	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(true);
+
 
 	var _surf_w_target = canvas_w * window_scale;
 	var _surf_h_target = canvas_h * window_scale;
@@ -354,12 +354,8 @@ draw_microgame = function(){
 	);
 	surface_reset_target();
 	
-	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(false);
-	
 	// set gui size (sets the gui scale to fit the gameboy
 	var _gui_scale = (canvas_w * window_scale) / VIEW_W;
-	var _gui_w = canvas_w;
-	var _gui_h = canvas_h;
 	var _gui_x = (canvas_x * window_scale) + ((window_get_width() - (WINDOW_BASE_SIZE * window_scale))/2);
 	var _gui_y = (canvas_y * window_scale) + ((window_get_height() - (WINDOW_BASE_SIZE * window_scale))/2);
 	display_set_gui_maximise(_gui_scale, _gui_scale, _gui_x, _gui_y);
