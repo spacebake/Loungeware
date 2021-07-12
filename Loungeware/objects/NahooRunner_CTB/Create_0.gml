@@ -41,7 +41,7 @@
 	
 */
 
-show_debug_overlay(1)
+randomise()
 
 nahoo_surf = surface_create(Nahoo_WIDTH * 8, Nahoo_HEIGHT * 8);
 nahoo_complete = 0;
@@ -62,51 +62,111 @@ inputs_held = [0, 0, 0, 0];
 nahoo_tracks =
 {
 	track_base:
-	[
-		[0, 0, 0, 0], //1
-		[0, 0, 0, 0],
-		[0, 0, 0, 0],
-		[0, 0, 0, 0],
-		[0, 0, 0, 0],
-		[0, 0, 1, 0],
-		[0, 0, 0, 0],
-		[1, 0, 0, 0],
+	{
+		song: Nahoo_mMesetaTypeBeat,
+		trk:
+		[
+			[0, 0, 0, 0], //1
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[1, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 1, 0],
+			   	
+			[0, 0, 0, 1], //2
+			[0, 0, 0, 1],
+			[0, 0, 0, 1],
+			[1, 0, 0, 0],
+			[0, 1, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 1, 0],
+			[0, 0, 1, 0],
+			   	
+			[1, 0, 0, 0], //3
+			[0, 1, 0, 0],
+			[0, 0, 0, 1],
+			[1, 0, 0, 0],
+			[0, 1, 0, 0],
+			[0, 0, 0, 1],
+			[1, 0, 0, 0],
+			[0, 1, 0, 0],
+			   	
+			[1, 0, 0, 0], //4
+			[0, 1, 0, 0],
+			[0, 0, 0, 1],
+			[1, 0, 0, 0],
+			[0, 1, 0, 0],
+			[0, 0, 0, 1],
+			[0, 1, 0, 0],
+			[1, 0, 0, 0],
+			   	
+			[0, 0, 1, 0], //5
+			[0, 0, 1, 0],
+			[0, 0, 1, 0],
+			[0, 0, 1, 0]
+		]
+	},
 	
-		[0, 0, 0, 1], //2
-		[0, 0, 0, 1],
-		[0, 0, 0, 1],
-		[0, 0, 1, 0],
-		[0, 1, 0, 0],
-		[1, 0, 0, 0],
-		[1, 0, 0, 0],
-		[1, 0, 0, 0],
+	track_vw:
+	{
+		song: Nahoo_mMesetaTypeWave,
+		trk:
+		[
+			//Left down, up right
+			[0, 0, 0, 0], //1
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
+			[0, 0, 0, 0],
 	
-		[0, 0, 1, 0], //3
-		[0, 1, 0, 0],
-		[0, 0, 0, 1],
-		[0, 0, 1, 0],
-		[0, 1, 0, 0],
-		[0, 0, 0, 1],
-		[0, 0, 1, 0],
-		[0, 1, 0, 0],
+			[0, 0, 0, 0], //2
+			[0, 0, 0, 0],
+			[0, 1, 0, 0],
+			[0, 1, 0, 0],
+			[0, 1, 0, 0],
+			[1, 0, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 0, 0],
 	
-		[0, 0, 1, 0], //4
-		[0, 1, 0, 0],
-		[0, 0, 0, 1],
-		[0, 0, 1, 0],
-		[0, 1, 0, 0],
-		[0, 0, 0, 1],
-		[0, 1, 0, 0],
-		[0, 0, 1, 0],
+			[0, 1, 0, 0], //3
+			[0, 1, 0, 0],
+			[0, 1, 0, 0],
+			[0, 1, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 0, 1],
+			[0, 1, 0, 0],
+			[1, 0, 0, 0],
 	
-		[1, 0, 0, 0], //5
-		[1, 0, 0, 0],
-		[1, 0, 0, 0],
-		[1, 0, 0, 0]
-	]
+			[0, 1, 0, 0], //4
+			[0, 1, 0, 0],
+			[0, 1, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 0, 1],
+			[1, 0, 0, 0],
+			[1, 0, 0, 1],
+			[0, 0, 0, 0],
+	
+			[0, 0, 1, 0], //5
+			[0, 0, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 0, 0],
+			[0, 0, 1, 0],
+			[0, 0, 0, 1],
+			[0, 0, 1, 0],
+			[0, 1, 0, 0]
+		]
+	}
 }
 
-nahoo_track = nahoo_tracks.track_base;
+selected = choose(nahoo_tracks.track_base, nahoo_tracks.track_vw);
+nahoo_track = selected.trk;
+
+audio_play_sound(selected.song, 1, 0);
 
 
 interval = room_speed / 4;
@@ -160,17 +220,17 @@ function nahoo_run_c()
 	{
 		inputs = 
 		[
-			KEY_UP_PRESSED,
-			KEY_DOWN_PRESSED,
 			KEY_LEFT_PRESSED,
+			KEY_DOWN_PRESSED,
+			KEY_UP_PRESSED,
 			KEY_RIGHT_PRESSED
 		];
 		
 		inputs_held = 
 		[
-			KEY_UP,
-			KEY_DOWN,
 			KEY_LEFT,
+			KEY_DOWN,
+			KEY_UP,
 			KEY_RIGHT
 		];
 	
@@ -228,7 +288,7 @@ function nahoo_draw_c()
 	
 	draw_set_colour(nahoo_atlas_c[3])
 	draw_line_width(padding + 16, 0, padding + 16, surfdom[1] * 2, 4);	
-	draw_sprite_ext(Nahoo_sArrow, 0, padding + 16, fy, 5, 5, 0, c_white, 1);
+	draw_sprite_ext(Nahoo_sArrow, 2, padding + 16, fy, 5, 5, 0, c_white, 1);
 	draw_sprite_ext(Nahoo_sFace, 4 - expression, padding + 16, fy, 5, 5, 0, nahoo_atlas_c[3], 1);
 			
 	for(var i = 0; i < array_length(nahoo_track[0]); i++)
@@ -242,6 +302,10 @@ function nahoo_draw_c()
 			draw_line_width(lx * 2, 0, lx * 2, surfdom[1] * 2, 4);	
 			
 			draw_sprite_ext(Nahoo_sArrow, i + 4, lx * 2, 26 * 2, s, s, 0, c_white, 1);
+			
+			var yup = 0;
+			if(access < array_length(nahoo_track)) yup = nahoo_track[access][i];
+			draw_sprite_ext(Nahoo_sGotit, min(yup + 1, 1), lx * 2, surfdom[1] * 2 - 26, 2, 2, 0, c_white, 1);
 	}
 	
 	
@@ -261,4 +325,5 @@ function nahoo_draw_c()
 			}
 		}
 	}
+	
 }
