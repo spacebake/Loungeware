@@ -50,7 +50,6 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 	var insert = 0;
 	var line = 0;
 	if (is_undefined(_OPT_letter_spacing)) _OPT_letter_spacing = 0;
-	log(str, line, _OPT_letter_spacing)
 	var current_line_width = ___DTA_return_line_width(str, line, _OPT_letter_spacing) * scale;
 	var letter_width = (string_width("M") + _OPT_letter_spacing)*scale;
 	
@@ -164,7 +163,7 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 		if (!is_undefined(___global._DTA_FONT_Y_OFFSET_MAP[? draw_get_font()])){
 			y_mod +=___global._DTA_FONT_Y_OFFSET_MAP[? draw_get_font()];
 		} else {
-			log("no Y offset defined for this font");
+			//log("no Y offset defined for this font");
 		}
 		
 		//apply last letter mod
