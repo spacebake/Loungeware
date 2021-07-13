@@ -18,7 +18,7 @@
 #macro TIME_MAX_SECONDS (TIME_MAX / game_get_speed(gamespeed_fps))
 
 // returns the prompt displayed before the microgame starts (useful if your microgame has multiple prompts)
-#macro PROMPT ___GM.prompt;
+#macro PROMPT ___MG_MNGR.prompt;
 
 
 
@@ -32,9 +32,9 @@
 // consider playing a win animation for the remainder of the timer (see warioware for ideas)
 //--------------------------------------------------------------------------------------------------------
 function microgame_win(){
-	if (!___GM.microgame_won){
-		___GM.microgame_time_finished =  ___GM.microgame_timer;
-		___GM.microgame_won = true;
+	if (!___MG_MNGR.microgame_won){
+		___MG_MNGR.microgame_time_finished =  ___MG_MNGR.microgame_timer;
+		___MG_MNGR.microgame_won = true;
 	}
 }
 
@@ -46,9 +46,9 @@ function microgame_win(){
 // consider playing a fail animation for the remainder of the timer (see warioware for ideas)
 //--------------------------------------------------------------------------------------------------------
 function microgame_fail(){
-	if (___GM.microgame_won){
-		___GM.microgame_time_finished =  ___GM.microgame_timer_max;
-		___GM.microgame_won = false;
+	if (___MG_MNGR.microgame_won){
+		___MG_MNGR.microgame_time_finished =  ___MG_MNGR.microgame_timer_max;
+		___MG_MNGR.microgame_won = false;
 	}
 }
 
@@ -64,8 +64,8 @@ to make sure the timer change isn't visible to the player*/
 /// @function                              microgame_set_timer_max(_new_time_in_seconds);
 /// @param {int}  _new_time_in_seconds     new value for timer, in seconds.
 function microgame_set_timer_max(_new_time_in_seconds){
-	___GM.microgame_timer = _new_time_in_seconds * 60;
-	___GM.microgame_timer_max = _new_time_in_seconds * 60;
+	___MG_MNGR.microgame_timer = _new_time_in_seconds * 60;
+	___MG_MNGR.microgame_timer_max = _new_time_in_seconds * 60;
 }
 
 

@@ -4,11 +4,7 @@ dev_mode = false;
 dev_mode_loop_game = false;
 gallery_mode = false;
 
-// game window
-window_set_size(WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-___center_window();
-window_set_min_width(WINDOW_BASE_SIZE);
-window_set_min_height(WINDOW_BASE_SIZE);
+
 window_scale = 0;
 prev_window_scale = window_scale;
 
@@ -133,7 +129,7 @@ if (_test_vars.test_mode_on){
 
 if (!dev_mode){
 
-	show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-space");
+	//show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-space");
 	___microgame_load_fake();
 	room_goto(___rm_restroom);
 	
@@ -295,8 +291,8 @@ draw_timerbar = function(){
 	var _x2 = 255;
 	var _y2 = _y1 + _seg_h;
 	
-	var _time = ___GM.microgame_timer;
-	var _time_max = ___GM.microgame_timer_max;
+	var _time = ___MG_MNGR.microgame_timer;
+	var _time_max = ___MG_MNGR.microgame_timer_max;
 	if (_time == -1) return;
 	var _secs = ceil(_time/60);
 	var _secs_max = ceil(_time_max/60);

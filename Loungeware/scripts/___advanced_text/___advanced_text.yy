@@ -6,7 +6,7 @@
     "path": "folders/__Base Game (keep out)/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "__LW_FGameLoader",
+  "name": "___advanced_text",
   "tags": [],
   "resourceType": "GMScript",
 }

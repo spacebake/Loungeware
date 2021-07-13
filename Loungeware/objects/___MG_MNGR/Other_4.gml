@@ -19,7 +19,7 @@ if (room == microgame_current_metadata.init_room){
 	___reset_draw_vars()
 	if (microgame_current_metadata.default_is_fail == false){
 		microgame_win();
-		___GM.microgame_time_finished =  ___GM.microgame_timer_max;
+		___MG_MNGR.microgame_time_finished =  ___MG_MNGR.microgame_timer_max;
 	}
 	application_surface_draw_enable(false);
 	var _vw = microgame_current_metadata.view_width;

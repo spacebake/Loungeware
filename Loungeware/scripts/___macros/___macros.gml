@@ -9,6 +9,7 @@
 #macro c_gbtimer_full ___global.macro_c_gbtimer_full
 #macro c_gbtimer_empty ___global.macro_c_gbtimer_empty
 #macro c_gbwhite ___global.macro_c_gbwhite
+#macro c_larold ___global.macro_c_larold
 #macro ___cart_primary_col_default ___global.macro_c_cart_primary
 #macro ___cart_secondary_col_default ___global.macro_c_cart_secondary
 #macro ___cart_label_default johndoe_examplegame_spr_label
