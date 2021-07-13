@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.55,
+  "volume": 0.79,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___snd_menu_tick.wav",
-  "duration": 0.03175,
+  "duration": 0.02675,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",
