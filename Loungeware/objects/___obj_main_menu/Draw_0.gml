@@ -1,3 +1,5 @@
+
+
 //------------------------------------------------------------------------------------------
 // STATE | Begin
 //------------------------------------------------------------------------------------------
@@ -5,7 +7,10 @@
 if (state == "begin"){
 	
 	// slide in
-	if (!wait) menu_y = ___smooth_move(menu_y, VIEW_H/2, 0.5, 10);
+	var _tar_y = VIEW_H/2;
+	if (!wait) menu_y = ___smooth_move(menu_y, _tar_y, 0.5, 10);
+	if (menu_y == _tar_y) menu_active = true;
+	if (skip_intro) menu_y = _tar_y;
 	
 	// move cursor
 	var _menu_len = array_length(menu);
@@ -24,7 +29,7 @@ if (state == "begin"){
 	}
 	
 	// check for confirm
-	var _confirm = (KEY_PRIMARY || ___KEY_PAUSE);
+	var _confirm = (KEY_PRIMARY_PRESSED || ___KEY_PAUSE_PRESSED) && (menu_active);
 	if (_confirm){
 		if (menu_method[cursor] == noop){
 			show_message("coming soon");
@@ -100,7 +105,7 @@ if (state == "fadeout"){
 		goodbye_played = true;
 		var _snd_index  = ___snd_goodbye;
 		var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.5;
+		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.8;
 		audio_sound_gain(_snd_id, _vol, 0);
 	}
 	
@@ -132,3 +137,7 @@ if (state == "fadeout"){
 		instance_destroy();
 	}
 }
+draw_set_color(c_red);
+
+
+log(state)

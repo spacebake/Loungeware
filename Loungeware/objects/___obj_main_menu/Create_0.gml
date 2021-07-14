@@ -1,3 +1,6 @@
+camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+
 sng_id = audio_play_sound(___snd_gtr, 1, 1);
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0)
@@ -9,6 +12,9 @@ confirmed = false;
 end_wait_max = 30;
 end_wait = end_wait_max;
 confirm_shake_time = 15;
+
+menu_active = false;
+skip_intro = false;
 
 // close
 close_wait_before = 20;

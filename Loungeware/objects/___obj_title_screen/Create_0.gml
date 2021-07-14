@@ -4,14 +4,16 @@ step = 0;
 state = "intro";
 substate = 0;
 
-sng_id = audio_play_sound(___sng_menuscreen_loop, 0, 1)
+sng_id = audio_play_sound(___sng_zandintro, 0, 1)
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0)
 
 seconds_current = 0;
 seconds_prev = 0;
-var _tempo = 81;
+var _tempo = 103;
+
 beat_interval = 60/_tempo;
+offbeat_timer = 0;
 beat_count = 0;
 beat_count_prev = 0;
 

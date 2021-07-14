@@ -108,7 +108,7 @@ var _test_vars = ___global.test_vars;
 if (_test_vars.test_mode_on){
 	var _game_key = _test_vars.microgame_key;
 	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
-		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. Please set the key to match the microgame you want to test.\n(check you didn't accidentally use they game name instead of the key)");
+		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. \nYour key should be the name of your metadata file, minus the \".json\".\n If your metadata file is named \"sam_cookiedunk.json\", then your key would be \"sam_cookiedunk\"");
 		game_end();
 		exit;
 	}

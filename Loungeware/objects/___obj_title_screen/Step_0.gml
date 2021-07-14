@@ -9,6 +9,7 @@ if (state == "intro"){
 	if (beat_count > beat_count_prev){
 		label_x_snap_target -= (label_w + label_sep);
 		trigger_pump = true;
+		offbeat_timer = (beat_interval / 2)*60;
 	}
 
 	if (label_x_snap_target <= label_x_min){

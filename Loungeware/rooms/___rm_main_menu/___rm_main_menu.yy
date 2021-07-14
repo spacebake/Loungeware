@@ -46,8 +46,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "__Base Game (keep out)",
-    "path": "folders/__Base Game (keep out).yy",
+    "name": "main menu",
+    "path": "folders/__Base Game (keep out)/main menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "___rm_main_menu",

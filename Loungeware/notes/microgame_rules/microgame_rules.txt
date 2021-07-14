@@ -8,7 +8,7 @@ keep microgames self-contained).
 Functions and macros are allowed, but you must prefix them with your name like an asset.
 
 ------------------------------------------------------------------------------------
-2. Microgames must be possible to beat your game every single time it is played 
+2. It must be possible to beat your game every single time it is played 
 (and without being ridiclously difficult)
 
 ------------------------------------------------------------------------------------

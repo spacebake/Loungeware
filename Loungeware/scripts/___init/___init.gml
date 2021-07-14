@@ -1,5 +1,5 @@
 function ___GAME_INIT(){
-	
+	randomize();
 	instance_create_layer(0, 0, layer, ___global);
 	instance_create_layer(0, 0, layer, ___fake_global);
 	___global.window_base_size = 540;
@@ -159,7 +159,12 @@ function ___GAME_INIT(){
 	}
 	
 	//instance_create_layer(0, 0, layer, ___MG_MNGR);
-	room_goto(___rm_main_menu);
+	if (___global.test_vars.test_mode_on){
+		room_goto(___rm_restroom);
+		instance_create_layer(0, 0, layer, ___MG_MNGR);
+	} else {
+		room_goto(___rm_main_menu);
+	}
 	
 }
 

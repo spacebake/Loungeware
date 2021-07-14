@@ -1,18 +1,66 @@
-var _gb_w = (sprite_get_width(___spr_gameboy_overlay)-14) * gb_scale;
-var _gb_margin_left =  ((VIEW_W - _gb_w)/2);
+var _gb_w = (sprite_get_width(___spr_gameboy_overlay)) * gb_scale;
+var _gb_x_origin_offset = sprite_get_xoffset(___spr_gameboy_overlay) * gb_scale;
+var _gb_margin_left =  ((VIEW_W - _gb_w)/2) + _gb_x_origin_offset;
 var _gb_margin_top = 200 * (1-gb_scale);
 var _gbx = _gb_margin_left + gb_offset_x;
 var _gby = _gb_margin_top + gb_offset_y;
 var _gmx = _gb_margin_left + cart_offset_x;
 var _gmy = _gb_margin_top + cart_offset_y;
 
-
 // -----------------------------------------------------------
-// STATE | INTRO
+// STATE | intro
 // -----------------------------------------------------------
 if (state == "intro"){
 	if (state_begin){
-		_fade_alpha = 1;
+		gb_scale = 0.25;
+		_gb_frame = 0;
+		_gb_intro_y_start = VIEW_H + 16;
+		_gb_intro_y = _gb_intro_y_start;
+		_gb_intro_y_end = (VIEW_H/2) - 32;
+		wait = 20;
+	}
+	
+	if (substate == 0){
+		//_gby = (140 * (1-gb_scale));
+	
+		
+		var _prog = (_gb_intro_y_start - _gb_intro_y) / (_gb_intro_y_start - _gb_intro_y_end);
+		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * _prog;
+	
+		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 1, 30);
+		if (substate == 1){
+			gb_scale = min(1, gb_scale + 1/30);
+		}
+		
+		if (wait <= 0) substate++;
+		if (_gb_intro_y == _gb_intro_y_end) wait--;
+		
+		___shader_cartridge_on(microgame_current_metadata);
+		draw_sprite_ext(___spr_gameboy_spin_x, _gb_frame, _gbx, _gb_intro_y, gb_scale, gb_scale, 0, c_white, 1);
+		___shader_cartridge_off();
+	}
+	
+	if (substate == 1){
+		___shader_cartridge_on(microgame_current_metadata);
+		draw_sprite_ext(___spr_gameboy_overlay, _gb_frame, _gbx, _gby, gb_scale, gb_scale, 0, c_white, 1);
+		___shader_cartridge_off();
+		gb_scale = ___smooth_move(gb_scale, 1, 0.01, 10);
+		if (gb_scale == 1) ___state_change("xxx");
+	}
+	//show_message(_gby);
+	
+
+	
+}
+
+
+
+// -----------------------------------------------------------
+// STATE | xxx
+// -----------------------------------------------------------
+if (state == "xxx"){
+	if (state_begin){
+		_fade_alpha = 0;
 		wait = 60;
 	}
 	
