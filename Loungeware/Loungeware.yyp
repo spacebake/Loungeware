@@ -609,7 +609,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/nahoo","resourceVersion":"1.0","name":"nahoo_carttypebeat.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.300",
+    "IDEVersion": "2.3.3.570",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
