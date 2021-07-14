@@ -1,6 +1,6 @@
 //if (!is_undefined(win)) exit;
 
-draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
+tfg_draw_set_text(c_white, tfg_collision_fnt_jetbrains, fa_left, fa_top);
 var w = string_width("M");
 var h = string_height("M");
 

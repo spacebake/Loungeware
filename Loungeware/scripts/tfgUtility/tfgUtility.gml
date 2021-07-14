@@ -1,11 +1,11 @@
 /// @desc Calls some procedure for each element of an array.
-/// @param {array} variable The array to apply the function to.
-/// @param {script} f The function to apply to all elements in the array.
+/// @param {array} variable The array to apply the function tfg_to.
+/// @param {script} f The function tfg_to apply to all elements in the array.
 /// @param {int} [n] The number of elements to loop through.
 /// @param {int} [i=0] The index of the array to start at.
 ///@author Katsaii
-///@func array_foreach(array, func)
-function array_foreach(_array, _f) {
+///@func tfg_array_foreach(array, func)
+function tfg_array_foreach(_array, _f) {
 	var count = argument_count > 2 ? argument[2] : array_length(_array);
 	var start = argument_count > 3 ? argument[3] : 0;
 	for (var i = 0; i < count; i += 1) {
@@ -15,8 +15,8 @@ function array_foreach(_array, _f) {
 
 ///@desc Calls some procedure for each element of a list
 ///@author Katsaii
-///@func ds_list_foreach(list, func)
-function ds_list_foreach(_list, _f) {
+///@func tfg_ds_list_foreach(list, func)
+function tfg_ds_list_foreach(_list, _f) {
 	var count = argument_count > 2 ? argument[2] : ds_list_size(_list)
 	var start = argument_count > 3 ? argument[3] : 0;
 	for (var i = 0; i < count; i += 1) {
@@ -25,10 +25,10 @@ function ds_list_foreach(_list, _f) {
 }
 
 /// @desc Calls some procedure for each key-value pairs of a struct.
-/// @param {struct} struct The struct to apply the function to.
-/// @param {script} f The function to apply.
+/// @param {struct} struct The struct to apply the function tfg_to.
+/// @param {script} f The function tfg_to apply.
 /// @author Katsaii
-function struct_foreach(_struct, _f) {
+function tfg_struct_foreach(_struct, _f) {
 	var count = variable_struct_names_count(_struct);
 	var names = variable_struct_get_names(_struct);
 	for (var i = count - 1; i >= 0; i -= 1) {
@@ -38,8 +38,8 @@ function struct_foreach(_struct, _f) {
 	}
 }
 
-/// @func array_create_nd(size1, size2,...)
-function array_create_nd() {
+/// @func tfg_array_create_nd(size1, size2,...)
+function tfg_array_create_nd() {
     if (argument_count == 0) return 0;
     
     var _array = array_create(argument[0]),
@@ -65,15 +65,15 @@ function array_create_nd() {
 /// @param		{real}	 amount				Increment (or Decrement)
 /// @returns	{real}						Changed value
 /// @author		Meseta
-function approach(_val1, _val2, _inc) {
+function tfg_approach(_val1, _val2, _inc) {
 	if (_inc < 0) throw("approach: amount is negative")
 	return (_val1 + clamp(_val2-_val1, -_inc, _inc));
 }
 
-///@func chance(percent)
+///@func tfg_chance(percent)
 ///@param {real} percent			percentage on scale 0-1
 ///@returns {bool} chance			i can't think of what to write here
-function chance(_percent){
+function tfg_chance(_percent){
 	//chance(0.7) returns true 70% of time
 	return _percent > random(1)
 }
@@ -81,28 +81,28 @@ function chance(_percent){
 /// @func		animation_end()
 /// @returns	{bool}						Whether sprite_index has finished animating or not
 /// @author		Minty Python
-function animation_end() {
+function tfg_animation_end() {
 	return (image_index + image_speed*sprite_get_speed(sprite_index)/(sprite_get_speed_type(sprite_index)==spritespeed_framespergameframe? 1 : game_get_speed(gamespeed_fps)) >= image_number);	
 }
 
-/// @func draw_set_text(colour, font, halign, valign)
+/// @func tfg_draw_set_text(colour, font, halign, valign)
 ///@param {real}			colour
 ///@param {real}			font
 ///@param {real}			halign
 ///@param {real}			valign
 ///@returns					N/A
-function draw_set_text(_colour, _font, _halign, _valign){
+function tfg_draw_set_text(_colour, _font, _halign, _valign){
 	draw_set_colour(_colour)
 	draw_set_font(_font)
 	draw_set_halign(_halign)
 	draw_set_valign(_valign)
 }
 
-/// @func string_wrap(string, max_width)
+/// @func tfg_string_wrap(string, max_width)
 ///@param {string} string			string to be wrapped
 ///@param {real} max_width			string WIDTH (not length) to wrap after
 ///@returns {string}				wrapped string
-function string_wrap(_str, _max_width){
+function tfg_string_wrap(_str, _max_width){
 	var _str_len = string_length(_str)
 	var _last_space = 1
 	
@@ -122,14 +122,14 @@ function string_wrap(_str, _max_width){
 	return _str
 }
 
-/// @func nine_slice_box_stretched(sprite, x1, y1, x2, y2, index)
+/// @func tfg_nine_slice_box_stretched(sprite, x1, y1, x2, y2, index)
 ///@arg sprite
 ///@arg x1 left
 ///@arg y1 top
 ///@arg x2 rigt
 ///@arg y2 bottom
 ///@arg index image index
-function nine_slice_box_stretched(sprite, x1, y1, x2, y2, index){
+function tfg_nine_slice_box_stretched(sprite, x1, y1, x2, y2, index){
 	var _size = sprite_get_width(argument0) / 3;
 	var _x1 = argument1;
 	var _y1 = argument2;
@@ -163,9 +163,9 @@ function nine_slice_box_stretched(sprite, x1, y1, x2, y2, index){
 	draw_sprite_part_ext(argument0, _index, _size, _size * 2, 1, _size, _x1 + _size, _y1 + _h - (_size), _w - (_size * 2), 1, c_white,1);
 }
 
-/// @func str_split(string, delimiter)
+/// @func tfg_str_split(string, delimiter)
 ///@author YellowAfterLife
-function str_split(s, d){
+function tfg_str_split(s, d){
     if (0) return argument[0]
     var r = []
     var p = string_pos(d, s), o = 1;
@@ -179,8 +179,8 @@ function str_split(s, d){
     return r;
 }
 
-/// @func array_reverse(array, start, end)
-function array_reverse(_array, _start, _end){
+/// @func tfg_array_reverse(array, start, end)
+function tfg_array_reverse(_array, _start, _end){
 	if (0) return argument[0];
 	if (is_undefined(_start)) _start = 0;
 	if (is_undefined(_end)) _end = array_length(_array) - 1;
@@ -196,8 +196,8 @@ function array_reverse(_array, _start, _end){
 	return _array;
 }
 
-/// @func array_count(array, what)
-function array_count(_array, _what) {
+/// @func tfg_array_count(array, what)
+function tfg_array_count(_array, _what) {
     var _count = 0;
     for (var i = 0; i < array_length(_array); i++) {
         if (_array[i] == _what) {
@@ -207,7 +207,7 @@ function array_count(_array, _what) {
     return _count
 }
 
-function wave(from, to, duration, offset){
+function tfg_wave(from, to, duration, offset){
 	//Wave(from, to, duration, offset)
  
 	// Returns a value that will wave back and forth between [from-to] over [duration] seconds
@@ -223,21 +223,21 @@ function wave(from, to, duration, offset){
 	return argument0 + a4 + sin((((current_time * 0.001) + argument2 * argument3) / argument2) * (pi*2)) * a4;
 }
 
-/// @func frames_to_ms(frames)
-function frames_to_ms(_f){
+/// @func tfg_frames_to_ms(frames)
+function tfg_frames_to_ms(_f){
 	return 1000 * _f / FPS
 }
 
-///@func in(value, array)
-function in(value, array) {
+///@func tfg_in(value, array)
+function tfg_in(value, array) {
 	for (var i = 0; i < array_length(array); i++){
 		if (value == array[i]) return true
 	}
 	return false
 }
 
-///@func len(what)
-function len(_what){
+///@func tfg_len(what)
+function tfg_len(_what){
 	if (is_array(_what)) return array_length(_what)
 	else if (is_string(_what)) return string_length(_what)
 	else if (ds_exists(_what, ds_type_list)) return ds_list_size(_what)
@@ -245,37 +245,37 @@ function len(_what){
 }
 
 #macro round __round_not_bankers
-function __round_not_bankers(_val){
+function tfg___round_not_bankers(_val){
 	var num = _val div 1
 	return _val mod 1 >= 0.5 ? num + 1 : num
 }
 
-///@func place_meeting_array(x, y, array)
-function place_meeting_array(_x, _y, _array){
+///@func tfg_place_meeting_array(x, y, array)
+function tfg_place_meeting_array(_x, _y, _array){
 	for (var _i = 0; _i < array_length(_array); _i++){
 		if (place_meeting(_x, _y, _array[_i])) return true
 	}
 	return false
 }
 
-///@func array_find_index(array, what)
-function array_find_index(_array, _what){
+///@func tfg_array_find_index(array, what)
+function tfg_array_find_index(_array, _what){
 	for (var _i = 0; _i < array_length(_array); _i++){
 		if (_array[_i] == _what) return _i
 	}
 	return undefined
 }
 
-///@func mod2(value, divisor)
-function mod2(value, divisor) {
+///@func tfg_mod2(value, divisor)
+function tfg_mod2(value, divisor) {
 	return value - floor(value/divisor) * divisor;
 }
 
-/// @func str_wrap(string, max_width)
+/// @func tfg_str_wrap(string, max_width)
 ///@param {string} string            string to be wrapped
 ///@param {real} max_width            string WIDTH (not length) to wrap after
 ///@returns {string}                wrapped string
-function str_wrap(_str, _max_width){
+function tfg_str_wrap(_str, _max_width){
     var _str_len = string_length(_str)
     var _last_space = 1
     
@@ -295,8 +295,8 @@ function str_wrap(_str, _max_width){
     return _str
 }
 
-///@func array_filter(array, callback)
-function array_filter(_array, _callback) {
+///@func tfg_array_filter(array, callback)
+function tfg_array_filter(_array, _callback) {
 	var ret = [];
 		
 	for (var i = 0; i < array_length(_array); i++) {
@@ -307,8 +307,8 @@ function array_filter(_array, _callback) {
 	return ret;	
 }
 
-///@func array_to_str(array)
-function array_to_str(_array) {
+///@func tfg_array_to_str(array)
+function tfg_array_to_str(_array) {
 	var str = "";
 	for (var i = 0; i < array_length(_array); i++) {
 		str += _array[i];	
@@ -316,7 +316,7 @@ function array_to_str(_array) {
 	return str;
 }
 
-///@func str_ltrim(str)
+///@func tfg_str_ltrim(str)
 //
 //  Returns the given string with whitespace stripped from its start.
 //  Whitespace is defined as SPACE, HT, LF, VT, FF, CR.
@@ -324,7 +324,7 @@ function array_to_str(_array) {
 //      str         string of text, string
 //
 /// GMLscripts.com/license
-function str_ltrim(str) {
+function tfg_str_ltrim(str) {
     var l,r,o;
     l = 1;
     r = string_length(str);

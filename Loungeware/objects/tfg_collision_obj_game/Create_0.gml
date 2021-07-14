@@ -69,7 +69,7 @@ for (var i = 0; i < array_length(brokens); i++) {
 	
 	brokens[i] = temp;
 	for (var j = 0; j < array_length(brokens[i]); j++) {
-		brokens[i][j] = array_filter(brokens[i][j], function(_char) { return _char != "\n" })	
+		brokens[i][j] = tfg_array_filter(brokens[i][j], function(_char) { return _char != "\n" })	
 	}
 }
 
@@ -105,7 +105,7 @@ time_held = {
 	/*left: 0, right: 0, */up: 0, down: 0,	
 }
 update_time_held = function() {
-	struct_foreach(time_held, function(_item) {
+	tfg_struct_foreach(time_held, function(_item) {
 		time_held[$ _item]++;
 	});
 	
@@ -176,7 +176,7 @@ draw_code = function(_code, _w, _h, _yy) {
 
 		for (var k = 0, xx = 0; k < array_length(line); { k++; xx++; } ) {
 			var char = line[k];
-			if (array_count(colour_chars, char) > 0) {
+			if (tfg_array_count(colour_chars, char) > 0) {
 				draw_set_colour(switch_colour(char));
 				xx--;
 				continue;
