@@ -7,11 +7,18 @@ if (craftAnimation != -1) {
         if (last_step < 1 && craftAnimation > 1) {
             selectionAmount = random_range(0.2, 0.8);
             selectionSpeed *= choose(1, -1);
+            wandCurrent += 1;
         }
         exit;
     }
 }
 if (failed || win) {
+    if (resultTimer < 1) {
+        resultTimer += resultSpeed;
+        if (resultTimer > 1) {
+            resultTimer = 1;
+        }
+    }
     exit;
 }
 if (KEY_LEFT_PRESSED) {
@@ -35,8 +42,7 @@ if (selectionAmount < 1 / 3) {
 }
 if (KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
     if (wandCurrent == wandOrder[selectionID]) {
-        wandCurrent += 1;
-        if (wandCurrent > 2) {
+        if (wandCurrent >= 2) {
             microgame_win();
             win = true;
             audio_emitter_pitch(resultAudio, random_range(0.9, 1));

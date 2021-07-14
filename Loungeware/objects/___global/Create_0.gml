@@ -1,3 +1,5 @@
+
+
 /* The one true global object,
 this is created at the start of the game
 and remains until the game is closed.
@@ -6,4 +8,20 @@ do not use this object to store vars
 for your microgame, it is for base-game use only */
 
 
-song_stop_list = ds_list_create(); //___ds_list_create_builtin();
+___song_stop_list = ds_list_create(); //___ds_list_create_builtin();
+
+
+//-------------------------------------------------------------------------------------
+// ADVANCED TEXT (alive shake)
+//-------------------------------------------------------------------------------------
+active_char_potential_letters = ds_list_create();
+active_char_id_list = ds_list_create();
+active_char_timer_list = ds_list_create();
+active_char_timer_max = 10;
+new_active_char_frequency = 20;
+___init_advanced_text();
+
+//-------------------------------------------------------------------------------------
+// STORE MENU CURSOR POSITIONS
+//-------------------------------------------------------------------------------------
+___global.menu_cursor_main = 0;

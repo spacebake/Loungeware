@@ -1,3 +1,4 @@
+
 x = space_scooter_obj_scooter.x + random_range(-10, 50);
 y = random_range(6, 16);
 ystart = y;

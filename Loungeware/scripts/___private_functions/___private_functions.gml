@@ -77,7 +77,7 @@ function ___microgame_start(_microgame_propname){
 	
 	
 	// init new microgame
-	with(___GM){
+	with(___MG_MNGR){
 		
 		// garbo the sprites from last cutscene
 		while (ds_list_size(garbo_sprites) > 0){
@@ -118,11 +118,11 @@ function ___microgame_end(){
 	
 	// update save data
 	if (!dev_mode && !gallery_mode){
-		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___GM.microgame_current_name);
+		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___MG_MNGR.microgame_current_name);
 		_save_struct.play_count = _save_struct.play_count + 1;
-		if (___GM.microgame_won){
+		if (___MG_MNGR.microgame_won){
 			_save_struct.wins = _save_struct.wins + 1;
-			var _time_taken = ___GM.microgame_timer_max - ___GM.microgame_time_finished;
+			var _time_taken = ___MG_MNGR.microgame_timer_max - ___MG_MNGR.microgame_time_finished;
 			if (_time_taken < _save_struct.best_time) _save_struct.best_time = _time_taken;
 		}
 	}
@@ -134,14 +134,14 @@ function ___microgame_end(){
 	}
 		
 	// if win
-	if (___GM.microgame_won){
+	if (___MG_MNGR.microgame_won){
 		larold_index = 1;
-		var _points = 1 + (___GM.microgame_timer / ___GM.microgame_timer_max) + (DIFFICULTY/5);
-		___GM.score_total += _points;
+		var _points = 1 + (___MG_MNGR.microgame_timer / ___MG_MNGR.microgame_timer_max) + (DIFFICULTY/5);
+		___MG_MNGR.score_total += _points;
 	// if lose
 	} else {
 		//show_message("lose");
-		//show_message("time remaining: " + ___GM.microgame_timer);
+		//show_message("time remaining: " + ___MG_MNGR.microgame_timer);
 	}
 	
 	// destroy and recreate fake global
@@ -156,7 +156,7 @@ function ___microgame_end(){
 	room_goto(___rm_restroom);
 	
 	// remove game from unplayed list 
-	var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_current_name);
+	var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
 	ds_list_delete(microgame_unplayed_list, _index_to_remove);
 	
 	// if uplayed list is empty, repopulate it with all games (excluse the one just played, if possble, see below)
@@ -165,7 +165,7 @@ function ___microgame_end(){
 		
 		// if there is more than 1 game, delete the last played game from the new list as to not get repeats
 		if (ds_list_size(microgame_unplayed_list) > 1){
-			_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___GM.microgame_current_name);
+			_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
 			ds_list_delete(microgame_unplayed_list, _index_to_remove);
 		}
 	}
@@ -258,7 +258,7 @@ function ___state_handler(){
 // CENTER GAME WINDOW | clue is in the name
 // ------------------------------------------------------------------------------------------
 function ___center_window(){
-	with (___GM) alarm_set(0, 1);
+	with (___global) alarm_set(0, 1);
 }
 
 // ------------------------------------------------------------------------------------------
@@ -271,8 +271,14 @@ function ___reset_draw_vars(){
 	draw_set_alpha(1);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+	if (surface_get_target() != -1) surface_reset_target();
+	shader_reset();
+	matrix_set(matrix_world, matrix_build_identity());
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function ___gamepad_check_button_multiple(device,buttons) {
 	for (var i=0;i<array_length(buttons);i++) {
 		if (gamepad_button_check(device,buttons[i])) return true;	
@@ -280,6 +286,9 @@ function ___gamepad_check_button_multiple(device,buttons) {
 	return false;
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function __try_read_json(filepath){
 	show_debug_message("INFO: reading json file " + filepath);	
 	
@@ -325,6 +334,10 @@ function __try_read_json(filepath){
 	}
 }
 
+// ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function ___noop(){
 	// noop	
 }
+

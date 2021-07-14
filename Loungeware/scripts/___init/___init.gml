@@ -16,6 +16,7 @@ function ___GAME_INIT(){
 	___global.macro_c_gbtimer_full = make_color_rgb(160, 49, 88);
 	___global.macro_c_gbtimer_empty = make_color_rgb(52, 41, 79);
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
+	___global.macro_c_larold = make_color_rgb(228, 181, 129);
 	
 	// default inputs
 	___global.default_input_keys = {
@@ -94,8 +95,8 @@ function ___GAME_INIT(){
 	___global.difficulty_read = function(){return ___global.difficulty_level;}
 	___global.volume_read = function(_prop_name){return variable_struct_get(___global.save_data.vol, _prop_name);}
 	___global.window_base_size_read = function(){return ___global.window_base_size;}
-	___global.time_remaining_read = function(){return ___GM.microgame_timer}
-	___global.time_max_read = function(){return ___GM.microgame_timer_max}
+	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
+	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
 	
 	// load save data if exists
 	___global.save_data = {};
@@ -157,8 +158,12 @@ function ___GAME_INIT(){
 		secondary: ord("Y")
 	}
 	
-	instance_create_layer(0, 0, layer, ___GM);
-	
+	if (___global.test_vars.test_mode_on){
+		room_goto(___rm_restroom);
+		instance_create_layer(0, 0, layer, ___MG_MNGR);
+	} else {
+		room_goto(___rm_main_menu);
+	}
 	
 }
 

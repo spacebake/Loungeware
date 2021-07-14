@@ -30,7 +30,7 @@ function sfx_play(_snd_index, _vol, _loop){
 function sfx_stop(_snd_id, _time){
 	audio_stop_sound(_snd_id);
 	audio_sound_gain(_snd_id, 0, _time);
-	ds_list_add(___global.song_stop_list, _snd_id);
+	ds_list_add(___global.___song_stop_list, _snd_id);
 }
 
 // ------------------------------------------------------------------------------------------
@@ -48,8 +48,8 @@ function sfx_stop(_snd_id, _time){
 function microgame_music_start(_sng, _vol, _loop){
 	var _snd_id = audio_play_sound(_sng, 0, _loop);
 	audio_sound_gain(_snd_id, _vol * audio_sound_get_gain(_sng) * VOL_MSC * VOL_MASTER, 0);
-	if (audio_is_playing(___GM.microgame_music)) audio_stop_sound(___GM.microgame_music);
-	___GM.microgame_music = _snd_id;
+	if (audio_is_playing(___MG_MNGR.microgame_music)) audio_stop_sound(___MG_MNGR.microgame_music);
+	___MG_MNGR.microgame_music = _snd_id;
 	return _snd_id;
 }
 
@@ -60,8 +60,8 @@ function microgame_music_start(_sng, _vol, _loop){
 /// @function               microgame_music_stop(_time);
 /// @param {real}  _time    the fadeout time in milliseconds.
 function microgame_music_stop(_time){
-	var _snd_id = ___GM.microgame_music;
+	var _snd_id = ___MG_MNGR.microgame_music;
 	audio_sound_gain(_snd_id, 0, _time);
-	ds_list_add(___global.song_stop_list, _snd_id);
+	ds_list_add(___global.___song_stop_list, _snd_id);
 	return _snd_id;
 }
