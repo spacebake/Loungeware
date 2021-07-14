@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_epic_sk8r.wav",
-  "duration": 8.653667,
+  "duration": 8.648667,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",

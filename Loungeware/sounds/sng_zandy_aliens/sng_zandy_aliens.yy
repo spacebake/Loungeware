@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_aliens.wav",
-  "duration": 10.9141045,
+  "duration": 10.9091043,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",
