@@ -158,7 +158,6 @@ function ___GAME_INIT(){
 		secondary: ord("Y")
 	}
 	
-	//instance_create_layer(0, 0, layer, ___MG_MNGR);
 	if (___global.test_vars.test_mode_on){
 		room_goto(___rm_restroom);
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
