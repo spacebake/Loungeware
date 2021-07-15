@@ -15,13 +15,16 @@ timer = 0;
 hattime = 15;
 spd = 4;
 flip = 1;
+loserhat = -1;
 
 
 //create hats
 for(var i=hatspace; i<room_width; i+=hatspace;) {
-	instance_create_depth(i,0,0,anti_hats_obj_hat);
+	instance_create_depth(i,6,0,anti_hats_obj_hat);
 }
-with instance_find(anti_hats_obj_hat,irandom(instance_number(anti_hats_obj_hat)-1)) {
+
+var num = instance_number(anti_hats_obj_hat)-1;
+with instance_find(anti_hats_obj_hat,irandom(num)) {
 	image_index = 0;	
 }
 
