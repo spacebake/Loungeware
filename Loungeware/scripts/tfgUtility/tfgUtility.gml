@@ -244,7 +244,7 @@ function tfg_len(_what){
 	else throw "len: type not supported!"
 }
 
-//#macro round tfg___round_not_bankers
+//#macro round __round_not_bankers
 function tfg___round_not_bankers(_val){
 	var num = _val div 1
 	return _val mod 1 >= 0.5 ? num + 1 : num
