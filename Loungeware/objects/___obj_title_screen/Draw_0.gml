@@ -7,6 +7,8 @@ var _pump_scale = 1.2;
 var _pump_speed = 15;
 draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, logo_scale, logo_scale, 0, c_white, logo_scale);
 
+
+
 if (substate == 0){
 	logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
 	if (logo_scale_dir > 90 && logo_scale <= 1){

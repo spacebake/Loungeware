@@ -25,14 +25,17 @@ if (state == "intro"){
 	
 		
 		var _prog = (_gb_intro_y_start - _gb_intro_y) / (_gb_intro_y_start - _gb_intro_y_end);
-		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * _prog;
+		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * (min(1, _prog+0.05));
 	
-		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 1, 30);
+		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 0.5, 30);
 		if (substate == 1){
 			gb_scale = min(1, gb_scale + 1/30);
 		}
 		
-		if (wait <= 0) substate++;
+		if (wait <= 0){
+			_offset_y = _gb_intro_y;
+			substate++;
+		}
 		if (_gb_intro_y == _gb_intro_y_end) wait--;
 		
 		___shader_cartridge_on(microgame_current_metadata);
@@ -41,10 +44,12 @@ if (state == "intro"){
 	}
 	
 	if (substate == 1){
+		draw_surf_larold(_gb_margin_left, _offset_y * (1-gb_scale), canvas_w * gb_scale, canvas_h * gb_scale, 1, bm_normal);
 		___shader_cartridge_on(microgame_current_metadata);
-		draw_sprite_ext(___spr_gameboy_overlay, _gb_frame, _gbx, _gby, gb_scale, gb_scale, 0, c_white, 1);
+		draw_sprite_ext(___spr_gameboy_overlay, _gb_frame, _gbx, _offset_y * (1-gb_scale), gb_scale, gb_scale, 0, c_white, 1);
 		___shader_cartridge_off();
-		gb_scale = ___smooth_move(gb_scale, 1, 0.01, 10);
+		
+		gb_scale = ___smooth_move(gb_scale, 1, 0.01, 8);
 		if (gb_scale == 1) ___state_change("xxx");
 	}
 	//show_message(_gby);

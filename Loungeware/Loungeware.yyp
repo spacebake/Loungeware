@@ -396,6 +396,7 @@
     {"id":{"name":"Nahoo_sWasp","path":"sprites/Nahoo_sWasp/Nahoo_sWasp.yy",},"order":10,},
     {"id":{"name":"Nahoo_sGotit","path":"sprites/Nahoo_sGotit/Nahoo_sGotit.yy",},"order":11,},
     {"id":{"name":"space_lander_label","path":"sprites/space_lander_label/space_lander_label.yy",},"order":0,},
+    {"id":{"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"order":10,},
     {"id":{"name":"___snd_menu_tick","path":"sounds/___snd_menu_tick/___snd_menu_tick.yy",},"order":6,},
     {"id":{"name":"space_lander_part_smoke","path":"sprites/space_lander_part_smoke/space_lander_part_smoke.yy",},"order":1,},
     {"id":{"name":"baku_chug_spr_profile_head","path":"sprites/baku_chug_spr_profile_head/baku_chug_spr_profile_head.yy",},"order":13,},

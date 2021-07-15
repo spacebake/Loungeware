@@ -16,6 +16,11 @@ beat_interval = 60/_tempo;
 offbeat_timer = 0;
 beat_count = 0;
 beat_count_prev = 0;
+fast_beat_count = 0;
+
+drum_img = 2;
+drum_hit = false;
+drum_alt = false;
 
 label_list = ds_list_create();
 label_list_2 = ds_list_create();

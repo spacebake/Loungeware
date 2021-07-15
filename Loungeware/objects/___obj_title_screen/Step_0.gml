@@ -3,6 +3,7 @@ any_key = KEY_PRIMARY || KEY_SECONDARY || ___KEY_PAUSE;
 if (state == "intro"){
 	beat_count_prev = beat_count;
 	beat_count = floor((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval);
+	
 
 	if (ribbon_hide_prog > 0) label_x = label_x_snap_target;
 	label_x = ___smooth_move(label_x, label_x_snap_target, 0.5, 3);
