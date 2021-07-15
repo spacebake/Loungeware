@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_woodblocks.wav",
-  "duration": 6.936417,
+  "duration": 6.931417,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",
