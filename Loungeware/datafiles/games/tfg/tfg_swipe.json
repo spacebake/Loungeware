@@ -16,5 +16,6 @@
     "default_is_fail": true,
     "supports_difficulty_scaling": false,
     "credits": ["tfg", "zandy"],
-    "date_added": "21/07/14"
+    "date_added": "21/07/14",
+    "is_enabled": false
 }
