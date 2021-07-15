@@ -54,6 +54,12 @@
     {"compositeImage":{"FrameId":{"name":"5db52fcd-107c-46d6-bbcc-1d1bd8da1c17","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"5db52fcd-107c-46d6-bbcc-1d1bd8da1c17","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":{"name":"cd720979-0b96-49ee-931d-76194eb1d9dd","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"anti_hats_sp_hats","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"5db52fcd-107c-46d6-bbcc-1d1bd8da1c17","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"5e8ad8b8-5159-459b-ad77-119c03fd9748","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"5e8ad8b8-5159-459b-ad77-119c03fd9748","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":{"name":"cd720979-0b96-49ee-931d-76194eb1d9dd","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"anti_hats_sp_hats","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"5e8ad8b8-5159-459b-ad77-119c03fd9748","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"7e09a72d-d484-4ac3-800b-70cdc85d9ef5","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"7e09a72d-d484-4ac3-800b-70cdc85d9ef5","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"LayerId":{"name":"cd720979-0b96-49ee-931d-76194eb1d9dd","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"anti_hats_sp_hats","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","name":"7e09a72d-d484-4ac3-800b-70cdc85d9ef5","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"anti_hats_sp_hats","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},
@@ -63,7 +69,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 10.0,
+    "length": 12.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -78,6 +84,8 @@
             {"id":"71290e2b-3a02-486a-87d4-efed6d20e77a","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"56748db4-aa90-461b-8b3a-223d56740c56","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ac83a12f-44e4-472f-8b74-65b166a4e426","Key":8.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"897a0bc6-24b2-4062-bf52-ac3eb258e8af","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"c9152da4-f173-4589-bb57-b651085bfd07","Key":9.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5db52fcd-107c-46d6-bbcc-1d1bd8da1c17","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7a6223cd-b69f-443e-a15a-af4408f65d2e","Key":10.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5e8ad8b8-5159-459b-ad77-119c03fd9748","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"7527c4d1-d9d3-4c6f-beef-2c7a2d4a4281","Key":11.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7e09a72d-d484-4ac3-800b-70cdc85d9ef5","path":"sprites/anti_hats_sp_hats/anti_hats_sp_hats.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
