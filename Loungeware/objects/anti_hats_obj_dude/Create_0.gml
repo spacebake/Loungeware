@@ -3,7 +3,7 @@
 
 hatspace = 30; //start somewhere random
 x = hatspace+irandom(6)*hatspace;
-y = room_height-40;
+y = room_height-36;
 
 image_xscale = 2;
 image_yscale = 2;
