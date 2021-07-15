@@ -1,0 +1,21 @@
+{
+    "config_version": 1,
+    "game_name": "SWIPE",
+    "creator_name": "tfg",
+    "prompt": "SWIPE",
+    "init_room": "tfg_swipe_rm_game",
+    "view_width": -1,
+    "view_height": -1,
+    "time_seconds": 5,
+    "music_track": "sng_zandy_woodblocks",
+    "music_loops": false,
+    "interpolation_on": false,
+    "cartridge_col_primary": "0x121212",
+    "cartridge_col_secondary": "0x71b8ff",
+    "cartridge_label": "tfg_collision_spr_cartridge",
+    "default_is_fail": true,
+    "supports_difficulty_scaling": false,
+    "credits": ["tfg", "zandy"],
+    "date_added": "21/07/14",
+    "is_enabled": false
+}

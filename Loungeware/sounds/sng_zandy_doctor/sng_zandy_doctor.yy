@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_doctor.wav",
-  "duration": 10.3833961,
+  "duration": 10.378396,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",
