@@ -4,7 +4,8 @@
 function ___macro_keyboard_check(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if (keyboard_check(_list[i])) return true;
+		if _list[i] == vk_enter { if (keyboard_check(_list[i])) return !keyboard_check(vk_alt); } // Makes Alt + Enter (which fullscreens) not trigger an input
+		else					{ if (keyboard_check(_list[i])) return true; }
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
 		if (___global.controller_values[i].state.held[$ _keystr]) return true;
@@ -27,7 +28,8 @@ function draw_rectangle_fix(_x1, _y1, _x2, _y2){
 function ___macro_keyboard_check_pressed(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if (keyboard_check_pressed(_list[i])) return true;
+		if _list[i] == vk_enter { if (keyboard_check_pressed(_list[i])) return !keyboard_check(vk_alt); } // Makes Alt + Enter (which fullscreens) not trigger an input
+		else					{ if (keyboard_check_pressed(_list[i])) return true; }
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
 		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
@@ -41,7 +43,8 @@ function ___macro_keyboard_check_pressed(_keystr){
 function ___macro_keyboard_check_released(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if (keyboard_check_released(_list[i])) return true;
+		if _list[i] == vk_enter { if (keyboard_check_released(_list[i])) return !keyboard_check(vk_alt); } // Makes Alt + Enter (which fullscreens) not trigger an input
+		else					{ if (keyboard_check_released(_list[i])) return true; }
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
 		if (___global.controller_values[i].state.released[$ _keystr]) return true;
