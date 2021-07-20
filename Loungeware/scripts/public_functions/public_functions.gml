@@ -18,7 +18,7 @@
 #macro TIME_MAX_SECONDS (TIME_MAX / game_get_speed(gamespeed_fps))
 
 // returns the prompt displayed before the microgame starts (useful if your microgame has multiple prompts)
-#macro PROMPT ___MG_MNGR.prompt;
+#macro PROMPT ___MG_MNGR.prompt
 
 
 
