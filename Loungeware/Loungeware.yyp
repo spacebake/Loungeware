@@ -631,7 +631,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_scooter.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/nahoo","resourceVersion":"1.0","name":"nahoo_carttypebeat.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/anti","resourceVersion":"1.0","name":"anti_hats.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/tfg","resourceVersion":"1.0","name":"tfg_swipe.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
