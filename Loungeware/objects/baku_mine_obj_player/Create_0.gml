@@ -1,10 +1,12 @@
 
 // Debug timer
-microgame_set_timer_max(999);
+// microgame_set_timer_max(999);
 
 // Game state
 win					= false;
 lose				= false;
+win_confetti_time	= 0;
+win_confetti_timer	= 5;
 
 // Player size
 z					= 0;
@@ -47,6 +49,18 @@ pick_rot_lerped		= 0;
 pick_time_mod		= 15;
 pick_time			= pick_time_mod - 1;
 crack_img			= 0;
+
+// Sound stuff
+think_spawned		= false;
+
+// Creeper
+creeper_spawned		= false;
+creeper_dir			= 0;
+creeper_aim_dir		= 0;
+creeper_aim_lerp	= 0.1;
+roundabout_started	= false;
+creeper_flash		= 0;
+creeper_flash_spd	= 22.5;
 
 #region Prompt stuff
 	
@@ -126,6 +140,7 @@ crack_img			= 0;
 		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = choose(baku_mine_spr_dirt, baku_mine_spr_dirt_dark); }
 		if _col == 0x0080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_table; }
 		if _col == 0x808080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_furnace; }
+		if _col == 0x008080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_ladder; }
 		
 		// Special blocks
 		if _col == 0xffff00 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_ore);			_inst.z = _z; }
@@ -149,7 +164,6 @@ crack_img			= 0;
 	// Cleanup
 	// surface_save(_level_surf, "surf.png");		// Debug
 	// buffer_save(_level_buffer, "buffer.sav");	// Debug
-	// show_debug_message(working_directory);		// Debug
 	buffer_delete(_level_buffer);
 	surface_free(_level_surf);
 	
@@ -210,7 +224,6 @@ crack_img			= 0;
 		// matrix_set(_matrix, i_matrix); // Moved out of function for performance
 	}
 	
-	
 #endregion
 
 #region Camera
@@ -239,7 +252,6 @@ crack_img			= 0;
 	// Create camera
 	cam.cam = camera_create();
 	set_camera = function() {
-		// cam.aspect = -VIEW_W / VIEW_H;
 		cam.proj_mat = matrix_build_projection_perspective_fov(cam.fov, cam.aspect, cam.z_near, cam.z_far);
 		camera_set_proj_mat(cam.cam, cam.proj_mat);
 		view_set_camera(VIEW_NUMBER, cam.cam);
@@ -280,7 +292,6 @@ crack_img			= 0;
 		var _z_max = _z;
 		var _return = noone;
 		var _list = ds_list_create();
-		// var _num = instance_place_list(_x, _y, _obj, _list, false);
 		var _num = collision_line_list(_x, _y, _x2, _y2, _obj, false, true, _list, true);
 		
 		// If we're colliding
@@ -333,13 +344,13 @@ crack_img			= 0;
 	create_gui_surf = function() {
 		surf_gui = surface_create(480, 320);
 	}
-	gui_scale_x = 0.1083;
+	gui_scale_x = 0.1083; // look at these delicious magic numbers :'D
 	gui_scale_y = 0.0722;
 	gui_scale_z = 1;
 	
 #endregion
 
-#region Functions stolen from tfgUtility :^)
+#region Functions
 	
 	approach = function(_val1, _val2, _inc) {
 		if (_inc < 0) throw("approach: amount is negative");
@@ -348,5 +359,5 @@ crack_img			= 0;
 	
 #endregion
 
-// Frustum culler
+// "Frustum culler"
 instance_create_layer(x, y, layer, baku_mine_obj_frustum_culler);

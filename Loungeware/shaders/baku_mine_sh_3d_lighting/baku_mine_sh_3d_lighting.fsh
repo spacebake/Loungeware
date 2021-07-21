@@ -8,11 +8,13 @@ varying vec3 vert_pos;
 uniform vec2 room_size;
 uniform float highlight_alpha;
 
+uniform float roundabout_active;
+uniform vec3 roundabout_col;
+
 #define MAX_LIGHT_COUNT 32
 uniform vec4 light_pos[MAX_LIGHT_COUNT]; // x, y, z, w (radius ("wadius, uwu"))
 uniform vec4 light_col[MAX_LIGHT_COUNT]; // r, g, b, a
 
-// uniform sampler2D texture_lights;
 uniform sampler2D texture_highlight;
 uniform sampler2D texture_crack;
 
@@ -45,4 +47,11 @@ void main()
 	// Highlight
 	vec4 highlight_col = texture2D(texture_highlight, v_vTexcoord);
 	gl_FragColor.rgb += highlight_col.rgb * vec3(highlight_alpha);
+	
+	// Roundabout overlay
+	if (roundabout_active > 0.0) {
+		vec3 luma = vec3(0.2126, 0.7152, 0.0722); // Rec. 709
+		float grey_source = dot(gl_FragColor.rgb, luma);
+		gl_FragColor.rgb = vec3(grey_source) * roundabout_col;
+	}
 }

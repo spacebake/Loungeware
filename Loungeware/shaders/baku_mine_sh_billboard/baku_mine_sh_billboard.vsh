@@ -13,7 +13,6 @@ void main()
 {      
     vec3 os_offset = (gm_Matrices[MATRIX_WORLD] * vec4(in_Position.xyz, 0.0)).xyz;
     gl_Position = gm_Matrices[MATRIX_PROJECTION] * vec4(gm_Matrices[MATRIX_WORLD_VIEW][3].xyz + os_offset, 1.0);
-    // stolen from odditica :^)
     v_vColour = in_Colour;
     v_vTexcoord = in_TextureCoord;
 }

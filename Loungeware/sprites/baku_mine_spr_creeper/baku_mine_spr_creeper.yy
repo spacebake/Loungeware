@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"54ef76b2-1275-4211-ab20-7cd8407558f0","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"54ef76b2-1275-4211-ab20-7cd8407558f0","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"LayerId":{"name":"3160a893-699b-4e83-8c06-4625fc1f3a80","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_mine_spr_creeper","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","name":"54ef76b2-1275-4211-ab20-7cd8407558f0","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"5d784534-6570-4996-acb7-c5cccb6ada42","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"5d784534-6570-4996-acb7-c5cccb6ada42","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"LayerId":{"name":"c2b8fa9c-f5ba-493d-8514-e6fe9402f396","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"baku_mine_spr_creeper","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","name":"5d784534-6570-4996-acb7-c5cccb6ada42","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"baku_mine_spr_creeper","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d489f6ac-0ce5-45d7-afc3-628c8c9fb78a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"54ef76b2-1275-4211-ab20-7cd8407558f0","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"51bc8379-f63b-4ceb-b8f4-ad2693f12ecd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"5d784534-6570-4996-acb7-c5cccb6ada42","path":"sprites/baku_mine_spr_creeper/baku_mine_spr_creeper.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3160a893-699b-4e83-8c06-4625fc1f3a80","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c2b8fa9c-f5ba-493d-8514-e6fe9402f396","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

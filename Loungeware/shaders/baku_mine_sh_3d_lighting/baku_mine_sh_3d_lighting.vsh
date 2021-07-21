@@ -17,7 +17,7 @@ void main()
     gl_Position = gm_Matrices[MATRIX_WORLD_VIEW_PROJECTION] * object_space_pos;
     
     v_vColour = in_Colour;
-	v_vTexcoord = vec2(in_TextureCoord.x, 1.0 - in_TextureCoord.y); // lmao
+	v_vTexcoord = vec2(in_TextureCoord.x, 1.0 - in_TextureCoord.y); // dammit gamemaker
     
     vert_pos = (gm_Matrices[MATRIX_WORLD] * object_space_pos).xyz;
 }

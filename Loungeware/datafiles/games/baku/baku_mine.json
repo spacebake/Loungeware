@@ -1,6 +1,6 @@
 {
     "config_version": 1,
-    "game_name": "Underground Miner",
+    "game_name": "Lonesome Miner",
     "creator_name": "baku",
     "prompt": ["MINE DIAMOND", "MINE EMERALD", "MINE GOLD", "MINE RUBY", "MINE IRON"],
     "init_room": "baku_mine_rm",
@@ -14,7 +14,7 @@
     "cartridge_col_secondary": [98, 23, 72],
     "cartridge_label": "johndoe_examplegame_spr_label",
     "default_is_fail": true,
-    "supports_difficulty_scaling": false,
+    "supports_difficulty_scaling": true,
     "credits": ["baku", "meseta"],
-    "date_added": "21/07/17"
+    "date_added": "21/07/21"
 }
