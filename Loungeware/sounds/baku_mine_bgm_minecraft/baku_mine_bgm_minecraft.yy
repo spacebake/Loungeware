@@ -13,8 +13,8 @@
   "soundFile": "baku_mine_bgm_minecraft.wav",
   "duration": 12.0,
   "parent": {
-    "name": "Sound",
-    "path": "folders/Microgames/baku/mine/Sound.yy",
+    "name": "Music",
+    "path": "folders/Microgames/baku/mine/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "baku_mine_bgm_minecraft",

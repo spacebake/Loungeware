@@ -8,7 +8,7 @@ lose				= false;
 
 // Player size
 z					= 0;
-height				= 32;
+height				= 30;
 eye_height			= 20;
 
 // Movement
@@ -64,6 +64,14 @@ crack_img			= 0;
 	prompt_to_ore_translator[$ "MINE RUBY"]		= baku_mine_ore_type.redstone;
 	prompt_to_ore_translator[$ "MINE IRON"]		= baku_mine_ore_type.iron;
 	
+	// Struct holding prompt → drop sprite relations (just as sexy)
+	prompt_to_drop_translator = {};
+	prompt_to_drop_translator[$ "MINE DIAMOND"]		= baku_mine_spr_diamond_drop;
+	prompt_to_drop_translator[$ "MINE EMERALD"]		= baku_mine_spr_emerald_drop;
+	prompt_to_drop_translator[$ "MINE GOLD"]		= baku_mine_spr_gold_drop;
+	prompt_to_drop_translator[$ "MINE RUBY"]		= baku_mine_spr_redstone_drop;
+	prompt_to_drop_translator[$ "MINE IRON"]		= baku_mine_spr_iron_drop;
+	
 	// Prompt setup
 	prompt_setup_done = false;
 	
@@ -112,11 +120,19 @@ crack_img			= 0;
 		var _col = make_colour_rgb(_r, _g, _b);
 		
 		// Normal boring blocks
-		if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_stone);			_inst.z = _z; }
-		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_dirt);			_inst.z = _z; }
+		// if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_stone);			_inst.z = _z; }
+		// if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_dirt);			_inst.z = _z; }
+		if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = choose(baku_mine_spr_stone, baku_mine_spr_stone_dark); }
+		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = choose(baku_mine_spr_dirt, baku_mine_spr_dirt_dark); }
+		if _col == 0x0080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_table; }
+		if _col == 0x808080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_furnace; }
+		
+		// Special blocks
 		if _col == 0xffff00 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_ore);			_inst.z = _z; }
 		if _col == 0xff0000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_creeper_or_stone);	_inst.z = _z; }
 		if _col == 0x00ffff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_sign);			_inst.z = _z; }
+		
+		// Torches
 		if _col == 0x80ff80 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 0;		} // North
 		if _col == 0x808000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 90;		} // West
 		if _col == 0x800080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 180;	} // South
@@ -153,7 +169,7 @@ crack_img			= 0;
 	enable_3d = function() {
 		gpu_set_zwriteenable(true);
 		gpu_set_ztestenable(true);
-		gpu_set_cullmode(cull_noculling);
+		gpu_set_cullmode(cull_counterclockwise);
 		gpu_set_alphatestenable(true);
 		layer_force_draw_depth(true, 0);
 		// gpu_set_texrepeat(true);
@@ -183,13 +199,17 @@ crack_img			= 0;
 	baku_mine_model_torch();
 	baku_mine_model_plane();
 	
+	// Identity matrix
+	i_matrix = matrix_build_identity();
+	
 	// Draw vertex buffer func
 	draw_vertex_buffer = function(_v_buff, _prim, _texture, _x, _y, _z, _x_rot, _y_rot, _z_rot, _x_scale, _y_scale, _z_scale, _matrix) {
 		var _mat = matrix_build(_x, _y, _z, _x_rot, _y_rot, _z_rot, _x_scale, _y_scale, _z_scale);
 		matrix_set(_matrix, _mat);
 		vertex_submit(_v_buff, _prim, _texture);
-		matrix_set(_matrix, matrix_build_identity());
+		// matrix_set(_matrix, i_matrix); // Moved out of function for performance
 	}
+	
 	
 #endregion
 
@@ -326,12 +346,7 @@ crack_img			= 0;
 		return (_val1 + clamp(_val2 - _val1, -_inc, _inc));
 	}
 	
-	// array_find_index = function(_array, _value) {
-	// 	var _arr_len = array_length(_array);
-	// 	for (var i = 0; i < _arr_len; ++i){
-	// 		if (_array[i] == _value) return i;
-	// 	}
-	// 	return undefined;
-	// }
-	
 #endregion
+
+// Frustum culler
+instance_create_layer(x, y, layer, baku_mine_obj_frustum_culler);

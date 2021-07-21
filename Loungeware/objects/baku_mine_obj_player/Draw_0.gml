@@ -20,28 +20,40 @@ shader_set(_shader);
 	var _vb_plane = vb_plane;
 	with baku_mine_par_block {
 		
-		// Set highlight alpha + crack
-		var _highlight_alpha = 0;
-		var _crack_img = 0;
-		if other.block_aim_id == id {
-			_highlight_alpha = 0.25;
-			_crack_img = other.crack_img;
-		}
-		shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), _highlight_alpha);
-		texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get_texture(baku_mine_spr_crack, _crack_img));
+		// Only draw if it should be drawn.. lol
+		if is_drawn {
 		
-		// Model
-		var _model = _vb_cube;
-		if model_type == "torch" _model = _vb_torch;
-		
-		// Draw model
-		if model_type == "sign" {
+			// Set highlight alpha + crack
+			var _highlight_alpha = 0;
+			var _crack_img = 0;
+			if other.block_aim_id == id {
+				_highlight_alpha = 0.25;
+				_crack_img = other.crack_img;
+			}
+			shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), _highlight_alpha);
+			texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get_texture(baku_mine_spr_crack, _crack_img));
+			
+			// Model
+			if model_type == "torch" {
+				other.draw_vertex_buffer(_vb_torch, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+			}
+			
 			// Sign
-			other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y - 14, z + 1, 0, 0, image_angle, scale_x, scale_y, scale_z * 0.5, matrix_world);
-			// Text
-			other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_goofed, 0), x, y - 6 + 0.1, z + 1, 90, 180, image_angle, scale_x * 0.5, scale_y * 0.5, scale_z * 0.5, matrix_world);
-		} else {
-			other.draw_vertex_buffer(_model, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+			else if model_type == "sign" {
+				// Sign
+				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y - 14, z, 0, 0, image_angle, scale_x * 0.75, scale_y, scale_z * 0.75, matrix_world);
+				// Text
+				var _old_cullmode = gpu_get_cullmode();
+				gpu_set_cullmode(cull_noculling);
+				other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_goofed, text_img), x, y - 6 + 0.1, z, 90, 180, image_angle, scale_x * 0.5, scale_y * 0.5, scale_z * 0.5, matrix_world);
+				gpu_set_cullmode(_old_cullmode);
+			}
+			
+			// Normal block
+			else {
+				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+			}
+		
 		}
 	}
 	
@@ -52,8 +64,11 @@ shader_set(_shader);
 	with baku_mine_obj_drop {
 		var _scale = 0.5;
 		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_drop_shadow, 0), x, y, z_og - 8 + 0.1, 0, 0, 0, _scale, _scale, _scale, matrix_world);
+		var _old_cullmode = gpu_get_cullmode();
+		gpu_set_cullmode(cull_noculling);
 		var _scale = 0.333;
 		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z_draw, 90, 90, current_time / 5, _scale, _scale, _scale, matrix_world);
+		gpu_set_cullmode(_old_cullmode);
 	}
 	
 	// Alpha stuffs
@@ -116,6 +131,9 @@ if surface_exists(surf_gui) {
 	);
 	shader_reset();
 }
+
+// Reset matrix
+matrix_set(matrix_world, i_matrix);
 
 // THIS FEELS LIKE A DIRTY HACK??? but i don't fucking know how else to get my GUI to draw lmao
 CAMERA = camera_get_default();

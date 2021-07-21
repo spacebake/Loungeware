@@ -22,7 +22,7 @@ if !prompt_setup_done and PROMPT != "" {
 	
 	// Add target ores to list
 	// MAYBE TODO: Balance this number
-	repeat (6 - DIFFICULTY) {
+	repeat (ceil((6 - DIFFICULTY) / 2)) {
 		ds_list_add(_ore_list, _target_ore);
 	}
 	
@@ -164,8 +164,12 @@ if prompt_setup_done and !win and !lose {
 				pick_rot += 360;
 				
 				if block_aim_id != noone {
-					if block_aim_id.object_index == baku_mine_obj_block_ore
+					if block_aim_id.object_index == baku_mine_obj_block_ore {
 						crack_img ++;
+					}
+					
+					// Sound
+					sfx_play(choose(baku_mine_snd_hit_a, baku_mine_snd_hit_b, baku_mine_snd_hit_c, baku_mine_snd_hit_d, baku_mine_snd_hit_e), 1, false);
 				}
 			}
 		}
@@ -196,6 +200,10 @@ if prompt_setup_done and !win and !lose {
 						_inst.glow_col = glow_col;
 						_inst.glow_alpha = glow_alpha;
 						_inst.z_og = z;
+						
+						// Sound
+						sfx_play(baku_mine_snd_break, 1, false);
+						sfx_play(baku_mine_snd_drop, 1, false);
 						
 						// Handle creeper or stone dilemma
 						baku_mine_obj_creeper_or_stone.tex = baku_mine_spr_stone_dark;
@@ -272,3 +280,11 @@ if prompt_setup_done and !win and !lose {
 	}
 	
 #endregion
+
+// Frustum culler
+var _x = x, _y = y, _aim_dir = aim_dir;
+with baku_mine_obj_frustum_culler {
+	x = _x;
+	y = _y;
+	image_angle = _aim_dir + 45;
+}

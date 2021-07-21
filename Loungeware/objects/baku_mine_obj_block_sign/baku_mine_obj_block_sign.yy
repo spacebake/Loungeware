@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "baku_mine_spr_mask_block",
+    "path": "sprites/baku_mine_spr_mask_block/baku_mine_spr_mask_block.yy",
+  },
   "solid": false,
   "visible": false,
   "spriteMaskId": null,

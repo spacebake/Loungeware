@@ -13,8 +13,8 @@
   "soundFile": "baku_mine_bgm_roundabout.wav",
   "duration": 15.8823538,
   "parent": {
-    "name": "Sound",
-    "path": "folders/Microgames/baku/mine/Sound.yy",
+    "name": "Music",
+    "path": "folders/Microgames/baku/mine/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "baku_mine_bgm_roundabout",

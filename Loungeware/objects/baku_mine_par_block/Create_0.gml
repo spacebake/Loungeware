@@ -23,3 +23,5 @@ angle = 0;
 model_type = "block";
 
 is_ore = false;
+
+is_drawn = false;

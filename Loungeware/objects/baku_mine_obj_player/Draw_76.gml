@@ -26,8 +26,23 @@ if surface_exists(surf_gui) {
 		// Clear
 		draw_clear_alpha(c_black, 0.0);
 		
+		// Debug
+		// draw_text(0, 0, string(fps) + " " + string(fps_real));
+		
 		// Size alignment test
 		// draw_sprite(baku_mine_spr_hud_test, 0, 0, 0);
+		
+		// Thinking bubble
+		var _scale = 3;
+		var _think_x = 8 * _scale;
+		var _think_y = 4 * _scale;
+		var _len = 1 * _scale;
+		draw_sprite_ext(baku_mine_spr_think, 0, _think_x + lengthdir_x(_len, (-current_time / 2) + 180),	_think_y +  + lengthdir_y(_len, (-current_time / 2) + 180),					_scale, _scale, 0, c_white, 1);
+		draw_sprite_ext(baku_mine_spr_think, 1, _think_x + lengthdir_x(_len, (-current_time / 2) + 90),		_think_y +  + lengthdir_y(_len, (-current_time / 2) + 90),					_scale, _scale, 0, c_white, 1);
+		draw_sprite_ext(baku_mine_spr_think, 2, _think_x + lengthdir_x(_len, (-current_time / 2) + 0),		_think_y +  + lengthdir_y(_len, (-current_time / 2) + 0),					_scale, _scale, 0, c_white, 1);
+		var _drop_spr = prompt_to_drop_translator[$ PROMPT];
+		draw_sprite_ext(_drop_spr, 0, _think_x + lengthdir_x(_len, (-current_time / 2) + 0) + 8 * _scale,	_think_y +  + lengthdir_y(_len, (-current_time / 2) + 0) + 8 * _scale,		_scale, _scale, 0, c_white, 1);
+		
 		
 		// Continue
 		// var _margin = 8;
