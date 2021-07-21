@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "baku_mine_spr_mask_player",
-    "path": "sprites/baku_mine_spr_mask_player/baku_mine_spr_mask_player.yy",
+    "name": "baku_mine_spr_mask_torch",
+    "path": "sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "baku_mine_par_block",
+    "path": "objects/baku_mine_par_block/baku_mine_par_block.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -22,10 +25,6 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":12,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":76,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +33,7 @@
     "path": "folders/Microgames/baku/mine/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "baku_mine_obj_player",
+  "name": "baku_mine_obj_block_torch",
   "tags": [],
   "resourceType": "GMObject",
 }

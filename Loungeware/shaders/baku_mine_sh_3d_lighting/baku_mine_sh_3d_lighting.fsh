@@ -27,7 +27,7 @@ void main()
 	
 	// Lights
 	// If any shader gods look at this plz don't laugh at me
-	float ambient_light = 0.25;
+	float ambient_light = 0.333;
 	vec4 light_col_cum = vec4(0.0);
 	for (int i = 0; i < MAX_LIGHT_COUNT; ++i) {
 		vec4 _light_pos = light_pos[i];

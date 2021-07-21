@@ -1,8 +1,65 @@
 
-show_debug_message("step - prompt: " + string(PROMPT));
+// Prompt setup
+if !prompt_setup_done and PROMPT != "" {
+	// Debug
+	show_debug_message("prompt: " + string(PROMPT));
+	
+	// Get amount of ores
+	var _ore_count = instance_number(baku_mine_obj_block_ore);
+	show_debug_message(_ore_count);
+	
+	// Figure out what the target and distractor ore types are
+	var _target_ore = prompt_to_ore_translator[$ PROMPT];
+	var _distraction_ores = [];
+	for (var i = 0; i < baku_mine_ore_type.__size; ++i) {
+		if i != _target_ore array_push(_distraction_ores, i);
+	}
+	show_debug_message(_target_ore);
+	show_debug_message(_distraction_ores);
+	
+	// List of ore blocks
+	var _ore_list = ds_list_create();
+	
+	// Add target ores to list
+	// MAYBE TODO: Balance this number
+	repeat (6 - DIFFICULTY) {
+		ds_list_add(_ore_list, _target_ore);
+	}
+	
+	// Add distraction ores
+	while (ds_list_size(_ore_list) < _ore_count) {
+		var _id = irandom(array_length(_distraction_ores) - 1);
+		// var _id = 0; // Debug
+		ds_list_add(_ore_list, _distraction_ores[_id]);
+	}
+	
+	// Shuffle ore list
+	ds_list_shuffle(_ore_list);
+	
+	// Loop through ore blocks and assign type
+	for (var i = 0; i < _ore_count; ++i) {
+		var _inst = instance_find(baku_mine_obj_block_ore, i);
+		if _inst != noone {
+			_inst.ore_type = _ore_list[| i];
+			_inst.set_ore_type();
+		}
+	}
+	
+	// Set ore block types
+	// while ds_list_size(_ore_list) > 0 {
+	// 	var _inst = _ore_list[| 0];
+	// 	if _inst != noone {
+	// 		// _inst.
+	// 	}
+	// }
+	
+	// Done
+	ds_list_destroy(_ore_list);
+	prompt_setup_done = true;
+}
 
 // Game loop
-if !win and !lose {
+if prompt_setup_done and !win and !lose {
 	
 	#region Player movement and such
 		
@@ -138,6 +195,7 @@ if !win and !lose {
 						_inst.z = z;
 						_inst.glow_col = glow_col;
 						_inst.glow_alpha = glow_alpha;
+						_inst.z_og = z;
 						
 						// Handle creeper or stone dilemma
 						baku_mine_obj_creeper_or_stone.tex = baku_mine_spr_stone_dark;

@@ -17,6 +17,7 @@ shader_set(_shader);
 	// Blocks
 	var _vb_cube = vb_cube;
 	var _vb_torch = vb_torch;
+	var _vb_plane = vb_plane;
 	with baku_mine_par_block {
 		
 		// Set highlight alpha + crack
@@ -34,17 +35,32 @@ shader_set(_shader);
 		if model_type == "torch" _model = _vb_torch;
 		
 		// Draw model
-		other.draw_vertex_buffer(_model, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+		if model_type == "sign" {
+			// Sign
+			other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y - 14, z + 1, 0, 0, image_angle, scale_x, scale_y, scale_z * 0.5, matrix_world);
+			// Text
+			other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_goofed, 0), x, y - 6 + 0.1, z + 1, 90, 180, image_angle, scale_x * 0.5, scale_y * 0.5, scale_z * 0.5, matrix_world);
+		} else {
+			other.draw_vertex_buffer(_model, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+		}
 	}
 	
 	// Reset highlight alpha
 	shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), 0);
 	
 	// Item drops
-	var _vb_plane = vb_plane;
 	with baku_mine_obj_drop {
-		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 90, 90, current_time / 5, 0.25, 0.25, 0.25, matrix_world);
+		var _scale = 0.5;
+		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_drop_shadow, 0), x, y, z_og - 8 + 0.1, 0, 0, 0, _scale, _scale, _scale, matrix_world);
+		var _scale = 0.333;
+		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z_draw, 90, 90, current_time / 5, _scale, _scale, _scale, matrix_world);
 	}
+	
+	// Alpha stuffs
+	
+	// Item drops
+	// with baku_mine_obj_drop {
+	// }
 	
 	// Disable z testing
 	gpu_set_ztestenable(false);

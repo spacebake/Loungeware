@@ -2,57 +2,78 @@
 // Debug timer
 microgame_set_timer_max(999);
 
+// Game state
+win					= false;
+lose				= false;
+
 // Player size
-z			= 0;
-height		= 32;
-eye_height	= 20;
+z					= 0;
+height				= 32;
+eye_height			= 20;
 
 // Movement
-acc = 0.5;
-fric = 0.5;
-max_spd = 2;
-jump_spd = 3;
-fall_spd = 3;
-grav = 0.2;
-min_z = 0;
-spd = 0;
-x_spd = 0;
-y_spd = 0;
-z_spd = 0;
-grounded = 0;
-fb_vel = 0;
-rl_vel = 0;
-moving = false;
-aim_spd		= 3;
-aim_dir		= 90;
-aim_pitch	= -10;
+acc					= 0.5;
+fric				= 0.5;
+max_spd				= 2;
+jump_spd			= 3;
+fall_spd			= 3;
+grav				= 0.2;
+min_z				= 0;
+spd					= 0;
+x_spd				= 0;
+y_spd				= 0;
+z_spd				= 0;
+grounded			= 0;
+fb_vel				= 0;
+rl_vel				= 0;
+moving				= false;
 
 // Head bob
-head_bob = 0;
-head_bob_lerped = 0;
-head_bob_time = 0;
-head_bob_time_mod = 15;
+head_bob			= 0;
+head_bob_lerped		= 0;
+head_bob_time		= 0;
+head_bob_time_mod	= 15;
 
-// Using pickaxe
-pick_rot = 0;
-pick_rot_lerped = 0;
-pick_time_mod = 15;
-pick_time = pick_time_mod - 1;
-crack_img = 0;
+// Aim
+aim_spd				= 2;
+aim_dir				= 90;
+aim_pitch			= -10;
+block_aim_id		= noone;
+block_aim_max_dis	= 64;
 
-// Aiming at block
-block_aim_id = noone;
-block_aim_max_dis = 64;
+// Pickaxe
+pick_rot			= 0;
+pick_rot_lerped		= 0;
+pick_time_mod		= 15;
+pick_time			= pick_time_mod - 1;
+crack_img			= 0;
 
-// Game state
-win = false;
-lose = false;
+#region Prompt stuff
+	
+	// Debug
+	show_debug_message("prompt: " + string(PROMPT));
+	
+	// Ore types
+	enum baku_mine_ore_type { diamond, emerald, gold, redstone, iron, __size }
+	
+	// Struct holding prompt → ore type relations (sexy)
+	prompt_to_ore_translator = {};
+	prompt_to_ore_translator[$ "MINE DIAMOND"]	= baku_mine_ore_type.diamond;
+	prompt_to_ore_translator[$ "MINE EMERALD"]	= baku_mine_ore_type.emerald;
+	prompt_to_ore_translator[$ "MINE GOLD"]		= baku_mine_ore_type.gold;
+	prompt_to_ore_translator[$ "MINE RUBY"]		= baku_mine_ore_type.redstone;
+	prompt_to_ore_translator[$ "MINE IRON"]		= baku_mine_ore_type.iron;
+	
+	// Prompt setup
+	prompt_setup_done = false;
+	
+#endregion
 
 #region Level Generation
 	
 	// Level size
 	level_w = 24;
-	level_h = 24;
+	level_h = 32;
 	level_layer_height = 16;
 	block_w = 16;
 	block_h = 16;
@@ -90,15 +111,12 @@ lose = false;
 		var _b = buffer_peek(_level_buffer, _pos + 2,	buffer_u8);
 		var _col = make_colour_rgb(_r, _g, _b);
 		
-		// Blocks
+		// Normal boring blocks
 		if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_stone);			_inst.z = _z; }
 		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_dirt);			_inst.z = _z; }
 		if _col == 0xffff00 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_ore);			_inst.z = _z; }
-		
-		// Creeper/stone block
 		if _col == 0xff0000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_creeper_or_stone);	_inst.z = _z; }
-		
-		// Torches
+		if _col == 0x00ffff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_sign);			_inst.z = _z; }
 		if _col == 0x80ff80 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 0;		} // North
 		if _col == 0x808000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 90;		} // West
 		if _col == 0x800080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 180;	} // South
@@ -301,8 +319,19 @@ lose = false;
 	
 #endregion
 
-// Approach - yoinked from tfgUtility :^)
-approach = function(_val1, _val2, _inc) {
-	if (_inc < 0) throw("approach: amount is negative");
-	return (_val1 + clamp(_val2 - _val1, -_inc, _inc));
-}
+#region Functions stolen from tfgUtility :^)
+	
+	approach = function(_val1, _val2, _inc) {
+		if (_inc < 0) throw("approach: amount is negative");
+		return (_val1 + clamp(_val2 - _val1, -_inc, _inc));
+	}
+	
+	// array_find_index = function(_array, _value) {
+	// 	var _arr_len = array_length(_array);
+	// 	for (var i = 0; i < _arr_len; ++i){
+	// 		if (_array[i] == _value) return i;
+	// 	}
+	// 	return undefined;
+	// }
+	
+#endregion
