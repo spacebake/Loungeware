@@ -17,7 +17,7 @@ if (state == "intro"){
 		_gb_intro_y_start = VIEW_H + 16;
 		_gb_intro_y = _gb_intro_y_start;
 		_gb_intro_y_end = (VIEW_H/2) - 32;
-		wait = 20;
+		wait = 20 / transition_speed;
 	}
 	
 	if (substate == 0){
@@ -25,21 +25,19 @@ if (state == "intro"){
 	
 		
 		var _prog = (_gb_intro_y_start - _gb_intro_y) / (_gb_intro_y_start - _gb_intro_y_end);
-		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * (min(1, _prog+0.05));
+		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * (min(1, _prog+(0.03)));
 	
 		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 0.5, 30);
-		if (substate == 1){
-			gb_scale = min(1, gb_scale + 1/30);
-		}
+
 		
 		if (wait <= 0){
-			_offset_y = _gb_intro_y;
+			_offset_y = _gb_intro_y+26;
 			substate++;
 		}
 		if (_gb_intro_y == _gb_intro_y_end) wait--;
 		
 		___shader_cartridge_on(microgame_current_metadata);
-		draw_sprite_ext(___spr_gameboy_spin_x, _gb_frame, _gbx, _gb_intro_y, gb_scale, gb_scale, 0, c_white, 1);
+		draw_sprite_ext(___spr_gameboy_spin_x, _gb_frame, _gbx+6, _gb_intro_y, gb_scale, gb_scale, 0, c_white, 1);
 		___shader_cartridge_off();
 	}
 	
@@ -49,8 +47,8 @@ if (state == "intro"){
 		draw_sprite_ext(___spr_gameboy_overlay, _gb_frame, _gbx, _offset_y * (1-gb_scale), gb_scale, gb_scale, 0, c_white, 1);
 		___shader_cartridge_off();
 		
-		gb_scale = ___smooth_move(gb_scale, 1, 0.01, 8);
-		if (gb_scale == 1) ___state_change("xxx");
+		gb_scale = ___smooth_move(gb_scale, 1, 0.01, 6);
+		if (gb_scale == 1) ___state_change("intro_hearts");
 	}
 	//show_message(_gby);
 	
@@ -61,16 +59,16 @@ if (state == "intro"){
 
 
 // -----------------------------------------------------------
-// STATE | xxx
+// STATE | intro_hearts
 // -----------------------------------------------------------
-if (state == "xxx"){
+if (state == "intro_hearts"){
 	if (state_begin){
 		_fade_alpha = 0;
-		wait = 60;
+		wait = 60 / transition_speed;
 	}
 	
 		// move larold
-		var _dir_speed = 2.5;
+		var _dir_speed = 2.5 * transition_speed;
 		var _larold_rad = 2;
 		larold_dir += _dir_speed;
 		var _y_offset_larold = lengthdir_y(_larold_rad, larold_dir);
@@ -92,18 +90,24 @@ if (state == "xxx"){
 		draw_set_alpha(_fade_alpha);
 		draw_set_color(c_gbblack);
 		draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+		draw_set_alpha(1);
 	
 	// zoom out gameboy
 	if (substate == 0){
 
-		
 		if (wait <= 0){
-			___state_change("game_switch");
-			exit;
+			substate = 1;
+			//___state_change("game_switch");
+			
 		}
 		
-		_fade_alpha = max(0, _fade_alpha - (1/30));
+		_fade_alpha = max(0, _fade_alpha - ((1/30)*transition_speed));
 		if (_fade_alpha <= 0) wait--;
+		
+	}
+	
+	// bring in hearts
+	if (substate == 1){
 		
 	}
 	
@@ -120,31 +124,35 @@ if (state == "microgame_result"){
 	if (state_begin){
 		transition_music_began = true;
 		if (microgame_won){
-			if (!dev_mode ||  !___global.test_vars.loop_game){
+			if (!dev_mode){
 				transition_music  = audio_play_sound(___sng_microgame_win, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+				audio_sound_pitch(transition_music, transition_speed);
+				ds_list_add(___global.___audio_active_list, transition_music);
 			}
 		} else {
 			life = max(0, life-1);
-			if (!dev_mode ||  !___global.test_vars.loop_game){
+			if (!dev_mode){
 				transition_music  = audio_play_sound(___sng_microgame_lose, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+				audio_sound_pitch(transition_music, transition_speed);
+				ds_list_add(___global.___audio_active_list, transition_music);
 			}
 		}
-		wait = 30;
+		wait = 30 / transition_speed;
 		life_dir = 0;
 		life_alpha = 0;
 		life_alpha_done = false;
 		life_scale = 0;
 		life_last_frame = 0;
-		life_image_speed = 0.3;
-		life_shake_timer_max = 30;
+		life_image_speed = 0.3 * transition_speed;
+		life_shake_timer_max = 30 / transition_speed;
 		life_shake_timer = life_shake_timer_max;
 		life_sound_played = false;
 	}
 	
 	// move larold
-	var _dir_speed = 2.5;
+	var _dir_speed = 2.5 * transition_speed;
 	var _larold_rad = 2;
 	larold_dir += _dir_speed;
 	var _y_offset_larold = lengthdir_y(_larold_rad, larold_dir);
@@ -162,12 +170,13 @@ if (state == "microgame_result"){
 	// draw overlay
 	draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
 	
-	if (dev_mode && dev_mode_loop_game){
+	if (dev_mode || gallery_mode){
 		
 		var _str = (microgame_won ? "WON" : "LOST");
 		draw_set_color(c_white);
 		draw_set_font(fnt_frogtype);
 		draw_set_halign(fa_center);
+		draw_set_color(c_gbwhite);
 		draw_text_transformed(VIEW_W/2, 95, _str, 2, 2, 0);
 		draw_set_halign(fa_left);
 	}
@@ -176,16 +185,16 @@ if (state == "microgame_result"){
 	if (substate == 0){
 		wait--;
 		if (wait <= 0){
-			if (dev_mode && dev_mode_loop_game){ 
+			if (dev_mode){ 
 				___microgame_start(microgame_next_name);
 				___state_change("playing_microgame"); 
 				exit
 			}
-			if (microgame_won){
+			if (microgame_won || gallery_mode){
 				___state_change("game_switch");
 				exit;
 			} else {
-				wait = 20;
+				wait = 20 / transition_speed;
 				substate++
 			}
 		}
@@ -194,7 +203,7 @@ if (state == "microgame_result"){
 	// draw health screen (this substate is bypassed if microgame was won)
 	if (substate == 1){
 		// draw life
-		life_dir += 5;
+		life_dir += 5 * transition_speed;
 		if (!life_alpha_done){
 			life_scale = -lengthdir_y(1.1, life_dir);
 			if (life_dir > 90) && (life_scale <= 1){
@@ -203,7 +212,7 @@ if (state == "microgame_result"){
 			}
 		} else {
 			if (life_shake_timer <= 0) life_last_frame = min(life_last_frame + life_image_speed, sprite_get_number(___spr_life_lose)-1);
-			life_shake_timer = max(0, life_shake_timer - 1);
+			life_shake_timer = max(0, life_shake_timer - (1 * transition_speed));
 		}
 		
 		if (life_last_frame >= 4 && !life_sound_played){
@@ -223,7 +232,7 @@ if (state == "microgame_result"){
 			var _alpha = life_alpha;
 			var _frame = 0;
 			var _sprite = _life_spr;
-			if (i == life){ // least heart 
+			if (i == life){ // last heart 
 				if (life_shake_timer > 0 && life_alpha_done){
 					var _shake_val = (1-(life_shake_timer/life_shake_timer_max)) * 3;
 					_life_x += random_range(-_shake_val, _shake_val);
@@ -239,11 +248,12 @@ if (state == "microgame_result"){
 		// draw overlay again because too lazy to fix this
 		draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
 		
+		var _life_fade_speed = (1/10) * transition_speed;
 		if (life_alpha_done && life_last_frame >= sprite_get_number(___spr_life_lose) -1){
-			life_alpha = max(0, life_alpha - (1/10));
+			life_alpha = max(0, life_alpha - _life_fade_speed);
 			life_scale = life_alpha;
 		} else {
-			life_alpha = min(1, life_alpha + (1/10));
+			life_alpha = min(1, life_alpha + _life_fade_speed);
 		}
 		
 		
@@ -271,7 +281,7 @@ if (state == "game_switch"){
 		cart_offset_y = 0;
 		cart_angle = 0;
 		cart_draw_over = false;
-		spin_speed = 0.75
+		spin_speed = 0.75 * transition_speed;
 		gb_min_scale = 0.4;
 		gb_max_scale = 1;
 		gb_scale_diff =  gb_max_scale - gb_min_scale;
@@ -305,10 +315,14 @@ if (state == "game_switch"){
 	}
 	
 	// spin 1
+	var _max_spin_frame = 15;
+	if (gallery_mode) _max_spin_frame = 30;
+	
 	if (substate == 1){
 		
 		if (substate_begin){
-			wait = 15;
+			
+			wait = 15 / transition_speed;
 			spin_frame = 0;
 		}
 		
@@ -318,10 +332,11 @@ if (state == "game_switch"){
 		___shader_cartridge_off();
 		wait--;
 		if (wait <= 0){
-			var _max_spin_frame = 15;
+			
 			spin_frame = min(spin_frame + spin_speed, _max_spin_frame);
 			if (spin_frame >= _max_spin_frame){
 				substate++;
+				if (gallery_mode) substate = 8;
 				exit;
 			}
 		}
@@ -331,7 +346,7 @@ if (state == "game_switch"){
 	if (substate == 2){
 		
 		if (substate_begin){
-			wait = 10;
+			wait = 10 / transition_speed;
 		}
 
 		draw_sprite_ext(___spr_gameboy_back, 0, _gbx, _gby, _scale, _scale, 0, c_white, 1);
@@ -359,20 +374,20 @@ if (state == "game_switch"){
 			sfx_play(___snd_cart_remove, 1, 0);
 		}
 		
-		var _grav = 0.75;
-		var _grav_max = 100;
+		var _grav = 0.75 * transition_speed;
+		var _grav_max = 100 * transition_speed;
 		var _cart_scale_max = 1.05;
 		cart_offset_y += cart_vsp;
 		cart_vsp = min(cart_vsp + _grav, _grav_max);
 		
 		gb_offset_y = lengthdir_y(snapback_rad, snapback_dir);
-		snapback_dir += 10;
+		snapback_dir += 10 * transition_speed;
 		snapback_rad = max(0, snapback_rad - (3/10));
 
 		if (cart_vsp > 0){
 			cart_draw_over = true;
-			cart_angle += cart_vsp/10;
-			if (cart_scale < _cart_scale_max) cart_scale += 0.0025;
+			cart_angle += (cart_vsp/10) * transition_speed;
+			if (cart_scale < _cart_scale_max) cart_scale += (0.0025 * transition_speed);
 		}
 		
 		draw_sprite_ext(___spr_gameboy_back, 0, _gbx, _gby, _scale, _scale, 0, c_white, 1);
@@ -393,12 +408,12 @@ if (state == "game_switch"){
 	// slide in new game from right
 	if (substate == 4){
 		if (substate_begin){
+			
 			//change cart color
 			cart_sprite = ___cart_sprite_create(microgame_next_metadata);
 			cart_offset_y = -90;
 			cart_offset_x = 190;
 			cart_angle = 0;
-			cart_vsp = 0;
 		}
 		cart_offset_x = ___smooth_move(cart_offset_x, 0, 0.5, 10);
 		draw_sprite_ext(___spr_gameboy_back, 0, _gbx, _gby, _scale, _scale, 0, c_white, 1);
@@ -413,11 +428,18 @@ if (state == "game_switch"){
 	
 	// wait, then move down
 	if (substate == 5){
+
 		if (substate_begin){
-			wait = 20;
+			gb_scale = gb_min_scale;
+			cart_offset_x = 0;
+			cart_offset_y = -90;
+			_gmy = _gb_margin_top + cart_offset_y;
+			wait = 20 / transition_speed;
 			_store_cart_offset_y = cart_offset_y;
+			cart_vsp = 0.5;
+			if (gallery_mode) spin_frame = 15;
 		}
-		if (cart_vsp == 0) cart_vsp = 0.5;
+
 		var _title_alpha = 1 - (cart_offset_y / _store_cart_offset_y);
 		draw_set_alpha(_title_alpha);
 		___draw_title(VIEW_W/2, title_y);
@@ -426,8 +448,8 @@ if (state == "game_switch"){
 		draw_sprite_ext(cart_sprite, 0, _gmx, _gmy, _scale, _scale, cart_angle, c_white, 1);
 		draw_sprite_ext(___spr_gameboy_back, 2, _gbx, _gby, _scale, _scale, 0, c_white, 1);	
 		if (wait <= 0){
-			cart_offset_y += cart_vsp;
-			cart_vsp = min(8, cart_vsp * 1.3);
+			cart_offset_y += cart_vsp * transition_speed;
+			cart_vsp = min(8, cart_vsp * (1.3)) * transition_speed;
 			if (cart_offset_y + cart_vsp >= 0){
 				substate++;
 				exit;
@@ -443,10 +465,12 @@ if (state == "game_switch"){
 			snapback_dir = 250;
 			snapback_rad = 5;
 			sfx_play(___snd_cart_insert, 1, 0);
+			
 		}
 		gb_offset_y = lengthdir_y(snapback_rad, snapback_dir);
-		snapback_dir += 10;
-		snapback_rad = max(0, snapback_rad - (5/25));
+		var _snapback_dir_speed = 10 * transition_speed;
+		snapback_dir += _snapback_dir_speed;
+		snapback_rad = max(0, snapback_rad - ((5/25)*transition_speed));
 		___draw_title(VIEW_W/2, title_y);
 		___shader_cartridge_on(microgame_next_metadata);
 		draw_sprite_ext(___spr_gameboy_back, 3, _gbx, _gby, _scale, _scale, 0, c_white, 1);
@@ -484,13 +508,15 @@ if (state == "game_switch"){
 		
 		if (substate_begin){
 			title_alpha = 1;
-			title_fade_time = 10;
-			wait = 60;
+			if (gallery_mode && !gallery_first_pass) title_alpha = 0;
+			title_fade_time = 10 / transition_speed;
+			wait = 60 / transition_speed;
 			larold_index = 1;
 		}
 		var _target_scale = gb_max_scale;
-		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
+		if (gallery_mode && wait > 0) title_alpha = min(1, title_alpha + ((1/10)*transition_speed));
 		
+		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
 		draw_set_alpha(title_alpha);
 		___draw_title(VIEW_W/2, title_y);
 		draw_set_alpha(1);
@@ -517,8 +543,8 @@ if (state == "game_switch"){
 			prompt_dir = 45;
 			prompt_scale = 0;
 			prompt_scale_done = false;
-			wait = 5;
-			prompt = microgame_next_metadata.prompt[irandom(array_length(microgame_next_metadata.prompt) - 1)];
+			wait = 5/transition_speed;
+			prompt = ___microgame_get_prompt(microgame_next_name);
 			prompt_sprite = ___prompt_sprite_create(prompt);
 			
 		}
@@ -549,7 +575,7 @@ if (state == "game_switch"){
 		draw_sprite_ext(prompt_sprite, 0, _prompt_x, _prompt_y, prompt_scale, prompt_scale, 0, c_white, _prompt_alpha);
 		
 		if (wait <= 0){
-
+			gallery_first_pass = false;
 			___microgame_start(microgame_next_name);
 			___state_change("playing_microgame");
 			exit;
@@ -576,6 +602,6 @@ if (state == "cart_preview"){
 	var _spr_h = sprite_get_height(cart_sprite)* _scale;
 	
 	var _x = ((VIEW_W/2) - (_spr_w/2));
-	var _y = (((VIEW_H/2) - (_spr_h/2)) + 20) + lengthdir_y(3, cart_float_dir);
+	var _y = (((VIEW_H/2) - (_spr_h/2)) - 10) + lengthdir_y(3, cart_float_dir);
 	draw_sprite_ext(cart_sprite, 0, _x, _y, _scale, _scale, 0, c_white, 1);
 }

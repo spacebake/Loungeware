@@ -29,8 +29,8 @@ substate = 0;
 cursor = ___global.menu_cursor_main;
 menu = [
 	"PLAY",
-	"LEADERBOARD",
 	"GALLERY",
+	"LEADERBOARD",
 	"OPTIONS",
 	"CREDITS",
 	"EXIT"
@@ -51,5 +51,9 @@ menu_method = [
 
 menu_method[0] = function(){
 	instance_create_layer(0, 0, layer, ___MG_MNGR);
+	instance_destroy();
+}
+menu_method[1] = function(){
+	instance_create_layer(0, 0, layer, ___obj_menu_gallery);
 	instance_destroy();
 }

@@ -1,13 +1,17 @@
 function ___GAME_INIT(){
 	randomize();
 	instance_create_layer(0, 0, layer, ___global);
-	instance_create_layer(0, 0, layer, ___fake_global);
+	
 	___global.window_base_size = 540;
+	
+	// font
+	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><", false, 0);
 	
 	// colours
 	___global.macro_c_magenta = make_color_rgb(255, 0, 255);
 	___global.macro_c_gbyellow = make_color_rgb(241, 154, 82);
 	___global.macro_c_gbpink = make_color_rgb(200, 85, 78);
+	___global.macro_c_gbblack = make_color_rgb(26, 23, 33);
 	___global.macro_c_gbblack = make_color_rgb(26, 23, 33);
 	___global.macro_c_gboff = make_color_rgb(31, 27, 37);
 	___global.macro_c_cart_primary = make_color_rgb(89, 51, 100);
@@ -17,6 +21,9 @@ function ___GAME_INIT(){
 	___global.macro_c_gbtimer_empty = make_color_rgb(52, 41, 79);
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
+	
+	// musical credits
+
 	
 	// default inputs
 	___global.default_input_keys = {
@@ -85,18 +92,52 @@ function ___GAME_INIT(){
 	}
 	
 	// default volume
-	___global.default_vol = { sfx: 1, msc: 1,master: 1, }
+	___global.default_vol = { sfx: 1, msc: 1, master: 1, }
 	
 	var _version = "0.1.0";
 	___global.max_microgame_time = 12;
 	___global.save_filename = "dot.dot";
 	___global.microgame_metadata = ___init_metadata();
 	___global.difficulty_level = 1;
+	___global.difficulty_max = 5;
 	___global.difficulty_read = function(){return ___global.difficulty_level;}
 	___global.volume_read = function(_prop_name){return variable_struct_get(___global.save_data.vol, _prop_name);}
 	___global.window_base_size_read = function(){return ___global.window_base_size;}
 	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
 	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
+	
+	// add public songs to credits
+	var _is_public_music = false;
+	var _metadata_all = ___global.microgame_metadata;
+	var _microgame_keys = variable_struct_get_names(_metadata_all);
+	for (var i = 0; i < array_length(_microgame_keys); i++){
+		var _data = variable_struct_get(_metadata_all, _microgame_keys[i]);
+		var _credits = _data.credits;
+		var _music_name = audio_get_name(_data.music_track);
+		_is_public_music = string_copy(_music_name, 1, 4) == "sng_";
+		
+		if (_is_public_music){
+			_music_name = string_replace(_music_name, "sng_", "");
+			var _insert = 1;
+			while(string_char_at(_music_name, _insert) != "_"){
+				_insert++;
+				if (_insert > string_length(_music_name)){
+					break;
+				}
+			}
+			_music_name = string_copy(_music_name, 1, _insert-1);
+			// check if name was already in credits
+			var _name_already_exists = false;
+			for (var j = 0; j < array_length(_credits); j++){
+				if (string_upper(_music_name) == string_upper(_credits[j])) _name_already_exists = true;
+			}
+			if (!_name_already_exists) array_push(_credits, _music_name);
+			
+		
+		}
+	
+
+}
 	
 	// load save data if exists
 	___global.save_data = {};
@@ -163,6 +204,7 @@ function ___GAME_INIT(){
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	} else {
 		room_goto(___rm_main_menu);
+		instance_create_layer(0, 0, layer, delete_this);
 	}
 	
 }

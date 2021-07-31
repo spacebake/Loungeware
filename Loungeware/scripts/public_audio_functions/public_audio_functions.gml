@@ -17,6 +17,7 @@ function sfx_play(_snd_index, _vol, _loop){
 	_vol = _vol * audio_sound_get_gain(_snd_index) * VOL_SFX * VOL_MASTER;
 	var _snd_id = audio_play_sound(_snd_index, 0, _loop);
 	audio_sound_gain(_snd_id, _vol, 0);
+	ds_list_add(___global.___audio_active_list, _snd_id);
 	return _snd_id;
 }
 
@@ -50,6 +51,7 @@ function microgame_music_start(_sng, _vol, _loop){
 	audio_sound_gain(_snd_id, _vol * audio_sound_get_gain(_sng) * VOL_MSC * VOL_MASTER, 0);
 	if (audio_is_playing(___MG_MNGR.microgame_music)) audio_stop_sound(___MG_MNGR.microgame_music);
 	___MG_MNGR.microgame_music = _snd_id;
+	ds_list_add(___global.___audio_active_list, _snd_id);
 	return _snd_id;
 }
 
@@ -63,5 +65,6 @@ function microgame_music_stop(_time){
 	var _snd_id = ___MG_MNGR.microgame_music;
 	audio_sound_gain(_snd_id, 0, _time);
 	ds_list_add(___global.___song_stop_list, _snd_id);
+	
 	return _snd_id;
 }

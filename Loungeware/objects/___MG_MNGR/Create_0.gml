@@ -1,12 +1,17 @@
 randomize();
+___global.difficulty_level = 1;
 ___state_setup("start");
+force_substate = noone;
 dev_mode = false;
-dev_mode_loop_game = false;
 gallery_mode = false;
+gallery_first_pass = true;
 
+transition_speed = 1;
 
 window_scale = 0;
 prev_window_scale = window_scale;
+
+pause_cooldown = 0;
 
 // score
 score_total = 0;
@@ -20,6 +25,10 @@ microgame_populate_unplayed_list = function(){
 		ds_list_add(microgame_unplayed_list, microgame_namelist[i]);
 	}
 }
+
+gui_scale = 0;
+gui_x = 0;
+gui_y = 0;
 
 microgame_current_metadata = noone;
 microgame_current_name = noone;
@@ -107,22 +116,19 @@ var _test_vars = ___global.test_vars;
 
 if (_test_vars.test_mode_on){
 	var _game_key = _test_vars.microgame_key;
+	
 	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
 		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. \nYour key should be the name of your metadata file, minus the \".json\".\n If your metadata file is named \"sam_cookiedunk.json\", then your key would be \"sam_cookiedunk\"");
 		game_end();
 		exit;
 	}
-	___global.difficulty_level = _test_vars.difficulty_level;
-	if (___global.difficulty_level > 5 || ___global.difficulty_level < 1){
-		show_message("difficulty set incorrectly for test mode. difficulty should be an int within the range of 1-5");
-		game_end();
-		exit;
-	}
+
 	___state_change("playing_microgame");
+	// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
+	prompt =  ___microgame_get_prompt(_game_key);
 	dev_mode = true;
-	dev_mode_loop_game = bool(_test_vars.loop_game);
-	if (_test_vars.mute_test) audio_set_master_gain(0, 0);
 	
+	if (!instance_exists(___dev_debug)) instance_create_layer(0, 0, layer, ___dev_debug);
 	___microgame_start(_game_key);
 }
 
@@ -351,11 +357,11 @@ draw_microgame = function(){
 	surface_reset_target();
 	
 	// set gui size (sets the gui scale to fit the gameboy
-	var _gui_scale = (canvas_w * window_scale) / VIEW_W;
-	var _gui_x = (canvas_x * window_scale) + ((window_get_width() - (WINDOW_BASE_SIZE * window_scale))/2);
-	var _gui_y = (canvas_y * window_scale) + ((window_get_height() - (WINDOW_BASE_SIZE * window_scale))/2);
-	display_set_gui_maximise(_gui_scale, _gui_scale, _gui_x, _gui_y);
-	
+	gui_scale = (canvas_w * window_scale) / VIEW_W;
+	gui_x = (canvas_x * window_scale) + ((window_get_width() - (WINDOW_BASE_SIZE * window_scale))/2);
+	gui_y = (canvas_y * window_scale) + ((window_get_height() - (WINDOW_BASE_SIZE * window_scale))/2);
+	display_set_gui_maximise(gui_scale, gui_scale, gui_x, gui_y);
+
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -380,3 +386,53 @@ draw_master_surface = function(){
 	draw_surface_stretched(surf_master, _x, _y, _size, _size);
 }
 
+
+//--------------------------------------------------------------------------------------------------------
+// DRAW HEARTS
+//--------------------------------------------------------------------------------------------------------
+/*
+function draw_hearts(){
+		// draw life
+		life_dir += 5 * transition_speed;
+		
+		if (!life_alpha_done){
+			life_scale = -lengthdir_y(1.1, life_dir);
+			if (life_dir > 90) && (life_scale <= 1){
+				life_alpha_done = true;
+				life_scale = 1;
+			}
+		} else {
+			if (life_shake_timer <= 0) life_last_frame = min(life_last_frame + life_image_speed, sprite_get_number(___spr_life_lose)-1);
+			life_shake_timer = max(0, life_shake_timer - (1 * transition_speed));
+		}
+		
+		if (life_last_frame >= 4 && !life_sound_played){
+			life_sound_played = true;
+			sfx_play(___snd_microgame_heart_pop, 1, 0);
+		}
+		
+		var _life_spr = ___spr_life;
+		var _life_w = sprite_get_width(_life_spr);
+		var _life_y = ((canvas_y + (canvas_h/2)))/2;
+		var _margin = 12;
+		var _total_w = (_life_w * life_max) + (_margin * (life_max-1));
+		var _life_x = ((VIEW_W/2) - (_total_w / 2)) + (_life_w/2);
+		
+		for (var i = 0; i < life + 1; i++){
+			var _y_mod = lengthdir_y(1, life_dir + (i * 40));
+			var _alpha = life_alpha;
+			var _frame = 0;
+			var _sprite = _life_spr;
+			if (i == life){ // last heart 
+				if (life_shake_timer > 0 && life_alpha_done){
+					var _shake_val = (1-(life_shake_timer/life_shake_timer_max)) * 3;
+					_life_x += random_range(-_shake_val, _shake_val);
+					_life_y += random_range(-_shake_val, _shake_val);
+				}
+				_frame = life_last_frame; 
+				_sprite = ___spr_life_lose;
+			}
+			draw_sprite_ext(_sprite, _frame, _life_x, _life_y + _y_mod, life_scale, life_scale, 0, c_white, _alpha);
+			_life_x += _life_w + _margin;
+		}
+}*/

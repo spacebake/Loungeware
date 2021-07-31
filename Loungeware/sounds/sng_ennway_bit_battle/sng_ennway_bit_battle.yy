@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_ennway_bit_battle.ogg",
-  "duration": 10.110261,
+  "duration": 10.1052608,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",

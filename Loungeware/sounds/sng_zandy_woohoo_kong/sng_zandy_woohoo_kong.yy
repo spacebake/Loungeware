@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_woohoo_kong.wav",
-  "duration": 7.583958,
+  "duration": 7.578958,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",

@@ -1,5 +1,6 @@
+//show_message("sub begin: " + string(substate_begin) + " | state: " + string(state) + " | substate:" + string(substate));
 ___state_handler();
-
+//show_message("after: substate begin: " + string(substate_begin));
 
 // fade timer bar
 if (gb_timerbar_visible) gb_timerbar_alpha = min(1, gb_timerbar_alpha + gb_timerbar_fadespeed) 
@@ -7,10 +8,12 @@ else gb_timerbar_alpha = max(0, gb_timerbar_alpha - gb_timerbar_fadespeed);
 
 // handle transition music
 if (transition_music_began && !audio_is_playing(transition_music)){
-	if (!dev_mode ||  !___global.test_vars.loop_game){
+	if (!dev_mode && !gallery_mode){
 		transition_music_began = false;
 		transition_music  = audio_play_sound(___sng_microgame_winlose_end, 0, 0);
 		audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
+		ds_list_add(___global.___audio_active_list, transition_music);
+		audio_sound_pitch(transition_music, transition_speed);
 	}
 }
 
@@ -23,10 +26,7 @@ if (state == "playing_microgame"){
 		gb_timerbar_visible = true;
 		transition_circle_rad = 0;
 		prompt_alpha = 1;
-		// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
-		if (prompt == ""){
-			prompt = microgame_current_metadata.prompt[irandom(array_length(microgame_current_metadata.prompt) - 1)];
-		}
+
 		prompt_sprite = ___prompt_sprite_create(prompt);
 		substate = 0;
 	}

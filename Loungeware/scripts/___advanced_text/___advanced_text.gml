@@ -90,7 +90,7 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 		// go down a line and reset insert if this char is a linebreak 
 		if (this_letter == "\n") {
 			line += 1;
-			current_line_width = ___DTA_return_line_width(str, line, _OPT_letter_spacing);
+			current_line_width = ___DTA_return_line_width(str, line, _OPT_letter_spacing) * scale;
 			insert = 0;
 			continue;
 		}
@@ -178,7 +178,7 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 
 				case fa_left: {draw_text_transformed(((x + x_mod) + (insert)), ((y + y_mod) + (line * line_height)) , this_letter, scale, scale, 0); break};
 				case fa_right: {draw_text_transformed(((x + x_mod) - current_line_width + (insert)), ((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
-				case fa_center: {draw_text_transformed(((x + x_mod) - (current_line_width/2) + (insert)), ((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
+				case fa_center: {draw_text_transformed(((x + x_mod) - ((current_line_width)/2) + (insert)), ((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
 			}
 		}
 		
@@ -427,7 +427,7 @@ function ___DTA_linebreak_pixels(str, max_line_in_pixels, fnt, _OPT_letter_spaci
 	if (is_undefined(_OPT_letter_spacing)) _OPT_letter_spacing = 0;
 	var char_width = string_width("M") + _OPT_letter_spacing;
 	var max_chars_in_width = (max_line_in_pixels div char_width)-1;
-	return ___DTA_return_line_width(str, max_chars_in_width);
+	return _DTA_linebreak_chars(str, max_chars_in_width);
 	draw_set_font(store_font);
 }
 

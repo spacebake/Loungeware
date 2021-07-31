@@ -14,7 +14,7 @@
     "cartridge_col_secondary": [126,37,83],
     "cartridge_label": "anti_hats_sp_label",
     "default_is_fail": true,
-    "supports_difficulty_scaling": false,
+    "supports_difficulty_scaling": true,
     "credits": ["Antidissmist"],
     "date_added": "21/07/14"
 }

@@ -21,11 +21,7 @@ if (state == "begin"){
 	if (cursor > _menu_len - 1) cursor = 0;
 	if (cursor < 0) cursor = _menu_len - 1;
 	if (_store_cursor_pos != cursor){
-		var _snd_index  = ___snd_menu_tick;
-		var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
-		audio_sound_gain(_snd_id, _vol, 0);
-		audio_sound_pitch(_snd_id, random_range(0.99, 1.01));
+		___sound_menu_tick_vertical();
 	}
 	
 	// check for confirm

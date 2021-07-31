@@ -4,7 +4,7 @@
      "creator_name": "Nahoo",
      "prompt": "POLLINATE",
      "init_room": "nahoo_beenade_rMain",
-	 "is_enabled": false,
+	"is_enabled": false,
      "view_width": 480,
      "view_height": 320,
      "time_seconds": 5,

@@ -80,8 +80,6 @@ function ___microgame_load_fake(){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_start(_microgame_propname){
 	
-	
-	
 	// init new microgame
 	with(___MG_MNGR){
 		
@@ -99,8 +97,9 @@ function ___microgame_start(_microgame_propname){
 		microgame_timer = _metadata.time_seconds * 60;
 		microgame_timer_max = _metadata.time_seconds * 60;
 		if (dev_mode && _metadata.time_seconds > ___global.max_microgame_time){
-			show_message("You are exceeding the maximum amount of time allowed for a microgame. Please make a game that is " + string(___global.max_microgame_time) + " seconds or shorter.\nIf you are just doing this for testing purposes then hit \"ok\" to proceed.");
+			show_message("You are exceeding the maximum amount of time allowed for a microgame. Please make a game that is " + string(___global.max_microgame_time) + " seconds or shorter.\nIf you need to test your microgame without a timer then press \"I\" while in test mode to toggle infinite timer.");
 		}
+		
 
 		microgame_won = false;
 		cart_sprite = ___cart_sprite_create(_metadata);
@@ -111,6 +110,13 @@ function ___microgame_start(_microgame_propname){
 		if (_metadata.music_track != noone) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
 		microgame_music_auto_stopped = false;
 		room_goto(_metadata.init_room);
+		
+		// destroy and recreate fake global
+		with (___fake_global) instance_destroy();
+		instance_create_layer(0, 0, layer, ___fake_global);
+		// garbage collect any leftover ds structures from previous microgame
+		workspace_end();
+		workspace_begin();
 	}
 }
 
@@ -150,37 +156,29 @@ function ___microgame_end(){
 		//show_message("time remaining: " + ___MG_MNGR.microgame_timer);
 	}
 	
-	// destroy and recreate fake global
-	with (___fake_global) instance_destroy();
-	instance_create_layer(0, 0, layer, ___fake_global);
-	// garbage collect any leftover ds structures from microgame
-	//___ds_gc_collect()
-	workspace_end();
-	workspace_begin();
-	
 	// go to rest room (lol)
 	room_goto(___rm_restroom);
 	
-	// remove game from unplayed list 
-	var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-	ds_list_delete(microgame_unplayed_list, _index_to_remove);
+	if (!dev_mode && !gallery_mode){
+		// remove game from unplayed list 
+		var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
+		ds_list_delete(microgame_unplayed_list, _index_to_remove);
 	
-	// if uplayed list is empty, repopulate it with all games (excluse the one just played, if possble, see below)
-	if (ds_list_size(microgame_unplayed_list) <= 0){
-		microgame_populate_unplayed_list();
+		// if uplayed list is empty, repopulate it with all games (excluse the one just played, if possble, see below)
+		if (ds_list_size(microgame_unplayed_list) <= 0){
+			microgame_populate_unplayed_list();
 		
-		// if there is more than 1 game, delete the last played game from the new list as to not get repeats
-		if (ds_list_size(microgame_unplayed_list) > 1){
-			_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-			ds_list_delete(microgame_unplayed_list, _index_to_remove);
+			// if there is more than 1 game, delete the last played game from the new list as to not get repeats
+			if (ds_list_size(microgame_unplayed_list) > 1){
+				_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
+				ds_list_delete(microgame_unplayed_list, _index_to_remove);
+			}
 		}
-	}
 	
-	// choose next game from uplayed list
-	microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
-	microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
-	
-	if (dev_mode && ___global.test_vars.loop_game){
+		// choose next game from uplayed list
+		microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
+		microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+	} else {
 		microgame_next_name = microgame_current_name;
 		microgame_next_metadata = microgame_current_metadata;
 	}
@@ -193,8 +191,15 @@ function ___microgame_end(){
 // moves a number towards another number, slows down as it approaches
 //--------------------------------------------------------------------------------------------------------
 function ___smooth_move(_current_val, _target_val, _minimum, _divider){
+	
+	if (object_index == ___MG_MNGR){
+		_divider = (_divider / transition_speed);
+		_minimum = (_minimum * transition_speed);
+	}
+	
 	var _diff = _target_val - _current_val;
 	var _store_sign = sign(_diff);
+	
 	if (abs(_diff) <= _minimum){
 		_current_val = _target_val;
 	} else {
@@ -253,12 +258,21 @@ function ___state_handler(){
 		state_goto = noone;
 		substate = 0;
 		subsubstate = 0;
+		substate_begin = true;
 	}
 	
-	if (substate !=  store_substate) substate_begin = true;
-	store_substate = substate;
+	if (force_substate != noone){
+		substate = force_substate;
+		force_substate = noone;
+	}
 	
+	if (substate !=  store_substate){
+		substate_begin = true;
+	}
+	store_substate = substate;
+
 }
+
 
 // ------------------------------------------------------------------------------------------
 // CENTER GAME WINDOW | clue is in the name
@@ -311,21 +325,17 @@ function __try_read_json(filepath){
 		var str = "";
 		while(file_text_eof(file) == false){
 			var line =  file_text_readln(file);
-			var comment_count = 0;
 			for(var i=1; i < string_length(line) + 1; i++){
 				var char = string_char_at(line, i);
-				if(char == "/"){
-					comment_count++;	
-					if(comment_count == 2){
-						break;	
-					}
+				var is_comment = string_copy(line, i, 2) == "//";
+				if(is_comment){
+					break;	
 				}else{
-					comment_count = 0;
 					str = str + char;
 				}
 			}
 		
-			if(comment_count == 2){
+			if(is_comment == 2){
 				continue;	
 			}
 		}
@@ -341,9 +351,101 @@ function __try_read_json(filepath){
 }
 
 // ------------------------------------------------------------------------------------------
+// MICROGAME GET PROMPT
+// ------------------------------------------------------------------------------------------
+// reyurns a random prompt from the microgame prompt array
+function ___microgame_get_prompt(_key){
+	var _metadata = variable_struct_get(___global.microgame_metadata, _key);
+	return _metadata.prompt[irandom(array_length(_metadata.prompt) - 1)];
+}
+
+// ------------------------------------------------------------------------------------------
 
 // ------------------------------------------------------------------------------------------
 function ___noop(){
 	// noop	
 }
 
+// ------------------------------------------------------------------------------------------
+// DEV LOAD
+// ------------------------------------------------------------------------------------------
+function ___dev_load(){
+	
+	var _filename = "tmpenv.dev";
+	
+	var _default = {
+		difficulty_level: 1,
+		microgame_key: ___global.test_vars.microgame_key,
+		mute_test: false,
+		debug_hidden: false,
+		infinite_timer: false,
+	}
+	
+	if (file_exists(_filename)){
+
+		var _file = file_text_open_read(_filename);
+		var _json = file_text_read_string(_file);
+		var _loaded = json_parse(_json);
+		file_text_close(_file);
+	
+		// check loaded has all the props that default has
+		var _default_proplist = variable_struct_get_names(_default);
+		for (var i = 0; i < array_length(_default_proplist); i++){
+			if (!variable_struct_exists(_loaded, _default_proplist[i])){
+				file_delete(_filename);
+				return _default;
+			}
+		}
+		
+		// delete file if test game has changed
+		if (_loaded.microgame_key != ___global.test_vars.microgame_key){
+			file_delete(_filename);
+			return _default;
+			
+		}
+		
+		return _loaded;
+	} 
+	
+	return _default;
+
+}
+
+// ------------------------------------------------------------------------------------------
+// DEV SAVE
+// ------------------------------------------------------------------------------------------
+function ___dev_save(){
+	
+	var _data = ___dev_debug.saved_dev_vars;
+	_data.difficulty_level = ___global.difficulty_level;
+	_data.microgame_key = ___global.test_vars.microgame_key;
+	_data.mute_test = ___dev_debug.muted;
+	_data.debug_hidden = ___dev_debug.debug_hidden;
+	_data.infinite_timer = ___dev_debug.infinite_timer;
+	
+	var _filename = "tmpenv.dev";
+	var _str = json_stringify(___dev_debug.saved_dev_vars);
+	var _file = file_text_open_write(_filename);
+	file_text_write_string(_file, _str);
+	file_text_close(_file);
+
+}
+
+// ------------------------------------------------------------------------------------------
+// SOUNDS
+// ------------------------------------------------------------------------------------------
+function ___sound_menu_tick_vertical(){
+	var _snd_index  = ___snd_menu_tick;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, 1);
+}
+
+function ___sound_menu_tick_horizontal(){
+	var _snd_index  = ___snd_menu_tick;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, 0.8);
+}

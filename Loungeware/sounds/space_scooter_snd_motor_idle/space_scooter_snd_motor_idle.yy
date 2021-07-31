@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "space_scooter_snd_motor_idle.wav",
-  "duration": 2.753707,
+  "duration": 2.748707,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/Space/scooter/sounds.yy",

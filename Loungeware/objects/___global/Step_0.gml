@@ -11,8 +11,9 @@ for (var i = 0; i < ds_list_size(___song_stop_list); i++){
 }
 
 
-// controller updates
 
+
+// controller updates
 var _deadzone = 0.5;
 for (var i=0;i<gamepad_get_device_count();i++) {
 	controller_values[i].active = gamepad_is_connected(i);
