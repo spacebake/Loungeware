@@ -67,3 +67,29 @@ function microgame_set_timer_max(_new_time_in_seconds){
 	___MG_MNGR.microgame_timer = _new_time_in_seconds * 60;
 	___MG_MNGR.microgame_timer_max = _new_time_in_seconds * 60;
 }
+
+//--------------------------------------------------------------------------------------------------------
+// TIMER 
+/* You can use this function to end your game before the timer runs out natrually.
+For example: if the player fails your game in the first few seconds and there are still 5 seconds left on
+the clock, you can call this to prevent making the player wait out the rest of the timer.
+
+IMPORTANT: You still need to show some kind of fail state on the screen before you call this function.
+you cant just instantly end the game the instant the player fails, that would feel too abrupt. 
+
+note: the closing-circle transition still has to play when the microgame ends, so there will be a short
+period between calling this and the microgame actually ending.*/
+
+function microgame_end_early(){
+	___MG_MNGR.microgame_timer_skip = true;
+}
+
+
+
+
+
+
+
+
+
+

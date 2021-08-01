@@ -36,6 +36,7 @@ microgame_next_metadata = noone;
 microgame_next_name = noone;
 microgame_timer = -1;
 microgame_timer_max = -1;
+microgame_timer_skip = false;
 microgame_won = false;
 microgame_time_finished = 100000;
 microgame_namelist = variable_struct_get_names(___global.microgame_metadata);

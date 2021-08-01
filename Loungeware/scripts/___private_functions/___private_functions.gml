@@ -102,6 +102,7 @@ function ___microgame_start(_microgame_propname){
 		
 
 		microgame_won = false;
+		microgame_timer_skip = false;
 		cart_sprite = ___cart_sprite_create(_metadata);
 		gb_timerbar_visible = true;
 		transition_appsurf_zoomscale = 1;

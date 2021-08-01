@@ -41,7 +41,8 @@ if (state == "playing_microgame"){
 	}
 	
 	if (substate == 1){
-		if (microgame_timer == 0){
+		if (microgame_timer <= 0 || microgame_timer_skip){
+			
 		
 			if (!microgame_won){
 				larold_index = 2;
@@ -63,7 +64,7 @@ if (state == "playing_microgame"){
 			transition_appsurf_zoomscale = max(0.1, transition_appsurf_zoomscale - (1/microgame_end_transition_time));
 			// close circle animation (loony tunes am i right)
 			transition_circle_rad = max(0, transition_circle_rad - transition_circle_speed);
-
+			
 			if ((transition_circle_rad <= 0) && (gb_timerbar_alpha <= 0)){
 				___state_change("microgame_result");
 				___microgame_end();
