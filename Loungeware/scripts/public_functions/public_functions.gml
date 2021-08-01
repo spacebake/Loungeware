@@ -1,8 +1,10 @@
 //--------------------------------------------------------------------------------------------------------
 // returns the current difficulty level
 #macro DIFFICULTY ___global.difficulty_read() 
+
 // camera / view
-#macro CAMERA view_camera[0]
+#macro VIEW_NUMBER 0
+#macro CAMERA view_camera[VIEW_NUMBER]
 #macro VIEW_W camera_get_view_width(CAMERA)
 #macro VIEW_H camera_get_view_height(CAMERA)
 #macro VIEW_X camera_get_view_x(CAMERA)
@@ -19,8 +21,6 @@
 
 // returns the prompt displayed before the microgame starts (useful if your microgame has multiple prompts)
 #macro PROMPT ___MG_MNGR.prompt
-
-
 
 //--------------------------------------------------------------------------------------------------------
 // MICROGAME WIN
@@ -67,11 +67,3 @@ function microgame_set_timer_max(_new_time_in_seconds){
 	___MG_MNGR.microgame_timer = _new_time_in_seconds * 60;
 	___MG_MNGR.microgame_timer_max = _new_time_in_seconds * 60;
 }
-
-
-
-
-
-
-
-
