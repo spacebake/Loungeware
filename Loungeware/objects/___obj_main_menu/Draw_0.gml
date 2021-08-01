@@ -87,7 +87,7 @@ for (var i = 0; i < array_length(menu); i++){
 			
 		}
 	}
-	//if (menu_method[i] == noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 10, _text_x + (_str_w/2), _text_y_final + 14); 
+	if (menu_method[i] == noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 10, _text_x + (_str_w/2), _text_y_final + 14); 
 	___global.___draw_text_advanced(_text_x, _text_y_final, _v_sep, true, true, _str, 1, _scale_final, _h_sep);
 }
 
