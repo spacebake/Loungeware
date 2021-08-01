@@ -17,7 +17,7 @@ if (state == "intro"){
 		_gb_intro_y_start = VIEW_H + 16;
 		_gb_intro_y = _gb_intro_y_start;
 		_gb_intro_y_end = (VIEW_H/2) - 32;
-		wait = 20 / transition_speed;
+		wait = 15 / transition_speed;
 	}
 	
 	if (substate == 0){
@@ -27,7 +27,7 @@ if (state == "intro"){
 		var _prog = (_gb_intro_y_start - _gb_intro_y) / (_gb_intro_y_start - _gb_intro_y_end);
 		_gb_frame = ((sprite_get_number(___spr_gameboy_spin_x) * 3)+0.99) * (min(1, _prog+(0.03)));
 	
-		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 0.5, 30);
+		_gb_intro_y = ___smooth_move(_gb_intro_y, _gb_intro_y_end, 0.75, 20);
 
 		
 		if (wait <= 0){
@@ -64,51 +64,96 @@ if (state == "intro"){
 if (state == "intro_hearts"){
 	if (state_begin){
 		_fade_alpha = 0;
-		wait = 60 / transition_speed;
+		wait = 30 / transition_speed;
 	}
 	
-		// move larold
-		var _dir_speed = 2.5 * transition_speed;
-		var _larold_rad = 2;
-		larold_dir += _dir_speed;
-		var _y_offset_larold = lengthdir_y(_larold_rad, larold_dir);
-		var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
-		
-		// draw larold
-		draw_set_alpha(0.025)
-		draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
-		
-		// draw glare
-		draw_set_alpha(0.015)
-		draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
-		draw_set_alpha(1);
+	// move larold
+	var _dir_speed = 2.5 * transition_speed;
+	var _larold_rad = 2;
+	larold_dir += _dir_speed;
+	var _y_offset_larold = lengthdir_y(_larold_rad, larold_dir);
+	var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
 	
-		// draw overlay
-		draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
-		
-		//draw fade in
-		draw_set_alpha(_fade_alpha);
-		draw_set_color(c_gbblack);
-		draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
-		draw_set_alpha(1);
+	// draw larold
+	draw_set_alpha(0.025);
+	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
+	
+	// draw glare
+	draw_set_alpha(0.015);
+	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
+	draw_set_alpha(1);
+
+	// draw overlay
+	draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
+	
+	//draw fade in
+	draw_set_alpha(_fade_alpha);
+	draw_set_color(c_gbblack);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
 	
 	// zoom out gameboy
 	if (substate == 0){
-
-		if (wait <= 0){
-			substate = 1;
-			//___state_change("game_switch");
-			
-		}
-		
+		if (wait <= 0) substate++;
 		_fade_alpha = max(0, _fade_alpha - ((1/30)*transition_speed));
 		if (_fade_alpha <= 0) wait--;
-		
 	}
 	
 	// bring in hearts
+	if (state_begin){
+		heart_dir = 0;
+		heart_alpha = 0;
+		heart_alpha_done = false;
+		heart_scale = 0;
+		heart_last_frame = 0;
+		heart_image_speed = 0.3 * transition_speed;
+		sway_dir_dir = 0;
+	}
+	
 	if (substate == 1){
 		
+		var _heart_spr = ___spr_life;
+		var _heart_w = sprite_get_width(_heart_spr);
+		var _margin = 12;
+		var _total_w = (_heart_w * life_max) + (_margin * (life_max-1));
+		var _heart_x = ((VIEW_W/2) - (_total_w / 2)) + (_heart_w/2);
+		var _heart_y = ((canvas_y + (canvas_h/2)))/2;
+		var _sway_size = 15;
+		heart_dir += 5 * transition_speed;
+		
+		// hearts pop-in animtion
+		if (!heart_alpha_done){
+			heart_scale = -lengthdir_y(1.1, heart_dir);
+			if (heart_dir > 90) && (heart_scale <= 1){
+				heart_alpha_done = true;
+				heart_scale = 1;
+			}
+		} else {
+			sway_dir_dir += 7 * transition_speed;
+		}
+		
+		// draw hearts
+		for (var i = 0; i < life; i++){
+			var _y_mod = lengthdir_y(1, heart_dir + (i * 40));
+			var _alpha = heart_alpha;
+			var _frame = 0;
+			var _sway_dir = (_sway_size*lengthdir_y(1, sway_dir_dir + (i*5)));
+			draw_sprite_ext(_heart_spr, _frame, _heart_x, _heart_y + _y_mod, heart_scale, heart_scale, _sway_dir, c_white, _alpha);
+			_heart_x += _heart_w + _margin;
+		}
+		
+		var _heart_fade_speed = (1/15) * transition_speed;
+		var _stop_at_dir = 180*5;
+		if (heart_alpha_done && sway_dir_dir >= _stop_at_dir){
+			sway_dir_dir = _stop_at_dir;
+			heart_alpha = max(0, heart_alpha - _heart_fade_speed);
+			heart_scale = heart_alpha;
+			if (heart_alpha <= 0){
+				___state_change("game_switch");
+			}
+		} else {
+			heart_alpha = min(1, heart_alpha + _heart_fade_speed);
+		}
 	}
 	
 	
@@ -140,15 +185,6 @@ if (state == "microgame_result"){
 			}
 		}
 		wait = 30 / transition_speed;
-		life_dir = 0;
-		life_alpha = 0;
-		life_alpha_done = false;
-		life_scale = 0;
-		life_last_frame = 0;
-		life_image_speed = 0.3 * transition_speed;
-		life_shake_timer_max = 30 / transition_speed;
-		life_shake_timer = life_shake_timer_max;
-		life_sound_played = false;
 	}
 	
 	// move larold
@@ -159,11 +195,11 @@ if (state == "microgame_result"){
 	var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
 		
 	// draw larold
-	draw_set_alpha(0.025)
+	draw_set_alpha(0.025);
 	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
 		
 	// draw glare
-	draw_set_alpha(0.015)
+	draw_set_alpha(0.015);
 	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
 	draw_set_alpha(1);
 	
@@ -188,80 +224,95 @@ if (state == "microgame_result"){
 			if (dev_mode){ 
 				___microgame_start(microgame_next_name);
 				___state_change("playing_microgame"); 
-				exit
+				exit;
 			}
 			if (microgame_won || gallery_mode){
 				___state_change("game_switch");
 				exit;
 			} else {
 				wait = 20 / transition_speed;
-				substate++
+				substate++;
 			}
 		}
 	}
 	
+	if (state_begin){
+		heart_dir = 0;
+		heart_alpha = 0;
+		heart_alpha_done = false;
+		heart_scale = 0;
+		heart_last_frame = 0;
+		heart_image_speed = 0.3 * transition_speed;
+		heart_shake_timer_max = 30 / transition_speed;
+		heart_shake_timer = heart_shake_timer_max;
+		heart_sound_played = false;
+	}
+	
 	// draw health screen (this substate is bypassed if microgame was won)
 	if (substate == 1){
-		// draw life
-		life_dir += 5 * transition_speed;
-		if (!life_alpha_done){
-			life_scale = -lengthdir_y(1.1, life_dir);
-			if (life_dir > 90) && (life_scale <= 1){
-				life_alpha_done = true;
-				life_scale = 1;
+		
+		var _heart_spr = ___spr_life;
+		var _heart_w = sprite_get_width(_heart_spr);
+		var _margin = 12;
+		var _total_w = (_heart_w * life_max) + (_margin * (life_max-1));
+		var _heart_x = ((VIEW_W/2) - (_total_w / 2)) + (_heart_w/2);
+		var _heart_y = ((canvas_y + (canvas_h/2)))/2;
+		
+		heart_dir += 5 * transition_speed;
+		
+		// hearts pop-in animtion
+		if (!heart_alpha_done){
+			heart_scale = -lengthdir_y(1.1, heart_dir);
+			if (heart_dir > 90) && (heart_scale <= 1){
+				heart_alpha_done = true;
+				heart_scale = 1;
 			}
+		// hearts shake after pop-in
 		} else {
-			if (life_shake_timer <= 0) life_last_frame = min(life_last_frame + life_image_speed, sprite_get_number(___spr_life_lose)-1);
-			life_shake_timer = max(0, life_shake_timer - (1 * transition_speed));
+			if (heart_shake_timer <= 0) heart_last_frame = min(heart_last_frame + heart_image_speed, sprite_get_number(___spr_life_lose)-1);
+			heart_shake_timer = max(0, heart_shake_timer - transition_speed);
 		}
 		
-		if (life_last_frame >= 4 && !life_sound_played){
-			life_sound_played = true;
+		// play sound when exploding heart reaches frame 4
+		if (heart_last_frame >= 4 && !heart_sound_played){
+			heart_sound_played = true;
 			sfx_play(___snd_microgame_heart_pop, 1, 0);
 		}
 		
-		var _life_spr = ___spr_life;
-		var _life_w = sprite_get_width(_life_spr);
-		var _life_y = ((canvas_y + (canvas_h/2)))/2;
-		var _margin = 12;
-		var _total_w = (_life_w * life_max) + (_margin * (life_max-1));
-		var _life_x = ((VIEW_W/2) - (_total_w / 2)) + (_life_w/2);
-		
 		for (var i = 0; i < life + 1; i++){
-			var _y_mod = lengthdir_y(1, life_dir + (i * 40));
-			var _alpha = life_alpha;
+			var _y_mod = lengthdir_y(1, heart_dir + (i * 40));
+			var _alpha = heart_alpha;
 			var _frame = 0;
-			var _sprite = _life_spr;
+			var _sprite = _heart_spr;
 			if (i == life){ // last heart 
-				if (life_shake_timer > 0 && life_alpha_done){
-					var _shake_val = (1-(life_shake_timer/life_shake_timer_max)) * 3;
-					_life_x += random_range(-_shake_val, _shake_val);
-					_life_y += random_range(-_shake_val, _shake_val);
+				if (heart_shake_timer > 0 && heart_alpha_done){
+					var _shake_val = (1-(heart_shake_timer/heart_shake_timer_max)) * 3;
+					_heart_x += random_range(-_shake_val, _shake_val);
+					_heart_y += random_range(-_shake_val, _shake_val);
 				}
-				_frame = life_last_frame; 
+				_frame = heart_last_frame; 
 				_sprite = ___spr_life_lose;
 			}
-			draw_sprite_ext(_sprite, _frame, _life_x, _life_y + _y_mod, life_scale, life_scale, 0, c_white, _alpha);
-			_life_x += _life_w + _margin;
+			draw_sprite_ext(_sprite, _frame, _heart_x, _heart_y + _y_mod, heart_scale, heart_scale, 0, c_white, _alpha);
+			_heart_x += _heart_w + _margin;
 		}
 		
 		// draw overlay again because too lazy to fix this
 		draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
 		
-		var _life_fade_speed = (1/10) * transition_speed;
-		if (life_alpha_done && life_last_frame >= sprite_get_number(___spr_life_lose) -1){
-			life_alpha = max(0, life_alpha - _life_fade_speed);
-			life_scale = life_alpha;
+		var _heart_fade_speed = (1/10) * transition_speed;
+		if (heart_alpha_done && heart_last_frame >= sprite_get_number(___spr_life_lose) -1){
+			heart_alpha = max(0, heart_alpha - _heart_fade_speed);
+			heart_scale = heart_alpha;
 		} else {
-			life_alpha = min(1, life_alpha + _life_fade_speed);
+			heart_alpha = min(1, heart_alpha + _heart_fade_speed);
 		}
 		
 		
 		if (wait <= 0){
-
 			___state_change("game_switch");
 		}
-		if (life_alpha <= 0 &&  life_alpha_done) wait--;
+		if (heart_alpha <= 0 &&  heart_alpha_done) wait--;
 	}
 	
 }
@@ -274,6 +325,7 @@ if (state == "game_switch"){
 	var _scale = 0.5;
 	
 	if (state_begin){
+		//if (games_played > 0 && games_played mod 3 == 0) show_message("DIFF UP!");
 		gb_scale = 1;
 		gb_offset_x = 0;
 		gb_offset_y = 0;

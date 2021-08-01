@@ -10,6 +10,7 @@ if (state == "start_game"){
 		gb_scale = gb_min_scale;
 		gallery_mode = true;
 		gallery_first_pass = true;
+		microgame_current_metadata = _current_game_data;
 	}
 	___global.menu_cursor_gallery = cursor;
 	instance_destroy();

@@ -136,4 +136,3 @@ if (state == "fadeout"){
 draw_set_color(c_red);
 
 
-log(state)

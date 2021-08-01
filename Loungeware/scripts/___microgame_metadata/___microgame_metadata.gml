@@ -16,6 +16,8 @@ function ___init_metadata(){
 		}
 	}
 	
+	if (variable_struct_exists(env, "loop_mode")) show_message("Your config.dev.json file is out of date. Please check the template (config.example.json) to see the new structure.");
+	
 	var rules =  new LW_FGameLoaderRuleBuilder()
 		.add_rule(
 			new LW_FGameLoaderNumberTransformer("config_version", 0)

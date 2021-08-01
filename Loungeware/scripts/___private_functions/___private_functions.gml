@@ -4,7 +4,7 @@
 function ___macro_keyboard_check(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if keyboard_check(_list[i]) {
+		if (keyboard_check(_list[i])) {
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
@@ -29,7 +29,7 @@ function draw_rectangle_fix(_x1, _y1, _x2, _y2){
 function ___macro_keyboard_check_pressed(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if keyboard_check_pressed(_list[i]) {
+		if (keyboard_check_pressed(_list[i])) {
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
@@ -45,7 +45,7 @@ function ___macro_keyboard_check_pressed(_keystr){
 function ___macro_keyboard_check_released(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
-		if keyboard_check_released(_list[i]) {
+		if (keyboard_check_released(_list[i])) {
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
@@ -126,6 +126,13 @@ function ___microgame_start(_microgame_propname){
 //--------------------------------------------------------------------------------------------------------
 function ___microgame_end(){
 	
+	games_played += 1;
+	if (games_played mod 3 == 0){
+		difficulty_up_queue = true;
+	} else {
+		difficulty_up_queue = false;
+	}
+	
 	show_debug_overlay(false);
 	
 	// update save data
@@ -141,7 +148,7 @@ function ___microgame_end(){
 	___save_game();
 	
 	// send to server if data collection on
-	if ___global.save_data.data_collection{
+	if (___global.save_data.data_collection){
 		// < CODE GO HERE AT SOME POINT >
 	}
 		

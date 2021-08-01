@@ -7,10 +7,10 @@ gallery_mode = false;
 gallery_first_pass = true;
 
 transition_speed = 1;
+games_played = 0;
 
 window_scale = 0;
 prev_window_scale = window_scale;
-
 pause_cooldown = 0;
 
 // score
@@ -25,7 +25,7 @@ microgame_populate_unplayed_list = function(){
 		ds_list_add(microgame_unplayed_list, microgame_namelist[i]);
 	}
 }
-
+ 
 gui_scale = 0;
 gui_x = 0;
 gui_y = 0;
@@ -60,7 +60,6 @@ canvas_x = gameboy_padding_x;
 canvas_y = gameboy_padding_y;
 
 // surfaces
-
 surf_master = noone; // <-- radical 😎
 surf_gameboy = noone;
 surf_transition_circle = noone;
@@ -84,7 +83,7 @@ cart_offset_x = 0;
 cart_offset_y = 0;
 cart_angle = 0;
 cart_draw_over = false;
-spin_speed = 0.75
+spin_speed = 0.75;
 gb_min_scale = 0.4;
 gb_max_scale = 1;
 gb_scale_diff =  gb_max_scale - gb_min_scale;
@@ -159,7 +158,7 @@ if (!dev_mode){
 //--------------------------------------------------------------------------------------------------------
 // DRAW CIRCLE TRANSITION SURFACE (requires master surface)
 //--------------------------------------------------------------------------------------------------------
-draw_circle_transition = function(){
+function draw_circle_transition(){
 		var _circle_pixel_scale = 5;
 
 		var _stc_w = canvas_w / _circle_pixel_scale;
@@ -209,7 +208,7 @@ draw_circle_transition = function(){
 		surface_reset_target();
 }
 
-draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
+function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	
 	var _store_surf = surface_get_target();
 	var _store_blend = gpu_get_blendmode();
@@ -231,13 +230,13 @@ draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
 		
 	// draw larold
 	surface_set_target(surf_larold);
-	draw_set_alpha(0.025)
+	draw_set_alpha(0.025);
 	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
 	surface_reset_target();
 		
 	// draw glare
 	surface_set_target(surf_larold);
-	draw_set_alpha(0.015)
+	draw_set_alpha(0.015);
 	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
 	surface_reset_target();
 	draw_set_alpha(1);
@@ -257,7 +256,7 @@ draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
 //--------------------------------------------------------------------------------------------------------
 // DRAW GAMEBOY SURFACE (requires master surface)
 //--------------------------------------------------------------------------------------------------------
-draw_gameboy_overlay = function(){
+function draw_gameboy_overlay(){
 	
 	var _win_w = WINDOW_BASE_SIZE * window_scale;
 	var _win_h = WINDOW_BASE_SIZE * window_scale;
@@ -289,7 +288,7 @@ draw_gameboy_overlay = function(){
 //--------------------------------------------------------------------------------------------------------
 // DRAW TIMERBAR
 //--------------------------------------------------------------------------------------------------------
-draw_timerbar = function(){
+function draw_timerbar(){
 	
 	var _seg_h = 6;
 	var _x1 = 15;
@@ -335,7 +334,7 @@ draw_timerbar = function(){
 //--------------------------------------------------------------------------------------------------------
 // DRAW GAME VIEW INTO CANVAS AREA
 //--------------------------------------------------------------------------------------------------------
-draw_microgame = function(){
+function draw_microgame(){
 
 
 	var _surf_w_target = canvas_w * window_scale;
@@ -367,17 +366,19 @@ draw_microgame = function(){
 //--------------------------------------------------------------------------------------------------------
 // DRAW MASTER SURFACE / CREATE MASTER SURFACE
 //--------------------------------------------------------------------------------------------------------
-create_master_surface = function(){
+function create_master_surface(){
 	// create the master surface if it doesn't exit
 	if (!surface_exists(surf_master) && window_scale != 0){
-		surf_master = surface_create(WINDOW_BASE_SIZE * window_scale, WINDOW_BASE_SIZE * window_scale);
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale)
+		surf_master = surface_create(_size, _size);
 	}
 	
-	if (window_scale != prev_window_scale && window_scale != 0){
-		surface_resize(surf_master, WINDOW_BASE_SIZE * window_scale, WINDOW_BASE_SIZE * window_scale)
+	if (window_scale != prev_window_scale){
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale)
+		surface_resize(surf_master, _size, _size);
 	}
 }
-draw_master_surface = function(){
+function draw_master_surface(){
 	
 	var _size = window_scale * WINDOW_BASE_SIZE;
 	var _x = (window_get_width()/2) - (_size/2);
@@ -387,52 +388,3 @@ draw_master_surface = function(){
 }
 
 
-//--------------------------------------------------------------------------------------------------------
-// DRAW HEARTS
-//--------------------------------------------------------------------------------------------------------
-/*
-function draw_hearts(){
-		// draw life
-		life_dir += 5 * transition_speed;
-		
-		if (!life_alpha_done){
-			life_scale = -lengthdir_y(1.1, life_dir);
-			if (life_dir > 90) && (life_scale <= 1){
-				life_alpha_done = true;
-				life_scale = 1;
-			}
-		} else {
-			if (life_shake_timer <= 0) life_last_frame = min(life_last_frame + life_image_speed, sprite_get_number(___spr_life_lose)-1);
-			life_shake_timer = max(0, life_shake_timer - (1 * transition_speed));
-		}
-		
-		if (life_last_frame >= 4 && !life_sound_played){
-			life_sound_played = true;
-			sfx_play(___snd_microgame_heart_pop, 1, 0);
-		}
-		
-		var _life_spr = ___spr_life;
-		var _life_w = sprite_get_width(_life_spr);
-		var _life_y = ((canvas_y + (canvas_h/2)))/2;
-		var _margin = 12;
-		var _total_w = (_life_w * life_max) + (_margin * (life_max-1));
-		var _life_x = ((VIEW_W/2) - (_total_w / 2)) + (_life_w/2);
-		
-		for (var i = 0; i < life + 1; i++){
-			var _y_mod = lengthdir_y(1, life_dir + (i * 40));
-			var _alpha = life_alpha;
-			var _frame = 0;
-			var _sprite = _life_spr;
-			if (i == life){ // last heart 
-				if (life_shake_timer > 0 && life_alpha_done){
-					var _shake_val = (1-(life_shake_timer/life_shake_timer_max)) * 3;
-					_life_x += random_range(-_shake_val, _shake_val);
-					_life_y += random_range(-_shake_val, _shake_val);
-				}
-				_frame = life_last_frame; 
-				_sprite = ___spr_life_lose;
-			}
-			draw_sprite_ext(_sprite, _frame, _life_x, _life_y + _y_mod, life_scale, life_scale, 0, c_white, _alpha);
-			_life_x += _life_w + _margin;
-		}
-}*/

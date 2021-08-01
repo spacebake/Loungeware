@@ -40,13 +40,4 @@ if (state == "playing_microgame"){
 	
 }
 
-// -----------------------------------------------------------
-// STATE | GAME_OPEN
-// -----------------------------------------------------------
-if (state == "game_open"){
-
-	surface_set_target(surf_master)
-	surface_reset_target();
-	draw_master_surface();
-}
 

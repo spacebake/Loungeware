@@ -3,7 +3,7 @@ ___state_handler();
 //show_message("after: substate begin: " + string(substate_begin));
 
 // fade timer bar
-if (gb_timerbar_visible) gb_timerbar_alpha = min(1, gb_timerbar_alpha + gb_timerbar_fadespeed) 
+if (gb_timerbar_visible) gb_timerbar_alpha = min(1, gb_timerbar_alpha + gb_timerbar_fadespeed);
 else gb_timerbar_alpha = max(0, gb_timerbar_alpha - gb_timerbar_fadespeed);
 
 // handle transition music
@@ -58,7 +58,7 @@ if (state == "playing_microgame"){
 
 			}
 			gb_timerbar_visible = false;
-			larold_alpha = 1//; - gb_timerbar_alpha;
+			larold_alpha = 1;//; - gb_timerbar_alpha;
 			// pixelate
 			transition_appsurf_zoomscale = max(0.1, transition_appsurf_zoomscale - (1/microgame_end_transition_time));
 			// close circle animation (loony tunes am i right)
@@ -77,11 +77,6 @@ if (state == "playing_microgame"){
 }
 
 
-// -----------------------------------------------------------
-// STATE | MICROGAME RESULT
-// -----------------------------------------------------------
-if (state == "microgame_result"){
 
-}
 
 

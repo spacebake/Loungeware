@@ -1,6 +1,6 @@
 // draw logo
-var _logo_x = VIEW_W/2;
-var _logo_y = VIEW_W/2;
+var _logo_x = WINDOW_BASE_SIZE/2;
+var _logo_y = WINDOW_BASE_SIZE/2;
 var _spr = ___spr_logo_title;
 var _frame = 0;
 var _pump_scale = 1.2;
@@ -39,36 +39,36 @@ ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
 
 
 // label anim
-var _label_y = ((VIEW_H - label_h) - label_sep);
+var _label_y = ((WINDOW_BASE_SIZE - label_h) - label_sep);
 var _this_x, _prog, _dir, _rad, _yy;
 
 _rad = 0;
 	draw_set_color(c_gbyellow);
-	//draw_rectangle_fix(0, 0, VIEW_W, label_h + (label_sep*2));
-	//draw_rectangle_fix(0, VIEW_H - (label_h + (label_sep*2)), VIEW_W, VIEW_H);
+	//draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, label_h + (label_sep*2));
+	//draw_rectangle_fix(0, WINDOW_BASE_SIZE - (label_h + (label_sep*2)), WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
 for (var i = 0; i < ds_list_size(label_list); i++){
 	
 	_this_x = label_x + (i*(label_w  + label_sep));
-	_prog = clamp(_this_x + (label_w/2), 0, VIEW_W)/VIEW_W;
+	_prog = clamp(_this_x + (label_w/2), 0, WINDOW_BASE_SIZE)/WINDOW_BASE_SIZE;
 	_dir = _prog * 540;
 	_yy = _label_y;
 	var _y_hide_offset = ribbon_hide_prog * label_h;
 	
 	
-	if (_this_x + label_w >= 0  && _this_x < VIEW_W) {
+	if (_this_x + label_w >= 0  && _this_x < WINDOW_BASE_SIZE) {
 		draw_sprite_stretched(label_list[| i], 0, _this_x, _yy + _y_hide_offset, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0,  -_this_x + (VIEW_W - label_w), (_yy - (VIEW_H - (72))) - _y_hide_offset, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0,  -_this_x + (WINDOW_BASE_SIZE - label_w), (_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset, label_w, label_h);
 	}
 	
 	_this_x -= label_w_total;
-	_prog = clamp(_this_x + (label_w/2), 0, VIEW_W)/VIEW_W;
+	_prog = clamp(_this_x + (label_w/2), 0, WINDOW_BASE_SIZE)/WINDOW_BASE_SIZE;
 	_dir = _prog * 720;
 	_yy = _label_y + lengthdir_y(_rad, _dir);
 	
-	if (_this_x + label_w >= 0 && _this_x < VIEW_W) {
+	if (_this_x + label_w >= 0 && _this_x < WINDOW_BASE_SIZE) {
 		draw_sprite_stretched(label_list[| i], 0, _this_x, _yy + _y_hide_offset, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0, -_this_x +  (VIEW_W - label_w), (_yy - (VIEW_H - (72))) - _y_hide_offset, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0, -_this_x +  (WINDOW_BASE_SIZE - label_w), (_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset, label_w, label_h);
 	}
 	
 }
@@ -89,7 +89,7 @@ if (state == "close"){
 	gpu_set_blendmode(bm_normal);
 
 	surface_reset_target();
-	draw_surface_stretched(circle_surf, 0, 0, VIEW_W, VIEW_H);
+	draw_surface_stretched(circle_surf, 0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 	close_circle_prog = max(0, close_circle_prog - (1/30));
 	//close_circle_prog = ___smooth_move(close_circle_prog, 0, 0.025, 10);
 	if (close_circle_prog <= 0) close_wait--;

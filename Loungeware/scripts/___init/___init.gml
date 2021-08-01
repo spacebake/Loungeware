@@ -204,7 +204,7 @@ function ___GAME_INIT(){
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	} else {
 		room_goto(___rm_main_menu);
-		instance_create_layer(0, 0, layer, delete_this);
+		instance_create_layer(0, 0, layer, ___obj_title_screen);
 	}
 	
 }

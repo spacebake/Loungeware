@@ -1,12 +1,12 @@
-camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
-surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
+surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 step = 0;
 state = "intro";
 substate = 0;
 
-sng_id = audio_play_sound(___sng_zandintro, 0, 1)
+sng_id = audio_play_sound(___sng_zandintro, 0, 1);
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
-audio_sound_gain(sng_id, _vol, 0)
+audio_sound_gain(sng_id, _vol, 0);
 
 seconds_current = 0;
 seconds_prev = 0;
@@ -18,7 +18,7 @@ beat_count = 0;
 beat_count_prev = 0;
 fast_beat_count = 0;
 
-drum_img = 2;
+
 drum_hit = false;
 drum_alt = false;
 
@@ -45,7 +45,7 @@ label_w_total = (label_w + label_sep) * label_count;
 label_wait_max = 10;
 label_wait = label_wait_max;
 label_x = 0;
-label_x_min = -label_w_total + VIEW_W;
+label_x_min = -label_w_total + WINDOW_BASE_SIZE;
 bg_col = make_color_rgb(31, 27, 37);
 label_x_snap_target = -(label_w + label_sep);
 label_move_delay = 20;

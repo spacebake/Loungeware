@@ -9,9 +9,9 @@
 // returns: unique sound id
 // ------------------------------------------------------------------------------------------
 /// @function                   sfx_play(_snd, _vol, _loops);
-/// @param {real}  _snd_index   The sound index
-/// @param {real}  _vol         The volume relative to the game volume (0-1)
-/// @param {bool} _loop         Whether or not to loop the sound (you can terminate the loop with stop_sfx
+/// @param {sound}  _snd_index  The sound index
+/// @param {number}  _vol        The volume relative to the game volume (0-1)
+/// @param {bool}   _loop       Whether or not to loop the sound (you can terminate the loop with stop_sfx
 /// @description                Plays a sound effect relative to the game volume. Returns Sound ID
 function sfx_play(_snd_index, _vol, _loop){
 	_vol = _vol * audio_sound_get_gain(_snd_index) * VOL_SFX * VOL_MASTER;
@@ -26,8 +26,8 @@ function sfx_play(_snd_index, _vol, _loop){
 // STOPS a sound effect that is currently playing or looping
 // ------------------------------------------------------------------------------------------
 /// @function               sfx_stop(_snd, _vol, _loops);
-/// @param {real}  _snd     the unique sound id to stop
-/// @param {real}  _time    The time in milseconds it should take to fade the sound out (0 is instant)
+/// @param {sound}  _snd     the unique sound id to stop
+/// @param {number}  _time    The time in milseconds it should take to fade the sound out (0 is instant)
 function sfx_stop(_snd_id, _time){
 	audio_stop_sound(_snd_id);
 	audio_sound_gain(_snd_id, 0, _time);
@@ -43,9 +43,9 @@ function sfx_stop(_snd_id, _time){
 // returns: unique sound id
 // ------------------------------------------------------------------------------------------
 /// @function                      microgame_music_start(_sound_index, _loops);
-/// @param {real}  _sound_index    the index of the song to play
+/// @param {sound}  _sound_index    the index of the song to play
 /// @param {bool} _loop            whether or not to loop the song
-/// @param {float} _vol            volume to play at (0-1).
+/// @param {number} _vol            volume to play at (0-1).
 function microgame_music_start(_sng, _vol, _loop){
 	var _snd_id = audio_play_sound(_sng, 0, _loop);
 	audio_sound_gain(_snd_id, _vol * audio_sound_get_gain(_sng) * VOL_MSC * VOL_MASTER, 0);
@@ -60,7 +60,7 @@ function microgame_music_start(_sng, _vol, _loop){
 // fade out the song which is currently playing, over a given length of time (song will automatically be stopped when the gain reaches 0)
 // ------------------------------------------------------------------------------------------
 /// @function               microgame_music_stop(_time);
-/// @param {real}  _time    the fadeout time in milliseconds.
+/// @param {number}  _time    the fadeout time in milliseconds.
 function microgame_music_stop(_time){
 	var _snd_id = ___MG_MNGR.microgame_music;
 	audio_sound_gain(_snd_id, 0, _time);

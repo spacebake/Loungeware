@@ -57,7 +57,7 @@ function __workspace_register(_ds, _ds_type) {
 /// @param {real} type The type of the data structure.
 function __workspace_unregister(_ds, _ds_type) {
     var workspace = __workspace_controller();
-    if not (workspace.enabled) {
+    if (!workspace.enabled) {
         return;
     }
     var ids = workspace.ids[_ds_type];
@@ -78,7 +78,7 @@ function workspace_begin() {
 /// @desc Ends the current workspace and destroys any marked data structures.
 function workspace_end() {
     var workspace = __workspace_controller();
-    if not (workspace.enabled) {
+    if (!workspace.enabled) {
         return;
     }
     workspace.enabled = false;
