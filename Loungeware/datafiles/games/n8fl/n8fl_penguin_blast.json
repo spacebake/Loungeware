@@ -6,7 +6,7 @@
     "init_room": "n8fl_penguin_blast_rm",
     "view_width": 240,
     "view_height": 160,
-    "time_seconds": 8,
+    "time_seconds": 9.5,
     "music_track": "sng_zandy_woodblocks",
     "music_loops": true,
     "interpolation_on": false,

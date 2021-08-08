@@ -8,21 +8,33 @@ if (state == "begin"){
 	
 	// slide in
 	var _tar_y = VIEW_H/2;
-	if (!wait) menu_y = ___smooth_move(menu_y, _tar_y, 0.5, 10);
+	if (!wait) menu_y = ___smooth_move(menu_y, _tar_y, 1, 7);
 	if (menu_y == _tar_y) menu_active = true;
 	if (skip_intro) menu_y = _tar_y;
 	
 	// move cursor
 	var _menu_len = array_length(menu);
-	var _store_cursor_pos = cursor;
-	v_move = -KEY_UP_PRESSED + KEY_DOWN_PRESSED;
+	v_move = -KEY_UP + KEY_DOWN;
+	if (v_move != last_v_move){
+		input_cooldown = 0;
+		input_is_scrolling = false;
+	}
 	last_v_move = v_move;
+	if (abs(v_move) && input_cooldown <= 0){
+		if (input_is_scrolling){
+			input_cooldown = input_cooldown_max;
+		} else {
+			input_cooldown = input_cooldown_init_max;
+			input_is_scrolling = true;
+		}
+		___sound_menu_tick_vertical();
+	} else {
+		v_move = 0;
+		input_cooldown = max(0, input_cooldown - 1);
+	}
 	cursor += v_move;
 	if (cursor > _menu_len - 1) cursor = 0;
 	if (cursor < 0) cursor = _menu_len - 1;
-	if (_store_cursor_pos != cursor){
-		___sound_menu_tick_vertical();
-	}
 	
 	// check for confirm
 	var _confirm = (KEY_PRIMARY_PRESSED || ___KEY_PAUSE_PRESSED) && (menu_active);

@@ -48,7 +48,7 @@ _tick = function(){
 		}
 	}
 
-	game_t = clamp((TIME_MAX - TIME_REMAINING) / (TIME_MAX * 0.8), 0, 1);
+	game_t = clamp((TIME_MAX - TIME_REMAINING) / (TIME_MAX * 0.89), 0, 1);
 	score_t = ds_list_size(score_list) / score_total;
 
 	if(game_over == false){

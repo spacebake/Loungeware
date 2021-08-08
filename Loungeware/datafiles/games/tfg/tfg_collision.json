@@ -6,7 +6,7 @@
     "init_room": "tfg_collision_rm_game",
     "view_width": 960,
     "view_height": 640,
-    "time_seconds": 8,
+    "time_seconds": 9.5,
     "music_track": "sng_ennway_bit_battle",
     "music_loops": false,
     "interpolation_on": false,

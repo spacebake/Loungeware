@@ -7,7 +7,7 @@ enum n8fl_penguin_blast_EProjectile{
 
 angle_wave = new n8fl_FWave(0.2, 15)
 
-duration = random_range(1.45, 1.55);
+duration = random_range(2.5, 2.6);
 start_x = x;
 start_y = y;
 dest_x = 0;
@@ -20,7 +20,7 @@ has_collided = false;
 is_success = false;
 is_miss = false;
 
-jump_force = random_range(2,6);
+jump_force = random_range(4,5);
 vx = 0
 vy = 0;
 grav = 0.4;
