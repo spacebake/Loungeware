@@ -56,6 +56,9 @@ if (KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
         failed = true;
     }
 }
+if (failed) {
+    alarm[1] = 150;
+}
 if (TIME_REMAINING < 2 * game_get_speed(gamespeed_fps)) {
     failed = true;
 }
