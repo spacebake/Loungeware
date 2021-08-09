@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Nahoo_mMain.wav",
-  "duration": 12.0793762,
+  "duration": 12.0743761,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/nahoo/Beenade/Sounds.yy",

@@ -25,12 +25,16 @@ if (state == "normal"){
 	// confirm button
 	if (KEY_PRIMARY_PRESSED){
 		state = "move_cart";
+		// stop sound
+		audio_sound_gain(sng_id, 0, 300);
 	}
 
 	// back button
 	if (KEY_SECONDARY_PRESSED){
 		state = "fadeout_back";
 		fadeout_do =  back_to_main;
+		// stop sound
+			audio_sound_gain(sng_id, 0, 100);
 	}
 }
 
