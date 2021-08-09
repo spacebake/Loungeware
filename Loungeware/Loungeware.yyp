@@ -749,7 +749,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_mine.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.3.570",
+    "IDEVersion": "23.1.1.322",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
