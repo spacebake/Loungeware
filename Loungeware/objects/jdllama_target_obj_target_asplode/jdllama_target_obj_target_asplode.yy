@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "jdllama_target_spr_target",
-    "path": "sprites/jdllama_target_spr_target/jdllama_target_spr_target.yy",
+    "name": "jdllama_target_spr_target_asplode",
+    "path": "sprites/jdllama_target_spr_target_asplode/jdllama_target_spr_target_asplode.yy",
   },
   "solid": false,
   "visible": true,
@@ -22,8 +22,8 @@
   "physicsShapePoints": [],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":7,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -32,7 +32,7 @@
     "path": "folders/Microgames/jdllama/target/objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "jdllama_target_obj_target",
+  "name": "jdllama_target_obj_target_asplode",
   "tags": [],
   "resourceType": "GMObject",
 }
