@@ -27,6 +27,7 @@ if (!debug_hidden){
 	var _yy = _y1 + _marg_v;
 	draw_set_color(c_white);
 	draw_set_font(fnt_frogtype);
+	draw_set_halign(fa_left);
 	draw_set_alpha(1);
 
 	var _c_val = "<col, 228, 181, 129>";

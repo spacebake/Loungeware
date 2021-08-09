@@ -1,7 +1,11 @@
-camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
-surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
+surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
 state = "normal";
+
+sng_id = audio_play_sound(___sng_gallery, 1, 1);
+var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
+audio_sound_gain(sng_id, _vol, 0);
 
 fnt_gallery = ___global.___fnt_gallery;
 microgame_keylist = variable_struct_get_names(___global.microgame_metadata);
@@ -29,7 +33,10 @@ scroll_y_target = scroll_y;
 difficulty = 1;
 
 input_cooldown = 0;
-input_cooldown_max = 10;
+input_cooldown_init_max = 17;
+input_cooldown_max = 4;
+input_is_scrolling = false;
+previous_scroll_dir = 0;
 col_bar = make_color_rgb(43, 36, 56);
 col_bg = make_color_rgb(31, 27, 37);
 col_date = make_color_rgb(99, 81, 110);

@@ -3,13 +3,19 @@ par_scroll += (par_scroll_max - par_scroll) * par_speed;
 event_inherited();
 
 
-//if(combo_index >= combo_max){
-//	is_win = true;
-//	exit;	
-//}
+if(combo_index >= combo_max){
+	is_win = true;
+}
 
 var t = (TIME_MAX - TIME_REMAINING) / TIME_MAX;
 if(t >= dead_time){
+	if (!game_over){
+		var end_snd = n8fl_reach_for_it_mister_lose_snd;
+		if (is_win){
+			end_snd = n8fl_reach_for_it_mister_win_snd;
+		}
+		sfx_play(end_snd, 0.7, false);
+	}
 	game_over = true;
 	exit;
 }

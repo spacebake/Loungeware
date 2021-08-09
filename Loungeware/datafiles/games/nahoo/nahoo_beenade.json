@@ -4,18 +4,18 @@
      "creator_name": "Nahoo",
      "prompt": "POLLINATE",
      "init_room": "nahoo_beenade_rMain",
-	"is_enabled": false,
+	"is_enabled": true,
      "view_width": 480,
      "view_height": 320,
      "time_seconds": 5,
      "music_track": "Nahoo_mMain",
      "music_loops": true,
      "interpolation_on": false,
-     "cartridge_col_primary": [255, 244, 101], //[(93, 128, 54),
-     "cartridge_col_secondary": [241, 161, 96], //[(239, 94, 255),
+     "cartridge_col_primary": [255, 244, 101], 
+     "cartridge_col_secondary": [241, 161, 96], 
      "cartridge_label": "Nahoo_beenade_cartridge",
      "default_is_fail": true,
      "supports_difficulty_scaling": false,
      "credits": ["Nahoo"],
-     "date_added": "21/07/05"
+     "date_added": "21/07/04"
 }

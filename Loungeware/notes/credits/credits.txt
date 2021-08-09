@@ -1,12 +1,54 @@
-credit notes:
+-BASE GAME PROGRAMMING
+space
 
-Music:
-sng_bit_battle - ENNWAY
-sng_woohoo_kong - Zandy
-sng_microgame_win - Zandy
-sng_microgame_lose - Zandy
-sng_xylo - Zandy
+-WITH LARGE CONTRIBUTIONS FROM
+net8floz
+katsaii
 
+-ADDITIONAL CONTRIBUTIONS
+-sidorakh
+-mimpy
+-baku
 
+-MUSIC (title screen)
+zandy + meseta
 
+-MUSIC (main menu)
+net8floz
 
+-MUSIC (game transitions)
+zandy
+
+-MUSIC (gallery)
+zandy
+
+-MUSIC (pause jam)
+easynam
+
+-PUBLIC GAME MUSIC:
+ZANDY: [list of public track names by zand]
+MESETA: [list of public track names by mes]
+ENNWAY: [list of public track names by ennway]
+
+-BASE GAME GUI / ART
+space
+
+-DOCS
+tfg
+
+-GIT WIZARD
+net8floz
+
+-GENERAL ADVICE
+meseta
+
+-MICROGAMES
+[big list of game names and credits for those games]
+
+-LAROLD DOODLES
+[big list of larold doodle authors]
+
+-SPECIAL THANKS
+the gamemaker discord community
+yoyo games, gamemaker,
+opera gx: the browser for gamers :-)

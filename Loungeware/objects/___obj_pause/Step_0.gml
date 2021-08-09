@@ -1,5 +1,5 @@
 if (gallery_mode && gallery_init &&  microgame_current_metadata.supports_difficulty_scaling){
-	
+	if (state == "wait") state = "pause_room";
 	gallery_init = false;
 	array_insert(menu, 1, {name:"DIFFICULTY", execute: function(){}});
 }

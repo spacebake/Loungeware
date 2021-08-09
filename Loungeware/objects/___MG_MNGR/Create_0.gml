@@ -342,7 +342,9 @@ function draw_microgame(){
 	var _surf_h_target = canvas_h * window_scale;
 
 	if (window_scale > 0) && ((window_scale != prev_window_scale) || (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target)) {
-		surface_resize(application_surface, _surf_w_target , _surf_h_target);
+		var _w = max(5, _surf_w_target);
+		var _h = max(5, _surf_h_target);
+		surface_resize(application_surface, _w , _h);
 	}
 
 	// draw game view onto master surface
@@ -370,12 +372,12 @@ function draw_microgame(){
 function create_master_surface(){
 	// create the master surface if it doesn't exit
 	if (!surface_exists(surf_master) && window_scale != 0){
-		var _size = max(5, WINDOW_BASE_SIZE * window_scale)
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale);
 		surf_master = surface_create(_size, _size);
 	}
 	
 	if (window_scale != prev_window_scale){
-		var _size = max(5, WINDOW_BASE_SIZE * window_scale)
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale);
 		surface_resize(surf_master, _size, _size);
 	}
 }

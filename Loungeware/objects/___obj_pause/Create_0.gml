@@ -3,17 +3,20 @@ paused_sounds = [];
 microgame_current_metadata = ___MG_MNGR.microgame_current_metadata;
 
 instances_deactivated = false;
-jam_id = audio_play_sound(___snd_henry_jazz, 0, true);
-audio_sound_gain(jam_id, VOL_MASTER * VOL_MSC * audio_sound_get_gain(___snd_henry_jazz), 0);
-audio_pause_sound(jam_id);
+jam_id = noone;
 
-log("paused " + string(id));
 
 function menu_jam(){
+	
 	var _p = ___obj_pause;
-	if (audio_is_paused(_p.jam_id)){
-		audio_resume_sound(_p.jam_id); 
-		name = "JAMN'T";
+	
+	if (_p.jam_id == noone){
+			_p.jam_id = audio_play_sound(___snd_henry_jazz, 0, true);
+			audio_sound_gain(_p.jam_id, VOL_MASTER * VOL_MSC * audio_sound_get_gain(___snd_henry_jazz), 0);
+			name = "JAMN'T";
+	}  else if (_p.jam_id != noone && audio_is_paused(_p.jam_id)){
+			audio_resume_sound(_p.jam_id); 
+			name = "JAMN'T";
 	} else {
 		audio_pause_sound(_p.jam_id);
 		name = "JAM"
@@ -41,7 +44,7 @@ menu = [
 
 cursor = 0;
 
-state = "pause_room";
+state = "wait";
 
 elip_frame = 0;
 
@@ -179,6 +182,19 @@ larold_credits = [
 	"baku",
 	"baku",
 	"baku",
+	"baku",
+	"baku",
+	"space",
+	"J.D. LOWE",
+	"J.D. LOWE",
+	"J.D. LOWE",
+	"Makoren",
+	"katsaii",
+	"baku",
+	"baku",
+	"baku",
+	"katsaii",
+	"nahoo"
 ];
 
 

@@ -5,9 +5,18 @@ var _current_game_data = variable_struct_get(___global.microgame_metadata, micro
 
 if (state == "normal"){
 	_move = -KEY_UP + KEY_DOWN;
-	if (!abs(_move)) input_cooldown = 0;
+	if (_move != previous_scroll_dir){
+		input_cooldown = 0;
+		input_is_scrolling = false;
+	}
+	previous_scroll_dir = _move;
 	if (abs(_move) && input_cooldown <= 0){
-		input_cooldown = input_cooldown_max;
+		if (input_is_scrolling){
+			input_cooldown = input_cooldown_max;
+		} else {
+			input_cooldown = input_cooldown_init_max;
+			input_is_scrolling = true;
+		}
 		___sound_menu_tick_vertical();
 		difficulty = 1;
 	} else {
@@ -25,12 +34,16 @@ if (state == "normal"){
 	// confirm button
 	if (KEY_PRIMARY_PRESSED){
 		state = "move_cart";
+		// stop sound
+		audio_sound_gain(sng_id, 0, 300);
 	}
 
 	// back button
 	if (KEY_SECONDARY_PRESSED){
 		state = "fadeout_back";
 		fadeout_do =  back_to_main;
+		// stop sound
+			audio_sound_gain(sng_id, 0, 100);
 	}
 }
 
@@ -65,8 +78,8 @@ draw_set_color(c_gbwhite);
 var _list_margin_x = 8;
 var _list_margin_y = _div_y1;
 var _list_x = _list_margin_x;
-var _list_y = _list_margin_y + scroll_y + 3;
 var _list_line_sep = 15;
+var _list_y = _list_margin_y + scroll_y + _list_line_sep*0.5;
 var _list_line_height = 20;
 var _list_max_w = _div_x1 - (_list_margin_x*2);
 var _list_letter_sep = 0;
@@ -86,6 +99,21 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 	var _xx = _list_x;
 	var _store_y = _list_y;
 	var _in_view = (_list_y > 0 && _list_y < VIEW_H);
+	
+	if (i == cursor) {
+		//draw_sprite(anti_hats_sp_dude, 0, _xx, _list_y);
+		draw_set_alpha(0.25);
+		draw_set_color(c_gbwhite);
+		var x1 = 0;
+		var y1 = _list_y - _list_line_sep*0.5;
+		var x2 = _div_x1 - 2;
+		var y2 = _list_y + _list_line_height;
+		draw_rectangle(x1, y1, x2, y2, false);
+		draw_set_color(c_gbyellow);
+		draw_rectangle(x1, y2+1, x2, y2+3, false);
+		draw_set_alpha(1);
+	}
+	
 	
 	// draw mini cart
 	___shader_cartridge_on(_data);

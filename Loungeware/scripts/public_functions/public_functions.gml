@@ -69,7 +69,7 @@ function microgame_set_timer_max(_new_time_in_seconds){
 }
 
 //--------------------------------------------------------------------------------------------------------
-// TIMER 
+// MICROGAME END EARLY
 /* You can use this function to end your game before the timer runs out natrually.
 For example: if the player fails your game in the first few seconds and there are still 5 seconds left on
 the clock, you can call this to prevent making the player wait out the rest of the timer.
