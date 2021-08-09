@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "Nahoo_mMesetaTypeBeat.wav",
-  "duration": 12.005,
+  "duration": 12.0,
   "parent": {
     "name": "CartTypeBeat",
     "path": "folders/Microgames/nahoo/CartTypeBeat.yy",

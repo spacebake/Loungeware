@@ -9,7 +9,7 @@ randomize();
 
 brokens = [
 // + vsp
-@"$if$ ($place_meeting$(%x% + #vsp#, %y%, ^oWall^)) {
+@"$if$ ($place_meeting$(%x% - #vps#, %y%, ^oWall^)) {
     $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
         %x% += $sign$(#hsp#);
     }
@@ -38,7 +38,44 @@ brokens = [
     }
     #hsp# = ^0^;
 }
-%x% += #vsp#;", //error
+%x% += #vspeed#;",
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $for$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$(#hsp#);
+    }
+    #hsp# = ^0^;
+}
+%x% += #hsp#;",
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$(#hsp#)));
+    }
+    #hsp# = ^0^;
+}
+%x% += #hsp#;",
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^{
+        %x% += $sign$(#hsp#);
+    }
+    #hsp# = ^0^;
+}
+%x% += #hsp#;",
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$(#hsp#);
+    }
+    #hsp# = ^8^;
+}
+%x% += #hsp#;",
+@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
+    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
+        %x% += $sign$(#hsp#);
+    }
+    #hsp# = ^0^;
+}
+%x% += #hsp#}",
+
+//error
 //@"$if$ ($place_meeting$(%x% + #hsp#, %y%, ^oWall^)) {
 //    $while$ (!$place_meeting$(%x% + $sign$(#hsp#), %y%, ^oWall^)) {
 //        %x% += $sign$(#hsp#);

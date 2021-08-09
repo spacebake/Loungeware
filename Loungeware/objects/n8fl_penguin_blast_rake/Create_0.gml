@@ -1,4 +1,4 @@
-image_speed = 0.4;
+image_speed = 0.21 + (DIFFICULTY / 5) * 0.13;
 do_shoot = false;
 
 words = 
@@ -16,7 +16,7 @@ words =
 
 phrase = ds_list_create();
 
-var max_syl = 4 * 5;
+var max_syl = 15;
 
 while(ds_list_size(phrase) < max_syl){
 	var use_hard_ones = true;

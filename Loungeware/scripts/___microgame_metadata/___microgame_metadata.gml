@@ -14,10 +14,9 @@ function ___init_metadata(){
 			test_mode_on: variable_struct_exists(env, "test_mode_on") ? env[$"test_mode_on"]: false,
 			microgame_key: variable_struct_exists(env, "microgame_key") ? env[$"microgame_key"]: "",
 		}
-		
 		if (variable_struct_exists(env, "loop_mode")) show_message("Your config.dev.json file is out of date. Please check the template (config.example.json) to see the new structure.");
-	
 	}
+	
 	
 
 	var rules =  new LW_FGameLoaderRuleBuilder()

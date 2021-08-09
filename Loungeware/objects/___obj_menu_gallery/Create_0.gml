@@ -33,7 +33,10 @@ scroll_y_target = scroll_y;
 difficulty = 1;
 
 input_cooldown = 0;
-input_cooldown_max = 5;
+input_cooldown_init_max = 17;
+input_cooldown_max = 4;
+input_is_scrolling = false;
+previous_scroll_dir = 0;
 col_bar = make_color_rgb(43, 36, 56);
 col_bg = make_color_rgb(31, 27, 37);
 col_date = make_color_rgb(99, 81, 110);

@@ -195,7 +195,7 @@ function ___microgame_end(){
 
 
 //--------------------------------------------------------------------------------------------------------
-// SMOOTH MOVE
+// tTH MOVE
 // moves a number towards another number, slows down as it approaches
 //--------------------------------------------------------------------------------------------------------
 function ___smooth_move(_current_val, _target_val, _minimum, _divider){

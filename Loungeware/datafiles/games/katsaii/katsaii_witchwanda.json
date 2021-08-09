@@ -14,7 +14,7 @@
     "cartridge_col_secondary" : [0, 0, 33],
     "cartridge_label" : "katsaii_witchwanda_label",
     "default_is_fail" : true,
-    "supports_difficulty_scaling" : false,
+    "supports_difficulty_scaling" : true,
     "credits" : ["Katsaii", "Mashmerlow"],
     "date_added" : "21/07/09"
 }
