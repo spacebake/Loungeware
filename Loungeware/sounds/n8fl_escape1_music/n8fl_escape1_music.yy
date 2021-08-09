@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "n8fl_escape1_music.wav",
-  "duration": 40.4260635,
+  "duration": 40.4210625,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/net8floz/n8fl_escape1/sounds.yy",
