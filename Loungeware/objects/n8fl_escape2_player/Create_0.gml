@@ -9,8 +9,8 @@ _win_jump_wave = new n8fl_FWave(0.1,-5);
 _win_jump_wave.set_offset(0);
 
 _velocity = new n8fl_FVector(0,0);
-_grav = 0.8;
-_jump_force = 6.5;
+_grav = 0.7;
+_jump_force = 5.22;
 _tumble_rotate_speed = 20;
 _tumble_force = 5;
 _is_tumbling = false;

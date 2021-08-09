@@ -82,6 +82,7 @@ switch(state)
 			yosi_EFT_obj_building.fire = false;
 			state = "drop";
 			sfx_stop(yosi_EFT_snd_water, 200);
+			sfx_play(yosi_EFT_snd_win, 0.6, false);
 			}
 		break;
 	case "drop":

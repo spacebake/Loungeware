@@ -454,6 +454,7 @@
     {"id":{"name":"makoren_conjurer_snd_powerup","path":"sounds/makoren_conjurer_snd_powerup/makoren_conjurer_snd_powerup.yy",},"order":7,},
     {"id":{"name":"n8fl_reach_for_it_mister_weed_spr","path":"sprites/n8fl_reach_for_it_mister_weed_spr/n8fl_reach_for_it_mister_weed_spr.yy",},"order":13,},
     {"id":{"name":"n8fl_penguin_blast_hit_oof2_snd","path":"sounds/n8fl_penguin_blast_hit_oof2_snd/n8fl_penguin_blast_hit_oof2_snd.yy",},"order":2,},
+    {"id":{"name":"yosi_EFT_snd_win","path":"sounds/yosi_EFT_snd_win/yosi_EFT_snd_win.yy",},"order":18,},
     {"id":{"name":"Nahoo_beenade_cartridge","path":"sprites/Nahoo_beenade_cartridge/Nahoo_beenade_cartridge.yy",},"order":0,},
     {"id":{"name":"mimpy_duckdate_obj_hand","path":"objects/mimpy_duckdate_obj_hand/mimpy_duckdate_obj_hand.yy",},"order":6,},
     {"id":{"name":"Nahoo_beenade_lost","path":"sprites/Nahoo_beenade_lost/Nahoo_beenade_lost.yy",},"order":1,},
@@ -734,7 +735,6 @@
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/games/anti","resourceVersion":"1.0","name":"anti_hats.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_chug.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/makoren","resourceVersion":"1.0","name":"makoren_conjurer.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/mimpy","resourceVersion":"1.0","name":"mimpy_fire_alarm.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/mimpy","resourceVersion":"1.0","name":"mimpy_dinner_date.json","resourceType":"GMIncludedFile",},
@@ -755,6 +755,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_rocket_lander.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_scooter.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_mine.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",

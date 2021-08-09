@@ -1,4 +1,4 @@
-image_speed = 0.3;
+image_speed = 0.21 + (DIFFICULTY / 5) * 0.13;
 do_shoot = false;
 
 words = 
