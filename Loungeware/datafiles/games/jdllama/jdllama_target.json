@@ -14,7 +14,7 @@
     "cartridge_col_secondary": [55, 255, 255],
     "cartridge_label": "jdllama_target_spr_label",
     "default_is_fail": true,
-    "supports_difficulty_scaling": true,
+    "supports_difficulty_scaling": false,
     "credits": ["J.D. Lowe"],
-    "date_added": "YY/MM/DD"
+    "date_added": "21/08/09"
 }
