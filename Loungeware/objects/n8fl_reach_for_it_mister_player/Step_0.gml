@@ -3,10 +3,9 @@ par_scroll += (par_scroll_max - par_scroll) * par_speed;
 event_inherited();
 
 
-//if(combo_index >= combo_max){
-//	is_win = true;
-//	exit;	
-//}
+if(combo_index >= combo_max){
+	is_win = true;
+}
 
 var t = (TIME_MAX - TIME_REMAINING) / TIME_MAX;
 if(t >= dead_time){
