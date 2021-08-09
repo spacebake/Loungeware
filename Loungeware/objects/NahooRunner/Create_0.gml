@@ -210,8 +210,8 @@ function nahoo_generate(w, h, iterations)
 		
 		// Decide to move in a direction
 		var valid_directions = [];
-		if (enemy.x != playerPos.x) array_push(valid_directions, true);
-		if (enemy.y != playerPos.y) array_push(valid_directions, false);
+		if (enemy.x != playerPos.x) array_push(valid_directions, false);
+		if (enemy.y != playerPos.y) array_push(valid_directions, true);
 		
 		var hor = valid_directions[irandom(array_length(valid_directions) - 1)];
 		enemy.hsp = hor ? choose(-1, 1) : 0;
