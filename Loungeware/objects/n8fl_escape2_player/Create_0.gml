@@ -9,8 +9,8 @@ _win_jump_wave = new n8fl_FWave(0.1,-5);
 _win_jump_wave.set_offset(0);
 
 _velocity = new n8fl_FVector(0,0);
-_grav = 0.4;
-_jump_force = 6;
+_grav = 0.8;
+_jump_force = 6.5;
 _tumble_rotate_speed = 20;
 _tumble_force = 5;
 _is_tumbling = false;
@@ -42,6 +42,7 @@ _on_jump = function(){
 	_transform.set_parent(undefined);
 	_velocity.set_y(-_jump_force);
 	jumped.invoke();
+	sfx_play(n8fl_escape1_jump, 0.8, false);
 }
 
 _on_land_fail = function(){
@@ -49,13 +50,16 @@ _on_land_fail = function(){
 	pos.set_y(_kill_y);
 	_transform.set_pos_v(pos);
 	landed.invoke(false);
+	sfx_play(n8fl_escape1_lose, 0.8, false);
 }
 
 _on_land_success = function(){
 	_win_jump_wave.play();
 	_transform.set_parent(_land_cart.get_transform());
 	landed.invoke(true);
+	sfx_play(n8fl_escape1_win, 0.45, false);
 }
+
 
 _on_tumble = function(){
 	var pos =_transform.get_pos();

@@ -53,3 +53,4 @@ repeat(1) {
 	instance_create_depth(xx, room_height - 20, depth-10, n8fl_reach_for_it_mister_weed);
 }
 
+win_sound_played = false;
