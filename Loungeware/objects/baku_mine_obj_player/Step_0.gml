@@ -16,7 +16,6 @@ if !prompt_setup_done and PROMPT != "" {
 	var _ore_list = ds_list_create();
 	
 	// Add target ores to list
-	// TODO: Balance difficulty
 	repeat (ceil((6 - DIFFICULTY) / 2)) {
 		ds_list_add(_ore_list, _target_ore);
 	}
@@ -152,6 +151,19 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 				if block_aim_id != noone {
 					if block_aim_id.object_index == baku_mine_obj_block_ore {
 						crack_img ++;
+						
+						// Block breaking particles
+						with block_aim_id {
+							repeat 2 {
+								var _radius = 0;
+								var _dir = point_direction(x, y, other.x, other.y);
+								var _x = x + random_range(-_radius, _radius) + lengthdir_x(8, _dir);
+								var _y = y + random_range(-_radius, _radius) + lengthdir_y(8, _dir);
+								var _z = z + random_range(-_radius, _radius);
+								var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
+								_inst.z = _z;
+							}
+						}
 					}
 					
 					// Sound
@@ -200,7 +212,15 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 						sfx_play(baku_mine_snd_break, 1, false);
 						if _win sfx_play(baku_mine_snd_drop, 1, false);
 						
-						// TODO: Block breaking particles
+						// Block breaking particles
+						repeat 16 {
+							var _radius = 8;
+							var _x = x + random_range(-_radius, _radius);
+							var _y = y + random_range(-_radius, _radius);
+							var _z = z + random_range(-_radius, _radius);
+							var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
+							_inst.z = _z;
+						}
 						
 						// Destroy block
 						instance_destroy();
@@ -243,7 +263,7 @@ if !win {
 	}
 	
 	// Spawn creeper
-	var _creeper_time = 4 + max(DIFFICULTY - 3, 0);
+	var _creeper_time = 4 + max(DIFFICULTY - 4, 0);
 	if (TIME_REMAINING_SECONDS <= _creeper_time) and !creeper_spawned {
 		creeper_spawned = true;
 		microgame_music_stop(0);
@@ -259,6 +279,7 @@ if !win {
 			roundabout_started = true;
 			microgame_music_start(baku_mine_bgm_roundabout, true, 1);
 		}
+		timer_skip_time ++;
 	}
 }
 
@@ -268,6 +289,13 @@ if win {
 	if win_confetti_time mod win_confetti_timer == 0 {
 		instance_create_layer(random(480), 0, layer, baku_mine_obj_confetti);
 	}
+	timer_skip_time ++;
+	pick_rot_lerped = lerp(pick_rot_lerped, pick_rot, 0.1);
+}
+
+// Timer skip early
+if (win or lose) and (timer_skip_time > timer_skip_threshold) {
+	microgame_end_early();
 }
 
 // "Frustum culler"

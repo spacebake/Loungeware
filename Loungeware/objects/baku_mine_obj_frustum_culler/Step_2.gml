@@ -9,3 +9,6 @@ if _num > 0 {
 	}
 }
 ds_list_destroy(_list);
+
+// Always draw particles
+with baku_mine_obj_block_particle { is_drawn = true; }
