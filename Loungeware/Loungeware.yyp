@@ -778,7 +778,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_rocket_lander.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/space","resourceVersion":"1.0","name":"space_scooter.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_mine.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/jdllama","resourceVersion":"1.0","name":"jdllama_target.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
   ],

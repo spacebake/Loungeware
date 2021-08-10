@@ -11,7 +11,7 @@ audio_sound_gain(sng_id, _vol, 0);
 seconds_current = 0;
 seconds_prev = 0;
 
-var _tempo = 103;
+var _tempo = 105;
 beat_interval = 60/_tempo;
 offbeat_timer = 0;
 beat_count = 0;
