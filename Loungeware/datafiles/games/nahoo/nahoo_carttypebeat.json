@@ -16,5 +16,6 @@
     "default_is_fail": true,
     "supports_difficulty_scaling": false,
     "credits": ["Nahoo"],
-    "date_added": "21/06/09"
+    "date_added": "21/07/12",
+    "is_enabled": false
 }

@@ -3,7 +3,7 @@ view_enabled = true;
 
 // transition cutscene room
 if (room == ___rm_restroom){
-	___reset_draw_vars()
+	___reset_draw_vars();
 	audio_stop_all();
 	prompt_timer = prompt_timer_max;
 	application_surface_draw_enable(true);
@@ -16,7 +16,7 @@ if (room == ___rm_restroom){
 if (room == microgame_current_metadata.init_room){
 	
 	// reset the drawing values in case people forget to do it
-	___reset_draw_vars()
+	___reset_draw_vars();
 	if (microgame_current_metadata.default_is_fail == false){
 		microgame_win();
 		___MG_MNGR.microgame_time_finished =  ___MG_MNGR.microgame_timer_max;

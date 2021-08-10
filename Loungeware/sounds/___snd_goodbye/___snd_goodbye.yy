@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___snd_goodbye.wav",
-  "duration": 0.735729,
+  "duration": 0.730729,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",

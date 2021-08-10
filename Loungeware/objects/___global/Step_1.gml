@@ -1,3 +1,12 @@
+// remove active audio from list when finished
+for (var i = 0; i < ds_list_size(___audio_active_list); i++){
+	var _snd_id = ___audio_active_list[| i];
+	if (!audio_is_playing(_snd_id)){
+		ds_list_delete(___audio_active_list, i);
+		i--;
+	}
+}
+
 //-------------------------------------------------------------------------------------
 // ADVANCED TEXT
 //-------------------------------------------------------------------------------------

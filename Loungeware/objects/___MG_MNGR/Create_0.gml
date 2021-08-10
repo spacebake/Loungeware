@@ -1,12 +1,17 @@
 randomize();
+___global.difficulty_level = 1;
 ___state_setup("start");
+force_substate = noone;
 dev_mode = false;
-dev_mode_loop_game = false;
 gallery_mode = false;
+gallery_first_pass = true;
 
+transition_speed = 1;
+games_played = 0;
 
 window_scale = 0;
 prev_window_scale = window_scale;
+pause_cooldown = 0;
 
 // score
 score_total = 0;
@@ -20,6 +25,10 @@ microgame_populate_unplayed_list = function(){
 		ds_list_add(microgame_unplayed_list, microgame_namelist[i]);
 	}
 }
+ 
+gui_scale = 0;
+gui_x = 0;
+gui_y = 0;
 
 microgame_current_metadata = noone;
 microgame_current_name = noone;
@@ -27,6 +36,7 @@ microgame_next_metadata = noone;
 microgame_next_name = noone;
 microgame_timer = -1;
 microgame_timer_max = -1;
+microgame_timer_skip = false;
 microgame_won = false;
 microgame_time_finished = 100000;
 microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
@@ -51,7 +61,6 @@ canvas_x = gameboy_padding_x;
 canvas_y = gameboy_padding_y;
 
 // surfaces
-
 surf_master = noone; // <-- radical 😎
 surf_gameboy = noone;
 surf_transition_circle = noone;
@@ -75,7 +84,7 @@ cart_offset_x = 0;
 cart_offset_y = 0;
 cart_angle = 0;
 cart_draw_over = false;
-spin_speed = 0.75
+spin_speed = 0.75;
 gb_min_scale = 0.4;
 gb_max_scale = 1;
 gb_scale_diff =  gb_max_scale - gb_min_scale;
@@ -107,22 +116,19 @@ var _test_vars = ___global.test_vars;
 
 if (_test_vars.test_mode_on){
 	var _game_key = _test_vars.microgame_key;
-	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
-		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. Please set the key to match the microgame you want to test.\n(check you didn't accidentally use they game name instead of the key)");
-		game_end();
-		exit;
-	}
-	___global.difficulty_level = _test_vars.difficulty_level;
-	if (___global.difficulty_level > 5 || ___global.difficulty_level < 1){
-		show_message("difficulty set incorrectly for test mode. difficulty should be an int within the range of 1-5");
-		game_end();
-		exit;
-	}
-	___state_change("playing_microgame");
-	dev_mode = true;
-	dev_mode_loop_game = bool(_test_vars.loop_game);
-	if (_test_vars.mute_test) audio_set_master_gain(0, 0);
 	
+	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
+		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. \nYour key should be the name of your metadata file, minus the \".json\".\n If your metadata file is named \"sam_cookiedunk.json\", then your key would be \"sam_cookiedunk\"");
+		game_end();
+		exit;
+	}
+
+	___state_change("playing_microgame");
+	// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
+	prompt =  ___microgame_get_prompt(_game_key);
+	dev_mode = true;
+	
+	if (!instance_exists(___dev_debug)) instance_create_layer(0, 0, layer, ___dev_debug);
 	___microgame_start(_game_key);
 }
 
@@ -153,7 +159,7 @@ if (!dev_mode){
 //--------------------------------------------------------------------------------------------------------
 // DRAW CIRCLE TRANSITION SURFACE (requires master surface)
 //--------------------------------------------------------------------------------------------------------
-draw_circle_transition = function(){
+function draw_circle_transition(){
 		var _circle_pixel_scale = 5;
 
 		var _stc_w = canvas_w / _circle_pixel_scale;
@@ -203,7 +209,7 @@ draw_circle_transition = function(){
 		surface_reset_target();
 }
 
-draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
+function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	
 	var _store_surf = surface_get_target();
 	var _store_blend = gpu_get_blendmode();
@@ -225,13 +231,13 @@ draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
 		
 	// draw larold
 	surface_set_target(surf_larold);
-	draw_set_alpha(0.025)
+	draw_set_alpha(0.025);
 	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
 	surface_reset_target();
 		
 	// draw glare
 	surface_set_target(surf_larold);
-	draw_set_alpha(0.015)
+	draw_set_alpha(0.015);
 	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
 	surface_reset_target();
 	draw_set_alpha(1);
@@ -251,7 +257,7 @@ draw_surf_larold = function(_x, _y, _w, _h, _alpha, _blend){
 //--------------------------------------------------------------------------------------------------------
 // DRAW GAMEBOY SURFACE (requires master surface)
 //--------------------------------------------------------------------------------------------------------
-draw_gameboy_overlay = function(){
+function draw_gameboy_overlay(){
 	
 	var _win_w = WINDOW_BASE_SIZE * window_scale;
 	var _win_h = WINDOW_BASE_SIZE * window_scale;
@@ -283,7 +289,7 @@ draw_gameboy_overlay = function(){
 //--------------------------------------------------------------------------------------------------------
 // DRAW TIMERBAR
 //--------------------------------------------------------------------------------------------------------
-draw_timerbar = function(){
+function draw_timerbar(){
 	
 	var _seg_h = 6;
 	var _x1 = 15;
@@ -329,14 +335,16 @@ draw_timerbar = function(){
 //--------------------------------------------------------------------------------------------------------
 // DRAW GAME VIEW INTO CANVAS AREA
 //--------------------------------------------------------------------------------------------------------
-draw_microgame = function(){
+function draw_microgame(){
 
 
 	var _surf_w_target = canvas_w * window_scale;
 	var _surf_h_target = canvas_h * window_scale;
 
 	if (window_scale > 0) && ((window_scale != prev_window_scale) || (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target)) {
-		surface_resize(application_surface, _surf_w_target , _surf_h_target);
+		var _w = max(5, _surf_w_target);
+		var _h = max(5, _surf_h_target);
+		surface_resize(application_surface, _w , _h);
 	}
 
 	// draw game view onto master surface
@@ -351,27 +359,29 @@ draw_microgame = function(){
 	surface_reset_target();
 	
 	// set gui size (sets the gui scale to fit the gameboy
-	var _gui_scale = (canvas_w * window_scale) / VIEW_W;
-	var _gui_x = (canvas_x * window_scale) + ((window_get_width() - (WINDOW_BASE_SIZE * window_scale))/2);
-	var _gui_y = (canvas_y * window_scale) + ((window_get_height() - (WINDOW_BASE_SIZE * window_scale))/2);
-	display_set_gui_maximise(_gui_scale, _gui_scale, _gui_x, _gui_y);
-	
+	gui_scale = (canvas_w * window_scale) / VIEW_W;
+	gui_x = (canvas_x * window_scale) + ((window_get_width() - (WINDOW_BASE_SIZE * window_scale))/2);
+	gui_y = (canvas_y * window_scale) + ((window_get_height() - (WINDOW_BASE_SIZE * window_scale))/2);
+	display_set_gui_maximise(gui_scale, gui_scale, gui_x, gui_y);
+
 }
 
 //--------------------------------------------------------------------------------------------------------
 // DRAW MASTER SURFACE / CREATE MASTER SURFACE
 //--------------------------------------------------------------------------------------------------------
-create_master_surface = function(){
+function create_master_surface(){
 	// create the master surface if it doesn't exit
 	if (!surface_exists(surf_master) && window_scale != 0){
-		surf_master = surface_create(WINDOW_BASE_SIZE * window_scale, WINDOW_BASE_SIZE * window_scale);
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale);
+		surf_master = surface_create(_size, _size);
 	}
 	
-	if (window_scale != prev_window_scale && window_scale != 0){
-		surface_resize(surf_master, WINDOW_BASE_SIZE * window_scale, WINDOW_BASE_SIZE * window_scale)
+	if (window_scale != prev_window_scale){
+		var _size = max(5, WINDOW_BASE_SIZE * window_scale);
+		surface_resize(surf_master, _size, _size);
 	}
 }
-draw_master_surface = function(){
+function draw_master_surface(){
 	
 	var _size = window_scale * WINDOW_BASE_SIZE;
 	var _x = (window_get_width()/2) - (_size/2);
@@ -379,4 +389,5 @@ draw_master_surface = function(){
 	// draw master surface
 	draw_surface_stretched(surf_master, _x, _y, _size, _size);
 }
+
 

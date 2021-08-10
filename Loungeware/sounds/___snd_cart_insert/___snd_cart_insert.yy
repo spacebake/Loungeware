@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___snd_cart_insert.wav",
-  "duration": 0.115839,
+  "duration": 0.110839,
   "parent": {
     "name": "SFX",
     "path": "folders/__Base Game (keep out)/Sound/SFX.yy",

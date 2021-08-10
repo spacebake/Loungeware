@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 0.94,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "space_scooter_snd_land.wav",
-  "duration": 0.640283,
+  "duration": 0.635283,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/Space/scooter/sounds.yy",

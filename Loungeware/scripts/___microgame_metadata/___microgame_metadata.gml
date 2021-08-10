@@ -5,10 +5,6 @@ function ___init_metadata(){
 	SET_TEST_VARS { 
 		test_mode_on: false,
 		microgame_key: "",
-		loop_game: false,
-		difficulty_level: 1,
-		mute_test: false,
-		skip_transition_animation: false
 	}
 	
 	var env = __try_read_json("config.dev.json");
@@ -17,13 +13,12 @@ function ___init_metadata(){
 		SET_TEST_VARS { 
 			test_mode_on: variable_struct_exists(env, "test_mode_on") ? env[$"test_mode_on"]: false,
 			microgame_key: variable_struct_exists(env, "microgame_key") ? env[$"microgame_key"]: "",
-			loop_game: variable_struct_exists(env, "loop_game") ? env[$"loop_game"]: false,
-			difficulty_level: variable_struct_exists(env, "difficulty_level") ? env[$"difficulty_level"]: false,
-			mute_test: variable_struct_exists(env, "mute_test") ? env[$"mute_test"]: false,
-			skip_transition_animation: variable_struct_exists(env, "skip_transition_animation") ? env[$"skip_transition_animation"]: false,
 		}
+		if (variable_struct_exists(env, "loop_mode")) show_message("Your config.dev.json file is out of date. Please check the template (config.example.json) to see the new structure.");
 	}
 	
+	
+
 	var rules =  new LW_FGameLoaderRuleBuilder()
 		.add_rule(
 			new LW_FGameLoaderNumberTransformer("config_version", 0)
@@ -69,5 +64,6 @@ function ___init_metadata(){
 		.get_rules();
 
 	var val = new LW_FGameLoader().get_configs(rules);
+	
 	return val;
 }

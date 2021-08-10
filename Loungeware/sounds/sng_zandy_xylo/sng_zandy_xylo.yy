@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sng_zandy_xylo.wav",
-  "duration": 8.175229,
+  "duration": 8.170229,
   "parent": {
     "name": "Public Music",
     "path": "folders/Public Music.yy",

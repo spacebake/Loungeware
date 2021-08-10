@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___sng_microgame_lose.wav",
-  "duration": 3.313458,
+  "duration": 3.308458,
   "parent": {
     "name": "Music",
     "path": "folders/__Base Game (keep out)/Sound/Music.yy",

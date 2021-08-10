@@ -1,3 +1,5 @@
+
+
 //------------------------------------------------------------------------------------------
 // STATE | Begin
 //------------------------------------------------------------------------------------------
@@ -5,26 +7,37 @@
 if (state == "begin"){
 	
 	// slide in
-	if (!wait) menu_y = ___smooth_move(menu_y, VIEW_H/2, 0.5, 10);
+	var _tar_y = VIEW_H/2;
+	if (!wait) menu_y = ___smooth_move(menu_y, _tar_y, 1, 7);
+	if (menu_y == _tar_y) menu_active = true;
+	if (skip_intro) menu_y = _tar_y;
 	
 	// move cursor
 	var _menu_len = array_length(menu);
-	var _store_cursor_pos = cursor;
-	v_move = -KEY_UP_PRESSED + KEY_DOWN_PRESSED;
+	v_move = -KEY_UP + KEY_DOWN;
+	if (v_move != last_v_move){
+		input_cooldown = 0;
+		input_is_scrolling = false;
+	}
 	last_v_move = v_move;
+	if (abs(v_move) && input_cooldown <= 0){
+		if (input_is_scrolling){
+			input_cooldown = input_cooldown_max;
+		} else {
+			input_cooldown = input_cooldown_init_max;
+			input_is_scrolling = true;
+		}
+		___sound_menu_tick_vertical();
+	} else {
+		v_move = 0;
+		input_cooldown = max(0, input_cooldown - 1);
+	}
 	cursor += v_move;
 	if (cursor > _menu_len - 1) cursor = 0;
 	if (cursor < 0) cursor = _menu_len - 1;
-	if (_store_cursor_pos != cursor){
-		var _snd_index  = ___snd_menu_tick;
-		var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
-		audio_sound_gain(_snd_id, _vol, 0);
-		audio_sound_pitch(_snd_id, random_range(0.99, 1.01));
-	}
 	
 	// check for confirm
-	var _confirm = (KEY_PRIMARY || ___KEY_PAUSE);
+	var _confirm = (KEY_PRIMARY_PRESSED || ___KEY_PAUSE_PRESSED) && (menu_active);
 	if (_confirm){
 		if (menu_method[cursor] == noop){
 			show_message("coming soon");
@@ -86,7 +99,7 @@ for (var i = 0; i < array_length(menu); i++){
 			
 		}
 	}
-	//if (menu_method[i] == noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 10, _text_x + (_str_w/2), _text_y_final + 14); 
+	if (menu_method[i] == noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 10, _text_x + (_str_w/2), _text_y_final + 14); 
 	___global.___draw_text_advanced(_text_x, _text_y_final, _v_sep, true, true, _str, 1, _scale_final, _h_sep);
 }
 
@@ -100,7 +113,7 @@ if (state == "fadeout"){
 		goodbye_played = true;
 		var _snd_index  = ___snd_goodbye;
 		var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.5;
+		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.8;
 		audio_sound_gain(_snd_id, _vol, 0);
 	}
 	
@@ -132,3 +145,6 @@ if (state == "fadeout"){
 		instance_destroy();
 	}
 }
+draw_set_color(c_red);
+
+

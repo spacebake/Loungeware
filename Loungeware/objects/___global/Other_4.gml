@@ -1,5 +1,7 @@
-// game window
-window_set_size(WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-___center_window();
-window_set_min_width(WINDOW_BASE_SIZE);
-window_set_min_height(WINDOW_BASE_SIZE);
+if (room == ___rm_main_menu){
+	display_set_gui_maximise();
+	camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+	surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+}
+
+log("room start: " + room_get_name(room));

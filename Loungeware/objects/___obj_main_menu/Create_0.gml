@@ -1,14 +1,26 @@
+camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+
 sng_id = audio_play_sound(___snd_gtr, 1, 1);
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0)
 wait = 60;
 menu_y = VIEW_H * 1.5;
+
+input_cooldown = 0;
+input_cooldown_init_max = 14;
+input_cooldown_max = 7;
+input_is_scrolling = false;
 v_move = 0;
-last_v_mode = 0;
+last_v_move = 0;
+
 confirmed = false;
 end_wait_max = 30;
 end_wait = end_wait_max;
 confirm_shake_time = 15;
+
+menu_active = false;
+skip_intro = false;
 
 // close
 close_wait_before = 20;
@@ -23,8 +35,8 @@ substate = 0;
 cursor = ___global.menu_cursor_main;
 menu = [
 	"PLAY",
-	"LEADERBOARD",
 	"GALLERY",
+	"LEADERBOARD",
 	"OPTIONS",
 	"CREDITS",
 	"EXIT"
@@ -45,5 +57,9 @@ menu_method = [
 
 menu_method[0] = function(){
 	instance_create_layer(0, 0, layer, ___MG_MNGR);
+	instance_destroy();
+}
+menu_method[1] = function(){
+	instance_create_layer(0, 0, layer, ___obj_menu_gallery);
 	instance_destroy();
 }

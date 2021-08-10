@@ -58,8 +58,9 @@ function LW_FGameLoader() constructor{
 		
 		if(config_is_valid == false){
 			show_debug_message("ERROR: Could not load game config " + string(filename));
-		}else if (!config_struct.is_enabled){
+		}else if (!config_struct.is_enabled && ___global.test_vars.test_mode_on == false){
 			show_debug_message("SKIP: " + string(filename) + " is not enabled");
+			
 		}
 		else {
 			configs[$  _get_filename_from_path(filename)] = config_struct;
@@ -201,6 +202,7 @@ function LW_FGameLoaderNumberTransformer(field_name, default_value) : LW_FGameLo
 
 function LW_FGameLoaderStringTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
 {
+	
 	_is_valid_internal = function(val){
 		if(is_string(val) == false){
 			return false;	

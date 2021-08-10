@@ -6,6 +6,9 @@ if (win == true) {
 	if (!created_bug) {
 		sfx_play(tfg_collision_sfx_win, 1, false);
 		created_bug = true;
+		with (tfg_collision_xobj) {
+			sprite_index = tfg_collision_checkmark;
+		}
 		instance_create_layer(room_width / 2, h * cursor.y, "Layer_Above", tfg_collision_obj_dead_bug);
 	}
 } else if (win == false || TIME_REMAINING < 90) {

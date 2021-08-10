@@ -72,6 +72,13 @@
 						If a tile is already cummed in, exit
 						if not, fill it with the target --with cum--
 						repeat for adjacent tiles.
+						
+			Magic Numbers
+			0 = empty tile
+			1 = wall
+			2 = player
+			3 = flower
+			4+ = enemies
 	
 */
 
@@ -104,7 +111,10 @@ nahoo_orientation = 1;
 nahoo_complete = 0;
 nahoo_font = undefined;
 
-nahoo_enemies = 2;
+enemy_count = 2;
+enemies = [];
+playerPos = { x:0, y:0 };
+goalPos = { x:0, y:0 };
 
 nahoo_won = -1;
 
@@ -113,7 +123,7 @@ function nahoo_init()
 	map = nahoo_generate(Nahoo_WIDTH, Nahoo_HEIGHT, Nahoo_iterations);
 	nahoo_verify(map);
 	
-	nahoo_enemies = 2;
+	enemy_count = 2;
 }
 
 function nahoo_generate(w, h, iterations)
@@ -122,7 +132,7 @@ function nahoo_generate(w, h, iterations)
 	randomise();
 	
 	timer = nahoo_timer();
-	
+	show_debug_message("generate");
 	if(Nahoo_DEBUG) nahoo_log("WARNING - DEBUG MODE IS STILL CURRENTLY ENABLED")
 	
 	//Creates an initial map, filled fully with walls
@@ -144,67 +154,73 @@ function nahoo_generate(w, h, iterations)
 		
 		for(var i = 1; i < w - 1; i++)
 		{
-			for(var j = 1; j < h -1; j++)
+			for(var j = 1; j < h - 1; j++)
 			{
-				var neighbours = 0;
 				
+				// Find all neighbors
+				var neighbours = 0;
 				for(var o = -1; o <= 1; o++)
 				{
 					for(var p = -1; p <= 1; p++)
 					{
-						if(!(o == p && o == 0))
-						{
-							if(map[i + o][j + p] == 1)
-							{
-								neighbours++;	
-							}
-						}
+						if ((o != 0 || p != 0) && map[i + o][j + p] == 1)
+							neighbours++;
 					}
 				}
 				
-				//If not an edge tile, maybe mecome empty
-
-				if(neighbours >= threshold[0]) map[i][j] = 1;		
-				if(8 - neighbours >= threshold[1]) map[i][j] = 0;	
+				//If not an edge tile, maybe become empty
+				if(neighbours >= threshold[0])
+					map[i][j] = 1;		
+				if(8 - neighbours >= threshold[1])
+					map[i][j] = 0;	
 			}
 		}
 	}
 	
-	var playerpos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
+	// Place player
+	do {
+		playerPos.x = irandom(w - 2) + 1;
+		playerPos.y = irandom(h - 2) + 1;
+	} until (map[playerPos.x][playerPos.y] == 0);
+	map[playerPos.x][playerPos.y] = 2;
 	
-	while(map[playerpos[0]][playerpos[1]] == 1)
-	{
-		playerpos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
-	}
+	// Place goal
+	do {
+		goalPos.x = irandom(w - 2) + 1;
+		goalPos.y = irandom(h - 2) + 1;
+	} until (map[goalPos.x][goalPos.y] == 0);
+	map[goalPos.x][goalPos.y] = 3;
 	
-	map[playerpos[0]][playerpos[1]] = 2;
-	
-	var goalpos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
-	
-	while(map[goalpos[0]][goalpos[1]] == 1)
-	{
-		goalpos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
-	}
-	
-	map[goalpos[0]][goalpos[1]] = 3;
-	
-	
-	var n = 0
-	while(n < nahoo_enemies)
-	{
-		var empos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
+	// Place enemies
+	enemies = [];
+	for (var i = 0; i < enemy_count; i++) {
 		
-		while(map[empos[0]][empos[1]] == 1)
-		{
-			empos = [irandom(w - 2) + 1, irandom(h - 2) + 1];
-		}
+		var enemy = {
+			num: 4 + i,
+			x: 0,
+			y: 0,
+			hsp: 0,
+			vsp: 0
+		};
 		
-		map[empos[0]][empos[1]] = 4 + n;
+		do {
+			enemy.x = irandom(w - 4) + 2;
+			enemy.y = irandom(h - 4) + 2;
+		} until (map[enemy.x][enemy.y] == 0);
 		
-		n++
+		// Decide to move in a direction
+		var valid_directions = [];
+		if (enemy.x != playerPos.x) array_push(valid_directions, false);
+		if (enemy.y != playerPos.y) array_push(valid_directions, true);
+		
+		var hor = valid_directions[irandom(array_length(valid_directions) - 1)];
+		enemy.hsp = hor ? choose(-1, 1) : 0;
+		enemy.vsp = hor ? 0 : choose(-1, 1);
+		
+		// Finalize enemy in map
+		array_push(enemies, enemy);
+		map[enemy.x][enemy.y] = enemy.num;
 	}
-	
-	nahoo_enemy_dir = array_create(nahoo_enemies, 1)
 	
 	//Create all the lovely objects :)
 	return map;
@@ -212,7 +228,7 @@ function nahoo_generate(w, h, iterations)
 
 function nahoo_run(m)
 {
-	if(nahoo_complete && !Nahoo_DEBUG) exit;
+	if (nahoo_complete && !Nahoo_DEBUG) exit;
 	
 	var w = array_length(m);
 	var h = array_length(m[0]);
@@ -228,29 +244,11 @@ function nahoo_run(m)
 		KEY_DOWN_PRESSED, //Down
 		KEY_LEFT_PRESSED, //Left
 		KEY_RIGHT_PRESSED, //Right
-	]
+	];
 	
 	var pdir = [check[3] - check[2], check[1] - check[0]];
-	var playerpos = [0, 0];
-	var goalpos = [0, 1];
 	
-	for(var i = 0; i < w; i++)
-	{
-		for(var j = 0; j < h; j++)
-		{
-			if(m[i][j] == 2)	
-			{
-				playerpos = [i, j];	
-			}
-			
-			if(m[i][j] == 3)	
-			{
-				goalpos = [i, j];	
-			}
-		}
-	}
-	
-	if(playerpos[0] == 0 && playerpos[1] == 0)
+	if(m[playerPos.x][playerPos.y] != 2)
 	{
 		//You fucking died!
 		microgame_fail();
@@ -258,25 +256,35 @@ function nahoo_run(m)
 		nahoo_log("You died!")
 	}
 	
+	// Move around
 	if(pdir[0] != 0 || pdir[1] != 0)
 	{
-		var newpos = m[playerpos[0] + pdir[0]][playerpos[1] + pdir[1]];
-		if(newpos == 0 || newpos == 3)	
+		var destination_x = clamp(playerPos.x + pdir[0], 1, w - 1);
+		var destination_y = clamp(playerPos.y + pdir[1], 1, h - 1);
+		
+		if (m[destination_x][destination_y] == 0 || m[destination_x][destination_y] == 3)
 		{
-			m[playerpos[0] + pdir[0]][playerpos[1] + pdir[1]] = 2;
-			m[playerpos[0]][playerpos[1]] = 0;
+			m[playerPos.x][playerPos.y] = 0;
+			m[destination_x][destination_y] = 2;
+			playerPos.x = destination_x;
+			playerPos.y = destination_y;
 			
 			audio_play_sound(Nahoo_sHit, 2, 0);
 		}
+		else if (m[destination_x][destination_y] >= 4)
+		{
+			m[playerPos.x][playerPos.y] = 0;
+			audio_play_sound(Nahoo_sHit, 2, 0);
+		}
+		
+		if (pdir[0] != 0)
+		{
+			nahoo_orientation = pdir[0];	
+		}
 	}
 	
-	if(pdir[0] != 0)
-	{
-		nahoo_orientation = pdir[0];	
-	}
-	
-	//IF there isn't a recorded goal pos, it's been stepped on! End the game.
-	if(goalpos[0] == 0 && goalpos[1] == 1)
+	//If there isn't a recorded goal pos, it's been stepped on! End the game.
+	if (m[goalPos.x][goalPos.y] != 3)
 	{
 		audio_play_sound(Nahoo_sWin, 0, 0);
 		microgame_win();
@@ -284,61 +292,28 @@ function nahoo_run(m)
 	}
 	
 	timer = max(0, timer - 1);
-	
-	if(!timer)
+	if (timer <= 0)
 	{
-		
-		var enemy_address = 0;
-		while(enemy_address < nahoo_enemies)
-		{
-			var pos = [0, 0];
-		
-			for(var i = 0; i < w; i++)
-			{
-				for(var j = 0; j < h; j++)
-				{
-					if(m[i][j] == 4 + enemy_address)	
-					{
-						pos = [i, j];
-					}
-				}
-			}
-		
-			switch(enemy_address)
-			{
-				case 0: //Wasp 1
+		// Move all enemies
+		for (var i = 0; i < enemy_count; i++) {
+			var enemy = enemies[i];
+			var destination_x = enemy.x + enemy.hsp;
+			var destination_y = enemy.y + enemy.vsp;
 			
-					if(m[pos[0] +nahoo_enemy_dir[enemy_address]][pos[1]] == 0 || m[pos[0] +nahoo_enemy_dir[enemy_address]][pos[1]] == 3)
-					{
-						m[pos[0] +nahoo_enemy_dir[enemy_address]][pos[1]] = 4 + enemy_address;
-						m[pos[0]][pos[1]] = 0;
-						
-						audio_play_sound(Nahoo_sHit, 2, 0);
-					}
-					else
-					{
-						nahoo_enemy_dir[enemy_address] = -nahoo_enemy_dir[enemy_address];
-					}
-				break;
-			
-				case 1: //Wasp 2
-					if(m[pos[0]][pos[1] +nahoo_enemy_dir[enemy_address]] == 0 || m[pos[0]][pos[1] +nahoo_enemy_dir[enemy_address]] == 2)
-					{
-						m[pos[0]][pos[1] +nahoo_enemy_dir[enemy_address]] = 4 + enemy_address;
-						m[pos[0]][pos[1]] = 0;
-						
-						audio_play_sound(Nahoo_sHit, 2, 0);
-					}
-					else
-					{
-						nahoo_enemy_dir[enemy_address] = -nahoo_enemy_dir[enemy_address];
-					}
-				break;
+			if (destination_x > 0 && destination_y > 0 && destination_x < w - 1 && destination_y < h - 1 && (m[destination_x][destination_y] == 0 || m[destination_x][destination_y] == 2)) {
+				m[destination_x][destination_y] = enemy.num;
+				m[enemy.x][enemy.y] = 0;
+				
+				enemy.x = destination_x;
+				enemy.y = destination_y;
+				
+				audio_play_sound(Nahoo_sHit, 2, 0);
 			}
-		
-			enemy_address++;
+			else {
+				enemy.hsp *= -1;
+				enemy.vsp *= -1;
+			}
 		}
-		
 		timer = nahoo_timer();
 	}
 	
@@ -367,8 +342,6 @@ function nahoo_end(won)
 
 function nahoo_draw_map(pos, m, arr, xs, ys)
 {
-	var playerpos = [0, 0];
-	var enemypos = [];
 	var nc = Nahoo_colours
 	
 	if(!surface_exists(nahoo_surf)) nahoo_surf = surface_create(Nahoo_WIDTH * 8, Nahoo_HEIGHT * 8);
@@ -388,7 +361,6 @@ function nahoo_draw_map(pos, m, arr, xs, ys)
 				
 				case 2:
 					draw_sprite(arr[0], 0, i * 8, j * 8);
-					playerpos = [i * 8, j * 8];	
 				break;
 				
 				case 3:
@@ -398,13 +370,12 @@ function nahoo_draw_map(pos, m, arr, xs, ys)
 				case 4:
 				case 5:
 					draw_sprite(arr[0], 0, i * 8, j * 8);
-					array_push(enemypos, [i * 8, j * 8]);	
 				break;
 			}
 		}
 	}
 	
-	draw_set_colour(nc[0])
+	draw_set_colour(nc[0]);
 	for(var i = 0; i < array_length(m); i++)
 	{
 		for(var j = 0; j < array_length(m[0]); j++)
@@ -432,17 +403,18 @@ function nahoo_draw_map(pos, m, arr, xs, ys)
 		}
 	}
 	
-	draw_set_colour(nc[3])
+	draw_set_colour(nc[3]);
 	
-	draw_set_font(nahoo_font)
-	draw_set_colour(c_white)
+	draw_set_font(nahoo_font);
+	draw_set_colour(c_white);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	
 	//E and S are new characters due to the font, neat right?
-	if(!nahoo_complete) draw_text(0, 0, "Nahoo E" + string(nahoo_enemies) + "  S" + string(DIFFICULTY))
+	if (!nahoo_complete)
+		draw_text(0, 0, "Nahoo E" + string(enemy_count) + "  S" + string(DIFFICULTY))
 	
-	if(nahoo_won != -1)
+	if (nahoo_won != -1)
 	{
 		var samplespace = [Nahoo_beenade_lost, Nahoo_beenade_won];
 		draw_sprite_ext(samplespace[nahoo_won], 0, pos[0], pos[1], xs, ys , 0, c_white, 1);
@@ -455,11 +427,11 @@ function nahoo_draw_map(pos, m, arr, xs, ys)
 	
 	if(nahoo_won == -1)
 	{
-		draw_sprite_ext(Nahoo_sBee, 0, (playerpos[0] + 4) * xs, (playerpos[1] + 4) * ys, nahoo_orientation * xs, ys, 0, c_white, 1);
+		draw_sprite_ext(Nahoo_sBee, 0, (playerPos.x * 8 + 4) * xs, (playerPos.y * 8 + 4) * ys, nahoo_orientation * xs, ys, 0, c_white, 1);
 	
-		for(var e = 0; e < array_length(enemypos); e++)
+		for(var e = 0; e < enemy_count; e++)
 		{
-			draw_sprite_ext(Nahoo_sWasp, 0, (enemypos[e][0] + 4) * xs, (enemypos[e][1] + 4) * ys, xs, ys, 0, c_white, 1);
+			draw_sprite_ext(Nahoo_sWasp, 0, (enemies[e].x * 8 + 4) * xs, (enemies[e].y * 8 + 4) * ys, xs, ys, 0, c_white, 1);
 		}
 	}
 	

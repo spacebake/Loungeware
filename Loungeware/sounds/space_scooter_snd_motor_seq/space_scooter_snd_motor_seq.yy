@@ -1,6 +1,6 @@
 {
   "compression": 0,
-  "volume": 1.0,
+  "volume": 0.74,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "space_scooter_snd_motor_seq.wav",
-  "duration": 3.637948,
+  "duration": 3.632948,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/Space/scooter/sounds.yy",
