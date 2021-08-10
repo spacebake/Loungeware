@@ -60,14 +60,14 @@ if surface_exists(surf_gui) {
 		}
 		
 		// Debug variables
-		// draw_set_colour(c_white);
-		// draw_text(0, 20*0, "difficulty: " + string(DIFFICULTY));
-		// draw_text(0, 20*1, "prompt: " + string(PROMPT));
-		// draw_text(0, 20*2, "win: " + string(win));
-		// draw_text(0, 20*3, "lose: " + string(lose));
-		// draw_text(0, 20*4, string(fps) + " " + string(fps_real));
-		// draw_text(0, 20*5, string(TIME_REMAINING) + " / " + string(TIME_MAX));
-		// draw_text(0, 20*6, string(TIME_REMAINING_SECONDS) + " / " + string(TIME_MAX_SECONDS));
+		draw_set_colour(c_white);
+		var _x = 0, _y = 20, _lh = 20;
+		draw_text(_x, _y, string(fps) + " " + string(fps_real)); _y += _lh;
+		draw_text(_x, _y, "win: " + string(win)); _y += _lh;
+		draw_text(_x, _y, "lose: " + string(lose)); _y += _lh;
+		draw_text(_x, _y, string(TIME_REMAINING) + " / " + string(TIME_MAX)); _y += _lh;
+		// draw_text(_x, _y, string(TIME_REMAINING_SECONDS) + " / " + string(TIME_MAX_SECONDS)); _y += _lh;
+		draw_text(_x, _y, string(timer_skip_time) + " / " + string(timer_skip_threshold)); _y += _lh;
 	
 	surface_reset_target();
 }

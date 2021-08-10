@@ -1,12 +1,11 @@
 
-// Debug timer
-// microgame_set_timer_max(999);
-
 // Game state
-win					= false;
-lose				= false;
-win_confetti_time	= 0;
-win_confetti_timer	= 5;
+win						= false;
+win_confetti_time		= 0;
+win_confetti_timer		= 5;
+lose					= false;
+timer_skip_time			= 0;
+timer_skip_threshold	= game_get_speed(gamespeed_fps) * 4;
 
 // Player size
 z					= 0;
