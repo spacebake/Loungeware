@@ -780,6 +780,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_mine.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/jdllama","resourceVersion":"1.0","name":"jdllama_target.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",

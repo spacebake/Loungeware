@@ -166,7 +166,7 @@ nahoo_tracks =
 selected = choose(nahoo_tracks.track_base, nahoo_tracks.track_vw);
 nahoo_track = selected.trk;
 
-audio_play_sound(selected.song, 1, 0);
+sfx_play(selected.song, 1, false);
 
 
 interval = room_speed / 4;
