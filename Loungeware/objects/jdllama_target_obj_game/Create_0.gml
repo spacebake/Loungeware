@@ -16,11 +16,13 @@ shotsLeft = totalShots;
 active = true;
 
 scope_manager = instance_create_layer(x, y, "Manager", jdllama_target_obj_scope_mgr);
+shot_manager = instance_create_layer(238, 158, "Manager", jdllama_target_obj_shots_mgr);
 with instance_create_layer(x, y, "Manager", jdllama_target_obj_target_mgr) {
 	difficulty = other._difficulty;
 }
 
 _step = function() {
+	shot_manager.shots = shotsLeft;
 	if(active == true) {
 		if(TIME_REMAINING < 60) {
 			if((totalShots == shotsLeft) && (totalTargets == instance_number(jdllama_target_obj_target))) {
