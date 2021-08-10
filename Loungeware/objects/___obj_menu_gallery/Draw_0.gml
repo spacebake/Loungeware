@@ -38,12 +38,12 @@ if (state == "normal"){
 		audio_sound_gain(sng_id, 0, 300);
 	}
 
-	// back button
-	if (KEY_SECONDARY_PRESSED){
+	// back button OR escape key
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)){
 		state = "fadeout_back";
 		fadeout_do =  back_to_main;
 		// stop sound
-			audio_sound_gain(sng_id, 0, 100);
+		audio_sound_gain(sng_id, 0, 100);
 	}
 }
 
@@ -79,7 +79,7 @@ var _list_margin_x = 8;
 var _list_margin_y = _div_y1;
 var _list_x = _list_margin_x;
 var _list_line_sep = 15;
-var _list_y = _list_margin_y + scroll_y + _list_line_sep*0.5;
+var _list_y = floor(_list_margin_y + scroll_y + _list_line_sep*0.5);
 var _list_line_height = 20;
 var _list_max_w = _div_x1 - (_list_margin_x*2);
 var _list_letter_sep = 0;

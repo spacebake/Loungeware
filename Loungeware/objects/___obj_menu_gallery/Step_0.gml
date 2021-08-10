@@ -15,3 +15,4 @@ if (state == "start_game"){
 	___global.menu_cursor_gallery = cursor;
 	instance_destroy();
 }
+
