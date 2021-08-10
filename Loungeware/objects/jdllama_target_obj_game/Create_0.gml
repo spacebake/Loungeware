@@ -6,7 +6,7 @@ difficulties = [
 	{total: 8, angle: 45, canBackwards: false, shots: 6},
 ];
 
-_difficulty = difficulties[DIFFICULTY - 1];
+_difficulty = difficulties[2];
 
 totalShots = _difficulty.shots;
 totalTargets = _difficulty.total;
@@ -22,6 +22,13 @@ with instance_create_layer(x, y, "Manager", jdllama_target_obj_target_mgr) {
 
 _step = function() {
 	if(active == true) {
+		if(TIME_REMAINING < 60) {
+			if((totalShots == shotsLeft) && (totalTargets == instance_number(jdllama_target_obj_target))) {
+				instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_pacifist)
+				microgame_win();
+				active = false;
+			}
+		}
 		if(KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
 			if(shotsLeft > 0) {
 				var scope = jdllama_target_obj_scope_mgr.middleScope;

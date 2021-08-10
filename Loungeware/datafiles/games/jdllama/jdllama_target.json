@@ -2,7 +2,7 @@
     "config_version": 1,
     "game_name": "TARGET BREAKING YEAH",
     "creator_name": "J.D. Lowe",
-    "prompt": "SHOOT THE TARGET",
+    "prompt": "SHOOT THE TARGETS",
     "init_room": "jdllama_target_rm",
     "view_width": 240,
     "view_height": 160,
