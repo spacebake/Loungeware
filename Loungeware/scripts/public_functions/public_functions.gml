@@ -83,13 +83,3 @@ period between calling this and the microgame actually ending.*/
 function microgame_end_early(){
 	___MG_MNGR.microgame_timer_skip = true;
 }
-
-
-
-
-
-
-
-
-
-
