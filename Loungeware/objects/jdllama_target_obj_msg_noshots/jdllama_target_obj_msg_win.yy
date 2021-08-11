@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "jdllama_target_spr_win_pacifist",
-    "path": "sprites/jdllama_target_spr_win_pacifist/jdllama_target_spr_win_pacifist.yy",
+    "name": "jdllama_target_spr_win",
+    "path": "sprites/jdllama_target_spr_win/jdllama_target_spr_win.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "messages",
-    "path": "folders/Microgames/jdllama/target/objects/messages.yy",
+    "name": "objects",
+    "path": "folders/Microgames/jdllama/target/objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "jdllama_target_obj_msg_pacifist",
+  "name": "jdllama_target_obj_msg_win",
   "tags": [],
   "resourceType": "GMObject",
 }

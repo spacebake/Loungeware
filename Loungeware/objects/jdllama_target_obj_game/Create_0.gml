@@ -26,7 +26,7 @@ _step = function() {
 	if(active == true) {
 		if(TIME_REMAINING < 60) {
 			if((totalShots == shotsLeft) && (totalTargets == instance_number(jdllama_target_obj_target))) {
-				instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_pacifist)
+				instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_pacifist);
 				microgame_win();
 				active = false;
 			}
@@ -51,12 +51,14 @@ _step = function() {
 						other.shotsLeft--;
 						if(other.shotsLeft <= 0) {
 							microgame_fail();
+							instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_noshots);
 							active = false;
 						}
 					}
 				}
 				if(instance_number(jdllama_target_obj_target) <= 0) {
 					microgame_win();
+					instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_win);
 					active = false;
 				}
 			}

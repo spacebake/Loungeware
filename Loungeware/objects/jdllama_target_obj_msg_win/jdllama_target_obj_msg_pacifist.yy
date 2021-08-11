@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "messages",
-    "path": "folders/Microgames/jdllama/target/objects/messages.yy",
+    "name": "objects",
+    "path": "folders/Microgames/jdllama/target/objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "jdllama_target_obj_msg_pacifist",

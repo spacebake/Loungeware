@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "jdllama_target_spr_win_pacifist",
-    "path": "sprites/jdllama_target_spr_win_pacifist/jdllama_target_spr_win_pacifist.yy",
+    "name": "jdllama_target_spr_noshots",
+    "path": "sprites/jdllama_target_spr_noshots/jdllama_target_spr_noshots.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,7 +28,7 @@
     "path": "folders/Microgames/jdllama/target/objects/messages.yy",
   },
   "resourceVersion": "1.0",
-  "name": "jdllama_target_obj_msg_pacifist",
+  "name": "jdllama_target_obj_msg_noshots",
   "tags": [],
   "resourceType": "GMObject",
 }
