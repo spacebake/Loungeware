@@ -203,6 +203,7 @@
     {"id":{"name":"anti_hats_sp_label","path":"sprites/anti_hats_sp_label/anti_hats_sp_label.yy",},"order":10,},
     {"id":{"name":"n8fl_escape1_car_goal","path":"objects/n8fl_escape1_car_goal/n8fl_escape1_car_goal.yy",},"order":7,},
     {"id":{"name":"space_scooter_snd_cheer","path":"sounds/space_scooter_snd_cheer/space_scooter_snd_cheer.yy",},"order":4,},
+    {"id":{"name":"___sng_game_start","path":"sounds/___sng_game_start/___sng_game_start.yy",},"order":3,},
     {"id":{"name":"n8fl_escape1_win","path":"sounds/n8fl_escape1_win/n8fl_escape1_win.yy",},"order":2,},
     {"id":{"name":"mimpy_firealarm_douse","path":"sounds/mimpy_firealarm_douse/mimpy_firealarm_douse.yy",},"order":0,},
     {"id":{"name":"mimpy_firealarm_drop","path":"sounds/mimpy_firealarm_drop/mimpy_firealarm_drop.yy",},"order":1,},
@@ -796,7 +797,6 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/baku","resourceVersion":"1.0","name":"baku_mine.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/jdllama","resourceVersion":"1.0","name":"jdllama_target.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles/games/katsaii","resourceVersion":"1.0","name":"katsaii_witchwanda.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.3.574",

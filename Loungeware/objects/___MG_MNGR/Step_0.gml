@@ -13,7 +13,7 @@ if (transition_music_began && !audio_is_playing(transition_music)){
 		transition_music  = audio_play_sound(___sng_microgame_winlose_end, 0, 0);
 		audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
 		ds_list_add(___global.___audio_active_list, transition_music);
-		audio_sound_pitch(transition_music, transition_speed);
+		audio_sound_pitch(transition_music, transition_speed);	
 	}
 }
 
