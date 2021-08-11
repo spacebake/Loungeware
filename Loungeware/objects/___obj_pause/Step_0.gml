@@ -41,15 +41,29 @@ if (state == "wait"){
 
 if (state == "paused"){
 	
-	var _vmove = -KEY_UP_PRESSED + KEY_DOWN_PRESSED;
+	var _vmove = -KEY_UP + KEY_DOWN;
 	var _confirm = KEY_PRIMARY_PRESSED;
 	var _menu_len = array_length(menu);
+	if (_vmove != last_v_move){
+		input_cooldown = 0;
+		input_is_scrolling = false;
+	}
+	last_v_move = _vmove;
+	if (abs(_vmove) && input_cooldown <= 0){
+		if (input_is_scrolling){
+			input_cooldown = input_cooldown_max;
+		} else {
+			input_cooldown = input_cooldown_init_max;
+			input_is_scrolling = true;
+		}
+		___sound_menu_tick_vertical();
+	} else {
+		_vmove = 0;
+		input_cooldown = max(0, input_cooldown - 1);
+	}
 	cursor += _vmove;
 	if (cursor >= _menu_len) cursor = 0;
 	if (cursor < 0) cursor = _menu_len - 1;
-	if abs(_vmove){
-		___sound_menu_tick_vertical();
-	}
 	
 	if (_confirm){
 		menu[cursor].execute();

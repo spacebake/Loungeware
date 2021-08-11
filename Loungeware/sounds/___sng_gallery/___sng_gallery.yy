@@ -1,17 +1,17 @@
 {
-  "compression": 0,
-  "volume": 1.0,
+  "compression": 3,
+  "volume": 0.9,
   "preload": false,
-  "bitRate": 128,
-  "sampleRate": 44100,
-  "type": 0,
+  "bitRate": 192,
+  "sampleRate": 48000,
+  "type": 1,
   "bitDepth": 1,
   "audioGroupId": {
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___sng_gallery.wav",
-  "duration": 44.60967,
+  "duration": 45.6273956,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",
