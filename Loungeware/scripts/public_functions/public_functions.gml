@@ -22,6 +22,9 @@
 // returns the prompt displayed before the microgame starts (useful if your microgame has multiple prompts)
 #macro PROMPT ___MG_MNGR.prompt
 
+// returns a boolean which is true if the game is currently running in test mode (useful for debugging)
+#macro TEST_MODE_ACTIVE ___global.test_mode_check()
+
 //--------------------------------------------------------------------------------------------------------
 // MICROGAME WIN
 // (NOTE: you should not use this function if "default_is_fail" property is set to "false" in your 
