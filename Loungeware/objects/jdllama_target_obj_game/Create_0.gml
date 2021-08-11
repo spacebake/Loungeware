@@ -6,7 +6,7 @@ difficulties = [
 	{total: 8, angle: 45, canBackwards: false, shots: 6},
 ];
 
-_difficulty = difficulties[DIFFICULTY - 1];
+_difficulty = difficulties[2];
 
 totalShots = _difficulty.shots;
 totalTargets = _difficulty.total;
@@ -16,12 +16,23 @@ shotsLeft = totalShots;
 active = true;
 
 scope_manager = instance_create_layer(x, y, "Manager", jdllama_target_obj_scope_mgr);
+shot_manager = instance_create_layer(238, 158, "Manager", jdllama_target_obj_shots_mgr);
 with instance_create_layer(x, y, "Manager", jdllama_target_obj_target_mgr) {
 	difficulty = other._difficulty;
 }
 
 _step = function() {
+	shot_manager.shots = shotsLeft;
 	if(active == true) {
+		if(TIME_REMAINING < 60) {
+			if((totalShots == shotsLeft) && (totalTargets == instance_number(jdllama_target_obj_target))) {
+				instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_pacifist);
+				microgame_win();
+				microgame_music_stop(1);
+				sfx_play(jdllama_target_snd_pacifist,1.2,false);
+				active = false;
+			}
+		}
 		if(KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
 			if(shotsLeft > 0) {
 				var scope = jdllama_target_obj_scope_mgr.middleScope;
@@ -42,12 +53,16 @@ _step = function() {
 						other.shotsLeft--;
 						if(other.shotsLeft <= 0) {
 							microgame_fail();
+							instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_noshots);
 							active = false;
 						}
 					}
 				}
 				if(instance_number(jdllama_target_obj_target) <= 0) {
 					microgame_win();
+					instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_win);
+					microgame_music_stop(1);
+					sfx_play(jdllama_target_snd_victory,1.2,false);
 					active = false;
 				}
 			}
