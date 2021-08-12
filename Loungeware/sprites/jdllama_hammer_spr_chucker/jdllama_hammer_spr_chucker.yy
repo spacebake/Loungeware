@@ -7,8 +7,8 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 32,
-  "bbox_right": 52,
+  "bbox_left": 34,
+  "bbox_right": 48,
   "bbox_top": 0,
   "bbox_bottom": 51,
   "HTile": false,
@@ -25,7 +25,7 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"bd09a267-b63b-4d51-ac47-e938715814d4","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bd09a267-b63b-4d51-ac47-e938715814d4","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"LayerId":{"name":"a546d1ec-0f9a-4d8d-89a8-108f5f59d14a","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"bd09a267-b63b-4d51-ac47-e938715814d4","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"LayerId":{"name":"3477c914-ebd3-4f46-8105-6f029fe181d4","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"jdllama_hammer_spr_chucker","path":"sprites/jdllama_hammer_spr_chucker/jdllama_hammer_spr_chucker.yy",},"resourceVersion":"1.0","name":"bd09a267-b63b-4d51-ac47-e938715814d4","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 2","resourceVersion":"1.0","name":"a546d1ec-0f9a-4d8d-89a8-108f5f59d14a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"3477c914-ebd3-4f46-8105-6f029fe181d4","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

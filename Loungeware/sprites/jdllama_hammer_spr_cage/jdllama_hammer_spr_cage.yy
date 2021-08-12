@@ -25,8 +25,8 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"300d0bcd-80d0-42e1-9a0c-c10ebbf8adcf","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"300d0bcd-80d0-42e1-9a0c-c10ebbf8adcf","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"LayerId":{"name":"a76d06d0-1711-4f9a-b0e6-5c26eebfc5c0","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"300d0bcd-80d0-42e1-9a0c-c10ebbf8adcf","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"LayerId":{"name":"877f8953-fa42-4cf8-8c14-b59bef2743fc","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"300d0bcd-80d0-42e1-9a0c-c10ebbf8adcf","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"LayerId":{"name":"a76d06d0-1711-4f9a-b0e6-5c26eebfc5c0","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"jdllama_hammer_spr_cage","path":"sprites/jdllama_hammer_spr_cage/jdllama_hammer_spr_cage.yy",},"resourceVersion":"1.0","name":"300d0bcd-80d0-42e1-9a0c-c10ebbf8adcf","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
