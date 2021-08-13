@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "jdllama_target_snd_theme.wav",
-  "duration": 0.0,
+  "duration": 6.4,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/jdllama/target/sounds.yy",

@@ -22,7 +22,7 @@ with instance_create_layer(x, y, "Manager", jdllama_target_obj_target_mgr) {
 }
 
 _step = function() {
-	shot_manager.shots = shotsLeft;
+	if(shot_manager) shot_manager.shots = shotsLeft;
 	if(active == true) {
 		if(TIME_REMAINING < 60) {
 			if((totalShots == shotsLeft) && (totalTargets == instance_number(jdllama_target_obj_target))) {
