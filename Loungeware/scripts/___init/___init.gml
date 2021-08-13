@@ -105,6 +105,7 @@ function ___GAME_INIT(){
 	___global.window_base_size_read = function(){return ___global.window_base_size;}
 	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
 	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
+	___global.test_mode_check = function(){return ___global.test_vars.test_mode_on;}
 	
 	// add public songs to credits
 	var _is_public_music = false;

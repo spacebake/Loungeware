@@ -27,7 +27,7 @@
     "path": "folders/Microgames/Space/scooter.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_space_scooter_batgen",
+  "name": "space_scooter_obj_batgen",
   "tags": [],
   "resourceType": "GMObject",
 }
