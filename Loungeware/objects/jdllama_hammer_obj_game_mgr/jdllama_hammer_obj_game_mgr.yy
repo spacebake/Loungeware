@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "jdllama_hammer_spr_grass",
-    "path": "sprites/jdllama_hammer_spr_grass/jdllama_hammer_spr_grass.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -20,9 +17,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -30,7 +25,7 @@
     "path": "folders/Microgames/jdllama/hammer/objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "jdllama_hammer_obj_grass",
+  "name": "jdllama_hammer_obj_game_mgr",
   "tags": [],
   "resourceType": "GMObject",
 }
