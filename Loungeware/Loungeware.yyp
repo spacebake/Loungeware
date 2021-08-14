@@ -814,7 +814,7 @@
     {"CopyToMask":-1,"filePath":"datafiles/games/jdllama","resourceVersion":"1.0","name":"jdllama_hammer.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.3.574",
+    "IDEVersion": "23.1.1.322",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
