@@ -279,7 +279,8 @@ function draw_gameboy_overlay(){
 		if (dpad_dx != 0) {
 			var x_options = [0, 2];
 			dpad_id = x_options[dpad_dx < 0];
-		} else if (dpad_dy != 0) {
+		}
+		if (dpad_dy != 0) {
 			var y_options = [1, 3];
 			dpad_id = y_options[dpad_dy > 0];
 		}
