@@ -272,6 +272,25 @@ function draw_gameboy_overlay(){
 	surface_set_target(surf_gameboy);
 	draw_clear(c_gboff);
 	draw_sprite(gameboy_sprite, gameboy_frame, 0, 0);
+	{ // comment out this block if you don't like the moving d-pad
+		var dpad_dx = KEY_RIGHT - KEY_LEFT;
+		var dpad_dy = KEY_DOWN - KEY_UP;
+		var dpad_id = -1;
+		if (dpad_dx != 0) {
+			var x_options = [0, 2];
+			dpad_id = x_options[dpad_dx < 0];
+		}
+		if (dpad_dy != 0) {
+			var y_options = [1, 3];
+			dpad_id = y_options[dpad_dy > 0];
+		}
+		if (dpad_id != -1) {
+			draw_sprite(
+					___spr_gameboy_dpad, dpad_id,
+					25 - sprite_get_xoffset(gameboy_sprite),
+					208 - sprite_get_yoffset(gameboy_sprite)); // magic numbers taken from the sprite editor!!!!
+		}
+	}
 	surface_reset_target();
 
 

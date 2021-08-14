@@ -111,6 +111,10 @@ switch(state)
 		if (x > room_width)
 			{
 			microgame_win();
+			if (alarm[0] == -1)
+				{
+				alarm[0] = 60; // early exit after a few seconds of winning, added by Kat
+				}
 			}
 		if (frame % 10 == 0)
 			{
