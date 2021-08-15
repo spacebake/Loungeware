@@ -8,11 +8,10 @@ draw_sprite(tfg_swipe_spr_bottom, 0, room_width / 2 - w_half,
 	room_height / 2 - h_half);
 
 with (tfg_swipe_obj_card) {
-	draw_self();
+	draw();
 }
 
-draw_sprite(tfg_swipe_spr_top, 0, room_width / 2 - w_half, 
+draw_sprite(tfg_swipe_spr_top, index, room_width / 2 - w_half, 
 	room_height / 2 - h_half);
 	
-
 

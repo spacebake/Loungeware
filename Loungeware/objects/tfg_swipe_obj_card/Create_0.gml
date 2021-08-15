@@ -1,3 +1,7 @@
+randomize();
+spr = choose(tfg_swipe_spr_netfloosh,
+	tfg_swipe_spr_spacefloosh);
+
 pos = 0;
 spd = 0;
 
@@ -8,3 +12,24 @@ range = {
 	max: 43,
 }
 
+start_text = "please swipe card";
+slow_text = "too slow."
+fast_text = "too fast."
+succ_text = "accepted."
+text = start_text;
+
+draw = function() {
+	draw_self();
+	
+	//pics
+	xoff = 225 - 36;
+	yoff = 115 - 56;
+	xx = x - xoff;
+	yy = y - yoff;
+	w = 174;
+	h = 174;
+
+	draw_sprite_stretched(spr, 0, xx, yy, w, h);	
+}
+
+image_speed = 0;
