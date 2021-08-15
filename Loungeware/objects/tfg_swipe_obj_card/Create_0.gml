@@ -1,6 +1,10 @@
 randomize();
 spr = choose(tfg_swipe_spr_netfloosh,
-	tfg_swipe_spr_spacefloosh);
+	tfg_swipe_spr_spacefloosh,
+	tfg_swipe_spr_tfgfloosh,
+	tfg_swipe_spr_nommfloosh,
+	tfg_swipe_spr_katfloosh,
+	tfg_swipe_spr_gracefloosh);
 
 pos = 0;
 spd = 0;
