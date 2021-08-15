@@ -684,7 +684,6 @@
     {"roomId":{"name":"tfg_swipe_rm_game","path":"rooms/tfg_swipe_rm_game/tfg_swipe_rm_game.yy",},},
     {"roomId":{"name":"___rm_pause","path":"rooms/___rm_pause/___rm_pause.yy",},},
     {"roomId":{"name":"baku_mine_rm","path":"rooms/baku_mine_rm/baku_mine_rm.yy",},},
-    {"roomId":{"name":"","path":"",},},
     {"roomId":{"name":"jdllama_target_rm","path":"rooms/jdllama_target_rm/jdllama_target_rm.yy",},},
     {"roomId":{"name":"jdllama_hammer_rm","path":"rooms/jdllama_hammer_rm/jdllama_hammer_rm.yy",},},
   ],
