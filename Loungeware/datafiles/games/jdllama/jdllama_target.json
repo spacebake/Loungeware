@@ -6,7 +6,7 @@
     "init_room": "jdllama_target_rm",
     "view_width": 240,
     "view_height": 160,
-    "time_seconds": 6,
+    "time_seconds": 5,
     "music_track": "jdllama_target_snd_theme",
     "music_loops": false,
     "interpolation_on": false,
@@ -14,7 +14,7 @@
     "cartridge_col_secondary": [55, 255, 255],
     "cartridge_label": "jdllama_target_spr_label",
     "default_is_fail": true,
-    "supports_difficulty_scaling": false,
+    "supports_difficulty_scaling": true,
     "credits": ["J.D. Lowe", "Zandy"],
     "date_added": "21/08/09"
 }

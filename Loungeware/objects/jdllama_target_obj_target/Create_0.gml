@@ -6,10 +6,25 @@ amplitude_y = 50;
 frequency = 1.8;
 timer = 0;
 
+/*
+canBackwards = other.difficulty.canBackwards;
+			targetSpeed = other.difficulty.targetSpeed;
+*/
+canBackwards = false;
+targetSpeed = 1;
+
+_alarm0 = function() {
+	if(canBackwards == true) {
+		targetSpeed *= choose(1, -1);
+	}
+}
+
+
+
 _step = function() {
 	x = amplitude_x * dcos(timer * frequency) + center_x;
 	y = amplitude_y * dsin(timer * frequency * 2) + center_y;
-	timer++;
+	timer += targetSpeed;
 }
 
 _destroy = function() {
@@ -18,3 +33,5 @@ _destroy = function() {
 		y = other.y;
 	}
 }
+
+alarm[0] = 1;
