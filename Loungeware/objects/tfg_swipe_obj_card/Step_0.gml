@@ -10,6 +10,12 @@ else {
 
 pos = tfg_approach(pos, sprite_get_width(tfg_swipe_spr_top), spd);
 
+
+if (inc_curr++ % inc_every == 0) {
+	flipflop = !flipflop;
+}
+
+
 if (text == succ_text) exit;
 
 if (pos == sprite_get_width(tfg_swipe_spr_top)) {

@@ -13,6 +13,7 @@ var xx = room_width / 2 - w_half + xoff + padx;
 var yy = room_height / 2 - h_half + yoff + pady;
 
 tfg_draw_set_text(c_white, tfg_swipe_fnt_game, fa_left, fa_top);
-draw_text(xx, yy, text);
+
+draw_text(xx + flipflop * inc, yy, text);
 
 

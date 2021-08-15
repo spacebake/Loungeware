@@ -37,3 +37,8 @@ draw = function() {
 }
 
 image_speed = 0;
+
+inc = 10;
+inc_every = 60;
+inc_curr = 0;
+flipflop = false;
