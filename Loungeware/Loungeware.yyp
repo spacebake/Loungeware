@@ -322,6 +322,7 @@
     {"id":{"name":"___sng_microgame_win","path":"sounds/___sng_microgame_win/___sng_microgame_win.yy",},"order":1,},
     {"id":{"name":"baku_mine_model_block","path":"scripts/baku_mine_model_block/baku_mine_model_block.yy",},"order":0,},
     {"id":{"name":"katsaii_witchwanda_pentagram","path":"sprites/katsaii_witchwanda_pentagram/katsaii_witchwanda_pentagram.yy",},"order":19,},
+    {"id":{"name":"tfg_swipe_spr_cartridge","path":"sprites/tfg_swipe_spr_cartridge/tfg_swipe_spr_cartridge.yy",},"order":16,},
     {"id":{"name":"baku_mine_spr_goofed","path":"sprites/baku_mine_spr_goofed/baku_mine_spr_goofed.yy",},"order":24,},
     {"id":{"name":"baku_mine_spr_continue","path":"sprites/baku_mine_spr_continue/baku_mine_spr_continue.yy",},"order":1,},
     {"id":{"name":"space_scooter_spr_slope_1","path":"sprites/space_scooter_spr_slope_1/space_scooter_spr_slope_1.yy",},"order":7,},
