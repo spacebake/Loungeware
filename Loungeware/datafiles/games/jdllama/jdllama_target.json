@@ -6,7 +6,7 @@
     "init_room": "jdllama_target_rm",
     "view_width": 240,
     "view_height": 160,
-    "time_seconds": 5,
+    "time_seconds": 6,
     "music_track": "jdllama_target_snd_theme",
     "music_loops": false,
     "interpolation_on": false,
