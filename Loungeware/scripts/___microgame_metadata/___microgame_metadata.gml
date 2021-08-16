@@ -46,7 +46,7 @@ function microgame_register(microgame_name, metadata){
 				.set_min(1)
 				.set_inner_validator(function(val) { return is_string(val); })
 			)
-		.add_rule(new LW_FGameLoaderStringTransformer("date_added", undefined))
+		.add_rule(new LW_FGameLoaderDateTransformer("date_added", undefined))
 		.get_rules();
 		
 		global.___MetaGameLoader.set_rules(rules);
