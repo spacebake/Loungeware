@@ -16,5 +16,9 @@ microgame_register("katsaii_witchwanda", {
     default_is_fail : true,
     supports_difficulty_scaling : true,
     credits : ["Katsaii", "Mashmerlow"],
-    date_added : "21/07/09"
+    date_added : {
+        day : 9,
+        month : 7,
+        year : 21
+    }
 });
