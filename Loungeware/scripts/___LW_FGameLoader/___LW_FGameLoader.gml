@@ -157,6 +157,37 @@ function LW_FGameLoaderStringTransformer(field_name, default_value) : LW_FGameLo
 	_get_value_internal = function(val) { return string(val); }
 }
 
+function LW_FGameLoaderDateTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor {
+    _is_valid_internal = function(val) {
+        if (is_string(val)) {
+            return string_length(val) > 0;
+        } else if (is_struct(val)) {
+            if not (variable_struct_exists(val, "day") &&
+                    variable_struct_exists(val, "month") &&
+                    variable_struct_exists(val, "year")) {
+                return false;
+            }
+            var dd = val.day;
+            var mm = val.month;
+            var yy = val.year;
+            return is_numeric(dd) && dd >= 1 && dd <= 99 &&
+                    is_numeric(mm) && mm >= 1 && mm <= 12 &&
+                    is_numeric(yy) && (yy >= 2000 && yy <= 2099 || yy >= 0 && yy <= 99);
+        } else {
+            return false;
+        }
+    }
+    _get_value_internal = function(val) {
+        if (is_struct(val)) {
+            var day = string_format(val.day, 2, 0);
+            var month = string_format(val.month, 2, 0);
+            var year = string_format(val.year >= 2000 ? val.year - 2000 : val.year, 2, 0);
+            return string_replace_all(year + "/" + month + "/" + day, " ", "0");
+        } else {
+            return string(val);
+        }
+    }
+}
 
 function LW_FGameLoaderSoundTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
 {
