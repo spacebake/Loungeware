@@ -14,6 +14,14 @@ _step = function() {
 			//instance_deactivate_object(chucker);
 			if(hammerAngle <= angle2 && hammerAngle >= angle1) {
 				microgame_win();
+				_alarm0 = function() {
+					var endX = 116;
+					var endY = 80;
+	
+					if (layer_exists("ending")) layer_destroy("ending");
+					var _lay = layer_create(-9999,"ending");
+					layer_sequence_create(_lay,endX,endY,jdllama_hammer_seq_ending1);	
+				}
 			}
 			alarm[0] = 20;
 		}
