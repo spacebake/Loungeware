@@ -1,0 +1,42 @@
+microgame_register("tfg_collision", {
+    config_version: 1,
+    game_name: "FIX COLLISION",
+    creator_name : "tfg",
+    prompt: "FIND ERROR",
+    init_room: tfg_collision_rm_game,
+    view_width: 960,
+    view_height: 640,
+    time_seconds: 9.5,
+    music_track: sng_ennway_bit_battle,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: "0x121212",
+    cartridge_col_secondary: "0x71b8ff",
+    cartridge_label: tfg_collision_spr_cartridge,
+    default_is_fail: true,
+    supports_difficulty_scaling: false,
+    credits: ["tfg", "ennway", "zandy"],
+    date_added: "21/07/09"
+});
+
+microgame_register("tfg_swipe", {
+    config_version: 1,
+    game_name: "SWIPE",
+    creator_name : "tfg",
+    prompt: "SWIPE",
+    init_room: tfg_swipe_rm_game,
+    view_width: -1,
+    view_height: -1,
+    time_seconds: 5,
+    music_track: tfg_swipe_bgm_amogus,
+    music_loops: false,
+    interpolation_on: true,
+    cartridge_col_primary: "0x555555",
+    cartridge_col_secondary: "0x959595",
+    cartridge_label: tfg_swipe_spr_cartridge,
+    default_is_fail: true,
+    supports_difficulty_scaling: false,
+    credits: ["tfg", "zandy", "space"],
+    date_added: "21/08/15",
+    is_enabled: true
+});

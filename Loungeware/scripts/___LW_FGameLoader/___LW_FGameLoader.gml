@@ -1,106 +1,47 @@
 function LW_FGameLoader() constructor{
-
-	function get_configs(rules){
-		var dirs = [];
-		var jsons = [];
-		var configs = {};
+	_rules = [];
+	_games = {};
 	
-		_get_directories("games", dirs);
-	
-		for(var i=0; i < array_length(dirs); i++){
-			_get_json_files(dirs[i], jsons);
-		}
-	
-		for(var i=0; i < array_length(jsons); i++){
-			_read_game_config(jsons[i], configs, rules);
-		}
-		return configs;
+	set_rules = function(rules){
+		_rules = rules;		
 	}
 	
-	function _get_filename_from_path(filename){
-		var str = "";
-		for(var i=1; i < string_length(filename) + 1; i++){
-			var char = string_char_at(filename,i);
-			if(char == "/"){
-				str = "";	
-				continue;
-			}
-			if(char == "."){
-				return str;	
-			}
-			str += char;
-		}
-		return undefined;
+	get_games = function()
+	{
+		return _games;	
 	}
 	
-	function _read_game_config(filename, configs, rules){
-		show_debug_message("INFO: reading game config " + filename);	
+	load_game = function(game_name, meta){
+		show_debug_message("INFO: Loading game config " + game_name);	
 
-		var config = __try_read_json(filename);
-		if(config == undefined){
-			show_debug_message("WARNING: could not read json");	
-			return;
-		}
-		var config_struct = {};
-		var config_is_valid = true;
-		for(var i=0; i < array_length(rules); i++){
-			var rule = rules[i];
+		var _game = {};
+		var is_valid = true;
+		for(var i=0; i < array_length(_rules); i++){
+			var rule = _rules[i];
 			
-			if(rule.is_valid(config) == false && rule.get_is_nullable() == false){
+			if(rule.is_valid(meta) == false && rule.get_is_nullable() == false){
 				show_debug_message("WARNING: Invalid field " + rule.get_field_name());
 				config_is_valid = false;
 			}else{
 				// if you really want verbose
 				//show_debug_message("INFO: Set " + string(rule.get_field_name()) + " to " + string(rule.get_value(config_struct)));
-				config_struct[$ rule.get_field_name()] = rule.get_value(config);
+				_game[$ rule.get_field_name()] = rule.get_value(meta);
 			}
 		}
 		
-		if(config_is_valid == false){
-			show_debug_message("ERROR: Could not load game config " + string(filename));
-		}else if (!config_struct.is_enabled && ___global.test_vars.test_mode_on == false){
-			show_debug_message("SKIP: " + string(filename) + " is not enabled");
-			
+		if(is_valid == false){
+			show_debug_message("ERROR: Could not load game config " + string(game_name));
+			return false;
 		}
-		else {
-			configs[$  _get_filename_from_path(filename)] = config_struct;
-			show_debug_message("INFO: Loaded " + string(filename) + "!");
+		
+		if (_game.is_enabled == false){
+			show_debug_message("SKIP: " + string(game_name) + " is not enabled");
+			return false;
 		}
-	}
-
-	function _get_directories(path, out){
-		var search_path = path +"/*";
-		var dir = file_find_first(search_path, fa_directory);
-		var added = [];
-
-		while(dir != ""){
-			var full_path = path+"/"+dir;
-			if(directory_exists(full_path)){
-				out[@ array_length(out)] = full_path;
-				added[@ array_length(added)] = full_path;
-			}
-			dir = file_find_next();
-		}
-		file_find_close();
-	
-		for(var i=0; i < array_length(added); i++){
-			_get_directories(added[i], out);
-		}
-	
-		return out;
-	}
-
-	function _get_json_files(path, out){
-		var search_path = path+"/*.json";
-		var filename = file_find_first(search_path, 0);
-
-		while(filename != ""){
-			var full_path = path+"/"+filename;
-			out[@ array_length(out)] = full_path;
-			filename = file_find_next();
-		}
-		file_find_close();	
-		return out;
+		
+		_games[$  game_name] = _game;
+		show_debug_message("INFO: Loaded " + string(game_name) + "!");
+		return true;
 	}
 }
 
@@ -216,45 +157,70 @@ function LW_FGameLoaderStringTransformer(field_name, default_value) : LW_FGameLo
 	_get_value_internal = function(val) { return string(val); }
 }
 
-function LW_FGameLoaderAssetTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
-{
-	_is_valid_internal = function(asset_name){
-		if(is_string(asset_name) == false){
-			return false;	
-		}
-		if(string_length(asset_name) == 0){
-			return false;	
-		}
-		return true;
-	}
-	
-	_get_value_internal = function(asset_name){ return asset_get_index(asset_name); }
+function LW_FGameLoaderDateTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor {
+    monthNames = {
+        january : 1, jan : 1,
+        february : 2, feb : 2,
+        march : 3, mar : 3,
+        april : 4, apr : 4,
+        may : 5,
+        june : 6, jun : 6,
+        july : 7, jul : 7,
+        august : 8, aug : 8,
+        september : 9, sep : 9, sept : 9,
+        october : 10, oct : 10, spooky : 10,
+        november : 11, nov : 11,
+        december : 12, dec : 12, jolly : 12,
+    };
+    _is_valid_internal = function(val) {
+        if (is_string(val)) {
+            return string_length(val) > 0;
+        } else if (is_struct(val)) {
+            if not (variable_struct_exists(val, "day") &&
+                    variable_struct_exists(val, "month") &&
+                    variable_struct_exists(val, "year")) {
+                return false;
+            }
+            var dd = val.day;
+            var mm = val.month;
+            var yy = val.year;
+            return is_numeric(dd) && dd >= 1 && dd <= 99 &&
+                    (is_numeric(mm) && mm >= 1 && mm <= 12 || is_string(mm) && variable_struct_exists(monthNames, string_lower(mm))) &&
+                    is_numeric(yy) && (yy >= 2000 && yy <= 2099 || yy >= 0 && yy <= 99);
+        } else {
+            return false;
+        }
+    }
+    _get_value_internal = function(val) {
+        if (is_struct(val)) {
+            var day = string_format(val.day, 2, 0);
+            var month = string_format(is_string(val.month) ? monthNames[$ string_lower(val.month)] : val.month, 2, 0);
+            var year = string_format(val.year >= 2000 ? val.year - 2000 : val.year, 2, 0);
+            return string_replace_all(year + "/" + month + "/" + day, " ", "0");
+        } else {
+            return string(val);
+        }
+    }
 }
 
-function LW_FGameLoaderSoundTransformer(field_name, default_value) : LW_FGameLoaderAssetTransformer(field_name, default_value) constructor 
+function LW_FGameLoaderSoundTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
 {
-	_base_validate = _is_valid_internal;
-	
-	_is_valid_internal = function(asset_name){
-		return _base_validate(asset_name) && (audio_get_name(asset_get_index(asset_name)) == asset_name);
+	_is_valid_internal = function(sound_id){
+		return audio_exists(sound_id);
 	}
 }
 
-function LW_FGameLoaderRoomTransformer(field_name, default_value) : LW_FGameLoaderAssetTransformer(field_name, default_value) constructor 
-{
-	_base_validate = _is_valid_internal;
-	
-	_is_valid_internal = function(asset_name){
-		return _base_validate(asset_name) && (room_get_name(asset_get_index(asset_name)) == asset_name);
+function LW_FGameLoaderRoomTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
+{	
+	_is_valid_internal = function(room_id){
+		return room_exists(room_id);
 	}
 }
 
-function LW_FGameLoaderSpriteTransformer(field_name, default_value) : LW_FGameLoaderAssetTransformer(field_name, default_value) constructor 
+function LW_FGameLoaderSpriteTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
 {
-	_base_validate = _is_valid_internal;
-	
-	_is_valid_internal = function(asset_name){
-		return _base_validate(asset_name) && (sprite_get_name(asset_get_index(asset_name)) == asset_name);
+	_is_valid_internal = function(sprite_id){
+		return sprite_exists(sprite_id);
 	}
 }
 
