@@ -18,7 +18,7 @@ microgame_register("katsaii_witchwanda", {
     credits : ["Katsaii", "Mashmerlow"],
     date_added : {
         day : 9,
-        month : 7,
-        year : 21
-    }
+        month : "July",
+        year : 2021
+    },
 });

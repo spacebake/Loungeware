@@ -158,6 +158,20 @@ function LW_FGameLoaderStringTransformer(field_name, default_value) : LW_FGameLo
 }
 
 function LW_FGameLoaderDateTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor {
+    monthNames = {
+        january : 1, jan : 1,
+        february : 2, feb : 2,
+        march : 3, mar : 3,
+        april : 4, apr : 4,
+        may : 5,
+        june : 6, jun : 6,
+        july : 7, jul : 7,
+        august : 8, aug : 8,
+        september : 9, sep : 9, sept : 9,
+        october : 10, oct : 10, spooky : 10,
+        november : 11, nov : 11,
+        december : 12, dec : 12, jolly : 12,
+    };
     _is_valid_internal = function(val) {
         if (is_string(val)) {
             return string_length(val) > 0;
@@ -171,7 +185,7 @@ function LW_FGameLoaderDateTransformer(field_name, default_value) : LW_FGameLoad
             var mm = val.month;
             var yy = val.year;
             return is_numeric(dd) && dd >= 1 && dd <= 99 &&
-                    is_numeric(mm) && mm >= 1 && mm <= 12 &&
+                    (is_numeric(mm) && mm >= 1 && mm <= 12 || is_string(mm) && variable_struct_exists(monthNames, string_lower(mm))) &&
                     is_numeric(yy) && (yy >= 2000 && yy <= 2099 || yy >= 0 && yy <= 99);
         } else {
             return false;
@@ -180,7 +194,7 @@ function LW_FGameLoaderDateTransformer(field_name, default_value) : LW_FGameLoad
     _get_value_internal = function(val) {
         if (is_struct(val)) {
             var day = string_format(val.day, 2, 0);
-            var month = string_format(val.month, 2, 0);
+            var month = string_format(is_string(val.month) ? monthNames[$ string_lower(val.month)] : val.month, 2, 0);
             var year = string_format(val.year >= 2000 ? val.year - 2000 : val.year, 2, 0);
             return string_replace_all(year + "/" + month + "/" + day, " ", "0");
         } else {
