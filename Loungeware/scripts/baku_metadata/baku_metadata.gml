@@ -1,0 +1,41 @@
+microgame_register("baku_chug", {
+    config_version: 1,
+    game_name: "Forced Choice of a New Generation",
+    creator_name : "baku",
+    prompt: "CHUG",
+    init_room: baku_chug_rm,
+    view_width: 160,
+    view_height: 107,
+    time_seconds: 7,
+    music_track: sng_zandy_xylo,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: [148, 44, 75],
+    cartridge_col_secondary: [98, 23, 72],
+    cartridge_label: baku_chug_spr_label,
+    default_is_fail: true,
+    supports_difficulty_scaling: true,
+    credits: ["baku"],
+    date_added: "21/07/08"
+});
+
+microgame_register("baku_mine", {
+    config_version: 1,
+    game_name: "Lonesome Miner",
+    creator_name : "baku",
+    prompt: ["MINE DIAMOND", "MINE EMERALD", "MINE GOLD", "MINE RUBY", "MINE IRON"],
+    init_room: baku_mine_rm,
+    view_width: 480,
+    view_height: 320,
+    time_seconds: 12,
+    music_track: baku_mine_bgm_minecraft,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: [96, 81, 88],
+    cartridge_col_secondary: [42, 35, 37],
+    cartridge_label: baku_mine_spr_label,
+    default_is_fail: true,
+    supports_difficulty_scaling: true,
+    credits: ["baku", "meseta"],
+    date_added: "21/07/21"
+});
