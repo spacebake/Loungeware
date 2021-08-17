@@ -273,23 +273,34 @@ function draw_gameboy_overlay(){
 	draw_clear(c_gboff);
 	draw_sprite(gameboy_sprite, gameboy_frame, 0, 0);
 	{ // comment out this block if you don't like the moving d-pad
-		var dpad_dx = KEY_RIGHT - KEY_LEFT;
-		var dpad_dy = KEY_DOWN - KEY_UP;
-		var dpad_id = -1;
-		if (dpad_dx != 0) {
-			var x_options = [0, 2];
-			dpad_id = x_options[dpad_dx < 0];
-		}
-		if (dpad_dy != 0) {
-			var y_options = [1, 3];
-			dpad_id = y_options[dpad_dy > 0];
-		}
-		if (dpad_id != -1) {
+		var _dpad_in_use = KEY_RIGHT || KEY_UP || KEY_LEFT || KEY_RIGHT;
+		var _dpad_frame = point_direction(
+			0, 0,
+			-KEY_LEFT + KEY_RIGHT,
+			-KEY_UP + KEY_DOWN
+		)
+		_dpad_frame = _dpad_frame div 90;
+		if (_dpad_in_use) {
 			draw_sprite(
-					___spr_gameboy_dpad, dpad_id,
-					25 - sprite_get_xoffset(gameboy_sprite),
-					208 - sprite_get_yoffset(gameboy_sprite)); // magic numbers taken from the sprite editor!!!!
+				___spr_gameboy_dpad, _dpad_frame,
+				25 - sprite_get_xoffset(gameboy_sprite),
+				208 - sprite_get_yoffset(gameboy_sprite)
+			); // magic numbers taken from the sprite editor!!!!
 		}
+		
+	
+		// A BUTTON
+		draw_sprite(
+			___spr_gameboy_button_a, KEY_PRIMARY, 
+			223  - sprite_get_xoffset(gameboy_sprite), 
+			204  - sprite_get_yoffset(gameboy_sprite)
+		);
+		// B BUTTON
+		draw_sprite(
+			___spr_gameboy_button_b, KEY_SECONDARY, 
+			195  - sprite_get_xoffset(gameboy_sprite), 
+			232  - sprite_get_yoffset(gameboy_sprite)
+		);
 	}
 	surface_reset_target();
 
