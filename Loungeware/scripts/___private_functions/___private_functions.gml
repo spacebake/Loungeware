@@ -314,6 +314,46 @@ function ___gamepad_check_button_multiple(device,buttons) {
 	return false;
 }
 
+
+function ___generate_gamepad(i){
+    return {
+        active: gamepad_is_connected(i),
+			axes: {
+				horizontal: 0,
+				vertical: 0,
+			},
+			state: {
+				pressed: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				},
+				held: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				},
+				released: {
+					up: false,
+					down: false,
+					left: false,
+					right: false,
+					primary: false,
+					secondary: false,
+					pause: false,
+				}
+			}
+    }
+};
+
 // ------------------------------------------------------------------------------------------
 
 // ------------------------------------------------------------------------------------------
