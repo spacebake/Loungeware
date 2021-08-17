@@ -16,6 +16,7 @@ function LW_FGameLoader() constructor{
 
 		var _game = {};
 		var is_valid = true;
+		//show_message(array_length(_rules));
 		for(var i=0; i < array_length(_rules); i++){
 			var rule = _rules[i];
 			
@@ -41,6 +42,7 @@ function LW_FGameLoader() constructor{
 		
 		_games[$  game_name] = _game;
 		show_debug_message("INFO: Loaded " + string(game_name) + "!");
+		
 		return true;
 	}
 }

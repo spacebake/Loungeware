@@ -1,0 +1,7 @@
+// to enable testing, copy this file and rename it config.dev.json . Place it right next to this file. 
+// if config.dev.json exists, the game will read it.
+{
+    "test_mode_on": false,  // Default false | Whether or not to run the game in test mode
+    "microgame_key": "",   // Default ""    | The key for your game, as a string. ("key" meaning the property name for your game in the metadata)
+    "config_example_version": 1    // LEAVE THIS VALUE THE SAME AS IT IS IN THE EXAMPLE (it is for checking if your config is out of date)
+}

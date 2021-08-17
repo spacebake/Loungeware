@@ -68,9 +68,9 @@ if (state == "paused"){
 	if (_confirm){
 		menu[cursor].execute();
 		confirm_shake_timer = confirm_shake_timer_max;
-		var _snd_index  = ___snd_cart_insert;
-		var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
+		//var _snd_index  = ___snd_cart_insert;
+		//var _snd_id = audio_play_sound(_snd_index, 0, 0);
+		// var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
 	}
 	
 	if (!_confirm) && (___KEY_PAUSE_PRESSED || KEY_SECONDARY_PRESSED){
@@ -83,11 +83,13 @@ confirm_shake_timer = max(0, confirm_shake_timer-1);
 // deactivate instances after screenshot is taken and surface is resized
 if (state == "pause_room"){
 	
-	for (var i = 0; i < instance_count; i++){
-		var _id = instance_id[i]
-		if (instance_exists(_id) && _id != id && _id.object_index != ___global){
-			instance_deactivate_object(_id);
-			array_push(deactivated_instances, _id);
+	with(all){
+		var not_pause = id != other.id;
+		var not_global = object_index != ___global;
+		
+		if (not_pause && not_global){
+			instance_deactivate_object(id);
+			array_push(other.deactivated_instances, id);
 		}
 	}
 	

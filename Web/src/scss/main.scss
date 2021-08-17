@@ -1,0 +1,55 @@
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.fill-parent-height {
+  min-height: 100%;
+}
+
+.fill-parent-width {
+  min-width: 100%;
+  width: 100%;
+}
+
+.v-application {
+  min-height: 100%;
+  overflow-y: auto;
+}
+
+.main-container {
+  height: 100%;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.no-tabs-window-background {
+  .theme--dark.v-tabs-items {
+    background: none !important;
+  }
+
+  .v-window {
+    flex-grow: 1;
+    > .v-window__container {
+      height: 100%;
+      > .v-window-item {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.dev-red {
+  background-color: rgba(255, 0, 0, 0.3) !important;
+}
+
+.dev-green {
+  background-color: rgba(0, 255, 0, 0.3) !important;
+}
+
+.dev-blue {
+  background-color: rgba(0, 0, 255, 0.3) !important;
+}

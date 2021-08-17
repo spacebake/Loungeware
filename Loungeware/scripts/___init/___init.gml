@@ -114,7 +114,7 @@ function ___GAME_INIT(){
 	for (var i = 0; i < array_length(_microgame_keys); i++){
 		var _data = variable_struct_get(_metadata_all, _microgame_keys[i]);
 		var _credits = _data.credits;
-		var _music_name = audio_get_name(_data.music_track);
+		var _music_name = _data.music_track ? audio_get_name(_data.music_track) : "";
 		_is_public_music = string_copy(_music_name, 1, 4) == "sng_";
 		
 		if (_is_public_music){
@@ -142,12 +142,12 @@ function ___GAME_INIT(){
 	
 	// load save data if exists
 	___global.save_data = {};
-	if (file_exists(___global.save_filename)){
-		var _file = file_text_open_read(___global.save_filename);
-		var _str = file_text_read_string(_file);
-		___global.save_data = json_parse(_str);
-		file_text_close(_file);
-	} 
+	//if (file_exists(___global.save_filename)){
+	//	var _file = file_text_open_read(___global.save_filename);
+	//	var _str = file_text_read_string(_file);
+	//	___global.save_data = json_parse(_str);
+	//	file_text_close(_file);
+	//} 
 	
 	var _default_save_data = {
 		version: _version,

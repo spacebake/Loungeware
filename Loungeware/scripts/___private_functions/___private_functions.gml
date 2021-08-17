@@ -379,43 +379,43 @@ function ___noop(){
 // ------------------------------------------------------------------------------------------
 function ___dev_load(){
 	
-	var _filename = "tmpenv.dev";
+	//var _filename = "tmpenv.dev";
 	
-	var _default = {
-		difficulty_level: 1,
-		microgame_key: ___global.test_vars.microgame_key,
-		mute_test: false,
-		debug_hidden: false,
-		infinite_timer: false,
-	}
+	//var _default = {
+	//	difficulty_level: 1,
+	//	microgame_key: ___global.test_vars.microgame_key,
+	//	mute_test: false,
+	//	debug_hidden: false,
+	//	infinite_timer: false,
+	//}
 	
-	if (file_exists(_filename)){
+	//if (file_exists(_filename)){
 
-		var _file = file_text_open_read(_filename);
-		var _json = file_text_read_string(_file);
-		var _loaded = json_parse(_json);
-		file_text_close(_file);
+	//	var _file = file_text_open_read(_filename);
+	//	var _json = file_text_read_string(_file);
+	//	var _loaded = json_parse(_json);
+	//	file_text_close(_file);
 	
-		// check loaded has all the props that default has
-		var _default_proplist = variable_struct_get_names(_default);
-		for (var i = 0; i < array_length(_default_proplist); i++){
-			if (!variable_struct_exists(_loaded, _default_proplist[i])){
-				file_delete(_filename);
-				return _default;
-			}
-		}
+	//	// check loaded has all the props that default has
+	//	var _default_proplist = variable_struct_get_names(_default);
+	//	for (var i = 0; i < array_length(_default_proplist); i++){
+	//		if (!variable_struct_exists(_loaded, _default_proplist[i])){
+	//			file_delete(_filename);
+	//			return _default;
+	//		}
+	//	}
 		
-		// delete file if test game has changed
-		if (_loaded.microgame_key != ___global.test_vars.microgame_key){
-			file_delete(_filename);
-			return _default;
+	//	// delete file if test game has changed
+	//	if (_loaded.microgame_key != ___global.test_vars.microgame_key){
+	//		file_delete(_filename);
+	//		return _default;
 			
-		}
+	//	}
 		
-		return _loaded;
-	} 
+	//	return _loaded;
+	//} 
 	
-	return _default;
+	//return _default;
 
 }
 
