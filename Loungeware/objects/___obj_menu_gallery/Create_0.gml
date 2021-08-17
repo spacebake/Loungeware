@@ -67,8 +67,7 @@ fadeout_do = function(){};
 
 function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
-		wait = 1;
-		audio_sound_set_track_position(sng_id, 0.924);
+		skip_intro = true;
 	}
 	___global.menu_cursor_gallery = 0;
 	instance_destroy();
