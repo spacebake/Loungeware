@@ -141,6 +141,7 @@
     {"id":{"name":"mimpy_duckdate_mus_hop","path":"sounds/mimpy_duckdate_mus_hop/mimpy_duckdate_mus_hop.yy",},"order":0,},
     {"id":{"name":"jdllama_target_snd_victory","path":"sounds/jdllama_target_snd_victory/jdllama_target_snd_victory.yy",},"order":3,},
     {"id":{"name":"n8fl_reach_for_it_mister_spectator","path":"objects/n8fl_reach_for_it_mister_spectator/n8fl_reach_for_it_mister_spectator.yy",},"order":9,},
+    {"id":{"name":"rm_click_the_fucking_button","path":"rooms/rm_click_the_fucking_button/rm_click_the_fucking_button.yy",},"order":14,},
     {"id":{"name":"n8fl_reach_for_it_mister_weed","path":"objects/n8fl_reach_for_it_mister_weed/n8fl_reach_for_it_mister_weed.yy",},"order":10,},
     {"id":{"name":"NahooRunner","path":"objects/NahooRunner/NahooRunner.yy",},"order":0,},
     {"id":{"name":"sid_controller_tester_obj_test","path":"objects/sid_controller_tester_obj_test/sid_controller_tester_obj_test.yy",},"order":0,},
@@ -432,6 +433,7 @@
     {"id":{"name":"n8fl_penguin_blast_damsel_spr","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"order":3,},
     {"id":{"name":"Nahoo_sFace","path":"sprites/Nahoo_sFace/Nahoo_sFace.yy",},"order":2,},
     {"id":{"name":"n8fl_penguin_blast_damsel_weight_spr","path":"sprites/n8fl_penguin_blast_damsel_weight_spr/n8fl_penguin_blast_damsel_weight_spr.yy",},"order":4,},
+    {"id":{"name":"obj_click_button","path":"objects/obj_click_button/obj_click_button.yy",},"order":15,},
     {"id":{"name":"baku_mine_spr_redstone_drop","path":"sprites/baku_mine_spr_redstone_drop/baku_mine_spr_redstone_drop.yy",},"order":15,},
     {"id":{"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"order":5,},
     {"id":{"name":"baku_mine_spr_stone","path":"sprites/baku_mine_spr_stone/baku_mine_spr_stone.yy",},"order":17,},
@@ -670,9 +672,12 @@
   "tutorialPath": "",
   "configs": {
     "name": "Default",
-    "children": [],
+    "children": [
+      {"name":"SHIPPING","children":[],},
+    ],
   },
   "RoomOrderNodes": [
+    {"roomId":{"name":"rm_click_the_fucking_button","path":"rooms/rm_click_the_fucking_button/rm_click_the_fucking_button.yy",},},
     {"roomId":{"name":"___rm_init","path":"rooms/___rm_init/___rm_init.yy",},},
     {"roomId":{"name":"makoren_conjurer_rm_main","path":"rooms/makoren_conjurer_rm_main/makoren_conjurer_rm_main.yy",},},
     {"roomId":{"name":"mimpy_firealarm_rm","path":"rooms/mimpy_firealarm_rm/mimpy_firealarm_rm.yy",},},
@@ -822,10 +827,9 @@
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles/games","resourceVersion":"1.0","name":"example.json","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.example.json","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.322",
+    "IDEVersion": "2.3.3.574",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",

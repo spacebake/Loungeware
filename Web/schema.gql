@@ -1,0 +1,163 @@
+type Query {
+  node(id: String!): Node!
+  clientVersion: String!
+  user(id: String!): User!
+  me: User!
+  socketUser(id: String!): SocketUser!
+  colorPalettesPublic: [ColorPalette!]!
+  colorPalette(id: String!): ColorPalette!
+  room(id: String!): Room!
+  roomsPublic: [Room!]!
+  userCanvasProfile(id: String!): UserCanvasProfile!
+}
+
+interface Node {
+  id: ID!
+}
+
+type User implements Node {
+  id: ID!
+  displayName: String!
+  profilePictureUrl: String!
+  roles: [DiscordRole!]!
+  createdColorPalettes: [ColorPalette!]!
+  createdRooms: [Room!]!
+  canvasProfile: UserCanvasProfile!
+}
+
+type DiscordRole {
+  id: ID!
+  displayName: String!
+  colorHex: String!
+}
+
+type ColorPalette implements Node {
+  id: ID!
+  name: String!
+  colors: [ColorPaletteItem!]!
+  isPublic: Boolean!
+  author: User!
+}
+
+type ColorPaletteItem {
+  id: String!
+  name: String!
+  r: Float!
+  g: Float!
+  b: Float!
+  a: Float!
+  hex: String!
+}
+
+type Room implements Node {
+  id: ID!
+  name: String!
+  isPublic: Boolean!
+  hasPassword: Boolean!
+  owner: User!
+  userCount: Float!
+  users: [SocketUser!]!
+}
+
+type SocketUser implements Node {
+  id: ID!
+  userId: String!
+  roomId: String!
+  isGuest: Boolean!
+  user: User
+  displayName: String!
+  profilePictureUrl: String
+}
+
+type UserCanvasProfile implements Node {
+  id: ID!
+  openColorPaletteIds: [String!]!
+  color1: String!
+  color2: String!
+  thickness: Float!
+}
+
+type Mutation {
+  userAttachEmailPassword(input: UserAttachEmailPasswordInput!): User!
+  colorPaletteSetIsPublic(input: ColorPaletteSetIsPublicInput!): ColorPalette!
+  colorPaletteSetName(input: ColorPaletteSetNameInput!): ColorPalette!
+  colorPaletteSetColor(input: ColorPaletteSetColorInput!): ColorPalette!
+  colorPaletteCreate(input: ColorPaletteCreateInput!): ColorPalette!
+  colorPaletteAddColor(input: ColorPaletteItemAddInput!): ColorPalette!
+  colorPaletteRemoveColor(input: ColorPaletteItemRemoveInput!): ColorPalette!
+  colorPaletteDelete(id: String!): Boolean!
+  roomCreate(input: RoomCreateInput!): Room!
+  roomDelete(input: RoomDeleteInput!): Boolean!
+  userCanvasProfileSet(input: UserCanvasProfileSetInput!): UserCanvasProfile!
+}
+
+input UserAttachEmailPasswordInput {
+  id: String!
+  email: String!
+  password: String!
+}
+
+input ColorPaletteSetIsPublicInput {
+  id: String!
+  isPublic: Boolean!
+}
+
+input ColorPaletteSetNameInput {
+  id: String!
+  name: String!
+}
+
+input ColorPaletteSetColorInput {
+  colorPaletteId: String!
+  colorId: String!
+  r: Float!
+  g: Float!
+  b: Float!
+  a: Float!
+}
+
+input ColorPaletteCreateInput {
+  name: String!
+  authorUserId: String!
+  colors: [ColorPaletteItemInput!]!
+  isPublic: Boolean!
+}
+
+input ColorPaletteItemInput {
+  name: String
+  r: Float
+  g: Float
+  b: Float
+  a: Float
+  hex: String
+}
+
+input ColorPaletteItemAddInput {
+  colorPaletteId: String!
+  colors: [ColorPaletteItemInput!]!
+}
+
+input ColorPaletteItemRemoveInput {
+  colorPaletteId: String!
+  colorId: String!
+}
+
+input RoomCreateInput {
+  name: String!
+  isPublic: Boolean!
+  password: String!
+  hasPassword: Boolean!
+  ownerUserId: String!
+}
+
+input RoomDeleteInput {
+  id: String!
+}
+
+input UserCanvasProfileSetInput {
+  id: String!
+  color1: String
+  color2: String
+  thickness: Float
+  openColorPaletteIds: [String!]
+}
