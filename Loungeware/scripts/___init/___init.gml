@@ -106,6 +106,7 @@ function ___GAME_INIT(){
 	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
 	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
 	___global.test_mode_check = function(){return ___global.test_vars.test_mode_on;}
+	___global.is_microgame_won = function(){return ___MG_MNGR.microgame_won;}
 	
 	// add public songs to credits
 	var _is_public_music = false;
