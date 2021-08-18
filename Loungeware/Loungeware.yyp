@@ -357,6 +357,7 @@
     {"id":{"name":"space_scooter_spr_tileset","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"order":5,},
     {"id":{"name":"mimpy_firealarm_emergency","path":"sounds/mimpy_firealarm_emergency/mimpy_firealarm_emergency.yy",},"order":3,},
     {"id":{"name":"n8fl_escape2_car","path":"objects/n8fl_escape2_car/n8fl_escape2_car.yy",},"order":8,},
+    {"id":{"name":"jdllama_hammer_spr_endinghammer","path":"sprites/jdllama_hammer_spr_endinghammer/jdllama_hammer_spr_endinghammer.yy",},"order":5,},
     {"id":{"name":"mimpy_firealarm_spr_bucket","path":"sprites/mimpy_firealarm_spr_bucket/mimpy_firealarm_spr_bucket.yy",},"order":3,},
     {"id":{"name":"space_scooter_camlock","path":"objects/space_scooter_camlock/space_scooter_camlock.yy",},"order":8,},
     {"id":{"name":"mimpy_firealarm_spr_bucket_face","path":"sprites/mimpy_firealarm_spr_bucket_face/mimpy_firealarm_spr_bucket_face.yy",},"order":4,},
