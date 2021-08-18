@@ -32,6 +32,10 @@ html {
 
 a {
   color: $loungeBrandRed;
+
+  &:hover {
+    color: lighten($loungeBrandRed, 10);
+  }
 }
 
 .full-height {
@@ -40,6 +44,16 @@ a {
 
 .full-width {
   width: 100%;
+}
+
+.d-block {
+  display: block;
+}
+
+.img-pixel {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 a.btn,

@@ -24,7 +24,9 @@
 
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>How To Play</h2>
+        <h2>
+          <img class="larold" src="/larolds/rad-larold.png" /> How To Play
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
           ad perferendis corrupti animi blanditiis repudiandae placeat, maxime
@@ -47,7 +49,10 @@
 
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>Get Involved With A Vibrant Community</h2>
+        <h2>
+          <img class="larold" src="/larolds/headphone-larold.png" />
+          Get Involved With A Vibrant Community
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
           ad perferendis corrupti animi blanditiis repudiandae placeat, maxime
@@ -70,7 +75,10 @@
 
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>How To Contribute</h2>
+        <h2>
+          <img class="larold" src="/larolds/artist-larold.png" />
+          How To Contribute
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
           ad perferendis corrupti animi blanditiis repudiandae placeat, maxime
@@ -116,4 +124,11 @@ export default class About extends Vue {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.larold {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  top: 8px;
+}
+</style>

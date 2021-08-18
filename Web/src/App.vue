@@ -3,7 +3,6 @@
     <AppHeader />
     <router-view class="flex-grow" />
     <AppFooter />
-    <!-- </div> -->
   </div>
 </template>
 
@@ -19,6 +18,7 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+// @TODO can be done for FireFox too?
 ::-webkit-scrollbar {
   width: 20px;
 }
