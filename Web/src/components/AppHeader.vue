@@ -1,7 +1,7 @@
 <template>
   <div class="app-header container full-width">
+    <div class="border" />
     <div class="full">
-      <div class="border" />
       <div class="row center-xs">
         <div class="col-xs-4 text-right">
           <router-link :to="navItems.about.to" :class="getBtnClass('about')">
@@ -26,7 +26,11 @@
         </div>
       </div>
     </div>
-    <div class="mobile">First</div>
+    <div class="mobile">
+      <router-link :to="navItems.about.to" class="logo">
+        <img src="@/assets/logo.png" />
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -76,44 +80,67 @@ export default class AppHeader extends Vue {
 </script>
 
 <style scoped lang="scss">
-.app-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 80px;
-  margin-bottom: -120px;
-
-  $logo-width: 300px;
-  $logo-circle-padding: 20px;
-  position: relative;
-
-  > .border {
-    position: absolute;
-    top: 60px;
-    z-index: 0;
+@media only screen and (max-width: 799px) {
+  .app-header {
+    .logo {
+      text-align: center;
+      margin: auto;
+      display: block;
+    }
+    .full {
+      display: none;
+    }
   }
+}
 
-  & .logo {
-    width: 100%;
+@media only screen and (min-width: 800px) {
+  .app-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: -120px;
+
+    $logo-width: 300px;
+    $logo-circle-padding: 20px;
     position: relative;
-    top: -50%;
-    > img {
+
+    & .logo {
+      width: 100%;
       position: relative;
-      width: 100%;
-      margin-top: 30px;
+      top: -50%;
+      > img {
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: red;
+        width: 100%;
+        height: 100%;
+        border-radius: 30%;
+        background-color: #1a1721;
+      }
     }
-    &:before {
-      content: '';
+
+    > .border {
       position: absolute;
-      background-color: red;
-      width: 100%;
-      height: 100%;
-      border-radius: 30%;
-      background-color: #1a1721;
+      top: 60px;
+      z-index: 0;
+    }
+    .full {
+      display: block;
+    }
+    .mobile {
+      display: none;
     }
   }
+}
 
+.app-header {
   .btn {
     flex: 0 0 auto;
     position: relative;
