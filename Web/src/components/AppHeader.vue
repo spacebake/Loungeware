@@ -3,11 +3,11 @@
     <div class="border" />
     <div class="row center-xs">
       <div class="col-xs-4 text-right">
-        <router-link :to="getRoute('about')" :class="getBtnClass('about')">
-          About
+        <router-link :to="navItems.about.to" :class="getBtnClass('about')">
+          {{ navItems.about.label }}
         </router-link>
-        <router-link :to="getRoute('play')" :class="getBtnClass('play')">
-          Play
+        <router-link :to="navItems.play.to" :class="getBtnClass('play')">
+          {{ navItems.play.label }}
         </router-link>
       </div>
       <div class="col-xs-4 text-center">
@@ -16,8 +16,12 @@
         </div>
       </div>
       <div class="col-xs-4">
-        <a href="#" class="btn">Github</a>
-        <a href="#" class="btn">Discord</a>
+        <a :href="navItems.github.to" target="__blank" class="btn">
+          {{ navItems.github.label }}
+        </a>
+        <a :href="navItems.discord.to" target="__blank" class="btn">
+          {{ navItems.discord.label }}
+        </a>
       </div>
     </div>
   </div>
@@ -25,10 +29,33 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { RouteName } from '../router';
+import { RouteName, getLinkPath } from '../router';
 
 @Component
 export default class AppHeader extends Vue {
+  private navItems = {
+    about: {
+      to: {
+        name: 'about' as RouteName,
+      },
+      label: 'about',
+    },
+    play: {
+      to: {
+        name: 'play' as RouteName,
+      },
+      label: 'play',
+    },
+    github: {
+      to: getLinkPath('github'),
+      label: 'github',
+    },
+    discord: {
+      to: getLinkPath('discord'),
+      label: 'discord',
+    },
+  };
+
   private getRoute(routeName: RouteName) {
     return {
       name: routeName,
@@ -52,16 +79,13 @@ export default class AppHeader extends Vue {
   justify-content: center;
   align-items: center;
   margin-top: 80px;
-  margin-bottom: -140px;
+  margin-bottom: -120px;
 
   $logo-width: 300px;
   $logo-circle-padding: 20px;
   position: relative;
 
   > .border {
-    width: 100%;
-    height: 3px;
-    background-color: #3f3031;
     position: absolute;
     top: 60px;
     z-index: 0;

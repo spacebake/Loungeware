@@ -4,6 +4,11 @@
 
 $loungeBrandDark: #1a1721;
 $loungeBrandLight: #ffc89c;
+$loungeBrandRed: #c8554e;
+
+$discordBrand: #404eed;
+$githubBrand: #279841;
+
 body,
 html {
   padding: 0;
@@ -26,7 +31,7 @@ html {
 }
 
 a {
-  color: darken($loungeBrandLight, 50);
+  color: $loungeBrandRed;
 }
 
 .full-height {
@@ -47,10 +52,47 @@ div.btn {
   font-weight: bold;
   font-size: 1.3rem;
   transition: all 0.2s;
+  display: inline-block;
+
+  &.btn-lg {
+    padding: 24px;
+    font-size: 2rem;
+  }
 
   &.solid {
     background-color: $loungeBrandLight;
     color: $loungeBrandDark;
+
+    &:hover:not(.active) {
+      background-color: darken($loungeBrandLight, 50);
+    }
+
+    &.discord {
+      background-color: $discordBrand;
+
+      &:hover:not(.active) {
+        background-color: darken($discordBrand, 20);
+        color: white;
+      }
+    }
+
+    &.github {
+      background-color: $githubBrand;
+
+      &:hover:not(.active) {
+        background-color: darken($githubBrand, 20);
+        color: white;
+      }
+    }
+
+    &.red {
+      background-color: $loungeBrandRed;
+
+      &:hover:not(.active) {
+        background-color: darken($loungeBrandRed, 20);
+        color: white;
+      }
+    }
   }
 }
 
@@ -106,8 +148,10 @@ h6,
   padding-bottom: 24px;
 }
 
-.app-header .title {
-  font-size: 4rem;
+.border {
+  width: 100%;
+  height: 3px;
+  background-color: #3f3031;
 }
 
 .dev-red {

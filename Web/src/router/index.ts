@@ -5,9 +5,23 @@ Vue.use(VueRouter);
 
 export type RouteName = 'about' | 'play';
 
+export type LinkName = 'discord' | 'github';
+
 export function routeName(name: RouteName): string {
   return name;
 }
+
+export function getLinkPath(name: LinkName): string {
+  switch (name) {
+    case 'discord':
+      return 'https://discord.gg/cwWns2fdXF';
+    case 'github':
+      return 'https://github.com/spacebake/loungeware';
+    default:
+      return '#';
+  }
+}
+
 const routes: Array<RouteConfig> = [
   {
     path: '/',
