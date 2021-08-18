@@ -67,6 +67,9 @@ if (KEY_PRIMARY) {
 		microgame_fail();
 		win = false;
 	}
+	if (alarm[11] == -1) {
+		alarm[11] = 180; // early exit after 3 seconds of winning, added by Kat
+	}
 }
 
 

@@ -6,7 +6,7 @@ microgame_register("katsaii_witchwanda", {
     init_room : katsaii_witchwanda_rm,
     view_width : 1,
     view_height : 1,
-    time_seconds : 6,
+    time_seconds : 7,
     music_track : katsaii_witchwanda_mu,
     music_loops : false,
     interpolation_on : true,
@@ -16,5 +16,9 @@ microgame_register("katsaii_witchwanda", {
     default_is_fail : true,
     supports_difficulty_scaling : true,
     credits : ["Katsaii", "Mashmerlow"],
-    date_added : "21/07/09"
+    date_added : {
+        day : 9,
+        month : "July",
+        year : 2021
+    },
 });
