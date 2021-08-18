@@ -10,19 +10,19 @@
     </div>
     <div class="container">
       <div class="row center-xs mb-2">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
             <div class="big">19</div>
             <div class="small">Games</div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
             <div class="big">15</div>
             <div class="small">Contributors</div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
             <div class="big">
               <img src="/footer/gms2logo.png" />
@@ -35,16 +35,16 @@
 
     <div class="container links">
       <div class="row center-xs">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-12 col-sm-4">
           <a class="d-block" href="#">About</a>
           <a class="d-block" href="#">Join Our Discord</a>
           <a class="d-block" href="#">Fork On Github</a>
           <a class="d-block" href="#">Read The Wiki</a>
           <a class="d-block" href="#">Draw A Larold</a>
         </div>
-        <div class="col-xs-12 col-md-8">
+        <div class="col-xs-12 col-sm-8">
           <div class="shoutout">
-            <img src="/larolds/heart.png" />
+            <img class="img-pixel" src="/larolds/heart.png" />
             <p>
               Special thanks to our contributor
               <strong>{{ contributorName }}</strong>
@@ -131,6 +131,7 @@ export default class AppFooter extends Vue {
 
 <style scoped lang="scss">
 $footer-height: 460px;
+$footer-mobile-height: 920px;
 
 footer {
   position: relative;
@@ -256,6 +257,9 @@ footer {
       z-index: 100;
       left: 100px;
       top: -40px;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
     }
 
     > .footer-bg {
@@ -267,6 +271,9 @@ footer {
       position: absolute;
       top: 0;
       left: 0;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
 
       &.footer-bg-1 {
         background-image: url('/footer/footer-bg-1.png');
@@ -285,6 +292,13 @@ footer {
         background-position-x: 500px;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 665px) {
+  footer {
+    min-height: $footer-mobile-height;
+    max-height: $footer-mobile-height;
   }
 }
 </style>

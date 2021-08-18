@@ -141,6 +141,11 @@ export default class AppHeader extends Vue {
 }
 
 .app-header {
+  .logo {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
   .btn {
     flex: 0 0 auto;
     position: relative;

@@ -41,5 +41,6 @@ export default class App extends Vue {}
   flex-shrink: 0;
   flex-grow: 1;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 </style>

@@ -16,7 +16,7 @@
     </div>
     <div class="row center-xs">
       <video height="400px" controls width="100%" poster="/video-preview.png">
-        <source src="/lw-2nd-pass.mp4" type="video/mp4" />
+        <source src="/lw-3nd-pass.mp4" type="video/mp4" />
 
         Sorry, your browser doesn't support embedded videos.
       </video>
@@ -130,5 +130,9 @@ export default class About extends Vue {
   height: 42px;
   position: relative;
   top: 8px;
+
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 </style>
