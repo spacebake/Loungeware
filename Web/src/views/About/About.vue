@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container" v-for="i in 3" :key="i">
       <div class="row center-xs">
-        <div class="col-xs-12 col-md-9 col-xl-6">
+        <div class="col-xs-12">
           <h2>Welcome To Loungeware</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="row center-xs">
-        <div class="col-xs-12 col-md-3 col-xl-2">
+        <div class="col-xs-12 col-md-4">
           <h2>Welcome To Loungeware</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -22,7 +22,7 @@
             laborum laboriosam eveniet unde in eligendi optio. Explicabo.
           </p>
         </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
+        <div class="col-xs-12 col-md-4">
           <h2>Welcome To Loungeware</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -31,91 +31,7 @@
             laborum laboriosam eveniet unde in eligendi optio. Explicabo.
           </p>
         </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-9 col-xl-6">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-      </div>
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-9 col-xl-6">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-      </div>
-      <div class="row center-xs">
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
-          <h2>Welcome To Loungeware</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Perspiciatis ad perferendis corrupti animi blanditiis repudiandae
-            placeat, maxime molestias architecto, similique quaerat, consequatur
-            laborum laboriosam eveniet unde in eligendi optio. Explicabo.
-          </p>
-        </div>
-        <div class="col-xs-12 col-md-3 col-xl-2">
+        <div class="col-xs-12 col-md-4">
           <h2>Welcome To Loungeware</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.

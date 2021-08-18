@@ -8,19 +8,19 @@
     <div class="footer-bg footer-bg-4" />
     <div class="container">
       <div class="row center-xs full-height">
-        <div class="col col-xs-3">
+        <div class="col-xs-12 col-md-4">
           <div class="humble-brag">
             <div class="big">19</div>
             <div class="small">Games</div>
           </div>
         </div>
-        <div class="col col-xs-3">
+        <div class="col-xs-12 col-md-4">
           <div class="humble-brag">
             <div class="big">15</div>
             <div class="small">Contributors</div>
           </div>
         </div>
-        <div class="col col-xs-3">
+        <div class="col-xs-12 col-md-4">
           <div class="humble-brag">
             <div class="big">
               <img src="/footer/gms2logo.png" />
@@ -50,7 +50,6 @@ footer {
   margin-top: 200px;
   $footer-height: 220px;
 
-  // flex-grow: 1;
   height: $footer-height;
   max-height: $footer-height;
   min-height: $footer-height;
@@ -62,8 +61,6 @@ footer {
     position: relative;
     width: 100%;
     height: 100%;
-    // top: 0px;
-    // left: 0;
 
     $humble-brag-size: 180px;
     .humble-brag {

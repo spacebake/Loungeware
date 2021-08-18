@@ -1,6 +1,5 @@
 <template>
   <div class="text-center">
-    <!-- <GamePlayer /> -->
     <iframe
       src="/game.html"
       style="width: 540px; height: 540px; margin-top: 80px"

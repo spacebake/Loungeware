@@ -6,25 +6,22 @@ $loungeBrandDark: #1a1721;
 $loungeBrandLight: #ffc89c;
 body,
 html {
-  // height: 100%;
   padding: 0;
   margin: 0;
-  // overflow: hidden;
   background-color: $loungeBrandDark;
   color: $loungeBrandLight;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  height: 100%;
 }
 
-.app {
-  // height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  flex-grow: 0;
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.flex-spacer {
+.flex-grow {
   flex-grow: 1;
 }
 
@@ -34,6 +31,10 @@ a {
 
 .full-height {
   height: 100%;
+}
+
+.full-width {
+  width: 100%;
 }
 
 a.btn,
