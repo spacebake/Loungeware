@@ -2,7 +2,7 @@
   <div>
     <div class="gm4html5_div_class d-flex justify-center" id="gm4html5_div_id">
       <!-- Create the canvas element the game draws to -->
-      <canvas id="canvas" width="640" height="360">
+      <canvas id="canvas">
         <p>Your browser doesn't support HTML5 canvas.</p>
       </canvas>
     </div>
@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { routeName } from '../../router';
-// import * as LoungewareJs from '@/assets/Game/html5game/Loungeware';
+// import { routeName } from '../../router';
+
 @Component
 export default class ManualLogin extends Vue {
   private async mounted() {
@@ -20,25 +20,32 @@ export default class ManualLogin extends Vue {
     // console.log(lw);
     // var init = (window as any).GameMaker_Init;
     // init();
+
+    if (this.getGameInit()) {
+      return;
+    }
+
     var range = Math.random() * 10000000;
     let externalScript = document.createElement('script');
     externalScript.setAttribute('src', '/html5game/Loungeware.js?lol=' + range);
     document.head.appendChild(externalScript);
 
-    let didInit = false;
-    while (didInit == false) {
+    while (this.getGameInit() == undefined) {
       await new Promise((r) => {
         setTimeout(() => {
           if ((window as any).GameMaker_Init) {
-            didInit = true;
-            (window as any).GameMaker_Init();
+            // (window as any).GameMaker_Init();
           }
           r(0);
         }, 100);
       });
     }
 
-    // window.GameMaker_Init();
+    (window as any).GameMaker_Init();
+  }
+
+  private getGameInit(): any {
+    return (window as any).GameMaker_Init;
   }
 
   // private async mounted(): Promise<void> {
@@ -61,6 +68,19 @@ export default class ManualLogin extends Vue {
 
 <style scoped>
 #canvas {
-  background-color: white;
+  margin-top: 40px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 540px !important;
+  height: 540px !important;
+  position: relative !important;
+  inset: inherit !important;
+  transform: none !important;
+  /* left: 0 !important; */
+  /* right: 0 !important; */
+  /* left: auto !important; */
+  /* top: auto !important; */
+  /* margin: auto !important; */
+  /* position: static !important; */
+  border: solid 2px rgba(0, 0, 0, 0.6);
 }
 </style>
