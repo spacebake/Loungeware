@@ -10,13 +10,6 @@ export function routeName(name: RouteName): string {
 }
 const routes: Array<RouteConfig> = [
   {
-    path: '/iframe/game',
-    component: () =>
-      import(
-        /* webpackChunkName: "main" */ '../views/IFrameGame/IFrameGame.vue'
-      ),
-  },
-  {
     path: '/',
     name: routeName('about'),
     component: () =>

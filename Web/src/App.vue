@@ -1,8 +1,8 @@
 <template>
-  <div class="app full-height">
+  <div class="app">
     <AppHeader />
     <div class="scroll-box">
-      <router-view class="full-height" />
+      <router-view />
     </div>
     <AppFooter />
   </div>
@@ -41,11 +41,11 @@ export default class App extends Vue {}
 }
 
 .scroll-box {
-  flex-grow: 1;
-  flex-shrink: 1;
-  scrollbar-color: dark;
-  margin: 20px;
-  overflow-y: scroll;
-  z-index: 1;
+  // flex-grow: 1;
+  // flex-shrink: 1;
+  // scrollbar-color: dark;
+  // margin: 20px;
+  // overflow-y: scroll;
+  // z-index: 1;
 }
 </style>

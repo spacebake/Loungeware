@@ -47,7 +47,7 @@ export default class AppFooter extends Vue {}
 footer {
   position: relative;
   z-index: 0;
-
+  margin-top: 200px;
   $footer-height: 220px;
 
   // flex-grow: 1;
@@ -62,8 +62,8 @@ footer {
     position: relative;
     width: 100%;
     height: 100%;
-    top: 0px;
-    left: 0;
+    // top: 0px;
+    // left: 0;
 
     $humble-brag-size: 180px;
     .humble-brag {
