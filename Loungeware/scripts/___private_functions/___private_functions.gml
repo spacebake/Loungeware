@@ -457,3 +457,48 @@ function ___sound_menu_tick_horizontal(){
 	audio_sound_gain(_snd_id, _vol, 0);
 	audio_sound_pitch(_snd_id, 0.8);
 }
+
+
+// ------------------------------------------------------------------------------------------
+// DRAW DOTTED LINE
+// ------------------------------------------------------------------------------------------
+function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
+	// swap x1 and x2 if x2 is smaller
+	var _xx = _x1;
+	var _yy = _y1;
+	var _direction = point_direction (_x1, _y1, _x2, _y2);
+	
+	var _dist = point_distance(_x1, _y1, _x2, _y2);
+	var _seg_count = floor((_dist + _gap_size) / (_dot_size + _gap_size)) + 1;
+	repeat(_seg_count){
+		
+		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2));
+		_xx += lengthdir_x(_gap_size + _dot_size, _direction);
+		_yy += lengthdir_y(_gap_size + _dot_size, _direction);
+	}
+	
+}
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME GET KEYLIST CHRONOLOGICAL
+// returns an array of all miceogame keys ordered by date-added (newest first)
+// ------------------------------------------------------------------------------------------
+function ___microgame_get_keylist_chronological(){
+	var _microgame_keylist = variable_struct_get_names(___global.microgame_metadata);
+	var _keys = ds_priority_create();
+	
+	for (var i = 0; i < array_length(_microgame_keylist); i++){
+		var _date = variable_struct_get(___global.microgame_metadata, _microgame_keylist[i]).date_added;
+
+		_date = real(string_replace_all(_date, "/", ""));
+	
+		ds_priority_add(_keys, _microgame_keylist[i], _date);
+	}
+	_microgame_keylist = [];
+	while (ds_priority_size(_keys) > 0){
+		array_push(_microgame_keylist, ds_priority_delete_max(_keys));
+	}
+	ds_priority_destroy(_keys);
+	
+	return _microgame_keylist;
+}

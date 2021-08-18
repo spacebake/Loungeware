@@ -55,7 +55,7 @@ if (state == "fadeout"){
 	surface_set_target(circle_surf);
 	draw_clear(close_col);
 	gpu_set_blendmode(bm_subtract);
-	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
+	draw_circle(_size/2, (_size/2), close_circle_prog * ( _size*0.8), 0);
 	gpu_set_blendmode(bm_normal);
 
 	surface_reset_target();

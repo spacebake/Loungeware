@@ -20,8 +20,10 @@
 
 #macro SET_TEST_VARS ___global.test_vars = 
 
-#macro SHIPPING:show_debug_overlay ___noop
-
+// config specific
+#macro Shipping:show_debug_overlay ___noop
+#macro Shipping:show_dev_menu false
+#macro Default:show_dev_menu true
 
 
 

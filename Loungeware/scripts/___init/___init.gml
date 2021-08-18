@@ -200,7 +200,10 @@ function ___GAME_INIT(){
 		secondary: ord("Y")
 	}
 	
-	if (___global.test_vars.test_mode_on){
+	if (show_dev_menu){
+		room_goto(___rm_main_menu);
+		instance_create_layer(0, 0, layer, ___obj_dev_menu);
+	} else if (___global.test_vars.test_mode_on){
 		room_goto(___rm_restroom);
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	} else {

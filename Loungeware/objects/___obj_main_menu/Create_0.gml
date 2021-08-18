@@ -40,6 +40,8 @@ close_wait = 20;
 close_col = make_color_rgb(31,27,37);
 goodbye_played = false;
 
+
+
 state = "begin";
 substate = 0;
 cursor = ___global.menu_cursor_main;
@@ -51,8 +53,6 @@ menu = [
 	"CREDITS",
 	"EXIT"
 ]
-
-
 noop = function(){};
 
 menu_method = [
