@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "kilo_jaywalker_sprCars",
-    "path": "sprites/kilo_jaywalker_sprCars/kilo_jaywalker_sprCars.yy",
+    "name": "kilo_jaywalker_sprResults",
+    "path": "sprites/kilo_jaywalker_sprResults/kilo_jaywalker_sprResults.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Microgames/kilomatter/jaywalker/kilo_jaywalker_objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "kilo_jaywalker_objCar",
+  "name": "kilo_jaywalker_objResults",
   "tags": [],
   "resourceType": "GMObject",
 }

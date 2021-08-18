@@ -25,7 +25,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "kilo_jaywalker_objects",
-    "path": "folders/Microgames/kilomatter/jay_walker/kilo_jaywalker_objects.yy",
+    "path": "folders/Microgames/kilomatter/jaywalker/kilo_jaywalker_objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "kilo_jaywalker_objManager",

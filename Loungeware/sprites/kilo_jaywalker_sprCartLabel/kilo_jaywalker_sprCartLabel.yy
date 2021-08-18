@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"3903eb6a-c52d-4be8-9025-b12e8156e506","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3903eb6a-c52d-4be8-9025-b12e8156e506","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"LayerId":{"name":"3211ea3e-8d23-4b72-8f81-cf6bbaed2558","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"kilo_jaywalker_sprCartLabel","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","name":"3903eb6a-c52d-4be8-9025-b12e8156e506","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ed81070f-969f-41a2-815c-4c61869c64ec","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ed81070f-969f-41a2-815c-4c61869c64ec","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"LayerId":{"name":"81e2ec0a-1952-42dc-a5de-edd9533a5abb","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"kilo_jaywalker_sprCartLabel","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","name":"ed81070f-969f-41a2-815c-4c61869c64ec","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"kilo_jaywalker_sprCartLabel","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b4262877-0126-47e3-bdac-f854eb53f3ce","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3903eb6a-c52d-4be8-9025-b12e8156e506","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"67ca781f-3741-4984-bdea-01bda3609f45","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ed81070f-969f-41a2-815c-4c61869c64ec","path":"sprites/kilo_jaywalker_sprCartLabel/kilo_jaywalker_sprCartLabel.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,12 +65,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3211ea3e-8d23-4b72-8f81-cf6bbaed2558","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"81e2ec0a-1952-42dc-a5de-edd9533a5abb","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "kilo_jaywalker_sprites",
-    "path": "folders/Microgames/kilomatter/jay_walker/kilo_jaywalker_sprites.yy",
+    "path": "folders/Microgames/kilomatter/jaywalker/kilo_jaywalker_sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "kilo_jaywalker_sprCartLabel",

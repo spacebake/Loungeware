@@ -8,7 +8,7 @@ direction = point_direction(0,0,hcoord,vcoord);
 
 if (KEY_LEFT or KEY_RIGHT or KEY_DOWN or KEY_UP)
 {
-	speed = 1;
+	speed = 1.5;
 	image_speed = img_speed;
 }
 else
@@ -72,6 +72,16 @@ if (y > room_height - sprite_height / 2 - 4) {y = room_height - sprite_height / 
 //Winning
 if (x >= 196)
 {
+	jay_state = "win";
+	with instance_create_layer(0,room_height,"Overlay",kilo_jaywalker_objResults)
+	{
+		image_index = 0;
+		delay = 30;
+	}
+	direction = 0;
+	speed = 5;
+	sprite_index = kilo_jaywalker_sprJayWalkerSide;
+	image_speed = 1;
 	microgame_win();
 }
 
@@ -80,8 +90,19 @@ depth = -y;
 if (place_meeting(x,y,kilo_jaywalker_objCar))
 {
 	jay_state = "crashed";
+	with instance_create_layer(0,room_height,"Overlay",kilo_jaywalker_objResults)
+	{
+		audio_play_sound(kilo_jaywalker_sndBonk,1,false);
+		audio_play_sound(kilo_jaywalker_sndLose,1,false);
+		
+		image_index = 1;
+		delay = 30;
+	}
 	speed = 5;
-	direction = sign(instance_nearest(x,y,kilo_jaywalker_objCar).spd) * 90 + irandom_range(10,-10);
+	var factor
+	if (instance_nearest(x,y,kilo_jaywalker_objCar).image_index > 4) factor = 1;
+	else factor = -1;
+	direction = sign(instance_nearest(x,y,kilo_jaywalker_objCar).spd) * (90 * factor) + irandom_range(10,-10);
 	image_speed = 0;
 }
 }
@@ -94,7 +115,7 @@ if (jay_state = "crashed")
 	}
 }
 
-if (jay_state == "win")
+if (jay_state == "win" and x > room_width + sprite_height)
 {
-	
+	speed = 0;
 }
