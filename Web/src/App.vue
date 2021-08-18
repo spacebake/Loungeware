@@ -18,21 +18,23 @@ export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-// @TODO can be done for FireFox too?
-::-webkit-scrollbar {
-  width: 20px;
-}
+@media only screen and (min-width: 666px) {
+  // @TODO can be done for FireFox too?
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
 
-::-webkit-scrollbar-track {
-  background: darken(#1a1721, 3);
-}
+  ::-webkit-scrollbar-track {
+    background: darken(#1a1721, 3);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: lighten(#1a1721, 20);
-}
+  ::-webkit-scrollbar-thumb {
+    background: lighten(#1a1721, 20);
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: lighten(#1a1721, 30);
+  ::-webkit-scrollbar-thumb:hover {
+    background: lighten(#1a1721, 30);
+  }
 }
 
 .app {
