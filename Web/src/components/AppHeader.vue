@@ -1,29 +1,32 @@
 <template>
   <div class="app-header container full-width">
-    <div class="border" />
-    <div class="row center-xs">
-      <div class="col-xs-4 text-right">
-        <router-link :to="navItems.about.to" :class="getBtnClass('about')">
-          {{ navItems.about.label }}
-        </router-link>
-        <router-link :to="navItems.play.to" :class="getBtnClass('play')">
-          {{ navItems.play.label }}
-        </router-link>
-      </div>
-      <div class="col-xs-4 text-center">
-        <div class="logo">
-          <img src="@/assets/logo.png" />
+    <div class="full">
+      <div class="border" />
+      <div class="row center-xs">
+        <div class="col-xs-4 text-right">
+          <router-link :to="navItems.about.to" :class="getBtnClass('about')">
+            {{ navItems.about.label }}
+          </router-link>
+          <router-link :to="navItems.play.to" :class="getBtnClass('play')">
+            {{ navItems.play.label }}
+          </router-link>
+        </div>
+        <div class="col-xs-4 text-center">
+          <div class="logo">
+            <img src="@/assets/logo.png" />
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <a :href="navItems.github.to" target="__blank" class="btn">
+            {{ navItems.github.label }}
+          </a>
+          <a :href="navItems.discord.to" target="__blank" class="btn">
+            {{ navItems.discord.label }}
+          </a>
         </div>
       </div>
-      <div class="col-xs-4">
-        <a :href="navItems.github.to" target="__blank" class="btn">
-          {{ navItems.github.label }}
-        </a>
-        <a :href="navItems.discord.to" target="__blank" class="btn">
-          {{ navItems.discord.label }}
-        </a>
-      </div>
     </div>
+    <div class="mobile">First</div>
   </div>
 </template>
 

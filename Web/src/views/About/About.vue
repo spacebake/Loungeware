@@ -15,10 +15,8 @@
       </div>
     </div>
     <div class="row center-xs">
-      <video controls width="100%">
-        <source src="/media/cc0-videos/flower.webm" type="video/webm" />
-
-        <source src="/media/cc0-videos/flower.mp4" type="video/mp4" />
+      <video height="400px" controls width="100%" poster="/video-preview.png">
+        <source src="/lw-2nd-pass.mp4" type="video/mp4" />
 
         Sorry, your browser doesn't support embedded videos.
       </video>
