@@ -83,6 +83,7 @@ if (x >= 196)
 	sprite_index = kilo_jaywalker_sprJayWalkerSide;
 	image_speed = 1;
 	microgame_win();
+	audio_play_sound(kilo_jaywalker_sndDash,1,false);
 }
 
 depth = -y;
