@@ -36,15 +36,29 @@
     <div class="container links">
       <div class="row center-xs">
         <div class="col-xs-12 col-sm-4">
-          <a class="d-block" href="#">About</a>
-          <a class="d-block" href="#">Join Our Discord</a>
-          <a class="d-block" href="#">Fork On Github</a>
-          <a class="d-block" href="#">Read The Wiki</a>
-          <a class="d-block" href="#">Draw A Larold</a>
+          <router-link :to="navItems.about.to" class="d-block">
+            {{ navItems.about.label }}
+          </router-link>
+          <a class="d-block" :href="navItems.discord.to">
+            {{ navItems.discord.label }}
+          </a>
+          <a class="d-block" :href="navItems.github.to">
+            {{ navItems.github.label }}
+          </a>
+          <a class="d-block" :href="navItems.wiki.to">
+            {{ navItems.wiki.label }}
+          </a>
+          <a class="d-block" :href="navItems.wikiLarold.to">
+            {{ navItems.wikiLarold.label }}
+          </a>
         </div>
         <div class="col-xs-12 col-sm-8">
           <div class="shoutout">
-            <img class="img-pixel" src="/larolds/heart.png" />
+            <img
+              class="img-pixel"
+              src="/larolds/heart.png"
+              alt="A picture of a heart wearing sunglasses"
+            />
             <p>
               Special thanks to our contributor
               <strong>{{ contributorName }}</strong>
@@ -57,14 +71,19 @@
     </div>
 
     <div class="container bottom mt-2">
-      <div class="row center-xs">Made with Vue & Firebase</div>
+      <div class="row center-xs">
+        <div class="col text-center">
+          Made with Vue & Firebase By
+          <a :href="navItems.gmDiscord.to">{{ navItems.gmDiscord.label }}</a>
+        </div>
+      </div>
     </div>
-    <!-- <div class="bottom">Made With Vue Or Some Shit</div> -->
   </footer>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import { RouteName, getLinkPath } from '../router';
 
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array: any[]) {
@@ -99,6 +118,36 @@ export default class AppFooter extends Vue {
     ['@meseta', 'making music'],
     ['@nahoo', 'fixing Beenade'],
   ];
+
+  private navItems = {
+    about: {
+      to: {
+        name: 'about' as RouteName,
+      },
+      label: 'About',
+    },
+    github: {
+      to: getLinkPath('github'),
+      label: 'Fork On Github',
+    },
+    discord: {
+      to: getLinkPath('discord'),
+      label: 'Join Our Discord',
+    },
+    wiki: {
+      to: getLinkPath('wiki'),
+      label: 'Read The Wiki',
+    },
+    wikiLarold: {
+      to: getLinkPath('wiki-larold'),
+      label: 'Draw A Larold',
+    },
+    gmDiscord: {
+      to: getLinkPath('gm-discord'),
+      label: 'GameMaker Discord',
+    },
+  };
+
   private index = 0;
   private timeout: any = undefined;
 

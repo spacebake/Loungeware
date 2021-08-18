@@ -5,7 +5,12 @@ Vue.use(VueRouter);
 
 export type RouteName = 'about' | 'play';
 
-export type LinkName = 'discord' | 'github';
+export type LinkName =
+  | 'discord'
+  | 'github'
+  | 'wiki'
+  | 'wiki-larold'
+  | 'gm-discord';
 
 export function routeName(name: RouteName): string {
   return name;
@@ -17,6 +22,12 @@ export function getLinkPath(name: LinkName): string {
       return 'https://discord.gg/cwWns2fdXF';
     case 'github':
       return 'https://github.com/spacebake/loungeware';
+    case 'wiki':
+      return 'https://github.com/spacebake/Loungeware/wiki';
+    case 'wiki-larold':
+      return 'https://github.com/spacebake/Loungeware/wiki/Draw-A-Larold';
+    case 'gm-discord':
+      return 'https://discord.gg/gamemaker';
     default:
       return '#';
   }
