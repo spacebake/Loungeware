@@ -12,13 +12,13 @@
       <div class="row center-xs mb-2">
         <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
-            <div class="big">19</div>
+            <div class="big">{{ numGames }}</div>
             <div class="small">Games</div>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
-            <div class="big">15</div>
+            <div class="big">{{ numContributors }}</div>
             <div class="small">Contributors</div>
           </div>
         </div>
@@ -84,6 +84,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { RouteName, getLinkPath } from '../router';
+import { numGames, numContributors } from '../common/gamesList';
 
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array: any[]) {
@@ -110,6 +111,9 @@ function shuffle(array: any[]) {
 export default class AppFooter extends Vue {
   private contributorName = '';
   private gameName = '';
+
+  private numGames = numGames;
+  private numContributors = numContributors;
 
   private items = [
     ['@net8floz', 'making Admin Sim'],
