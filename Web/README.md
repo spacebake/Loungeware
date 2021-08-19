@@ -40,3 +40,8 @@ yarn build
 ```
 yarn lint
 ```
+
+### Extract GameMaker metadata and label images
+```
+yarn extract
+```
