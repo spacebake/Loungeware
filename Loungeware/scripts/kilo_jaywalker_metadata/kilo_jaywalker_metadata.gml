@@ -18,7 +18,7 @@ microgame_register("kilomatter_jaywalker", {
     cartridge_col_secondary: [123, 23, 62],
     cartridge_label: kilo_jaywalker_sprCartLabel,
     default_is_fail: true, // nullable, defaults to true
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["Kilomatter", "Zandy"],
     date_added: "21/8/17",
 	is_enabled: true
