@@ -1,5 +1,5 @@
 // nullable fields may be omitted entirely
-// if your game fails validatio, for example couldn't find room resource, 
+// if your game fails validation, for example couldn't find room resource, 
 // then your game will not be loaded. Check the Output in GMS2 when booting the game form
 // warnings if your game is not loading
 //microgame_register("{your_author_name}_{your_unique_game_name}", {
