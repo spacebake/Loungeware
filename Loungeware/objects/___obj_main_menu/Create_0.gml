@@ -37,7 +37,6 @@ close_wait_before = 20;
 close_circle_prog = 1;
 circle_surf = noone;
 close_wait = 20;
-close_col = make_color_rgb(31,27,37);
 goodbye_played = false;
 
 

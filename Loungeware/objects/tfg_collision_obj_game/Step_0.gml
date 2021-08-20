@@ -59,7 +59,7 @@ cursor.y = clamp(cursor.y, 0, rows - 1);
 //}
 //}
 
-if (KEY_PRIMARY) {
+if (KEY_PRIMARY_PRESSED) {
 	if (check_win()) {
 		microgame_win();
 		win = true;

@@ -736,7 +736,7 @@
     {"roomId":{"name":"jdllama_target_rm","path":"rooms/jdllama_target_rm/jdllama_target_rm.yy",},},
     {"roomId":{"name":"jdllama_hammer_rm","path":"rooms/jdllama_hammer_rm/jdllama_hammer_rm.yy",},},
     {"roomId":{"name":"kilo_jaywalker_rm","path":"rooms/kilo_jaywalker_rm/kilo_jaywalker_rm.yy",},},
-    {"roomId":{"name":"username_gamename_rm_game","path":"rooms/username_gamename_rm_game/username_gamename_rm_game.yy",},}
+    {"roomId":{"name":"username_gamename_rm_game","path":"rooms/username_gamename_rm_game/username_gamename_rm_game.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/__Base Game (keep out).yy","order":0,"resourceVersion":"1.0","name":"__Base Game (keep out)","tags":[],"resourceType":"GMFolder",},

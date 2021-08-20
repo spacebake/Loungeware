@@ -17,6 +17,7 @@ function menu_play_lw(){
 
 function menu_goto_gamelist(){
 	state = "goto_gamelist";
+	confirmed = false;
 }
 
 cursor = 0;
@@ -27,8 +28,9 @@ menu = [
 ]
 
 game_keylist =  ___microgame_get_keylist_chronological();
-
-
+cursor2 = 0;
+cart_sprite = noone;
+surf_cart = noone;
 skip_possible = true;
 
 wait = 20;
@@ -41,11 +43,14 @@ string_complete = false;
 larold_talking = 0;
 larold_frame = 0;
 step = 0;
-confirm_shake_time = 15;
+confirm_shake_time_max = 15;
+confirm_shake_time = confirm_shake_time_max;
 larold_y_mod = -8;
 larold_vsp = 0;
 
 col_bar = make_color_rgb(43, 36, 56);
+col_purp = make_color_rgb(57, 46, 64);
+col_close = make_color_rgb(31,27,37);
 screenshake = 0;
 shake_x = 0;
 shake_y = 0;
@@ -70,3 +75,23 @@ headdir = 0;
 fadeout_alpha = 0;
 
 yy_mod = 0;
+
+input_cooldown = 0;
+input_cooldown_init_max = 17;
+input_cooldown_max = 4;
+input_is_scrolling = false;
+previous_scroll_dir = 0;
+
+scroll_y = 0;
+scroll_y_target = 0;
+cart_float_dir = 0;
+
+function save_dev_config(_microgame_key){
+		var _data = {
+			microgame_key: _microgame_key,
+		}
+		var _str = json_stringify(_data);
+		var _file = file_text_open_write(___DEV_CONFIG_PATH);
+		file_text_write_string(_file, _str);
+		file_text_close(_file);
+}

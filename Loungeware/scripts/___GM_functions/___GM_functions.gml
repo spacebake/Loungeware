@@ -53,7 +53,7 @@ function ___cart_sprite_create(_microgame_metadata){
 	}
 	surface_reset_target();
 	var _spr = sprite_create_from_surface(surf_cart, 0, 0, surface_get_width(surf_cart), surface_get_height(surf_cart), 0, 0, 7, 19 );
-	ds_list_add(garbo_sprites, _spr);
+	if (object_index == ___MG_MNGR) ds_list_add(garbo_sprites, _spr);
 	return _spr;
 }
 

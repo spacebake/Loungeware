@@ -9,21 +9,24 @@
 #macro c_gbtimer_full ___global.macro_c_gbtimer_full
 #macro c_gbtimer_empty ___global.macro_c_gbtimer_empty
 #macro c_gbwhite ___global.macro_c_gbwhite
+#macro c_gbdark ___global.macro_c_gbdark
 #macro c_larold ___global.macro_c_larold
 #macro ___cart_primary_col_default ___global.macro_c_cart_primary
 #macro ___cart_secondary_col_default ___global.macro_c_cart_secondary
 #macro ___cart_label_default johndoe_examplegame_spr_label
+#macro ___DEV_CONFIG_PATH "devconfig.lw"
 
 #macro ___KEY_PAUSE ___macro_keyboard_check("pause")
 #macro ___KEY_PAUSE_PRESSED ___macro_keyboard_check_pressed("pause")
 #macro ___KEY_PAUSE_RELEASED ___macro_keyboard_check_released("pause")
 
-#macro SET_TEST_VARS ___global.test_vars = 
-
 // config specific
 #macro Shipping:show_debug_overlay ___noop
-#macro Shipping:show_dev_menu false
-#macro Default:show_dev_menu true
+
+#macro CONFIG_IS_SHIPPING false
+#macro Shipping:CONFIG_IS_SHIPPING true
+
+
 
 
 

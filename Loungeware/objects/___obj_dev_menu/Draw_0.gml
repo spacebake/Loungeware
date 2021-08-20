@@ -42,7 +42,7 @@ draw_set_halign(fa_center);
 for (var i = 0; i < array_length(menu); i++){
 	_selected = (cursor == i);
 	_scale_final = _scale;
-	draw_set_color(col_bar);
+	draw_set_color(col_purp);
 	_str = menu[i][0];
 	
 	var _xos_sign = -1;
@@ -56,7 +56,7 @@ for (var i = 0; i < array_length(menu); i++){
 			
 		if (confirmed){
 			draw_set_color(c_gbpink);
-			if (confirm_shake_time > 0) _str = "<shake, " + string(confirm_shake_time) + ">" + _str + "</shake>";
+			if (confirm_shake_time > 0) _str = "<shake, " + string(floor(confirm_shake_time/4)) + ">" + _str + "</shake>";
 			confirm_shake_time = max(0, confirm_shake_time - 1);
 			_scale_final = 2.5;
 		} else {
@@ -78,29 +78,31 @@ draw_set_alpha(_bar_alpha);
 draw_dotted_line(0, _yy-2, VIEW_W, _yy-2, 4, 8);
 draw_set_alpha(1);
 
-
-
-
 // draw gamelist
 if (yy_mod < 0){
-	_yy = (VIEW_H + yy_mod) + 40;
+	
+	_yy = (VIEW_H + yy_mod);
 	draw_set_halign(fa_center);
 	
-	var _str = "SELECT THE GAME YOU WANT TO WORK ON";
-	draw_set_color(c_larold);
-	___global.___draw_text_advanced(_xx + _xos, _yy, 16, true, true, _str, 1, 1, 1);
+	var _topbar_h = 90;
+	var _rect_margin = 55;
 	_yy += 20;
-	draw_set_color(col_bar);
-	draw_dotted_line(_margin, _yy, VIEW_W - _margin, _yy, 4, 4);
 	
-	_yy += 40;
+	var _box_x1 = _rect_margin;
+	var _box_x2 = VIEW_W - _rect_margin;
+	var _box_y1 = _yy;
+	var _box_y2 = _yy + _topbar_h;
+	var _box_text_y_offset = 17;
+	_yy += _box_text_y_offset + _topbar_h + 12;
 	
 	var _v_sep = 30;
 	var _h_sep = 1;
-	
+	var _list_total_h = 0;
+	var _gamelist_y = _yy + scroll_y;
 	
 	for (var i = 0; i < array_length(game_keylist); i++){
-		_selected = (cursor == i);
+		var _store_y = _gamelist_y;
+		_selected = (cursor2 == i);
 		_scale_final = _scale;
 		draw_set_color(c_larold);
 		var _key = game_keylist[i];
@@ -112,14 +114,19 @@ if (yy_mod < 0){
 		if (i mod 2 == 0) _xos_sign = 1;
 		var _xos = menu_item_x_offset * _xos_sign;
 	
-		_text_y_final =  _yy   + (_v_sep * i);
+		_text_y_final =  _gamelist_y   + (_v_sep * i);
 		if (_selected){
+			
+			draw_set_color(col_bar);
+			var _bar_offset = -8;
+			draw_rectangle_fix(_box_x1, _gamelist_y + _bar_offset, _box_x2, _gamelist_y + _v_sep + _bar_offset);
 		
 			draw_set_color(c_gbyellow);
+			scroll_y_target = ((VIEW_H/2)) - (_list_total_h*1.5);
 			
 			if (confirmed){
 				draw_set_color(c_gbpink);
-				if (confirm_shake_time > 0) _str = "<shake, " + string(confirm_shake_time) + ">" + _str + "</shake>";
+				if (confirm_shake_time > 0) _str = "<shake, " + string(floor(confirm_shake_time/4)) + ">" + _str + "</shake>";
 				confirm_shake_time = max(0, confirm_shake_time - 1);
 				_scale_final = 2.5;
 			} else {
@@ -128,15 +135,32 @@ if (yy_mod < 0){
 			}
 		}
 		// draw option text
-		___global.___draw_text_advanced(_xx + _xos, _yy, _v_sep, true, true, _str, 1, _scale/2, _h_sep);
-		
-		draw_set_color(col_bar);
-		var _line_y = (_yy + _v_sep/2) + 5;
-		draw_rectangle_fix(_margin, _line_y, VIEW_W - _margin, _line_y + 2);
-		_yy += _v_sep;
-
+		if (_gamelist_y > _box_y2 - _v_sep && _gamelist_y < VIEW_H){
+			___global.___draw_text_advanced(_xx + _xos, _gamelist_y, _v_sep, true, true, _str, 1, _scale/2, _h_sep);
+			draw_set_color(col_bar);
+			var _line_y = (_gamelist_y + _v_sep/2) + 5;
+			draw_rectangle_fix(_rect_margin, _line_y, VIEW_W - _rect_margin, _line_y + 2);
+			if (i == 0)  draw_rectangle_fix(_rect_margin, _line_y - _v_sep, VIEW_W - _rect_margin, (_line_y + 2) - _v_sep);
+		}
+	
+		_gamelist_y += _v_sep;
+		_list_total_h += (_gamelist_y - _store_y);
 	}
+	
+	// limit scroll
+	scroll_y_target = clamp(scroll_y_target, (-_list_total_h + (VIEW_H-160)), 0);
+	
+	// draw the top box
+	draw_set_alpha(abs(yy_mod)/VIEW_H);
+	draw_set_halign(fa_center);
+	draw_set_color(c_gbdark);
+	draw_rectangle_fix(_box_x1,_box_y1, _box_x2, _box_y2);
+	var _str = "SELECT THE GAME YOU WANT TO WORK ON<col, 57, 46, 64>\n CHECK THE WIKI OR ASK IN DISCORD IF\nYOU DON'T SEE YOUR GAME IN THE LIST";
+	draw_set_color(c_larold);
+	___global.___draw_text_advanced(_xx, _box_y1 + _box_text_y_offset, 22, true, true, _str, 1, 1, 1);
+	draw_set_alpha(1);
 }
+
 
 
 
@@ -148,7 +172,7 @@ if (yy_mod < 0){
 
 // draw lighting
 draw_set_color(c_black);
-draw_set_alpha(1-light_val);
+draw_set_alpha((1-light_val)*0.92);
 draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 draw_set_alpha(1);
 
@@ -159,3 +183,25 @@ draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
 draw_set_halign(fa_left);
 draw_set_alpha(1);
+
+
+if (state == "gamelist" && fadeout_alpha > 0){
+	draw_set_color(c_larold);
+	draw_set_halign(fa_center)
+	draw_set_alpha(fadeout_alpha);
+	var _data = variable_struct_get(___global.microgame_metadata, game_keylist[cursor2]);
+	var _yy = 20;
+	var _cart_float_y = lengthdir_y(2, cart_float_dir);
+	draw_sprite(cart_sprite, 0, (VIEW_W/2) - (sprite_get_width(cart_sprite)/2), (_yy+36) + _cart_float_y);
+	_yy += sprite_get_height(cart_sprite);
+	var _str = "";
+	_str += "<col,40,33,51>--------------------------------------------</col>\n";
+	_str += "<col, 241, 154, 82>\"" + string_upper(_data.game_name) + "\"</col>";
+	_str += "\n<col,40,33,51>--------------------------------------------</col>\n";
+	_str += "FROM NOW ON THE GAME WILL AUTOMATICALLY BOOT\nINTO THIS MICROGAME FOR QUICK TESTING.";
+	_str += "\n\nYOU CAN RETURN TO THIS MENU AT ANY TIME BY\nPRESSING THE <col, 241, 154, 82>\"P\"</col> KEY";
+	_str += "\n<col,40,33,51>--------------------------------------------</col>\n\n";
+	_str += "\n<col, 241, 154, 82>[Z]CANCEL                  [X]CONFIRM";
+	___global.___draw_text_advanced(VIEW_W/2, _yy, 20, true, true, _str, 1, 1, 1);
+	draw_set_alpha(1);
+}

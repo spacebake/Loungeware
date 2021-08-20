@@ -2,7 +2,6 @@ randomize();
 ___global.difficulty_level = 1;
 ___state_setup("start");
 force_substate = noone;
-dev_mode = false;
 gallery_mode = false;
 gallery_first_pass = true;
 
@@ -110,38 +109,26 @@ prompt_sprite = -1;
 
 
 
-// IF TEST MODE ACTIVE: turn on dev mode and load the current test microgame on game start
-var _microgame_metadata = ___global.microgame_metadata;
-var _test_vars = ___global.test_vars;
+// IF DEV CONFIG SAVE FILE IS FOUND, SET TEST MODE AND LOAD CHOSED MICROGAME
 
-if (_test_vars.test_mode_on){
-	var _game_key = _test_vars.microgame_key;
+if (!TEST_MODE_ACTIVE){
+	___microgame_load_fake();
+	room_goto(___rm_restroom);
+	___state_change("intro");
+} else {
 	
-	if (is_undefined(variable_struct_get(_microgame_metadata, _game_key))){
-		show_message("Incorrect microgame key set for test mode, no metadata exists with this key. \nYour key should be the name of your metadata file, minus the \".json\".\n If your metadata file is named \"sam_cookiedunk.json\", then your key would be \"sam_cookiedunk\"");
-		game_end();
-		exit;
-	}
-
+	// get which game to load from config file
+	var  _game_key = ___dev_config_get_test_key()
 	___state_change("playing_microgame");
+	
 	// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
 	prompt =  ___microgame_get_prompt(_game_key);
-	dev_mode = true;
 	
 	if (!instance_exists(___dev_debug)) instance_create_layer(0, 0, layer, ___dev_debug);
 	___microgame_start(_game_key);
-}
-
-
-if (!dev_mode){
-
-	//show_message("No test game is currently set.\nOpen the _getting_started file in the _HELP_DOCS folder to learn how to make/run your game. It's very easy!\n-space");
-	___microgame_load_fake();
-	room_goto(___rm_restroom);
-	
-	___state_change("intro");
-	
 } 
+
+
 
 
 

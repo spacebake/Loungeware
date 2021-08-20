@@ -1,7 +1,10 @@
 // nullable fields may be omitted entirely
 // if your game fails validation, for example couldn't find room resource, 
 // then your game will not be loaded. Check the Output in GMS2 when booting the game form
-// warnings if your game is not loading
+// warnings if your game is not loading.
+
+// for help with filling out your metadata see the wiki: 
+// https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
 /*
 microgame_register("{your_author_name}_{your_unique_game_name}", {
@@ -22,7 +25,11 @@ microgame_register("{your_author_name}_{your_unique_game_name}", {
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: false,
     credits: ["john doe", "jane doe"],
-    date_added: "YY/MM/DD",
+    date_added:{
+	  day : 25,
+	  month : 7,
+	  year : 2099
+	}
 	is_enabled: false
 });
 */

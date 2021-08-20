@@ -8,6 +8,13 @@ for (var i = 1; i <= 5; i++){
 	}
 }
 
+// save fullscreen status on change
+if (fullscreen_status != window_get_fullscreen()){
+	fullscreen_status = window_get_fullscreen();
+	___dev_save();
+}
+
+
 // restart R
 if (keyboard_check_pressed(ord("R"))){
 	workspace_end();
@@ -45,4 +52,23 @@ if (keyboard_check_pressed(ord("I"))){
 } 
 if (infinite_timer){
 	with (___MG_MNGR) microgame_timer = microgame_timer_max;
+}
+
+// dev menu
+if (keyboard_check_pressed(ord("P"))){
+	file_delete(___DEV_CONFIG_PATH);
+	workspace_end();
+	application_surface_draw_enable(true);
+	with (all){
+		if (object_index != ___global && id != other.id){
+			instance_destroy();
+		}
+	}
+	audio_stop_all();
+	room_goto(___rm_main_menu);
+	with (instance_create_layer(0, 0, layer, ___obj_dev_menu)){
+		state = "skip";
+	}
+	
+	instance_destroy();
 }

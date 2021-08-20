@@ -1,4 +1,5 @@
 any_key = KEY_PRIMARY || KEY_SECONDARY || ___KEY_PAUSE;
+if (step <= 10) any_key = false;
 
 if (state == "intro"){
 	beat_count_prev = beat_count;

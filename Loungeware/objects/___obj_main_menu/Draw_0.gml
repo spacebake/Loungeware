@@ -27,7 +27,7 @@ for (var i = 0; i < array_length(menu); i++){
 			
 		if (confirmed){
 			draw_set_color(c_gbpink);
-			if (confirm_shake_time > 0) _str = "<shake, " + string(confirm_shake_time) + ">" + _str + "</shake>";
+			if (confirm_shake_time > 0) _str = "<shake, " + string(floor(confirm_shake_time/4)) + ">" + _str + "</shake>";
 			confirm_shake_time = max(0, confirm_shake_time - 1);
 			_scale_final = 2.5;
 		} else {
@@ -53,7 +53,7 @@ if (state == "fadeout"){
 	}
 
 	surface_set_target(circle_surf);
-	draw_clear(close_col);
+	draw_clear(c_gbdark);
 	gpu_set_blendmode(bm_subtract);
 	draw_circle(_size/2, (_size/2), close_circle_prog * ( _size*0.8), 0);
 	gpu_set_blendmode(bm_normal);
