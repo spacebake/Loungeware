@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "n8fl_admin_simulator_cheer_snd.wav",
-  "duration": 6.553946,
+  "duration": 6.558946,
   "parent": {
     "name": "sound",
     "path": "folders/Microgames/net8floz/n8fl_admin_simulator/sound.yy",

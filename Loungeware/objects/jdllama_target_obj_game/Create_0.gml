@@ -3,7 +3,7 @@ difficulties = [
 	{total: 5, targetSpeed: 1, canBackwards: false, shots: 6},
 	{total: 6, targetSpeed: 1, canBackwards: false, shots: 5},
 	{total: 7, targetSpeed: 1.1, canBackwards: true, shots: 5},
-	{total: 7, targetSpeed: 1.15, canBackwards: true, shots: 5},
+	{total: 8, targetSpeed: 1.25, canBackwards: true, shots: 4},
 ];
 
 _difficulty = difficulties[DIFFICULTY - 1];

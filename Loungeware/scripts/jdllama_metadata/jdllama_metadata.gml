@@ -1,7 +1,7 @@
 microgame_register("jdllama_hammer", {
     config_version: 1,
-    game_name: "THROWIN' THE HAMMER",
-	is_enabled: true,
+    game_name: "Throwin' Da Hammer",
+	is_enabled: false,
     creator_name : "J.D. Lowe",
     prompt: "THROW HAMMER",
     init_room: jdllama_hammer_rm,
@@ -12,10 +12,10 @@ microgame_register("jdllama_hammer", {
     music_loops: false,
     interpolation_on: false,
     cartridge_col_primary: [0, 0, 0],
-    cartridge_col_secondary: [131, 147, 202],
+    cartridge_col_secondary: [55, 255, 255],
     cartridge_label: jdllama_hammer_spr_label,
     default_is_fail: true,
-    supports_difficulty_scaling: true,
+    supports_difficulty_scaling: false,
     credits: ["J.D. Lowe"],
     date_added: "21/08/12"
 });
