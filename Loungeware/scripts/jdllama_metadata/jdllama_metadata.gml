@@ -15,7 +15,7 @@ microgame_register("jdllama_hammer", {
     cartridge_col_secondary: [55, 255, 255],
     cartridge_label: jdllama_hammer_spr_label,
     default_is_fail: true,
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["J.D. Lowe"],
     date_added: "21/08/12"
 });
