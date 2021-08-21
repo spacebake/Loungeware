@@ -6,9 +6,14 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-const fb = firebase
-  .initializeApp(JSON.parse(process.env.VUE_APP_FIREBASE_CONFIG as string))
-  .auth();
+import app from '@/plugins/app';
+
+type FBState = {
+  fb?: firebase.app.App;
+  auth?: firebase.auth.Auth;
+};
+
+const fbState: FBState = {};
 
 export type AuthEvents = 'change' | 'login' | 'logout';
 
@@ -24,34 +29,50 @@ export class AuthService extends Vue {
       },
       computed: {
         oAuthLoginUrl() {
-          return `${process.env.VUE_APP_OAUTH_LOGIN_URL}?destination=${process.env.VUE_APP_OAUTH_LOGIN_CALLBACK_URL}`;
+          return `${app.oAuthLoginUrl}?destination=${app.oAuthLoginCallbackUrl}`;
         },
       },
     });
 
+    const fbCreds = process.env.VUE_APP_FIREBASE_CONFIG as string;
+    if (fbCreds) {
+      fbState.fb = firebase.initializeApp(JSON.parse(fbCreds));
+      if (fbState.fb) {
+        console.log('Started auth');
+        fbState.auth = fbState.fb.auth();
+      }
+    }
+
     this.isInitialized = false;
-    fb.onAuthStateChanged(() => {
-      this.isLoggedIn = fb.currentUser !== null;
-      this.isInitialized = true;
-    });
+    if (fbState.auth) {
+      fbState.auth.onAuthStateChanged(() => {
+        this.isLoggedIn = fbState?.auth?.currentUser !== null;
+        this.isInitialized = true;
+      });
+    }
   }
 
   public async getToken(): Promise<string> {
-    return fb?.currentUser?.getIdToken() || '';
+    return fbState?.auth?.currentUser?.getIdToken() || '';
   }
 
   public async logout(): Promise<void> {
-    await fb.signOut();
+    if (fbState?.auth) {
+      await fbState.auth.signOut();
+    }
   }
 
   public async handleCallback(state: string): Promise<boolean> {
-    try {
-      const { token } = JSON.parse(atob(state)) as { token: string };
-      await fb.signInWithCustomToken(token);
-      return true;
-    } catch (err) {
-      return false;
+    if (fbState?.auth) {
+      try {
+        const { token } = JSON.parse(atob(state)) as { token: string };
+        await fbState?.auth.signInWithCustomToken(token);
+        return true;
+      } catch (err) {
+        return false;
+      }
     }
+    return false;
   }
 }
 

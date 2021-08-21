@@ -85,6 +85,7 @@ div.larold {
   transition: all 0.5s;
   display: inline-block;
   z-index: 2;
+  top: 12px;
 
   &:before {
     width: $size * 1.3;
@@ -109,7 +110,7 @@ div.larold {
     position: relative;
     z-index: 1;
     position: relative;
-    top: 12px;
+    // top: 12px;
   }
 }
 </style>

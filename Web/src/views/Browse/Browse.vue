@@ -48,14 +48,18 @@ export default class Browse extends Vue {
 }
 
 .game-preview {
-  width: 250px;
-  height: 118px;
+  width: 152px;
+  height: 72px;
   border: solid 2px #322c3f;
   margin-bottom: 32px;
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
   transition: all 0.5s;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  z-index: 2;
 
   // &:after {
   //   position: absolute;
@@ -68,6 +72,8 @@ export default class Browse extends Vue {
   // }
 
   &:hover {
+    transform: scale(2);
+    z-index: 4;
     &:after {
       opacity: 0;
     }
@@ -76,11 +82,16 @@ export default class Browse extends Vue {
   .text {
     background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
-    bottom: 0;
+    top: 60px;
     opacity: 0;
     width: 100%;
     text-align: center;
     transition: opacity 0.5s;
+    transform: scale(0.5);
+    z-index: 5;
+    pointer-events: none;
+    padding: 16px;
+    margin-left: -16px;
   }
 
   &:hover {

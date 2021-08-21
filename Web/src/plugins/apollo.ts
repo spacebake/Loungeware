@@ -2,9 +2,10 @@ import Vue from 'vue';
 import VueApollo from 'vue-apollo';
 import ApolloClient from 'apollo-boost';
 import auth from '@/plugins/auth';
+import app from '@/plugins/app';
 
 const apolloClient = new ApolloClient({
-  uri: process.env.VUE_APP_GRAPHQL_ENDPOINT,
+  uri: app.gqlUrl,
   request: async (operation) => {
     operation.setContext({
       headers: {

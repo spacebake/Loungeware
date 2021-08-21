@@ -23,7 +23,10 @@
           width="100%"
           poster="/video-preview.png"
         >
-          <source src="/lw-3nd-pass.mp4" type="video/mp4" />
+          <source
+            src="https://cdn.discordapp.com/attachments/862889240249892875/878669776107487293/lw-3nd-pass.mp4"
+            type="video/mp4"
+          />
 
           Sorry, your browser doesn't support embedded videos.
         </video>
