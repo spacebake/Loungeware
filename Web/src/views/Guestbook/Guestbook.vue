@@ -2,9 +2,7 @@
   <div class="container full-width">
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>
-          <larold-img name="awesome larold" class="mr-1" /> Sign Our Guestbook
-        </h2>
+        <h2><larold-img name="awesome larold" /> Sign Our Guestbook</h2>
 
         <div v-if="$apollo.loading && !guestbooks">Am loading</div>
         <div v-else-if="guestbooks.length == 0">
@@ -36,10 +34,16 @@
           <div v-else-if="!isLoggedIn">
             <p>You must be logged in to sign Larold's Guestbook</p>
           </div>
-          <div v-else>
-            <textarea v-model="text" placeholder="Hello Larold" />
+          <div style="display: flex; flex-direction: column" v-else>
+            <textarea
+              class="media-border"
+              v-model="text"
+              placeholder="Hello Larold"
+            />
             <div class="text-center">
-              <div class="btn solid" @click="submit">Submit</div>
+              <div class="btn solid mt-1" style="width: 200px" @click="submit">
+                Submit
+              </div>
             </div>
           </div>
         </div>
@@ -143,10 +147,10 @@ export default class Guestbook extends Vue {
   background: lighten(#1a1721, 30);
 }
 textarea {
-  min-width: 100%;
-  width: 100%;
+  max-width: 100%;
   min-height: 100px;
   padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .guestbook {
@@ -158,7 +162,7 @@ textarea {
   .gb-entry {
     width: 100%;
     padding: 20px;
-    margin-right: 100px;
+    // margin-right: 100px;
     // border: solid thin #ddd;
 
     .title {

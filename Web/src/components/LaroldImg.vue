@@ -91,6 +91,7 @@ div.larold {
   display: inline-block;
   z-index: 2;
   top: 12px;
+  margin-right: 2px;
 
   &:before {
     width: $size * 1.3;
