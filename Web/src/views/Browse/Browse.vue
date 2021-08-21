@@ -4,16 +4,17 @@
       <div class="col-xs-12">
         <h2><larold-img name="ghost larold" class="mr-1" /> All Games</h2>
         <div class="game-previews">
-          <div
+          <router-link
             class="game-preview"
             :style="`background-image: url('/games/${game.name}.png')`"
             v-for="(game, i) in things"
             :key="i"
+            :to="getRoute(game.name)"
           >
             <div class="text">
               {{ game.config.game_name }} by {{ game.config.creator_name }}
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -25,6 +26,7 @@ import LaroldImg from '@/components/LaroldImg.vue';
 import { Component, Vue } from 'vue-property-decorator';
 // import { RouteName, getLinkPath } from '@/router';
 import * as common from '@/common/gamesList';
+import { routeName } from '@/router';
 
 @Component({
   components: {
@@ -34,6 +36,15 @@ import * as common from '@/common/gamesList';
 export default class Browse extends Vue {
   private get things() {
     return common.games;
+  }
+
+  private getRoute(gameSlug: string) {
+    return {
+      name: routeName('game-page'),
+      params: {
+        gameSlug: gameSlug.replaceAll('_', '-').replaceAll(' ', '-'),
+      },
+    };
   }
 }
 </script>

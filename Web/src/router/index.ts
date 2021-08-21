@@ -4,7 +4,7 @@ import auth from '@/plugins/auth';
 
 Vue.use(VueRouter);
 
-export type RouteName = 'about' | 'guestbook' | 'play' | 'browse' | 'logout';
+export type RouteName = 'about' | 'guestbook' | 'play' | 'browse' | 'game-page' | 'logout';
 
 export type LinkName =
   | 'discord'
@@ -63,6 +63,12 @@ const routes: Array<RouteConfig> = [
     name: routeName('browse'),
     component: () =>
       import(/* webpackChunkName: "browse" */ '../views/Browse/Browse.vue'),
+  },
+  {
+    path: '/browse/:gameSlug',
+    name: routeName('game-page'),
+    component: () =>
+      import(/* webpackChunkName: "browse" */ '../views/Browse/Game.vue'),
   },
   {
     path: '/logout',

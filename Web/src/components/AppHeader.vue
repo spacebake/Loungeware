@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <div class="row center-xs">
+      <div class="row full-width center-xs">
         <div class="col-xs-4 text-right">
           <router-link
             v-tooltip.bottom="navItems.play.tooltip"
@@ -228,8 +228,7 @@ export default class AppHeader extends Vue {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
-    margin-bottom: -120px;
+    padding-top: 80px;
 
     $logo-width: 300px;
     $logo-circle-padding: 20px;
@@ -238,19 +237,22 @@ export default class AppHeader extends Vue {
     .top {
       width: 100%;
       position: absolute;
-      top: -80px;
+      top: 0;
+      // display: none;
       // text-align: right;
     }
 
     & .logo {
+      // display: none;
       width: 100%;
       position: relative;
-      top: -50%;
+      margin-top: -50%;
+      // top: -50%;
 
       > img {
         position: relative;
         width: 100%;
-        margin-top: 30px;
+        top: 30px;
       }
       &:before {
         content: '';
@@ -259,13 +261,14 @@ export default class AppHeader extends Vue {
         width: 100%;
         height: 100%;
         border-radius: 30%;
+        top: 30px;
         background-color: #1a1721;
       }
     }
 
     > .border {
       position: absolute;
-      top: 60px;
+      top: 140px;
       z-index: 0;
     }
     .full {
