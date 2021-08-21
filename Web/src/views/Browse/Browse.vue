@@ -42,8 +42,8 @@ export default class Browse extends Vue {
 .game-previews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
+  justify-content: space-around;
+  align-content: space-around;
   align-self: center;
 }
 

@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="row center-xs">
-      <div class="col-xs-12 col-lg-9">
+      <div class="col-xs-12 col-sm-9">
         <video
           class="media-border"
           height="auto"

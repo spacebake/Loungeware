@@ -7,7 +7,26 @@
         v-if="isAuthInitialized && $apollo.queries.me.loading == false"
       >
         <div class="row center-xs">
-          <div class="col-xs-12">
+          <div class="col-xs-6">
+            <a
+              :href="navItems.discord.to"
+              target="__blank"
+              v-tooltip="navItems.discord.tooltip"
+              class="btn icon"
+            >
+              <mdicon name="discord" />
+            </a>
+
+            <a
+              :href="navItems.github.to"
+              target="__blank"
+              v-tooltip="navItems.github.tooltip"
+              class="btn icon"
+            >
+              <mdicon name="github" />
+            </a>
+          </div>
+          <div class="col-xs-6 text-right">
             <a
               v-if="isLoggedIn"
               @click="logout"
@@ -37,6 +56,7 @@
           >
             {{ navItems.play.label }}
           </router-link>
+
           <router-link
             v-tooltip.bottom="navItems.browse.tooltip"
             active-class="active solid"
@@ -54,7 +74,16 @@
           </router-link>
         </div>
         <div class="col-xs-4">
-          <a
+          <router-link
+            v-tooltip.bottom="navItems.guestbook.tooltip"
+            active-class="active solid"
+            :to="navItems.guestbook.to"
+            class="btn"
+          >
+            {{ navItems.guestbook.label }}
+          </router-link>
+
+          <!-- <a
             v-tooltip.bottom="navItems.github.tooltip"
             :href="navItems.github.to"
             target="__blank"
@@ -69,7 +98,7 @@
             class="btn"
           >
             {{ navItems.discord.label }}
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
@@ -130,6 +159,13 @@ export default class AppHeader extends Vue {
       },
       tooltip: 'Browse all Loungeware games',
       label: 'browse',
+    },
+    guestbook: {
+      to: {
+        name: 'guestbook' as RouteName,
+      },
+      tooltip: 'Sign our guestbook',
+      label: 'Guestbook',
     },
     play: {
       to: {
@@ -203,7 +239,7 @@ export default class AppHeader extends Vue {
       width: 100%;
       position: absolute;
       top: -80px;
-      text-align: right;
+      // text-align: right;
     }
 
     & .logo {

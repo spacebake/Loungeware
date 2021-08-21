@@ -3,6 +3,7 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store';
 import apolloProvider from '@/plugins/apollo';
+import '@/plugins/vue-moment';
 import '@/plugins/v-tooltip';
 import '@/plugins/mdi-vue';
 import '@/plugins/app';

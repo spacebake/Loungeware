@@ -30,7 +30,7 @@ export default class LaroldImg extends Vue {
     {
       name: 'headphone larold',
       path: '/larolds/headphone-larold.png',
-      author: '@katsaii',
+      author: '@baku',
     },
     {
       name: 'artist larold',
@@ -46,6 +46,11 @@ export default class LaroldImg extends Vue {
       name: 'ghost larold',
       path: '/larolds/ghost-larold.png',
       author: '@baku',
+    },
+    {
+      name: 'awesome larold',
+      path: '/larolds/awesome-larold.png',
+      author: '@nahoo',
     },
   ];
 

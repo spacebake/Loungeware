@@ -4,7 +4,7 @@ import auth from '@/plugins/auth';
 
 Vue.use(VueRouter);
 
-export type RouteName = 'about' | 'play' | 'browse' | 'logout';
+export type RouteName = 'about' | 'guestbook' | 'play' | 'browse' | 'logout';
 
 export type LinkName =
   | 'discord'
@@ -43,6 +43,14 @@ const routes: Array<RouteConfig> = [
     name: routeName('about'),
     component: () =>
       import(/* webpackChunkName: "main" */ '../views/About/About.vue'),
+  },
+  {
+    path: '/guestbook',
+    name: routeName('guestbook'),
+    component: () =>
+      import(
+        /* webpackChunkName: "guestbook" */ '../views/Guestbook/Guestbook.vue'
+      ),
   },
   {
     path: '/play',

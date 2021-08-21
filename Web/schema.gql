@@ -3,6 +3,8 @@ type Query {
   clientVersion: String!
   user(id: String!): User!
   me: User!
+  guestbooks: [Guestbook!]!
+  guestbook(id: String!): Guestbook!
 }
 
 interface Node {
@@ -22,12 +24,18 @@ type DiscordRole {
   colorHex: String!
 }
 
-type Mutation {
-  userAttachEmailPassword(input: UserAttachEmailPasswordInput!): User!
+type Guestbook implements Node {
+  id: ID!
+  authorUserId: String!
+  text: String!
+  createdAt: Float!
+  author: User!
 }
 
-input UserAttachEmailPasswordInput {
-  id: String!
-  email: String!
-  password: String!
+type Mutation {
+  guestbookCreate(input: GuestbookCreateInput!): Guestbook!
+}
+
+input GuestbookCreateInput {
+  text: String!
 }

@@ -39,7 +39,6 @@ export class AuthService extends Vue {
       if (fbCreds) {
         fbState.fb = firebase.initializeApp(JSON.parse(fbCreds));
         if (fbState.fb) {
-          console.log('Started auth');
           fbState.auth = fbState.fb.auth();
         }
       }

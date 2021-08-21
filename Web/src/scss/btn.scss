@@ -28,6 +28,15 @@ div.btn {
     }
   }
 
+  &.icon {
+    padding: 6px !important;
+    .mdi {
+      padding: 0;
+      margin: 0;
+      // width: 12px;
+    }
+  }
+
   &.solid {
     background-color: $loungeBrandLight;
     color: $loungeBrandDark;

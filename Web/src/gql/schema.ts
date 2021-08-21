@@ -22,13 +22,26 @@ export type DiscordRole = {
   colorHex: Scalars['String'];
 };
 
-export type Mutation = {
-  __typename?: 'Mutation';
-  userAttachEmailPassword: User;
+export type Guestbook = Node & {
+  __typename?: 'Guestbook';
+  id: Scalars['ID'];
+  authorUserId: Scalars['String'];
+  text: Scalars['String'];
+  createdAt: Scalars['Float'];
+  author: User;
 };
 
-export type MutationUserAttachEmailPasswordArgs = {
-  input: UserAttachEmailPasswordInput;
+export type GuestbookCreateInput = {
+  text: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  guestbookCreate: Guestbook;
+};
+
+export type MutationGuestbookCreateArgs = {
+  input: GuestbookCreateInput;
 };
 
 export type Node = {
@@ -41,6 +54,8 @@ export type Query = {
   clientVersion: Scalars['String'];
   user: User;
   me: User;
+  guestbooks: Array<Guestbook>;
+  guestbook: Guestbook;
 };
 
 export type QueryNodeArgs = {
@@ -51,16 +66,14 @@ export type QueryUserArgs = {
   id: Scalars['String'];
 };
 
+export type QueryGuestbookArgs = {
+  id: Scalars['String'];
+};
+
 export type User = Node & {
   __typename?: 'User';
   id: Scalars['ID'];
   displayName: Scalars['String'];
   profilePictureUrl: Scalars['String'];
   roles: Array<DiscordRole>;
-};
-
-export type UserAttachEmailPasswordInput = {
-  id: Scalars['String'];
-  email: Scalars['String'];
-  password: Scalars['String'];
 };
