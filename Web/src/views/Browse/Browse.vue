@@ -45,6 +45,8 @@ export default class Browse extends Vue {
   justify-content: space-around;
   align-content: space-around;
   align-self: center;
+  max-width: 720px;
+  margin: auto;
 }
 
 .game-preview {
@@ -52,6 +54,8 @@ export default class Browse extends Vue {
   height: 72px;
   border: solid 2px #322c3f;
   margin-bottom: 32px;
+  margin-left: 2px;
+  margin-right: 2px;
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;

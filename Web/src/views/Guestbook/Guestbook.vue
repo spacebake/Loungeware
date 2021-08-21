@@ -10,7 +10,7 @@
         <div v-else-if="guestbooks.length == 0">
           I'm sorry but there's nothing here
         </div>
-        <div v-else>
+        <div class="guestbook" v-else>
           <div v-for="(entry, i) in guestbooks" :key="i">
             <div class="gb-entry media-border" v-if="entry.author">
               <div>
@@ -127,6 +127,21 @@ export default class Guestbook extends Vue {
 </script>
 
 <style lang="scss" scoped>
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: darken(#1a1721, 3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: lighten(#1a1721, 20);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten(#1a1721, 30);
+}
 textarea {
   min-width: 100%;
   width: 100%;
@@ -134,14 +149,22 @@ textarea {
   padding: 20px;
 }
 
-.gb-entry {
-  width: 100%;
-  padding: 20px;
-  // border: solid thin #ddd;
+.guestbook {
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 50px;
 
-  .title {
-    font-size: 1.2rem;
-    font-weight: bold;
+  .gb-entry {
+    width: 100%;
+    padding: 20px;
+    margin-right: 100px;
+    // border: solid thin #ddd;
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
   }
 }
 </style>

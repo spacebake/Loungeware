@@ -171,7 +171,7 @@ export default class AppHeader extends Vue {
       to: {
         name: 'play' as RouteName,
       },
-      tooltip: 'Play Loungware in your browser',
+      tooltip: 'Play Loungeware in your browser',
       label: 'play',
     },
     github: {
