@@ -18,7 +18,7 @@ active_char_potential_letters = ds_list_create();
 active_char_id_list = ds_list_create();
 active_char_timer_list = ds_list_create();
 active_char_timer_max = 10;
-new_active_char_frequency = 20;
+new_active_char_frequency = 15;
 ___init_advanced_text();
 
 //-------------------------------------------------------------------------------------

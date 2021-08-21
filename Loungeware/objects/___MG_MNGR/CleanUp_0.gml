@@ -5,3 +5,5 @@ surface_free(surf_larold);
 surface_free(surf_cart);
 ds_list_destroy(garbo_sprites);
 ___reset_draw_vars();
+workspace_end();
+application_surface_draw_enable(true);

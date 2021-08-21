@@ -19,7 +19,6 @@ if (!debug_hidden){
 	draw_sprite(___spr_debug_key_info, 0, _x2, _y1);
 
 	// draw text
-	var _test_vars = ___global.test_vars;
 	var _marg_h = 8;
 	var _marg_v = 10;
 	var _sep = 22;

@@ -22,10 +22,25 @@ fast_beat_count = 0;
 drum_hit = false;
 drum_alt = false;
 
+
+
+
+// at this point in the game we can be sure that the game is not running in developer mode
+// so here we will delete all disabled games
+microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
+for(var i = 0; i < array_length(microgame_namelist); i++){
+	var _data = variable_struct_get(___global.microgame_metadata, microgame_namelist[i]);
+	if (variable_struct_exists(_data, "is_enabled")) && (_data.is_enabled == false){
+		show_debug_message("Removed from gamelist because it was not enabled: " + _data.game_name);
+		variable_struct_remove(___global.microgame_metadata, microgame_namelist[i]);
+	}
+}
+
+
+// get labels
+microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
 label_list = ds_list_create();
 label_list_2 = ds_list_create();
-microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
-
 for (var i = 0; i < array_length(microgame_namelist); i++){
 	var _spr = variable_struct_get(___global.microgame_metadata, microgame_namelist[i]).cartridge_label;
 	ds_list_add(label_list, _spr);
@@ -61,7 +76,7 @@ trigger_pump = false;
 close_circle_prog = 1;
 circle_surf = noone;
 close_wait = 10;
-close_col = make_color_rgb(31,27,37);
+
 
 
 
