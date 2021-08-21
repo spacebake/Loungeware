@@ -59,16 +59,10 @@ if (keyboard_check_pressed(ord("P"))){
 	file_delete(___DEV_CONFIG_PATH);
 	workspace_end();
 	application_surface_draw_enable(true);
-	with (all){
-		if (object_index != ___global && id != other.id){
-			instance_destroy();
-		}
-	}
 	audio_stop_all();
-	room_goto(___rm_main_menu);
-	with (instance_create_layer(0, 0, layer, ___obj_dev_menu)){
-		state = "skip";
-	}
+	var _file = file_text_open_write("skipdevintro.lw");
+	file_text_close(_file);
+	game_restart();
 	
 	instance_destroy();
 }

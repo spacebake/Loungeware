@@ -4,6 +4,12 @@ surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
 state = "intro";
 substate = 0;
 
+// skip intro if coming straight from microgame
+if (file_exists("skipdevintro.lw")){
+	file_delete("skipdevintro.lw");
+	state = "skip";
+}
+
 function menu_play_lw(){
 		audio_stop_sound(sng);
 		state = "fly_up";

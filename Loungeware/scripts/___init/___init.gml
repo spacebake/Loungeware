@@ -1,7 +1,10 @@
 function ___GAME_INIT(){
+	
 	randomize();
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
+	
+	___global.developer_mode_active = file_exists(___DEV_CONFIG_PATH) && (!CONFIG_IS_SHIPPING);
 	
 	___global.window_base_size = 540;
 	
@@ -104,7 +107,7 @@ function ___GAME_INIT(){
 	___global.window_base_size_read = function(){return ___global.window_base_size;}
 	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
 	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
-	___global.test_mode_check = function(){return file_exists(___DEV_CONFIG_PATH) && (!CONFIG_IS_SHIPPING);}
+	___global.test_mode_check = function(){return ___global.developer_mode_active;}
 	___global.is_microgame_won = function(){return ___MG_MNGR.microgame_won;}
 	
 

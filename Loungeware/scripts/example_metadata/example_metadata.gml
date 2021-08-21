@@ -19,8 +19,8 @@ microgame_register("{your_author_name}_{your_unique_game_name}", {
     music_track: snd_my_awesome_snd, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [0, 0, 0],
-    cartridge_col_secondary: [55, 255, 255],
+    cartridge_col_primary: [50, 44, 63],
+    cartridge_col_secondary: [168, 84, 100],
     cartridge_label: johndoe_examplegame_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: false,
@@ -29,7 +29,7 @@ microgame_register("{your_author_name}_{your_unique_game_name}", {
 	  day : 25,
 	  month : 7,
 	  year : 2099
-	}
-	is_enabled: false
+	},
+	is_enabled: false,
 });
 */

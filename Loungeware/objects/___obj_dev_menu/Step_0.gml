@@ -257,7 +257,5 @@ if (!confirmed) confirm_shake_time = confirm_shake_time_max;
 if (state == "save"){
 	audio_stop_all();
 	save_dev_config(game_keylist[cursor2]);
-	room_goto(___rm_restroom);
-	instance_create_layer(0, 0, layer, ___MG_MNGR);
-	instance_destroy();
+	game_restart();
 }

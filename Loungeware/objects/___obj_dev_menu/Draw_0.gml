@@ -177,7 +177,7 @@ draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 draw_set_alpha(1);
 
 // draw block
-draw_set_color(c_gbblack);
+draw_set_color(c_gbdark);
 draw_set_alpha(fadeout_alpha);
 draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
