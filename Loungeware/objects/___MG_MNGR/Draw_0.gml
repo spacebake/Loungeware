@@ -169,7 +169,7 @@ if (state == "microgame_result"){
 	if (state_begin){
 		transition_music_began = true;
 		if (microgame_won){
-			if (!dev_mode){
+			if (!TEST_MODE_ACTIVE){
 				transition_music  = audio_play_sound(___sng_microgame_win, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
 				audio_sound_pitch(transition_music, transition_speed);
@@ -177,7 +177,7 @@ if (state == "microgame_result"){
 			}
 		} else {
 			life = max(0, life-1);
-			if (!dev_mode){
+			if (!TEST_MODE_ACTIVE){
 				transition_music  = audio_play_sound(___sng_microgame_lose, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
 				audio_sound_pitch(transition_music, transition_speed);
@@ -206,7 +206,7 @@ if (state == "microgame_result"){
 	// draw overlay
 	draw_sprite_ext(___spr_gameboy_overlay, 0, 0, 0, 1, 1, 0, c_white, 1);
 	
-	if (dev_mode || gallery_mode){
+	if (TEST_MODE_ACTIVE || gallery_mode){
 		
 		var _str = (microgame_won ? "WON" : "LOST");
 		draw_set_color(c_white);
@@ -221,7 +221,7 @@ if (state == "microgame_result"){
 	if (substate == 0){
 		wait--;
 		if (wait <= 0){
-			if (dev_mode){ 
+			if (TEST_MODE_ACTIVE){ 
 				___microgame_start(microgame_next_name);
 				___state_change("playing_microgame"); 
 				exit;
@@ -647,13 +647,13 @@ if (state == "cart_preview"){
 		cart_float_dir = 0;
 	}
 	
-	cart_float_dir += 5;
+	cart_float_dir += 2.5;
 	if (cart_float_dir >= 360) cart_float_dir -= 360;
 	var _scale = 0.5;
 	var _spr_w = sprite_get_width(cart_sprite) * _scale;
 	var _spr_h = sprite_get_height(cart_sprite)* _scale;
 	
 	var _x = ((VIEW_W/2) - (_spr_w/2));
-	var _y = (((VIEW_H/2) - (_spr_h/2)) - 10) + lengthdir_y(3, cart_float_dir);
+	var _y = (((VIEW_H/2) - (_spr_h/2)) - 10) + lengthdir_y(2, cart_float_dir);
 	draw_sprite_ext(cart_sprite, 0, _x, _y, _scale, _scale, 0, c_white, 1);
 }

@@ -59,13 +59,16 @@ cursor.y = clamp(cursor.y, 0, rows - 1);
 //}
 //}
 
-if (KEY_PRIMARY) {
+if (KEY_PRIMARY_PRESSED) {
 	if (check_win()) {
 		microgame_win();
 		win = true;
 	} else {
 		microgame_fail();
 		win = false;
+	}
+	if (alarm[11] == -1) {
+		alarm[11] = 180; // early exit after 3 seconds of winning, added by Kat
 	}
 }
 

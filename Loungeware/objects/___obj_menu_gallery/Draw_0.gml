@@ -99,25 +99,23 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 	var _xx = _list_x;
 	var _store_y = _list_y;
 	var _in_view = (_list_y > 0 && _list_y < VIEW_H);
+	var _text_adjust_y = 2;
 	
 	if (i == cursor) {
-		//draw_sprite(anti_hats_sp_dude, 0, _xx, _list_y);
-		draw_set_alpha(0.25);
-		draw_set_color(c_gbwhite);
+		
+		draw_set_color(col_bar);
 		var x1 = 0;
 		var y1 = _list_y - _list_line_sep*0.5;
 		var x2 = _div_x1 - 2;
 		var y2 = _list_y + _list_line_height;
-		draw_rectangle(x1, y1, x2, y2, false);
+		draw_rectangle(x1, y1-3, x2+1, y2+5, false);
 		draw_set_color(c_gbyellow);
-		draw_rectangle(x1, y2+1, x2, y2+3, false);
-		draw_set_alpha(1);
 	}
 	
 	
 	// draw mini cart
 	___shader_cartridge_on(_data);
-	draw_sprite(___spr_cart_smol, 0, _xx, _list_y-2);
+	draw_sprite(___spr_cart_smol, 0, _xx, (_list_y-2) + _text_adjust_y);
 	___shader_cartridge_off();
 	_xx += sprite_get_width(___spr_cart_smol) + 8;
 	
@@ -127,7 +125,6 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 		_name += "~";
 		
 	}
-	
 	
 	_name = ___global.___DTA_linebreak_pixels(_name, _list_max_w + 32, draw_get_font(), _list_letter_sep);
 	var _lines = string_count("\n", _name)+1;
@@ -142,7 +139,7 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 	if (_in_view){
 		___global.___draw_text_advanced(
 			_xx,
-			_list_y,
+			_list_y + _text_adjust_y,
 			_list_line_height, 
 			true, true,
 			_name,

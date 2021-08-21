@@ -12,3 +12,4 @@ shake_timer = 0;
 shake_timer_max = 20;
 if (DIFFICULTY > 1) shake_timer = shake_timer_max;
 
+fullscreen_status = window_get_fullscreen();
