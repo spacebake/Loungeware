@@ -2,7 +2,10 @@
   <div class="app-header container full-width">
     <div class="border" />
     <div class="full">
-      <div class="top" v-if="isAuthInitialized">
+      <div
+        class="top"
+        v-if="isAuthInitialized && $apollo.queries.me.loading == false"
+      >
         <div class="row center-xs">
           <div class="col-xs-12">
             <a
@@ -11,7 +14,7 @@
               v-tooltip="'Click to sign out of your account'"
               class="btn account-btn"
             >
-              <mdicon name="account" /> Sign Out
+              <mdicon name="account" /> {{ username }} | Sign Out
             </a>
             <a
               v-else
@@ -79,11 +82,37 @@
 </template>
 
 <script lang="ts">
+import gql from 'graphql-tag';
 import { Component, Vue } from 'vue-property-decorator';
 import { RouteName, getLinkPath } from '../router';
+import * as schema from '@/gql/schema';
 
-@Component
+@Component({
+  apollo: {
+    me: {
+      skip: function () {
+        return this.isLoggedIn == false || this.isAuthInitialized == false;
+      },
+      query: gql`
+        query AppHeader_me {
+          me {
+            id
+            displayName
+            profilePictureUrl
+            roles {
+              colorHex
+              displayName
+              id
+            }
+          }
+        }
+      `,
+    },
+  },
+})
 export default class AppHeader extends Vue {
+  private me?: schema.User;
+
   private navItems = {
     about: {
       to: {
@@ -127,6 +156,10 @@ export default class AppHeader extends Vue {
 
   private logout() {
     this.$auth.logout();
+  }
+
+  private get username() {
+    return this?.me?.displayName || 'Unknown';
   }
 
   private get isLoggedIn() {

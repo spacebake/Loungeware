@@ -15,18 +15,24 @@
       </div>
     </div>
     <div class="row center-xs">
-      <video height="400px" controls width="100%" poster="/video-preview.png">
-        <source src="/lw-3nd-pass.mp4" type="video/mp4" />
+      <div class="col-xs-12 col-lg-9">
+        <video
+          class="media-border"
+          height="auto"
+          controls
+          width="100%"
+          poster="/video-preview.png"
+        >
+          <source src="/lw-3nd-pass.mp4" type="video/mp4" />
 
-        Sorry, your browser doesn't support embedded videos.
-      </video>
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+      </div>
     </div>
 
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2>
-          <img class="larold" src="/larolds/rad-larold.png" /> How To Play
-        </h2>
+        <h2><LaroldImg name="rad larold" /> How To Play</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis
           ad perferendis corrupti animi blanditiis repudiandae placeat, maxime
@@ -51,7 +57,7 @@
     <div class="row center-xs">
       <div class="col-xs-12">
         <h2>
-          <img class="larold" src="/larolds/headphone-larold.png" />
+          <LaroldImg name="headphone larold" />
           Get Involved With A Vibrant Community
         </h2>
         <p>
@@ -78,7 +84,7 @@
     <div class="row center-xs">
       <div class="col-xs-12">
         <h2>
-          <img class="larold" src="/larolds/artist-larold.png" />
+          <LaroldImg name="artist larold" />
           How To Contribute
         </h2>
         <p>
@@ -105,8 +111,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { RouteName, getLinkPath } from '@/router';
+import LaroldImg from '@/components/LaroldImg.vue';
 
-@Component
+@Component({
+  components: { LaroldImg },
+})
 export default class About extends Vue {
   private navItems = {
     play: {
@@ -126,16 +135,3 @@ export default class About extends Vue {
   };
 }
 </script>
-
-<style scoped lang="scss">
-.larold {
-  width: 42px;
-  height: 42px;
-  position: relative;
-  top: 8px;
-
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-</style>

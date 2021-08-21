@@ -10,11 +10,23 @@
 import { Component, Vue } from 'vue-property-decorator';
 import AppHeader from '@/components/AppHeader.vue';
 import AppFooter from '@/components/AppFooter.vue';
+import gql from 'graphql-tag';
 
 @Component({
   components: { AppHeader, AppFooter },
+  apollo: {
+    clientVersion: {
+      query: gql`
+        query App_clientVersion {
+          clientVersion
+        }
+      `,
+    },
+  },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  clientVersion = -1;
+}
 </script>
 
 <style lang="scss" scoped>

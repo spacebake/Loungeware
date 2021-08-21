@@ -1,5 +1,5 @@
 .tooltip {
-  $tooltipColor: #49415D;
+  $tooltipColor: #49415d;
   $tooltipTriangleSize: 12px;
 
   display: block !important;
@@ -20,71 +20,71 @@
     margin: $tooltipTriangleSize;
     border-color: $tooltipColor;
     z-index: 1;
+    display: hidden;
   }
 
-  &[x-placement^='top'] {
-    margin-bottom: $tooltipTriangleSize;
+  // &[x-placement^='top'] {
+  //   margin-bottom: $tooltipTriangleSize;
 
-    .tooltip-arrow {
-      border-width: $tooltipTriangleSize $tooltipTriangleSize 0
-        $tooltipTriangleSize;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      bottom: -$tooltipTriangleSize;
-      left: calc(50% - $tooltipTriangleSize);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+  //   .tooltip-arrow {
+  //     border-width: $tooltipTriangleSize $tooltipTriangleSize 0
+  //       $tooltipTriangleSize;
+  //     border-left-color: transparent !important;
+  //     border-right-color: transparent !important;
+  //     border-bottom-color: transparent !important;
+  //     bottom: -$tooltipTriangleSize;
+  //     left: calc(50% - $tooltipTriangleSize);
+  //     margin-top: 0;
+  //     margin-bottom: 0;
+  //   }
+  // }
 
-  &[x-placement^='bottom'] {
-    margin-top: $tooltipTriangleSize;
+  // &[x-placement^='bottom'] {
+  //   margin-top: $tooltipTriangleSize;
 
-    .tooltip-arrow {
-      border-width: 0 $tooltipTriangleSize $tooltipTriangleSize
-        $tooltipTriangleSize;
-      border-left-color: transparent !important;
-      border-right-color: transparent !important;
-      border-top-color: transparent !important;
-      top: -$tooltipTriangleSize;
-      left: calc(50% - $tooltipTriangleSize);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-  }
+  //   .tooltip-arrow {
+  //     border-width: 0 $tooltipTriangleSize $tooltipTriangleSize
+  //       $tooltipTriangleSize;
+  //     border-left-color: transparent !important;
+  //     border-right-color: transparent !important;
+  //     border-top-color: transparent !important;
+  //     top: -$tooltipTriangleSize;
+  //     left: calc(50% - $tooltipTriangleSize);
+  //     margin-top: 0;
+  //     margin-bottom: 0;
+  //   }
+  // }
 
-  &[x-placement^='right'] {
-    margin-left: $tooltipTriangleSize;
+  // &[x-placement^='right'] {
+  //   margin-left: $tooltipTriangleSize;
 
-    .tooltip-arrow {
-      border-width: $tooltipTriangleSize $tooltipTriangleSize
-        $tooltipTriangleSize 0;
-      border-left-color: transparent !important;
-      border-top-color: transparent !important;
-      border-bottom-color: transparent !important;
-      left: -$tooltipTriangleSize;
-      top: calc(50% - $tooltipTriangleSize);
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+  //   .tooltip-arrow {
+  //     border-width: $tooltipTriangleSize $tooltipTriangleSize
+  //       $tooltipTriangleSize 0;
+  //     border-left-color: transparent !important;
+  //     border-top-color: transparent !important;
+  //     border-bottom-color: transparent !important;
+  //     left: -$tooltipTriangleSize;
+  //     top: calc(50% - $tooltipTriangleSize);
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //   }
+  // }
 
-  &[x-placement^='left'] {
-    margin-right: $tooltipTriangleSize;
+  // &[x-placement^='left'] {
+  //   margin-right: $tooltipTriangleSize;
 
-    .tooltip-arrow {
-      border-width: $tooltipTriangleSize 0 $tooltipTriangleSize
-        $tooltipTriangleSize;
-      border-top-color: transparent !important;
-      border-right-color: transparent !important;
-      border-bottom-color: transparent !important;
-      right: -$tooltipTriangleSize;
-      top: calc(50% - $tooltipTriangleSize);
-      margin-left: 0;
-      margin-right: 0;
-    }
-  }
+  //   .tooltip-arrow {
+  //     border-width: $tooltipTriangleSize 0 $tooltipTriangleSize
+  //       $tooltipTriangleSize;
+  //     border-top-color: transparent !important;
+  //     border-right-color: transparent !important;
+  //     border-bottom-color: transparent !important;
+  //     right: -$tooltipTriangleSize;
+  //     top: calc(50% - $tooltipTriangleSize);
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //   }
 
   &.popover {
     $color: #f9f9f9;

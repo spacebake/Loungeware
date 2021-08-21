@@ -75,6 +75,10 @@
         <div class="col text-center">
           Made with Vue & Firebase By
           <a :href="navItems.gmDiscord.to">{{ navItems.gmDiscord.label }}</a>
+
+          <div>
+            <a :href="navItems.githubWeb.to">{{ navItems.githubWeb.label }}</a>
+          </div>
         </div>
       </div>
     </div>
@@ -134,6 +138,10 @@ export default class AppFooter extends Vue {
       to: getLinkPath('github'),
       label: 'Fork On Github',
     },
+    githubWeb: {
+      to: getLinkPath('github-web'),
+      label: 'View the source',
+    },
     discord: {
       to: getLinkPath('discord'),
       label: 'Join Our Discord',
@@ -183,8 +191,8 @@ export default class AppFooter extends Vue {
 </script>
 
 <style scoped lang="scss">
-$footer-height: 460px;
-$footer-mobile-height: 920px;
+$footer-height: 490px;
+$footer-mobile-height: 960px;
 
 footer {
   position: relative;
@@ -271,7 +279,6 @@ footer {
         > img {
           width: 64px;
           height: 64px;
-          //   margin-bottom: 2px;
         }
       }
       .small {

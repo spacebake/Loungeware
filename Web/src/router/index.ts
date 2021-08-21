@@ -9,6 +9,7 @@ export type RouteName = 'about' | 'play' | 'browse' | 'logout';
 export type LinkName =
   | 'discord'
   | 'github'
+  | 'github-web'
   | 'wiki'
   | 'wiki-larold'
   | 'gm-discord';
@@ -23,6 +24,8 @@ export function getLinkPath(name: LinkName): string {
       return 'https://discord.gg/cwWns2fdXF';
     case 'github':
       return 'https://github.com/spacebake/loungeware';
+    case 'github-web':
+      return 'https://github.com/spacebake/Loungeware/tree/html5_bitches/Web';
     case 'wiki':
       return 'https://github.com/spacebake/Loungeware/wiki';
     case 'wiki-larold':

@@ -1,6 +1,7 @@
 <template>
   <div class="text-center">
     <iframe
+      class="media-border"
       src="/game.html"
       style="width: 540px; height: 540px; margin-top: 80px"
     />
@@ -17,6 +18,5 @@ export default class Play extends Vue {}
 <style scoped lange="scss">
 iframe {
   overflow: hidden;
-  border: solid 3px rgba(0, 0, 0, 0.3);
 }
 </style>

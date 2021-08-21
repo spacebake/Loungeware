@@ -1,7 +1,7 @@
 <template>
   <div class="larold">
     <div
-      v-tooltip.bottom="{ content: name, offset: 40 }"
+      v-tooltip.bottom="{ content: alt, offset: 40 }"
       v-bind="$props"
       :style="`background-image: url('${src}');`"
     />
@@ -9,20 +9,69 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+type Larold = {
+  name: string;
+  path: string;
+  author: string;
+};
 
 @Component
-export default class AppHeader extends Vue {
+export default class LaroldImg extends Vue {
+  @Prop(String) name?: string;
+
+  private larolds: Larold[] = [
+    {
+      name: 'rad larold',
+      path: '/larolds/rad-larold.png',
+      author: '@katsaii',
+    },
+    {
+      name: 'headphone larold',
+      path: '/larolds/headphone-larold.png',
+      author: '@katsaii',
+    },
+    {
+      name: 'artist larold',
+      path: '/larolds/artist-larold.png',
+      author: '@baku',
+    },
+    {
+      name: 'helicopter larold',
+      path: '/larolds/helicopter-larold.png',
+      author: '@baku',
+    },
+    {
+      name: 'ghost larold',
+      path: '/larolds/ghost-larold.png',
+      author: '@baku',
+    },
+  ];
+
   private get alt() {
-    return 'larold';
+    if (!this.larold) {
+      return '';
+    }
+    return this.larold
+      ? `${this.larold.name} by ${this.larold.author}`
+      : 'beewut';
   }
 
   private get src() {
-    return '/larolds/rad-larold.png';
+    return this.larold?.path || '';
   }
 
-  private get name() {
-    return 'rad larold';
+  private get larold() {
+    const index = this.larolds.findIndex((i) => i.name == this.safeName);
+    if (index < 0) {
+      return undefined;
+    }
+    return this.larolds[index];
+  }
+
+  private get safeName() {
+    return this.name || 'rad larold';
   }
 }
 </script>
@@ -35,6 +84,7 @@ div.larold {
   position: relative;
   transition: all 0.5s;
   display: inline-block;
+  z-index: 2;
 
   &:before {
     width: $size * 1.3;
@@ -58,6 +108,8 @@ div.larold {
     background-size: cover;
     position: relative;
     z-index: 1;
+    position: relative;
+    top: 12px;
   }
 }
 </style>
