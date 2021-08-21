@@ -5,6 +5,7 @@ type Query {
   me: User!
   guestbooks: [Guestbook!]!
   guestbook(id: String!): Guestbook!
+  pageVisits(route: String!): PageVisit!
 }
 
 interface Node {
@@ -30,6 +31,12 @@ type Guestbook implements Node {
   text: String!
   createdAt: Float!
   author: User!
+}
+
+type PageVisit implements Node {
+  id: ID!
+  route: String!
+  visits: Float!
 }
 
 type Mutation {

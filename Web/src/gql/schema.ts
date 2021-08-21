@@ -48,6 +48,13 @@ export type Node = {
   id: Scalars['ID'];
 };
 
+export type PageVisit = Node & {
+  __typename?: 'PageVisit';
+  id: Scalars['ID'];
+  route: Scalars['String'];
+  visits: Scalars['Float'];
+};
+
 export type Query = {
   __typename?: 'Query';
   node: Node;
@@ -56,6 +63,7 @@ export type Query = {
   me: User;
   guestbooks: Array<Guestbook>;
   guestbook: Guestbook;
+  pageVisits: PageVisit;
 };
 
 export type QueryNodeArgs = {
@@ -68,6 +76,10 @@ export type QueryUserArgs = {
 
 export type QueryGuestbookArgs = {
   id: Scalars['String'];
+};
+
+export type QueryPageVisitsArgs = {
+  route: Scalars['String'];
 };
 
 export type User = Node & {

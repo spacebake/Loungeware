@@ -66,6 +66,9 @@
               <strong>{{ gameName }}</strong>
             </p>
           </div>
+          <div v-if="pageVisits" class="mt-1 text-right">
+            You are visitor {{ pageVisits.visits }}
+          </div>
         </div>
       </div>
     </div>
@@ -89,6 +92,8 @@
 import { Component, Vue } from 'vue-property-decorator';
 import { RouteName, getLinkPath } from '../router';
 import { numGames, numContributors } from '../common/gamesList';
+import gql from 'graphql-tag';
+import * as schema from '@/gql/schema';
 
 //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array: any[]) {
@@ -111,13 +116,38 @@ function shuffle(array: any[]) {
   return array;
 }
 
-@Component
+@Component({
+  apollo: {
+    pageVisits: {
+      fetchPolicy: 'no-cache',
+      query: gql`
+        query AppFooter_pageVisits($route: String!) {
+          pageVisits(route: $route) {
+            id
+            route
+            visits
+          }
+        }
+      `,
+      skip() {
+        return !this.$route?.name;
+      },
+      variables() {
+        return {
+          route: this.$route.name,
+        };
+      },
+    },
+  },
+})
 export default class AppFooter extends Vue {
   private contributorName = '';
   private gameName = '';
 
   private numGames = numGames;
   private numContributors = numContributors;
+
+  private pageVisits?: schema.PageVisit;
 
   private items = [
     ['@net8floz', 'making Admin Sim'],
