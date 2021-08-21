@@ -37,7 +37,7 @@ StringLiteral
   = word:("\"" CharDoubleQuoted* "\"" / "'" CharSingleQuoted* "'") _ { return word[1].join(""); }
 
 Boolean
-  = bool:("true" / "false") _ { return bool[0] === 'true' }
+  = bool:("true" / "false") _ { return bool === 'true' }
 
 CharDoubleQuoted
   =  "\\\"" / [^"]
