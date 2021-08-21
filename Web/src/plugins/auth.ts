@@ -34,13 +34,17 @@ export class AuthService extends Vue {
       },
     });
 
-    const fbCreds = process.env.VUE_APP_FIREBASE_CONFIG as string;
-    if (fbCreds) {
-      fbState.fb = firebase.initializeApp(JSON.parse(fbCreds));
-      if (fbState.fb) {
-        console.log('Started auth');
-        fbState.auth = fbState.fb.auth();
+    try {
+      const fbCreds = app.fbConfig;
+      if (fbCreds) {
+        fbState.fb = firebase.initializeApp(JSON.parse(fbCreds));
+        if (fbState.fb) {
+          console.log('Started auth');
+          fbState.auth = fbState.fb.auth();
+        }
       }
+    } catch (err) {
+      console.error(err);
     }
 
     this.isInitialized = false;

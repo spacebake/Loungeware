@@ -26,6 +26,13 @@ export class App extends Vue {
       'https://loungeware.games/oauth/login/callback'
     );
   }
+
+  public get fbConfig() {
+    return atob(
+      (process.env.VUE_APP_FIREBASE_CONFIG as string) ||
+        'eyJhcGlLZXkiOiAiQUl6YVN5RGx2dnprU1VJdUhmQWRMSzZaQlh1WURvdXVxOEJ4LVh3IiwiYXV0aERvbWFpbiI6ICJsb3VuZ2V3YXJlLTk1NjU4LmZpcmViYXNlYXBwLmNvbSIsInByb2plY3RJZCI6ICJsb3VuZ2V3YXJlLTk1NjU4Iiwic3RvcmFnZUJ1Y2tldCI6ICJsb3VuZ2V3YXJlLTk1NjU4LmFwcHNwb3QuY29tIiwibWVzc2FnaW5nU2VuZGVySWQiOiAiODU5NzI1NzY5NTc4IiwiYXBwSWQiOiAiMTo4NTk3MjU3Njk1Nzg6d2ViOjMzYmQ4Yjk3YzJkY2YxOGUxNDEzMTMifQ=='
+    );
+  }
 }
 
 const inst = new App();
