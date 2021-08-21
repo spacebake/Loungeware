@@ -6,18 +6,30 @@
     "serve": "vue-cli-service serve",
     "build": "yarn lint && vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "extract": "node scripts/extractGameMetadata.js"
+    "extract": "node scripts/extractGameMetadata.js",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@drewbot/sass-flexbox-grid": "^2.0.7",
+    "@graphql-codegen/typescript": "^2.1.0",
+    "@mdi/js": "^5.9.55",
+    "@playlyfe/gql": "^2.6.2",
+    "apollo-boost": "^0.4.9",
     "core-js": "^3.6.5",
+    "firebase": "^8.10.0",
+    "graphql": "^15.5.1",
+    "mdi-vue": "^3.0.7",
+    "v-tooltip": "^2.1.3",
     "vue": "^2.6.11",
+    "vue-apollo": "^3.0.7",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@divyenduz/ts-graphql-plugin": "^0.1.0",
+    "@graphql-codegen/cli": "^2.1.1",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",

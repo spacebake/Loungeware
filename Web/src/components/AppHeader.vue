@@ -2,25 +2,69 @@
   <div class="app-header container full-width">
     <div class="border" />
     <div class="full">
+      <div class="top" v-if="isAuthInitialized">
+        <div class="row center-xs">
+          <div class="col-xs-12">
+            <a
+              v-if="isLoggedIn"
+              @click="logout"
+              v-tooltip="'Click to sign out of your account'"
+              class="btn account-btn"
+            >
+              <mdicon name="account" /> Sign Out
+            </a>
+            <a
+              v-else
+              @click="login"
+              v-tooltip="'Click to sign in with Discord'"
+              class="btn account-btn"
+            >
+              <mdicon name="discord" /> Sign In
+            </a>
+          </div>
+        </div>
+      </div>
       <div class="row center-xs">
         <div class="col-xs-4 text-right">
-          <router-link :to="navItems.about.to" :class="getBtnClass('about')">
-            {{ navItems.about.label }}
-          </router-link>
-          <router-link :to="navItems.play.to" :class="getBtnClass('play')">
+          <router-link
+            v-tooltip.bottom="navItems.play.tooltip"
+            active-class="active solid"
+            :to="navItems.play.to"
+            class="btn"
+          >
             {{ navItems.play.label }}
+          </router-link>
+          <router-link
+            v-tooltip.bottom="navItems.browse.tooltip"
+            active-class="active solid"
+            :to="navItems.browse.to"
+            class="btn"
+          >
+            {{ navItems.browse.label }}
           </router-link>
         </div>
         <div class="col-xs-4 text-center">
-          <div class="logo">
-            <img src="@/assets/logo.png" />
-          </div>
+          <router-link :to="navItems.about.to">
+            <div class="logo">
+              <img v-tooltip="navItems.about.tooltip" src="@/assets/logo.png" />
+            </div>
+          </router-link>
         </div>
         <div class="col-xs-4">
-          <a :href="navItems.github.to" target="__blank" class="btn">
+          <a
+            v-tooltip.bottom="navItems.github.tooltip"
+            :href="navItems.github.to"
+            target="__blank"
+            class="btn"
+          >
             {{ navItems.github.label }}
           </a>
-          <a :href="navItems.discord.to" target="__blank" class="btn">
+          <a
+            v-tooltip.bottom="navItems.discord.tooltip"
+            :href="navItems.discord.to"
+            target="__blank"
+            class="btn"
+          >
             {{ navItems.discord.label }}
           </a>
         </div>
@@ -45,36 +89,52 @@ export default class AppHeader extends Vue {
       to: {
         name: 'about' as RouteName,
       },
+      tooltip: {
+        offset: 20,
+        content: 'Click to learn more',
+      },
       label: 'about',
+    },
+    browse: {
+      to: {
+        name: 'browse' as RouteName,
+      },
+      tooltip: 'Browse all Loungeware games',
+      label: 'browse',
     },
     play: {
       to: {
         name: 'play' as RouteName,
       },
+      tooltip: 'Play Loungware in your browser',
       label: 'play',
     },
     github: {
       to: getLinkPath('github'),
+      tooltip: 'Fork Loungeware on Github',
       label: 'github',
     },
     discord: {
       to: getLinkPath('discord'),
+      tooltip: 'Join the Loungeware Discord',
       label: 'discord',
     },
   };
 
-  private getRoute(routeName: RouteName) {
-    return {
-      name: routeName,
-    };
+  private login() {
+    window.location = this.$auth.oAuthLoginUrl;
   }
 
-  private getBtnClass(routeName: string) {
-    if (this.$route.name == routeName) {
-      return 'btn solid active';
-    } else {
-      return 'btn';
-    }
+  private logout() {
+    this.$auth.logout();
+  }
+
+  private get isLoggedIn() {
+    return this.$auth.isLoggedIn;
+  }
+
+  private get isAuthInitialized() {
+    return this.$auth.isInitialized;
   }
 }
 </script>
@@ -106,10 +166,18 @@ export default class AppHeader extends Vue {
     $logo-circle-padding: 20px;
     position: relative;
 
+    .top {
+      width: 100%;
+      position: absolute;
+      top: -80px;
+      text-align: right;
+    }
+
     & .logo {
       width: 100%;
       position: relative;
       top: -50%;
+
       > img {
         position: relative;
         width: 100%;
@@ -142,9 +210,10 @@ export default class AppHeader extends Vue {
 
 .app-header {
   .logo {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
+    transition: all 0.5s;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
   .btn {
     flex: 0 0 auto;
@@ -166,6 +235,14 @@ export default class AppHeader extends Vue {
     }
     &.active {
       transform: scale(1.1);
+    }
+
+    &.account-btn {
+      font-size: 0.8em;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }

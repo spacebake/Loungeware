@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
+import auth from '@/plugins/auth';
 
 Vue.use(VueRouter);
 
-export type RouteName = 'about' | 'play';
+export type RouteName = 'about' | 'play' | 'browse' | 'logout';
 
 export type LinkName =
   | 'discord'
@@ -35,7 +36,7 @@ export function getLinkPath(name: LinkName): string {
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: '',
     name: routeName('about'),
     component: () =>
       import(/* webpackChunkName: "main" */ '../views/About/About.vue'),
@@ -44,7 +45,39 @@ const routes: Array<RouteConfig> = [
     path: '/play',
     name: routeName('play'),
     component: () =>
-      import(/* webpackChunkName: "main" */ '../views/Play/Play.vue'),
+      import(/* webpackChunkName: "game" */ '../views/Play/Play.vue'),
+  },
+  {
+    path: '/browse',
+    name: routeName('browse'),
+    component: () =>
+      import(/* webpackChunkName: "browse" */ '../views/Browse/Browse.vue'),
+  },
+  {
+    path: '/logout',
+    name: routeName('logout'),
+    beforeEnter: async (to, from, next) => {
+      try {
+        await auth.logout();
+        window.location.reload();
+      } catch (err) {
+        window.location.reload();
+      }
+    },
+  },
+  {
+    path: '/oauth/login/callback',
+    name: 'oauth-login-callback',
+    beforeEnter: async (to, from, next) => {
+      try {
+        await auth.handleCallback(to.query.state as string);
+        next({ name: 'home' as RouteName });
+        window.location.reload();
+      } catch (err) {
+        next({ name: 'home' as RouteName });
+        window.location.reload();
+      }
+    },
   },
   {
     path: '*',

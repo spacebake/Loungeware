@@ -1,0 +1,33 @@
+type Query {
+  node(id: String!): Node!
+  clientVersion: String!
+  user(id: String!): User!
+  me: User!
+}
+
+interface Node {
+  id: ID!
+}
+
+type User implements Node {
+  id: ID!
+  displayName: String!
+  profilePictureUrl: String!
+  roles: [DiscordRole!]!
+}
+
+type DiscordRole {
+  id: ID!
+  displayName: String!
+  colorHex: String!
+}
+
+type Mutation {
+  userAttachEmailPassword(input: UserAttachEmailPasswordInput!): User!
+}
+
+input UserAttachEmailPasswordInput {
+  id: String!
+  email: String!
+  password: String!
+}

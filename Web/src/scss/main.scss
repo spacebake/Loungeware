@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&family=Roboto&display=swap');
-
 @import '@drewbot/sass-flexbox-grid/public/sass-flexbox/scss/main.scss';
 
 $loungeBrandDark: #1a1721;
@@ -8,6 +7,9 @@ $loungeBrandRed: #c8554e;
 
 $discordBrand: #404eed;
 $githubBrand: #279841;
+
+@import 'tooltip.scss';
+@import 'btn.scss';
 
 body,
 html {
@@ -57,60 +59,6 @@ a {
   image-rendering: crisp-edges;
 }
 
-a.btn,
-div.btn {
-  padding: 12px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: 'Dosis', sans-serif;
-  font-weight: bold;
-  font-size: 1.3rem;
-  transition: all 0.2s;
-  display: inline-block;
-
-  &.btn-lg {
-    padding: 24px;
-    font-size: 2rem;
-  }
-
-  &.solid {
-    background-color: $loungeBrandLight;
-    color: $loungeBrandDark;
-
-    &:hover:not(.active) {
-      background-color: darken($loungeBrandLight, 50);
-    }
-
-    &.discord {
-      background-color: $discordBrand;
-
-      &:hover:not(.active) {
-        background-color: darken($discordBrand, 20);
-        color: white;
-      }
-    }
-
-    &.github {
-      background-color: $githubBrand;
-
-      &:hover:not(.active) {
-        background-color: darken($githubBrand, 20);
-        color: white;
-      }
-    }
-
-    &.red {
-      background-color: $loungeBrandRed;
-
-      &:hover:not(.active) {
-        background-color: darken($loungeBrandRed, 20);
-        color: white;
-      }
-    }
-  }
-}
-
 .text-caps {
   text-transform: uppercase;
 }
@@ -145,6 +93,14 @@ h6,
 
 .mb-2 {
   margin-bottom: 24px;
+}
+
+.mr-1 {
+  margin-right: 12px;
+}
+
+.mr-2 {
+  margin-right: 24px;
 }
 
 .mt-1 {

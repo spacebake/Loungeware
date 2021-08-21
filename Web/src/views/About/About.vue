@@ -8,7 +8,7 @@
           that is made by volunteers all over the world in
           <strong>GameMaker Studio 2</strong>. Anyone can play for free or
           submit their own game. Checkout the video below or
-          <router-link :to="{ name: 'play' }">
+          <router-link :to="navItems.play.to">
             play it now in your browser!
           </router-link>
         </p>
@@ -39,6 +39,7 @@
             :to="{ name: 'play' }"
             class="btn btn-lg red solid mb-2 mt-2"
           >
+            <mdicon size="64" name="language-html5" />
             Play Now In HTML5
           </router-link>
         </div>
@@ -61,12 +62,13 @@
         </p>
 
         <div class="text-center">
-          <router-link
-            :to="navItems.discord.to"
+          <a
+            :href="navItems.discord.to"
             class="btn btn-lg discord solid mb-2 mt-2"
           >
+            <mdicon size="64" name="discord" />
             {{ navItems.discord.label }}
-          </router-link>
+          </a>
         </div>
       </div>
     </div>
@@ -87,12 +89,13 @@
         </p>
 
         <div class="text-center">
-          <router-link
-            :to="navItems.github.to"
+          <a
+            :href="navItems.github.to"
             class="btn btn-lg github solid mb-2 mt-2"
           >
+            <mdicon size="64" name="github" />
             {{ navItems.github.label }}
-          </router-link>
+          </a>
         </div>
       </div>
     </div>

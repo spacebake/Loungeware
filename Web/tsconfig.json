@@ -17,7 +17,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "types": ["webpack-env", "vuetify", "./types/vue"],
+    "types": ["webpack-env", "./types/mdi-vue", "./types/gql","./types/vue"],
     "paths": {
       "@/*": ["src/*"]
     },
