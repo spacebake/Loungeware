@@ -8,7 +8,7 @@ microgame_register("jdllama_hammer", {
     view_width: 240,
     view_height: 160,
     time_seconds: 5,
-    music_track: false,
+    music_track: noone,
     music_loops: false,
     interpolation_on: false,
     cartridge_col_primary: [0, 0, 0],

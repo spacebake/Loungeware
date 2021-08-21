@@ -108,7 +108,7 @@ function ___microgame_start(_microgame_propname){
 		transition_appsurf_zoomscale = 1;
 		transition_circle_rad = canvas_h;
 		
-		if (_metadata.music_track != noone) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
+		if (_metadata.music_track >= 0) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
 		microgame_music_auto_stopped = false;
 		room_goto(_metadata.init_room);
 		
