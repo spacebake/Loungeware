@@ -492,8 +492,22 @@ function ___microgame_get_keylist_chronological(){
 	
 	for (var i = 0; i < array_length(_microgame_keylist); i++){
 		var _date = variable_struct_get(___global.microgame_metadata, _microgame_keylist[i]).date_added;
-
-		_date = real(string_replace_all(_date, "/", ""));
+		
+		var _date_as_array = ___global.___split_string_by_char(_date, "/", true);
+		
+		if (array_length(_date_as_array) != 3){
+			show_debug_message("DATE ERROR IN " + string(_microgame_keylist[i].game_name));
+			_date = 0;
+		} else {
+			var _year = real(_date_as_array[0]);
+			if (_year < 100) _year = 2000 + _year;
+			var _month = real(_date_as_array[1]);
+			var _day = real(_date_as_array[2]);
+			
+			_date = (_year * 365) + (_month * 31) + (_day);
+			
+		}
+		
 	
 		ds_priority_add(_keys, _microgame_keylist[i], _date);
 	}
