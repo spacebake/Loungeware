@@ -4,7 +4,7 @@ function ___GAME_INIT(){
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
 	
-	___global.developer_mode_active = file_exists(___DEV_CONFIG_PATH) && (!CONFIG_IS_SHIPPING);
+	___global.developer_mode_active = (!CONFIG_IS_SHIPPING) && file_exists(___DEV_CONFIG_PATH);
 	
 	___global.window_base_size = 540;
 	
@@ -190,7 +190,7 @@ function ___GAME_INIT(){
 	
 	
 	// delete dev config file if it exists but the microgame with key doesn't exist
-	if (file_exists(___DEV_CONFIG_PATH)){
+	if (___global.developer_mode_active && file_exists(___DEV_CONFIG_PATH)){
 		var _config_microgame_key = ___dev_config_get_test_key();
 		var _valid_config_exists = false;
 		var _metadata_all = ___global.microgame_metadata;
