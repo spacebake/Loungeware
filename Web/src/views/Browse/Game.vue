@@ -22,7 +22,9 @@
     <div class="row center-xs full-width">
       <div class="col">
         <!-- CART -->
-        <img class="cart img-pixel media-border" :src="cartLabelSrc" />
+        <Cart :size="2" :name="game.name" />
+
+        <!-- <img class="cart img-pixel media-border" :src="cartLabelSrc" /> -->
 
         <!-- ACTIONS -->
         <div class="text-center mt-1">
@@ -215,11 +217,13 @@ import * as common from '@/common/gamesList';
 import * as schema from '@/gql/schema';
 import gql from 'graphql-tag';
 import { routeName } from '@/router';
+import Cart from '@/components/Cart.vue';
 
 @Component({
   components: {
     LaroldImg,
     RatingForm,
+    Cart,
   },
   metaInfo() {
     return {

@@ -1,8 +1,22 @@
 <template>
-  <div class="cart">
-    <canvas ref="primaryCanvas" />
-    <canvas ref="secondaryCanvas" />
-    <div :style="`background-image: url('${label}');`" />
+  <div :style="`width: ${width}px; height:${height}px`" class="cart">
+    <canvas
+      :style="`width: ${width}px; height:${height}px`"
+      ref="primaryCanvas"
+    />
+    <canvas
+      :style="`width: ${width}px; height:${height}px`"
+      ref="secondaryCanvas"
+    />
+    <div
+      :style="`
+        width: ${labelWidth}px; 
+        height: ${labelHeight}px; 
+        background-image: url('${label}');
+        top: ${labelY}px;
+        left: ${labelX}px;
+    `"
+    />
   </div>
 </template>
 
@@ -45,6 +59,8 @@ const getColor = function (color: string | number[]): string {
 @Component
 export default class Cart extends Vue {
   @Prop(String) name?: string;
+  @Prop(Number) size?: number;
+
   @Ref('primaryCanvas') private primaryCanvas!: HTMLCanvasElement;
   @Ref('secondaryCanvas') private secondaryCanvas!: HTMLCanvasElement;
 
@@ -64,18 +80,42 @@ export default class Cart extends Vue {
     return `/games/${this.name}.png`;
   }
 
+  private get width() {
+    return 174 * (this.size || 1);
+  }
+
+  private get height() {
+    return 152 * (this.size || 1);
+  }
+
+  private get labelWidth() {
+    return 152 * (this.size || 1);
+  }
+
+  private get labelHeight() {
+    return 72 * (this.size || 1);
+  }
+
+  private get labelX() {
+    return 13 * (this.size || 1);
+  }
+
+  private get labelY() {
+    return 62 * (this.size || 1);
+  }
+
   private mounted() {
     if (this.primaryCanvas) {
       const ctx = this.primaryCanvas.getContext('2d');
 
-      this.primaryCanvas.width = 174;
-      this.primaryCanvas.height = 152;
-      const primaryImage = new Image();
+      this.primaryCanvas.width = this.width;
+      this.primaryCanvas.height = this.height;
+      const primaryImage = new Image(this.width, this.height);
       primaryImage.src = '/images/cart/cart-primary.png';
 
       primaryImage.addEventListener('load', () => {
         if (ctx) {
-          ctx.drawImage(primaryImage, 0, 0);
+          ctx.drawImage(primaryImage, 0, 0, this.width, this.height);
 
           ctx.fillStyle = this.primaryColor;
           ctx.globalCompositeOperation = 'multiply';
@@ -87,7 +127,7 @@ export default class Cart extends Vue {
           );
 
           ctx.globalCompositeOperation = 'destination-in';
-          ctx.drawImage(primaryImage, 0, 0);
+          ctx.drawImage(primaryImage, 0, 0, this.width, this.height);
         }
       });
     }
@@ -95,14 +135,14 @@ export default class Cart extends Vue {
     if (this.secondaryCanvas) {
       const ctx = this.secondaryCanvas.getContext('2d');
 
-      this.secondaryCanvas.width = 174;
-      this.secondaryCanvas.height = 152;
-      const secondaryImage = new Image();
+      this.secondaryCanvas.width = this.width;
+      this.secondaryCanvas.height = this.height;
+      const secondaryImage = new Image(this.width, this.height);
       secondaryImage.src = '/images/cart/cart-secondary.png';
 
       secondaryImage.addEventListener('load', () => {
         if (ctx) {
-          ctx.drawImage(secondaryImage, 0, 0);
+          ctx.drawImage(secondaryImage, 0, 0, this.width, this.height);
 
           ctx.fillStyle = this.secondaryColor;
           ctx.globalCompositeOperation = 'multiply';
@@ -114,7 +154,7 @@ export default class Cart extends Vue {
           );
 
           ctx.globalCompositeOperation = 'destination-in';
-          ctx.drawImage(secondaryImage, 0, 0);
+          ctx.drawImage(secondaryImage, 0, 0, this.width, this.height);
         }
       });
     }
@@ -124,14 +164,10 @@ export default class Cart extends Vue {
 
 <style scoped lang="scss">
 .cart {
-  width: 174px;
-  height: 152px;
   position: relative;
   //   border-radius: 5px;
   //   background-color: red;
   > canvas {
-    width: 174px !important;
-    height: 152px !important;
     top: 0;
     left: 0;
     position: absolute;
@@ -142,16 +178,14 @@ export default class Cart extends Vue {
   }
 
   > div {
-    width: 152px;
-    height: 72px;
-    top: 62px;
-    left: 13px;
     position: relative;
     z-index: 1;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 </style>
