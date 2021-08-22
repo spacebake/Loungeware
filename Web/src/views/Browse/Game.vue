@@ -1,151 +1,171 @@
 <template>
   <div class="container full-width">
+    <!-- Breadcrumbs -->
     <div class="row center-xs full-width">
       <div class="col-xs-12">
         <h2>
           <larold-img name="ghost larold" class="mr-1" />
           <router-link :to="{ name: 'browse' }"> All Games </router-link>
           /
+          <span v-if="!!microgame">
+            <router-link active-class="" :to="browseByAuthorRoute">
+              {{ authorName }}
+            </router-link>
+            /
+          </span>
+
           {{ displayName }}
         </h2>
-        <!-- <div v-if="microgame">
-          <div class="btn solid red">About</div>
-          <div class="btn">Play</div>
-          <div class="btn">More from {{ authorName }}</div>
-        </div> -->
       </div>
     </div>
-    <div v-if="$apollo.queries.microgame.loading"></div>
-    <!-- <div v-else-if="!microgame">
-      <img class="cart img-pixel media-border" :src="cartLabelSrc" />
-      <p>
-        This game has not been claimed yet. <a href="#">Is this your game?</a>
-      </p>
-    </div> -->
-    <div v-else>
-      <div class="row center-xs full-width">
-        <div class="col-xs-12">
-          <div v-if="!game">Could not find game</div>
-          <div class="row" v-else>
-            <div class="col">
-              <!-- INFO -->
-              <div>
-                <div class="title mt-1">INFO</div>
-                <div class="">Added On {{ dateAdded }}</div>
-                <div class="">Duration {{ gameDuration }} seconds</div>
-              </div>
 
-              <!-- CREDITS -->
-              <div>
-                <div v-if="credits.length > 0">
-                  <div class="title mt-2">CREDITS</div>
-                  <ul>
-                    <li v-for="(item, i) in credits" :key="i">
-                      {{ item }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <img class="cart img-pixel media-border" :src="cartLabelSrc" />
+    <!-- BANNER -->
+    <div class="row center-xs full-width">
+      <div class="col">
+        <!-- CART -->
+        <img class="cart img-pixel media-border" :src="cartLabelSrc" />
 
-              <div class="text-center">
-                <div class="title mt-1">
-                  <strong>{{ displayName }}</strong> <br />by
-                  <strong>{{ authorName }}</strong>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- ACTIONS -->
+        <div class="text-center mt-1">
+          <a class="btn solid red mr-2">Play in gallery</a>
+          <router-link :to="browseByAuthorRoute" v-if="!!microgame" class="btn">
+            More from {{ authorName }}
+          </router-link>
         </div>
       </div>
-      <!-- RATING -->
-      <div v-if="!!microgame" class="text-center">
-        <div class="title mt-1">
-          Community Rating <small> ( {{ ratingsCount }} )</small>
-        </div>
-
-        <div class="mb-1 mt-1">
-          <strong
-            >Difficulty:
-            <span class="ml-1">{{ difficultyRating }}/5</span></strong
-          >
-        </div>
+      <div class="col">
+        <!-- INFO -->
         <div>
-          <strong>
-            Favorited:
-            <span class="ml-1">{{ timesFavorited }}</span>
-          </strong>
+          <div class="title mt-1">INFO</div>
+          <div class="">Added On {{ dateAdded }}</div>
+          <div class="">Duration {{ gameDuration }} seconds</div>
+        </div>
+        <!-- CREDITS -->
+        <div>
+          <div v-if="credits.length > 0">
+            <div class="title mt-2">CREDITS</div>
+            <ul>
+              <li v-for="(item, i) in credits" :key="i">
+                {{ item }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div v-if="hasRatings" class="border mt-2 mb-2" />
-      <div v-if="hasRatings" class="row center-xs full-width">
-        <div class="col-xs-12">
-          <h2>
-            <larold-img name="bunny larold" class="mr-1" />
-            Comments
-          </h2>
+    </div>
 
-          <div v-if="microgame.ratings.length == 0">
-            <p>No one has rated this game before</p>
-          </div>
-          <div class="comment-box-container" v-else>
-            <div
-              class="comment-box"
-              v-for="(rating, i) in microgame.ratings"
-              :key="`${i}-rating`"
-              v-show="!!rating.comment"
+    <!-- No Game -->
+    <div v-if="!game">
+      <p>No game found</p>
+    </div>
+
+    <!-- LOADING -->
+    <div v-else-if="$apollo.queries.microgame.loading">
+      <p>Loading</p>
+    </div>
+
+    <div class="border mt-2 mb-2" />
+
+    <!-- Community -->
+    <div class="row center-xs full-width">
+      <div class="col-xs-12">
+        <h2>
+          <larold-img name="bunny larold" class="mr-1" />
+          Community
+        </h2>
+      </div>
+    </div>
+
+    <!-- No Community -->
+    <div class="text-center" v-if="!microgame">
+      <p class="title">Community is disabled for this game</p>
+    </div>
+
+    <div v-else class="row center-xs full-width">
+      <!-- RATING -->
+      <div class="col">
+        <div class="title">
+          Rating
+          <small> ( {{ ratingsCount }} )</small>
+        </div>
+        <div v-if="!!microgame">
+          <div class="mb-1 mt-1">
+            <strong
+              >Difficulty:
+              <span class="ml-1">{{ difficultyRating }}/5</span></strong
             >
-              <span class="title">
-                {{ rating.author.displayName }}
-              </span>
-              <span v-if="rating.createdAt != rating.editedAt">
-                edited on
-                <strong>
-                  {{ rating.editedAt | moment('dddd, MMMM Do YYYY') }}
-                </strong>
-              </span>
-              <span v-else>
-                on
-                <strong>
-                  {{ rating.createdAt | moment('dddd, MMMM Do YYYY') }}
-                </strong>
-              </span>
-
-              <p>
-                {{ rating.comment }}
-              </p>
-            </div>
+          </div>
+          <div>
+            <strong>
+              Favorited:
+              <span class="ml-1">{{ timesFavorited }}</span>
+            </strong>
           </div>
         </div>
       </div>
-      <div v-if="!!microgame" class="border mt-2 mb-2" />
-      <div v-if="!!microgame" class="row center-xs full-width">
-        <div class="col-xs-12">
-          <h2>
-            <larold-img name="frog larold" class="mr-1" />
-            <span v-if="hasMyRating"> Update your rating! </span>
-            <span v-else> Rate This Game! </span>
-          </h2>
 
-          <p v-if="!hasRatings">
-            This game has no ratings, help it out by being the first!
-          </p>
+      <!-- Comments -->
+      <div class="col">
+        <div class="title">Comments</div>
+        <div class="comment-box-container">
+          <div v-if="microgame.ratings.length == 0">
+            <p>No one has rated this game yet</p>
+          </div>
+          <div
+            class="comment-box mt-1"
+            v-for="(rating, i) in microgame.ratings"
+            :key="`${i}-rating`"
+            v-show="!!rating.comment"
+          >
+            <span class="title">
+              {{ rating.author.displayName }}
+            </span>
+            <span v-if="rating.createdAt != rating.editedAt">
+              edited on
+              <strong>
+                {{ rating.editedAt | moment('dddd, MMMM Do YYYY') }}
+              </strong>
+            </span>
+            <span v-else>
+              on
+              <strong>
+                {{ rating.createdAt | moment('dddd, MMMM Do YYYY') }}
+              </strong>
+            </span>
 
-          <div v-if="!$auth.isInitialized">Loading</div>
-          <div v-else-if="!$auth.isLoggedIn">
-            <p>You must be logged in to rate games</p>
+            <p>
+              {{ rating.comment }}
+            </p>
           </div>
-          <div v-else-if="!microgame">
-            <p>What happened to the microgame?</p>
-          </div>
-          <rating-form
-            @success="onRatingSubmitSuccess"
-            v-else
-            :microgameId="microgame.id"
-          />
         </div>
+      </div>
+    </div>
+
+    <div v-if="!!microgame" class="border mt-2 mb-2" />
+    <div v-if="!!microgame" class="row center-xs full-width">
+      <div class="col-xs-12">
+        <h2>
+          <larold-img name="frog larold" class="mr-1" />
+          <span v-if="hasMyRating"> Update your rating! </span>
+          <span v-else> Rate This Game! </span>
+        </h2>
+
+        <p v-if="!hasRatings">
+          This game has no ratings, help it out by being the first!
+        </p>
+
+        <div v-if="!$auth.isInitialized">Loading</div>
+        <div v-else-if="!$auth.isLoggedIn">
+          <p>You must be logged in to rate games</p>
+        </div>
+        <div v-else-if="!microgame">
+          <p>What happened to the microgame?</p>
+        </div>
+        <rating-form
+          @success="onRatingSubmitSuccess"
+          v-else
+          :microgameId="microgame.id"
+        />
       </div>
     </div>
   </div>
@@ -153,13 +173,14 @@
 
 <script lang="ts">
 import LaroldImg from '@/components/LaroldImg.vue';
-import RatingForm from './RatingForm.vue';
+import RatingForm from './components/RatingForm.vue';
 import { Component, Vue } from 'vue-property-decorator';
 // import { RouteName, getLinkPath } from '@/router';
 import * as common from '@/common/gamesList';
 import * as schema from '@/gql/schema';
 import gql from 'graphql-tag';
 import auth from '@/plugins/auth';
+import { routeName } from '@/router';
 
 @Component({
   components: {
@@ -183,6 +204,7 @@ import auth from '@/plugins/auth';
               displayName
             }
             hasMyRating
+            authorSlug
             ratings {
               id
               comment
@@ -208,6 +230,18 @@ export default class Game extends Vue {
     return common.games.find(
       (i) => i.name.replaceAll('_', '-') == this.$route.params.gameSlug
     );
+  }
+
+  private get browseByAuthorRoute() {
+    if (!this.microgame || !this.microgame.authorSlug) {
+      return {};
+    }
+    return {
+      name: routeName('browse-by-author'),
+      params: {
+        authorSlug: this.microgame.authorSlug,
+      },
+    };
   }
 
   private get cartLabelSrc() {
@@ -277,9 +311,9 @@ export default class Game extends Vue {
     if (index >= 0) {
       credits.splice(index, 1);
     }
-    if (credits.length > 0) {
-      credits.unshift(this.authorName);
-    }
+    // if (credits.length == 0) {
+    credits.unshift(this.authorName);
+    // }
     return credits;
   }
 
@@ -291,8 +325,8 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .cart {
-  width: 456px;
-  height: 216px;
+  width: 608px;
+  height: 288px;
 }
 
 .rating-form {

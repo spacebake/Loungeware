@@ -45,6 +45,8 @@ export type GuestbookCreateInput = {
 export type Microgame = Node & {
   __typename?: 'Microgame';
   id: Scalars['ID'];
+  gameSlug: Scalars['String'];
+  authorSlug: Scalars['String'];
   author: User;
   ratings: Array<MicrogameRating>;
   hasMyRating: Scalars['Boolean'];

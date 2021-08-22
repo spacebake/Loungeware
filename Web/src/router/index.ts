@@ -9,6 +9,7 @@ export type RouteName =
   | 'guestbook'
   | 'play'
   | 'browse'
+  | 'browse-by-author'
   | 'game-page'
   | 'logout';
 
@@ -48,7 +49,7 @@ const routes: Array<RouteConfig> = [
     path: '',
     name: routeName('about'),
     component: () =>
-      import(/* webpackChunkName: "main" */ '../views/About/About.vue'),
+      import(/* webpackChunkName: "about" */ '../views/About/About.vue'),
   },
   {
     path: '/guestbook',
@@ -69,6 +70,12 @@ const routes: Array<RouteConfig> = [
     name: routeName('browse'),
     component: () =>
       import(/* webpackChunkName: "browse" */ '../views/Browse/Browse.vue'),
+  },
+  {
+    path: '/browse/by-author/:authorSlug',
+    name: routeName('browse-by-author'),
+    component: () =>
+      import(/* webpackChunkName: "browse" */ '../views/Browse/ByAuthor.vue'),
   },
   {
     path: '/browse/:gameSlug',

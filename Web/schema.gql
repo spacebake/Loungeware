@@ -43,6 +43,8 @@ type PageVisit implements Node {
 
 type Microgame implements Node {
   id: ID!
+  gameSlug: String!
+  authorSlug: String!
   author: User!
   ratings: [MicrogameRating!]!
   hasMyRating: Boolean!

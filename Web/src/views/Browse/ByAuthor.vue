@@ -2,7 +2,12 @@
   <div class="container full-width">
     <div class="row center-xs">
       <div class="col-xs-12">
-        <h2><larold-img name="ghost larold" class="mr-1" /> All Games</h2>
+        <h2>
+          <larold-img name="ghost larold" class="mr-1" />
+          <router-link :to="{ name: 'browse' }">All Games</router-link>
+          / by
+          <strong> {{ $route.params.authorSlug }} </strong>
+        </h2>
         <GameCollection :games="games" />
       </div>
     </div>
@@ -23,7 +28,9 @@ import * as common from '@/common/gamesList';
 })
 export default class Browse extends Vue {
   private get games() {
-    return common.games;
+    return common.games.filter(
+      (i) => i.name.indexOf(this.$route.params.authorSlug) == 0
+    );
   }
 }
 </script>
