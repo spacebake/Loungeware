@@ -1,6 +1,10 @@
 function ___GAME_INIT(){
+	
 	randomize();
+	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
+	
+	___global.developer_mode_active = file_exists(___DEV_CONFIG_PATH) && (!CONFIG_IS_SHIPPING);
 	
 	___global.window_base_size = 540;
 	
@@ -21,10 +25,8 @@ function ___GAME_INIT(){
 	___global.macro_c_gbtimer_empty = make_color_rgb(52, 41, 79);
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
-	
-	// musical credits
+	___global.macro_c_gbdark = make_color_rgb(31,27,37);
 
-	
 	// default inputs
 	___global.default_input_keys = {
 		right: [vk_right, ord("D")],
@@ -94,7 +96,7 @@ function ___GAME_INIT(){
 	// default volume
 	___global.default_vol = { sfx: 1, msc: 1, master: 1, }
 	
-	var _version = "0.1.0";
+	
 	___global.max_microgame_time = 12;
 	___global.save_filename = "dot.dot";
 	___global.microgame_metadata = ___init_metadata();
@@ -105,7 +107,10 @@ function ___GAME_INIT(){
 	___global.window_base_size_read = function(){return ___global.window_base_size;}
 	___global.time_remaining_read = function(){return ___MG_MNGR.microgame_timer}
 	___global.time_max_read = function(){return ___MG_MNGR.microgame_timer_max}
-	___global.test_mode_check = function(){return ___global.test_vars.test_mode_on;}
+	___global.test_mode_check = function(){return ___global.developer_mode_active;}
+	___global.is_microgame_won = function(){return ___MG_MNGR.microgame_won;}
+	
+
 	
 	// add public songs to credits
 	var _is_public_music = false;
@@ -133,10 +138,7 @@ function ___GAME_INIT(){
 				if (string_upper(_music_name) == string_upper(_credits[j])) _name_already_exists = true;
 			}
 			if (!_name_already_exists) array_push(_credits, _music_name);
-			
-		
 		}
-	
 
 }
 	
@@ -149,17 +151,15 @@ function ___GAME_INIT(){
 	//	file_text_close(_file);
 	//} 
 	
+	var _save_data_version = 1;
 	var _default_save_data = {
-		version: _version,
+		version: _save_data_version,
 		best_score: 0,
 		microgame_data: {},
 		vol: ___global.default_vol,
 		input_keys: ___global.default_input_keys,
 		data_collection: false,
 	}
-	
-	//update version number
-	___global.save_data.version = _version;
 	
 	// compare save data against defaults, set any properties that are missing from save data
 	var _default_save_data_props = variable_struct_get_names(_default_save_data);
@@ -188,30 +188,43 @@ function ___GAME_INIT(){
 	// save
 	___save_game();
 	
-	// check for updates with more games (to do)
 	
-	// set default input keys
-	___global.input_keys = {
-		right: vk_right,
-		up: vk_up,
-		left: vk_left,
-		down: vk_down,
-		primary: ord("Z"),
-		secondary: ord("Y")
+	// delete dev config file if it exists but the microgame with key doesn't exist
+	if (file_exists(___DEV_CONFIG_PATH)){
+		var _config_microgame_key = ___dev_config_get_test_key();
+		var _valid_config_exists = false;
+		var _metadata_all = ___global.microgame_metadata;
+		var _microgame_keys = variable_struct_get_names(_metadata_all);
+		for (var i = 0; i < array_length(_microgame_keys); i++){
+			if (_config_microgame_key == _microgame_keys[i]) _valid_config_exists = true;
+		}
+		if (!_valid_config_exists){
+			file_delete(___DEV_CONFIG_PATH);
+		}
 	}
 	
-	if (___global.test_vars.test_mode_on){
-		room_goto(___rm_restroom);
-		instance_create_layer(0, 0, layer, ___MG_MNGR);
-	} else {
+	
+	// if shipping build, go straight to the title screen
+	if (CONFIG_IS_SHIPPING){
 		room_goto(___rm_main_menu);
 		instance_create_layer(0, 0, layer, ___obj_title_screen);
-	}
 	
+	// if developer mode, check for microgame dev config and load that game, if no config exists, load developer menu
+	} else {
+		
+		if (file_exists(___DEV_CONFIG_PATH)){
+			room_goto(___rm_restroom);
+			instance_create_layer(0, 0, layer, ___MG_MNGR);
+		} else {
+			room_goto(___rm_main_menu);
+			instance_create_layer(0, 0, layer, ___obj_dev_menu);
+		}
+	}
+
 }
 
 function ___save_game(){
-	var _str = json_stringify(___global.save_data);
+	//var _str = json_stringify(___global.save_data);
 	//var _file = file_text_open_write(___global.save_filename);
 	//file_text_write_string(_file, _str);
 	//file_text_close(_file);

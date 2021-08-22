@@ -25,6 +25,9 @@
 // returns a boolean which is true if the game is currently running in test mode (useful for debugging)
 #macro TEST_MODE_ACTIVE ___global.test_mode_check()
 
+// returns whether microgame has been won
+#macro MICROGAME_WON ___global.is_microgame_won()
+
 //--------------------------------------------------------------------------------------------------------
 // MICROGAME WIN
 // (NOTE: you should not use this function if "default_is_fail" property is set to "false" in your 
