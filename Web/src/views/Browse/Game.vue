@@ -67,6 +67,13 @@
       <h2 class="title">"{{ game.config.prompt }}"</h2>
     </div>
 
+    <!-- IMAGES -->
+    <div v-if="imageCount > 0" class="row center-xs full-width">
+      <div class="col-xs-3" v-for="i in imageCount" :key="`${i}-image`">
+        <img class="preview-img" :src="getImagePath(i)" />
+      </div>
+    </div>
+
     <!-- DESCRIPTION -->
     <div v-if="game.config.description" class="row center-xs full-width">
       <div class="col-xs-12">
@@ -252,6 +259,31 @@ import { routeName } from '@/router';
 })
 export default class Game extends Vue {
   private microgame!: schema.Microgame;
+  private imageCount = 0;
+  private mounted() {
+    var http = new XMLHttpRequest();
+
+    this.imageCount = 0;
+    while (this.imageCount < 10) {
+      http.open(
+        'HEAD',
+        '/screenshots/' +
+          this.game?.name +
+          '/image' +
+          (this.imageCount + 1) +
+          '.png',
+        false
+      );
+      http.send();
+
+      if (http.status == 404) {
+        break;
+      }
+      this.imageCount++;
+    }
+
+    return http.status != 404;
+  }
 
   private get game() {
     return common.games.find(
@@ -268,6 +300,10 @@ export default class Game extends Vue {
         author: this.authorSlug,
       },
     };
+  }
+
+  private getImagePath(index: number) {
+    return `/screenshots/${this.game?.name}/image${index}.png`;
   }
 
   private get authorSlug() {
@@ -359,7 +395,8 @@ export default class Game extends Vue {
   height: 288px;
 }
 
-.rating-form {
-  padding: 20px;
+.preview-img {
+  width: 100%;
+  height: auto;
 }
 </style>
