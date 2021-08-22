@@ -15,6 +15,13 @@ export type Scalars = {
   Float: number;
 };
 
+export type AddMicrogameRatingInput = {
+  microgameId: Scalars['String'];
+  comment: Scalars['String'];
+  difficulty: Scalars['Float'];
+  isFavorited: Scalars['Boolean'];
+};
+
 export type DiscordRole = {
   __typename?: 'DiscordRole';
   id: Scalars['ID'];
@@ -35,13 +42,37 @@ export type GuestbookCreateInput = {
   text: Scalars['String'];
 };
 
+export type Microgame = Node & {
+  __typename?: 'Microgame';
+  id: Scalars['ID'];
+  author: User;
+  ratings: Array<MicrogameRating>;
+  hasMyRating: Scalars['Boolean'];
+};
+
+export type MicrogameRating = Node & {
+  __typename?: 'MicrogameRating';
+  id: Scalars['ID'];
+  isFavorited: Scalars['Boolean'];
+  difficulty: Scalars['Float'];
+  comment: Scalars['String'];
+  createdAt: Scalars['Float'];
+  editedAt: Scalars['Float'];
+  author: User;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   guestbookCreate: Guestbook;
+  addMicrogameRating: MicrogameRating;
 };
 
 export type MutationGuestbookCreateArgs = {
   input: GuestbookCreateInput;
+};
+
+export type MutationAddMicrogameRatingArgs = {
+  input: AddMicrogameRatingInput;
 };
 
 export type Node = {
@@ -64,6 +95,8 @@ export type Query = {
   guestbooks: Array<Guestbook>;
   guestbook: Guestbook;
   pageVisits: PageVisit;
+  microgame: Microgame;
+  microgamesFromAuthor: Microgame;
 };
 
 export type QueryNodeArgs = {
@@ -80,6 +113,14 @@ export type QueryGuestbookArgs = {
 
 export type QueryPageVisitsArgs = {
   route: Scalars['String'];
+};
+
+export type QueryMicrogameArgs = {
+  gameSlug: Scalars['String'];
+};
+
+export type QueryMicrogamesFromAuthorArgs = {
+  userId: Scalars['String'];
 };
 
 export type User = Node & {

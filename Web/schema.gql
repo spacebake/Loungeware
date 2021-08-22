@@ -6,6 +6,8 @@ type Query {
   guestbooks: [Guestbook!]!
   guestbook(id: String!): Guestbook!
   pageVisits(route: String!): PageVisit!
+  microgame(gameSlug: String!): Microgame!
+  microgamesFromAuthor(userId: String!): Microgame!
 }
 
 interface Node {
@@ -39,10 +41,35 @@ type PageVisit implements Node {
   visits: Float!
 }
 
+type Microgame implements Node {
+  id: ID!
+  author: User!
+  ratings: [MicrogameRating!]!
+  hasMyRating: Boolean!
+}
+
+type MicrogameRating implements Node {
+  id: ID!
+  isFavorited: Boolean!
+  difficulty: Float!
+  comment: String!
+  createdAt: Float!
+  editedAt: Float!
+  author: User!
+}
+
 type Mutation {
   guestbookCreate(input: GuestbookCreateInput!): Guestbook!
+  addMicrogameRating(input: AddMicrogameRatingInput!): MicrogameRating!
 }
 
 input GuestbookCreateInput {
   text: String!
+}
+
+input AddMicrogameRatingInput {
+  microgameId: String!
+  comment: String!
+  difficulty: Float!
+  isFavorited: Boolean!
 }

@@ -5,11 +5,15 @@ $loungeBrandDark: #1a1721;
 $loungeBrandLight: #ffc89c;
 $loungeBrandRed: #c8554e;
 
+$borderColor: #322c3f;
+
 $discordBrand: #404eed;
 $githubBrand: #279841;
 
 @import 'tooltip.scss';
 @import 'btn.scss';
+@import 'forms.scss';
+@import 'comment-box.scss';
 
 body,
 html {
@@ -72,7 +76,7 @@ a {
 }
 
 .media-border {
-  border: solid 2px #322c3f;
+  border: solid 2px $borderColor;
 }
 
 h1,
@@ -89,6 +93,14 @@ h6,
 
 .title {
   font-size: 2rem;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  small {
+    font-size: 1.5rem;
+    // font-style: italic;
+  }
 }
 
 .mb-1 {

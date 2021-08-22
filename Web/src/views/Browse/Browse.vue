@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container full-width">
     <div class="row center-xs">
       <div class="col-xs-12">
         <h2><larold-img name="ghost larold" class="mr-1" /> All Games</h2>

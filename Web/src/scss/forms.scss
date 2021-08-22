@@ -1,0 +1,46 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+
+  .label {
+    small {
+      display: block;
+      opacity: 0.8;
+      font-style: italic;
+    }
+    margin-bottom: 18px;
+  }
+
+  textarea {
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 100px;
+    margin-left: 12px;
+    margin-right: 12px;
+    border: solid 2px $borderColor;
+    color: $loungeBrandLight;
+    padding: 12px;
+  }
+
+  input[type='checkbox'] {
+    transform: scale(2);
+    margin-left: 12px;
+    margin-right: 12px;
+    border: solid 2px $borderColor;
+  }
+
+  select {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: $loungeBrandLight;
+    padding: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    border: solid 2px $borderColor;
+
+    option {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: black;
+      border: solid 2px $borderColor;
+    }
+  }
+}

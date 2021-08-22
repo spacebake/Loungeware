@@ -52,6 +52,16 @@ export default class LaroldImg extends Vue {
       path: '/larolds/awesome-larold.png',
       author: '@nahoo',
     },
+    {
+      name: 'bunny larold',
+      path: '/larolds/bunny-larold.png',
+      author: 'unknown',
+    },
+    {
+      name: 'frog larold',
+      path: '/larolds/frog-larold.png',
+      author: '@frog',
+    },
   ];
 
   private get alt() {

@@ -4,7 +4,13 @@ import auth from '@/plugins/auth';
 
 Vue.use(VueRouter);
 
-export type RouteName = 'about' | 'guestbook' | 'play' | 'browse' | 'game-page' | 'logout';
+export type RouteName =
+  | 'about'
+  | 'guestbook'
+  | 'play'
+  | 'browse'
+  | 'game-page'
+  | 'logout';
 
 export type LinkName =
   | 'discord'

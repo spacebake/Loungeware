@@ -7,7 +7,8 @@
     "build": "yarn lint && vue-cli-service build",
     "lint": "vue-cli-service lint",
     "extract": "node scripts/extractGameMetadata.js",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "deploy": "mv .env .backupenv && yarn build && firebase deploy && mv .backupenv .env"
   },
   "dependencies": {
     "@drewbot/sass-flexbox-grid": "^2.0.7",
