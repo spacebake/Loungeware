@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mimpy_firealarm_douse.wav",
-  "duration": 0.453571,
+  "duration": 0.448571,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/mimpy/loungefire/Sounds.yy",
