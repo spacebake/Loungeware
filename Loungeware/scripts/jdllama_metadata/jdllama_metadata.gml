@@ -17,7 +17,12 @@ microgame_register("jdllama_hammer", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe"],
-    date_added: "21/08/12"
+    //date_added: "21/08/12"
+	date_added: {
+		day: 12,
+		month: 8,
+		year: 2021
+	}
 });
 
 microgame_register("jdllama_target", {
@@ -38,5 +43,9 @@ microgame_register("jdllama_target", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe", "Zandy"],
-    date_added: "21/08/09"
+    date_added: {
+		day: 9,
+		month: 8,
+		year: 2021
+	}
 });
