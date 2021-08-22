@@ -23,7 +23,7 @@ export class App extends Vue {
   public get oAuthLoginCallbackUrl() {
     return (
       (process.env.VUE_APP_OAUTH_LOGIN_CALLBACK_URL as string) ||
-      'https://loungeware.games/oauth/login/callback'
+      'https://loungeware.games/oauth/login/web/callback'
     );
   }
 

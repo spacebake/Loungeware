@@ -96,7 +96,7 @@ const routes: Array<RouteConfig> = [
     },
   },
   {
-    path: '/oauth/login/callback',
+    path: '/oauth/login/web/callback',
     name: 'oauth-login-callback',
     beforeEnter: async (to, from, next) => {
       try {
