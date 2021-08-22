@@ -144,7 +144,7 @@ if (state != "wait"){
 		if (cursor == i){
 			if (confirm_shake_timer > 0){
 				draw_set_color(c_gbpink);
-				_txt = "<shake, " + string(confirm_shake_timer) + ">" + _txt + "</shake>";
+				_txt = "<shake, " + string(floor(confirm_shake_timer/4)) + ">" + _txt + "</shake>";
 				_scale_final = 1 + (0.5 * (confirm_shake_timer/confirm_shake_timer_max));
 			} else {
 				draw_set_color(c_gbyellow);

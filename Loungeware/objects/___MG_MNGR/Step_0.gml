@@ -8,7 +8,7 @@ else gb_timerbar_alpha = max(0, gb_timerbar_alpha - gb_timerbar_fadespeed);
 
 // handle transition music
 if (transition_music_began && !audio_is_playing(transition_music)){
-	if (!dev_mode && !gallery_mode){
+	if (!TEST_MODE_ACTIVE && !gallery_mode){
 		transition_music_began = false;
 		transition_music  = audio_play_sound(___sng_microgame_winlose_end, 0, 0);
 		audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);

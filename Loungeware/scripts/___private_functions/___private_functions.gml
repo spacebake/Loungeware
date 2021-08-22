@@ -96,7 +96,7 @@ function ___microgame_start(_microgame_propname){
 		
 		microgame_timer = _metadata.time_seconds * 60;
 		microgame_timer_max = _metadata.time_seconds * 60;
-		if (dev_mode && _metadata.time_seconds > ___global.max_microgame_time){
+		if (TEST_MODE_ACTIVE && _metadata.time_seconds > ___global.max_microgame_time){
 			show_message("You are exceeding the maximum amount of time allowed for a microgame. Please make a game that is " + string(___global.max_microgame_time) + " seconds or shorter.\nIf you need to test your microgame without a timer then press \"I\" while in test mode to toggle infinite timer.");
 		}
 		
@@ -108,7 +108,7 @@ function ___microgame_start(_microgame_propname){
 		transition_appsurf_zoomscale = 1;
 		transition_circle_rad = canvas_h;
 		
-		if (_metadata.music_track != noone) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
+		if (_metadata.music_track >= 0) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
 		microgame_music_auto_stopped = false;
 		room_goto(_metadata.init_room);
 		
@@ -137,7 +137,7 @@ function ___microgame_end(){
 	show_debug_overlay(false);
 	
 	// update save data
-	if (!dev_mode && !gallery_mode){
+	if (!TEST_MODE_ACTIVE && !gallery_mode){
 		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___MG_MNGR.microgame_current_name);
 		_save_struct.play_count = _save_struct.play_count + 1;
 		if (___MG_MNGR.microgame_won){
@@ -167,7 +167,7 @@ function ___microgame_end(){
 	// go to rest room (lol)
 	room_goto(___rm_restroom);
 	
-	if (!dev_mode && !gallery_mode){
+	if (!TEST_MODE_ACTIVE && !gallery_mode){
 		// remove game from unplayed list 
 		var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
 		ds_list_delete(microgame_unplayed_list, _index_to_remove);
@@ -195,7 +195,7 @@ function ___microgame_end(){
 
 
 //--------------------------------------------------------------------------------------------------------
-// tTH MOVE
+// SMOOTH MOVE
 // moves a number towards another number, slows down as it approaches
 //--------------------------------------------------------------------------------------------------------
 function ___smooth_move(_current_val, _target_val, _minimum, _divider){
@@ -380,13 +380,16 @@ function ___noop(){
 function ___dev_load(){
 	
 	var _filename = "tmpenv.dev";
+	var _test_key = ___dev_config_get_test_key();
+
 	
 	var _default = {
 		difficulty_level: 1,
-		microgame_key: ___global.test_vars.microgame_key,
+		microgame_key: _test_key,
 		mute_test: false,
 		debug_hidden: false,
 		infinite_timer: false,
+		fullscreen_status: false,
 	}
 	
 	if (file_exists(_filename)){
@@ -406,10 +409,9 @@ function ___dev_load(){
 		}
 		
 		// delete file if test game has changed
-		if (_loaded.microgame_key != ___global.test_vars.microgame_key){
+		if (_loaded.microgame_key != _test_key){
 			file_delete(_filename);
 			return _default;
-			
 		}
 		
 		return _loaded;
@@ -426,10 +428,11 @@ function ___dev_save(){
 	
 	var _data = ___dev_debug.saved_dev_vars;
 	_data.difficulty_level = ___global.difficulty_level;
-	_data.microgame_key = ___global.test_vars.microgame_key;
+	_data.microgame_key = ___dev_config_get_test_key();
 	_data.mute_test = ___dev_debug.muted;
 	_data.debug_hidden = ___dev_debug.debug_hidden;
 	_data.infinite_timer = ___dev_debug.infinite_timer;
+	_data.fullscreen_status = ___dev_debug.fullscreen_status;
 	
 	var _filename = "tmpenv.dev";
 	var _str = json_stringify(___dev_debug.saved_dev_vars);
@@ -456,4 +459,103 @@ function ___sound_menu_tick_horizontal(){
 	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
 	audio_sound_gain(_snd_id, _vol, 0);
 	audio_sound_pitch(_snd_id, 0.8);
+}
+
+
+// ------------------------------------------------------------------------------------------
+// DRAW DOTTED LINE
+// ------------------------------------------------------------------------------------------
+function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
+	// swap x1 and x2 if x2 is smaller
+	var _xx = _x1;
+	var _yy = _y1;
+	var _direction = point_direction (_x1, _y1, _x2, _y2);
+	
+	var _dist = point_distance(_x1, _y1, _x2, _y2);
+	var _seg_count = floor((_dist + _gap_size) / (_dot_size + _gap_size)) + 1;
+	repeat(_seg_count){
+		
+		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2));
+		_xx += lengthdir_x(_gap_size + _dot_size, _direction);
+		_yy += lengthdir_y(_gap_size + _dot_size, _direction);
+	}
+	
+}
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME GET KEYLIST CHRONOLOGICAL
+// returns an array of all miceogame keys ordered by date-added (newest first)
+// ------------------------------------------------------------------------------------------
+function ___microgame_get_keylist_chronological(){
+	var _microgame_keylist = variable_struct_get_names(___global.microgame_metadata);
+	var _keys = ds_priority_create();
+	
+	for (var i = 0; i < array_length(_microgame_keylist); i++){
+		var _date = variable_struct_get(___global.microgame_metadata, _microgame_keylist[i]).date_added;
+		
+		var _date_as_array = ___global.___split_string_by_char(_date, "/", true);
+		
+		if (array_length(_date_as_array) != 3){
+			show_debug_message("DATE ERROR IN " + string(_microgame_keylist[i].game_name));
+			_date = 0;
+		} else {
+			var _year = real(_date_as_array[0]);
+			if (_year < 100) _year = 2000 + _year;
+			var _month = real(_date_as_array[1]);
+			var _day = real(_date_as_array[2]);
+			
+			_date = (_year * 365) + (_month * 31) + (_day);
+			
+		}
+		
+	
+		ds_priority_add(_keys, _microgame_keylist[i], _date);
+	}
+	_microgame_keylist = [];
+	while (ds_priority_size(_keys) > 0){
+		array_push(_microgame_keylist, ds_priority_delete_max(_keys));
+	}
+	ds_priority_destroy(_keys);
+	
+	return _microgame_keylist;
+}
+
+
+// ------------------------------------------------------------------------------------------
+// PRIVATE SOUND FUNCTIONS (for use in base game, do not use in microgames, 
+// for public functions: check the public_audio_functions script
+// ------------------------------------------------------------------------------------------
+function ___play_song(_sound_index, _vol=1, _loop=true){
+	var _snd_id = audio_play_sound(_sound_index, 1, true);
+	audio_sound_gain(
+		_snd_id, 
+		_vol * audio_sound_get_gain(_sound_index) * VOL_MSC * VOL_MASTER,
+		0,
+	);
+	return _snd_id;
+}
+
+function ___play_sfx(_sound_index, _vol=1, _pitch=1, _loop=false){
+	var _snd_id = audio_play_sound(_sound_index, 1, _loop);
+	audio_sound_gain(
+		_snd_id, 
+		audio_sound_get_gain(_sound_index) * VOL_SFX * VOL_MASTER,
+		0,
+	);
+	audio_sound_pitch(_snd_id, _pitch);
+	return _snd_id;
+}
+
+
+// ------------------------------------------------------------------------------------------
+// DEV CONFIG GET TEST KEY
+// get the current game test key from the dev config file
+// ------------------------------------------------------------------------------------------
+function ___dev_config_get_test_key(){
+	if (!file_exists(___DEV_CONFIG_PATH)) return false;
+	var _file = file_text_open_read(___DEV_CONFIG_PATH);
+	var _str = file_text_read_string(_file);
+	var _data = json_parse(_str);
+	file_text_close(_file);
+	return _data.microgame_key;
 }

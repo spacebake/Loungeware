@@ -82,7 +82,7 @@ if (state == "close"){
 	}
 
 	surface_set_target(circle_surf);
-	draw_clear(close_col);
+	draw_clear(c_gbdark);
 	gpu_set_blendmode(bm_subtract);
 	var _rad = close_circle_prog * (_size/2);
 	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);

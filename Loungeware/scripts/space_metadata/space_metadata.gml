@@ -40,3 +40,4 @@ microgame_register("space_scooter", {
     date_added: "21/07/12",
     is_enabled: true
 });
+

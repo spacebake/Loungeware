@@ -167,7 +167,7 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 		}
 		
 		//apply last letter mod
-		if (!string_complete) && (i == str_len) y_mod -= 1;
+		if (!string_complete) && (i == str_len) y_mod -= 2*_OPT_scale;
 		
 		//add this letter to potential alive letters list
 		if (is_alive) && (string_complete) ds_list_add(___global.active_char_potential_letters, textbox_id + string(i));
