@@ -1,27 +1,25 @@
 <template>
   <div class="game-previews">
     <router-link
-      class="game-preview"
-      :style="`background-image: url('/games/${game.name}.png')`"
       v-for="(game, i) in games"
       :key="i"
       :to="getRoute(game.author_slug, game.game_slug)"
     >
-      <div class="text">
-        {{ game.config.game_name }} by {{ game.config.creator_name }}
-      </div>
+      <Cart class="cart-item" :name="game.name" />
     </router-link>
   </div>
 </template>
 
 <script lang="ts">
 import LaroldImg from '@/components/LaroldImg.vue';
+import Cart from '@/components/Cart.vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { routeName } from '@/router';
 
 @Component({
   components: {
     LaroldImg,
+    Cart,
   },
 })
 export default class Browse extends Vue {
@@ -43,11 +41,25 @@ export default class Browse extends Vue {
 .game-previews {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: space-around;
+  justify-content: center;
+  // justify-content: space-around;
+  // align-content: space-around;
   align-self: center;
-  max-width: 720px;
   margin: auto;
+}
+
+.cart-item {
+  margin: 32px;
+
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(2);
+    z-index: 4;
+    &:after {
+      opacity: 0;
+    }
+  }
 }
 
 .game-preview {
@@ -65,6 +77,42 @@ export default class Browse extends Vue {
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
   z-index: 2;
+
+  // background-image: url('/images/cart/cart-primary.png') !important;
+
+  //background-color: red;
+
+  width: 174px;
+  height: 152px;
+
+  // &:before {
+  // content: '';
+  // background-color: blue;
+  opacity: 1;
+  width: 174px;
+  height: 152px;
+  // position: absolute;
+
+  background-image: linear-gradient(
+      rgba(255, 0, 0, 0.45),
+      rgba(255, 0, 0, 0.45)
+    ),
+    url('/images/cart/cart-primary.png') !important;
+  // background-blend-mode: darken;
+  // background-color: blue;
+
+  // }
+
+  &:after {
+    opacity: 1;
+    width: 174px;
+    height: 152px;
+    position: absolute;
+    content: '';
+    // background-image: url('/images/cart/cart-secondary.png') !important;
+    // background-blend-mode: luminosity;
+    // background-color: red;
+  }
 
   // &:after {
   //   position: absolute;
