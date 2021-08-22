@@ -1,6 +1,7 @@
 {
   "ConfigValues": {
     "SHIPPING": {"option_html5_loadingbar":"Use Default","option_html5_index":"use_default","option_html5_localrunalert":"false","option_html5_display_cursor":"false","option_html5_outputdebugtoconsole":"false","option_html5_interpolate_pixels":"false",},
+    "Shipping": {"option_html5_loadingbar":"Use Default","option_html5_index":"use_default","option_html5_interpolate_pixels":"false",},
   },
   "option_html5_browser_title": "Created with GameMaker Studio 2",
   "option_html5_version": "1.0.0.0",

@@ -17,7 +17,8 @@ microgame_register("n8fl_adminsim", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
-    date_added: "21/07/09"
+    date_added: "21/07/09",
+    is_enabled: false
 });
 
 microgame_register("n8fl_cheat_seat", {
@@ -62,7 +63,8 @@ microgame_register("n8fl_escape1", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
-    date_added: "21/07/07"
+    date_added: "21/07/07",
+    is_enabled: false
 });
 
 microgame_register("n8fl_escape2", {
@@ -84,7 +86,8 @@ microgame_register("n8fl_escape2", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
-    date_added: "21/07/07"
+    date_added: "21/07/07",
+    is_enabled: false
 });
 
 microgame_register("n8fl_escape3", {
@@ -127,7 +130,8 @@ microgame_register("n8fl_penguin_blast", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["net8floz"],
-    date_added: "21/07/05"
+    date_added: "21/07/05",
+    is_enabled: false
 });
 
 microgame_register("n8fl_reach_for_it_mister", {

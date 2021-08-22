@@ -37,7 +37,8 @@ function LW_FGameLoader() constructor{
 		
 		if (_game.is_enabled == false){
 			show_debug_message("SKIP: " + string(game_name) + " is not enabled");
-			return false;
+			// instead of returning false here im going to delete the not enabled games from the list at a later point
+			// because we do not know if the player is going to select developer mode until a later point
 		}
 		
 		_games[$  game_name] = _game;

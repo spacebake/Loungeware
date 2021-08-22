@@ -8,6 +8,13 @@ for (var i = 1; i <= 5; i++){
 	}
 }
 
+// save fullscreen status on change
+if (fullscreen_status != window_get_fullscreen()){
+	fullscreen_status = window_get_fullscreen();
+	___dev_save();
+}
+
+
 // restart R
 if (keyboard_check_pressed(ord("R"))){
 	workspace_end();
@@ -45,4 +52,17 @@ if (keyboard_check_pressed(ord("I"))){
 } 
 if (infinite_timer){
 	with (___MG_MNGR) microgame_timer = microgame_timer_max;
+}
+
+// dev menu
+if (keyboard_check_pressed(ord("P"))){
+	file_delete(___DEV_CONFIG_PATH);
+	workspace_end();
+	application_surface_draw_enable(true);
+	audio_stop_all();
+	var _file = file_text_open_write("skipdevintro.lw");
+	file_text_close(_file);
+	game_restart();
+	
+	instance_destroy();
 }
