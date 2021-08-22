@@ -13,6 +13,14 @@ const TARGET_LAROLDS_LIST_FILE = path.join('src', 'common', 'laroldsList.ts');
 const TARGET_LABELS_DIR = path.join('public', 'games');
 const TARGET_LAROLDS_DIR = path.join('public', 'larolds');
 
+if (!fs.existsSync(TARGET_LABELS_DIR)) {
+  fs.mkdirSync(TARGET_LABELS_DIR);
+}
+
+if (!fs.existsSync(TARGET_LAROLDS_DIR)) {
+  fs.mkdirSync(TARGET_LAROLDS_DIR);
+}
+
 const pegExpression = fs
   .readFileSync(path.join(__dirname, 'extractConfig.peg'))
   .toString();
