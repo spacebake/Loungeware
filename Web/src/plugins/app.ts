@@ -9,14 +9,14 @@ export class App extends Vue {
   public get gqlUrl() {
     return (
       (process.env.VUE_APP_GRAPHQL_URL as string) ||
-      'https://loungeware-95658.uc.r.appspot.com/graphql'
+      'https://loungeware.games/graphql'
     );
   }
 
   public get oAuthLoginUrl() {
     return (
       (process.env.VUE_APP_OAUTH_LOGIN_URL as string) ||
-      'https://loungeware-95658.uc.r.appspot.com/oauth/login'
+      'https://loungeware.games/oauth/login'
     );
   }
 

@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="pragma" content="no-cache"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragma" content="no-cache" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Loungeware</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>%title%</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="apple-touch-icon" sizes="180x180" href="<%= BASE_URL %>apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<%= BASE_URL %>favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<%= BASE_URL %>favicon-16x16.png">
-    <link rel="manifest" href="<%= BASE_URL %>site.webmanifest">
-    <meta name="theme-color" content="#862F2A">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="<%= BASE_URL %>apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= BASE_URL %>favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%= BASE_URL %>favicon-16x16.png"
+    />
+    <link rel="manifest" href="<%= BASE_URL %>site.webmanifest" />
+    <meta name="theme-color" content="#862F2A" />
 
     <!-- Meta -->
-    <meta name="description" content="Loungeware is a collection of microgames in the style of Warioware that is made by volunteers all over the world in GameMaker Studio 2. Anyone can play for free or submit their own game.">
-    <meta name="keywords" content="game,gamemaker,gamedev,indiedev,indiegame,loungeware,gms2">
-    <meta name="author" content="Loungeware">
-    <meta name="copyright" content="Copyright 2021, Loungeware">
-    <meta name="theme-color" content="#862F2A">
+    <meta name="description" content="%meta.description%" />
+    <meta name="keywords" content="%meta.keywords%" />
+    <meta name="author" content="%meta.author%" />
+    <meta name="copyright" content="%meta.copyright%" />
+    <meta name="theme-color" content="#862F2A" />
 
     <!-- Twitter -->
-    <meta name="twitter:title" content="Loungeware">
-    <meta name="twitter:description" content="Loungeware is a collection of microgames in the style of Warioware that is made by volunteers all over the world in GameMaker Studio 2. Anyone can play for free or submit their own game.">
-    <meta name="twitter:image" content="/larolds/larold-jr.png">
-    <meta name="twitter:url" content="https://loungeware.games/">
+    <meta name="twitter:title" content="%meta.twitter:title%" />
+    <meta name="twitter:description" content="%meta.twitter:description%" />
+    <meta name="twitter:image" content="%meta.twitter:image%" />
+    <meta name="twitter:url" content="%meta.twitter:url%" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Loungeware">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://loungeware.games/">
-    <meta property="og:image" content="/larolds/larold-jr.png">
-    <meta property="og:description" content="Loungeware is a collection of microgames in the style of Warioware that is made by volunteers all over the world in GameMaker Studio 2. Anyone can play for free or submit their own game.">
-  
+    <meta property="og:title" content="%meta.og:title%" />
+    <meta property="og:type" content="%meta.og:type%" />
+    <meta property="og:url" content="%meta.og:url%" />
+    <meta property="og:image" content="%meta.og:image%" />
+    <meta property="og:description" content="%meta.og:description%" />
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
     </noscript>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
   </body>
 </html>

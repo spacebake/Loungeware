@@ -221,6 +221,11 @@ import { routeName } from '@/router';
     LaroldImg,
     RatingForm,
   },
+  metaInfo() {
+    return {
+      title: (this as any).game.config.game_name,
+    };
+  },
   apollo: {
     microgame: {
       fetchPolicy: 'cache-and-network',
@@ -260,30 +265,33 @@ import { routeName } from '@/router';
 export default class Game extends Vue {
   private microgame!: schema.Microgame;
   private imageCount = 0;
-  private mounted() {
-    var http = new XMLHttpRequest();
 
-    this.imageCount = 0;
-    while (this.imageCount < 10) {
-      http.open(
-        'HEAD',
-        '/screenshots/' +
-          this.game?.name +
-          '/image' +
-          (this.imageCount + 1) +
-          '.png',
-        false
-      );
-      http.send();
+  // private mounted() {}
 
-      if (http.status == 404) {
-        break;
-      }
-      this.imageCount++;
-    }
+  // private mounted() {
+  //   var http = new XMLHttpRequest();
 
-    return http.status != 404;
-  }
+  //   this.imageCount = 0;
+  //   while (this.imageCount < 10) {
+  //     http.open(
+  //       'HEAD',
+  //       '/screenshots/' +
+  //         this.game?.name +
+  //         '/image' +
+  //         (this.imageCount + 1) +
+  //         '.png',
+  //       false
+  //     );
+  //     http.send();
+
+  //     if (http.status == 404) {
+  //       break;
+  //     }
+  //     this.imageCount++;
+  //   }
+
+  //   return http.status != 404;
+  // }
 
   private get game() {
     return common.games.find(

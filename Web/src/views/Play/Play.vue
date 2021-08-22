@@ -11,7 +11,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component({})
+@Component({
+  metaInfo: {
+    title: 'Play',
+  },
+})
 export default class Play extends Vue {}
 </script>
 

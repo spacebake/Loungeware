@@ -20,6 +20,9 @@ import * as common from '@/common/gamesList';
     LaroldImg,
     GameCollection,
   },
+  metaInfo: {
+    title: 'Browse All Games',
+  },
 })
 export default class Browse extends Vue {
   private get games() {

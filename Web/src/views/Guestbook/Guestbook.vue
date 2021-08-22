@@ -62,6 +62,9 @@ import * as schema from '@/gql/schema';
   components: {
     LaroldImg,
   },
+  metaInfo: {
+    title: 'Sign Our Guestbook',
+  },
   apollo: {
     guestbooks: {
       query: gql`

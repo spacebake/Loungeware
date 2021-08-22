@@ -8,7 +8,11 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-@Component
+@Component({
+  metaInfo: {
+    title: 'Page Nout Found',
+  },
+})
 export default class Home extends Vue {}
 </script>
 

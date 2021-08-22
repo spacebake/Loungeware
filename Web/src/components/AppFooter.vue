@@ -56,7 +56,7 @@
           <div class="shoutout">
             <img
               class="img-pixel"
-              src="/larolds/heart.png"
+              src="/images/heart.png"
               alt="A picture of a heart wearing sunglasses"
             />
             <p>

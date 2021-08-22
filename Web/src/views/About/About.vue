@@ -118,6 +118,9 @@ import LaroldImg from '@/components/LaroldImg.vue';
 
 @Component({
   components: { LaroldImg },
+  metaInfo: {
+    title: 'About',
+  },
 })
 export default class About extends Vue {
   private navItems = {
