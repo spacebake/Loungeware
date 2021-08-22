@@ -1,5 +1,5 @@
 if (step < 1) exit;
-var _jam_active = !audio_is_paused(jam_id);
+var _jam_active = (audio_is_playing(jam_id) && !audio_is_paused(jam_id));
 var _scale = window_get_height() / WINDOW_BASE_SIZE;
 var _os = (window_get_width() - window_get_height())/2;
 display_set_gui_maximise(_scale, _scale, _os, 0);

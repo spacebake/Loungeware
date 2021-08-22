@@ -114,6 +114,8 @@ if (state == "end"){
 		instance_activate_object(_id);
 	}
 	
+	if (jam_id != noone && audio_is_playing(jam_id)) audio_stop_sound(jam_id);
+	
 	for (var i = 0; i < array_length(paused_sounds); i++){
 		var _snd_id = paused_sounds[i];
 		audio_resume_sound(_snd_id);
