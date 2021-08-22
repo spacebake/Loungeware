@@ -8,61 +8,75 @@
           /
           {{ displayName }}
         </h2>
-        <div v-if="microgame">
+        <!-- <div v-if="microgame">
           <div class="btn solid red">About</div>
           <div class="btn">Play</div>
           <div class="btn">More from {{ authorName }}</div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div v-if="$apollo.queries.microgame.loading"></div>
-    <div v-else-if="!microgame">
+    <!-- <div v-else-if="!microgame">
       <img class="cart img-pixel media-border" :src="cartLabelSrc" />
       <p>
         This game has not been claimed yet. <a href="#">Is this your game?</a>
       </p>
-    </div>
+    </div> -->
     <div v-else>
       <div class="row center-xs full-width">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12">
           <div v-if="!game">Could not find game</div>
-          <div v-else>
-            <img class="cart img-pixel media-border" :src="cartLabelSrc" />
+          <div class="row" v-else>
+            <div class="col">
+              <!-- INFO -->
+              <div>
+                <div class="title mt-1">INFO</div>
+                <div class="">Added On {{ dateAdded }}</div>
+                <div class="">Duration {{ gameDuration }} seconds</div>
+              </div>
 
-            <div class="title mt-1">INFO</div>
-            <div>
-              <strong>{{ displayName }}</strong> by
-              <strong>{{ authorName }}</strong> On
-              <strong>{{ dateAdded }}</strong>
+              <!-- CREDITS -->
+              <div>
+                <div v-if="credits.length > 0">
+                  <div class="title mt-2">CREDITS</div>
+                  <ul>
+                    <li v-for="(item, i) in credits" :key="i">
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div>Duration {{ gameDuration }} seconds</div>
+            <div class="col">
+              <img class="cart img-pixel media-border" :src="cartLabelSrc" />
 
-            <div class="title mt-1">
-              Community Rating <small> ( {{ ratingsCount }} )</small>
-            </div>
-            <div>
-              Difficulty: <span class="ml-1">{{ difficultyRating }}/5</span>
-            </div>
-            <div>
-              Favorited: <span class="ml-1">{{ timesFavorited }}</span>
-            </div>
-
-            <div v-if="credits.length > 0">
-              <div class="title mt-2">CREDITS</div>
-              <div>Featuring</div>
-              <ul>
-                <li v-for="(item, i) in credits" :key="i">
-                  {{ item }}
-                </li>
-              </ul>
+              <div class="text-center">
+                <div class="title mt-1">
+                  <strong>{{ displayName }}</strong> <br />by
+                  <strong>{{ authorName }}</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-6">
-          <div class="media-border" style="width: 100%; height: 340px">
-            <!-- run html5 but with only one game loaded? <br />
-            preview images? -->
-          </div>
+      </div>
+      <!-- RATING -->
+      <div v-if="!!microgame" class="text-center">
+        <div class="title mt-1">
+          Community Rating <small> ( {{ ratingsCount }} )</small>
+        </div>
+
+        <div class="mb-1 mt-1">
+          <strong
+            >Difficulty:
+            <span class="ml-1">{{ difficultyRating }}/5</span></strong
+          >
+        </div>
+        <div>
+          <strong>
+            Favorited:
+            <span class="ml-1">{{ timesFavorited }}</span>
+          </strong>
         </div>
       </div>
       <div v-if="hasRatings" class="border mt-2 mb-2" />
@@ -106,8 +120,8 @@
           </div>
         </div>
       </div>
-      <div class="border mt-2 mb-2" />
-      <div class="row center-xs full-width">
+      <div v-if="!!microgame" class="border mt-2 mb-2" />
+      <div v-if="!!microgame" class="row center-xs full-width">
         <div class="col-xs-12">
           <h2>
             <larold-img name="frog larold" class="mr-1" />
@@ -209,7 +223,19 @@ export default class Game extends Vue {
   }
 
   private get dateAdded() {
-    return this.game?.config?.date_added || '';
+    const dateAdded = this.game?.config?.date_added || '';
+
+    if (typeof dateAdded === 'string') {
+      return dateAdded;
+    }
+    if (typeof dateAdded === 'object') {
+      try {
+        return `${dateAdded.month}, ${dateAdded.day} ${dateAdded.year}`;
+      } catch (err) {
+        return '';
+      }
+    }
+    return dateAdded;
   }
 
   private get gameDuration() {
@@ -265,8 +291,8 @@ export default class Game extends Vue {
 
 <style lang="scss" scoped>
 .cart {
-  width: 300px;
-  height: 155px;
+  width: 456px;
+  height: 216px;
 }
 
 .rating-form {
