@@ -117,3 +117,5 @@ dist
 .firebase
 
 public/html5game
+public/games
+public/larolds
