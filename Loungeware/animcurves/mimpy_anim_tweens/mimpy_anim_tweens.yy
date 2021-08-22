@@ -84,12 +84,12 @@
         {"th0":-0.0220091939,"th1":0.0134788454,"tv0":-0.047039628,"tv1":-0.0131372213,"x":0.95,"y":1.0,},
         {"th0":-0.0121344328,"th1":0.125,"tv0":-0.0134771168,"tv1":0.0,"x":1.0,"y":1.0,},
       ],"resourceVersion":"1.0","name":"BounceInOut","tags":[],"resourceType":"GMAnimCurveChannel",},
-    {"colour":4293475502,"visible":true,"points":[
+    {"colour":4293475502,"visible":false,"points":[
         {"th0":-0.1,"th1":0.0472627543,"tv0":0.0,"tv1":0.0,"x":0.0,"y":0.0,},
         {"th0":-0.212200522,"th1":0.236750513,"tv0":0.0,"tv1":0.0,"x":0.5,"y":1.0,},
         {"th0":-0.052737236,"th1":0.1,"tv0":0.0,"tv1":0.0,"x":1.0,"y":0.0,},
       ],"resourceVersion":"1.0","name":"Jump","tags":[],"resourceType":"GMAnimCurveChannel",},
-    {"colour":4290799884,"visible":true,"points":[
+    {"colour":4290799884,"visible":false,"points":[
         {"th0":-0.25,"th1":0.0,"tv0":0.0,"tv1":0.25,"x":0.0,"y":0.0,},
         {"th0":-0.25,"th1":0.25,"tv0":0.0,"tv1":0.0,"x":0.5,"y":0.5,},
         {"th0":0.0,"th1":0.25,"tv0":-0.25,"tv1":0.0,"x":1.0,"y":1.0,},

@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mimpy_duckdate_mus_hop.wav",
-  "duration": 7.205,
+  "duration": 7.2,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/mimpy/duckdate/Sounds.yy",
