@@ -93,11 +93,15 @@ scroll_y_target = 0;
 cart_float_dir = 0;
 
 function save_dev_config(_microgame_key){
-		var _data = {
-			microgame_key: _microgame_key,
+		if(!HTML_MODE){
+
+		} else {
+			var _data = {
+				microgame_key: _microgame_key,
+			}
+			var _str = json_stringify(_data);
+			var _file = file_text_open_write(___DEV_CONFIG_PATH);
+			file_text_write_string(_file, _str);
+			file_text_close(_file);
 		}
-		var _str = json_stringify(_data);
-		var _file = file_text_open_write(___DEV_CONFIG_PATH);
-		file_text_write_string(_file, _str);
-		file_text_close(_file);
 }

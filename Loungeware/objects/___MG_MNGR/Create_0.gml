@@ -118,7 +118,7 @@ if (!TEST_MODE_ACTIVE){
 } else {
 	
 	// get which game to load from config file
-	var  _game_key = ___dev_config_get_test_key()
+	var  _game_key = ___dev_config_get_test_key();
 	___state_change("playing_microgame");
 	
 	// This should only run when launching the game in debug mode (prompt is normally initialized in draw)

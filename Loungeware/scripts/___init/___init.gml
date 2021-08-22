@@ -190,7 +190,7 @@ function ___GAME_INIT(){
 	
 	
 	// delete dev config file if it exists but the microgame with key doesn't exist
-	if (___global.developer_mode_active && file_exists(___DEV_CONFIG_PATH)){
+	if (DEVELOPER_MODE && file_exists(___DEV_CONFIG_PATH)){
 		var _config_microgame_key = ___dev_config_get_test_key();
 		var _valid_config_exists = false;
 		var _metadata_all = ___global.microgame_metadata;
@@ -203,31 +203,51 @@ function ___GAME_INIT(){
 		}
 	}
 	
+
+
+
+
+	
+	
+	// -------------------------------------------------------------------------------------
+
 	
 	// if shipping build, go straight to the title screen
 	if (CONFIG_IS_SHIPPING){
 		room_goto(___rm_main_menu);
 		instance_create_layer(0, 0, layer, ___obj_title_screen);
-	
-	// if developer mode, check for microgame dev config and load that game, if no config exists, load developer menu
-	} else {
 		
-		if (file_exists(___DEV_CONFIG_PATH)){
-			room_goto(___rm_restroom);
-			instance_create_layer(0, 0, layer, ___MG_MNGR);
+	} else if (HTML_MODE) {
+
+		var _gallery_goto_key = ___url_get_var("gallery_id");
+		var _boot_to_gallery = ___microgame_key_exists(_gallery_goto_key);
+		if   (_boot_to_gallery){
+			___microgame_load_gallery_version(_gallery_goto_key, 1);
 		} else {
 			room_goto(___rm_main_menu);
-			instance_create_layer(0, 0, layer, ___obj_dev_menu);
+			instance_create_layer(0, 0, layer, ___obj_title_screen);
 		}
+	
+	// if developer mode, check for microgame dev config and load that game, if no config exists, load developer menu
+	} else if (!HTML_MODE && file_exists(___DEV_CONFIG_PATH)){
+			room_goto(___rm_restroom);
+			instance_create_layer(0, 0, layer, ___MG_MNGR);
+	// if developer mode but no config file, load dev menu
+	} else {
+		room_goto(___rm_main_menu);
+		instance_create_layer(0, 0, layer, ___obj_dev_menu);
 	}
+	
 
 }
 
 function ___save_game(){
-	//var _str = json_stringify(___global.save_data);
-	//var _file = file_text_open_write(___global.save_filename);
-	//file_text_write_string(_file, _str);
-	//file_text_close(_file);
+	if (!HTML_MODE){
+		//var _str = json_stringify(___global.save_data);
+		//var _file = file_text_open_write(___global.save_filename);
+		//file_text_write_string(_file, _str);
+		//file_text_close(_file);
+	}
 }
 
 

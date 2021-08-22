@@ -26,7 +26,8 @@
 #macro CONFIG_IS_SHIPPING false
 #macro Shipping:CONFIG_IS_SHIPPING true
 
-
+#macro HTML_MODE (!(os_browser == browser_not_a_browser))
+#macro DEVELOPER_MODE (___global.developer_mode_active)
 
 
 

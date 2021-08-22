@@ -553,10 +553,91 @@ function ___play_sfx(_sound_index, _vol=1, _pitch=1, _loop=false){
 // get the current game test key from the dev config file
 // ------------------------------------------------------------------------------------------
 function ___dev_config_get_test_key(){
-	if (!file_exists(___DEV_CONFIG_PATH)) return false;
-	var _file = file_text_open_read(___DEV_CONFIG_PATH);
-	var _str = file_text_read_string(_file);
-	var _data = json_parse(_str);
-	file_text_close(_file);
-	return _data.microgame_key;
+	if (!HTML_MODE){
+		if (!file_exists(___DEV_CONFIG_PATH)) return false;
+		var _file = file_text_open_read(___DEV_CONFIG_PATH);
+		var _str = file_text_read_string(_file);
+		var _data = json_parse(_str);
+		file_text_close(_file);
+		return _data.microgame_key;
+	}
+}
+
+
+// ------------------------------------------------------------------------------------------
+// URL GET QUERY
+// returns the key/value pairs fromt the URL query string as a struct 
+//(or empty struct if none exist, or not in html mode)
+// ------------------------------------------------------------------------------------------
+function ___url_get_query(){
+	show_debug_message("attempting to check query string");
+	var _data = {};
+	if (!HTML_MODE) return _data;
+	for (var i = 0; i < parameter_count(); i++){
+		var _str = parameter_string(i+1);
+		var _equal_pos = string_pos("=", _str);
+		if (_equal_pos <= 0) continue;
+		var _key = string_delete(_str, _equal_pos, string_length(_str) - _equal_pos + 1);
+		var _val = string_delete(_str, 1, _equal_pos);
+		variable_struct_set(_data, _key, _val);
+	};
+	return _data;
+}
+
+// ------------------------------------------------------------------------------------------
+// URL GET VAR
+// get the value of the given url querty variable if it exists. if it doesn't exist, returns -1
+// ------------------------------------------------------------------------------------------
+function ___url_get_var(_varname){
+	var _data = ___url_get_query();
+	if (!variable_struct_exists(_data, _varname)) return -1;
+	return variable_struct_get(_data, _varname);
+}
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME KEY EXISTS
+// checks whether a microgame exists in the data
+// ------------------------------------------------------------------------------------------
+function ___microgame_key_exists(_key, _override_disable=true){
+	if (_key == -1) return false;
+	var _exists = false;
+	var _keylist = variable_struct_get_names(___global.save_data.microgame_data);
+	for (var i = 0; i < array_length(_keylist); i++){
+		if (_keylist[i] == _key){
+			var _is_enabled = variable_struct_get(___global.save_data.microgame_data, "is_enabled");
+			if (_is_enabled){
+				_exists = true;
+			} else {
+				if (_override_disable) _exists = true;
+			}
+			break;
+		} 
+	}
+	return _exists;
+}
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME LOAD GALLERY VERSION
+// loads the gallery version of a microgame
+// ------------------------------------------------------------------------------------------
+function ___microgame_load_gallery_version(_microgame_key, _difficulty=1){
+	
+	_difficulty = round(clamp(_difficulty, 1, 5));
+	room_goto(___rm_restroom);
+	
+	with(instance_create_layer(0, 0, layer, ___MG_MNGR)){
+		___state_change("game_switch");
+		___global.difficulty_level = _difficulty;
+		force_substate = 5;
+		var _game_data = variable_struct_get(___global.microgame_metadata, _microgame_key);
+		cart_sprite = ___cart_sprite_create(_game_data);
+		microgame_next_name = _microgame_key;
+		microgame_next_metadata = _game_data;
+		gb_scale = gb_min_scale;
+		gallery_mode = true;
+		gallery_first_pass = true;
+		microgame_current_metadata = _game_data;
+		
+	}
+	instance_destroy();
 }
