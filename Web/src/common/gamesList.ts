@@ -293,6 +293,14 @@ export const games = [
       date_added: '21/07/05',
       game_name: 'Reach For It, Mister',
       creator_name: 'net8floz',
+      description: [
+        'The rad crew are at it again. But this time with cowboy hats.',
+      ],
+      how_to_play: [
+        "You can play the game in many ways but only one way is the correct way. I don't want to give away the ending though",
+        'This is the test of a second paragraph',
+      ],
+      is_hidden: false,
       prompt: 'Wait for it',
       init_room: 'n8fl_reach_for_it_mister_rm',
       view_width: 240,
@@ -308,15 +316,6 @@ export const games = [
       supports_difficulty_scaling: true,
       credits: ['net8floz', 'meseta', 'space'],
       is_enabled: true,
-      is_hidden: false,
-      description: [
-        'The rad crew are at it again. But this time with cowboy hats.',
-      ],
-      how_to_play: [
-        "You can play the game in many ways but only one way is the correct way. I don't want to give away the ending though",
-        'This is the test of a second paragraph',
-      ],
-      author_id: 'n8fl',
     },
     author_slug: 'n8fl',
     game_slug: 'reach-for-it-mister',
@@ -370,6 +369,31 @@ export const games = [
     },
     author_slug: 'mimpy',
     game_slug: 'fire-alarm',
+  },
+  {
+    name: 'mimpy_objection',
+    config: {
+      config_version: 1,
+      game_name: 'Objection!',
+      creator_name: 'Mimpy',
+      prompt: 'CONTRADICT',
+      init_room: 'mimpy_objection_rm',
+      view_width: 720,
+      view_height: 480,
+      time_seconds: 8,
+      music_track: 'sng_ennway_bit_battle',
+      music_loops: true,
+      interpolation_on: false,
+      cartridge_col_primary: [94, 116, 204],
+      cartridge_col_secondary: [177, 209, 215],
+      cartridge_label: 'mimpy_objection_spr_label',
+      default_is_fail: true,
+      supports_difficulty_scaling: false,
+      credits: ['Mimpy'],
+      date_added: '21/07/06',
+    },
+    author_slug: 'mimpy',
+    game_slug: 'objection',
   },
   {
     name: 'baku_chug',
@@ -607,5 +631,5 @@ export const games = [
     game_slug: 'target',
   },
 ];
-export const numGames = 22;
+export const numGames = 23;
 export const numContributors = 22;
