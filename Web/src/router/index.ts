@@ -72,13 +72,13 @@ const routes: Array<RouteConfig> = [
       import(/* webpackChunkName: "browse" */ '../views/Browse/Browse.vue'),
   },
   {
-    path: '/browse/by-author/:authorSlug',
+    path: '/browse/:author',
     name: routeName('browse-by-author'),
     component: () =>
       import(/* webpackChunkName: "browse" */ '../views/Browse/ByAuthor.vue'),
   },
   {
-    path: '/browse/:gameSlug',
+    path: '/browse/:author/:game',
     name: routeName('game-page'),
     component: () =>
       import(/* webpackChunkName: "browse" */ '../views/Browse/Game.vue'),

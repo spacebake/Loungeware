@@ -113,7 +113,7 @@ function extractConfigJsonFromGml(scriptPaths) {
 
   const enabled = games.filter(
     (game) =>
-      game.config.is_enabled === undefined || game.config.is_enabled === true
+      game.config.is_hidden === undefined || game.config.is_hidden === false
   );
 
   console.log(
@@ -154,6 +154,17 @@ function copyLabelImages(games, yypData) {
  * @param {object[]} games List of game config objects
  */
 function outputManifest(games) {
+  // todo, validate unique author ids
+  games.forEach((game) => {
+    game.author_slug = game.config.author_id
+      ? game.config.author_id
+      : game.name.split('_')[0];
+
+    game.author_slug.replace(/_/g, '-');
+    game.game_slug = game.name
+      .replace(/_/g, '-')
+      .replace(`${game.author_slug}-`, '');
+  });
   const numGames = games.length;
   const numContributors = [
     ...new Set(games.map((game) => game.config.credits).flat()),

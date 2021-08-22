@@ -5,8 +5,8 @@
         <h2>
           <larold-img name="ghost larold" class="mr-1" />
           <router-link :to="{ name: 'browse' }">All Games</router-link>
-          / by
-          <strong> {{ $route.params.authorSlug }} </strong>
+          /
+          <strong> {{ authorName }} </strong>
         </h2>
         <GameCollection :games="games" />
       </div>
@@ -29,8 +29,14 @@ import * as common from '@/common/gamesList';
 export default class Browse extends Vue {
   private get games() {
     return common.games.filter(
-      (i) => i.name.indexOf(this.$route.params.authorSlug) == 0
+      (i) => i.author_slug == this.$route.params.author
     );
+  }
+
+  private get authorName() {
+    return this.games.length > 0
+      ? this.games[0].config.creator_name
+      : 'no author';
   }
 }
 </script>

@@ -7,12 +7,11 @@
           <larold-img name="ghost larold" class="mr-1" />
           <router-link :to="{ name: 'browse' }"> All Games </router-link>
           /
-          <span v-if="!!microgame">
-            <router-link active-class="" :to="browseByAuthorRoute">
-              {{ authorName }}
-            </router-link>
-            /
-          </span>
+
+          <router-link active-class="" :to="browseByAuthorRoute">
+            {{ authorName }}
+          </router-link>
+          /
 
           {{ displayName }}
         </h2>
@@ -60,8 +59,38 @@
     </div>
 
     <!-- LOADING -->
-    <div v-else-if="$apollo.queries.microgame.loading">
+    <!-- <div v-else-if="$apollo.queries.microgame.loading">
       <p>Loading</p>
+    </div> -->
+
+    <div class="text-center">
+      <h2 class="title">"{{ game.config.prompt }}"</h2>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div v-if="game.config.description" class="row center-xs full-width">
+      <div class="col-xs-12">
+        <div class="title">Description</div>
+        <p
+          v-for="(paragraph, i) in game.config.description"
+          :key="`${i}-description`"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
+    </div>
+
+    <!-- HOW TO PLAY -->
+    <div v-if="game.config.how_to_play" class="row center-xs full-width">
+      <div class="col-xs-12">
+        <div class="title">How To Play</div>
+        <p
+          v-for="(paragraph, i) in game.config.how_to_play"
+          :key="`${i}-how-to-play`"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
     </div>
 
     <div class="border mt-2 mb-2" />
@@ -175,11 +204,9 @@
 import LaroldImg from '@/components/LaroldImg.vue';
 import RatingForm from './components/RatingForm.vue';
 import { Component, Vue } from 'vue-property-decorator';
-// import { RouteName, getLinkPath } from '@/router';
 import * as common from '@/common/gamesList';
 import * as schema from '@/gql/schema';
 import gql from 'graphql-tag';
-import auth from '@/plugins/auth';
 import { routeName } from '@/router';
 
 @Component({
@@ -192,7 +219,7 @@ import { routeName } from '@/router';
       fetchPolicy: 'cache-and-network',
       variables() {
         return {
-          gameSlug: this.game.name.replaceAll('_', '-'),
+          gameSlug: `${this.game.author_slug}-${this.game.game_slug}`,
         };
       },
       query: gql`
@@ -228,20 +255,23 @@ export default class Game extends Vue {
 
   private get game() {
     return common.games.find(
-      (i) => i.name.replaceAll('_', '-') == this.$route.params.gameSlug
+      (i) =>
+        i.game_slug == this.$route.params.game &&
+        i.author_slug == this.$route.params.author
     );
   }
 
   private get browseByAuthorRoute() {
-    if (!this.microgame || !this.microgame.authorSlug) {
-      return {};
-    }
     return {
       name: routeName('browse-by-author'),
       params: {
-        authorSlug: this.microgame.authorSlug,
+        author: this.authorSlug,
       },
     };
+  }
+
+  private get authorSlug() {
+    return this.game?.author_slug || '';
   }
 
   private get cartLabelSrc() {

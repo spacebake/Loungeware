@@ -5,7 +5,7 @@
       :style="`background-image: url('/games/${game.name}.png')`"
       v-for="(game, i) in games"
       :key="i"
-      :to="getRoute(game.name)"
+      :to="getRoute(game.author_slug, game.game_slug)"
     >
       <div class="text">
         {{ game.config.game_name }} by {{ game.config.creator_name }}
@@ -27,11 +27,12 @@ import { routeName } from '@/router';
 export default class Browse extends Vue {
   @Prop(Array) games!: [];
 
-  private getRoute(gameSlug: string) {
+  private getRoute(authorSlug: string, gameSlug: string) {
     return {
       name: routeName('game-page'),
       params: {
-        gameSlug: gameSlug.replaceAll('_', '-').replaceAll(' ', '-'),
+        author: authorSlug,
+        game: gameSlug,
       },
     };
   }
