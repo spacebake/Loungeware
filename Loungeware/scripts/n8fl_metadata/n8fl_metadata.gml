@@ -18,7 +18,8 @@ microgame_register("n8fl_adminsim", {
     supports_difficulty_scaling: true,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/09",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: true,
 });
 
 microgame_register("n8fl_cheat_seat", {
@@ -41,7 +42,8 @@ microgame_register("n8fl_cheat_seat", {
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/07",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: true
 });
 
 microgame_register("n8fl_escape1", {
@@ -64,7 +66,8 @@ microgame_register("n8fl_escape1", {
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/07",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: false,
 });
 
 microgame_register("n8fl_escape2", {
@@ -87,7 +90,8 @@ microgame_register("n8fl_escape2", {
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/07",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: false,
 });
 
 microgame_register("n8fl_escape3", {
@@ -109,11 +113,23 @@ microgame_register("n8fl_escape3", {
     supports_difficulty_scaling: false,
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/07",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: true
 });
 
 microgame_register("n8fl_penguin_blast", {
     config_version : 1,
+	game_version: 1,
+	game_version_date: {
+		day: 21,
+		month: "July",
+		year: 2021
+	},
+	date_added: {
+		day: 21,
+		month: "July",
+		year: 2021
+	},
     game_name: "Penguin Blast",
     creator_name : "net8floz",
     prompt: "Don't Get Blasted",
@@ -131,13 +147,46 @@ microgame_register("n8fl_penguin_blast", {
     supports_difficulty_scaling: true,
     credits: ["net8floz"],
     date_added: "21/07/05",
-    is_enabled: false
+    is_enabled: false,
+	is_hidden: false,
+	description: [
+	"The rad crew are at it again. But this time with cowboy hats."
+	],
+	how_to_play: [
+	"You can play the game in many ways but only one way is the correct way. I don't want to give away the ending though",
+	"This is the test of a second paragraph"
+	],
+	author_id: "n8fl"
 });
 
 microgame_register("n8fl_reach_for_it_mister", {
   config_version: 1,
+  
+  // for public display
+  game_version: 1,
+  game_version_date: {
+	day: 21,
+	month: "July",
+	year: 2021
+  },
+	date_added: {
+	day: 21,
+	month: "July",
+	year: 2021
+  },
   game_name: "Reach For It, Mister",
   creator_name : "net8floz",
+  description: [
+	"The rad crew are at it again. But this time with cowboy hats."
+  ],
+  how_to_play: [
+	"You can play the game in many ways but only one way is the correct way. I don't want to give away the ending though",
+	"This is the test of a second paragraph"
+  ],
+  
+  // web helpers
+  is_hidden: false,
+  
   prompt: "Wait for it",
   init_room: n8fl_reach_for_it_mister_rm,
   view_width: 240,
@@ -152,5 +201,6 @@ microgame_register("n8fl_reach_for_it_mister", {
   default_is_fail: true,
   supports_difficulty_scaling: true,
   credits: ["net8floz", "meseta", "space"],
-  date_added: "21/07/05"
+  date_added: "21/07/05",
+  is_enabled: true,
 });

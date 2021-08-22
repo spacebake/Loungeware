@@ -3,7 +3,6 @@
 // change this file? banned for life
 function microgame_register(microgame_name, metadata){
 	if(variable_global_exists("___MetaGameLoader") == false){
-		//show_message("Building");
 		global.___MetaGameLoader = new LW_FGameLoader();
 		
 		var param_config_version = new LW_FGameLoaderNumberTransformer("config_version", 0);
@@ -43,7 +42,31 @@ function microgame_register(microgame_name, metadata){
 			return is_string(val);
 		});
 		
+		var param_how_to_play = new LW_FGameLoaderStringArrayTransformer("how_to_play", undefined);
+		param_how_to_play.set_nullable();
+		
+		var param_description = new LW_FGameLoaderStringArrayTransformer("description", undefined);
+		param_description.set_nullable();
+		
+		var param_author_id = new LW_FGameLoaderStringArrayTransformer("author_id", undefined);
+		param_author_id.set_nullable();
+		
+		var param_game_version = new LW_FGameLoaderStringTransformer("game_version", undefined);
+		param_game_version.set_nullable();
+		
+		var param_game_version_date = new LW_FGameLoaderDateTransformer("version_date", undefined);
+		param_game_version_date.set_nullable();
+		
+		var param_is_hidden = new LW_FGameLoaderBoolTransformer("is_hidden", undefined);
+		param_is_hidden.set_nullable();
+		
 		var rules = [
+			param_how_to_play,
+			param_description,
+			param_author_id,
+			param_game_version,
+			param_game_version_date,
+			param_is_hidden,
 			param_config_version,
 			param_is_enabled,
 			param_view_width,
