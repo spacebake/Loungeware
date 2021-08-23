@@ -1,21 +1,37 @@
 <template>
   <div :style="`width: ${width}px; height:${height}px`" class="cart">
-    <canvas
-      :style="`width: ${width}px; height:${height}px`"
-      ref="primaryCanvas"
-    />
-    <canvas
-      :style="`width: ${width}px; height:${height}px`"
-      ref="secondaryCanvas"
-    />
+    <svg
+      viewBox="0 0 87 76"
+      xmlns="http://www.w3.org/2000/svg"
+      style="
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        stroke-linejoin: round;
+        stroke-miterlimit: 2;
+      "
+    >
+      <path
+        d="M1,76L1,75L0,75L0,2L1,2L1,1L2,1L2,0L85,0L85,1L86,1L86,2L87,2L87,75L86,75L86,76L1,76Z"
+        :style="`fill: ${primaryColor}`"
+      />
+      <path
+        d="M10,26L10,25L9,25L9,24L8,24L8,23L7,23L7,22L6,22L6,12L7,12L7,11L8,11L8,10L9,10L9,9L10,9L10,8L78,8L78,9L79,9L79,10L80,10L80,11L81,11L81,12L82,12L82,22L81,22L81,23L80,23L80,24L79,24L79,25L78,25L78,26L10,26Z"
+        :style="`fill: ${secondaryColor}`"
+      />
+      <path
+        d="M42,73L43,73L43,74L45,74L45,73L46,73L46,72L47,72L47,71L41,71L41,72L42,72L42,73Z"
+        :style="`fill: ${secondaryColor}`"
+      />
+      <rect
+        x="6"
+        y="33"
+        width="76"
+        height="36"
+        :style="`fill: ${secondaryColor}; background-image:url('${label}')`"
+      />
+    </svg>
     <div
-      :style="`
-        width: ${labelWidth}px; 
-        height: ${labelHeight}px; 
-        background-image: url('${label}');
-        top: ${labelY}px;
-        left: ${labelX}px;
-    `"
+      :style="`width: ${labelWidth}px; height: ${labelHeight}px;background-image: url('${label}'); top: ${labelY}px; left: ${labelX}px;`"
     />
   </div>
 </template>
@@ -61,9 +77,6 @@ export default class Cart extends Vue {
   @Prop(String) name?: string;
   @Prop(Number) size?: number;
 
-  @Ref('primaryCanvas') private primaryCanvas!: HTMLCanvasElement;
-  @Ref('secondaryCanvas') private secondaryCanvas!: HTMLCanvasElement;
-
   private get game() {
     return common.games.find((i) => i.name == this.name);
   }
@@ -97,67 +110,11 @@ export default class Cart extends Vue {
   }
 
   private get labelX() {
-    return 13 * (this.size || 1);
+    return 12 * (this.size || 1);
   }
 
   private get labelY() {
-    return 62 * (this.size || 1);
-  }
-
-  private mounted() {
-    if (this.primaryCanvas) {
-      const ctx = this.primaryCanvas.getContext('2d');
-
-      this.primaryCanvas.width = this.width;
-      this.primaryCanvas.height = this.height;
-      const primaryImage = new Image(this.width, this.height);
-      primaryImage.src = '/static/images/cart/cart-primary.png';
-
-      primaryImage.addEventListener('load', () => {
-        if (ctx) {
-          ctx.drawImage(primaryImage, 0, 0, this.width, this.height);
-
-          ctx.fillStyle = this.primaryColor;
-          ctx.globalCompositeOperation = 'multiply';
-          ctx.fillRect(
-            0,
-            0,
-            this.primaryCanvas.width,
-            this.primaryCanvas.height
-          );
-
-          ctx.globalCompositeOperation = 'destination-in';
-          ctx.drawImage(primaryImage, 0, 0, this.width, this.height);
-        }
-      });
-    }
-
-    if (this.secondaryCanvas) {
-      const ctx = this.secondaryCanvas.getContext('2d');
-
-      this.secondaryCanvas.width = this.width;
-      this.secondaryCanvas.height = this.height;
-      const secondaryImage = new Image(this.width, this.height);
-      secondaryImage.src = '/static/images/cart/cart-secondary.png';
-
-      secondaryImage.addEventListener('load', () => {
-        if (ctx) {
-          ctx.drawImage(secondaryImage, 0, 0, this.width, this.height);
-
-          ctx.fillStyle = this.secondaryColor;
-          ctx.globalCompositeOperation = 'multiply';
-          ctx.fillRect(
-            0,
-            0,
-            this.secondaryCanvas.width,
-            this.secondaryCanvas.height
-          );
-
-          ctx.globalCompositeOperation = 'destination-in';
-          ctx.drawImage(secondaryImage, 0, 0, this.width, this.height);
-        }
-      });
-    }
+    return 66 * (this.size || 1);
   }
 }
 </script>
@@ -165,20 +122,9 @@ export default class Cart extends Vue {
 <style scoped lang="scss">
 .cart {
   position: relative;
-  //   border-radius: 5px;
-  //   background-color: red;
-  > canvas {
-    top: 0;
-    left: 0;
-    position: absolute;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-crisp-edges;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-  }
 
   > div {
-    position: relative;
+    position: absolute;
     z-index: 1;
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
