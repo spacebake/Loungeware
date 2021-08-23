@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "___snd_gtr.wav",
-  "duration": 18.0767574,
+  "soundFile": "___snd_gtr_intro.wav",
+  "duration": 0.940385,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",
   },
   "resourceVersion": "1.0",
-  "name": "___snd_gtr",
+  "name": "___snd_gtr_intro",
   "tags": [],
   "resourceType": "GMSound",
 }

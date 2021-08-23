@@ -1,1 +1,1 @@
-room_goto(___rm_init);
+window_center();

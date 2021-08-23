@@ -198,16 +198,14 @@ function draw_circle_transition(){
 
 function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	
-	var _store_surf = surface_get_target();
+	
 	var _store_blend = gpu_get_blendmode();
 
 	if (!surface_exists(surf_larold)) surf_larold = surface_create(canvas_w, canvas_h);
-
-	
-	// clear
 	surface_set_target(surf_larold);
+
+	// clear
 	draw_clear(c_gboff);
-	surface_reset_target();
 	
 	// move
 	var _dir_speed = 5;
@@ -217,20 +215,17 @@ function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
 		
 	// draw larold
-	surface_set_target(surf_larold);
 	draw_set_alpha(0.025);
 	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
-	surface_reset_target();
 		
 	// draw glare
-	surface_set_target(surf_larold);
 	draw_set_alpha(0.015);
 	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
-	surface_reset_target();
 	draw_set_alpha(1);
-	
 	gpu_set_blendmode(_blend);
-	surface_set_target(_store_surf);
+	
+	surface_reset_target();
+	
 	draw_surface_stretched_ext(
 		surf_larold, 
 		_x, _y, _w, _h,
@@ -238,7 +233,7 @@ function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 		_alpha
 	);
 	gpu_set_blendmode(_store_blend);
-	surface_reset_target();
+	
 }
 
 //--------------------------------------------------------------------------------------------------------

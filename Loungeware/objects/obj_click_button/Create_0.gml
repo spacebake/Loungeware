@@ -1,7 +1,5 @@
-image_speed = 0;
-do_countdown = false;
-
 window_set_size(540, 540);
 window_set_min_width(540);
 window_set_min_height(540);
-alarm[1] = 1;
+alarm[0] = 1;
+if (!HTML_MODE) room_goto(___rm_init);
