@@ -1,7 +1,7 @@
 if (gallery_mode && gallery_init &&  microgame_current_metadata.supports_difficulty_scaling){
 	if (state == "wait") state = "pause_room";
 	gallery_init = false;
-	array_insert(menu, 1, {name:"DIFFICULTY", execute: function(){}});
+	array_insert(menu, 1, {name:"DIFFICULTY", execute: function(){___obj_pause.confirm_shake_timer = 0;}});
 }
 
 beat_count_prev = beat_count;
@@ -66,8 +66,9 @@ if (state == "paused"){
 	if (cursor < 0) cursor = _menu_len - 1;
 	
 	if (_confirm){
-		menu[cursor].execute();
 		confirm_shake_timer = confirm_shake_timer_max;
+		menu[cursor].execute();
+
 		//var _snd_index  = ___snd_cart_insert;
 		//var _snd_id = audio_play_sound(_snd_index, 0, 0);
 		// var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
