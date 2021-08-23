@@ -14,6 +14,7 @@ $githubBrand: #279841;
 @import 'btn.scss';
 @import 'forms.scss';
 @import 'comment-box.scss';
+@import 'game-collection.scss';
 
 body,
 html {
@@ -55,6 +56,10 @@ a {
 
 .d-block {
   display: block;
+}
+
+.d-flex {
+  display: flex;
 }
 
 .img-pixel {

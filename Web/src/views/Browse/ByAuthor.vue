@@ -8,7 +8,7 @@
           /
           <strong> {{ authorName }} </strong>
         </h2>
-        <GameCollection :games="games" />
+        <GameCollection viewType="list" :games="games" />
       </div>
     </div>
   </div>
