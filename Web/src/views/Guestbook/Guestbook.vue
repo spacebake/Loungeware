@@ -154,6 +154,7 @@ textarea {
   min-height: 100px;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
 .guestbook {

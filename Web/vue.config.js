@@ -1,4 +1,5 @@
 module.exports = {
+  assetsDir: 'static',
   lintOnSave: false,
   chainWebpack: (config) => {
     // GraphQL Loader

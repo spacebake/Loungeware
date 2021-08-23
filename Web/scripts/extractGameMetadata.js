@@ -10,8 +10,8 @@ const YYP_FILE = 'Loungeware.yyp';
 const LAROLD_SPRITE_NAME = '___spr_larold_heads';
 const TARGET_GAMES_LIST_FILE = path.join('src', 'common', 'gamesList.ts');
 const TARGET_LAROLDS_LIST_FILE = path.join('src', 'common', 'laroldsList.ts');
-const TARGET_LABELS_DIR = path.join('public', 'games');
-const TARGET_LAROLDS_DIR = path.join('public', 'larolds');
+const TARGET_LABELS_DIR = path.join('public', 'static', 'games');
+const TARGET_LAROLDS_DIR = path.join('public', 'static', 'larolds');
 
 if (!fs.existsSync(TARGET_LABELS_DIR)) {
   fs.mkdirSync(TARGET_LABELS_DIR);

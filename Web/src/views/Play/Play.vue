@@ -2,7 +2,7 @@
   <div class="text-center">
     <iframe
       class="media-border"
-      src="/game.html"
+      src="/static/game.html"
       style="width: 540px; height: 540px; margin-top: 80px"
     />
   </div>

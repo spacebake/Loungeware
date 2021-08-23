@@ -21,7 +21,7 @@
           height="auto"
           controls
           width="100%"
-          poster="/video-preview.png"
+          poster="/static/images/video-preview.png"
         >
           <source
             src="https://cdn.discordapp.com/attachments/862889240249892875/878669776107487293/lw-3nd-pass.mp4"

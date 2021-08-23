@@ -25,7 +25,7 @@
         <div class="col-xs-12 col-sm-4">
           <div class="humble-brag">
             <div class="big">
-              <img src="/footer/gms2logo.png" />
+              <img src="/static/footer/gms2logo.png" />
             </div>
             <div class="small">GMS2</div>
           </div>
@@ -56,7 +56,7 @@
           <div class="shoutout">
             <img
               class="img-pixel"
-              src="/images/heart.png"
+              src="/static/images/heart.png"
               alt="A picture of a heart wearing sunglasses"
             />
             <p>
@@ -366,19 +366,19 @@ footer {
       image-rendering: crisp-edges;
 
       &.footer-bg-1 {
-        background-image: url('/footer/footer-bg-1.png');
+        background-image: url('/static/footer/footer-bg-1.png');
         background-position-x: 200px;
       }
       &.footer-bg-2 {
-        background-image: url('/footer/footer-bg-2.png');
+        background-image: url('/staticfooter/footer-bg-2.png');
         background-position-x: 300px;
       }
       &.footer-bg-3 {
-        background-image: url('/footer/footer-bg-3.png');
+        background-image: url('/static/footer/footer-bg-3.png');
         background-position-x: 400px;
       }
       &.footer-bg-4 {
-        background-image: url('/footer/footer-bg-4.png');
+        background-image: url('/static/footer/footer-bg-4.png');
         background-position-x: 500px;
       }
     }

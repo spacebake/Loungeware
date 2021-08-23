@@ -77,7 +77,7 @@ export default class Cart extends Vue {
   }
 
   private get label() {
-    return `/games/${this.name}.png`;
+    return `/static/games/${this.name}.png`;
   }
 
   private get width() {
@@ -111,7 +111,7 @@ export default class Cart extends Vue {
       this.primaryCanvas.width = this.width;
       this.primaryCanvas.height = this.height;
       const primaryImage = new Image(this.width, this.height);
-      primaryImage.src = '/images/cart/cart-primary.png';
+      primaryImage.src = '/static/images/cart/cart-primary.png';
 
       primaryImage.addEventListener('load', () => {
         if (ctx) {
@@ -138,7 +138,7 @@ export default class Cart extends Vue {
       this.secondaryCanvas.width = this.width;
       this.secondaryCanvas.height = this.height;
       const secondaryImage = new Image(this.width, this.height);
-      secondaryImage.src = '/images/cart/cart-secondary.png';
+      secondaryImage.src = '/static/images/cart/cart-secondary.png';
 
       secondaryImage.addEventListener('load', () => {
         if (ctx) {

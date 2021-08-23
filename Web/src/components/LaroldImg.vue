@@ -24,42 +24,42 @@ export default class LaroldImg extends Vue {
   private larolds: Larold[] = [
     {
       name: 'rad larold',
-      path: '/hand-picked-larolds/rad-larold.png',
+      path: '/static/hand-picked-larolds/rad-larold.png',
       author: '@katsaii',
     },
     {
       name: 'headphone larold',
-      path: '/hand-picked-larolds/headphone-larold.png',
+      path: '/static/hand-picked-larolds/headphone-larold.png',
       author: '@baku',
     },
     {
       name: 'artist larold',
-      path: '/hand-picked-larolds/artist-larold.png',
+      path: '/static/hand-picked-larolds/artist-larold.png',
       author: '@baku',
     },
     {
       name: 'helicopter larold',
-      path: '/hand-picked-larolds/helicopter-larold.png',
+      path: '/static/hand-picked-larolds/helicopter-larold.png',
       author: '@baku',
     },
     {
       name: 'ghost larold',
-      path: '/hand-picked-larolds/ghost-larold.png',
+      path: '/static/hand-picked-larolds/ghost-larold.png',
       author: '@baku',
     },
     {
       name: 'awesome larold',
-      path: '/hand-picked-larolds/awesome-larold.png',
+      path: '/static/hand-picked-larolds/awesome-larold.png',
       author: '@nahoo',
     },
     {
       name: 'bunny larold',
-      path: '/hand-picked-larolds/bunny-larold.png',
+      path: '/static/hand-picked-larolds/bunny-larold.png',
       author: 'unknown',
     },
     {
       name: 'frog larold',
-      path: '/hand-picked-larolds/frog-larold.png',
+      path: '/static/hand-picked-larolds/frog-larold.png',
       author: '@frog',
     },
   ];
