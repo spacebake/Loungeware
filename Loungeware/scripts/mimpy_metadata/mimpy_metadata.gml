@@ -16,7 +16,10 @@ microgame_register("mimpy_dinner_date", {
     default_is_fail: false,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],
-    date_added: "21/07/09"
+    date_added: "21/07/09",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("mimpy_fire_alarm", {
@@ -37,7 +40,10 @@ microgame_register("mimpy_fire_alarm", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["Mimpy"],
-    date_added: "21/07/06"
+    date_added: "21/07/06",
+	  is_enabled: true,
+	  supports_html: true,
+	  show_on_website: true,
 });
 
 microgame_register("mimpy_objection", {
@@ -58,5 +64,8 @@ microgame_register("mimpy_objection", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],
-    date_added: "21/07/06"
+    date_added: "21/07/06",
+    is_enabled: true,
+	  supports_html: true,
+	  show_on_website: true,
 });

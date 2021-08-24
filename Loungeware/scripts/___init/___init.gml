@@ -4,9 +4,9 @@ function ___GAME_INIT(){
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
 	
-	___global.developer_mode_active = file_exists(___DEV_CONFIG_PATH) && (!CONFIG_IS_SHIPPING);
-	
+	___global.developer_mode_active = (!CONFIG_IS_SHIPPING) && file_exists(___DEV_CONFIG_PATH);
 	___global.window_base_size = 540;
+	___global.gallery_goto_key = "";
 	
 	// font
 	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><", false, 0);
@@ -119,7 +119,7 @@ function ___GAME_INIT(){
 	for (var i = 0; i < array_length(_microgame_keys); i++){
 		var _data = variable_struct_get(_metadata_all, _microgame_keys[i]);
 		var _credits = _data.credits;
-		var _music_name = audio_get_name(_data.music_track);
+		var _music_name = _data.music_track ? audio_get_name(_data.music_track) : "";
 		_is_public_music = string_copy(_music_name, 1, 4) == "sng_";
 		
 		if (_is_public_music){
@@ -144,12 +144,12 @@ function ___GAME_INIT(){
 	
 	// load save data if exists
 	___global.save_data = {};
-	if (file_exists(___global.save_filename)){
-		var _file = file_text_open_read(___global.save_filename);
-		var _str = file_text_read_string(_file);
-		___global.save_data = json_parse(_str);
-		file_text_close(_file);
-	} 
+	//if (file_exists(___global.save_filename)){
+	//	var _file = file_text_open_read(___global.save_filename);
+	//	var _str = file_text_read_string(_file);
+	//	___global.save_data = json_parse(_str);
+	//	file_text_close(_file);
+	//} 
 	
 	var _save_data_version = 1;
 	var _default_save_data = {
@@ -190,7 +190,7 @@ function ___GAME_INIT(){
 	
 	
 	// delete dev config file if it exists but the microgame with key doesn't exist
-	if (file_exists(___DEV_CONFIG_PATH)){
+	if (DEVELOPER_MODE && file_exists(___DEV_CONFIG_PATH)){
 		var _config_microgame_key = ___dev_config_get_test_key();
 		var _valid_config_exists = false;
 		var _metadata_all = ___global.microgame_metadata;
@@ -203,31 +203,64 @@ function ___GAME_INIT(){
 		}
 	}
 	
+
+
+
+
+	
+	
+	// -------------------------------------------------------------------------------------
+	
+	
+	// this one is just for testing stuff
+	if (false){
+	
+
+	
+	// if game is running in browser
+	} else if (HTML_MODE) {
+		
+		var _gallery_goto_key = ___url_get_var("gallery_id");
+		___microgame_list_remove_incompatible();
+		var _boot_to_gallery = ___microgame_key_exists(_gallery_goto_key);
+		room_goto(___rm_click_the_fucking_button);
+		var _id = instance_create_layer(0, 0, layer, ___obj_html_clickscreen);
+		
+		if (_boot_to_gallery){
+			_id.room_goto_after = ___rm_main_menu;
+			_id.object_create_after = ___obj_menu_gallery;
+			___global.gallery_goto_key = _gallery_goto_key;
+		} else {
+			_id.room_goto_after = ___rm_main_menu;
+			_id.object_create_after = ___obj_title_screen;
+		}
 	
 	// if shipping build, go straight to the title screen
-	if (CONFIG_IS_SHIPPING){
+	} else if (CONFIG_IS_SHIPPING){
 		room_goto(___rm_main_menu);
 		instance_create_layer(0, 0, layer, ___obj_title_screen);
 	
 	// if developer mode, check for microgame dev config and load that game, if no config exists, load developer menu
-	} else {
-		
-		if (file_exists(___DEV_CONFIG_PATH)){
+	} else if (!HTML_MODE && file_exists(___DEV_CONFIG_PATH)){
 			room_goto(___rm_restroom);
 			instance_create_layer(0, 0, layer, ___MG_MNGR);
-		} else {
-			room_goto(___rm_main_menu);
-			instance_create_layer(0, 0, layer, ___obj_dev_menu);
-		}
+	// if developer mode but no config file, load dev menu
+	} else {
+		room_goto(___rm_main_menu);
+		instance_create_layer(0, 0, layer, ___obj_dev_menu);
 	}
+	
+	
 
 }
 
 function ___save_game(){
-	//var _str = json_stringify(___global.save_data);
-	//var _file = file_text_open_write(___global.save_filename);
-	//file_text_write_string(_file, _str);
-	//file_text_close(_file);
+	if (!HTML_MODE){
+		//var _str = json_stringify(___global.save_data);
+		//var _file = file_text_open_write(___global.save_filename);
+		//file_text_write_string(_file, _str);
+		//file_text_close(_file);
+	}
 }
 
 

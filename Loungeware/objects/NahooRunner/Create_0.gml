@@ -323,7 +323,7 @@ function nahoo_run(m)
 function nahoo_reset()
 {
 	nahoo_init();	
-	surface_free(nahoo_surf);
+	if (surface_exists(nahoo_surf)) surface_free(nahoo_surf);
 	nahoo_surf = surface_create(Nahoo_WIDTH * 8, Nahoo_HEIGHT * 8);
 	
 	return map;
@@ -331,7 +331,7 @@ function nahoo_reset()
 
 function nahoo_end(won)
 {
-	surface_free(nahoo_surf);
+	if (surface_exists(nahoo_surf)) surface_free(nahoo_surf);
 	nahoo_surf = surface_create(Nahoo_WIDTH * 8, Nahoo_HEIGHT * 8);	
 	nahoo_complete = true;
 	

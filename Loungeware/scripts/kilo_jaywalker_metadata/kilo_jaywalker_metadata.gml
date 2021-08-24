@@ -21,5 +21,7 @@ microgame_register("kilomatter_jaywalker", {
     supports_difficulty_scaling: true,
     credits: ["Kilomatter", "Zandy"],
     date_added: "21/08/17",
-	is_enabled: true
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
