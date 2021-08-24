@@ -8,7 +8,7 @@
 microgame_register("username_gamename", {
     config_version: 1,
     game_name: "EXAMPLE",
-    creator_name : "john doe",
+    authors :  "john doe",
     prompt: "PRESS",
     init_room: username_gamename_rm_game,
     view_width: 240,

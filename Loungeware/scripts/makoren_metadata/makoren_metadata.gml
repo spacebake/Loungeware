@@ -1,7 +1,7 @@
 microgame_register("makoren_conjurer", {
     config_version: 1,
     game_name: "Conjurer",
-    creator_name : "Makoren",
+    authors :  "Makoren",
     prompt: "MATCH",
     init_room: makoren_conjurer_rm_main,
     view_width: 120,

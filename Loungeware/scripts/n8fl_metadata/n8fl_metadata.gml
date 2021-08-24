@@ -2,7 +2,7 @@ microgame_register("n8fl_adminsim", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "GM Admin Simulator",
-    creator_name: "net8floz",
+    authors :  "net8floz",
     prompt: "BAN OR BE BANNED",
     init_room: n8fl_admin_simulator_rm,
     view_width: 240,
@@ -26,7 +26,7 @@ microgame_register("n8fl_cheat_seat", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "Cheat Seat",
-    creator_name: "net8floz",
+    authors :  "net8floz",
     prompt: "Mash To Cheat",
     init_room: n8fl_cheat_seat_rm,
     view_width: 120,
@@ -50,7 +50,7 @@ microgame_register("n8fl_escape1", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "Action Escape Pt 1",
-    creator_name : "net8floz",
+    authors :  "net8floz",
     prompt: "Jump On The Car",
     init_room: n8fl_escape1_rm,
     view_width: 120,
@@ -74,7 +74,7 @@ microgame_register("n8fl_escape2", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
     config_version: 1,
     game_name: "Action Escape Pt 2",
-    creator_name : "net8floz",
+    authors :  "net8floz",
     prompt: "Jump On The Train",
     init_room: n8fl_escape2_rm,
     view_width: 120,
@@ -97,7 +97,7 @@ microgame_register("n8fl_escape2", {
 microgame_register("n8fl_escape3", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
     game_name: "Action Escape Pt 3",
-    creator_name : "net8floz",
+    authors :  "net8floz",
     prompt: "Jump On The Heli",
     init_room: n8fl_escape3_rm,
     view_width: 120,
@@ -131,7 +131,7 @@ microgame_register("n8fl_penguin_blast", {
 		year: 2021
 	},
     game_name: "Penguin Blast",
-    creator_name : "net8floz",
+    authors :  "net8floz",
     prompt: "Don't Get Blasted",
     init_room: n8fl_penguin_blast_rm,
     view_width: 240,
@@ -175,7 +175,7 @@ microgame_register("n8fl_reach_for_it_mister", {
 	year: 2021
   },
   game_name: "Reach For It, Mister",
-  creator_name : "net8floz",
+  authors :  "net8floz",
   description: [
 	"The rad crew are at it again. But this time with cowboy hats."
   ],
