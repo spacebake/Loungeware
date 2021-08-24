@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mimpy_firealarm_drop.wav",
-  "duration": 0.562483,
+  "duration": 0.557483,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/mimpy/loungefire/Sounds.yy",

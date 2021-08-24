@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function jdllama_outlinedText(x, y, outline, color, str){
 	var xx, yy;
+	
 	xx = x;
 	yy = y;
 	

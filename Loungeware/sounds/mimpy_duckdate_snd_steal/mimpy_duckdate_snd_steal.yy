@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "mimpy_duckdate_snd_steal.wav",
-  "duration": 1.97602,
+  "duration": 1.97102,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/mimpy/duckdate/Sounds.yy",
