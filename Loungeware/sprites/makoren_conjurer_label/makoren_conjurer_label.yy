@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c3891289-4c23-441e-8bba-4ea56c80b48b","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c3891289-4c23-441e-8bba-4ea56c80b48b","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"LayerId":{"name":"07c6feb0-4b61-43a5-9c10-a54d60f17a66","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"makoren_conjurer_label","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","name":"c3891289-4c23-441e-8bba-4ea56c80b48b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b3f877d5-bb4d-49aa-ab60-616ee9d5f3de","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b3f877d5-bb4d-49aa-ab60-616ee9d5f3de","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"LayerId":{"name":"1a9f3e3f-c6ee-4fc7-b45d-95161a29dc4a","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"makoren_conjurer_label","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","name":"b3f877d5-bb4d-49aa-ab60-616ee9d5f3de","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"makoren_conjurer_label","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1190c414-be0d-498c-913b-7acdb6b19aa9","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c3891289-4c23-441e-8bba-4ea56c80b48b","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6929d251-b31f-4d13-b1d3-259b3d6562f6","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b3f877d5-bb4d-49aa-ab60-616ee9d5f3de","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"07c6feb0-4b61-43a5-9c10-a54d60f17a66","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1a9f3e3f-c6ee-4fc7-b45d-95161a29dc4a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
