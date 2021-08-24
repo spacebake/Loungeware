@@ -211,18 +211,17 @@ function ___GAME_INIT(){
 	
 	// -------------------------------------------------------------------------------------
 	
-	if (true){
-		room_goto(___rm_restroom);
-		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	
-	// if shipping build, go straight to the title screen
-	} else if (CONFIG_IS_SHIPPING){
-		room_goto(___rm_main_menu);
-		instance_create_layer(0, 0, layer, ___obj_title_screen);
-		
-	} else if (HTML_MODE) {
+	// this one is just for testing stuff
+	if (false){
+	
 
+	
+	// if game is running in browser
+	} else if (HTML_MODE) {
+		
 		var _gallery_goto_key = ___url_get_var("gallery_id");
+		___microgame_list_remove_incompatible();
 		var _boot_to_gallery = ___microgame_key_exists(_gallery_goto_key);
 		room_goto(___rm_click_the_fucking_button);
 		var _id = instance_create_layer(0, 0, layer, ___obj_html_clickscreen);
@@ -230,12 +229,16 @@ function ___GAME_INIT(){
 		if (_boot_to_gallery){
 			_id.room_goto_after = ___rm_main_menu;
 			_id.object_create_after = ___obj_menu_gallery;
-			_id.gallery_goto = _gallery_goto_key;
 			___global.gallery_goto_key = _gallery_goto_key;
 		} else {
 			_id.room_goto_after = ___rm_main_menu;
 			_id.object_create_after = ___obj_title_screen;
 		}
+	
+	// if shipping build, go straight to the title screen
+	} else if (CONFIG_IS_SHIPPING){
+		room_goto(___rm_main_menu);
+		instance_create_layer(0, 0, layer, ___obj_title_screen);
 	
 	// if developer mode, check for microgame dev config and load that game, if no config exists, load developer menu
 	} else if (!HTML_MODE && file_exists(___DEV_CONFIG_PATH)){
@@ -246,6 +249,7 @@ function ___GAME_INIT(){
 		room_goto(___rm_main_menu);
 		instance_create_layer(0, 0, layer, ___obj_dev_menu);
 	}
+	
 	
 
 }

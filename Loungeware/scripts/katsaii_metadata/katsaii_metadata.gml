@@ -21,4 +21,7 @@ microgame_register("katsaii_witchwanda", {
         month : "July",
         year : 2021
     },
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });

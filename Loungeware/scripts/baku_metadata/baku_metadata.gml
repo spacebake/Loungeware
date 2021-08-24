@@ -16,7 +16,10 @@ microgame_register("baku_chug", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["baku"],
-    date_added: "21/07/08"
+    date_added: "21/07/08",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("baku_mine", {
@@ -37,5 +40,8 @@ microgame_register("baku_mine", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["baku", "meseta"],
-    date_added: "21/07/21"
+    date_added: "21/07/21",
+	is_enabled: true,
+	supports_html: false,
+	show_on_website: true,
 });

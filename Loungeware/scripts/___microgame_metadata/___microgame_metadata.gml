@@ -12,6 +12,12 @@ function microgame_register(microgame_name, metadata){
 		var param_is_enabled = new LW_FGameLoaderBoolTransformer("is_enabled", true);
 		param_is_enabled.set_nullable();
 		
+		var param_supports_html = new LW_FGameLoaderBoolTransformer("supports_html", false);
+		param_supports_html.set_nullable();
+		
+		var param_show_on_website = new LW_FGameLoaderBoolTransformer("show_on_website", true);
+		param_show_on_website.set_nullable();
+		
 		var param_view_width = new LW_FGameLoaderNumberTransformer("view_width", -1);
 		param_view_width.set_nullable();
 		param_view_width.add_validator(function(view_width){
@@ -46,6 +52,8 @@ function microgame_register(microgame_name, metadata){
 		var rules = [
 			param_config_version,
 			param_is_enabled,
+			param_supports_html,
+			param_show_on_website,
 			param_view_width,
 			param_view_height,
 			param_time_seconds,

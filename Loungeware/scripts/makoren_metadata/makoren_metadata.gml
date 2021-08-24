@@ -16,5 +16,8 @@ microgame_register("makoren_conjurer", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["Makoren"],
-    date_added: "21/07/10"
+    date_added: "21/07/10",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });

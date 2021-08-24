@@ -16,7 +16,10 @@ microgame_register("space_rocket_lander", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["space"],
-    date_added: "21/07/04"
+    date_added: "21/07/04",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("space_scooter", {
@@ -38,6 +41,8 @@ microgame_register("space_scooter", {
     supports_difficulty_scaling: false,
     credits: ["space", "meseta", "freesound.org", "zapsplat.com"],
     date_added: "21/07/12",
-    is_enabled: true
+    is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 

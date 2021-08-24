@@ -379,46 +379,51 @@ function ___noop(){
 // ------------------------------------------------------------------------------------------
 function ___dev_load(){
 	
-	// var _filename = "tmpenv.dev";
-	// var _test_key = ___dev_config_get_test_key();
+	if (HTML_MODE){
+		show_debug_message("Trying to load local file in HTML mode. this shouldn't happen!");
+		return {};
+	}
+	
+	 var _filename = "tmpenv.dev";
+	 var _test_key = ___dev_config_get_test_key();
 
 	
-	// var _default = {
-	// 	difficulty_level: 1,
-	// 	microgame_key: _test_key,
-	// 	mute_test: false,
-	// 	debug_hidden: false,
-	// 	infinite_timer: false,
-	// 	fullscreen_status: false,
-	// }
+	 var _default = {
+	 	difficulty_level: 1,
+	 	microgame_key: _test_key,
+	 	mute_test: false,
+	 	debug_hidden: false,
+	 	infinite_timer: false,
+	 	fullscreen_status: false,
+	 }
 	
-	//if (file_exists(_filename)){
+	if (file_exists(_filename)){
 
-	//	var _file = file_text_open_read(_filename);
-	//	var _json = file_text_read_string(_file);
-	//	var _loaded = json_parse(_json);
-	//	file_text_close(_file);
+		var _file = file_text_open_read(_filename);
+		var _json = file_text_read_string(_file);
+		var _loaded = json_parse(_json);
+		file_text_close(_file);
 	
-	//	// check loaded has all the props that default has
-	//	var _default_proplist = variable_struct_get_names(_default);
-	//	for (var i = 0; i < array_length(_default_proplist); i++){
-	//		if (!variable_struct_exists(_loaded, _default_proplist[i])){
-	//			file_delete(_filename);
-	//			return _default;
-	//		}
-	//	}
+		// check loaded has all the props that default has
+		var _default_proplist = variable_struct_get_names(_default);
+		for (var i = 0; i < array_length(_default_proplist); i++){
+			if (!variable_struct_exists(_loaded, _default_proplist[i])){
+				file_delete(_filename);
+				return _default;
+			}
+		}
 		
-	// delete file if test game has changed
-	// if (_loaded.microgame_key != _test_key){
-	// 	file_delete(_filename);
-	// 	return _default;
-	// }
+	 //delete file if test game has changed
+	 if (_loaded.microgame_key != _test_key){
+	 	file_delete(_filename);
+	 	return _default;
+	 }
 
 		
-	//	return _loaded;
-	//} 
+		return _loaded;
+	} 
 	
-	//return _default;
+	return _default;
 
 }
 
@@ -640,4 +645,38 @@ function ___microgame_load_gallery_version(_microgame_key, _difficulty=1){
 		
 	}
 	instance_destroy();
+}
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME LIST REMOVE INCOMPATIBLE
+// removes all the games that are not compatible with the current configuration or export
+// from the global gamelist
+// ------------------------------------------------------------------------------------------
+function ___microgame_list_remove_incompatible(){
+	// at this point in the game we can be sure that the game is not running in developer mode
+	// so here we will delete all disabled games
+	microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
+	for(var i = 0; i < array_length(microgame_namelist); i++){
+		var _data = variable_struct_get(___global.microgame_metadata, microgame_namelist[i]);
+		var _disabled = (variable_struct_exists(_data, "is_enabled")) && (_data.is_enabled == false);
+		var _has_html_prop = variable_struct_exists(_data, "supports_html");
+		var _supports_html = (_has_html_prop && _data.supports_html == true);
+		
+		if (_disabled || (HTML_MODE && !_supports_html)){
+			var _debug_str = _data.game_name + " was removed from gamelist because ";
+			
+			if (_disabled){
+				_debug_str += "[disabled] ";
+			} else if (HTML_MODE){
+				if (!_has_html_prop){
+					_debug_str += "[no \"supports_html\" property was found in metadata] ";
+				} else {
+					_debug_str += "[\"supports_html\" property was set to false]";
+				}
+			}
+			
+			show_debug_message(_debug_str);
+			variable_struct_remove(___global.microgame_metadata, microgame_namelist[i]);
+		}
+	}
 }

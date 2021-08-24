@@ -16,5 +16,8 @@ microgame_register("yosi_epic_fire_truck", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["yosi"],
-    date_added: "21/07/08"
+    date_added: "21/07/08",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });

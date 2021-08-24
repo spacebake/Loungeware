@@ -16,7 +16,10 @@ microgame_register("tfg_collision", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["tfg", "ennway", "zandy"],
-    date_added: "21/07/09"
+    date_added: "21/07/09",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("tfg_swipe", {
@@ -38,5 +41,7 @@ microgame_register("tfg_swipe", {
     supports_difficulty_scaling: false,
     credits: ["tfg", "zandy", "space"],
     date_added: "21/08/15",
-    is_enabled: true
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });

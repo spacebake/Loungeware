@@ -93,7 +93,7 @@ scroll_y_target = 0;
 cart_float_dir = 0;
 
 function save_dev_config(_microgame_key){
-		if(!HTML_MODE){
+		if(HTML_MODE){
 
 		} else {
 			var _data = {

@@ -261,6 +261,7 @@
     {"id":{"name":"baku_chug_snd_swallow","path":"sounds/baku_chug_snd_swallow/baku_chug_snd_swallow.yy",},"order":3,},
     {"id":{"name":"katsaii_witchwanda_finish_good_msg","path":"sprites/katsaii_witchwanda_finish_good_msg/katsaii_witchwanda_finish_good_msg.yy",},"order":18,},
     {"id":{"name":"mimpy_firealarm_win","path":"sounds/mimpy_firealarm_win/mimpy_firealarm_win.yy",},"order":2,},
+    {"id":{"name":"ImageLoadBar","path":"extensions/ImageLoadBar/ImageLoadBar.yy",},"order":0,},
     {"id":{"name":"makoren_conjurer_label","path":"sprites/makoren_conjurer_label/makoren_conjurer_label.yy",},"order":9,},
     {"id":{"name":"katsaii_witchwanda_finish_good","path":"sprites/katsaii_witchwanda_finish_good/katsaii_witchwanda_finish_good.yy",},"order":15,},
     {"id":{"name":"n8fl_escape2_rm","path":"rooms/n8fl_escape2_rm/n8fl_escape2_rm.yy",},"order":0,},
@@ -890,6 +891,7 @@
     {"folderPath":"folders/Microgames/kilomatter/jaywalker/kilo_jaywalker_sounds.yy","order":5,"resourceVersion":"1.0","name":"kilo_jaywalker_sounds","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/__EXAMPLE_NAME__.yy","order":11,"resourceVersion":"1.0","name":"__EXAMPLE_NAME__","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/__EXAMPLE_NAME__/__GAME_NAME__.yy","order":6,"resourceVersion":"1.0","name":"__GAME_NAME__","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Extensions.yy","order":10,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

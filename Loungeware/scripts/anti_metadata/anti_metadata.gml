@@ -16,5 +16,8 @@ microgame_register("anti_hats", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["Antidissmist"],
-    date_added: "21/07/14"
+    date_added: "21/07/14",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
