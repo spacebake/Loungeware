@@ -255,13 +255,15 @@ function draw_gameboy_overlay(){
 	draw_clear(c_gboff);
 	draw_sprite(gameboy_sprite, gameboy_frame, 0, 0);
 	{ // comment out this block if you don't like the moving d-pad
-		var _dpad_in_use = KEY_RIGHT || KEY_UP || KEY_LEFT || KEY_RIGHT;
+		var _dpad_in_use = KEY_RIGHT || KEY_UP || KEY_LEFT || KEY_DOWN;
 		var _dpad_frame = point_direction(
 			0, 0,
 			-KEY_LEFT + KEY_RIGHT,
 			-KEY_UP + KEY_DOWN
 		)
+		
 		_dpad_frame = _dpad_frame div 90;
+		log(_dpad_frame);
 		if (_dpad_in_use) {
 			draw_sprite(
 				___spr_gameboy_dpad, _dpad_frame,
