@@ -1,7 +1,10 @@
 microgame_register("katsaii_witchwanda", {
     config_version : 1,
     game_name : "Witch Wanda",
-    creator_name : "Katsaii & Mashmerlow",
+    authors :  {
+		katsaii: "Katsaii",
+		mashmerlow: "Mashmerlow"
+	},
     prompt : "CRAFT",
     init_room : katsaii_witchwanda_rm,
     view_width : 1,

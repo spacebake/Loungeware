@@ -1,7 +1,7 @@
 microgame_register("space_rocket_lander", {
     config_version: 1,
     game_name: "Rocket Lander",
-    creator_name : "Space",
+    authors : "Space",
     prompt: "LAND",
     init_room: space_lander_rm_lander,
     view_width: 240,
@@ -25,7 +25,7 @@ microgame_register("space_rocket_lander", {
 microgame_register("space_scooter", {
     config_version: 1,
     game_name: "Rixel Rider",
-    creator_name : "Space",
+    authors : "Space",
     prompt: "Backflip",
     init_room: space_scoot_rm,
     view_width: 120,

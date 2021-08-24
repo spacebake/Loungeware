@@ -1,7 +1,7 @@
 microgame_register("nahoo_beenade", {
 	config_version: 1,
 	game_name: "Beenade",
-	creator_name : "Nahoo",
+	authors : "Nahoo",
 	prompt: "POLLINATE",
 	init_room: nahoo_beenade_rMain,
 	view_width: 480,
@@ -25,7 +25,7 @@ microgame_register("nahoo_beenade", {
 microgame_register("nahoo_carttypebeat", {
     config_version: 1,
     game_name: "Cart Type Beat",
-    creator_name : "Nahoo",
+    authors : "Nahoo",
     prompt: "REVOLT",
     init_room: nahoo_carttypebeat_rMain,
     view_width: 480,

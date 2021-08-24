@@ -93,7 +93,7 @@
 /*nahoo_beenade_data = 
 {
 	game_name: "Beenade",
-	creator_name: "Nahoo",
+	authors: "Nahoo",
 	prompt: "Move!",
 	init_room: "nahoo_beenade",
 	view_width: 480,
