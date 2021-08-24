@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"___larold_credits","path":"scripts/___larold_credits/___larold_credits.yy",},"order":9,},
     {"id":{"name":"baku_mine_snd_cheer","path":"sounds/baku_mine_snd_cheer/baku_mine_snd_cheer.yy",},"order":5,},
     {"id":{"name":"space_scooter_obj_grass","path":"objects/space_scooter_obj_grass/space_scooter_obj_grass.yy",},"order":9,},
     {"id":{"name":"space_scooter_spr_rabbit_end","path":"sprites/space_scooter_spr_rabbit_end/space_scooter_spr_rabbit_end.yy",},"order":15,},
