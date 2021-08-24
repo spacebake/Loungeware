@@ -157,7 +157,7 @@ microgame_register("n8fl_penguin_blast", {
 	"The evil orange cat with sunglasses has kidnapped the fair Mimpy Penguin. The only problem? This penguin can't swim."
 	],
 	how_to_play: [
-	"Use the Primary Key & Secondary key to match the Red and Green projectiles. Use the Down key to block projectiles and bombs. Match all the projectiles and save the princess.",
+	"Use the Primary Key & Secondary key to match the Red and Green projectiles. Use the Down key to block bombs. Match all the projectiles and save the princess.",
 	],
 	author_id: "n8fl",
 	supports_html: true,
