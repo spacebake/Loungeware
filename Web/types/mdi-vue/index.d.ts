@@ -1,0 +1,1 @@
+declare module 'mdi-vue/v2'

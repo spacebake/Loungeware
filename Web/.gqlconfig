@@ -1,0 +1,17 @@
+{
+  schema: {
+    files: ["schema.gql"]
+  },
+  query: {
+    files: [
+      {
+        match: ['src/**/*.ts', 'src/**/*.vue'], // match multiple extensions
+        parser: ['EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' }], // parse any query inside gql template literal
+      },
+      {
+        match: 'src/**/*.gql',
+        parser: 'QueryParser',
+      },
+    ]
+  },
+}

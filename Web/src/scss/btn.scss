@@ -1,0 +1,75 @@
+a.btn,
+div.btn {
+  padding: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Dosis', sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: all 0.2s;
+  display: inline-block;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .mdi {
+    top: -3px;
+    position: relative;
+  }
+
+  &.btn-lg {
+    padding: 24px;
+    font-size: 2rem;
+
+    .mdi {
+      line-height: 2rem;
+    }
+  }
+
+  &.icon {
+    padding: 6px !important;
+    .mdi {
+      padding: 0;
+      margin: 0;
+      // width: 12px;
+    }
+  }
+
+  &.solid {
+    background-color: $loungeBrandLight;
+    color: $loungeBrandDark;
+
+    &:hover:not(.active) {
+      background-color: darken($loungeBrandLight, 50);
+    }
+
+    &.discord {
+      background-color: $discordBrand;
+
+      &:hover:not(.active) {
+        background-color: darken($discordBrand, 20);
+        color: white;
+      }
+    }
+
+    &.github {
+      background-color: $githubBrand;
+
+      &:hover:not(.active) {
+        background-color: darken($githubBrand, 20);
+        color: white;
+      }
+    }
+
+    &.red {
+      background-color: $loungeBrandRed;
+
+      &:hover:not(.active) {
+        background-color: darken($loungeBrandRed, 20);
+        color: white;
+      }
+    }
+  }
+}

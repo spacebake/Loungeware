@@ -1,0 +1,52 @@
+All
+  = reg:Registration* { return reg; }
+
+Registration
+  = _ "microgame_register(" _ name:StringLiteral _ "," _ config:Struct _ ")" _ ";"? _ {
+		return {name: name, config: config} ;
+	}
+
+Struct
+  = _ "{" items:(Item "," _)* last:(Item)? _ "}" _ {
+  		if (last !== null) return Object.fromEntries(items.map(v => v[0]).concat([last]));
+      else return Object.fromEntries(items.map(v => v[0]));
+    }
+
+Item
+  = _ key:Word _ ":" _ value:Value _ { return [key, value] }
+
+Value
+  = Array / Struct / Boolean / StringLiteral / Number / Word
+
+Array
+  = "[" _ items:(Value "," _)* last:(Value)? _ "]" {
+  		if (last !== null) return items.map(v => v[0]).concat([last]);
+      else return items;
+    }
+
+Number
+  = Float / Integer
+
+Float
+  = "-"? [0-9]* "." [0-9]* _ { return parseFloat(text()); }
+
+Integer
+  = "-"? [0-9]+ _ { return parseInt(text(), 10); }
+
+StringLiteral
+  = word:("\"" CharDoubleQuoted* "\"" / "'" CharSingleQuoted* "'") _ { return word[1].join(""); }
+
+Boolean
+  = bool:("true" / "false") _ { return bool === 'true' }
+
+CharDoubleQuoted
+  =  "\\\"" / [^"]
+  
+CharSingleQuoted
+  =  "\\'" / [^']
+
+Word
+  = [a-zA-Z0-9_]+ { return text(); }
+
+_ "whitespace"
+  = [ \t\n\r]*
