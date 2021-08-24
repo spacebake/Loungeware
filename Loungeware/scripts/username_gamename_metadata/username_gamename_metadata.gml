@@ -28,5 +28,7 @@ microgame_register("username_gamename", {
 		month: 8,
 		year: 2021
 	},
-	is_enabled: false
+	is_enabled: false,
+	supports_html: true,
+	show_on_website: false,
 });

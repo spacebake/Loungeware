@@ -101,7 +101,7 @@ function ___prompt_sprite_create(prompt){
 	draw_set_valign(fa_top);
 	var _spr = sprite_create_from_surface(_surf, 0, 0, _w, _h, 0, 0, _w/2, _h/2);
 	ds_list_add(garbo_sprites, _spr);
-	surface_free(_surf);
+	if (surface_exists(_surf)) surface_free(_surf);
 	return _spr;
 }
 

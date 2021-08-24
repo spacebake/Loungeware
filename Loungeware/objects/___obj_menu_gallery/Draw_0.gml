@@ -133,6 +133,10 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 		draw_set_color(c_gbyellow);
 		_name = "<wave>" + _name;
 		scroll_y_target = ((VIEW_H/2)-25) - (_list_total_h);
+		if (scroll_skip){
+			scroll_y = scroll_y_target;
+			scroll_skip = false;
+		}
 		_cursor_y = _list_y;
 	}
 	
