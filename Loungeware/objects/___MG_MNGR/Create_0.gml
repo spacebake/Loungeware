@@ -290,9 +290,8 @@ function draw_gameboy_overlay(){
 
 
 	// draw timerbar
-	surface_set_target(surf_gameboy);
 	draw_timerbar();
-	surface_reset_target();
+	
 	
 	// draw gameboy surface onto master surface
 	surface_set_target(surf_master);
@@ -323,6 +322,8 @@ function draw_timerbar(){
 	
 	var _store_alpha = draw_get_alpha();
 	draw_set_alpha(gb_timerbar_alpha);
+	surface_set_target(surf_gameboy);
+
 	
 	// draw segments
 	for (var i = 0; i < _secs_max; i++){
@@ -335,14 +336,22 @@ function draw_timerbar(){
 			_shake_y = random_range(-_shake_val, _shake_val);
 		}
 		var _xx = _x1 + (i * (_seg_w + _seg_spacer_w));
+		
+		var _scl = 1;
+		var _seg_x1 = round((_xx + _shake_x)*_scl)/_scl;
+		var _seg_x2 = round((_seg_x1 + _seg_w)*_scl)/_scl;
+		var _seg_y1 = round((_y1 + _shake_y)*_scl)/_scl;
+		var _seg_y2 = round((_seg_y1 + _seg_h)*_scl)/_scl;
+		
 		draw_set_color(c_gbtimer_empty);
-		draw_rectangle_fix(_xx + _shake_x, _y1 + _shake_y, _xx + _seg_w + _shake_x, _y2 + _shake_y);
+		draw_rectangle_fix(_seg_x1,_seg_y1, _seg_x2, _seg_y2);
 		draw_set_color(c_gbtimer_full);
-		if (_secs > i) draw_rectangle_fix(_xx + _shake_x, _y1 + _shake_y, _xx + _seg_w + _shake_x, _y2 + _shake_y);
+		if (_secs > i) draw_rectangle_fix(_seg_x1,_seg_y1, _seg_x2, _seg_y2);
 		
 	}
 	
 	draw_set_alpha(_store_alpha);
+	surface_reset_target();
 }
 
 
