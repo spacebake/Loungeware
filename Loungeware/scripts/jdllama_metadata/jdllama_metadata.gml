@@ -1,7 +1,7 @@
 microgame_register("jdllama_hammer", {
     config_version: 1,
     game_name: "THROWIN' THE HAMMER",
-    creator_name : "J.D. Lowe",
+    authors : "J.D. Lowe",
     prompt: "THROW HAMMER",
     init_room: jdllama_hammer_rm,
     view_width: 240,
@@ -26,7 +26,7 @@ microgame_register("jdllama_hammer", {
 microgame_register("jdllama_target", {
     config_version: 1,
     game_name: "TARGET BREAKING YEAH",
-    creator_name : "J.D. Lowe",
+    authors : "J.D. Lowe",
     prompt: "SHOOT THE TARGETS",
     init_room: jdllama_target_rm,
     view_width: 240,

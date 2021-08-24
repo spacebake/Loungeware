@@ -1,7 +1,7 @@
 microgame_register("anti_hats", {
     config_version: 1,
     game_name: "Hats",
-    creator_name : "Antidissmist",
+    authors : "Antidissmist",
     prompt: "SHADES",
     init_room: anti_hats_rm_start,
     view_width: 240,

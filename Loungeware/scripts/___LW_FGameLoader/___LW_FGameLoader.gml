@@ -380,3 +380,29 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 		return make_colour_rgb(colour[0], colour[1], colour[2]);
 	}
 }
+
+
+function LW_FGameLoaderAuthorTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
+{	
+	_is_valid_internal = function(_val){
+		return  is_string(_val) || is_struct(_val);
+	}
+	
+	_get_value_internal = function(_val){
+		if(is_string(_val)){
+			return _val;	
+		}
+		if(is_struct(_val)){
+			var str = "";
+			var names = variable_struct_get_names(_val);
+			for(var i=0; i < array_length(names); i++){
+				str += variable_struct_get(_val, names[i]);
+				if(i != array_length(names)-1){
+					str += " & ";	
+				}
+			}
+			return str;
+		}
+		return "invalid";
+	}
+}

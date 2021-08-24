@@ -1,7 +1,7 @@
 microgame_register("baku_chug", {
     config_version: 1,
     game_name: "Forced Choice of a New Generation",
-    creator_name : "baku",
+    authors : "baku",
     prompt: "CHUG",
     init_room: baku_chug_rm,
     view_width: 160,
@@ -25,7 +25,7 @@ microgame_register("baku_chug", {
 microgame_register("baku_mine", {
     config_version: 1,
     game_name: "Lonesome Miner",
-    creator_name : "baku",
+    authors : "baku",
     prompt: ["MINE DIAMOND", "MINE EMERALD", "MINE GOLD", "MINE RUBY", "MINE IRON"],
     init_room: baku_mine_rm,
     view_width: 480,

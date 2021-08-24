@@ -1,7 +1,7 @@
 microgame_register("tfg_collision", {
     config_version: 1,
     game_name: "FIX COLLISION",
-    creator_name : "tfg",
+    authors : "tfg",
     prompt: "FIND ERROR",
     init_room: tfg_collision_rm_game,
     view_width: 960,
@@ -25,7 +25,7 @@ microgame_register("tfg_collision", {
 microgame_register("tfg_swipe", {
     config_version: 1,
     game_name: "SWIPE",
-    creator_name : "tfg",
+    authors : "tfg",
     prompt: "SWIPE",
     init_room: tfg_swipe_rm_game,
     view_width: -1,

@@ -113,7 +113,7 @@ function ___draw_title(_x, _y){
 	var _scale = 1;
 	draw_set_font(fnt_frogtype);
 	var _game_name = "\"" + string_upper(microgame_next_metadata.game_name) + "\"";
-	var _game_creator = string_upper(microgame_next_metadata.creator_name);
+	var _game_creator = string_upper(microgame_next_metadata.authors);
 	var _margin = 0;
 	var _padding = 3;
 	var _w = 174;

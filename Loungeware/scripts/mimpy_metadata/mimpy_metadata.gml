@@ -1,7 +1,7 @@
 microgame_register("mimpy_dinner_date", {
     config_version: 1,
     game_name: "Dinner Date",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "REST",
     init_room: mimpy_duckdate_rm,
     view_width: 240,
@@ -25,7 +25,7 @@ microgame_register("mimpy_dinner_date", {
 microgame_register("mimpy_fire_alarm", {
     config_version: 1,
     game_name: "Fire Alarm",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "DOUSE",
     init_room: mimpy_firealarm_rm,
     view_width: 240,
@@ -49,7 +49,7 @@ microgame_register("mimpy_fire_alarm", {
 microgame_register("mimpy_objection", {
     config_version: 1,
     game_name: "Objection!",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "CONTRADICT",
     init_room: mimpy_objection_rm,
     view_width: 720,
