@@ -377,7 +377,7 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 			return result;
 			
 		}
-		return make_colour_rgb(colour[2], colour[1], colour[0]);
+		return make_colour_rgb(colour[0], colour[1], colour[2]);
 	}
 }
 
