@@ -11,7 +11,7 @@ microgame_register("tfg_collision", {
     music_loops: false,
     interpolation_on: false,
     cartridge_col_primary: "0x121212",
-    cartridge_col_secondary: "0xb8ff71",
+    cartridge_col_secondary: "0xffb871",
     cartridge_label: tfg_collision_spr_cartridge,
     default_is_fail: true,
     supports_difficulty_scaling: false,
