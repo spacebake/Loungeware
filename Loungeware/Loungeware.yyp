@@ -537,6 +537,7 @@
     {"id":{"name":"obj_click_button","path":"objects/obj_click_button/obj_click_button.yy",},"order":15,},
     {"id":{"name":"baku_mine_spr_redstone_drop","path":"sprites/baku_mine_spr_redstone_drop/baku_mine_spr_redstone_drop.yy",},"order":15,},
     {"id":{"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"order":5,},
+    {"id":{"name":"katsaii_witchwanda_spr_witch_i","path":"sprites/katsaii_witchwanda_spr_witch_i/katsaii_witchwanda_spr_witch_i.yy",},"order":10,},
     {"id":{"name":"baku_mine_spr_stone","path":"sprites/baku_mine_spr_stone/baku_mine_spr_stone.yy",},"order":17,},
     {"id":{"name":"katsaii_witchwanda_spr_wanda_hitbox","path":"sprites/katsaii_witchwanda_spr_wanda_hitbox/katsaii_witchwanda_spr_wanda_hitbox.yy",},"order":9,},
     {"id":{"name":"mimpy_objection_obj_evidence","path":"objects/mimpy_objection_obj_evidence/mimpy_objection_obj_evidence.yy",},"order":3,},
