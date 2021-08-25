@@ -64,7 +64,7 @@ microgame_register("mimpy_objection", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],
-    date_added: "21/07/06",
+    date_added: "21/08/22",
     is_enabled: true,
 	  supports_html: true,
 	  show_on_website: true,
