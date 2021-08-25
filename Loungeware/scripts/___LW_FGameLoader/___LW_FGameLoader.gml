@@ -359,7 +359,7 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 			for (p = 1; p <= string_length(colour); p += 1) {
 		        dec = dec << 4 | (string_pos(string_char_at(colour, p), h) - 1);
 		    }
-		    return (dec & 16711680) >> 16 | (dec & 65280) | (dec & 255) << 16;
+		    return (dec & 0xFF0000) >> 16 | (dec & 0x00FF00) | (dec & 0x0000FF) << 16;
 		}
 		return make_colour_rgb(colour[0], colour[1], colour[2]);
 	}
