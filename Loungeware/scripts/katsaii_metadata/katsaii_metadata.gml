@@ -27,4 +27,10 @@ microgame_register("katsaii_witchcraft", {
     is_enabled: true,
     supports_html: true,
     show_on_website: true,
+    description: [
+        "Okay, so basically you're a witch and you craft wands. Thats why the game is called Witchcraft. Okay submit that. No. Stop writing down what I'm saying. Just use the first bit. -- SPEECH-TO-TEXT --"
+    ],
+    how_to_play: [
+        "Use the primary keys to select the highlighted items in order. Missing an item results in a game-over, so be careful. The arrow keys can be used to change the direction of the hand in order to save some time.",
+    ],
 });
