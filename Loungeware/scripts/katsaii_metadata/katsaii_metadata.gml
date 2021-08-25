@@ -43,7 +43,7 @@ microgame_register("katsaii_witchwanda", {
         mashmerlow: "Mashmerlow"
     },
     prompt : "SHOOT",
-    init_room : jam_rm_game,
+    init_room : katsaii_witchwanda_rm_game,
     view_width : -1,
     view_height : -1,
     time_seconds : 12,
