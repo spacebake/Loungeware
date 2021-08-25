@@ -124,54 +124,57 @@ if (!instance_exists(katsaii_witchwanda_obj_enemy)) {
     var y_bottom = KATSAII_WITCH_WANDA_VIEW_BOTTOM - y_pad;
     var y_mid = mean(y_top, y_bottom);
     var wave_chance = 1;
-    var active_enemies = 0;
-    for (var i = ds_list_size(waveStates) - 1; active_enemies < 5 && i >= 0; i -= 1) {
+    var active_enemy_health = 0;
+    for (var i = ds_list_size(waveStates) - 1; active_enemy_health < 30 && i >= 0; i -= 1) {
         var rand = random(1);
         if (rand > wave_chance) {
             continue;
         }
-        active_enemies += 1;
         wave_chance *= combine_wave_chance;
+        var enemy = noone;
         switch (waveStates[| i]) {
         case 0:
-            katsaii_witchwanda_spawn_enemy(x_front, y_mid, 5, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_mid, 5, 5);
             break;
         case 1:
-            katsaii_witchwanda_spawn_enemy(x_front, y_mid, x_pad, x_pad);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_mid, x_pad, x_pad);
             break;
         case 2:
-            katsaii_witchwanda_spawn_enemy(x_front, y_top + x_pad, 5, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_top + x_pad, 5, 5);
             break;
         case 3:
-            katsaii_witchwanda_spawn_enemy(x_front, y_top + x_pad, x_pad, x_pad);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_top + x_pad, x_pad, x_pad);
             break;
         case 4:
-            katsaii_witchwanda_spawn_enemy(x_front, y_bottom - x_pad, 5, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_bottom - x_pad, 5, 5);
             break;
         case 5:
-            katsaii_witchwanda_spawn_enemy(x_front, y_bottom - x_pad, x_pad, x_pad);
+            enemy = katsaii_witchwanda_spawn_enemy(x_front, y_bottom - x_pad, x_pad, x_pad);
             break;
         case 6:
-            katsaii_witchwanda_spawn_enemy(x_back, y_mid, 5, KATSAII_WITCH_WANDA_VIEW_HEIGHT / 2 - y_pad * 4);
+            enemy = katsaii_witchwanda_spawn_enemy(x_back, y_mid, 5, KATSAII_WITCH_WANDA_VIEW_HEIGHT / 2 - y_pad * 4);
             break;
         case 7:
-            katsaii_witchwanda_spawn_enemy(x_mid, lerp(y_top + x_pad, y_mid, 0.5), 5, y_pad);
+            enemy = katsaii_witchwanda_spawn_enemy(x_mid, lerp(y_top + x_pad, y_mid, 0.5), 5, y_pad);
             break;
         case 8:
-            katsaii_witchwanda_spawn_enemy(x_mid, lerp(y_bottom - x_pad, y_mid, 0.5), 5, y_pad);
+            enemy = katsaii_witchwanda_spawn_enemy(x_mid, lerp(y_bottom - x_pad, y_mid, 0.5), 5, y_pad);
             break;
         case 9:
-            katsaii_witchwanda_spawn_enemy(x_very_front, lerp(y_top + x_pad, y_mid, 0.5), x_pad, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_very_front, lerp(y_top + x_pad, y_mid, 0.5), x_pad, 5);
             break;
         case 10:
-            katsaii_witchwanda_spawn_enemy(x_very_front, lerp(y_bottom - x_pad, y_mid, 0.5), x_pad, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_very_front, lerp(y_bottom - x_pad, y_mid, 0.5), x_pad, 5);
             break;
         case 11:
-            katsaii_witchwanda_spawn_enemy(x_back, y_top + y_pad, 5, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_back, y_top + y_pad, 5, 5);
             break;
         case 12:
-            katsaii_witchwanda_spawn_enemy(x_back, y_bottom - y_pad, 5, 5);
+            enemy = katsaii_witchwanda_spawn_enemy(x_back, y_bottom - y_pad, 5, 5);
             break;
+        }
+        if (enemy != noone) {
+            active_enemy_health += enemy.hp;
         }
     }
 }

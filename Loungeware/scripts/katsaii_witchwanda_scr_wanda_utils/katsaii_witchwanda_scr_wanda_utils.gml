@@ -66,12 +66,12 @@ function katsaii_witchwanda_draw_witch(_witch_spr, _witch_img, _broom_spr, _broo
     draw_sprite_ext(_witch_spr, _witch_img, _x, _y, _xscale, _yscale, 0.5 * -angle, _colour, _alpha);
 }
 
-/// @desc Computes the direction from two key presses.
+/*/// @desc Computes the direction from two key presses.
 /// @param {real} key_min The key to check to decelerate.
 /// @param {real} key_max The key to check to accelerate.
 function katsaii_witchwanda_keyboard_direction(_key_min, _key_max) {
     return keyboard_check(_key_max) - keyboard_check(_key_min);
-}
+}*/
 
 /// @desc Returns possible difficulty levels.
 function katsaii_witchwanda_get_difficulty_levels() {
@@ -294,10 +294,12 @@ function katsaii_witchwanda_lerp_bezier(_amount, _x1, _y1, _x2, _y2, _x3, _y3) {
 /// @param {real} rx The X radius of the enemy.
 /// @param {real} ry The Y radius of the enemy.
 function katsaii_witchwanda_spawn_enemy(_x, _y, _amp_x, _amp_y) {
-    with (instance_create_layer(_x, _y, layer, katsaii_witchwanda_obj_enemy)) {
+    var inst = instance_create_layer(_x, _y, layer, katsaii_witchwanda_obj_enemy);
+    with (inst) {
         amplitudeX = _amp_x;
         amplitudeY = _amp_y;
     }
+    return inst;
 }
 
 #macro JAM_COLOUR_BLEND merge_colour(JamCPurple.MARDI_GRAS, JamCYellow.REKINDLED, (1 + dsin(current_time * 0.1)) / 8)

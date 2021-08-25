@@ -50,9 +50,9 @@ microgame_register("katsaii_witchwanda", {
     music_track : noone,
     music_loops : false,
     interpolation_on : false,
-    cartridge_col_primary : [198, 119, 95],
-    cartridge_col_secondary : [238, 199, 138],
-    cartridge_label : katsaii_witchcraft_label,
+    cartridge_col_primary : [225, 190, 188],
+    cartridge_col_secondary : [255, 238, 234],
+    cartridge_label : katsaii_witchwanda_label,
     default_is_fail : true,
     supports_difficulty_scaling : true,
     credits : ["Katsaii", "Mashmerlow"],
@@ -64,4 +64,10 @@ microgame_register("katsaii_witchwanda", {
     is_enabled: true,
     supports_html: true,
     show_on_website: true,
+    description: [
+        "You play as Wanda, a friendly witch flying through the sky amongst clouds and floating islands. Suddenly, a group of witches start to attack Wanda and her island. Defeat the wave of witches and protect the island!"
+    ],
+    how_to_play: [
+        "Use the primary keys to file bullets at opposing witches. Holding down continuous fire will decrease the rate of fire over time, so try to fire in bursts. Use the arrow keys to move around and avoid the projectiles.",
+    ],
 });

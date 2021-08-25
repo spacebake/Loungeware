@@ -1,7 +1,7 @@
 /// @desc Update movement.
 part_system_update(partSys);
-var xdir = clamp(katsaii_witchwanda_keyboard_direction(vk_left, vk_right) + katsaii_witchwanda_keyboard_direction(ord("A"), ord("D")), -1, 1);
-var ydir = clamp(katsaii_witchwanda_keyboard_direction(vk_up, vk_down) + katsaii_witchwanda_keyboard_direction(ord("W"), ord("S")), -1, 1);
+var xdir = clamp(KEY_RIGHT - KEY_LEFT, -1, 1);
+var ydir = clamp(KEY_DOWN - KEY_UP, -1, 1);
 xspeed = katsaii_witchwanda_movement_iterate(xspeed, acc, frict, handling, xdir);
 yspeed = katsaii_witchwanda_movement_iterate(yspeed, acc, frict, handling, ydir);
 var slow_down = lerp(1, -0.25, hitTimer);
@@ -26,7 +26,7 @@ if (y < cam_top || y > cam_bottom) {
     audio_play_sound_on(hurtEmitter, katsaii_witchwanda_snd_pop, false, 1);
 }
 katsaii_witchwanda_wanda_spawn_particles(partSys);
-blast = keyboard_check(ord("X")) || keyboard_check(vk_enter);
+blast = KEY_PRIMARY || KEY_SECONDARY;
 if (blast) {
     if (blastHeld < 120) {
         blastHeld += 1;
