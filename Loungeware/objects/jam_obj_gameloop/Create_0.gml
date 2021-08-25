@@ -1,12 +1,15 @@
 /// @desc Initialise the gameloop.
 gml_pragma("global", @'global.jamDifficulty = 0;global.jamHp = 0;global.jamHpPool = 0;');
-jam_obj_title.visible = false;
-hpMax = 20;
+//jam_obj_title.visible = false;
+hpMax = 10;
 global.jamHp = hpMax;
 global.jamHpPool = 0;
-global.jamScore = 0;
+//global.jamScore = 0;
 difficultyLevels = jam_get_difficulty_levels();
 global.jamDifficulty = 0;
+var difficulty_ids = [12, 12, 12, 12, 12];
+global.jamCurrentDifficultyLevelID = difficulty_ids[DIFFICULTY - 1];
+//global.jamHighScore = 0;
 difficultyLevel = global.jamCurrentDifficultyLevelID;
 for (var i = 0; i < difficultyLevel; i += 4) {
     global.jamDifficulty += difficultyLevels[i + 0];
@@ -29,8 +32,10 @@ gameOverEmitter = audio_emitter_create();
 crumbleEmitter = audio_emitter_create();
 musicEmitter = audio_emitter_create();
 musicFade = -0.25;
-musicFadeCounter = 0.005;
+musicFadeCounter = 0.01;
 gameOverSurface = -1;
+spawnWave = true;
+gameWon = false;
 waveStates = ds_list_create();
 for (var i = 0; i <= 12; i += 1) {
    ds_list_add(waveStates, i);

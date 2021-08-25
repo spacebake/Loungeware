@@ -4,9 +4,18 @@
     //exit;
 //}
 audio_emitter_gain(musicEmitter, musicFade * 0.09);
+if (fadeIn < 1) {
+    fadeIn += fadeInCounter;
+    if (fadeIn > 1) {
+        fadeIn = 1;
+    }
+}
+if (gameWon) {
+    exit;
+}
 if (gameOver) {
     global.jamHp = 0;
-    if (gameRestart) {
+    if (false) { //gameRestart) {
         gameRestartTimer -= gameRestartCounter;
         if (gameRestartTimer < -0.25) {
             event_user(0);
@@ -14,9 +23,9 @@ if (gameOver) {
     } else {
         if (fadeOut >= 1) {
             fadeOut = 1;
-            if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("X"))) {
+            /*if (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("X"))) {
                 gameRestart = true;
-            }
+            }*/
         } else {
             fadeOut += fadeOutCounter;
             if (fadeOut >= 1) {
@@ -39,12 +48,6 @@ if (gameOver) {
     }
     if (musicFade > 1) {
         musicFade = 1;
-    }
-}
-if (fadeIn < 1) {
-    fadeIn += fadeInCounter;
-    if (fadeIn > 1) {
-        fadeIn = 1;
     }
 }
 var before_threshold = global.jamDifficulty < difficultyThreshold;
@@ -84,7 +87,14 @@ if (global.jamHp < 0) {
 } else {
     audio_emitter_gain(crumbleEmitter, (10 - global.jamHp) / 5);
 }
-if (fadeIn > 0.9 && !instance_exists(jam_obj_enemy)) {
+if (!instance_exists(jam_obj_enemy)) {
+    if (spawnWave) {
+        spawnWave = false;
+    } else {
+        microgame_win();
+        gameWon = true;
+        exit;
+    }
     //show_debug_message("starting a new wave");
     // types of wave:
     // - single centre enemy

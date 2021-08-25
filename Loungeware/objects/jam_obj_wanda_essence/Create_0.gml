@@ -1,6 +1,6 @@
 /// @desc Initialise essence.
 global.jamHpPool -= 5;
-global.jamScore -= 3;
+//global.jamScore -= 3;
 targetX = KATSAII_WITCH_WANDA_VIEW_CENTRE_X;
 targetY = KATSAII_WITCH_WANDA_VIEW_CENTRE_Y;
 var angle = random_range(0, 360);

@@ -31,7 +31,7 @@ draw_set_halign(fa_center);
 var linear = min(fadeOut * max(gameRestartTimer, 0), 1);
 var interp = jam_easein(linear);
 draw_set_alpha(max(gameRestartTimer, 0));
-jam_draw_text_wonky(KATSAII_WITCH_WANDA_VIEW_CENTRE_X, lerp(KATSAII_WITCH_WANDA_VIEW_TOP + 10, KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 10, interp), "Score: " + string(global.jamScore) + " (High: " + string(global.jamHighScore) + ")");
+//jam_draw_text_wonky(KATSAII_WITCH_WANDA_VIEW_CENTRE_X, lerp(KATSAII_WITCH_WANDA_VIEW_TOP + 10, KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 10, interp), "Score: " + string(global.jamScore) + " (High: " + string(global.jamHighScore) + ")");
 draw_set_alpha(1.0);
 if not (surface_exists(gameOverSurface)) {
     gameOverSurface = surface_create(KATSAII_WITCH_WANDA_VIEW_WIDTH, KATSAII_WITCH_WANDA_VIEW_HEIGHT);
@@ -40,10 +40,11 @@ surface_set_target(gameOverSurface);
 draw_clear_alpha(c_black, 0);
 if (interp > 0) {
     draw_set_font(jam_fnt_script);
-    jam_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_LEFT - 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X - 60, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y + 40, "Game", 10, JamCRed.FORREST_FIRE, c_white);
-    jam_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X + 60, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y + 40, "Over", 10, JamCRed.FORREST_FIRE, c_white);
+    jam_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_LEFT - 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X - 50, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Game", 10, JamCRed.FORREST_FIRE, c_white);
+    jam_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X + 50, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Over", 10, JamCRed.FORREST_FIRE, c_white);
 }
 if (fadeIn > 0.01 && fadeIn < 0.99) {
+    draw_set_font(jam_fnt_tiny);
     jam_draw_text_3d(
             lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_LEFT - 200, jam_midslow(fadeIn)),
             KATSAII_WITCH_WANDA_VIEW_BOTTOM - 70,
