@@ -34,3 +34,34 @@ microgame_register("katsaii_witchcraft", {
         "Use the primary keys to select the highlighted items in order. Missing an item results in a game-over, so be careful. The arrow keys can be used to change the direction of the hand in order to save some time.",
     ],
 });
+
+microgame_register("katsaii_witchwanda", {
+    config_version : 1,
+    game_name : "Witch Wanda",
+    authors :  {
+        katsaii: "Katsaii",
+        mashmerlow: "Mashmerlow"
+    },
+    prompt : "SHOOT",
+    init_room : jam_rm_game,
+    view_width : -1,
+    view_height : -1,
+    time_seconds : 12,
+    music_track : noone,
+    music_loops : false,
+    interpolation_on : false,
+    cartridge_col_primary : [198, 119, 95],
+    cartridge_col_secondary : [238, 199, 138],
+    cartridge_label : katsaii_witchcraft_label,
+    default_is_fail : true,
+    supports_difficulty_scaling : true,
+    credits : ["Katsaii", "Mashmerlow"],
+    date_added : {
+        day : 25,
+        month : "August",
+        year : 2021
+    },
+    is_enabled: true,
+    supports_html: true,
+    show_on_website: true,
+});
