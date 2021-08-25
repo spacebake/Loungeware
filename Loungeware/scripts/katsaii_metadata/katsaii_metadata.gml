@@ -1,21 +1,21 @@
-microgame_register("katsaii_witchwanda", {
+microgame_register("katsaii_witchcraft", {
     config_version : 1,
-    game_name : "Witch Wanda",
+    game_name : "Witchcraft",
     authors :  {
-		katsaii: "Katsaii",
-		mashmerlow: "Mashmerlow"
-	},
+        katsaii: "Katsaii",
+        mashmerlow: "Mashmerlow"
+    },
     prompt : "CRAFT",
-    init_room : katsaii_witchwanda_rm,
+    init_room : katsaii_witchcraft_rm,
     view_width : 1,
     view_height : 1,
     time_seconds : 7,
-    music_track : katsaii_witchwanda_mu,
+    music_track : katsaii_witchcraft_mu,
     music_loops : false,
     interpolation_on : true,
     cartridge_col_primary : [198, 119, 95],
     cartridge_col_secondary : [238, 199, 138],
-    cartridge_label : katsaii_witchwanda_label,
+    cartridge_label : katsaii_witchcraft_label,
     default_is_fail : true,
     supports_difficulty_scaling : true,
     credits : ["Katsaii", "Mashmerlow"],
@@ -24,7 +24,7 @@ microgame_register("katsaii_witchwanda", {
         month : "July",
         year : 2021
     },
-	is_enabled: true,
-	supports_html: true,
-	show_on_website: true,
+    is_enabled: true,
+    supports_html: true,
+    show_on_website: true,
 });
