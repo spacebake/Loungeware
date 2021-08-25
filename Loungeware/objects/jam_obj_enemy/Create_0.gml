@@ -18,8 +18,8 @@ while (true) {
 }
 bulletId = irandom_range(1, 3);
 bullet = asset_get_index("jam_spr_bullet_" + string(bulletId));
-var max_hp = logn(1.3, max(0, global.jamDifficulty) + 1.3);
-hp = irandom_range(1, max_hp / 2); //irandom_range(max(1, max_hp / 2), max_hp);
+var max_hp = logn(1.3, max(0, global.jamDifficulty / 2) + 1.3);
+hp = irandom_range(1, max_hp); //irandom_range(max(1, max_hp / 2), max_hp);
 blastTimer = 0;
 blastCounter = clamp(0.00065 * global.jamDifficulty, 0, 0.04);
 xspeed = 0;
@@ -34,7 +34,7 @@ entryCounter = 0.02;
 hitTimer = 0;
 hitCounter = 0.1;
 lifeTimer = 0;
-lifeCounter = 0.002;
+lifeCounter = 0; // life is disabled in the loungeware version
 exitTimer = -1;
 exitCounter = 0.03;
 angle = 0;

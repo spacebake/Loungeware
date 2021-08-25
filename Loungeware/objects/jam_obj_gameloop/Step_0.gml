@@ -10,6 +10,9 @@ if (fadeIn < 1) {
         fadeIn = 1;
     }
 }
+if ((gameWon || gameOver) && alarm[0] == -1) {
+    alarm[0] = 60 * (gameWon ? 2 : 5);
+}
 if (gameWon) {
     exit;
 }
@@ -115,11 +118,13 @@ if (!instance_exists(jam_obj_enemy)) {
     var y_bottom = KATSAII_WITCH_WANDA_VIEW_BOTTOM - y_pad;
     var y_mid = mean(y_top, y_bottom);
     var wave_chance = 1;
-    for (var i = ds_list_size(waveStates) - 1; i >= 0; i -= 1) {
+    var active_enemies = 0;
+    for (var i = ds_list_size(waveStates) - 1; active_enemies < 5 && i >= 0; i -= 1) {
         var rand = random(1);
         if (rand > wave_chance) {
             continue;
         }
+        active_enemies += 1;
         wave_chance *= combine_wave_chance;
         switch (waveStates[| i]) {
         case 0:

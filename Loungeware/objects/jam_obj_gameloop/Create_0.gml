@@ -1,13 +1,13 @@
 /// @desc Initialise the gameloop.
 gml_pragma("global", @'global.jamDifficulty = 0;global.jamHp = 0;global.jamHpPool = 0;');
 //jam_obj_title.visible = false;
-hpMax = 10;
+hpMax = 7.5;
 global.jamHp = hpMax;
 global.jamHpPool = 0;
 //global.jamScore = 0;
 difficultyLevels = jam_get_difficulty_levels();
 global.jamDifficulty = 0;
-var difficulty_ids = [12, 12, 12, 12, 12];
+var difficulty_ids = [12, 16, 20, 24, 28];
 global.jamCurrentDifficultyLevelID = difficulty_ids[DIFFICULTY - 1];
 //global.jamHighScore = 0;
 difficultyLevel = global.jamCurrentDifficultyLevelID;
@@ -16,7 +16,7 @@ for (var i = 0; i < difficultyLevel; i += 4) {
 }
 difficultyThreshold = global.jamDifficulty + difficultyLevels[difficultyLevel + 0];
 var start_diff_offset = -0.40;
-global.jamDifficulty += start_diff_offset;
+global.jamDifficulty += 0; //start_diff_offset;
 difficultyGain = 0.002;
 hpDrain = 0.0075;
 hpRecover = 0.1;

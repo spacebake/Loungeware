@@ -28,7 +28,7 @@ if (entryTimer >= 1) {
         blast_speed_multiplier = 7;
         break;
     case 2:
-        blast_speed_multiplier = 3;
+        blast_speed_multiplier = 2.5;
         break;
     case 3:
         blast_speed_multiplier = 1;
@@ -38,7 +38,7 @@ if (entryTimer >= 1) {
     if (blastTimer < 0 && global.jamHp > 0) {
         blastTimer = 1;
         // spawn projectiles
-        var angless = [[-100, -50, 0, 50, 100], [-50, -25, 25, 50], [-80, -40, -20, 0, 20, 40, 80]];
+        var angless = [[-100, -50, 0, 50, 100], [-60, -20, 20, 60], [-80, -40, 0, 40, 80]];
         var angles = angless[bulletId - 1];
         for (var i = array_length(angles) - 1; i >= 0; i -= 1) {
             var projectile = random(1) < 0.1 ? jam_obj_enemy_projectile_fake : jam_obj_enemy_projectile;
