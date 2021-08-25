@@ -14,6 +14,9 @@ if ((gameWon || gameOver) && alarm[0] == -1) {
     alarm[0] = 60 * (gameWon ? 2 : 5);
 }
 if (gameWon) {
+    with (katsaii_witchwanda_obj_wanda) {
+        instance_create_layer(x, y, layer, katsaii_witchwanda_obj_wanda_essence);
+    }
     exit;
 }
 if (gameOver) {
@@ -96,6 +99,9 @@ if (!instance_exists(katsaii_witchwanda_obj_enemy)) {
     } else {
         microgame_win();
         gameWon = true;
+        audio_emitter_gain(cheerEmitter, 0.75);
+        audio_emitter_pitch(cheerEmitter, random_range(0.7, 0.9));
+        audio_play_sound_on(cheerEmitter, katsaii_witchwanda_cheer, false, 100);
         exit;
     }
     //show_debug_message("starting a new wave");

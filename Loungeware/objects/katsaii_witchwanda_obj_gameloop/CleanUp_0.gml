@@ -4,6 +4,7 @@ ds_list_destroy(waveStates);
 audio_emitter_free(musicEmitter);
 audio_emitter_free(crumbleEmitter);
 audio_emitter_free(gameOverEmitter);
+audio_emitter_free(cheerEmitter);
 if (surface_exists(gameOverSurface)) {
     surface_free(gameOverSurface);
 }

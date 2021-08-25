@@ -31,6 +31,7 @@ gameOver = false;
 gameOverEmitter = audio_emitter_create();
 crumbleEmitter = audio_emitter_create();
 musicEmitter = audio_emitter_create();
+cheerEmitter = audio_emitter_create();
 musicFade = -0.25;
 musicFadeCounter = 0.01;
 gameOverSurface = -1;
