@@ -15,7 +15,7 @@
 /// @param {Real} texel_w The width of a texel.
 /// @param {Real} texel_h The height of a texel.
 /// @param {Real} colour The colour of the outline.
-function shader_set_effect_outline(_texel_w, _texel_h, _outline) {
+function katsaii_witchwanda_shader_set_effect_outline(_texel_w, _texel_h, _outline) {
     static u_outline = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_outline");
     static u_texel_w = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_texelW");
     static u_texel_h = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_texelH");
