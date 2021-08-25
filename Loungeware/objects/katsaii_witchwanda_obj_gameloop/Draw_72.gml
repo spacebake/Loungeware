@@ -53,7 +53,7 @@ if (fadeIn > 0.01 && fadeIn < 0.99) {
 }
 surface_reset_target();
 var tex = surface_get_texture(gameOverSurface);
-shader_set_effect_outline(texture_get_texel_width(tex), texture_get_texel_height(tex), JAM_COLOUR_BLEND, 2);
+shader_set_effect_outline(texture_get_texel_width(tex), texture_get_texel_height(tex), JAM_COLOUR_BLEND);
 draw_surface(gameOverSurface, KATSAII_WITCH_WANDA_VIEW_LEFT, KATSAII_WITCH_WANDA_VIEW_TOP);
 shader_reset();
 var band_mid = KATSAII_WITCH_WANDA_VIEW_BOTTOM - 20;
