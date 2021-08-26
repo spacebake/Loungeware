@@ -129,8 +129,8 @@ if (state == "choose"){
 	}
 	
 	if (confirmed && wait <= 0){
-		menu[cursor][1]();
-
+		var _menu_function = menu[cursor][1];
+		_menu_function();
 	}
 	wait--;
 }

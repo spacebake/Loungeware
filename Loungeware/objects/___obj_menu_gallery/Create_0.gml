@@ -1,3 +1,4 @@
+
 camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
@@ -14,6 +15,19 @@ selected = 0;
 cursor = ___global.menu_cursor_gallery;
 scroll_y = 0;
 scroll_y_target = scroll_y;
+scroll_skip = false;
+
+// skip to correct game if coming from a query string url
+if (___global.gallery_goto_key != ""){
+	for (var i = 0; i < array_length(microgame_keylist); i++){
+		if (microgame_keylist[i] == ___global.gallery_goto_key){
+			cursor = i;
+			scroll_skip = true;
+			___global.gallery_goto_key = "";
+			break;
+		}
+	}
+}
 
 difficulty = 1;
 
@@ -64,7 +78,6 @@ function back_to_main(){
 
 function date_nicify(_date_string){
 	
-		
 	static month_names = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 	
 	var _date = date_as_numeric_array(_date_string);

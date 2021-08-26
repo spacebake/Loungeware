@@ -10,7 +10,7 @@
 microgame_register("{your_author_name}_{your_unique_game_name}", {
     config_version: 1,
     game_name: "Example Game",
-    creator_name : "john doe",
+    authors : "john doe",
     prompt: "SHOOT",
     init_room: rm_some_room,
     view_width: 240,
@@ -31,5 +31,7 @@ microgame_register("{your_author_name}_{your_unique_game_name}", {
 	  year : 2099
 	},
 	is_enabled: false,
+	supports_html:false,
+	show_on_website: false,
 });
 */

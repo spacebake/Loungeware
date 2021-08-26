@@ -118,7 +118,7 @@ if (!TEST_MODE_ACTIVE){
 } else {
 	
 	// get which game to load from config file
-	var  _game_key = ___dev_config_get_test_key()
+	var  _game_key = ___dev_config_get_test_key();
 	___state_change("playing_microgame");
 	
 	// This should only run when launching the game in debug mode (prompt is normally initialized in draw)
@@ -198,16 +198,14 @@ function draw_circle_transition(){
 
 function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	
-	var _store_surf = surface_get_target();
+	
 	var _store_blend = gpu_get_blendmode();
 
 	if (!surface_exists(surf_larold)) surf_larold = surface_create(canvas_w, canvas_h);
-
-	
-	// clear
 	surface_set_target(surf_larold);
+
+	// clear
 	draw_clear(c_gboff);
-	surface_reset_target();
 	
 	// move
 	var _dir_speed = 5;
@@ -217,20 +215,17 @@ function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 	var _y_offset_glare = lengthdir_y(_larold_rad * 0.75, larold_dir + 180);
 		
 	// draw larold
-	surface_set_target(surf_larold);
 	draw_set_alpha(0.025);
 	draw_sprite(___spr_larold_reflection, larold_index, 0, _y_offset_larold);
-	surface_reset_target();
 		
 	// draw glare
-	surface_set_target(surf_larold);
 	draw_set_alpha(0.015);
 	draw_sprite(___spr_larold_reflection, 0, 0, _y_offset_glare);
-	surface_reset_target();
 	draw_set_alpha(1);
-	
 	gpu_set_blendmode(_blend);
-	surface_set_target(_store_surf);
+	
+	surface_reset_target();
+	
 	draw_surface_stretched_ext(
 		surf_larold, 
 		_x, _y, _w, _h,
@@ -238,7 +233,7 @@ function draw_surf_larold(_x, _y, _w, _h, _alpha, _blend){
 		_alpha
 	);
 	gpu_set_blendmode(_store_blend);
-	surface_reset_target();
+	
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -260,13 +255,15 @@ function draw_gameboy_overlay(){
 	draw_clear(c_gboff);
 	draw_sprite(gameboy_sprite, gameboy_frame, 0, 0);
 	{ // comment out this block if you don't like the moving d-pad
-		var _dpad_in_use = KEY_RIGHT || KEY_UP || KEY_LEFT || KEY_RIGHT;
+		var _dpad_in_use = KEY_RIGHT || KEY_UP || KEY_LEFT || KEY_DOWN;
 		var _dpad_frame = point_direction(
 			0, 0,
 			-KEY_LEFT + KEY_RIGHT,
 			-KEY_UP + KEY_DOWN
 		)
+		
 		_dpad_frame = _dpad_frame div 90;
+		log(_dpad_frame);
 		if (_dpad_in_use) {
 			draw_sprite(
 				___spr_gameboy_dpad, _dpad_frame,
@@ -293,9 +290,8 @@ function draw_gameboy_overlay(){
 
 
 	// draw timerbar
-	surface_set_target(surf_gameboy);
 	draw_timerbar();
-	surface_reset_target();
+	
 	
 	// draw gameboy surface onto master surface
 	surface_set_target(surf_master);
@@ -326,6 +322,8 @@ function draw_timerbar(){
 	
 	var _store_alpha = draw_get_alpha();
 	draw_set_alpha(gb_timerbar_alpha);
+	surface_set_target(surf_gameboy);
+
 	
 	// draw segments
 	for (var i = 0; i < _secs_max; i++){
@@ -338,14 +336,22 @@ function draw_timerbar(){
 			_shake_y = random_range(-_shake_val, _shake_val);
 		}
 		var _xx = _x1 + (i * (_seg_w + _seg_spacer_w));
+		
+		var _scl = 1;
+		var _seg_x1 = round((_xx + _shake_x)*_scl)/_scl;
+		var _seg_x2 = round((_seg_x1 + _seg_w)*_scl)/_scl;
+		var _seg_y1 = round((_y1 + _shake_y)*_scl)/_scl;
+		var _seg_y2 = round((_seg_y1 + _seg_h)*_scl)/_scl;
+		
 		draw_set_color(c_gbtimer_empty);
-		draw_rectangle_fix(_xx + _shake_x, _y1 + _shake_y, _xx + _seg_w + _shake_x, _y2 + _shake_y);
+		draw_rectangle_fix(_seg_x1,_seg_y1, _seg_x2, _seg_y2);
 		draw_set_color(c_gbtimer_full);
-		if (_secs > i) draw_rectangle_fix(_xx + _shake_x, _y1 + _shake_y, _xx + _seg_w + _shake_x, _y2 + _shake_y);
+		if (_secs > i) draw_rectangle_fix(_seg_x1,_seg_y1, _seg_x2, _seg_y2);
 		
 	}
 	
 	draw_set_alpha(_store_alpha);
+	surface_reset_target();
 }
 
 

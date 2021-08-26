@@ -1,5 +1,18 @@
 #macro WINDOW_BASE_SIZE ___global.window_base_size_read()
 
+
+// html rectangle fix
+#macro ___draw_rectangle_real draw_rectangle
+function ___drhtmlf(x1, y1, x2, y2, outline){
+	if (HTML_MODE){
+		x2 += 1;
+		y2 += 1;
+	}
+	___draw_rectangle_real(x1, y1, x2, y2, outline);
+}
+#macro draw_rectangle ___drhtmlf
+
+
 #macro c_magenta ___global.macro_c_magenta
 #macro c_gbyellow ___global.macro_c_gbyellow
 #macro c_gbpink  ___global.macro_c_gbpink
@@ -26,7 +39,8 @@
 #macro CONFIG_IS_SHIPPING false
 #macro Shipping:CONFIG_IS_SHIPPING true
 
-
+#macro HTML_MODE (!(os_browser == browser_not_a_browser))
+#macro DEVELOPER_MODE (___global.developer_mode_active)
 
 
 
