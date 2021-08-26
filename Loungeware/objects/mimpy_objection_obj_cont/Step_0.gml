@@ -9,7 +9,7 @@ if (!presenting) {
 	if (mov != 0) {
 		if (audio_is_playing(sel_snd))
 			sfx_stop(sel_snd, 0);
-		sel_snd = sfx_play(mimpy_duckdate_snd_love, 1, false);
+		sel_snd = sfx_play(mimpy_duckdate_snd_love, 0.2, false);
 	}
 	selection += KEY_RIGHT_PRESSED - KEY_LEFT_PRESSED;
 	selection -= floor(selection / 3) * 3;
@@ -17,11 +17,11 @@ if (!presenting) {
 	if (KEY_PRIMARY_PRESSED) {
 		// Present
 		if (evidence[selection].index == question.answer) {
-			sfx_play(mimpy_firealarm_win, 1, false);
+			sfx_play(mimpy_firealarm_win, 0.8, false);
 			microgame_win();
 		}
 		else {
-			sfx_play(mimpy_duckdate_snd_steal, 1, false);
+			sfx_play(mimpy_duckdate_snd_steal, 0.8, false);
 			microgame_fail();
 			layer_sprite_index(bakuSprite, 1);
 		}
