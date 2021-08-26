@@ -17,24 +17,9 @@ offbeat_timer = 0;
 beat_count = 0;
 beat_count_prev = 0;
 fast_beat_count = 0;
-
-
 drum_hit = false;
-drum_alt = false;
 
-
-
-
-// at this point in the game we can be sure that the game is not running in developer mode
-// so here we will delete all disabled games
-microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
-for(var i = 0; i < array_length(microgame_namelist); i++){
-	var _data = variable_struct_get(___global.microgame_metadata, microgame_namelist[i]);
-	if (variable_struct_exists(_data, "is_enabled")) && (_data.is_enabled == false){
-		show_debug_message("Removed from gamelist because it was not enabled: " + _data.game_name);
-		variable_struct_remove(___global.microgame_metadata, microgame_namelist[i]);
-	}
-}
+___microgame_list_remove_incompatible();
 
 
 // get labels

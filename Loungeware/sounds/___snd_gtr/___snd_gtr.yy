@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___snd_gtr.wav",
-  "duration": 19.0171432,
+  "duration": 18.0767574,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",

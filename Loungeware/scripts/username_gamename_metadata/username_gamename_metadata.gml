@@ -8,7 +8,7 @@
 microgame_register("username_gamename", {
     config_version: 1,
     game_name: "EXAMPLE",
-    creator_name : "john doe",
+    authors : "john doe",
     prompt: "PRESS",
     init_room: username_gamename_rm_game,
     view_width: 240,
@@ -28,5 +28,7 @@ microgame_register("username_gamename", {
 		month: 8,
 		year: 2021
 	},
-	is_enabled: false
+	is_enabled: false,
+	supports_html: true,
+	show_on_website: false,
 });

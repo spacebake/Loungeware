@@ -1,10 +1,16 @@
+// play the second part of song when intro finishes
+if (sng_index == ___snd_gtr_intro && !audio_is_playing(sng_id)){
+	main_menu_theme_play(true);
+}
+
+// whether or not to skip the intro song
+// didnt use track position because of html bug
 if (step <= 0){
 	if (skip_intro){
-		var _skip_position = 0.924;
-		main_menu_theme_play(_skip_position);
+		main_menu_theme_play(true);
 		wait = 0;
 	} else {
-		main_menu_theme_play(0);
+		main_menu_theme_play(false);
 	}
 }
 

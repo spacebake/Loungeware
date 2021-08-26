@@ -2,11 +2,17 @@ camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
 surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
 
 sng_id = noone;
-function main_menu_theme_play(_pos){
-	sng_id = audio_play_sound(___snd_gtr, 1, 1);
-	var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
+sng_index = noone;
+function main_menu_theme_play(_skipintro=false){
+	sng_index = ___snd_gtr_intro;
+	var _loop = false;
+	if (_skipintro){
+		sng_index = ___snd_gtr;
+		_loop = true;
+	}
+	sng_id = audio_play_sound(sng_index, 1, _loop);
+	var _vol = VOL_MSC * VOL_MASTER;
 	audio_sound_gain(sng_id, _vol, 0);
-	if (_pos > 0) audio_sound_set_track_position(sng_id, _pos);
 }
 
 
@@ -50,7 +56,6 @@ menu = [
 	"LEADERBOARD",
 	"OPTIONS",
 	"CREDITS",
-	"EXIT"
 ]
 noop = function(){};
 
@@ -60,8 +65,12 @@ menu_method = [
 	noop,
 	noop,
 	noop,
-	function(){game_end()},
 ]
+
+if (!HTML_MODE){
+	array_push(menu, "EXIT");
+	array_push(menu_method,  function(){game_end()});
+}
 
 
 menu_method[0] = function(){

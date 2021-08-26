@@ -1,7 +1,7 @@
 microgame_register("mimpy_dinner_date", {
     config_version: 1,
     game_name: "Dinner Date",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "REST",
     init_room: mimpy_duckdate_rm,
     view_width: 240,
@@ -16,13 +16,16 @@ microgame_register("mimpy_dinner_date", {
     default_is_fail: false,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],
-    date_added: "21/07/09"
+    date_added: "21/07/09",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("mimpy_fire_alarm", {
     config_version: 1,
     game_name: "Fire Alarm",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "DOUSE",
     init_room: mimpy_firealarm_rm,
     view_width: 240,
@@ -37,13 +40,16 @@ microgame_register("mimpy_fire_alarm", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["Mimpy"],
-    date_added: "21/07/06"
+    date_added: "21/07/06",
+	  is_enabled: true,
+	  supports_html: true,
+	  show_on_website: true,
 });
 
 microgame_register("mimpy_objection", {
     config_version: 1,
     game_name: "Objection!",
-    creator_name : "Mimpy",
+    authors : "Mimpy",
     prompt: "CONTRADICT",
     init_room: mimpy_objection_rm,
     view_width: 720,
@@ -58,5 +64,8 @@ microgame_register("mimpy_objection", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],
-    date_added: "21/07/06"
+    date_added: "21/08/22",
+    is_enabled: true,
+	  supports_html: true,
+	  show_on_website: true,
 });
