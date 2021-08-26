@@ -15,19 +15,11 @@
 /// @param {Real} texel_w The width of a texel.
 /// @param {Real} texel_h The height of a texel.
 /// @param {Real} colour The colour of the outline.
-/// @param {Real} thickness The thickness of the outline.
-function shader_set_effect_outline(_texel_w, _texel_h, _outline, _thickness) {
+function katsaii_witchwanda_shader_set_effect_outline(_texel_w, _texel_h, _outline) {
     static u_outline = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_outline");
     static u_texel_w = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_texelW");
     static u_texel_h = shader_get_uniform(katsaii_witchwanda_outline_fast, "u_texelH");
-    static u_outline_slow = shader_get_uniform(katsaii_witchwanda_outline, "u_outline");
-    static u_texel_w_slow = shader_get_uniform(katsaii_witchwanda_outline, "u_texelW");
-    static u_texel_h_slow = shader_get_uniform(katsaii_witchwanda_outline, "u_texelH");
-    static u_thickness_slow = shader_get_uniform(katsaii_witchwanda_outline, "u_thickness");
-    if (_thickness < 1) {
-        return;
-    }
-    if (_thickness == 1 && shader_is_compiled(katsaii_witchwanda_outline_fast)) {
+    if (shader_is_compiled(katsaii_witchwanda_outline_fast)) {
         shader_set(katsaii_witchwanda_outline_fast);
         shader_set_uniform_f(u_outline,
                 color_get_red(_outline) / 255,
@@ -35,15 +27,6 @@ function shader_set_effect_outline(_texel_w, _texel_h, _outline, _thickness) {
                 color_get_blue(_outline) / 255);
         shader_set_uniform_f(u_texel_w, _texel_w);
         shader_set_uniform_f(u_texel_h, _texel_h);
-    } else if (shader_is_compiled(katsaii_witchwanda_outline)) {
-        shader_set(katsaii_witchwanda_outline);
-        shader_set_uniform_f(u_outline_slow,
-                color_get_red(_outline) / 255,
-                color_get_green(_outline) / 255,
-                color_get_blue(_outline) / 255);
-        shader_set_uniform_f(u_texel_w_slow, _texel_w);
-        shader_set_uniform_f(u_texel_h_slow, _texel_h);
-        shader_set_uniform_f(u_thickness_slow, _thickness);
     }
 }
 

@@ -1,6 +1,6 @@
 /// @desc Initialise this enemy.
 var witch_min = ord("A");
-var witch_max = ord("H");
+var witch_max = ord("I");
 while (true) {
     witch = asset_get_index("katsaii_witchwanda_spr_witch_" + string_lower(chr(irandom_range(witch_min, witch_max))));
     if (instance_number(object_index) - 1 > witch_max - witch_min) {

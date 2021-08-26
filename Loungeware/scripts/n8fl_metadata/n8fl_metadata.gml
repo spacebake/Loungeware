@@ -2,7 +2,7 @@ microgame_register("n8fl_adminsim", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "GM Admin Simulator",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "BAN OR BE BANNED",
     init_room: n8fl_admin_simulator_rm,
     view_width: 240,
@@ -27,7 +27,7 @@ microgame_register("n8fl_cheat_seat", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "Cheat Seat",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "Mash To Cheat",
     init_room: n8fl_cheat_seat_rm,
     view_width: 120,
@@ -52,7 +52,7 @@ microgame_register("n8fl_escape1", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
 	config_version: 1,
     game_name: "Action Escape Pt 1",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "Jump On The Car",
     init_room: n8fl_escape1_rm,
     view_width: 120,
@@ -77,7 +77,7 @@ microgame_register("n8fl_escape2", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
     config_version: 1,
     game_name: "Action Escape Pt 2",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "Jump On The Train",
     init_room: n8fl_escape2_rm,
     view_width: 120,
@@ -101,7 +101,7 @@ microgame_register("n8fl_escape2", {
 microgame_register("n8fl_escape3", {
     // sound fx : https://mixkit.co/free-sound-effects/hit/
     game_name: "Action Escape Pt 3",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "Jump On The Heli",
     init_room: n8fl_escape3_rm,
     view_width: 120,
@@ -136,7 +136,7 @@ microgame_register("n8fl_penguin_blast", {
 		year: 2021
 	},
     game_name: "Penguin Blast",
-    authors :  "net8floz",
+    authors :  { n8fl: "net8floz" },
     prompt: "Don't Get Blasted",
     init_room: n8fl_penguin_blast_rm,
     view_width: 240,
@@ -156,9 +156,7 @@ microgame_register("n8fl_penguin_blast", {
 	description: [
 	"The evil orange cat with sunglasses has kidnapped the fair Mimpy Penguin. The only problem? This penguin can't swim."
 	],
-	how_to_play: [
-	"Use the Primary Key & Secondary key to match the Red and Green projectiles. Use the Down key to block bombs. Match all the projectiles and save the princess.",
-	],
+	how_to_play: ["Use the Primary Key & Secondary key to match the Red and Green projectiles. Use the Down key to block bombs. Match all the projectiles and save the princess."],
 	author_id: "n8fl",
 	supports_html: true,
 	show_on_website: true,
@@ -180,13 +178,11 @@ microgame_register("n8fl_reach_for_it_mister", {
 	year: 2021
   },
   game_name: "Reach For It, Mister",
-  authors :  "net8floz",
+  authors :  { n8fl: "net8floz" },
   description: [
 	"The rad crew are at it again. But this time with cowboy hats."
   ],
-  how_to_play: [
-	"Match the buttons on screen before your opponent does! Last hat standing.",
-  ],
+  how_to_play: ["Match the buttons on screen before your opponent does! Last hat standing."],
   
   prompt: "Wait for it",
   init_room: n8fl_reach_for_it_mister_rm,
