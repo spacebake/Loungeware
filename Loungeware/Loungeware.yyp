@@ -10,6 +10,7 @@
     {"id":{"name":"baku_chug_spr_label","path":"sprites/baku_chug_spr_label/baku_chug_spr_label.yy",},"order":4,},
     {"id":{"name":"baku_mine_spr_highlight","path":"sprites/baku_mine_spr_highlight/baku_mine_spr_highlight.yy",},"order":11,},
     {"id":{"name":"katsaii_witchwanda_6","path":"sprites/katsaii_witchwanda_6/katsaii_witchwanda_6.yy",},"order":5,},
+    {"id":{"name":"mimpy_objection_bg_jury","path":"sounds/mimpy_objection_bg_jury/mimpy_objection_bg_jury.yy",},"order":0,},
     {"id":{"name":"baku_chug_snd_shoot","path":"sounds/baku_chug_snd_shoot/baku_chug_snd_shoot.yy",},"order":2,},
     {"id":{"name":"baku_mine_snd_think","path":"sounds/baku_mine_snd_think/baku_mine_snd_think.yy",},"order":3,},
     {"id":{"name":"n8fl_cheat_seat_teacher_spr","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"order":1,},
@@ -909,6 +910,7 @@
     {"folderPath":"folders/Microgames/mimpy/objection/Sprites.yy","order":2,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/mimpy/objection/Sprites/Questions.yy","order":10,"resourceVersion":"1.0","name":"Questions","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/mimpy/objection/Sprites/Answers.yy","order":11,"resourceVersion":"1.0","name":"Answers","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Microgames/mimpy/objection/Sounds.yy","order":4,"resourceVersion":"1.0","name":"Sounds","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
