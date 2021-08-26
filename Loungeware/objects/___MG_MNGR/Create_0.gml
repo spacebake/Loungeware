@@ -263,7 +263,7 @@ function draw_gameboy_overlay(){
 		)
 		
 		_dpad_frame = _dpad_frame div 90;
-		log(_dpad_frame);
+		//log(_dpad_frame); // naughty!!!
 		if (_dpad_in_use) {
 			draw_sprite(
 				___spr_gameboy_dpad, _dpad_frame,
