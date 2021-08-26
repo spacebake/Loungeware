@@ -55,6 +55,7 @@ microgame_register("katsaii_witchwanda", {
     cartridge_label : katsaii_witchwanda_label,
     default_is_fail : true,
     supports_difficulty_scaling : true,
+    allow_subpixels : false,
     credits : ["Katsaii", "Mashmerlow"],
     date_added : {
         day : 25,

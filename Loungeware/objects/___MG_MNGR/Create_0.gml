@@ -263,7 +263,7 @@ function draw_gameboy_overlay(){
 		)
 		
 		_dpad_frame = _dpad_frame div 90;
-		log(_dpad_frame);
+		//log(_dpad_frame); // naughty!!!
 		if (_dpad_in_use) {
 			draw_sprite(
 				___spr_gameboy_dpad, _dpad_frame,
@@ -363,11 +363,16 @@ function draw_microgame(){
 
 	var _surf_w_target = canvas_w * window_scale;
 	var _surf_h_target = canvas_h * window_scale;
-
-	if (window_scale > 0) && ((window_scale != prev_window_scale) || (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target)) {
-		var _w = max(5, _surf_w_target);
-		var _h = max(5, _surf_h_target);
-		surface_resize(application_surface, _w , _h);
+	if (microgame_current_metadata.allow_subpixels) {
+		if (window_scale > 0) && ((window_scale != prev_window_scale) || (surface_get_width(application_surface) != _surf_w_target || surface_get_height(application_surface) != _surf_h_target)) {
+			var _w = max(5, _surf_w_target);
+			var _h = max(5, _surf_h_target);
+			surface_resize(application_surface, _w , _h);
+		}
+	} else if (surface_get_width(application_surface) != room_width || surface_get_height(application_surface) != room_height) {
+		// IMPLEMENTED BY KAT, CRY ABOUT IT!!!!
+		//show_debug_message(microgame_current_metadata);
+		surface_resize(application_surface, room_width, room_height);
 	}
 
 	// draw game view onto master surface
