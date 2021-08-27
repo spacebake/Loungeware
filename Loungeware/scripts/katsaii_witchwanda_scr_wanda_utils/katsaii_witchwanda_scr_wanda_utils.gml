@@ -109,39 +109,34 @@ function katsaii_witchwanda_movement_iterate(_prev_x, _acc, _frict, _handling, _
 /// @desc Spawns a particle at the current position.
 /// @param {real} sys The ID of the particle system to use.
 function katsaii_witchwanda_wanda_spawn_particles(_sys) {
-    static ty = (function() {
-        var _ = part_type_create();
-        part_type_shape(_, pt_shape_disk);
-        part_type_life(_, 15, 60);
-        part_type_direction(_, 0, 360, 0, 5.08);
-        part_type_speed(_, 0, 0.2, 0.02, 0.05);
-        part_type_size(_, 0.01, 0.05, 0.002, 0.005);
-        part_type_alpha3(_, 1, 1, 0);
-        part_type_colour3(_, JamCYellow.REKINDLED, JamCPink.WILD_STRAWBERRY, JamCRed.FORREST_FIRE);
-        part_type_gravity(_, 0.1, 180);
-        return _;
-    })();
-    part_particles_create(_sys, x - 10, y, ty, 1);
+    
+    var _ = part_type_create();
+    part_type_shape(_, pt_shape_disk);
+    part_type_life(_, 15, 60);
+    part_type_direction(_, 0, 360, 0, 5.08);
+    part_type_speed(_, 0, 0.2, 0.02, 0.05);
+    part_type_size(_, 0.01, 0.05, 0.002, 0.005);
+    part_type_alpha3(_, 1, 1, 0);
+    part_type_colour3(_, JamCYellow.REKINDLED, JamCPink.WILD_STRAWBERRY, JamCRed.FORREST_FIRE);
+    part_type_gravity(_, 0.1, 180);
+    part_particles_create(_sys, x - 10, y, _, 1);
 }
 
 /// @desc Spawns a particle at the current position.
 /// @param {real} sys The ID of the particle system to use.
 /// @param {real} sys The ID of the particle system to use.
 function katsaii_witchwanda_wanda_enemy_spawn_particles(_sys) {
-    static ty = (function() {
-        var _ = part_type_create();
-        part_type_shape(_, pt_shape_star);
-        part_type_life(_, 10, 20);
-        part_type_direction(_, 0, 360, 0, 5.08);
-        part_type_speed(_, 0, 0.2, 0.02, 0.05);
-        part_type_size(_, 0.04, 0.1, 0.002, 0.005);
-        part_type_alpha3(_, 1, 1, 0);
-        part_type_colour1(_, JamCBlue.ICE);
-        part_type_gravity(_, 0.1, 180);
-        part_type_blend(_, true);
-        return _;
-    })();
-    part_particles_create(_sys, x + 10, y, ty, 1);
+    var _ = part_type_create();
+    part_type_shape(_, pt_shape_star);
+    part_type_life(_, 10, 20);
+    part_type_direction(_, 0, 360, 0, 5.08);
+    part_type_speed(_, 0, 0.2, 0.02, 0.05);
+    part_type_size(_, 0.04, 0.1, 0.002, 0.005);
+    part_type_alpha3(_, 1, 1, 0);
+    part_type_colour1(_, JamCBlue.ICE);
+    part_type_gravity(_, 0.1, 180);
+    part_type_blend(_, true);
+    part_particles_create(_sys, x + 10, y, _, 1);
 }
 
 #macro JAM_SKYLINE_TOP make_colour_rgb(221, 166, 172) // make_colour_rgb(105, 70, 77);
@@ -154,19 +149,18 @@ function katsaii_witchwanda_wanda_enemy_spawn_particles(_sys) {
 /// @param {real} x2 The right position of the region to spawn particles in.
 /// @param {real} y2 The bottom position of the region to spawn particles in.
 function katsaii_witchwanda_wanda_sealine_spawn_particles(_sys, _left, _top, _right, _bottom) {
-    static ty = (function() {
-        var _ = part_type_create();
-        part_type_sprite(_, katsaii_witchwanda_spr_wave, false, false, true);
-        part_type_life(_, 60, 60 * 4);
-        part_type_direction(_, 180, 180, 0, 0);
-        part_type_speed(_, 0.1, 0.2, 0, 0.00);
-        part_type_scale(_, 1, 0.1);
-        part_type_alpha3(_, 0, 1, 0);
-        //part_type_colour1(_, JAM_SKYLINE_TOP);
-        part_type_blend(_, true);
-        return _;
-    })();
-    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), ty, 1);
+
+    var _ = part_type_create();
+    part_type_sprite(_, katsaii_witchwanda_spr_wave, false, false, true);
+    part_type_life(_, 60, 60 * 4);
+    part_type_direction(_, 180, 180, 0, 0);
+    part_type_speed(_, 0.1, 0.2, 0, 0.00);
+    part_type_scale(_, 1, 0.1);
+    part_type_alpha3(_, 0, 1, 0);
+    //part_type_colour1(_, JAM_SKYLINE_TOP);
+    part_type_blend(_, true);
+
+    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), _, 1);
 }
 
 /// @desc Spawns a skyline cloud at the current position.
@@ -176,17 +170,16 @@ function katsaii_witchwanda_wanda_sealine_spawn_particles(_sys, _left, _top, _ri
 /// @param {real} x2 The right position of the region to spawn particles in.
 /// @param {real} y2 The bottom position of the region to spawn particles in.
 function katsaii_witchwanda_wanda_skyline_spawn_particles(_sys, _left, _top, _right, _bottom) {
-    static ty = (function() {
-        var _ = part_type_create();
-        part_type_sprite(_, katsaii_witchwanda_spr_cloud, false, false, true);
-        part_type_life(_, 60 * 6, 60 * 8);
-        part_type_direction(_, 180, 180, 0, 0);
-        part_type_speed(_, 0.2, 0.6, 0, 0.00);
-        part_type_alpha3(_, 0, 0.3, 0);
-        part_type_blend(_, true);
-        return _;
-    })();
-    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), ty, 1);
+
+    var _ = part_type_create();
+    part_type_sprite(_, katsaii_witchwanda_spr_cloud, false, false, true);
+    part_type_life(_, 60 * 6, 60 * 8);
+    part_type_direction(_, 180, 180, 0, 0);
+    part_type_speed(_, 0.2, 0.6, 0, 0.00);
+    part_type_alpha3(_, 0, 0.3, 0);
+    part_type_blend(_, true);
+
+    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), _, 1);
 }
 
 /// @desc Spawns a skyline island.
@@ -196,16 +189,13 @@ function katsaii_witchwanda_wanda_skyline_spawn_particles(_sys, _left, _top, _ri
 /// @param {real} x2 The right position of the region to spawn particles in.
 /// @param {real} y2 The bottom position of the region to spawn particles in.
 function katsaii_witchwanda_wanda_island_spawn_particles(_sys, _left, _top, _right, _bottom) {
-    static ty = (function() {
-        var _ = part_type_create();
-        var life = 60 * 20;
-        part_type_sprite(_, katsaii_witchwanda_spr_island_floating, false, false, true);
-        part_type_life(_, life, life);
-        part_type_direction(_, 180, 180, 0, 0);
-        part_type_speed(_, 0.4, 0.9, 0, 0.00);
-        return _;
-    })();
-    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), ty, 1);
+    var _ = part_type_create();
+    var life = 60 * 20;
+    part_type_sprite(_, katsaii_witchwanda_spr_island_floating, false, false, true);
+    part_type_life(_, life, life);
+    part_type_direction(_, 180, 180, 0, 0);
+    part_type_speed(_, 0.4, 0.9, 0, 0.00);
+    part_particles_create(_sys, random_range(_left, _right), random_range(_top, _bottom), _, 1);
 }
 
 /// @desc Draws text in a 3d stylised way.
