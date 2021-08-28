@@ -5,7 +5,7 @@
 microgame_register("kilomatter_jaywalker", {
     config_version: 1,
     game_name: "Jay Walker",
-    creator_name : "Kilomatter",
+    authors : "Kilomatter",
     prompt: "CROSS",
     init_room: kilo_jaywalker_rm,
     view_width: 240,

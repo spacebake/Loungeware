@@ -1,7 +1,7 @@
 microgame_register("yosi_epic_fire_truck", {
     config_version: 1,
     game_name: "Epic Fire Truck",
-    creator_name : "Yosi",
+    authors : "Yosi",
     prompt: "MASH",
     init_room: yosi_EFT_rm_init,
     view_width: 240,

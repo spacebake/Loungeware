@@ -260,13 +260,13 @@ _info_y += _lines * _text_sep;
 _info_y += _margin;
 
 // creator name
-var _creator_name = string_upper(_current_game_data.creator_name);
-_creator_name = ___global._DTA_linebreak_chars(_creator_name, 30);
+var _authors = string_upper(_current_game_data.authors);
+_authors = ___global._DTA_linebreak_chars(_authors, 30);
 
 draw_set_color(c_gbpink);
 draw_set_font(fnt_frogtype);
-___global.___draw_text_advanced(_info_x, _info_y, 30, true, true, _creator_name, 1, 1, 0);
-var _lines = string_count("\n" , _creator_name);
+___global.___draw_text_advanced(_info_x, _info_y, 30, true, true, _authors, 1, 1, 0);
+var _lines = string_count("\n" , _authors);
 _info_y += _lines * _text_sep;
 _info_y += _margin;
 _info_y -= 3;

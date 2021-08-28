@@ -1,7 +1,7 @@
 microgame_register("tfg_collision", {
     config_version: 1,
     game_name: "FIX COLLISION",
-    creator_name : "tfg",
+    authors : "tfg",
     prompt: "FIND ERROR",
     init_room: tfg_collision_rm_game,
     view_width: 960,
@@ -11,7 +11,7 @@ microgame_register("tfg_collision", {
     music_loops: false,
     interpolation_on: false,
     cartridge_col_primary: "0x121212",
-    cartridge_col_secondary: "0x71b8ff",
+    cartridge_col_secondary: "0xffb871",
     cartridge_label: tfg_collision_spr_cartridge,
     default_is_fail: true,
     supports_difficulty_scaling: false,
@@ -25,7 +25,7 @@ microgame_register("tfg_collision", {
 microgame_register("tfg_swipe", {
     config_version: 1,
     game_name: "SWIPE",
-    creator_name : "tfg",
+    authors : "tfg",
     prompt: "SWIPE",
     init_room: tfg_swipe_rm_game,
     view_width: -1,

@@ -13,8 +13,8 @@
   "soundFile": "katsaii_witchwanda_cheer.wav",
   "duration": 2.715521,
   "parent": {
-    "name": "witchwanda",
-    "path": "folders/Microgames/katsaii/witchwanda.yy",
+    "name": "Gameloop",
+    "path": "folders/Microgames/katsaii/witchwanda/Gameloop.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchwanda_cheer",

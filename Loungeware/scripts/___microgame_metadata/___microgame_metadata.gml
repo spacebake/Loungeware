@@ -49,7 +49,26 @@ function microgame_register(microgame_name, metadata){
 			return is_string(val);
 		});
 		
+		var param_how_to_play = new LW_FGameLoaderStringArrayTransformer("how_to_play", undefined);
+		param_how_to_play.set_nullable();
+		
+		var param_description = new LW_FGameLoaderStringArrayTransformer("description", undefined);
+		param_description.set_nullable();
+		
+		var param_game_version = new LW_FGameLoaderStringTransformer("game_version", undefined);
+		param_game_version.set_nullable();
+		
+		var param_game_version_date = new LW_FGameLoaderDateTransformer("version_date", undefined);
+		param_game_version_date.set_nullable();
+		
+		var param_allow_subpixels = new LW_FGameLoaderBoolTransformer("allow_subpixels", true);
+		param_allow_subpixels.set_nullable();
+		
 		var rules = [
+			param_how_to_play,
+			param_description,
+			param_game_version,
+			param_game_version_date,
 			param_config_version,
 			param_is_enabled,
 			param_supports_html,
@@ -61,8 +80,9 @@ function microgame_register(microgame_name, metadata){
 			param_music_loops,
 			param_supports_difficulty_scaling,
 			param_credits,
+			param_allow_subpixels,
 			new LW_FGameLoaderStringTransformer("game_name", undefined),
-			new LW_FGameLoaderStringTransformer("creator_name", undefined),
+			new LW_FGameLoaderAuthorTransformer("authors", undefined),
 			new LW_FGameLoaderStringArrayTransformer("prompt", undefined),
 			new LW_FGameLoaderRoomTransformer("init_room", undefined),
 			new LW_FGameLoaderBoolTransformer("interpolation_on", undefined),
@@ -70,7 +90,7 @@ function microgame_register(microgame_name, metadata){
 			new LW_FGameLoaderColourTransformer("cartridge_col_secondary", undefined),
 			new LW_FGameLoaderSpriteTransformer("cartridge_label", undefined),
 			new LW_FGameLoaderBoolTransformer("default_is_fail", undefined),
-			new LW_FGameLoaderDateTransformer("date_added", undefined)
+			new LW_FGameLoaderDateTransformer("date_added", undefined),
 		];
 		
 		global.___MetaGameLoader.set_rules(rules);

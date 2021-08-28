@@ -1,7 +1,7 @@
 microgame_register("jdllama_hammer", {
     config_version: 1,
     game_name: "THROWIN' THE HAMMER",
-    creator_name : "J.D. Lowe",
+    authors : "J.D. Lowe",
     prompt: "THROW HAMMER",
     init_room: jdllama_hammer_rm,
     view_width: 240,
@@ -17,7 +17,7 @@ microgame_register("jdllama_hammer", {
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe"],
     date_added: "21/08/12",
-	is_enabled: true,
+	is_enabled: false,
 	supports_html: true,
 	show_on_website: true,
 	
@@ -26,7 +26,7 @@ microgame_register("jdllama_hammer", {
 microgame_register("jdllama_target", {
     config_version: 1,
     game_name: "TARGET BREAKING YEAH",
-    creator_name : "J.D. Lowe",
+    authors : "J.D. Lowe",
     prompt: "SHOOT THE TARGETS",
     init_room: jdllama_target_rm,
     view_width: 240,
@@ -42,7 +42,7 @@ microgame_register("jdllama_target", {
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe", "Zandy"],
     date_added: "21/08/09",
-	is_enabled: true,
-	supports_html: true,
-	show_on_website: true,
+    is_enabled: true,
+    supports_html: true,
+    show_on_website: true,
 });
