@@ -17,7 +17,7 @@ microgame_register("jdllama_hammer", {
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe"],
     date_added: "21/08/12",
-	is_enabled: false,
+	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
 	
