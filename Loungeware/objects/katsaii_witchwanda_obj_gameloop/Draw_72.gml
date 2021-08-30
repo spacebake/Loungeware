@@ -40,23 +40,23 @@ surface_set_target(gameOverSurface);
 draw_clear_alpha(c_black, 0);
 if (interp > 0) {
     draw_set_font(katsaii_witchwanda_fnt_script);
-    katsaii_witchwanda_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_LEFT - 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X - 50, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Game", 10, JamCRed.FORREST_FIRE, c_white);
-    katsaii_witchwanda_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X + 50, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Over", 10, JamCRed.FORREST_FIRE, c_white);
+    katsaii_witchwanda_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_LEFT - 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X - 45, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Too", 10, JamCRed.FORREST_FIRE, c_white);
+    katsaii_witchwanda_draw_text_3d(lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_CENTRE_X + 35, interp), KATSAII_WITCH_WANDA_VIEW_CENTRE_Y - 20, "Bad", 10, JamCRed.FORREST_FIRE, c_white);
 }
-if (fadeIn > 0.01 && fadeIn < 0.99) {
+/*if (fadeIn > 0.01 && fadeIn < 0.99) {
     draw_set_font(katsaii_witchwanda_fnt_tiny);
     katsaii_witchwanda_draw_text_3d(
             lerp(KATSAII_WITCH_WANDA_VIEW_RIGHT + 200, KATSAII_WITCH_WANDA_VIEW_LEFT - 200, katsaii_witchwanda_midslow(fadeIn)),
             KATSAII_WITCH_WANDA_VIEW_BOTTOM - 70,
             "Protect the Island",
             5, JamCPink.WILD_STRAWBERRY, JamCYellow.REKINDLED);
-}
+}*/
 surface_reset_target();
 var tex = surface_get_texture(gameOverSurface);
 katsaii_witchwanda_shader_set_effect_outline(texture_get_texel_width(tex), texture_get_texel_height(tex), JAM_COLOUR_BLEND);
 draw_surface(gameOverSurface, KATSAII_WITCH_WANDA_VIEW_LEFT, KATSAII_WITCH_WANDA_VIEW_TOP);
 shader_reset();
-var band_mid = KATSAII_WITCH_WANDA_VIEW_BOTTOM - 20;
+/*var band_mid = KATSAII_WITCH_WANDA_VIEW_BOTTOM - 20;
 var band_top = band_mid - 6;
 var band_bottom = band_mid + 4;
 var difficulties = difficultyLevels;
@@ -109,4 +109,4 @@ for (var i = left; i < right; i += width) {
     var offset = floor(current_time * 0.02) % width;
     draw_sprite(katsaii_witchwanda_spr_sheen, 0, i + offset, band_top);
 }
-gpu_set_blendmode(bm_normal);
+gpu_set_blendmode(bm_normal);*/
