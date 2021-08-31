@@ -99,9 +99,8 @@ if (!instance_exists(katsaii_witchwanda_obj_enemy)) {
     } else {
         microgame_win();
         gameWon = true;
-        audio_emitter_gain(cheerEmitter, 0.75);
-        audio_emitter_pitch(cheerEmitter, random_range(0.7, 0.9));
-        audio_play_sound_on(cheerEmitter, katsaii_witchwanda_cheer, false, 100);
+        var s = sfx_play(katsaii_witchwanda_cheer, 1, false);
+        audio_sound_pitch(s, random_range(0.7, 0.9));
         exit;
     }
     //show_debug_message("starting a new wave");
