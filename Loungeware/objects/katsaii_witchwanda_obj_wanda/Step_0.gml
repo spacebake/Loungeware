@@ -70,5 +70,5 @@ if (hitTimer <= 0) {
     instance_destroy(proj);
 }
 var velocity = katsaii_witchwanda_map_range(point_distance(0, 0, xspeed, yspeed), 0, 20, 0, 1);
-audio_emitter_gain(flyEmitter, lerp(0.1, 1, velocity) * 0.5);
-audio_emitter_pitch(flyEmitter, lerp(0.75, 1.4, velocity));
+microgame_sfx_set_gain(flySound, lerp(0.1, 1, velocity), 0);
+audio_sound_pitch(flySound, lerp(0.75, 1.4, velocity));
