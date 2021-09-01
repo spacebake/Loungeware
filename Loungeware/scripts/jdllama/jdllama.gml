@@ -19,3 +19,7 @@ function jdllama_outlinedText(x, y, outline, color, str){
 	draw_set_color(color);
 	draw_text(xx, yy, str);
 }
+
+function jdllama_hammer_whoops() {
+	sfx_play(jdllama_hammer_snd_whoops,1.2,false);
+}
