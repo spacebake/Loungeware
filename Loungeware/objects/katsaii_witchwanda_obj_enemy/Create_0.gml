@@ -39,7 +39,6 @@ exitTimer = -1;
 exitCounter = 0.03;
 angle = 0;
 angleSpeed = choose(-1, 1) * choose(1, 1.5, 2);
-hurtEmitter = audio_emitter_create();
 partSys = part_system_create_layer(layer, true);
 part_system_automatic_draw(partSys, false);
 part_system_automatic_update(partSys, false);

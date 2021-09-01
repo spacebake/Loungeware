@@ -3,7 +3,8 @@
     //event_user(0);
     //exit;
 //}
-audio_emitter_gain(musicEmitter, musicFade * 0.09);
+microgame_sfx_set_gain(musicSound, clamp(musicFade * 0.09, 0, 1), 0);
+log(audio_sound_get_gain(musicSound));
 if (fadeIn < 1) {
     fadeIn += fadeInCounter;
     if (fadeIn > 1) {
@@ -39,8 +40,8 @@ if (gameOver) {
             }
         }
     }
-    audio_emitter_gain(gameOverEmitter, fadeOut * max(gameRestartTimer, 0) * 0.18);
-    audio_emitter_gain(crumbleEmitter, 1 - fadeOut);
+    microgame_sfx_set_gain(gameOverSound, fadeOut * max(gameRestartTimer, 0) * 0.18, 0);
+    microgame_sfx_set_gain(crumbleSound, 1 - fadeOut, 0);
     musicFade -= musicFadeCounter * 3;
     if (musicFade < 0) {
         musicFade = 0;
@@ -49,9 +50,6 @@ if (gameOver) {
 } else {
     var prev_music = musicFade;
     musicFade += musicFadeCounter * 0.5;
-    if (prev_music < 0 && musicFade >= 0) {
-        audio_play_sound_on(musicEmitter, katsaii_witchwanda_bgm_gameplay, true, 100);
-    }
     if (musicFade > 1) {
         musicFade = 1;
     }
@@ -89,9 +87,8 @@ if (global.jamHp > hpMax) {
 if (global.jamHp < 0) {
     global.jamHp = 0;
     gameOver = true;
-    audio_play_sound_on(gameOverEmitter, katsaii_witchwanda_bgm_finish_bad, true, 100);
 } else {
-    audio_emitter_gain(crumbleEmitter, (10 - global.jamHp) / 5);
+    microgame_sfx_set_gain(crumbleSound, (10 - global.jamHp) / 5, 0);
 }
 if (!instance_exists(katsaii_witchwanda_obj_enemy)) {
     if (spawnWave) {
@@ -99,9 +96,8 @@ if (!instance_exists(katsaii_witchwanda_obj_enemy)) {
     } else {
         microgame_win();
         gameWon = true;
-        audio_emitter_gain(cheerEmitter, 0.75);
-        audio_emitter_pitch(cheerEmitter, random_range(0.7, 0.9));
-        audio_play_sound_on(cheerEmitter, katsaii_witchwanda_cheer, false, 100);
+        var s = sfx_play(katsaii_witchwanda_cheer, 1, false);
+        audio_sound_pitch(s, random_range(0.7, 0.9));
         exit;
     }
     //show_debug_message("starting a new wave");

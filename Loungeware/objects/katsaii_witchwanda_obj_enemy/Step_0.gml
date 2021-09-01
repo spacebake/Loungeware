@@ -90,8 +90,9 @@ if (hitTimer <= 0 && entryTimer >= 1) {
             repeat (hp_loss) {
                 instance_create_layer(x, y, layer, katsaii_witchwanda_obj_enemy_essence);
             }
-            audio_emitter_gain(hurtEmitter, hp > 0 ? 0.25 : random_range(0.6, 0.7));
-            audio_play_sound_on(hurtEmitter, hp > 0 ? katsaii_witchwanda_snd_hit : katsaii_witchwanda_snd_enemy_defeat, false, 1);
+            var s_id = hp > 0 ? katsaii_witchwanda_snd_hit : katsaii_witchwanda_snd_enemy_defeat;
+            var s = sfx_play(s_id, hp > 0 ? 0.25 : random_range(0.6, 0.7), false);
+            audio_sound_pitch(s, random_range(0.8, 1.2));
         }
     }
 } else if (proj) {
