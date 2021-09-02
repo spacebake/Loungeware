@@ -16,14 +16,12 @@ var wall_knockback = 4;
 if (x < cam_left || x > cam_right) {
     xspeed = (x < cam_left ? 1 : -1) * wall_knockback;
     x = clamp(x, cam_left, cam_right);
-    audio_emitter_gain(hurtEmitter, 2);
-    audio_play_sound_on(hurtEmitter, katsaii_witchwanda_snd_pop, false, 1);
+    sfx_play(katsaii_witchwanda_snd_pop, 2, false);
 }
 if (y < cam_top || y > cam_bottom) {
     yspeed = (y < cam_top ? 1 : -1) * wall_knockback;
     y = clamp(y, cam_top, cam_bottom);
-    audio_emitter_gain(hurtEmitter, 2);
-    audio_play_sound_on(hurtEmitter, katsaii_witchwanda_snd_pop, false, 1);
+    sfx_play(katsaii_witchwanda_snd_pop, 2, false);
 }
 katsaii_witchwanda_wanda_spawn_particles(partSys);
 blast = KEY_PRIMARY || KEY_SECONDARY;
@@ -37,9 +35,8 @@ if (blast) {
 if (blastTimer == -1) {
     if (blast) {
         blastTimer = 1;
-        audio_emitter_gain(shootEmitter, random_range(0.5, 0.6));
-        audio_emitter_pitch(shootEmitter, random_range(0.8, 1.2));
-        audio_play_sound_on(shootEmitter, katsaii_witchwanda_snd_wanda_shoot, false, 1);
+        var s = sfx_play(katsaii_witchwanda_snd_wanda_shoot, random_range(0.5, 0.6), false);
+        audio_sound_pitch(s, random_range(0.8, 1.2));
         with (instance_create_depth(x, y - 10 + random_range(-5, 5), depth, katsaii_witchwanda_obj_wanda_projectile)) {
             speed = 10;
             //direction = 3 * (other.xspeed + other.yspeed) + random_range(-3, 3);
@@ -66,12 +63,12 @@ if (hitTimer <= 0) {
         instance_destroy(proj);
         hitTimer = 1;
         instance_create_layer(x, y, layer, katsaii_witchwanda_obj_wanda_essence);
-        audio_emitter_pitch(hurtEmitter, 0.8);
-        audio_play_sound_on(hurtEmitter, katsaii_witchwanda_snd_hit, false, 1);
+        var s = sfx_play(katsaii_witchwanda_snd_hit, 1, false);
+        audio_sound_pitch(s, 0.8);
     }
 } else if (proj) {
     instance_destroy(proj);
 }
 var velocity = katsaii_witchwanda_map_range(point_distance(0, 0, xspeed, yspeed), 0, 20, 0, 1);
-audio_emitter_gain(flyEmitter, lerp(0.1, 1, velocity) * 0.5);
-audio_emitter_pitch(flyEmitter, lerp(0.75, 1.4, velocity));
+microgame_sfx_set_gain(flySound, lerp(0.1, 1, velocity), 0);
+audio_sound_pitch(flySound, lerp(0.75, 1.4, velocity));

@@ -28,10 +28,12 @@ gameRestart = false;
 gameRestartTimer = 1;
 gameRestartCounter = 0.01;
 gameOver = false;
-gameOverEmitter = audio_emitter_create();
-crumbleEmitter = audio_emitter_create();
-musicEmitter = audio_emitter_create();
-cheerEmitter = audio_emitter_create();
+audio_stop_sound(katsaii_witchwanda_bgm_finish_bad);
+audio_stop_sound(katsaii_witchwanda_snd_crumble);
+audio_stop_sound(katsaii_witchwanda_bgm_gameplay);
+gameOverSound = sfx_play(katsaii_witchwanda_bgm_finish_bad, 0, true);
+crumbleSound = sfx_play(katsaii_witchwanda_snd_crumble, 0, true);
+musicSound = sfx_play(katsaii_witchwanda_bgm_gameplay, 0, true);
 musicFade = -0.25;
 musicFadeCounter = 0.01;
 gameOverSurface = -1;
@@ -41,8 +43,3 @@ waveStates = ds_list_create();
 for (var i = 0; i <= 12; i += 1) {
    ds_list_add(waveStates, i);
 }
-audio_emitter_gain(gameOverEmitter, 0);
-audio_emitter_gain(crumbleEmitter, 0);
-audio_emitter_gain(musicEmitter, 0);
-audio_play_sound_on(crumbleEmitter, katsaii_witchwanda_snd_crumble, true, 100);
-//audio_play_sound_on(musicEmitter, katsaii_witchwanda_bgm_gameplay, true, 100);
