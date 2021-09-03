@@ -22,7 +22,7 @@ microgame_register("jdllama_unscrew", {
         year : 2021
     },
 	is_enabled: false,
-	supports_html: true,
+	supports_html: false,
 	show_on_website: false,
 	
 });
@@ -36,7 +36,7 @@ microgame_register("jdllama_hammer", {
     view_width: 240,
     view_height: 160,
     time_seconds: 5,
-    music_track: noone,
+    music_track: jdllama_hammer_snd_theme,
     music_loops: false,
     interpolation_on: false,
     cartridge_col_primary: [0, 0, 0],
@@ -44,7 +44,7 @@ microgame_register("jdllama_hammer", {
     cartridge_label: jdllama_hammer_spr_label,
     default_is_fail: true,
     supports_difficulty_scaling: true,
-    credits: ["J.D. Lowe"],
+    credits: ["J.D. Lowe", "Zandy"],
     date_added: "21/08/12",
 	is_enabled: true,
 	supports_html: true,

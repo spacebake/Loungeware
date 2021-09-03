@@ -530,6 +530,7 @@
     {"id":{"name":"baku_chug_spr_pepsi","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"order":11,},
     {"id":{"name":"n8fl_penguin_blast_bg_spr","path":"sprites/n8fl_penguin_blast_bg_spr/n8fl_penguin_blast_bg_spr.yy",},"order":0,},
     {"id":{"name":"baku_mine_par_solid","path":"objects/baku_mine_par_solid/baku_mine_par_solid.yy",},"order":10,},
+    {"id":{"name":"jdllama_hammer_snd_theme","path":"sounds/jdllama_hammer_snd_theme/jdllama_hammer_snd_theme.yy",},"order":2,},
     {"id":{"name":"n8fl_cheat_seat_progress","path":"objects/n8fl_cheat_seat_progress/n8fl_cheat_seat_progress.yy",},"order":8,},
     {"id":{"name":"n8fl_penguin_blast_bg_spr2","path":"sprites/n8fl_penguin_blast_bg_spr2/n8fl_penguin_blast_bg_spr2.yy",},"order":1,},
     {"id":{"name":"baku_mine_spr_frustum_culler","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"order":14,},
