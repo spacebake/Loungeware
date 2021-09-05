@@ -21,7 +21,7 @@ function ___throw_game_save() {
 
 
 function ___no_no_throw_with(_f_name, _use_instead) {
-	var space_approval = "___throw_" + _f_name;
+	var space_approval = "___BUILTIN_" + string_upper(_f_name);
 	
 	if (_use_instead == undefined)
 		throw "You are not allowed to use " + _f_name + ". If you have a really good reason, you can use " + space_approval
@@ -30,8 +30,6 @@ function ___no_no_throw_with(_f_name, _use_instead) {
 	
 	___BUILTIN_GAME_END();
 }
-
-
 
 
 
