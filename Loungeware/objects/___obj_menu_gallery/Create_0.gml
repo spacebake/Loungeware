@@ -4,7 +4,7 @@ surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
 state = "normal";
 
-sng_id = audio_play_sound(___sng_gallery, 1, 1);
+sng_id = ___BUILTIN_AUDIO_PLAY_SOUND(___sng_gallery, 1, 1);
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0);
 

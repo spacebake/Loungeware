@@ -70,7 +70,7 @@ if (state == "paused"){
 		menu[cursor].execute();
 
 		//var _snd_index  = ___snd_cart_insert;
-		//var _snd_id = audio_play_sound(_snd_index, 0, 0);
+		//var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_snd_index, 0, 0);
 		// var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
 	}
 	

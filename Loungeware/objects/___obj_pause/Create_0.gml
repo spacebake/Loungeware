@@ -17,7 +17,7 @@ function menu_jam(){
 	var _p = ___obj_pause;
 	
 	if (_p.jam_id == noone){
-			_p.jam_id = audio_play_sound(___snd_henry_jazz, 0, true);
+			_p.jam_id = ___BUILTIN_AUDIO_PLAY_SOUND(___snd_henry_jazz, 0, true);
 			audio_sound_gain(_p.jam_id, VOL_MASTER * VOL_MSC * audio_sound_get_gain(___snd_henry_jazz), 0);
 			name = "JAMN'T";
 	}  else if (_p.jam_id != noone && audio_is_paused(_p.jam_id)){

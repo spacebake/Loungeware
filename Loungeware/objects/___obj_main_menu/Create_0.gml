@@ -10,7 +10,7 @@ function main_menu_theme_play(_skipintro=false){
 		sng_index = ___snd_gtr;
 		_loop = true;
 	}
-	sng_id = audio_play_sound(sng_index, 1, _loop);
+	sng_id = ___BUILTIN_AUDIO_PLAY_SOUND(sng_index, 1, _loop);
 	var _vol = VOL_MSC * VOL_MASTER;
 	audio_sound_gain(sng_id, _vol, 0);
 }
@@ -69,7 +69,7 @@ menu_method = [
 
 if (!HTML_MODE){
 	array_push(menu, "EXIT");
-	array_push(menu_method,  function(){game_end()});
+	array_push(menu_method,  function(){___BUILTIN_GAME_END()});
 }
 
 

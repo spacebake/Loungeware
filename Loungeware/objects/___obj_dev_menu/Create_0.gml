@@ -16,7 +16,7 @@ function menu_play_lw(){
 		substate = 0;
 		larold_frame = 2;
 		var _snd_index  = ___snd_larfly;
-		var _snd_id = audio_play_sound(_snd_index, 0, 0);
+		var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_snd_index, 0, 0);
 		var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
 		audio_sound_gain(_snd_id, _vol, 0);
 }

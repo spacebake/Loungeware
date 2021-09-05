@@ -4,7 +4,7 @@ step = 0;
 state = "intro";
 substate = 0;
 
-sng_id = audio_play_sound(___sng_zandintro, 0, 1);
+sng_id = ___BUILTIN_AUDIO_PLAY_SOUND(___sng_zandintro, 0, 1);
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0);
 

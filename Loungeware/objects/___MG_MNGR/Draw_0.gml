@@ -170,7 +170,7 @@ if (state == "microgame_result"){
 		transition_music_began = true;
 		if (microgame_won){
 			if (!TEST_MODE_ACTIVE){
-				transition_music  = audio_play_sound(___sng_microgame_win, 0, 0);
+				transition_music  = ___BUILTIN_AUDIO_PLAY_SOUND(___sng_microgame_win, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
 				audio_sound_pitch(transition_music, transition_speed);
 				ds_list_add(___global.___audio_active_list, transition_music);
@@ -178,7 +178,7 @@ if (state == "microgame_result"){
 		} else {
 			life = max(0, life-1);
 			if (!TEST_MODE_ACTIVE){
-				transition_music  = audio_play_sound(___sng_microgame_lose, 0, 0);
+				transition_music  = ___BUILTIN_AUDIO_PLAY_SOUND(___sng_microgame_lose, 0, 0);
 				audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
 				audio_sound_pitch(transition_music, transition_speed);
 				ds_list_add(___global.___audio_active_list, transition_music);

@@ -15,7 +15,7 @@
 /// @description                Plays a sound effect relative to the game volume. Returns Sound ID
 function sfx_play(_snd_index, _vol, _loop){
 	_vol = _vol * audio_sound_get_gain(_snd_index) * VOL_SFX * VOL_MASTER;
-	var _snd_id = audio_play_sound(_snd_index, 0, _loop);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_snd_index, 0, _loop);
 	audio_sound_gain(_snd_id, _vol, 0);
 	ds_list_add(___global.___audio_active_list, _snd_id);
 	return _snd_id;
@@ -47,7 +47,7 @@ function sfx_stop(_snd_id, _time){
 /// @param {bool} _loop            whether or not to loop the song
 /// @param {number} _vol            volume to play at (0-1).
 function microgame_music_start(_sng, _vol, _loop){
-	var _snd_id = audio_play_sound(_sng, 0, _loop);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_sng, 0, _loop);
 	audio_sound_gain(_snd_id, _vol * audio_sound_get_gain(_sng) * VOL_MSC * VOL_MASTER, 0);
 	if (audio_is_playing(___MG_MNGR.microgame_music)) audio_stop_sound(___MG_MNGR.microgame_music);
 	___MG_MNGR.microgame_music = _snd_id;

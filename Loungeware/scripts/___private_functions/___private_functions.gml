@@ -453,7 +453,7 @@ function ___dev_save(){
 // ------------------------------------------------------------------------------------------
 function ___sound_menu_tick_vertical(){
 	var _snd_index  = ___snd_menu_tick;
-	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_snd_index, 0, 0);
 	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
 	audio_sound_gain(_snd_id, _vol, 0);
 	audio_sound_pitch(_snd_id, 1);
@@ -461,7 +461,7 @@ function ___sound_menu_tick_vertical(){
 
 function ___sound_menu_tick_horizontal(){
 	var _snd_index  = ___snd_menu_tick;
-	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_snd_index, 0, 0);
 	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
 	audio_sound_gain(_snd_id, _vol, 0);
 	audio_sound_pitch(_snd_id, 0.8);
@@ -532,7 +532,7 @@ function ___microgame_get_keylist_chronological(){
 // for public functions: check the public_audio_functions script
 // ------------------------------------------------------------------------------------------
 function ___play_song(_sound_index, _vol=1, _loop=true){
-	var _snd_id = audio_play_sound(_sound_index, 1, true);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_sound_index, 1, true);
 	audio_sound_gain(
 		_snd_id, 
 		_vol * audio_sound_get_gain(_sound_index) * VOL_MSC * VOL_MASTER,
@@ -542,7 +542,7 @@ function ___play_song(_sound_index, _vol=1, _loop=true){
 }
 
 function ___play_sfx(_sound_index, _vol=1, _pitch=1, _loop=false){
-	var _snd_id = audio_play_sound(_sound_index, 1, _loop);
+	var _snd_id = ___BUILTIN_AUDIO_PLAY_SOUND(_sound_index, 1, _loop);
 	audio_sound_gain(
 		_snd_id, 
 		audio_sound_get_gain(_sound_index) * VOL_SFX * VOL_MASTER,

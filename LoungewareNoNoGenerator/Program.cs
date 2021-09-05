@@ -5,19 +5,21 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
 
-//you can access tha command line args in VS by right clicking the project > properties > debug > command line args
-//alternatively run with dotnet run <args> after cd'ed into LoungewareNoNoGenerator/LoungewareNoNoGenerator
+//place input in bin/debug/net5.0/input.txt
+//output will be in bin/Debug/net5.0/output.txt
 
-//output will be in bin/Debug/net5.0
-
-//args format:
-//<func_name> <use_instead> ...
+//input format:
+//<func_name> <use_instead>
+//<func_name> <use_instead>
 //pass undefined for <use_instead> if there's not an alternative
-//e.g. dotnet run game_end undefined audio_play_sound sfx_play
+//e.g.
+//game_end undefined
+//audio_play_sound sfx_play
 
 IEnumerable<string> insteads = args.Where((val, index) => index % 2 == 1);
-IEnumerable<(string Func, string Instead)> funcs = args
-    .Where((val, index) => index % 2 == 0)
+IEnumerable<(string Func, string Instead)> funcs = 
+    File.ReadAllLines("input.txt")
+        .Select(x => x.Split(" ")[0])
     .Zip(insteads);
 
 Func<string, string> getInstead = instead
