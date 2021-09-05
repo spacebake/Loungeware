@@ -1,0 +1,20 @@
+#macro game_end ___throw_game_end
+#macro ___BUILTIN_GAME_END game_end
+function ___throw_game_end() {
+	___no_no_throw_with("game_end");
+}
+#macro audio_play_sound ___throw_audio_play_sound
+#macro ___BUILTIN_AUDIO_PLAY_SOUND audio_play_sound
+function ___throw_audio_play_sound() {
+	___no_no_throw_with("audio_play_sound", "sfx_play");
+}
+#macro game_load ___throw_game_load
+#macro ___BUILTIN_GAME_LOAD game_load
+function ___throw_game_load() {
+	___no_no_throw_with("game_load");
+}
+#macro game_save ___throw_game_save
+#macro ___BUILTIN_GAME_SAVE game_save
+function ___throw_game_save() {
+	___no_no_throw_with("game_save");
+}

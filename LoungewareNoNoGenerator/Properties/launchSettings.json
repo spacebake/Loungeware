@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LoungewareNoNoGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "game_end undefined audio_play_sound sfx_play game_load undefined game_save undefined"
+    }
+  }
+}

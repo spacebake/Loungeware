@@ -717,6 +717,7 @@
     {"id":{"name":"tfg_collision_checkmark","path":"sprites/tfg_collision_checkmark/tfg_collision_checkmark.yy",},"order":17,},
     {"id":{"name":"jdllama_target_snd_theme","path":"sounds/jdllama_target_snd_theme/jdllama_target_snd_theme.yy",},"order":2,},
     {"id":{"name":"mimpy_duckdate_snd_steal","path":"sounds/mimpy_duckdate_snd_steal/mimpy_duckdate_snd_steal.yy",},"order":2,},
+    {"id":{"name":"___no_no_functions","path":"scripts/___no_no_functions/___no_no_functions.yy",},"order":11,},
     {"id":{"name":"sam_cd_obj_controller","path":"objects/sam_cd_obj_controller/sam_cd_obj_controller.yy",},"order":2,},
     {"id":{"name":"space_lander_spr_bg","path":"sprites/space_lander_spr_bg/space_lander_spr_bg.yy",},"order":3,},
     {"id":{"name":"katsaii_witchwanda_obj_gameloop","path":"objects/katsaii_witchwanda_obj_gameloop/katsaii_witchwanda_obj_gameloop.yy",},"order":2,},
@@ -1045,10 +1046,10 @@
   ],
   "IncludedFiles": [
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"index.html","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"config.dev.json","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "23.1.1.360",
-    "IDEVersion": "2.3.3.574",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
