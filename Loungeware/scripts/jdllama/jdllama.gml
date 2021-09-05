@@ -2,6 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function jdllama_outlinedText(x, y, outline, color, str){
 	var xx, yy;
+	
 	xx = x;
 	yy = y;
 	
@@ -17,4 +18,8 @@ function jdllama_outlinedText(x, y, outline, color, str){
 	
 	draw_set_color(color);
 	draw_text(xx, yy, str);
+}
+
+function jdllama_hammer_whoops() {
+	sfx_play(jdllama_hammer_snd_whoops,1.2,false);
 }

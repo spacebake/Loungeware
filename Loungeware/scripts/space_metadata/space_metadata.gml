@@ -1,7 +1,7 @@
 microgame_register("space_rocket_lander", {
     config_version: 1,
     game_name: "Rocket Lander",
-    creator_name : "Space",
+    authors : "Space",
     prompt: "LAND",
     init_room: space_lander_rm_lander,
     view_width: 240,
@@ -16,13 +16,16 @@ microgame_register("space_rocket_lander", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["space"],
-    date_added: "21/07/04"
+    date_added: "21/07/04",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("space_scooter", {
     config_version: 1,
     game_name: "Rixel Rider",
-    creator_name : "Space",
+    authors : "Space",
     prompt: "Backflip",
     init_room: space_scoot_rm,
     view_width: 120,
@@ -38,6 +41,8 @@ microgame_register("space_scooter", {
     supports_difficulty_scaling: false,
     credits: ["space", "meseta", "freesound.org", "zapsplat.com"],
     date_added: "21/07/12",
-    is_enabled: true
+    is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 

@@ -1,28 +1,9 @@
 if (step < 1) exit;
-var _jam_active = !audio_is_paused(jam_id);
+var _jam_active = (audio_is_playing(jam_id) && !audio_is_paused(jam_id));
 var _scale = window_get_height() / WINDOW_BASE_SIZE;
 var _os = (window_get_width() - window_get_height())/2;
 display_set_gui_maximise(_scale, _scale, _os, 0);
 
-
-
-
-if (keyboard_check_pressed(vk_space)) larold_frame = irandom(sprite_get_number(___spr_larold_heads)-1);
-// take screenshot
-//if (state == "capture_image"){
-	
-//	var _window_x_offset = (window_get_width() - window_get_height())/2;
-//	screen_save_part(filename, _window_x_offset, 0, window_get_height(), window_get_height());
-//	pause_image = sprite_add(filename, 1, 0, 0, 0, 0);
-//	store_appsurf_w = surface_get_width(application_surface);
-//	store_appsurf_h = surface_get_width(application_surface);
-//	surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-//	state = "pause_room";
-//}
-
-//if (sprite_exists(pause_image)){
-//	draw_sprite_stretched(pause_image, 0, 0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-//}
 
 if (state != "wait"){
 	draw_set_color(c_gbblack);

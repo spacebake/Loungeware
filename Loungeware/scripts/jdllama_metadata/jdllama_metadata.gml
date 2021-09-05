@@ -1,13 +1,12 @@
-microgame_register("jdllama_hammer", {
+microgame_register("jdllama_unscrew", {
     config_version: 1,
-    game_name: "THROWIN' THE HAMMER",
-	is_enabled: true,
-    creator_name : "J.D. Lowe",
-    prompt: "THROW HAMMER",
-    init_room: jdllama_hammer_rm,
-    view_width: 240,
-    view_height: 160,
-    time_seconds: 5,
+    game_name: "Unscrew The Top",
+    authors : "J.D. Lowe",
+    prompt: "UNSCREW",
+    init_room: jdllama_unscrew_rm,
+    view_width: 480,
+    view_height: 320,
+    time_seconds: 6,
     music_track: noone,
     music_loops: false,
     interpolation_on: false,
@@ -17,13 +16,46 @@ microgame_register("jdllama_hammer", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe"],
-    date_added: "21/08/12"
+	date_added : {
+        day : 2,
+        month : "September",
+        year : 2021
+    },
+	is_enabled: false,
+	supports_html: false,
+	show_on_website: false,
+	
+});
+
+microgame_register("jdllama_hammer", {
+    config_version: 1,
+    game_name: "THROWIN' THE HAMMER",
+    authors : "J.D. Lowe",
+    prompt: "THROW HAMMER",
+    init_room: jdllama_hammer_rm,
+    view_width: 240,
+    view_height: 160,
+    time_seconds: 5,
+    music_track: jdllama_hammer_snd_theme,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: [0, 0, 0],
+    cartridge_col_secondary: [131, 147, 202],
+    cartridge_label: jdllama_hammer_spr_label,
+    default_is_fail: true,
+    supports_difficulty_scaling: true,
+    credits: ["J.D. Lowe", "Zandy"],
+    date_added: "21/08/12",
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
+	
 });
 
 microgame_register("jdllama_target", {
     config_version: 1,
     game_name: "TARGET BREAKING YEAH",
-    creator_name : "J.D. Lowe",
+    authors : "J.D. Lowe",
     prompt: "SHOOT THE TARGETS",
     init_room: jdllama_target_rm,
     view_width: 240,
@@ -38,5 +70,14 @@ microgame_register("jdllama_target", {
     default_is_fail: true,
     supports_difficulty_scaling: true,
     credits: ["J.D. Lowe", "Zandy"],
-    date_added: "21/08/09"
+    date_added: "21/08/09",
+    is_enabled: true,
+    supports_html: true,
+    show_on_website: true,
+    description: [
+        "Invasion! Chaos! ANARCHY! We are being bombarded by living bullseye targets, and only YOU can save us!."
+    ],
+    how_to_play: [
+        "You have a limited number of shots that can be fired by either the primary or secondary button. If you hit a target, you don't lose a shot. You can also alter which target you're aiming at with either left or right on your controller.",
+    ],
 });

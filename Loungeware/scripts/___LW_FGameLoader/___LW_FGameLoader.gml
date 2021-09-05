@@ -16,6 +16,7 @@ function LW_FGameLoader() constructor{
 
 		var _game = {};
 		var is_valid = true;
+		//show_message(array_length(_rules));
 		for(var i=0; i < array_length(_rules); i++){
 			var rule = _rules[i];
 			
@@ -42,6 +43,7 @@ function LW_FGameLoader() constructor{
 		
 		_games[$  game_name] = _game;
 		show_debug_message("INFO: Loaded " + string(game_name) + "!");
+		
 		return true;
 	}
 }
@@ -344,37 +346,47 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 	
 	_get_value_internal  = function(colour){ 
 		if(is_string(colour)){
+			// Remove prefix
 			var first_char = string_char_at(colour, 1);
 			if (first_char == "#" || first_char == "$")
-				colour = string_delete(colour, 0, 1);
+				colour = string_delete(colour, 1, 1);
 			if (string_copy(colour, 1, 2) == "0x")
-				colour = string_delete(colour, 0, 2);
-			
-			var result=0;
-
-			// special unicode values
-			var ZERO=ord("0");
-			var NINE=ord("9");
-			var A=ord("A");
-			var F=ord("F");
-
-			for (var i=1; i<=string_length(colour); i++){
-			    var c=ord(string_char_at(string_upper(colour), i));
-			    // you could also multiply by 16 but you get more nerd points for bitshifts
-			    result=result<<4;
-			    // if the character is a number or letter, add the value
-			    // it represents to the total
-			    if (c>=ZERO&&c<=NINE){
-			        result=result+(c-ZERO);
-			    } else if (c>=A&&c<=F){
-			        result=result+(c-A+10);
-			    // otherwise complain
-			    }
-			}
-			
-			return result;
-			
+				colour = string_delete(colour, 1, 2);
+				
+			// Make the colour
+			colour = string_upper(colour);
+			var dec = 0, h = "0123456789ABCDEF", p;
+			for (p = 1; p <= string_length(colour); p += 1) {
+		        dec = dec << 4 | (string_pos(string_char_at(colour, p), h) - 1);
+		    }
+		    return (dec & 0xFF0000) >> 16 | (dec & 0x00FF00) | (dec & 0x0000FF) << 16;
 		}
 		return make_colour_rgb(colour[0], colour[1], colour[2]);
+	}
+}
+
+
+function LW_FGameLoaderAuthorTransformer(field_name, default_value) : LW_FGameLoaderTransformer(field_name, default_value) constructor 
+{	
+	_is_valid_internal = function(_val){
+		return  is_string(_val) || is_struct(_val);
+	}
+	
+	_get_value_internal = function(_val){
+		if(is_string(_val)){
+			return _val;	
+		}
+		if(is_struct(_val)){
+			var str = "";
+			var names = variable_struct_get_names(_val);
+			for(var i=0; i < array_length(names); i++){
+				str += variable_struct_get(_val, names[i]);
+				if(i != array_length(names)-1){
+					str += " & ";	
+				}
+			}
+			return str;
+		}
+		return "invalid";
 	}
 }
