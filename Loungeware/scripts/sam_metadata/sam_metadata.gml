@@ -30,7 +30,7 @@ microgame_register("sam_cookiedunk", {
 	  month : 9,
 	  year : 2021
 	},
-	is_enabled: false,
+	is_enabled: true,
 	supports_html:true,
 	show_on_website: true,
 });
