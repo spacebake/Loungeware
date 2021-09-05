@@ -64,7 +64,7 @@ _step = function() {
 					instance_create_layer(120, 80, "Message", jdllama_target_obj_msg_win);
 					//microgame_music_stop(1);
 					//sfx_play(jdllama_target_snd_victory,1.2,false);
-					microgame_music_start(jdllama_target_obj_msg_win, false, 1);
+					microgame_music_start(jdllama_target_snd_victory, false, 1);
 					active = false;
 				}
 			}

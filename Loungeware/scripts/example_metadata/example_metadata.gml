@@ -32,6 +32,6 @@ microgame_register("{your_author_name}_{your_unique_game_name}", {
 	},
 	is_enabled: false,
 	supports_html:false,
-	show_on_website: true,
+	show_on_website: false,
 });
 */

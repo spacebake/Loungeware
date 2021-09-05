@@ -68,3 +68,19 @@ function microgame_music_stop(_time){
 	
 	return _snd_id;
 }
+
+// ------------------------------------------------------------------------------------------
+// MICROGAME SFX SET GAIN
+// Can be used to change the volume of a sound that is currently playing
+// Please use a sound ID for this, not a sound index.
+// ------------------------------------------------------------------------------------------
+/// @function                      Microgame_sfx_set_gain(_snd_id, _vol, _time);
+/// @param {sound}  _snd_id        The index of the song to play
+/// @param {number} _vol           The volume to set the gain to (0-1)
+/// @param {number} _time          Time in milisconds to change the volume
+function microgame_sfx_set_gain(_snd_id, _vol, _time){
+	var _sound_index = asset_get_index( audio_get_name(_snd_id) );
+	var _mixer_vol = audio_sound_get_gain(_sound_index);
+	audio_sound_gain(_snd_id, _vol * _mixer_vol * VOL_SFX * VOL_MASTER, _time);
+}
+
