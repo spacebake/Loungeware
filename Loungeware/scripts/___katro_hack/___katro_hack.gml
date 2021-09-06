@@ -5,7 +5,6 @@
  * Kat @katsaii
  */
 
-#macro __WORKSPACE_DS_COLLECTIONS [undefined, [], [], [], [], [], []]
 #macro __WORKSPACE_DS_GRID_CREATE ds_grid_create
 #macro __WORKSPACE_DS_LIST_CREATE ds_list_create
 #macro __WORKSPACE_DS_MAP_CREATE ds_map_create
@@ -31,11 +30,22 @@
 #macro ds_queue_destroy __workspace_ds_queue_destroy
 #macro ds_stack_destroy __workspace_ds_stack_destroy
 
+/// @desc Represents all possible dynamic resource types.
+enum __WorkspaceDsTypes {
+    GRID,
+    LIST,
+    MAP,
+    PRIORITY,
+    QUEUE,
+    STACK,
+    __COUNT__
+}
+
 /// @desc Returns the workspace controller.
 function __workspace_controller() {
     static workspace = {
         enabled : false,
-        ids : [undefined, [], [], [], [], [], []]
+        ids : undefined,
     };
     return workspace;
 }
@@ -72,7 +82,11 @@ function workspace_begin() {
         return;
     }
     workspace.enabled = true;
-    workspace.ids = __WORKSPACE_DS_COLLECTIONS;
+    var ids = array_create(__WorkspaceDsTypes.__COUNT__, undefined);
+    workspace.ids = ids;
+    for (var i = __WorkspaceDsTypes.__COUNT__ - 1; i > 0; i -= 1) {
+        ids[@ i] = [];
+    }
 }
 
 /// @desc Ends the current workspace and destroys any marked data structures.
@@ -83,32 +97,32 @@ function workspace_end() {
     }
     workspace.enabled = false;
     var ids = workspace.ids;
-    for (var i = 6; i > 0; i -= 1) {
+    for (var i = __WorkspaceDsTypes.__COUNT__ - 1; i > 0; i -= 1) {
         var my_ids = ids[i];
         for (var j = array_length(my_ids) - 1; j >= 0; j -= 1) {
             var exists = my_ids[j];
             if (is_numeric(exists) && exists) {
                 switch (i) {
-                case ds_type_grid:
+                case __WorkspaceDsTypes.GRID:
                     __WORKSPACE_DS_GRID_DESTROY(j);
                     break;
-                case ds_type_list:
+                case __WorkspaceDsTypes.LIST:
                     __WORKSPACE_DS_LIST_DESTROY(j);
                     break;
-                case ds_type_map:
+                case __WorkspaceDsTypes.MAP:
                     __WORKSPACE_DS_MAP_DESTROY(j);
                     break;
-                case ds_type_priority:
+                case __WorkspaceDsTypes.PRIORITY:
                     __WORKSPACE_DS_PRIORITY_DESTROY(j);
                     break;
-                case ds_type_queue:
+                case __WorkspaceDsTypes.QUEUE:
                     __WORKSPACE_DS_QUEUE_DESTROY(j);
                     break;
-                case ds_type_stack:
+                case __WorkspaceDsTypes.STACK:
                     __WORKSPACE_DS_STACK_DESTROY(j);
                     break;
                 default:
-                    show_error("unknown ds_type " + string(i), true);
+                    show_error("unknown resource type " + string(i), true);
                     break;
                 }
             }
@@ -120,72 +134,72 @@ function workspace_end() {
 /// @param {real} w The width of the grid.
 /// @param {real} h The height of the grid.
 function __workspace_ds_grid_create(_w, _h) {
-    return __workspace_register(__WORKSPACE_DS_GRID_CREATE(_w, _h), ds_type_grid);
+    return __workspace_register(__WORKSPACE_DS_GRID_CREATE(_w, _h), __WorkspaceDsTypes.GRID);
 }
 
 /// @desc Creates a new list data structure.
 function __workspace_ds_list_create() {
-    return __workspace_register(__WORKSPACE_DS_LIST_CREATE(), ds_type_list);
+    return __workspace_register(__WORKSPACE_DS_LIST_CREATE(), __WorkspaceDsTypes.LIST);
 }
 
 /// @desc Creates a new map data structure.
 function __workspace_ds_map_create() {
-    return __workspace_register(__WORKSPACE_DS_MAP_CREATE(), ds_type_map);
+    return __workspace_register(__WORKSPACE_DS_MAP_CREATE(), __WorkspaceDsTypes.MAP);
 }
 
 /// @desc Creates a new priority queue data structure.
 function __workspace_ds_priority_create() {
-    return __workspace_register(__WORKSPACE_DS_PRIORITY_CREATE(), ds_type_priority);
+    return __workspace_register(__WORKSPACE_DS_PRIORITY_CREATE(), __WorkspaceDsTypes.PRIORITY);
 }
 
 /// @desc Creates a new queue data structure.
 function __workspace_ds_queue_create() {
-    return __workspace_register(__WORKSPACE_DS_QUEUE_CREATE(), ds_type_queue);
+    return __workspace_register(__WORKSPACE_DS_QUEUE_CREATE(), __WorkspaceDsTypes.QUEUE);
 }
 
 /// @desc Creates a new stack data structure.
 function __workspace_ds_stack_create() {
-    return __workspace_register(__WORKSPACE_DS_STACK_CREATE(), ds_type_stack);
+    return __workspace_register(__WORKSPACE_DS_STACK_CREATE(), __WorkspaceDsTypes.STACK);
 }
 
 /// @desc Destroys a grid data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_grid_destroy(_ds) {
     __WORKSPACE_DS_GRID_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_grid);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.GRID);
 }
 
 /// @desc Destroys a list data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_list_destroy(_ds) {
     __WORKSPACE_DS_LIST_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_list);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.LIST);
 }
 
 /// @desc Destroys a map data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_map_destroy(_ds) {
     __WORKSPACE_DS_MAP_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_map);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.MAP);
 }
 
 /// @desc Destroys a priority queue data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_priority_destroy(_ds) {
     __WORKSPACE_DS_PRIORITY_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_priority);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.PRIORITY);
 }
 
 /// @desc Destroys a queue data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_queue_destroy(_ds) {
     __WORKSPACE_DS_QUEUE_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_queue);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.QUEUE);
 }
 
 /// @desc Destroys a stack data structure with this ID.
 /// @param {real} id The ID of the data structure to destroy.
 function __workspace_ds_stack_destroy(_ds) {
     __WORKSPACE_DS_STACK_DESTROY(_ds);
-    __workspace_unregister(_ds, ds_type_stack);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.STACK);
 }
