@@ -11,24 +11,34 @@
 #macro __WORKSPACE_DS_PRIORITY_CREATE ds_priority_create
 #macro __WORKSPACE_DS_QUEUE_CREATE ds_queue_create
 #macro __WORKSPACE_DS_STACK_CREATE ds_stack_create
+#macro __WORKSPACE_PART_SYSTEM_CREATE part_system_create
+#macro __WORKSPACE_PART_SYSTEM_CREATE_LAYER part_system_create_layer
+#macro __WORKSPACE_PART_TYPE_CREATE part_type_create
 #macro __WORKSPACE_DS_GRID_DESTROY ds_grid_destroy
 #macro __WORKSPACE_DS_LIST_DESTROY ds_list_destroy
 #macro __WORKSPACE_DS_MAP_DESTROY ds_map_destroy
 #macro __WORKSPACE_DS_PRIORITY_DESTROY ds_priority_destroy
 #macro __WORKSPACE_DS_QUEUE_DESTROY ds_queue_destroy
 #macro __WORKSPACE_DS_STACK_DESTROY ds_stack_destroy
+#macro __WORKSPACE_PART_SYSTEM_DESTROY part_system_destroy
+#macro __WORKSPACE_PART_TYPE_DESTROY part_type_destroy
 #macro ds_grid_create __workspace_ds_grid_create
 #macro ds_list_create __workspace_ds_list_create
 #macro ds_map_create __workspace_ds_map_create
 #macro ds_priority_create __workspace_ds_priority_create
 #macro ds_queue_create __workspace_ds_queue_create
 #macro ds_stack_create __workspace_ds_stack_create
+#macro part_system_create __workspace_part_system_create
+#macro part_system_create_layer __workspace_part_system_create_layer
+#macro part_type_create __workspace_part_type_create
 #macro ds_grid_destroy __workspace_ds_grid_destroy
 #macro ds_list_destroy __workspace_ds_list_destroy
 #macro ds_map_destroy __workspace_ds_map_destroy
 #macro ds_priority_destroy __workspace_ds_priority_destroy
 #macro ds_queue_destroy __workspace_ds_queue_destroy
 #macro ds_stack_destroy __workspace_ds_stack_destroy
+#macro part_system_destroy __workspace_part_system_destroy
+#macro part_type_destroy __workspace_part_type_destroy
 
 /// @desc Represents all possible dynamic resource types.
 enum __WorkspaceDsTypes {
@@ -38,6 +48,8 @@ enum __WorkspaceDsTypes {
     PRIORITY,
     QUEUE,
     STACK,
+    PART_SYS,
+    PART_TYPE,
     __COUNT__
 }
 
@@ -121,6 +133,12 @@ function workspace_end() {
                 case __WorkspaceDsTypes.STACK:
                     __WORKSPACE_DS_STACK_DESTROY(j);
                     break;
+                case __WorkspaceDsTypes.PART_SYS:
+                    __WORKSPACE_PART_SYSTEM_DESTROY(j);
+                    break;
+                case __WorkspaceDsTypes.PART_TYPE:
+                    __WORKSPACE_PART_TYPE_DESTROY(j);
+                    break;
                 default:
                     show_error("unknown resource type " + string(i), true);
                     break;
@@ -160,6 +178,26 @@ function __workspace_ds_queue_create() {
 /// @desc Creates a new stack data structure.
 function __workspace_ds_stack_create() {
     return __workspace_register(__WORKSPACE_DS_STACK_CREATE(), __WorkspaceDsTypes.STACK);
+}
+
+/// @desc Creates a new particle system data structure.
+function __workspace_part_system_create() {
+    return __workspace_register(__WORKSPACE_PART_SYSTEM_CREATE(), __WorkspaceDsTypes.PART_SYS);
+}
+
+/// @desc Creates a new particle system data structure.
+/// @param {value} layer_id_or_name The layer to create the particle system on.
+/// @param {bool} persistent Whether to automatically manage the particle system.
+function __workspace_part_system_create_layer(_layer, _persistent) {
+    if (is_numeric(_persistent) && _persistent) {
+        return __WORKSPACE_PART_SYSTEM_CREATE_LAYER(_layer, _persistent);
+    }
+    return __workspace_register(__WORKSPACE_PART_SYSTEM_CREATE_LAYER(_layer, false), __WorkspaceDsTypes.PART_SYS);
+}
+
+/// @desc Creates a new particle type data structure.
+function __workspace_part_type_create() {
+    return __workspace_register(__WORKSPACE_PART_TYPE_CREATE(), __WorkspaceDsTypes.PART_TYPE);
 }
 
 /// @desc Destroys a grid data structure with this ID.
@@ -202,4 +240,18 @@ function __workspace_ds_queue_destroy(_ds) {
 function __workspace_ds_stack_destroy(_ds) {
     __WORKSPACE_DS_STACK_DESTROY(_ds);
     __workspace_unregister(_ds, __WorkspaceDsTypes.STACK);
+}
+
+/// @desc Destroys a particle system data structure with this ID.
+/// @param {real} id The ID of the data structure to destroy.
+function __workspace_part_system_destroy(_ds) {
+    __WORKSPACE_PART_SYSTEM_DESTROY(_ds);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.PART_SYS);
+}
+
+/// @desc Destroys a particle type data structure with this ID.
+/// @param {real} id The ID of the data structure to destroy.
+function __workspace_part_type_destroy(_ds) {
+    __WORKSPACE_PART_TYPE_DESTROY(_ds);
+    __workspace_unregister(_ds, __WorkspaceDsTypes.PART_TYPE);
 }
