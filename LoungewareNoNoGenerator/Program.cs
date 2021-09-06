@@ -16,11 +16,9 @@ using System.Linq;
 //game_end undefined
 //audio_play_sound sfx_play
 
-IEnumerable<string> insteads = args.Where((val, index) => index % 2 == 1);
-IEnumerable<(string Func, string Instead)> funcs = 
+IEnumerable<(string Func, string Instead)> funcs =
     File.ReadAllLines("input.txt")
-        .Select(x => x.Split(" ")[0])
-    .Zip(insteads);
+        .Select(x => (x.Split(" ")[0], x.Split(" ")[1]));
 
 Func<string, string> getInstead = instead
     => instead == "undefined" ? "" : $", \"{instead}\"";
