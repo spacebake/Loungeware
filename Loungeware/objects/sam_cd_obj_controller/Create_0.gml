@@ -6,8 +6,6 @@ lose_sounds = [sam_cd_snd_dont_want, sam_cd_snd_dunk_better, sam_cd_snd_not_like
 voice_volume = .4;
 music_volume = .3;
 
-microgame_music_start(sam_cd_msc_theme, false, music_volume);
-
 try_sound = sfx_play(sam_cd_snd_try_to, voice_volume, false);
 
 cookie = sam_cd_obj_cookie_hand;
