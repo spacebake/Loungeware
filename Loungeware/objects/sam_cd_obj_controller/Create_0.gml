@@ -22,9 +22,9 @@ phase1 = function() {
 	cookie.x += cookie_crane_speed;
 	if cookie.bbox_right >= room_width
 	{
-		phase = phase2;	
+		phase = phase2;
 	}
-	
+
 	if KEY_PRIMARY
 		phase = phase3;
 }
@@ -33,9 +33,9 @@ phase2 = function() {
 	cookie.x -= cookie_crane_speed;
 	if cookie.bbox_left <= 0
 	{
-		phase = phase1;	
+		phase = phase1;
 	}
-	
+
 	if KEY_PRIMARY
 		phase = phase3;
 }
@@ -82,7 +82,7 @@ phase3 = function() {
 			}
 		}
 	}
-	
+
 }
 
 phase4 = function() {
