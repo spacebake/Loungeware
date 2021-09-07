@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sam_cd_msc_theme.wav",
-  "duration": 4.615396,
+  "duration": 38.23009,
   "parent": {
     "name": "Sound",
     "path": "folders/Microgames/Sam/Cookie Dunk/Resources/Sound.yy",
