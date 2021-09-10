@@ -53,7 +53,7 @@ function ___cart_sprite_create(_microgame_metadata){
 	}
 	surface_reset_target();
 	var _spr = sprite_create_from_surface(surf_cart, 0, 0, surface_get_width(surf_cart), surface_get_height(surf_cart), 0, 0, 7, 19 );
-	if (object_index == ___MG_MNGR) ds_list_add(garbo_sprites, _spr);
+	if (object_index == ___MG_MNGR) ds_list_add(transition_garbo_sprites, _spr);
 	return _spr;
 }
 
@@ -62,9 +62,12 @@ function ___cart_sprite_create(_microgame_metadata){
 // ------------------------------------------------------------------------------------------
 function ___prompt_sprite_create(prompt){
 	var _scale = 0.5;
-	var _w = canvas_w * _scale;
-	var _h = canvas_h * _scale;
+	var _w = WINDOW_BASE_SIZE * _scale;
+	var _h = WINDOW_BASE_SIZE * _scale;
 	var _surf = surface_create(_w, _h);
+	
+	// remove exclamation point if added by microgame dev in error
+	while (string_char_at(prompt, string_length(prompt)) == "!") prompt = string_copy(prompt, 1, string_length(prompt)-1);
 	
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
@@ -77,6 +80,7 @@ function ___prompt_sprite_create(prompt){
 	
 	// draw text outline
 	draw_set_color(c_gbblack);
+	
 	for (var i = 0; i < 360; i += 20){
 		draw_text_ext(
 			_prompt_x + lengthdir_x(_outline_rad, i),
@@ -99,8 +103,8 @@ function ___prompt_sprite_create(prompt){
 	surface_reset_target();
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
-	var _spr = sprite_create_from_surface(_surf, 0, 0, _w, _h, 0, 0, _w/2, _h/2);
-	ds_list_add(garbo_sprites, _spr);
+	var _spr = sprite_create_from_surface(_surf, 0, 0, _w, _h, 0, 0, 0, 0);
+	ds_list_add(transition_garbo_sprites, _spr);
 	if (surface_exists(_surf)) surface_free(_surf);
 	return _spr;
 }
@@ -116,7 +120,7 @@ function ___draw_title(_x, _y){
 	var _game_creator = string_upper(microgame_next_metadata.authors);
 	var _margin = 0;
 	var _padding = 3;
-	var _w = 174;
+	var _w = WINDOW_BASE_SIZE - 64;//174;
 	var _sep = 14;
 	var _name_h = string_height_ext(_game_name, _sep, _w) * _scale;
 	var _name_w = string_width_ext(_game_name, _sep, _w) * _scale;

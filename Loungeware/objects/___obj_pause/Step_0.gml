@@ -126,7 +126,7 @@ if (state == "end"){
 		pause_cooldown = 1;
 		if (room != ___rm_restroom){
 			___state_change("playing_microgame");
-			___microgame_start(microgame_current_name);
+			microgame_start(microgame_current_name);
 		}
 	}
 	

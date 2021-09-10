@@ -1,4 +1,12 @@
 //--------------------------------------------------------------------------------------------------------
+// DRAW RECTANGLE FIX
+// draws a rectangle but with 1 pixel removed from the x2 and y2 values
+//--------------------------------------------------------------------------------------------------------
+function draw_rectangle_fix(_x1, _y1, _x2, _y2){
+	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, 0);
+}
+
+//--------------------------------------------------------------------------------------------------------
 // checks if key is held using ___global.default_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_keyboard_check(_keystr){
@@ -15,15 +23,6 @@ function ___macro_keyboard_check(_keystr){
 }
 
 //--------------------------------------------------------------------------------------------------------
-// DRAW RECTANGLE FIX
-// draws a rectangle but with 1 pixel removed from the x2 and y2 values
-//--------------------------------------------------------------------------------------------------------
-function draw_rectangle_fix(_x1, _y1, _x2, _y2){
-	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, 0);
-}
-
-	
-//--------------------------------------------------------------------------------------------------------
 // checks if key is pressed using ___global.default_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_keyboard_check_pressed(_keystr){
@@ -38,6 +37,7 @@ function ___macro_keyboard_check_pressed(_keystr){
 	}
 	return false;
 }
+
 
 //--------------------------------------------------------------------------------------------------------
 // checks if key is released using ___global.default_input_keys. provide a string as the property name for key type
@@ -55,142 +55,14 @@ function ___macro_keyboard_check_released(_keystr){
 	return false;
 }
 
-//--------------------------------------------------------------------------------------------------------
-// LOAD FAKE MICROGAME
-// loads a fake microgame as the first game to pop out of the gameboy, no game is actually attached to it
-//--------------------------------------------------------------------------------------------------------
-function ___microgame_load_fake(){
+// ------------------------------------------------------------------------------------------
 
-		var _cart = ___get_fake_label();
-		
-		
-		_cart.cartridge_label = ___spr_fake_labels;
-		cart_sprite = ___cart_sprite_create(_cart);
-		
-		microgame_current_metadata = _cart;
-
-		//show_message(microgame_current_metadata);
-		microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
-		microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
-}
-
-//--------------------------------------------------------------------------------------------------------
-// MICROGAME START
-// name says it all tbh
-//--------------------------------------------------------------------------------------------------------
-function ___microgame_start(_microgame_propname){
-	
-	// init new microgame
-	with(___MG_MNGR){
-		
-		// garbo the sprites from last cutscene
-		while (ds_list_size(garbo_sprites) > 0){
-			sprite_delete(garbo_sprites[| 0]);
-			ds_list_delete(garbo_sprites, 0);
-		}
-		
-		var _metadata = variable_struct_get(___global.microgame_metadata, _microgame_propname);
-		microgame_current_metadata = _metadata;
-		microgame_current_name = _microgame_propname;
-		
-		
-		microgame_timer = _metadata.time_seconds * 60;
-		microgame_timer_max = _metadata.time_seconds * 60;
-		if (TEST_MODE_ACTIVE && _metadata.time_seconds > ___global.max_microgame_time){
-			show_message("You are exceeding the maximum amount of time allowed for a microgame. Please make a game that is " + string(___global.max_microgame_time) + " seconds or shorter.\nIf you need to test your microgame without a timer then press \"I\" while in test mode to toggle infinite timer.");
-		}
-		
-
-		microgame_won = false;
-		microgame_timer_skip = false;
-		cart_sprite = ___cart_sprite_create(_metadata);
-		gb_timerbar_visible = true;
-		transition_appsurf_zoomscale = 1;
-		transition_circle_rad = canvas_h;
-		
-		if (_metadata.music_track >= 0) microgame_music_start(_metadata.music_track, 1, _metadata.music_loops);
-		microgame_music_auto_stopped = false;
-		room_goto(_metadata.init_room);
-		
-		// destroy and recreate fake global
-		with (___fake_global) instance_destroy();
-		instance_create_layer(0, 0, layer, ___fake_global);
-		// garbage collect any leftover ds structures from previous microgame
-		workspace_end();
-		workspace_begin();
+// ------------------------------------------------------------------------------------------
+function ___gamepad_check_button_multiple(device,buttons) {
+	for (var i=0;i<array_length(buttons);i++) {
+		if (gamepad_button_check(device,buttons[i])) return true;	
 	}
-}
-
-//--------------------------------------------------------------------------------------------------------
-// MICROGAME END
-// name says it all tbh
-//--------------------------------------------------------------------------------------------------------
-function ___microgame_end(){
-	
-	games_played += 1;
-	if (games_played mod 3 == 0){
-		difficulty_up_queue = true;
-	} else {
-		difficulty_up_queue = false;
-	}
-	
-	show_debug_overlay(false);
-	
-	// update save data
-	if (!TEST_MODE_ACTIVE && !gallery_mode){
-		var _save_struct = variable_struct_get(___global.save_data.microgame_data, ___MG_MNGR.microgame_current_name);
-		_save_struct.play_count = _save_struct.play_count + 1;
-		if (___MG_MNGR.microgame_won){
-			_save_struct.wins = _save_struct.wins + 1;
-			var _time_taken = ___MG_MNGR.microgame_timer_max - ___MG_MNGR.microgame_time_finished;
-			if (_time_taken < _save_struct.best_time) _save_struct.best_time = _time_taken;
-		}
-	}
-	___save_game();
-	
-	// send to server if data collection on
-	if (___global.save_data.data_collection){
-		// < CODE GO HERE AT SOME POINT >
-	}
-		
-	// if win
-	if (___MG_MNGR.microgame_won){
-		larold_index = 1;
-		var _points = 1 + (___MG_MNGR.microgame_timer / ___MG_MNGR.microgame_timer_max) + (DIFFICULTY/5);
-		___MG_MNGR.score_total += _points;
-	// if lose
-	} else {
-		//show_message("lose");
-		//show_message("time remaining: " + ___MG_MNGR.microgame_timer);
-	}
-	
-	// go to rest room (lol)
-	room_goto(___rm_restroom);
-	
-	if (!TEST_MODE_ACTIVE && !gallery_mode){
-		// remove game from unplayed list 
-		var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-		ds_list_delete(microgame_unplayed_list, _index_to_remove);
-	
-		// if uplayed list is empty, repopulate it with all games (excluse the one just played, if possble, see below)
-		if (ds_list_size(microgame_unplayed_list) <= 0){
-			microgame_populate_unplayed_list();
-		
-			// if there is more than 1 game, delete the last played game from the new list as to not get repeats
-			if (ds_list_size(microgame_unplayed_list) > 1){
-				_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-				ds_list_delete(microgame_unplayed_list, _index_to_remove);
-			}
-		}
-	
-		// choose next game from uplayed list
-		microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
-		microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
-	} else {
-		microgame_next_name = microgame_current_name;
-		microgame_next_metadata = microgame_current_metadata;
-	}
-	
+	return false;
 }
 
 
@@ -237,6 +109,7 @@ function log(){
 function ___state_setup(_starting_state){
 	state = _starting_state;
 	state_goto = _starting_state;
+	substate_goto = noone;
 	state_begin = true;
 	substate = 0;
 	subsubstate = 0;
@@ -253,6 +126,13 @@ function ___state_change(_state_goto){
 	//(this will happen even if you try to change into a state you are already in).
 	state_goto = _state_goto;
 }
+	
+// ------------------------------------------------------------------------------------------
+// SUBSTATE CHANGE 
+// ------------------------------------------------------------------------------------------
+function ___substate_change(_substate){
+	substate_goto = _substate;
+}
 
 // ------------------------------------------------------------------------------------------
 // STATE CHANGE HANDLER | 
@@ -260,6 +140,12 @@ function ___state_change(_state_goto){
 function ___state_handler(){
 	state_begin = false;
 	substate_begin = false;
+	
+	if (substate_goto != noone){
+		substate = substate_goto;
+		substate_goto = noone;
+	}
+	
 	if (state_goto != noone){
 		state_begin = true;
 		state = state_goto;
@@ -280,7 +166,6 @@ function ___state_handler(){
 	store_substate = substate;
 
 }
-
 
 // ------------------------------------------------------------------------------------------
 // CENTER GAME WINDOW | clue is in the name
@@ -304,15 +189,6 @@ function ___reset_draw_vars(){
 	matrix_set(matrix_world, matrix_build_identity());
 }
 
-// ------------------------------------------------------------------------------------------
-
-// ------------------------------------------------------------------------------------------
-function ___gamepad_check_button_multiple(device,buttons) {
-	for (var i=0;i<array_length(buttons);i++) {
-		if (gamepad_button_check(device,buttons[i])) return true;	
-	}
-	return false;
-}
 
 // ------------------------------------------------------------------------------------------
 
@@ -356,15 +232,6 @@ function __try_read_json(filepath){
 		file_text_close(file);
 		return undefined;
 	}
-}
-
-// ------------------------------------------------------------------------------------------
-// MICROGAME GET PROMPT
-// ------------------------------------------------------------------------------------------
-// reyurns a random prompt from the microgame prompt array
-function ___microgame_get_prompt(_key){
-	var _metadata = variable_struct_get(___global.microgame_metadata, _key);
-	return _metadata.prompt[irandom(array_length(_metadata.prompt) - 1)];
 }
 
 // ------------------------------------------------------------------------------------------
@@ -567,7 +434,6 @@ function ___dev_config_get_test_key(){
 		return _data.microgame_key;
 	}
 }
-
 
 // ------------------------------------------------------------------------------------------
 // URL GET QUERY
