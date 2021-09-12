@@ -6,7 +6,7 @@
     "path": "folders/__Base Game (keep out)/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "___GM_functions",
+  "name": "___microgame_register",
   "tags": [],
   "resourceType": "GMScript",
 }

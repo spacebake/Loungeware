@@ -3,6 +3,7 @@ ___state_setup("start");
 ___MG_MNGR_declare_functions();
 ___MG_MNGR_declare_variables();
 application_surface_draw_enable(false);
+step = -1;
 
 //--------------------------------------------------------------------------------------------------------
 // IF DEV CONFIG SAVE FILE IS FOUND, SET TEST MODE AND LOAD CHOSED MICROGAME
@@ -23,5 +24,3 @@ if (!TEST_MODE_ACTIVE){
 	microgame_start(_game_key);
 } 
 
-
-___state_change("microgame_result");

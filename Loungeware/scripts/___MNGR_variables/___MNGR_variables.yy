@@ -6,7 +6,7 @@
     "path": "folders/__Base Game (keep out)/Scripts.yy",
   },
   "resourceVersion": "1.0",
-  "name": "___microgame_metadata",
+  "name": "___MNGR_variables",
   "tags": [],
   "resourceType": "GMScript",
 }

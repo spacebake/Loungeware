@@ -1,11 +1,16 @@
 function ___MG_MNGR_declare_variables(){
-	
+
 //--------------------------------------------------------------------------------------------------------
 // gallery mode
 //--------------------------------------------------------------------------------------------------------
 gallery_mode = false;
 gallery_first_pass = true;
 force_substate = noone;
+
+//--------------------------------------------------------------------------------------------------------
+// intro
+//--------------------------------------------------------------------------------------------------------
+intro_y_start = (VIEW_H / 2) + 64;
 
 //--------------------------------------------------------------------------------------------------------
 // window
@@ -86,10 +91,15 @@ transition_circle_rad_max = canvas_h;
 transition_circle_rad = transition_circle_rad_max;
 transition_circle_speed = transition_circle_rad / transition_end_microgame_time;
 transition_appsurf_zoomscale = 1;
-transition_music = noone;
-transition_music_began = false;
 transition_garbo_sprites = ds_list_create();
+transition_music_current = noone;
+transition_music_began = false;
 wait = 0;
+
+//--------------------------------------------------------------------------------------------------------
+// music
+//--------------------------------------------------------------------------------------------------------
+
 
 //--------------------------------------------------------------------------------------------------------
 // larold reflection
@@ -127,7 +137,7 @@ cart_metadata = microgame_current_metadata;
 cart_sprite = noone;
 cart_scale = noone;
 cart_vsp = noone;
-cart_in_slot_x = noone;
+cart_in_slot_x = 81;
 cart_in_slot_y = noone;
 cart_offscreen_x = VIEW_W;
 cart_offscreen_y = 30;

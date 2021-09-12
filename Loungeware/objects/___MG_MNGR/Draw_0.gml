@@ -92,25 +92,10 @@ if (state == "life_lose"){
 }
 
 // --------------------------------------------------------------------------------
-// STATE | GAME SWITCH TRANSITION 
-// --------------------------------------------------------------------------------
-if (state == "game_switch"){
-	
-	
-
-}
-
-// --------------------------------------------------------------------------------
 // STATE | CART PREVIEW
 // --------------------------------------------------------------------------------
 if (state == "cart_preview"){
-	if (state_begin){
-		audio_stop_all();
-		cart_float_dir = 0;
-	}
-	
-	cart_float_dir += 2.5;
-	if (cart_float_dir >= 360) cart_float_dir -= 360;
+
 	var _scale = 0.5;
 	var _spr_w = sprite_get_width(cart_sprite) * _scale;
 	var _spr_h = sprite_get_height(cart_sprite)* _scale;

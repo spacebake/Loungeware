@@ -434,7 +434,6 @@ function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty)
 
 	gb_x = _x;
 	gb_y = _y;
-	cart_in_slot_x = _x;
 	cart_in_slot_y = _y;
 	gb_scale_true =_scale;
 	if (!sprite_exists(cart_sprite)) cart_sprite = ___cart_sprite_create(cart_metadata);
@@ -522,6 +521,8 @@ function draw_prompt(){
 	}
 	
 }
+
+
 
 
 }

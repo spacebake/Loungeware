@@ -1,18 +1,30 @@
 ___state_handler();
+step++;
 
 // fade timer bar
 if (gbo_timerbar_visible) gbo_timerbar_alpha = min(1, gbo_timerbar_alpha + gbo_timerbar_fadespeed);
 else gbo_timerbar_alpha = max(0, gbo_timerbar_alpha - gbo_timerbar_fadespeed);
 
 // handle transition music
-if (transition_music_began && !audio_is_playing(transition_music)){
+if (transition_music_began && !audio_is_playing(transition_music_current)){
 	if (!TEST_MODE_ACTIVE && !gallery_mode){
-		transition_music_began = false;
-		transition_music  = audio_play_sound(___sng_microgame_winlose_end, 0, 0);
-		audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
-		ds_list_add(___global.___audio_active_list, transition_music);
-		audio_sound_pitch(transition_music, transition_speed);
+			var _sound = ___sng_microgame_winlose_end;
+			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, false);
+			transition_music_began = false;
+			audio_sound_pitch(transition_music_current, transition_speed);
 	}
+}
+
+// --------------------------------------------------------------------------------
+// STATE | CART PREVIEW
+// --------------------------------------------------------------------------------
+if (state == "cart_preview"){
+	if (state_begin){
+		audio_stop_all();
+		cart_float_dir = 0;
+	}
+	cart_float_dir += 2.5;
+	if (cart_float_dir >= 360) cart_float_dir -= 360;
 }
 
 // -----------------------------------------------------------
@@ -28,6 +40,7 @@ if (state == "intro"){
 		gb_scale = 0.25;
 		gb_spin = 0;
 		gb_y_offset = intro_y_start;
+		
 	}
 	
 	// rising spin
@@ -37,6 +50,7 @@ if (state == "intro"){
 		gb_y_offset = ___smooth_move(gb_y_offset, 0, 0.75, 20);
 		if (wait <= 0){
 			___substate_change(substate+1);
+
 			gb_spin = 0;
 		}
 		if (gb_y_offset == 0) wait--;
@@ -93,6 +107,8 @@ if (state == "intro_hearts"){
 		heart_scale = heart_alpha;
 		if (heart_alpha <= 0){
 			___state_change("game_switch");
+			___play_song(___sng_zandy_arcade_intro_ext,  VOL_MSC * VOL_MASTER, false);
+			
 		}
 	} else {
 		heart_alpha = min(1, heart_alpha + _heart_fade_speed);
@@ -108,13 +124,10 @@ if (state == "microgame_result"){
 	if (state_begin){
 		gb_show = true;
 		var _sound = (microgame_won) ? ___sng_microgame_win : ___sng_microgame_lose;
-
 		if (!TEST_MODE_ACTIVE){
-			transition_music  = audio_play_sound(_sound, 0, 0);
+			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, 0);
 			transition_music_began = true;
-			audio_sound_gain(transition_music , VOL_MSC * VOL_MASTER, 0);
-			audio_sound_pitch(transition_music, transition_speed);
-			ds_list_add(___global.___audio_active_list, transition_music);
+			audio_sound_pitch(transition_music_current, transition_speed);
 		}
 		wait = 30 / transition_speed;
 	}
@@ -290,8 +303,7 @@ if (state == "game_switch"){
 			gb_spin = min(gb_spin + gb_spin_speed, _max_spin);
 			if (gb_spin >= _max_spin){
 				___substate_change(substate+1);
-				if (gallery_mode) substate = 8;
-				exit;
+				if (gallery_mode) ___substate_change(8);
 			}
 		}
 		wait--;
@@ -372,13 +384,16 @@ if (state == "game_switch"){
 		if (substate_begin){
 			gb_scale = gb_scale_min;
 			gb_cover_cartridge = true;
+			gb_spin = 180;
+			gb_slot_is_empty = true;
 			cart_x = cart_in_slot_x;
 			cart_y = cart_offscreen_y;
-			gb_spin = 180;
-			wait = 20 / transition_speed;
+			cart_show = true;
+			cart_scale = 1;
 			cart_vsp = 0.5;
-			
+			wait = 20 / transition_speed;	
 		}
+		
 
 		if (wait <= 0){
 			cart_y += cart_vsp * transition_speed;

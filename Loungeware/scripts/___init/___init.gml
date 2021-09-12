@@ -110,7 +110,8 @@ function ___GAME_INIT(){
 	___global.test_mode_check = function(){return ___global.developer_mode_active;}
 	___global.is_microgame_won = function(){return ___MG_MNGR.microgame_won;}
 	
-
+	// options
+	___global.opt_show_button_presses = true;
 	
 	// add public songs to credits
 	var _is_public_music = false;
@@ -203,19 +204,14 @@ function ___GAME_INIT(){
 		}
 	}
 	
-
-
-
-
-	
-	
 	// -------------------------------------------------------------------------------------
 	
 	
 	// this one is just for testing stuff
 	if (false){
 	
-
+		//room_goto(___rm_restroom);
+		//instance_create_layer(0, 0, layer, ___MG_MNGR);
 	
 	// if game is running in browser
 	} else if (HTML_MODE) {
