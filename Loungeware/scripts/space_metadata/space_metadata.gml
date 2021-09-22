@@ -46,3 +46,27 @@ microgame_register("space_scooter", {
 	show_on_website: true,
 });
 
+microgame_register("larold_lineup", {
+    config_version: 1,
+    game_name: "Larold Lineup",
+    authors : "Space",
+    prompt: "Memorize",
+    init_room: space_ll_rm_main,
+    view_width: 240,
+    view_height: 160,
+    time_seconds: 12,
+    music_track: sng_zandy_persnickety_noloop,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: [205,114,64],
+    cartridge_col_secondary: [61,33,39],
+    cartridge_label: space_ll_label,
+    default_is_fail: true,
+    supports_difficulty_scaling: false,
+    credits: ["space", "zandy", "baku", "sam", "zapsplat.com", "Dillon Becker"],
+    date_added: "21/09/22",
+    is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
+});
+
