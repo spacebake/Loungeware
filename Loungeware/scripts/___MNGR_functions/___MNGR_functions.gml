@@ -160,22 +160,26 @@ function microgame_populate_unplayed_list(){
 //--------------------------------------------------------------------------------------------------------
 function draw_circle_transition(){
 
+		var _show_reflection = (transition_circle_rad < transition_circle_rad_max);
+		if (!_show_reflection) return;
 		// draw larold
-		draw_reflection(0, 0, 0.25, bm_add, surf_transition_circle);
+		draw_reflection(0, 0, 0.25);
 
 		// draw a circle ontro a surface
-		var _circle_pixel_scale = 5;
-		var _stc_w = canvas_w / _circle_pixel_scale;
-		var _stc_h = canvas_h / _circle_pixel_scale;
-		// create the circle surface
-		if (!surface_exists(surf_transition_circle)){
-			surf_transition_circle = surface_create(_stc_w, _stc_h);
+		if (_show_reflection){
+			var _circle_pixel_scale = 5;
+			var _stc_w = canvas_w / _circle_pixel_scale;
+			var _stc_h = canvas_h / _circle_pixel_scale;
+			// create the circle surface
+			if (!surface_exists(surf_transition_circle)){
+				surf_transition_circle = surface_create(_stc_w, _stc_h);
+			}
+			surface_set_target(surf_transition_circle);
+			draw_clear_alpha(c_black, 0);
+			draw_set_color(c_white);
+			draw_circle(_stc_w /2, _stc_h /2, transition_circle_rad / _circle_pixel_scale, 0);
+			surface_reset_target();
 		}
-		surface_set_target(surf_transition_circle);
-		draw_clear_alpha(c_black, 0);
-		draw_set_color(c_white);
-		draw_circle(_stc_w /2, _stc_h /2, transition_circle_rad / _circle_pixel_scale, 0);
-		surface_reset_target();
 		
 		// cut the new circle out of the reflection surface
 		surface_set_target(surf_reflection);
@@ -281,7 +285,7 @@ function draw_timerbar(){
 	var _store_alpha = draw_get_alpha();
 	draw_set_alpha(gbo_timerbar_alpha);
 	surface_set_target(surf_gameboy);
-
+	gpu_set_colorwriteenable(1, 1, 1, 0); 
 	
 	// draw segments
 	for (var i = 0; i < _secs_max; i++){
@@ -307,7 +311,7 @@ function draw_timerbar(){
 		if (_secs > i) draw_rectangle_fix(_seg_x1,_seg_y1, _seg_x2, _seg_y2);
 		
 	}
-	
+	gpu_set_colorwriteenable(1, 1, 1, 1); //thanks mimpy
 	draw_set_alpha(_store_alpha);
 	surface_reset_target();
 }
@@ -395,9 +399,10 @@ function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty)
 	var _y_offset_at_zoom_min = 114;
 	var _spin_frame = (_spin_angle / 360) * sprite_get_number(___spr_gameboy_spin_x);
 	var _screen_scale = _scale;
+	var _spin_lock = (_spin_angle mod 360 == 0);
 	
 	var _sprite = ___spr_gameboy_overlay;
-	if (_scale <= gb_scale_min){
+	if (_scale <= gb_scale_min || !_spin_lock){
 		var _compensation = 1.257692307;
 		_sprite = ___spr_gameboy_spin_x;
 		_scale = _scale * _compensation;
@@ -408,7 +413,7 @@ function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty)
 	var _gameboy_width = sprite_get_width(_sprite);
 	var _screen_width = _gameboy_width - (_origin_offset_x * 2); // note: _screen_width/height include the screen border (use canvas_w/h to exlcude)
 	var _center_x = (WINDOW_BASE_SIZE * _draw_scale)/2;
-	var _x = round(_center_x - (_screen_width / 2) * _scale);
+	var _x = round(_center_x - (_screen_width / 2) * _scale) + _x_offset;
 	
 	var _scale_prog = clamp(((_scale - gb_scale_min) / (1-gb_scale_min)), 0, 1);
 	var _y = round((_y_offset_at_zoom_min * (1-_scale_prog)) + _y_offset);
@@ -416,7 +421,7 @@ function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty)
 	var _screen_margin = 15;
 	var _screen_x = _x + (_screen_margin * _scale);
 	var _screen_y = _y + (_screen_margin * _scale);
-	draw_reflection(_screen_x, _screen_y, _screen_scale)
+	if (_spin_lock) draw_reflection(_screen_x, _screen_y, _screen_scale)
 	
 	
 	// draw gameboy
@@ -442,9 +447,8 @@ function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty)
 //--------------------------------------------------------------------------------------------------------
 // DRAW REFLECTION
 //--------------------------------------------------------------------------------------------------------
-function draw_reflection(_x, _y, _scale, _blend=bm_normal, _surface=application_surface){
+function draw_reflection(_x, _y, _scale){
 	//draw reflection
-	var _store_blend = gpu_get_blendmode();
 	var _reflection_alpha = clamp(((_scale - gb_scale_min) / (1-gb_scale_min)), 0, 1);
 	var _larold_alpha = 0.025;
 	var _glare_alpha = 0.015;
@@ -460,20 +464,18 @@ function draw_reflection(_x, _y, _scale, _blend=bm_normal, _surface=application_
 	surface_set_target(surf_reflection);
 	draw_clear(c_gboff);
 
-	
-	
 	var _x_on_surf = (surface_get_width(surf_reflection) - sprite_get_width(___spr_larold_reflection)) / 2;
 	var _y_on_surf = -(canvas_y/2);
 	
+	gpu_set_colorwriteenable(1, 1, 1, 0); //thanks mimpy
 	draw_set_alpha(_larold_alpha);
 	draw_sprite(___spr_larold_reflection, larold_index, _x_on_surf, _y_on_surf + _y_offset_larold);
 	draw_set_alpha(_glare_alpha);
 	draw_sprite(___spr_larold_reflection, 0, _x_on_surf, _y_on_surf + _y_offset_glare);
 	draw_set_alpha(1);
+	gpu_set_colorwriteenable(1, 1, 1, 1); 
 	surface_reset_target();
-	gpu_set_blendmode(_blend);
 	draw_surface_ext(surf_reflection, _x, _y, _scale, _scale, 0, c_white, _reflection_alpha);
-	gpu_set_blendmode(_store_blend);
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -488,8 +490,6 @@ function draw_prompt(){
 	var _prompt_x = _shake_x;
 	var _prompt_y = -(80) + _shake_y;
 	var _prompt_alpha = min(prompt_scale, 1);
-	
-
 	
 	_prompt_x -= (prompt_scale - 1) * (_win_h/2);
 	_prompt_y -= (prompt_scale - 1) * (_win_h/2);

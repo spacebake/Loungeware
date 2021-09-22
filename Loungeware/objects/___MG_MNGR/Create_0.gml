@@ -24,3 +24,5 @@ if (!TEST_MODE_ACTIVE){
 	microgame_start(_game_key);
 } 
 
+
+//___state_change("game_switch");

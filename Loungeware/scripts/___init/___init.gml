@@ -208,10 +208,10 @@ function ___GAME_INIT(){
 	
 	
 	// this one is just for testing stuff
-	if (false){
+	if (1){
 	
-		//room_goto(___rm_restroom);
-		//instance_create_layer(0, 0, layer, ___MG_MNGR);
+		room_goto(___rm_restroom);
+		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	
 	// if game is running in browser
 	} else if (HTML_MODE) {

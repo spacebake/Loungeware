@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "___sng_zandy_arcade_intro_ext.wav",
-  "duration": 6.620708,
+  "soundFile": "___sng_zandy_arcade_intro.wav",
+  "duration": 9.931042,
   "parent": {
     "name": "Music",
     "path": "folders/__Base Game (keep out)/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
-  "name": "___sng_zandy_arcade_intro_ext",
+  "name": "___sng_zandy_arcade_intro",
   "tags": [],
   "resourceType": "GMSound",
 }

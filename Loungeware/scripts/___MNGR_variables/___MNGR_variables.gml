@@ -11,6 +11,11 @@ force_substate = noone;
 // intro
 //--------------------------------------------------------------------------------------------------------
 intro_y_start = (VIEW_H / 2) + 64;
+intro_y_target = -40;
+intro_y = intro_y_start;
+intro_gb_scale_start = 0.25;
+intro_gb_scale_end = 1;
+intro_first_game_switch = true;
 
 //--------------------------------------------------------------------------------------------------------
 // window
@@ -114,7 +119,7 @@ larold_index = 1;
 gb_x_offset = 0;
 gb_y_offset = 0;
 gb_spin = 0;
-gb_spin_speed = 0.75;
+gb_spin_speed = 1;
 gb_show = false;
 gb_x = noone;
 gb_y = noone;
@@ -139,7 +144,7 @@ cart_scale = noone;
 cart_vsp = noone;
 cart_in_slot_x = 81;
 cart_in_slot_y = noone;
-cart_offscreen_x = VIEW_W;
+cart_offscreen_x = 254;
 cart_offscreen_y = 30;
 cart_show = false;
 cart_angle = 0;
