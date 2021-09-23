@@ -26,12 +26,12 @@ jobs:
 
       - name: fail
         if: ${{ failure() }}
-        run: echo grep -r --exclude-dir='___*' ${{ env.GREP_FOR }}
+        run: echo grep -r --exclude-dir='___*' --include='*.gml'  ${{ env.GREP_FOR }}
 
       # Runs a single command using the runners shell
       - name: grep
         run: |
-          if echo "foo" | grep -r --exclude-dir='___*' ${{ env.GREP_FOR }}; then
+          if echo "foo" | grep -r --exclude-dir='___*' --include='*.gml' ${{ env.GREP_FOR }}; then
             echo 'failed: look up'
             exit 1
           else
