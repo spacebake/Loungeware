@@ -475,6 +475,8 @@ function draw_reflection(_x, _y, _scale){
 	draw_set_alpha(1);
 	gpu_set_colorwriteenable(1, 1, 1, 1); 
 	surface_reset_target();
+	draw_set_color(c_gboff);
+	draw_rectangle_fix(_x, _y, _x + surface_get_width(surf_reflection) * _scale, _y + surface_get_height(surf_reflection) * _scale); 
 	draw_surface_ext(surf_reflection, _x, _y, _scale, _scale, 0, c_white, _reflection_alpha);
 }
 

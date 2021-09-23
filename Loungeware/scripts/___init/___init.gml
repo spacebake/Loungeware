@@ -96,7 +96,6 @@ function ___GAME_INIT(){
 	// default volume
 	___global.default_vol = { sfx: 1, msc: 1, master: 1, }
 	
-	
 	___global.max_microgame_time = 12;
 	___global.save_filename = "dot.dot";
 	___global.microgame_metadata = ___init_metadata();
@@ -206,11 +205,11 @@ function ___GAME_INIT(){
 	
 	// -------------------------------------------------------------------------------------
 	
-	
 	// this one is just for testing stuff
 	if (1){
 	
 		room_goto(___rm_restroom);
+		___microgame_list_remove_incompatible();
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
 	
 	// if game is running in browser

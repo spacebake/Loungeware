@@ -1,6 +1,13 @@
 ___state_handler();
 step++;
 
+if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
+	intro_first_game_switch = false;
+}
+
+var _df_bg_fadespeed = 1/20;
+df_bg_alpha = (df_bg_show) ? min(1, df_bg_alpha + _df_bg_fadespeed) : max(0, df_bg_alpha - _df_bg_fadespeed);
+
 // fade timer bar
 if (gbo_timerbar_visible) gbo_timerbar_alpha = min(1, gbo_timerbar_alpha + gbo_timerbar_fadespeed);
 else gbo_timerbar_alpha = max(0, gbo_timerbar_alpha - gbo_timerbar_fadespeed);
@@ -9,6 +16,10 @@ else gbo_timerbar_alpha = max(0, gbo_timerbar_alpha - gbo_timerbar_fadespeed);
 if (transition_music_began && !audio_is_playing(transition_music_current)){
 	if (!TEST_MODE_ACTIVE && !gallery_mode){
 			var _sound = ___sng_microgame_winlose_end;
+			if (transition_difficulty_up){
+				_sound = ___sng_zandy_difficulty_up;
+				df_bg_show = true;
+			}
 			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, false);
 			transition_music_began = false;
 			audio_sound_pitch(transition_music_current, transition_speed);
@@ -31,11 +42,14 @@ if (state == "cart_preview"){
 // STATE | intro
 // -----------------------------------------------------------
 // gameboy zooms up from below the game view, spinning. Then zooms into scale 1
+if (state =="aaa"){
+	if keyboard_check(vk_space) ___state_change("intro");
+}
 if (state == "intro"){
 	
 	if (state_begin){
 		intro_y_start = (VIEW_H / 2) + 64;
-		wait = 30 / transition_speed;
+		wait = 25 / transition_speed;
 		gb_show = true;
 		gb_scale = intro_gb_scale_start;
 		gb_spin = 0;
@@ -46,8 +60,10 @@ if (state == "intro"){
 	// rising spin
 	if (substate == 0){
 		var _prog = (intro_y - intro_y_start) / (intro_y_target - intro_y_start);
-		gb_spin = (360 * 5) * (min(1, _prog+(0.03)));
-		intro_y = ___smooth_move(intro_y, intro_y_target, 1, 20);
+		
+		gb_spin = (360 * 4) * (min(1, _prog+(0.05)));
+		//show_message(step);
+		intro_y = ___smooth_move(intro_y, intro_y_target, 1, 19);
 		if (wait <= 0){
 			wait = 30;
 			___substate_change(substate+1);
@@ -58,10 +74,14 @@ if (state == "intro"){
 		gb_y_offset = intro_y;
 		
 		// shake
-		if (abs(intro_y - intro_y_target) <= 3){
-			var _sv = 1;
+		var _shake_below_diff_of = 7;
+		var _diff = abs(intro_y - intro_y_target);
+		if (_diff <= _shake_below_diff_of){
+			var _sv = (_shake_below_diff_of - _diff)/4;
 			gb_y_offset += random_range(-_sv, _sv);
 			gb_x_offset = random_range(-_sv, _sv);
+			df_bg_sprite = ___spr_ebbg1_bluewave;
+			df_bg_show = true;
 		}
 	}
 	
@@ -120,7 +140,7 @@ if (state == "intro_hearts"){
 	
 	// heart fade out animation
 	var _heart_fade_speed = (1/15) * transition_speed;
-	var _stop_at_dir = 180*4;
+	var _stop_at_dir = 180*3;
 	if (heart_alpha_done && heart_dance_dir >= _stop_at_dir){
 		heart_dance_dir = 9000;
 		heart_alpha = max(0, heart_alpha - _heart_fade_speed);
@@ -289,7 +309,10 @@ if (state == "game_switch"){
 	
 	
 	if (state_begin){
-		//if (games_played > 0 && games_played mod 3 == 0) show_message(DIFF UP!);
+		if (games_played > 0 && games_played mod 1 == 0){
+			transition_difficulty_up = true;
+			
+		}
 		gb_show = true;
 		gb_scale = gb_scale_max;
 		gb_spin = 0;
@@ -300,17 +323,21 @@ if (state == "game_switch"){
 		cart_y = 109;
 		gb_spin_speed = 9 * transition_speed;
 		
-		if (intro_first_game_switch && !gallery_mode && !TEST_MODE_ACTIVE){
-			intro_first_game_switch = false;
-		}
 	}
 	
 	// zoom out gameboy - - - - - - - - - - - - - - - - - - - - - - - - 
 	if (substate == 0){
-		gb_scale = ___smooth_move(gb_scale, gb_scale_min, 0.005, 5);
+		var _min = 0.005;
+		var _div = 5;
+		if (intro_first_game_switch){
+			//_min = 1;
+			_div = 4;
+		}
+		gb_scale = ___smooth_move(gb_scale, gb_scale_min, _min, _div);
 		if (gb_scale <= gb_scale_min){
 			gb_scale = gb_scale_min;
 			___substate_change(substate+1);
+			
 			exit;
 		}
 	}
@@ -318,7 +345,12 @@ if (state == "game_switch"){
 	// flip the gameboy - - - - - - - - - - - - - - - - - - - - - - - - 
 	if (substate == 1){
 		
-		if (substate_begin) wait = 0 / transition_speed;
+		if (substate_begin){
+			wait = 10 / transition_speed;
+			if (intro_first_game_switch){
+				//wait = 0;
+			}
+		}
 		var _max_spin = (!gallery_mode) ? 180 : 360;
 
 		if (wait <= 0){
@@ -344,24 +376,28 @@ if (state == "game_switch"){
 			gb_cover_cartridge = true;
 			snapback_dir = 250;
 			snapback_rad = 3;
+			gb_cart_eject_speed = transition_speed;
+			if (intro_first_game_switch){
+				gb_cart_eject_speed *= 1.25;
+			}
 			sfx_play(___snd_cart_remove, 1, 0);
 		}
 		
-		var _grav = 0.75 * transition_speed;
-		var _grav_max = 100 * transition_speed;
+		var _grav = 0.75 * gb_cart_eject_speed;
+		var _grav_max = 100 * gb_cart_eject_speed;
 		var _cart_scale_max = 1.05;
 		
 		cart_y += cart_vsp;
 		cart_vsp = min(cart_vsp + _grav, _grav_max);
 		
 		gb_y_offset =  lengthdir_y(snapback_rad, snapback_dir);
-		snapback_dir += 10 * transition_speed;
+		snapback_dir += 10 * gb_cart_eject_speed;
 		snapback_rad = max(0, snapback_rad - (3/10));
 
 		if (cart_vsp > 0){
 			gb_cover_cartridge = false;
-			cart_angle += (cart_vsp/10) * transition_speed;
-			if (cart_scale < _cart_scale_max) cart_scale += (0.0025 * transition_speed);
+			cart_angle += (cart_vsp/10) * gb_cart_eject_speed;
+			if (cart_scale < _cart_scale_max) cart_scale += (0.0025 * gb_cart_eject_speed);
 		}
 		
 		if (cart_y >= 270){
@@ -381,7 +417,7 @@ if (state == "game_switch"){
 			cart_scale = 1;
 		}
 		
-		cart_x = ___smooth_move(cart_x, cart_in_slot_x, 0.5, 9);
+		cart_x = ___smooth_move(cart_x, cart_in_slot_x, 0.5, 5);
 		if (cart_x == cart_in_slot_x){
 			___substate_change(substate+1);
 			exit;
@@ -401,7 +437,7 @@ if (state == "game_switch"){
 			cart_show = true;
 			cart_scale = 1;
 			cart_vsp = 0.5;
-			wait = 20 / transition_speed;	
+			wait = 30 / transition_speed;	
 		}
 		
 		if (wait <= 0){
@@ -440,11 +476,12 @@ if (state == "game_switch"){
 		gb_y_offset = lengthdir_y(snapback_rad, snapback_dir);
 		snapback_dir += _snapback_dir_speed  * transition_speed;
 		snapback_rad = max(0, snapback_rad - (_snapback_rad_reduction_speed  * transition_speed));
-		if (snapback_rad <= 0){
+		if (snapback_rad <= 0 && wait <= 0){
 			gb_y_offset = 0;
 			___substate_change(substate+1);
 			exit;
 		}
+		
 	}
 	
 	// spin back - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -454,7 +491,8 @@ if (state == "game_switch"){
 			gb_x_offset = 0;
 			gb_y_offset = 0;
 			title_alpha = 1;
-			wait = 30;
+			wait = 70;
+			if (intro_first_game_switch) wait = 0;
 		}
 		
 		if (wait <= 0) gb_spin += gb_spin_speed;
@@ -474,7 +512,7 @@ if (state == "game_switch"){
 			title_alpha = 1;
 			if (gallery_mode && !gallery_first_pass) title_alpha = 0;
 			title_fade_time = 10 / transition_speed;
-			wait = 10 / transition_speed;
+			wait = 30 / transition_speed;
 			larold_index = 1;
 		}
 		
@@ -483,6 +521,8 @@ if (state == "game_switch"){
 		
 		if (title_alpha <= 0) gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
 		if (gb_scale >= gb_scale_max){
+			df_bg_show = false;
+			df_bg_alpha = 0;
 			___substate_change(substate+1);
 			exit;
 		}
@@ -508,6 +548,7 @@ if (state == "game_switch"){
 			title_alpha = 0;
 			cart_show = false;
 			gb_cover_cartridge = false;
+			intro_first_game_switch = false;
 			microgame_start(microgame_next_name);
 			___state_change("playing_microgame");
 			exit;

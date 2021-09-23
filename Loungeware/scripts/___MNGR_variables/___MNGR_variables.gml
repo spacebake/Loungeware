@@ -99,12 +99,8 @@ transition_appsurf_zoomscale = 1;
 transition_garbo_sprites = ds_list_create();
 transition_music_current = noone;
 transition_music_began = false;
+transition_difficulty_up = false;
 wait = 0;
-
-//--------------------------------------------------------------------------------------------------------
-// music
-//--------------------------------------------------------------------------------------------------------
-
 
 //--------------------------------------------------------------------------------------------------------
 // larold reflection
@@ -132,6 +128,13 @@ gb_store_y_offset = gb_y_offset;
 gb_slot_is_empty = false;
 gb_scale_true = noone;
 gb_cover_cartridge = false;
+gb_cart_eject_speed = -1;
+
+df_bg_show = false;
+df_bg_alpha = 0;
+df_bg_sprite = ___spr_difficulty_up;
+df_bg_frame_max = sprite_get_number(df_bg_sprite);
+df_bg_frame = 0;
 
 //--------------------------------------------------------------------------------------------------------
 // TRANSITION CARTRIDGE VARS

@@ -1,3 +1,12 @@
+// difficulty bg
+if (df_bg_show){
+	draw_set_alpha(df_bg_alpha * 0.5);
+	draw_sprite_stretched(df_bg_sprite, df_bg_frame, 0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+	df_bg_frame += 0.6;
+	if (df_bg_frame >= df_bg_frame_max) df_bg_frame -= df_bg_frame_max;
+}
+
 // draw the gameboy
 if (gb_show) draw_gameboy(gb_scale, gb_x_offset, gb_y_offset, gb_spin, gb_slot_is_empty);
 
