@@ -11,7 +11,7 @@ if (victory) {
 
 var height = lerp(0, room_height, 0.5 / 10);
 
-draw_set_color(c_yellow);
+draw_set_color(close ? c_green : c_yellow);
 var pos = lerp(room_height, 0, target / 10);
 draw_rectangle(0, pos - height, room_width, pos + height, false);
 
