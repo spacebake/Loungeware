@@ -9,7 +9,7 @@ if (diff >= 2)
 frequency = max(frequency + lerp(-frequency / frequency_falloff, frequency_rise, press_time / grace_period), 0);
 period = lerp(20, 180, clamp((abs(target - frequency) - 0.5) / 3, 0, 1));
 
-if (abs(frequency - target) < 1) {
+if (abs(frequency - target) < margin) {
 	close = true;
 	progress = min(progress + 1, duration);
 	victory = progress == duration;

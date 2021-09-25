@@ -9,7 +9,7 @@ if (victory) {
 	draw_text_transformed(room_width / 2, room_height, "Nice pipes!", 5, 5, 0);
 }
 
-var height = lerp(0, room_height, 0.5 / 10);
+var height = lerp(0, room_height, margin / 20);
 
 draw_set_color(close ? c_green : c_yellow);
 var pos = lerp(room_height, 0, target / 10);

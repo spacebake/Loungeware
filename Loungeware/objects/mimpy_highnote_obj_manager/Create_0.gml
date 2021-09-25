@@ -1,6 +1,6 @@
 frequency = 0;
 frequency_rise = 0.1;
-frequency_falloff = 22.5;
+frequency_falloff = 25;
 
 base_targets = [5, 7, 5, 6, 7];
 diff = DIFFICULTY - 1;
@@ -20,6 +20,7 @@ time = 0;
 
 progress = 0;
 duration = game_get_speed(gamespeed_fps) * (1 + (min(DIFFICULTY, 4) - 1) / 4);
+margin = lerp(1, 0.75, diff / 4);
 
 victory = false;
 
