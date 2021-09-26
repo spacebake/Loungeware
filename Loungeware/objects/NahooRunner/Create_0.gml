@@ -269,12 +269,12 @@ function nahoo_run(m)
 			playerPos.x = destination_x;
 			playerPos.y = destination_y;
 			
-			audio_play_sound(Nahoo_sHit, 2, 0);
+			sfx_play(Nahoo_sHit, 1, false);
 		}
 		else if (m[destination_x][destination_y] >= 4)
 		{
 			m[playerPos.x][playerPos.y] = 0;
-			audio_play_sound(Nahoo_sHit, 2, 0);
+			sfx_play(Nahoo_sHit, 1, false);
 		}
 		
 		if (pdir[0] != 0)
@@ -286,7 +286,7 @@ function nahoo_run(m)
 	//If there isn't a recorded goal pos, it's been stepped on! End the game.
 	if (m[goalPos.x][goalPos.y] != 3)
 	{
-		audio_play_sound(Nahoo_sWin, 0, 0);
+		sfx_play(Nahoo_sWin, 1, false);
 		microgame_win();
 		return nahoo_end(1);	
 	}
@@ -307,7 +307,7 @@ function nahoo_run(m)
 				enemy.x = destination_x;
 				enemy.y = destination_y;
 				
-				audio_play_sound(Nahoo_sHit, 2, 0);
+				sfx_play(Nahoo_sHit, 1, false);
 			}
 			else {
 				enemy.hsp *= -1;
