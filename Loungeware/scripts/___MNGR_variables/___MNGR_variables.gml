@@ -15,7 +15,7 @@ intro_y_target = -40;
 intro_y = intro_y_start;
 intro_gb_scale_start = 0.25;
 intro_gb_scale_end = 1;
-intro_first_game_switch = true;
+intro_first_game_switch = false;
 
 //--------------------------------------------------------------------------------------------------------
 // window
@@ -31,6 +31,9 @@ score_total = 0;
 life_max = 4;
 life = life_max;
 games_played = 0;
+games_won = 0;
+games_until_next_diff_up_max = 10;
+games_until_next_diff_up = games_until_next_diff_up_max;
 ___global.difficulty_level = 1;
 
 //--------------------------------------------------------------------------------------------------------
@@ -130,12 +133,35 @@ gb_scale_true = noone;
 gb_cover_cartridge = false;
 gb_cart_eject_speed = -1;
 
+//--------------------------------------------------------------------------------------------------------
+// DIFFICULTY TRANSITION BG
+//--------------------------------------------------------------------------------------------------------
 df_bg_show = false;
 df_bg_alpha = 0;
 df_bg_sprite = ___spr_difficulty_up;
 df_bg_frame_max = sprite_get_number(df_bg_sprite);
 df_bg_frame = 0;
 
+//--------------------------------------------------------------------------------------------------------
+// DIFFICULTY TRANSITION TEXT
+//--------------------------------------------------------------------------------------------------------
+dft_sprite = ___spr_difficulty_up_text;
+dft_w = sprite_get_width(dft_sprite);
+dft_x_min = -(dft_w/2);
+dft_x_max = (WINDOW_BASE_SIZE/2)+ (dft_w/2);
+dft_x_center = WINDOW_BASE_SIZE/4;
+dft_x = dft_x_min
+dft_y = 174;
+dft_state = -1;
+dft_wait = 0;
+dft_wait_max = 20;
+dft_shake_max = 20;
+dft_shake = 0;
+dft_hsp = 0;
+dft_hsp_max = 10;
+dft_accel = 0.3;
+dft_scale_hard = 1;
+dft_queue_difficulty_up = false;
 //--------------------------------------------------------------------------------------------------------
 // TRANSITION CARTRIDGE VARS
 //--------------------------------------------------------------------------------------------------------

@@ -14,7 +14,6 @@ if (!TEST_MODE_ACTIVE){
 	___state_change("intro");
 } else {
 
-	
 	// get which game to load from config file
 	var  _game_key = ___dev_config_get_test_key();
 	___state_change("playing_microgame");

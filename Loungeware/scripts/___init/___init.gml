@@ -211,6 +211,7 @@ function ___GAME_INIT(){
 		room_goto(___rm_restroom);
 		___microgame_list_remove_incompatible();
 		instance_create_layer(0, 0, layer, ___MG_MNGR);
+		___MG_MNGR.restartable = true;
 	
 	// if game is running in browser
 	} else if (HTML_MODE) {

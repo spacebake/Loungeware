@@ -54,12 +54,6 @@ function microgame_start(_microgame_propname){
 function microgame_end(){
 	
 	games_played += 1;
-	if (games_played mod 3 == 0){
-		difficulty_up_queue = true;
-	} else {
-		difficulty_up_queue = false;
-	}
-	
 	show_debug_overlay(false);
 	
 	// update save data
@@ -84,11 +78,14 @@ function microgame_end(){
 		larold_index = 1;
 		var _points = 1 + (___MG_MNGR.microgame_timer / ___MG_MNGR.microgame_timer_max) + (DIFFICULTY/5);
 		___MG_MNGR.score_total += _points;
-	// if lose
-	} else {
-		//show_message("lose");
-		//show_message("time remaining: " + ___MG_MNGR.microgame_timer);
-	}
+		games_won += 1;
+		games_until_next_diff_up = max(games_until_next_diff_up-1, 0);
+		if (games_until_next_diff_up <= 0){
+			games_until_next_diff_up = games_until_next_diff_up_max;
+			dft_queue_difficulty_up = true;
+		}
+	} 
+	
 	
 	// go to rest room (lol)
 	room_goto(___rm_restroom);
@@ -524,7 +521,16 @@ function draw_prompt(){
 	
 }
 
-
+//--------------------------------------------------------------------------------------------------------
+// DIFFICULTY UP TEXT PLAY
+//--------------------------------------------------------------------------------------------------------
+function dft_play(){
+	dft_x = dft_x_min;
+	dft_wait = 10;
+	dft_shake = 0;
+	dft_state = 0;
+	dft_scale_hard = 1;
+}
 
 
 }

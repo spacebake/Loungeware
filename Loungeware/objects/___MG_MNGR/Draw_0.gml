@@ -25,6 +25,31 @@ if (cart_show){
 // draw backsprite on gameboy to cover cartridge
 if (gb_cover_cartridge) draw_sprite_ext(___spr_gameboy_back, 2, gb_x, gb_y, gb_scale_true, gb_scale_true, 0, c_white, 1);
 
+// draw difficulty up text
+if (dft_state >= 1){
+
+	// bg box
+	draw_set_color(c_gbblack);
+	var _box_h = 28;
+	var _box_prog =  (dft_x - dft_x_min) / (dft_x_center - dft_x_min);
+	//show_message(_box_prog);
+	if (dft_state == 3) _box_prog = dft_scale_hard;
+	draw_set_alpha(_box_prog);
+	draw_rectangle_fix(dft_x_min, dft_y - (_box_h/2), dft_x_max, dft_y + (_box_h/2));
+	draw_set_alpha(1);
+	
+	for(var i = 0; i < sprite_get_number(dft_sprite);i++){
+
+		var _shake_prog = (dft_shake/dft_shake_max);
+		var _sv = _shake_prog * 3;
+		var _scale = (1 + abs(lengthdir_y(0.2, 180*_shake_prog))) * dft_scale_hard;
+		var _x = dft_x + random_range(-_sv, _sv);
+		var _y = dft_y + random_range(-_sv, _sv);
+		draw_sprite_ext(dft_sprite, i, _x, _y, _scale, _scale, 0, c_white, 1);
+	}
+	
+}
+
 // -----------------------------------------------------------
 // STATE | intro_hearts
 // -----------------------------------------------------------

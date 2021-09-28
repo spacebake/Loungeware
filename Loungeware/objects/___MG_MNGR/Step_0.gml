@@ -5,25 +5,82 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 	intro_first_game_switch = false;
 }
 
+
+if (state =="aaa"){
+	transition_difficulty_up = true;
+	microgame_fail();
+	___state_change("intro");
+}
+
+// --------------------------------------------------------------------------------
+// fade bg in/out
+// --------------------------------------------------------------------------------
 var _df_bg_fadespeed = 1/20;
 df_bg_alpha = (df_bg_show) ? min(1, df_bg_alpha + _df_bg_fadespeed) : max(0, df_bg_alpha - _df_bg_fadespeed);
 
+// --------------------------------------------------------------------------------
 // fade timer bar
+// --------------------------------------------------------------------------------
 if (gbo_timerbar_visible) gbo_timerbar_alpha = min(1, gbo_timerbar_alpha + gbo_timerbar_fadespeed);
 else gbo_timerbar_alpha = max(0, gbo_timerbar_alpha - gbo_timerbar_fadespeed);
 
+// --------------------------------------------------------------------------------
 // handle transition music
+// --------------------------------------------------------------------------------
 if (transition_music_began && !audio_is_playing(transition_music_current)){
 	if (!TEST_MODE_ACTIVE && !gallery_mode){
 			var _sound = ___sng_microgame_winlose_end;
 			if (transition_difficulty_up){
 				_sound = ___sng_zandy_difficulty_up;
 				df_bg_show = true;
+				dft_play();
 			}
 			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, false);
 			transition_music_began = false;
 			audio_sound_pitch(transition_music_current, transition_speed);
 	}
+}
+
+
+// --------------------------------------------------------------------------------
+// difficulty up text
+// --------------------------------------------------------------------------------
+if (dft_state > -1){
+	
+	// wait 
+	if (dft_state == 0){
+		dft_wait--;
+		if (dft_wait <= 0){
+			dft_wait = 30;
+			dft_state++;
+		}
+	}
+	
+	// slide in
+	if (dft_state == 1){
+		dft_x = ___smooth_move(dft_x, dft_x_center, 1, 5);
+		if (dft_x >= dft_x_center){
+			dft_shake = dft_shake_max / transition_speed;
+			dft_state++;
+		}
+	}
+	
+	// shake and wait
+	if (dft_state == 2){
+		if (dft_wait <= 0){
+			dft_shake = 0;
+			dft_state++;
+		}
+		dft_wait--;
+		dft_shake = max(0, dft_shake-1);
+	}
+	
+	// slide out
+	if (dft_state == 3){
+		dft_scale_hard = max(0, dft_scale_hard - ((1/10) * transition_speed));
+		if (dft_scale_hard <= 0) dft_state = -1;
+	}
+	
 }
 
 // --------------------------------------------------------------------------------
@@ -42,9 +99,7 @@ if (state == "cart_preview"){
 // STATE | intro
 // -----------------------------------------------------------
 // gameboy zooms up from below the game view, spinning. Then zooms into scale 1
-if (state =="aaa"){
-	if keyboard_check(vk_space) ___state_change("intro");
-}
+
 if (state == "intro"){
 	
 	if (state_begin){
@@ -54,6 +109,7 @@ if (state == "intro"){
 		gb_scale = intro_gb_scale_start;
 		gb_spin = 0;
 		intro_y = intro_y_start;
+		intro_first_game_switch = true;
 		___play_song(___sng_zandy_arcade_intro,  VOL_MSC * VOL_MASTER, false);
 	}
 	
@@ -80,8 +136,7 @@ if (state == "intro"){
 			var _sv = (_shake_below_diff_of - _diff)/4;
 			gb_y_offset += random_range(-_sv, _sv);
 			gb_x_offset = random_range(-_sv, _sv);
-			df_bg_sprite = ___spr_ebbg1_bluewave;
-			df_bg_show = true;
+			
 		}
 	}
 	
@@ -309,10 +364,6 @@ if (state == "game_switch"){
 	
 	
 	if (state_begin){
-		if (games_played > 0 && games_played mod 1 == 0){
-			transition_difficulty_up = true;
-			
-		}
 		gb_show = true;
 		gb_scale = gb_scale_max;
 		gb_spin = 0;

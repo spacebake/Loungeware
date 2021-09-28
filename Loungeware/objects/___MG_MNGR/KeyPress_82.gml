@@ -1,1 +1,1 @@
-//if (restartable) game_restart();
+if (restartable) game_restart();
