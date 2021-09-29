@@ -10,3 +10,13 @@ _step = function() {
 		image_angle = point_direction(x,y,mouse_x,mouse_y);
 	}
 }
+
+_alarm0 = function() {
+	if(spinMe == true) {
+		alarm[0] = 35;
+		sfx_play(jdllama_hammer_snd_whoosh,1.2,false);
+	}
+	
+}
+
+alarm[0] = 35;

@@ -83,7 +83,7 @@ if (x >= 196)
 	sprite_index = kilo_jaywalker_sprJayWalkerSide;
 	image_speed = 1;
 	microgame_win();
-	audio_play_sound(kilo_jaywalker_sndDash,1,false);
+	sfx_play(kilo_jaywalker_sndDash, 1, false);
 }
 
 depth = -y;
@@ -93,8 +93,8 @@ if (place_meeting(x,y,kilo_jaywalker_objCar))
 	jay_state = "crashed";
 	with instance_create_layer(0,room_height,"Overlay",kilo_jaywalker_objResults)
 	{
-		audio_play_sound(kilo_jaywalker_sndBonk,1,false);
-		audio_play_sound(kilo_jaywalker_sndLose,1,false);
+		sfx_play(kilo_jaywalker_sndBonk, 1, false);
+		sfx_play(kilo_jaywalker_sndLose, 1, false);
 		
 		image_index = 1;
 		delay = 30;
