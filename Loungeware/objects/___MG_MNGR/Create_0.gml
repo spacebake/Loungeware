@@ -1,9 +1,11 @@
 randomize();
+played_record = [];
 ___state_setup("start");
 ___MG_MNGR_declare_functions();
 ___MG_MNGR_declare_variables();
 application_surface_draw_enable(false);
 step = -1;
+
 
 //--------------------------------------------------------------------------------------------------------
 // IF DEV CONFIG SAVE FILE IS FOUND, SET TEST MODE AND LOAD CHOSED MICROGAME

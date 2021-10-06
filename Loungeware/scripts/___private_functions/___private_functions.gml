@@ -398,8 +398,8 @@ function ___microgame_get_keylist_chronological(){
 // PRIVATE SOUND FUNCTIONS (for use in base game, do not use in microgames, 
 // for public functions: check the public_audio_functions script
 // ------------------------------------------------------------------------------------------
-function ___play_song(_sound_index, _vol=1, _loop=true){
-	var _snd_id = audio_play_sound(_sound_index, 1, _loop);
+function ___play_song(_sound_index, _vol=1, _loop=true, _priority=100){
+	var _snd_id = audio_play_sound(_sound_index, _priority, _loop);
 	audio_sound_gain(
 		_snd_id, 
 		_vol * audio_sound_get_gain(_sound_index) * VOL_MSC * VOL_MASTER,
@@ -409,11 +409,11 @@ function ___play_song(_sound_index, _vol=1, _loop=true){
 	return _snd_id;
 }
 
-function ___play_sfx(_sound_index, _vol=1, _pitch=1, _loop=false){
-	var _snd_id = audio_play_sound(_sound_index, 1, _loop);
+function ___play_sfx(_sound_index, _vol=1, _pitch=1, _loop=false, _priority=0){
+	var _snd_id = audio_play_sound(_sound_index, _priority, _loop);
 	audio_sound_gain(
 		_snd_id, 
-		audio_sound_get_gain(_sound_index) * VOL_SFX * VOL_MASTER,
+		audio_sound_get_gain(_sound_index) * VOL_SFX * VOL_MASTER * _vol,
 		0,
 	);
 	audio_sound_pitch(_snd_id, _pitch);
@@ -576,6 +576,8 @@ function ___shader_cartridge_off(){
 	shader_reset();
 }
 
+
+
 // ------------------------------------------------------------------------------------------
 // CREATE CARTRIDGE SPRITE | creates a sprite for the microgame cartridge
 // ------------------------------------------------------------------------------------------
@@ -667,7 +669,7 @@ function ___draw_title(_x, _y){
 	var _game_creator = string_upper(microgame_next_metadata.authors);
 	var _margin = 0;
 	var _padding = 3;
-	var _w = WINDOW_BASE_SIZE - 64;//174;
+	var _w = (WINDOW_BASE_SIZE - 64)/2;//174;
 	var _sep = 14;
 	var _name_h = string_height_ext(_game_name, _sep, _w) * _scale;
 	var _name_w = string_width_ext(_game_name, _sep, _w) * _scale;
@@ -691,3 +693,5 @@ function ___draw_title(_x, _y){
 	draw_set_halign(fa_left);
 	
 }
+
+

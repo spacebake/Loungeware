@@ -23,7 +23,6 @@ if (prompt_timer > 0){
 	draw_prompt();
 }
 
-
 // -----------------------------------------------------------
 // turn on interpolation if applicable (this should come last)
 // -----------------------------------------------------------

@@ -13,8 +13,8 @@
   "soundFile": "___snd_henry_jazz.mp3",
   "duration": 41.76979,
   "parent": {
-    "name": "Sound",
-    "path": "folders/__Base Game (keep out)/Sound.yy",
+    "name": "Music",
+    "path": "folders/__Base Game (keep out)/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "___snd_henry_jazz",

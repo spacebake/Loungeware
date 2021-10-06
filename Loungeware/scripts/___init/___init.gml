@@ -208,6 +208,7 @@ function ___GAME_INIT(){
 	// this one is just for testing stuff
 	if (1){
 	
+
 		room_goto(___rm_restroom);
 		___microgame_list_remove_incompatible();
 		instance_create_layer(0, 0, layer, ___MG_MNGR);

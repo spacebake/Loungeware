@@ -1,4 +1,14 @@
 // difficulty bg
+if (false && diff_bg != noone && state != "playing_microgame"){
+	draw_set_alpha(0.8);
+	draw_sprite_stretched(diff_bg, diff_bg_frame, 0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+	diff_bg_frame += diff_bg_speed;
+	if (diff_bg_frame >= sprite_get_number(diff_bg)) diff_bg_frame -= sprite_get_number(diff_bg);
+}
+
+
+// difficulty UP bg
 if (df_bg_show){
 	draw_set_alpha(df_bg_alpha * 0.5);
 	draw_sprite_stretched(df_bg_sprite, df_bg_frame, 0, 0, VIEW_W, VIEW_H);
@@ -6,6 +16,8 @@ if (df_bg_show){
 	df_bg_frame += 0.6;
 	if (df_bg_frame >= df_bg_frame_max) df_bg_frame -= df_bg_frame_max;
 }
+
+
 
 // draw the gameboy
 if (gb_show) draw_gameboy(gb_scale, gb_x_offset, gb_y_offset, gb_spin, gb_slot_is_empty);
@@ -91,16 +103,16 @@ if (state == "microgame_result"){
 }
 
 // --------------------------------------------------------------------------------
-// STATE | LIFE_LOSE
+// life loss animation
 // --------------------------------------------------------------------------------
-if (state == "life_lose"){
+if (heart_show_lose_seq){
 	
 	// draw health screen (this substate is bypassed if microgame was won)
 	var _heart_w = sprite_get_width(___spr_life);
 	var _margin = 12;
-	var _total_w = (_heart_w * life_max) + (_margin * (life_max-1));
+	var _total_w = (_heart_w * (life+1)) + (_margin * (life));
 	var _heart_x = ((VIEW_W/2) - (_total_w / 2)) + (_heart_w/2);
-	var _heart_y = ((canvas_y + (canvas_h/2)))/2;
+	var _heart_y = heart_y;
 	var _shake_val = (1-(heart_shake_timer/heart_shake_timer_max)) * 3;
 	
 	for (var i = 0; i < life + 1; i++){
@@ -140,3 +152,109 @@ if (state == "cart_preview"){
 }
 
 
+// --------------------------------------------------------------------------------
+// gameboy crack and swing
+// --------------------------------------------------------------------------------
+
+if (ou_show_gameover_text){
+	
+	var _circle_rad = 120 + lengthdir_x(1, ou_circle_dir);
+	var _downscale = 0.5;
+	var _surf_size = VIEW_W * _downscale;
+	var _text_scale = ou_gameover_text_scale;
+	if (!surface_exists(ou_surf_circle)) ou_surf_circle = surface_create(_surf_size, _surf_size);
+
+	// draw circle
+	surface_set_target(ou_surf_circle);
+	draw_clear_alpha(c_gbblack, 1);
+	draw_set_color(c_red);
+	draw_circle((_surf_size/2)-1, (_surf_size/2)-1, _circle_rad * _downscale, false);
+	surface_reset_target();
+
+	draw_set_alpha(min(1,_text_scale));
+	gpu_set_colorwriteenable(1, 1, 1, 0); 
+	draw_surface_stretched(ou_surf_circle, 0, 0, VIEW_W, VIEW_H);
+	gpu_set_colorwriteenable(1, 1, 1, 1); 
+	draw_set_alpha(1);
+	ou_circle_dir += 2;
+	
+	// draw GAME OVER
+	draw_set_color(c_gbwhite);
+	draw_set_font(ou_fnt_gallery);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle)
+	var _x = VIEW_W/2;
+	var _y = (VIEW_H/2) - 40;
+
+	//___global.___draw_text_advanced(_x, _y, 32, false, true, "0", 0.5, _text_scale, 0);
+	
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top)
+}
+
+if (ou_draw_games){
+	var _xc = VIEW_W/2;
+	var _yc = VIEW_H/2;
+	for (var i  = 0; i < array_length(played_record); i++){
+		with(played_record[i]){
+					var _dist_mod = lengthdir_x(1, other.ou_games_global_rad_dir + ((360/array_length(other.played_record))*i));
+					if (i mod 2 == 0) _dist_mod = -_dist_mod;
+					var _dist = (other.ou_games_global_rad + dist + _dist_mod) - pullback;
+					var _sep = 360 / array_length(other.played_record);
+					var _dir = other.ou_games_dir + (_sep*i);
+					var _x = _xc + lengthdir_x(_dist, _dir);
+					var _y = _yc + lengthdir_y(_dist, _dir);
+					var _scale = (abs(_dist) / other.ou_games_global_rad_max) + 1;
+					if (state == 1 && pullback >= other.ou_cart_pullback_max){
+						_x += random_range(-1, 1);
+						_y += random_range(-1, 1);
+					}
+					//draw_set_color(c_gbpink);
+					//draw_circle(_x, _y, 5*other.ou_games_global_scale, 0);
+					var _angle = point_direction(_x, _y, VIEW_W/2, VIEW_H/2) + 90;
+					___shader_cartridge_on(variable_struct_get(___global.microgame_metadata, game));
+					draw_sprite_ext(___spr_cart_gameover, 0, _x, _y, _scale, _scale, _angle, c_white, 1);
+					___shader_cartridge_off();
+		}
+
+	}
+
+	
+}
+
+if (ou_draw_scorebox){
+	// draw scorebox larold
+	draw_set_color(c_gbyellow);
+	draw_set_font(___global.___fnt_gallery);
+	var _str = string(ou_score_display);
+	while(string_length(_str) < 4) _str = "0" + _str;
+	var _scale = (1 + ou_scorebox_scale_mod) * ou_scorebox_larold_scale;
+	var _pad = 12;
+	var _w = (string_width(_str)+ _pad) * _scale;
+	var _rx =VIEW_W/2;
+	var _ry = (VIEW_H/2) + ou_scorebox_y_offset;
+	if (ou_scorebox_larold_shake > 0){
+		var _sv = 2;
+		_rx += random_range(-_sv,_sv);
+		_ry += random_range(-_sv,_sv);
+	}
+	draw_set_color(c_gbwhite);
+	draw_circle(_rx, _ry, _w/2, 0);
+	draw_set_color(c_gbdark);
+	draw_circle(_rx, _ry, (_w/2)-4, 0);
+	draw_set_color(c_gbwhite);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_text_transformed(_rx+1, _ry+3, _str, _scale, _scale, 0);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+}
+
+
+// flash
+if (ou_flash > 0){
+	draw_set_color(c_gbwhite);
+	draw_set_alpha(ou_flash);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+}

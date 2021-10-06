@@ -401,7 +401,7 @@ if (state == "move_cart"){
 	_cart_y += sprite_get_height(___spr_cart_gallery) + _cart_margin_y;
 	
 
-	var _gameboy_goto_y = 240;
+	var _gameboy_goto_y = 230;
 	gameboy_y = ___smooth_move(gameboy_y, _gameboy_goto_y, _min, _div);
 	var _gameboy_on_target = gameboy_y == _gameboy_goto_y;
 	draw_sprite(___spr_gameboy_back, 0, gameboy_x, gameboy_y);
