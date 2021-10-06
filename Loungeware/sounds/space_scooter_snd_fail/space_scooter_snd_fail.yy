@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "space_scooter_snd_fail.wav",
-  "duration": 1.233209,
+  "duration": 1.228209,
   "parent": {
     "name": "sounds",
     "path": "folders/Microgames/Space/scooter/sounds.yy",

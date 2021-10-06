@@ -20,6 +20,12 @@ microgame_register("space_rocket_lander", {
 	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
+	description: [
+		"Land a spaceship on the planet's surface. Be careful though, the ship is fragile.", 
+	],
+	how_to_play: [
+		"Land the ship as slowly as possible to avoid crashing. Press UP to thrust"
+	],
 });
 
 microgame_register("space_scooter", {
@@ -44,5 +50,42 @@ microgame_register("space_scooter", {
     is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
+	description: [
+		"Cruisin' through the forest at midnight with only bats for company.", 
+		"Can you pull off the dopest backflip the world has ever seen?"
+	],
+	how_to_play: [
+		"Pull off a successful backflip by holding LEFT whlile airborne. Try to land as flat as possible!"
+	],
+});
+
+microgame_register("larold_lineup", {
+    config_version: 1,
+    game_name: "Larold Lineup",
+    authors : "Space",
+    prompt: "Memorize",
+    init_room: space_ll_rm_main,
+    view_width: 240,
+    view_height: 160,
+    time_seconds: 12,
+    music_track: sng_zandy_persnickety_noloop,
+    music_loops: false,
+    interpolation_on: false,
+    cartridge_col_primary: [205,114,64],
+    cartridge_col_secondary: [61,33,39],
+    cartridge_label: space_ll_label,
+    default_is_fail: true,
+    supports_difficulty_scaling: true,
+    credits: ["space", "zandy", "baku", "sam", "zapsplat.com", "Dillon Becker"],
+    date_added: "21/09/22",
+    is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
+	description: [
+		"Detective Baku has been called down to the station to identify a very naughty larold."
+	],
+	how_to_play: [
+		"Memorize which Larold is holding which number, then select the correct number once the guilty suspect is revealed."
+	],
 });
 
