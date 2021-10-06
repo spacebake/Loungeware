@@ -701,7 +701,8 @@ if (state == "outro"){
 
 		var _max_spin = 300;
 		gb_y_offset += 0.5;
-		ou_gameboy_y_angle = min(ou_gameboy_y_angle + ou_gameboy_angle_speed, _max_spin);
+		//ou_gameboy_y_angle = min(ou_gameboy_y_angle + ou_gameboy_angle_speed, _max_spin);
+		ou_gameboy_y_angle = ___smooth_move(ou_gameboy_y_angle, _max_spin, 20, 5);
 		//ou_gameboy_angle_speed = max(ou_gameboy_angle_speed - 0.5, 0);
 		if (ou_gameboy_y_angle >= _max_spin){
 			___substate_change(substate+1);
@@ -713,14 +714,24 @@ if (state == "outro"){
 	// shake - - - - - - - - - - - - - - - - - - - - - - - -
 	if (substate == 3){
 		if (substate_begin){
-			wait = 10;
-		}
-		if (wait <= 0){
+			wait = 0;
 			gb_shake = 10;
+			ou_draw_scorebox = true;
+		}
+		if (wait <= 0){	
 			___substate_change(substate+1);
 		}
 		wait--;
 
+	}
+	
+	if (!ou_scorebox_larold_scale_done && ou_draw_scorebox){
+			ou_scorebox_larold_scale = -lengthdir_y(1.2, ou_scorebox_larold_scale_dir);
+			ou_scorebox_larold_scale_dir += 10;
+			if (ou_scorebox_larold_scale <= 1 && ou_scorebox_larold_scale_dir > 90){
+				ou_scorebox_larold_scale = 1;
+				ou_scorebox_larold_scale_done = true;
+			}
 	}
 
 	
@@ -729,20 +740,11 @@ if (state == "outro"){
 	// bring in games (and larold
 	if (substate == 4){
 		if (substate_begin){
-			ou_draw_scorebox = true;
-			ou_show_gameover_text = true;
-			//___play_song(___sng_gameover_placeholder, 1, true);
+			
 			wait = 10;
 		}
 		
-		if (!ou_scorebox_larold_scale_done){
-			ou_scorebox_larold_scale = -lengthdir_y(1.2, ou_scorebox_larold_scale_dir);
-			ou_scorebox_larold_scale_dir += 10;
-			if (ou_scorebox_larold_scale <= 1 && ou_scorebox_larold_scale_dir > 90){
-				ou_scorebox_larold_scale = 1;
-				ou_scorebox_larold_scale_done = true;
-			}
-		}
+
 		
 		ou_games_global_rad = ___smooth_move(ou_games_global_rad, ou_games_global_rad_target_1, 0.5, 18);
 		//var _prog = ((ou_games_global_rad-100)/50)
@@ -774,7 +776,7 @@ if (state == "outro"){
 						state++;
 						wait = 20;
 					}
-
+					
 					wait = max(0, wait-1);
 					
 					
@@ -819,17 +821,65 @@ if (state == "outro"){
 		if (wait <= 0) ___substate_change(substate+1);
 	}
 	
-	// shake
+	// score rise
 	if (substate == 7){
 		if (substate_begin){
 			ou_draw_games = false;
+			___play_sfx(___snd_score_pulse_1)
 		}
-		ou_scorebox_y_offset = ___smooth_move(ou_scorebox_y_offset, -60, 0.5, 12);
+		var _tar = -60;
+		ou_scorebox_y_offset = ___smooth_move(ou_scorebox_y_offset, _tar, 0.5, 12);
+		if (ou_scorebox_y_offset <= _tar){
+			wait = 10;
+			 ___substate_change(substate+1);
+		}
 	}
 	
+	// wait
+	if (substate == 8){
+		wait--;
+		if (wait <= 0) ___substate_change(substate+1);
+	}
+	
+	// shake
+	if (substate == 9){
+		var _time = 60;
+		var _max_alpha = 0.5;
+		if (substate_begin){
+			___play_sfx(___snd_score_powerup)
+			ou_scorebox_larold_shake = _time;
+		}
+		ou_scorebox_larold_scale += 0.01;
+		gb_shake = 1;
+		if (ou_scorebox_larold_scale >= 1.25) ou_light_alpha = min(ou_light_alpha + (_max_alpha/_time), _max_alpha);
+		if (ou_light_alpha >= _max_alpha){
+			___play_sfx(___snd_score_pop);
+			ou_light_alpha = 1;
+			wait = 60*3;
+			ou_draw_games = false;
+			ou_draw_scorebox = false;
+			gb_show = false;
+			___substate_change(substate+1);
+		}
+	}
+	
+	// wait
+	if (substate == 10){
+		wait--;
+		if (wait <= 0) ___substate_change(substate+1);
+	}
+	
+	if (substate == 11){
+		if (substate_begin){
+			ou_show_larold = true;
+			___play_song(___sng_zandy_foo, 1, true);
+		}
+		ou_light_alpha = max(0, ou_light_alpha - (1/60));
+	}
+
+
+
 }
-
-
 
 if (ou_draw_games){
 	ou_games_dir += 0.2;
@@ -837,9 +887,6 @@ if (ou_draw_games){
 	ou_scorebox_larold_shake = max(ou_scorebox_larold_shake-1, 0);
 	ou_scorebox_scale_mod = max(0, ou_scorebox_scale_mod - (ou_scorebox_scale_mod_max/6));
 }
-
-
-
 
 
 // glass particles - - - - - - - - - - - - - - - - - - - - - - - -

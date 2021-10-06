@@ -9,3 +9,4 @@ ds_list_destroy(transition_garbo_sprites);
 ___reset_draw_vars();
 workspace_end();
 application_surface_draw_enable(true);
+

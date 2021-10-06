@@ -281,9 +281,15 @@ ou_gameboy_y_angle = 0;
 ou_gameboy_angle_speed = 22;
 ou_gameboy_y_is_spinning = false;
 ou_pitch_shift = 1;
+ou_light_alpha = 0;
+ou_show_larold = false;
+ou_larold_frame = 0;
+ou_larold_speed = 1/6;
 
-repeat(4){
-for (var i = 0; i < 15; i++){
+var b = 0
+repeat(3){
+for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
+	b++;
 	array_push(played_record, 
 	{
 		game: microgame_unplayed_list[| i],

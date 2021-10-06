@@ -156,41 +156,7 @@ if (state == "cart_preview"){
 // gameboy crack and swing
 // --------------------------------------------------------------------------------
 
-if (ou_show_gameover_text){
-	
-	var _circle_rad = 120 + lengthdir_x(1, ou_circle_dir);
-	var _downscale = 0.5;
-	var _surf_size = VIEW_W * _downscale;
-	var _text_scale = ou_gameover_text_scale;
-	if (!surface_exists(ou_surf_circle)) ou_surf_circle = surface_create(_surf_size, _surf_size);
 
-	// draw circle
-	surface_set_target(ou_surf_circle);
-	draw_clear_alpha(c_gbblack, 1);
-	draw_set_color(c_red);
-	draw_circle((_surf_size/2)-1, (_surf_size/2)-1, _circle_rad * _downscale, false);
-	surface_reset_target();
-
-	draw_set_alpha(min(1,_text_scale));
-	gpu_set_colorwriteenable(1, 1, 1, 0); 
-	draw_surface_stretched(ou_surf_circle, 0, 0, VIEW_W, VIEW_H);
-	gpu_set_colorwriteenable(1, 1, 1, 1); 
-	draw_set_alpha(1);
-	ou_circle_dir += 2;
-	
-	// draw GAME OVER
-	draw_set_color(c_gbwhite);
-	draw_set_font(ou_fnt_gallery);
-	draw_set_halign(fa_center);
-	draw_set_valign(fa_middle)
-	var _x = VIEW_W/2;
-	var _y = (VIEW_H/2) - 40;
-
-	//___global.___draw_text_advanced(_x, _y, 32, false, true, "0", 0.5, _text_scale, 0);
-	
-	draw_set_halign(fa_left);
-	draw_set_valign(fa_top)
-}
 
 if (ou_draw_games){
 	var _xc = VIEW_W/2;
@@ -229,7 +195,7 @@ if (ou_draw_scorebox){
 	var _str = string(ou_score_display);
 	while(string_length(_str) < 4) _str = "0" + _str;
 	var _scale = (1 + ou_scorebox_scale_mod) * ou_scorebox_larold_scale;
-	var _pad = 12;
+	var _pad = 12 * ou_scorebox_larold_scale;
 	var _w = (string_width(_str)+ _pad) * _scale;
 	var _rx =VIEW_W/2;
 	var _ry = (VIEW_H/2) + ou_scorebox_y_offset;
@@ -241,13 +207,20 @@ if (ou_draw_scorebox){
 	draw_set_color(c_gbwhite);
 	draw_circle(_rx, _ry, _w/2, 0);
 	draw_set_color(c_gbdark);
-	draw_circle(_rx, _ry, (_w/2)-4, 0);
+	draw_circle(_rx, _ry, (_w/2)-(4*ou_scorebox_larold_scale), 0);
+	
 	draw_set_color(c_gbwhite);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	draw_text_transformed(_rx+1, _ry+3, _str, _scale, _scale, 0);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
+}
+
+// draws a dancing larold
+if (ou_show_larold){
+	draw_sprite(___spr_cursed_rotoscope, ou_larold_frame, VIEW_W/2, VIEW_H/2);
+	ou_larold_frame += ou_larold_speed;
 }
 
 
@@ -258,3 +231,11 @@ if (ou_flash > 0){
 	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
 	draw_set_alpha(1);
 }
+
+if (ou_light_alpha > 0){
+	draw_set_color(c_gbwhite);
+	draw_set_alpha(ou_light_alpha);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+}
+
