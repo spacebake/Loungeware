@@ -10,8 +10,4 @@ if z < z_og {
 	z_spd = z_bounce;
 }
 
-// if z == z_og {
-// 	z_draw = z + current_time / 5;
-// } else {
-	z_draw = z;
-// }
+z_draw = z;

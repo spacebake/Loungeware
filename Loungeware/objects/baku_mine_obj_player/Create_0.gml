@@ -1,4 +1,6 @@
 
+// show_debug_overlay(true);
+
 // Game state
 win						= false;
 win_confetti_time		= 0;
@@ -50,7 +52,7 @@ pick_time			= pick_time_mod - 1;
 crack_img			= 0;
 
 // Sound stuff
-think_spawned		= false;
+// think_spawned		= false;
 
 // Creeper
 creeper_spawned		= false;
@@ -60,11 +62,19 @@ creeper_aim_lerp	= 0.1;
 roundabout_started	= false;
 creeper_flash		= 0;
 creeper_flash_spd	= 22.5;
+show_alt_creeper	= irandom(14) == 14; // uwu //
+
+// NEW prompt gui stuff
+prompt_wait = 30;
+prompt_scale = 2;
+prompt_lerp = 0.1;
+prompt_x = 480 / 2;
+prompt_y = (270 / 2) + 25;
+prompt_col = c_gbwhite;
+prompt_col_merge = 0;
+prompt_shake = -1;
 
 #region Prompt stuff
-	
-	// Debug
-	show_debug_message("prompt: " + string(PROMPT));
 	
 	// Ore types
 	enum baku_mine_ore_type { diamond, emerald, gold, redstone, iron, __size }
@@ -78,12 +88,12 @@ creeper_flash_spd	= 22.5;
 	prompt_to_ore_translator[$ "MINE IRON"]		= baku_mine_ore_type.iron;
 	
 	// Struct holding prompt → drop sprite relations (just as sexy)
-	prompt_to_drop_translator = {};
-	prompt_to_drop_translator[$ "MINE DIAMOND"]		= baku_mine_spr_diamond_drop;
-	prompt_to_drop_translator[$ "MINE EMERALD"]		= baku_mine_spr_emerald_drop;
-	prompt_to_drop_translator[$ "MINE GOLD"]		= baku_mine_spr_gold_drop;
-	prompt_to_drop_translator[$ "MINE RUBY"]		= baku_mine_spr_redstone_drop;
-	prompt_to_drop_translator[$ "MINE IRON"]		= baku_mine_spr_iron_drop;
+	// prompt_to_drop_translator = {};
+	// prompt_to_drop_translator[$ "MINE DIAMOND"]		= baku_mine_spr_diamond_drop;
+	// prompt_to_drop_translator[$ "MINE EMERALD"]		= baku_mine_spr_emerald_drop;
+	// prompt_to_drop_translator[$ "MINE GOLD"]		= baku_mine_spr_gold_drop;
+	// prompt_to_drop_translator[$ "MINE RUBY"]		= baku_mine_spr_redstone_drop;
+	// prompt_to_drop_translator[$ "MINE IRON"]		= baku_mine_spr_iron_drop;
 	
 	// Prompt setup
 	prompt_setup_done = false;
@@ -133,13 +143,11 @@ creeper_flash_spd	= 22.5;
 		var _col = make_colour_rgb(_r, _g, _b);
 		
 		// Normal boring blocks
-		// if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_stone);			_inst.z = _z; }
-		// if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_dirt);			_inst.z = _z; }
-		if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = choose(baku_mine_spr_stone, baku_mine_spr_stone_dark); }
-		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = choose(baku_mine_spr_dirt, baku_mine_spr_dirt_dark); }
-		if _col == 0x0080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_table; }
-		if _col == 0x808080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_furnace; }
-		if _col == 0x008080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);				_inst.z = _z;	_inst.tex = baku_mine_spr_ladder; }
+		if _col == 0x000000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);	_inst.z = _z;	_inst.texture_name = choose("stone", "stone_dark"); }
+		if _col == 0x0000ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);	_inst.z = _z;	_inst.texture_name = choose("dirt", "dirt_dark"); }
+		if _col == 0x0080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);	_inst.z = _z;	_inst.texture_name = "table"; }
+		if _col == 0x808080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);	_inst.z = _z;	_inst.texture_name = "furnace"; }
+		if _col == 0x008080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_par_solid);	_inst.z = _z;	_inst.texture_name = "ladder"; }
 		
 		// Special blocks
 		if _col == 0xffff00 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_ore);			_inst.z = _z; }
@@ -147,10 +155,10 @@ creeper_flash_spd	= 22.5;
 		if _col == 0x00ffff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_sign);			_inst.z = _z; }
 		
 		// Torches
-		if _col == 0x80ff80 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 0;		} // North
-		if _col == 0x808000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 90;		} // West
-		if _col == 0x800080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 180;	} // South
-		if _col == 0x8080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);			_inst.z = _z;	_inst.image_angle = 270;	} // East
+		if _col == 0x80ff80 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);		_inst.z = _z;	_inst.image_angle = 0;		} // North
+		if _col == 0x808000 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);		_inst.z = _z;	_inst.image_angle = 90;		} // West
+		if _col == 0x800080 { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);		_inst.z = _z;	_inst.image_angle = 180;	} // South
+		if _col == 0x8080ff { var _inst = instance_create_layer(_x, _y, string(_layer), baku_mine_obj_block_torch);		_inst.z = _z;	_inst.image_angle = 270;	} // East
 		
 		// Player
 		if _col == 0x00ff00 {
@@ -220,7 +228,6 @@ creeper_flash_spd	= 22.5;
 		var _mat = matrix_build(_x, _y, _z, _x_rot, _y_rot, _z_rot, _x_scale, _y_scale, _z_scale);
 		matrix_set(_matrix, _mat);
 		vertex_submit(_v_buff, _prim, _texture);
-		// matrix_set(_matrix, i_matrix); // Moved out of function for performance
 	}
 	
 #endregion
@@ -356,6 +363,67 @@ creeper_flash_spd	= 22.5;
 		return (_val1 + clamp(_val2 - _val1, -_inc, _inc));
 	}
 	
+#endregion
+
+#region Texture data (offsets and size)
+
+	// Texture data constructer
+	Texture = function(_x, _y, _w, _h) constructor {
+		x = _x;
+		y = _y;
+		w = _w;
+		h = _h;
+	}
+	
+	// Struct with texture data
+	textures = {};
+	
+	textures.stone			= new Texture(64*0, 64*0, 64, 64);
+	textures.stone_dark		= new Texture(64*1, 64*0, 64, 64);
+	textures.stone_darker	= new Texture(64*2, 64*0, 64, 64);
+	textures.dirt			= new Texture(64*3, 64*0, 64, 64);
+	textures.dirt_dark		= new Texture(64*4, 64*0, 64, 64);
+	
+	textures.ore_diamond	= new Texture(64*0, 64*1, 64, 64);
+	textures.ore_emerald	= new Texture(64*1, 64*1, 64, 64);
+	textures.ore_gold		= new Texture(64*2, 64*1, 64, 64);
+	textures.ore_redstone	= new Texture(64*3, 64*1, 64, 64);
+	textures.ore_iron		= new Texture(64*4, 64*1, 64, 64);
+	
+	textures.torch			= new Texture(64*0, 64*2, 64, 64);
+	textures.signpost		= new Texture(64*1, 64*2, 64, 64);
+	textures.table			= new Texture(64*2, 64*2, 64, 64);
+	textures.furnace		= new Texture(64*3, 64*2, 64, 64);
+	textures.ladder			= new Texture(64*4, 64*2, 64, 64);
+	
+	textures.creeper_face	= new Texture(64*0, 64*3, 64, 64);
+	textures.creeper_body	= new Texture(64*1, 64*3, 64, 64);
+	textures.creeper_ear	= new Texture(64*2, 64*3, 64, 64);
+	
+	textures.crackk_0		= new Texture(64*0, 64*4, 64, 64);
+	textures.crackk_1		= new Texture(64*1, 64*4, 64, 64);
+	textures.crackk_2		= new Texture(64*2, 64*4, 64, 64);
+	textures.crackk_3		= new Texture(64*3, 64*4, 64, 64);
+	textures.crackk_4		= new Texture(64*4, 64*4, 64, 64);
+	textures.crackk_5		= new Texture(64*5, 64*4, 64, 64);
+	textures.highlight		= new Texture(64*6, 64*4, 64, 64);
+	
+	textures.creeper_alt	= new Texture(64*0, 64*5, 128, 128);
+	
+	textures.sign_msg_0		= new Texture(64*0, 64*7, 64, 64);
+	textures.sign_msg_1		= new Texture(64*1, 64*7, 64, 64);
+	textures.sign_msg_2		= new Texture(64*2, 64*7, 64, 64);
+	textures.sign_msg_3		= new Texture(64*3, 64*7, 64, 64);
+	textures.sign_msg_4		= new Texture(64*4, 64*7, 64, 64);
+	
+	textures.pickaxe		= new Texture(480, 464, 32, 32);
+	textures.drop_diamond	= new Texture(416+(16*0), 496, 16, 16);
+	textures.drop_emerald	= new Texture(416+(16*1), 496, 16, 16);
+	textures.drop_gold		= new Texture(416+(16*2), 496, 16, 16);
+	textures.drop_redstone	= new Texture(416+(16*3), 496, 16, 16);
+	textures.drop_iron		= new Texture(416+(16*4), 496, 16, 16);
+	textures.drop_shadow	= new Texture(416+(16*5), 496, 16, 16);
+
 #endregion
 
 // "Frustum culler"
