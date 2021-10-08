@@ -232,10 +232,6 @@ heart_wait = -1;
 //--------------------------------------------------------------------------------------------------------
 // OUTRO
 //--------------------------------------------------------------------------------------------------------
-ou_glass_parts = [];
-ou_glass_part_count = 8;
-ou_glass_part_sprite = ___spr_glass_part;
-ou_draw_glass_parts = false;
 ou_gameboy_x = 183;
 ou_angle_target = 45;
 ou_angle_speed = 0.1;
@@ -315,7 +311,7 @@ es_close_circle_prog = 1;
 es_surf_circle = noone;
 
 var b = 0
-repeat(3){
+repeat(0){
 for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
 	b++;
 	array_push(played_record, 
@@ -331,17 +327,7 @@ for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
 }}
 
 
-for (var i = 0; i < ou_glass_part_count; i++){
-	var _data = {
-		x: 140 + random_range(-5,5),
-		y: 145 + random_range(-5,5),
-		hsp: random_range(-8, 8)*3,
-		vsp: random_range(-6, 6)*3,
-		grav: random_range(0.1, 0.2),
-		frame: irandom(sprite_get_number(___spr_glass_part)-1),
-	}
-	array_push(ou_glass_parts, _data);
-}
+
 
 
 }

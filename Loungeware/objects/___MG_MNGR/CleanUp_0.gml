@@ -9,5 +9,5 @@ if (surface_exists(es_surf_circle)) surface_free(es_surf_circle);
 ds_list_destroy(transition_garbo_sprites);
 ___reset_draw_vars();
 workspace_end();
-application_surface_draw_enable(true);
+//application_surface_draw_enable(true);
 

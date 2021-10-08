@@ -970,17 +970,7 @@ if (ou_draw_games){
 }
 
 
-// glass particles - - - - - - - - - - - - - - - - - - - - - - - -
-if (ou_draw_glass_parts){
-		for (var i = 0; i < ou_glass_part_count; i++){
-		with (ou_glass_parts[i]){
-			hsp = hsp * 0.999;
-			vsp = min(vsp + grav, 10);
-			x += hsp;
-			y += vsp;
-		}
-	}
-}
+
 
 
 // flash  - - - - - - - - - - - - - - - - - - - - - - - -
