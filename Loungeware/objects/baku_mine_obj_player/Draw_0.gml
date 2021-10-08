@@ -1,79 +1,113 @@
 
+// Clear alpha to fix html5 jank
+draw_clear_alpha(c_black, 1.0);
+
 // Enable 3D + shader
 enable_3d();
-var _shader = baku_mine_sh_3d_lighting;
+var _shader = baku_mine_sh_3d;
 shader_set(_shader);
+
+// Texture atlas
+var _texture = sprite_get_texture(baku_mine_texture, 0);
 
 // Uniforms
 shader_set_uniform_f(shader_get_uniform(_shader, "room_size"), room_width, room_height);
-shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), 0);
 shader_set_uniform_f_array(shader_get_uniform(_shader, "light_pos"), light_pos);
 shader_set_uniform_f_array(shader_get_uniform(_shader, "light_col"), light_col);
 shader_set_uniform_f(shader_get_uniform(_shader, "roundabout_active"), roundabout_started);
 var _rb_col = 0x2b75cf;
 shader_set_uniform_f(shader_get_uniform(_shader, "roundabout_col"), colour_get_red(_rb_col) / 255, colour_get_green(_rb_col) / 255, colour_get_blue(_rb_col) / 255);
+shader_set_uniform_f(shader_get_uniform(_shader, "crack_img"), 0);
+shader_set_uniform_f(shader_get_uniform(_shader, "outline_alpha"), 0);
 
-// Textures
-texture_set_stage(shader_get_sampler_index(_shader, "texture_highlight"), sprite_get_texture(baku_mine_spr_highlight, 0));
-texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get_texture(baku_mine_spr_crack, 0));
+texture_set_stage(shader_get_sampler_index(_shader, "outline_tex"), sprite_get_texture(baku_mine_spr_highlight, 0));
+
+// Default texture
+var _tex_data = textures.stone;
+shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
 	
 	// Blocks
 	var _vb_cube = vb_cube;
 	var _vb_torch = vb_torch;
 	var _vb_plane = vb_plane;
+	var _outline_alpha = 0;
+	var _crack_img = 0;
 	with baku_mine_par_block {
 		
 		// Only draw if it should be drawn.. lol
 		if is_drawn {
-		
+			var _tex_data = variable_struct_get(other.textures, texture_name);
+			shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+			
 			// Set highlight alpha + crack
-			var _highlight_alpha = 0;
-			var _crack_img = 0;
+			
+			_outline_alpha = 0;
+			_crack_img = 0;
+			texture_set_stage(shader_get_sampler_index(_shader, "outline_tex"), sprite_get_texture(baku_mine_spr_highlight, 0));
 			if other.block_aim_id == id {
-				_highlight_alpha = 0.25;
+				_outline_alpha = 0.25;
 				_crack_img = other.crack_img;
+				texture_set_stage(shader_get_sampler_index(_shader, "outline_tex"), sprite_get_texture(baku_mine_spr_highlight, 1));
 			}
-			shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), _highlight_alpha);
-			texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get_texture(baku_mine_spr_crack, _crack_img));
+			shader_set_uniform_f(shader_get_uniform(_shader, "outline_alpha"), _outline_alpha);
+			shader_set_uniform_f(shader_get_uniform(_shader, "crack_img"), _crack_img);
 			
 			// Torch
 			if model_type == "torch" {
-				other.draw_vertex_buffer(_vb_torch, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+				other.draw_vertex_buffer(_vb_torch, pr_trianglelist, _texture, x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
 			}
 			
 			// Sign
 			else if model_type == "sign" {
 				// Sign
-				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y - 14, z, 0, 0, image_angle, scale_x * 0.75, scale_y, scale_z * 0.75, matrix_world);
+				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, _texture, x, y - 14, z, 0, 0, image_angle, scale_x * 0.75, scale_y, scale_z * 0.75, matrix_world);
+				
 				// Text
 				var _old_cullmode = gpu_get_cullmode();
 				gpu_set_cullmode(cull_noculling);
-				other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_goofed, text_img), x, y - 6 + 0.1, z, 90, 180, image_angle, scale_x * 0.5, scale_y * 0.5, scale_z * 0.5, matrix_world);
+				var _tex_data = variable_struct_get(other.textures, texture_name_sign_msg);
+				shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+				other.draw_vertex_buffer(_vb_plane, pr_trianglelist, _texture, x, y - 6 + 0.1, z, 90, 180, image_angle, scale_x * 0.5, scale_y * 0.5, scale_z * 0.5, matrix_world);
 				gpu_set_cullmode(_old_cullmode);
 			}
 			
 			// Normal block
 			else {
-				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
+				other.draw_vertex_buffer(_vb_cube, pr_trianglelist, _texture, x, y, z, 0, 0, image_angle, scale_x, scale_y, scale_z, matrix_world);
 			}
 		
 		}
 	}
 	
 	// Reset highlight alpha
-	shader_set_uniform_f(shader_get_uniform(_shader, "highlight_alpha"), 0);
+	var _outline_alpha = 0;
+	var _crack_img = 0;
+	shader_set_uniform_f(shader_get_uniform(_shader, "outline_alpha"), _outline_alpha);
+	shader_set_uniform_f(shader_get_uniform(_shader, "crack_img"), _crack_img);
+	texture_set_stage(shader_get_sampler_index(_shader, "outline_tex"), sprite_get_texture(baku_mine_spr_highlight, 0));
+	
+	// Particles
+	with baku_mine_obj_block_particle {
+		var _tex_data = variable_struct_get(other.textures, texture_name);
+		shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+		other.draw_vertex_buffer(_vb_cube, pr_trianglelist, _texture, x, y, z, 90, 90, dir, scale, scale, scale, matrix_world);
+	}
 	
 	// Item drops
 	with baku_mine_obj_drop {
 		// Shadow (this has alpha... drawing it now feels dirty but eh, let's just pray to the gods it doesn't mess with anything)
 		var _scale = 0.5;
-		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(baku_mine_spr_drop_shadow, 0), x, y, z_og - 8 + 0.1, 0, 0, 0, _scale, _scale, _scale, matrix_world);
+		var _tex_data = variable_struct_get(other.textures, "drop_shadow");
+		shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, _texture, x, y, z_og - 8 + 0.1, 0, 0, 0, _scale, _scale, _scale, matrix_world);
 		var _old_cullmode = gpu_get_cullmode();
 		
 		// Item
 		gpu_set_cullmode(cull_noculling);
 		var _scale = 0.333;
-		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, sprite_get_texture(tex, 0), x, y, z_draw, 90, 90, current_time / 5, _scale, _scale, _scale, matrix_world);
+		var _tex_data = variable_struct_get(other.textures, texture_name);
+		shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+		other.draw_vertex_buffer(_vb_plane, pr_trianglelist, _texture, x, y, z_draw, 90, 90, current_time / 5, _scale, _scale, _scale, matrix_world);
 		gpu_set_cullmode(_old_cullmode);
 	}
 	
@@ -82,42 +116,70 @@ texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get
 	
 	// Creeper
 	if creeper_spawned {
-		// Creeper body
-		var _scale = 0.4;
-		var _len_front = 40;
-		draw_vertex_buffer(
-			_vb_cube,
-			pr_trianglelist,
-			sprite_get_texture(baku_mine_spr_creeper_body, 0),
-			x + (dcos(-creeper_aim_dir) * _len_front),
-			y + (dsin(-creeper_aim_dir) * _len_front),
-			cam.z_from - 24,
-			0,
-			0,
-			creeper_aim_dir,
-			_scale,
-			_scale,
-			1,
-			matrix_world
-		);
+		if !show_alt_creeper {
+			// Creeper body
+			var _scale = 0.4;
+			var _len_front = 40;
+			var _tex_data = textures.creeper_body;
+			shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+			draw_vertex_buffer(
+				_vb_cube,
+				pr_trianglelist,
+				_texture,
+				x + (dcos(-creeper_aim_dir) * _len_front),
+				y + (dsin(-creeper_aim_dir) * _len_front),
+				cam.z_from - 24,
+				0,
+				0,
+				creeper_aim_dir,
+				_scale,
+				_scale,
+				1,
+				matrix_world
+			);
+			
+			// Creeper head
+			var _scale = 0.5;
+			var _tex_data = textures.creeper_face;
+			shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+			draw_vertex_buffer(
+				_vb_cube,
+				pr_trianglelist,
+				_texture,
+				x + (dcos(-creeper_aim_dir) * _len_front),
+				y + (dsin(-creeper_aim_dir) * _len_front),
+				cam.z_from,
+				0,
+				0,
+				aim_dir - 90,
+				_scale,
+				_scale,
+				_scale,
+				matrix_world
+			);
+		} else {
+			// "Alternate" creeper (// w //)
+			var _scale = 2;
+			var _len_front = 40;
+			var _tex_data = textures.creeper_alt;
+			shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
+			draw_vertex_buffer(
+				_vb_plane,
+				pr_trianglelist,
+				_texture,
+				x + (dcos(-creeper_aim_dir) * _len_front),
+				y + (dsin(-creeper_aim_dir) * _len_front),
+				cam.z_from - 20,
+				90,
+				90,
+				aim_dir,
+				_scale,
+				_scale,
+				_scale,
+				matrix_world
+			);
+		}
 		
-		// Creeper head
-		var _scale = 0.5;
-		draw_vertex_buffer(
-			_vb_cube,
-			pr_trianglelist,
-			sprite_get_texture(baku_mine_spr_creeper, 0),
-			x + (dcos(-creeper_aim_dir) * _len_front),
-			y + (dsin(-creeper_aim_dir) * _len_front),
-			cam.z_from,
-			0,
-			0,
-			aim_dir - 90,
-			_scale,
-			_scale,
-			_scale,
-			matrix_world
-		);
 	}
 	
 	// Pickaxe
@@ -125,10 +187,12 @@ texture_set_stage(shader_get_sampler_index(_shader, "texture_crack"), sprite_get
 	var _len_front = 40;
 	var _len_side = 32;
 	var _len_down = 16;
+	var _tex_data = textures.pickaxe;
+	shader_set_uniform_f(shader_get_uniform(_shader, "tex_data"), _tex_data.x, _tex_data.y, _tex_data.w, _tex_data.h);
 	draw_vertex_buffer(
 		vb_plane,
 		pr_trianglelist,
-		sprite_get_texture(baku_mine_spr_pick, 0),
+		_texture,
 		x + (dcos(-aim_dir) * _len_front) + (dcos(-aim_dir + 90) * _len_side),
 		y + (dsin(-aim_dir) * _len_front) + (dsin(-aim_dir + 90) * _len_side),
 		z - _len_down,
