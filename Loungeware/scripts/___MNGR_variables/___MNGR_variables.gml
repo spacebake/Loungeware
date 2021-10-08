@@ -232,30 +232,18 @@ heart_wait = -1;
 //--------------------------------------------------------------------------------------------------------
 // OUTRO
 //--------------------------------------------------------------------------------------------------------
-
 ou_glass_parts = [];
 ou_glass_part_count = 8;
 ou_glass_part_sprite = ___spr_glass_part;
 ou_draw_glass_parts = false;
-ou_gameboy_swing_show = false;
 ou_gameboy_x = 183;
-ou_gameboy_y = 120;
-ou_gameboy_vsp = 0;
-ou_gameboy_frame = 0;
-ou_angle = 0;
 ou_angle_target = 45;
 ou_angle_speed = 0.1;
-ou_shake = 0;
 ou_swing_dir = 0;
-ou_swing_rad = -45;
 ou_show_gameover_text = false;
-ou_gameover_text_scale = 0;
-ou_gameover_text_dir = 0;
 ou_gameover_text_scale_done = false;
 ou_surf_circle = noone;
-ou_col_circle = make_color_rgb(43, 35, 45);
 ou_circle_dir = 0;
-ou_fnt_gallery = ___global.___fnt_gallery;
 ou_flash = 0;
 ou_draw_games = false;
 ou_games_dir = 0;
@@ -278,13 +266,53 @@ ou_scorebox_larold_shake = 0;
 ou_scorebox_y_offset = 0;
 ou_scorebox_y_offset_speed = 0;
 ou_gameboy_y_angle = 0;
-ou_gameboy_angle_speed = 22;
 ou_gameboy_y_is_spinning = false;
 ou_pitch_shift = 1;
 ou_light_alpha = 0;
 ou_show_larold = false;
 ou_larold_frame = 0;
 ou_larold_speed = 1/6;
+
+//--------------------------------------------------------------------------------------------------------
+// END SCREEN
+//--------------------------------------------------------------------------------------------------------
+es_score_highlight = -1;
+es_score_in_scoreboard = false;
+es_new_high_score = false;
+es_col_bar = make_color_rgb(43, 36, 56);
+es_col_date = make_color_rgb(99, 81, 110);
+es_song_id = noone;
+var _action_play_again = function(){
+	workspace_end();
+	application_surface_draw_enable(true);
+	instance_create_layer(0, 0, layer, ___MG_MNGR);
+	instance_destroy();
+}
+var _action_main_menu = function(){
+	workspace_end();
+	application_surface_draw_enable(true);
+	room_goto(___rm_main_menu);
+	instance_create_layer(0, 0, layer, ___obj_main_menu);
+	instance_destroy();
+}
+es_menu = [
+	{name:"SUBMIT SCORE", action: ___noop},
+	{name:"PLAY AGAIN", action: _action_play_again},
+	{name:"MAIN MENU", action: _action_main_menu},
+];
+es_menu_cursor = 0;
+es_menu_confirmed = false;
+es_confirm_shake_time = 15;
+es_cursor_v_move = 0;
+es_cursor_v_move_last = 0;
+es_input_cooldown = 0;
+es_input_is_scrolling = false;
+es_input_cooldown_init_max = 14;
+es_input_cooldown_max = 7;
+es_score_submitted = false;
+
+es_close_circle_prog = 1;
+es_surf_circle = noone;
 
 var b = 0
 repeat(3){

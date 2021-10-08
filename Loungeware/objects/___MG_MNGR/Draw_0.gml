@@ -152,6 +152,7 @@ if (state == "cart_preview"){
 }
 
 
+
 // --------------------------------------------------------------------------------
 // gameboy crack and swing
 // --------------------------------------------------------------------------------
@@ -219,7 +220,7 @@ if (ou_draw_scorebox){
 
 // draws a dancing larold
 if (ou_show_larold){
-	draw_sprite(___spr_cursed_rotoscope, ou_larold_frame, VIEW_W/2, VIEW_H/2);
+	draw_sprite_ext(___spr_cursed_rotoscope, ou_larold_frame, VIEW_W/2, VIEW_H/2, 0.25, 0.25, 0, c_white, 1);
 	ou_larold_frame += ou_larold_speed;
 }
 
@@ -232,10 +233,187 @@ if (ou_flash > 0){
 	draw_set_alpha(1);
 }
 
+
+
+// --------------------------------------------------------------------------------
+// STATE | END SCREEN (no new high score)
+// --------------------------------------------------------------------------------
+if (state == "end_screen"){
+	draw_set_color(c_gbwhite);
+	draw_set_font(___global.___fnt_gallery);
+	draw_set_halign(fa_center);
+	
+	var _str = string(ou_score_display);
+	while (string_length(_str) < 3) _str = "0" + _str;
+	var _x = VIEW_W/2;
+	var _y = 16;
+	var _line_margin = 32;
+	var _sep = 6;
+	var _line_h = string_height("M") - 3;
+	var _col_line = es_col_bar;
+	var _col_score = c_gbyellow;
+	var _line_square_size = 3;
+	var _line_square_sep = 5;
+	
+	// draw first line
+	draw_set_color(_col_line);
+	draw_dotted_line(_line_margin, _y, VIEW_W - _line_margin, _y, _line_square_size, _line_square_sep );
+	_y += _sep;
+
+	// draw score text
+	draw_set_color(_col_score);
+	___global.___draw_text_advanced(_x, _y, _line_h, true, true,  "" + string(ou_score_display) , 0.5, 1, 5);
+	_y += _line_h + _sep;
+	
+	// draw second line
+	draw_set_color(_col_line);
+	draw_dotted_line(_line_margin, _y, VIEW_W - _line_margin, _y, _line_square_size, _line_square_sep );
+	_y += 15;
+	
+	// draw local scoreboard text
+	draw_set_font(fnt_frogtype);
+	draw_set_color(c_gbwhite);
+	var _txt = "LOCAL HIGH SCORES"
+	___global.___draw_text_advanced(_x, _y, 16, true, true, _txt, 0.5, 0.5, 6);
+	_y += 20;
+	
+	// draw scoreboard - - - - - - - - - - - - - - - - 
+	var _score_line_h = 21;
+	draw_set_font(fnt_frogtype);
+	draw_set_color(c_gbwhite);
+	
+	var _score_margin = 64;
+	var _score_x = _score_margin;
+	var _score_x2 = VIEW_W - _score_margin;
+	var _score_y = _y;
+	var _score_show_count_local = ___global.scores_local_count_max;
+	var _place = 0;
+	var _place_shift = 0;
+	var _prev_score = infinity;
+	
+	for (var i = 0; i < _score_show_count_local; i++){
+			
+		var _score = "---";
+		var _highlight = (es_score_highlight == i);
+		var _out_of_bounds = i >= array_length(___global.scores_local); 
+			
+		if (!_out_of_bounds){
+			var _score_as_int = floor(variable_struct_get(___global.scores_local[i], "points"));
+			if (_score_as_int == _prev_score){
+				_place_shift += 1;
+			} else {
+				_place += 1 + _place_shift;
+				_place_shift = 0;
+			}
+			_prev_score = _score_as_int;
+			var _score = string(_score_as_int);
+		} 
+			
+		
+			
+		// draw top line (only for first)
+		if (i == 0){
+			var _line_y = _score_y + -4;
+			draw_set_color(_col_line);
+			draw_dotted_line(_score_x, _line_y, _score_x2, _line_y, 2, 2);
+		}
+			
+		// draw number
+		if (!_out_of_bounds){
+			draw_set_halign(fa_left);
+			draw_set_color(es_col_date);
+			if (_score == "---") draw_set_color(_col_line);
+			draw_text(_score_x, _score_y, string(_place));
+		}
+			
+		// draw score
+		draw_set_color(es_col_date);
+		if (_score == "---") draw_set_color(_col_line);
+		draw_set_halign(fa_center);
+		if (_highlight){
+			draw_set_color(c_gbwhite);
+			_score = "<wave, 1>" + _score;
+			
+		}
+		___global.___draw_text_advanced(((_score_x + _score_x2)/2)+8, _score_y, 17, true, true, _score, 0.5, 1, 3);
+			
+		// draw line
+		var _line_y = _score_y + 17;
+		draw_set_color(_col_line);
+		draw_dotted_line(_score_x, _line_y, _score_x2, _line_y, 2, 2);
+			
+		draw_set_halign(fa_left);
+		_score_y += _score_line_h;
+			
+	}
+
+	draw_set_halign(fa_left);
+	
+	
+	// dram menu - - - - - - - - - - - - - - - - - - 
+
+	var _scale = 0.5;
+	var _v_sep = 32 * _scale;
+	var _text_y = _score_y + 20;
+	var _text_x = VIEW_W/2;
+	var _h_sep = 2
+	var _str, _str_w, _selected, _text_y_final; 
+	draw_set_halign(fa_center);
+	draw_set_font(___global.___fnt_gallery);
+	log(es_menu_cursor);
+	for (var i = 0; i < array_length(es_menu); i++){
+		
+		_scale = 0.5;
+		_str = string_upper(es_menu[i].name);
+		_selected = (es_menu_cursor == i);
+		_str_w = (___global.___draw_text_advanced_width(_str, _h_sep) * _scale) + 8;
+		_text_y_final =  _text_y  + (_v_sep * i);
+		draw_set_color(c_gbwhite);
+		
+		if (_selected){
+			draw_set_color(c_gbyellow);
+			
+			if (es_menu_confirmed){
+				draw_set_color(c_gbpink);
+				if (es_confirm_shake_time > 0) _str = "<shake, " + string(floor(es_confirm_shake_time/4)) + ">" + _str + "</shake>";
+				es_confirm_shake_time = max(0, es_confirm_shake_time - 1);
+				_scale = 0.62;
+			} else {
+				_str = "<wave, 1>" + _str + "</shake>";
+			
+			}
+		}
+		//draw strikethrough
+		//if (es_menu[i].action == ___noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 4, _text_x + (_str_w/2), _text_y_final + 7); 
+		// draw menu item
+		___global.___draw_text_advanced(_text_x, _text_y_final, _v_sep, true, true, _str, 0.5, _scale, _h_sep);
+
+	}
+	
+}
+
+// closing circle
+if (es_close_circle_prog < 1){
+	var _size = WINDOW_BASE_SIZE/2;
+	if (!surface_exists(es_surf_circle)){
+		es_surf_circle = surface_create(_size, _size);
+	}
+
+	surface_set_target(es_surf_circle);
+	draw_clear(c_gbdark);
+	gpu_set_blendmode(bm_subtract);
+	draw_circle(_size/2, (_size/2), es_close_circle_prog * ( _size*0.8), 0);
+	gpu_set_blendmode(bm_normal);
+
+	surface_reset_target();
+	draw_surface_stretched(es_surf_circle, 0, 0, VIEW_W, VIEW_H);
+}
+
+
+// light flash
 if (ou_light_alpha > 0){
 	draw_set_color(c_gbwhite);
 	draw_set_alpha(ou_light_alpha);
 	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
 	draw_set_alpha(1);
 }
-

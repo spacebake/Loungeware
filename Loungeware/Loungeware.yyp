@@ -342,6 +342,7 @@
     {"id":{"name":"baku_mine_model_plane","path":"scripts/baku_mine_model_plane/baku_mine_model_plane.yy",},"order":1,},
     {"id":{"name":"n8fl_escape3_cart","path":"objects/n8fl_escape3_cart/n8fl_escape3_cart.yy",},"order":6,},
     {"id":{"name":"makoren_conjurer_spr_larold_ready","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"order":23,},
+    {"id":{"name":"___sng_zandy_foo_lose","path":"sounds/___sng_zandy_foo_lose/___sng_zandy_foo_lose.yy",},"order":15,},
     {"id":{"name":"baku_mine_spr_confetti_green","path":"sprites/baku_mine_spr_confetti_green/baku_mine_spr_confetti_green.yy",},"order":16,},
     {"id":{"name":"space_scooter_obj_smoke","path":"objects/space_scooter_obj_smoke/space_scooter_obj_smoke.yy",},"order":10,},
     {"id":{"name":"n8fl_reach_for_it_mister_lose_snd","path":"sounds/n8fl_reach_for_it_mister_lose_snd/n8fl_reach_for_it_mister_lose_snd.yy",},"order":5,},

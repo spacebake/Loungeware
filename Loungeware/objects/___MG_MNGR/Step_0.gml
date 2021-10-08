@@ -9,7 +9,8 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 if (state =="aaa"){
 	//transition_difficulty_up = true;
 	microgame_fail();
-	___state_change("microgame_result");
+	ou_score_display = 9400;
+	___state_change("end_screen");
 }
 
 // --------------------------------------------------------------------------------
@@ -661,7 +662,7 @@ if (state == "outro"){
 		gb_y_offset = 0;
 		gb_cover_cartridge = false;
 		gb_spin_speed = 9 * transition_speed;
-		pause_enabled = false;
+		
 		ou_draw_games = true;
 		
 	}
@@ -680,7 +681,7 @@ if (state == "outro"){
 			//gb_show = false;
 			//ou_gameboy_swing_show = true;
 			___substate_change(substate+1);
-			
+			;
 			exit;
 		}
 	}
@@ -706,6 +707,7 @@ if (state == "outro"){
 		//ou_gameboy_angle_speed = max(ou_gameboy_angle_speed - 0.5, 0);
 		if (ou_gameboy_y_angle >= _max_spin){
 			___substate_change(substate+1);
+			___play_sfx(___snd_gameboy_drop, 0.8);
 			
 		}
 		
@@ -855,7 +857,7 @@ if (state == "outro"){
 		if (ou_light_alpha >= _max_alpha){
 			___play_sfx(___snd_score_pop);
 			ou_light_alpha = 1;
-			wait = 60*3;
+			wait = 60*2;
 			ou_draw_games = false;
 			ou_draw_scorebox = false;
 			gb_show = false;
@@ -869,17 +871,96 @@ if (state == "outro"){
 		if (wait <= 0) ___substate_change(substate+1);
 	}
 	
+	// fade in light
 	if (substate == 11){
 		if (substate_begin){
-			ou_show_larold = true;
-			___play_song(___sng_zandy_foo, 1, true);
+			
+			___state_change("end_screen");
+
 		}
-		ou_light_alpha = max(0, ou_light_alpha - (1/60));
+		
 	}
-
-
-
+	
 }
+
+// --------------------------------------------------------------------------------
+// STATE | END SCREEN
+// --------------------------------------------------------------------------------
+if (state == "end_screen"){
+	if (state_begin){
+		
+		pause_enabled = false;
+		load_local_scores();
+		add_score_to_board_local(ou_score_display);
+		var _sng = (es_score_in_scoreboard) ? ___sng_zandy_foo : ___sng_zandy_foo_lose;
+		es_song_id = ___play_song(_sng, 1, true);
+	}
+	
+	// fade in
+	if (substate == 0){
+		
+		ou_light_alpha = max(0, ou_light_alpha - (1/40));
+	
+		// move cursor
+		var _menu_len = array_length(es_menu);
+		es_cursor_v_move = -KEY_UP + KEY_DOWN;
+		if (es_cursor_v_move != es_cursor_v_move_last){
+			es_input_cooldown = 0;
+			es_input_is_scrolling = false;
+		}
+		es_cursor_v_move_last = es_cursor_v_move;
+	
+		if (abs(es_cursor_v_move) && es_input_cooldown <= 0){
+			if (es_input_is_scrolling){
+				es_input_cooldown = es_input_cooldown_max;
+			} else {
+				es_input_cooldown = es_input_cooldown_init_max;
+				es_input_is_scrolling = true;
+			}
+			___sound_menu_tick_vertical();
+		
+		} else {
+			es_cursor_v_move = 0;
+			es_input_cooldown = max(0, es_input_cooldown - 1);
+		}
+		es_menu_cursor += es_cursor_v_move;
+		if (es_menu_cursor > _menu_len - 1) es_menu_cursor = 0;
+		if (es_menu_cursor < 0) es_menu_cursor = _menu_len - 1;
+
+		if (KEY_PRIMARY_PRESSED){
+			___sound_menu_select();
+			es_menu_confirmed = true;
+			___substate_change(substate+1);
+		}
+	
+	}
+	
+	// fade out music
+	if (substate == 1){
+		var _time = 30;
+		if (substate_begin){
+			audio_sound_gain(es_song_id, 0, (_time/60)*1000);
+			wait = 10;
+		}
+		es_close_circle_prog = max(0, es_close_circle_prog - (1/_time));
+		if (es_close_circle_prog <= 0) wait--;
+		
+		if (wait <= 0){
+			___substate_change(substate+1);
+		}
+	}
+	
+	// perform menu action
+	if (substate == 2){
+		if (substate_begin){
+			audio_stop_sound(es_song_id);
+			var _selection = es_menu[es_menu_cursor];
+			_selection.action();
+		}
+	}
+}
+
+
 
 if (ou_draw_games){
 	ou_games_dir += 0.2;

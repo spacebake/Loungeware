@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "___snd_gameboy_drop.mp3",
-  "duration": 0.744,
+  "soundFile": "___snd_gameboy_drop.wav",
+  "duration": 0.361458,
   "parent": {
     "name": "SFX",
     "path": "folders/__Base Game (keep out)/Sound/SFX.yy",

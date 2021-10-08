@@ -5,7 +5,6 @@ view_enabled = true;
 if (room == ___rm_restroom){
 	___reset_draw_vars();
 	audio_stop_all();
-	//application_surface_draw_enable(true);
 	surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 	camera_set_view_size(CAMERA, WINDOW_BASE_SIZE/2, WINDOW_BASE_SIZE/2);
 	exit;
@@ -20,7 +19,6 @@ if (room == microgame_current_metadata.init_room && !microgame_initiated){
 		___MG_MNGR.microgame_time_finished =  ___MG_MNGR.microgame_timer_max;
 	}
 	microgame_initiated = true;
-	//application_surface_draw_enable(false);
 }
 
 // any microgame room (this incudes the init room and any subsequent rooms used for the microgame)

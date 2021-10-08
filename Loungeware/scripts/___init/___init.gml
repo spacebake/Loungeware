@@ -9,7 +9,7 @@ function ___GAME_INIT(){
 	___global.gallery_goto_key = "";
 	
 	// font
-	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><", false, 0);
+	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><:", false, 0);
 	
 	// colours
 	___global.macro_c_magenta = make_color_rgb(255, 0, 255);
@@ -26,6 +26,11 @@ function ___GAME_INIT(){
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
 	___global.macro_c_gbdark = make_color_rgb(31,27,37);
+	
+	// local scores
+	___global.scores_local = [];
+	___global.scores_local_count_max = 5;
+	___global.scores_local_fp = "local_scores.lw";
 
 	// default inputs
 	___global.default_input_keys = {

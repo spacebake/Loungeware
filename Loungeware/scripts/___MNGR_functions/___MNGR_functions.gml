@@ -575,6 +575,74 @@ function ___MG_MNGR_declare_functions(){
 			}
 		}
 	}
+	
+	//--------------------------------------------------------------------------------------------------------
+	// add a new score to the local scoreboard if it is great enough
+	//--------------------------------------------------------------------------------------------------------
+	function add_score_to_board_local(_score){
+		
+		// check if new score makes it onto leaderboard
+		var _board = ___global.scores_local;
+		var _max = ___global.scores_local_count_max;
+		for (var i = 0; i < array_length(_board); i++){
+			
+			if (_score >= variable_struct_get(_board[i], "points")){
+				
+				// insert score into board
+				var _data = new ___score_create("", _score);
+				array_insert(_board, i, _data);
+				
+				// delete the last entry
+				if (array_length(_board) > _max) array_delete(_board, _max, array_length(_board)-_max); 
 
+				
+				// mark this list position as new for display purposes
+				es_score_highlight = i;
+				es_score_in_scoreboard = true;
+				if (i == 0) es_new_high_score = true;
+				
+				break;
+			} 
+		}
+		
+		// save score here
+		var _file = file_text_open_write(___global.scores_local_fp);
+		var _json = json_stringify(_board);
+		file_text_write_string(_file, _json);
+		file_text_close(_file);
+	}
+
+	//--------------------------------------------------------------------------------------------------------
+	// load local scores froms save file (or create default values if no file exists)
+	//--------------------------------------------------------------------------------------------------------
+	function load_local_scores(){
+		var _path = ___global.scores_local_fp;
+		var _file_exists = file_exists(_path);
+		var _json_is_valid = false;
+		var _data;
+		
+		if (_file_exists){
+			var _file = file_text_open_read(_path);
+			var _json = file_text_read_string(_file);
+			try {
+				_data = json_parse(_json);
+				_json_is_valid = true;
+			}
+			catch(_exception){
+				show_debug_message(_exception.message);
+				file_delete(_path);
+			}
+		
+			file_text_close(_file);
+		}
+		
+		if (_json_is_valid){
+			___global.scores_local = _data;
+		} else {
+			___global.scores_local = [];
+		}
+		
+		
+	}
 
 }

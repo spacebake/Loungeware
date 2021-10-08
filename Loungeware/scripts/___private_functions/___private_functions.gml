@@ -334,6 +334,12 @@ function ___sound_menu_tick_horizontal(){
 	audio_sound_pitch(_snd_id, 0.8);
 }
 
+function ___sound_menu_select(){
+	var _snd_index  = ___snd_cart_insert;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
+	audio_sound_gain(_snd_id, _vol, 0);
+}
 
 // ------------------------------------------------------------------------------------------
 // DRAW DOTTED LINE
@@ -694,4 +700,35 @@ function ___draw_title(_x, _y){
 	
 }
 
+// ------------------------------------------------------------------------------------------
+// score constructor
+// ------------------------------------------------------------------------------------------
+function ___score_create(_name="", _points=0) constructor {
+	name = _name;
+	points = _points;
+}
 
+// ------------------------------------------------------------------------------------------
+// ds list to struct
+// ------------------------------------------------------------------------------------------
+function ___ds_list_to_struct(_list){
+	var _struct = {};
+	for (var i = 0; i < ds_list_size(_list); i++){
+		variable_struct_set(_struct, i, _list[| i]);
+	}
+	return _struct;
+}
+
+// ------------------------------------------------------------------------------------------
+// struct to ds list (doesnt preserve key names) creates a ds list, be careful.
+// ------------------------------------------------------------------------------------------
+function ___struct_to_ds_list(_struct){
+	var _list = ds_list_create();
+	var _keys = variable_struct_get_names(_struct);
+	for (var i = 0; i < array_length(_keys); i++){
+		var _key = _keys[i];
+		var _val = variable_struct_get(_struct, _key);
+		ds_list_add(_val);
+	}
+	return _list;
+}
