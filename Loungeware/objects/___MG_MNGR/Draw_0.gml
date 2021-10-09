@@ -262,7 +262,9 @@ if (state == "end_screen"){
 
 	// draw score text
 	draw_set_color(_col_score);
-	___global.___draw_text_advanced(_x, _y, _line_h, true, true,  "" + string(ou_score_display) , 0.5, 1, 5);
+	var _str = string(ou_score_display);
+	while (string_length(_str) < 4) _str = "0" + _str;
+	___global.___draw_text_advanced(_x, _y, _line_h, true, true,  _str, 0.5, 1, 5);
 	_y += _line_h + _sep;
 	
 	// draw second line

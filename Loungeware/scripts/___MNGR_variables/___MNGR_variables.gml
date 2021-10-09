@@ -310,13 +310,12 @@ es_score_submitted = false;
 es_close_circle_prog = 1;
 es_surf_circle = noone;
 
-var b = 0
-repeat(0){
-for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
-	b++;
-	array_push(played_record, 
-	{
-		game: microgame_unplayed_list[| i],
+
+
+function microgame_add_to_played_record(_microgame_key){
+	
+	array_push(played_record, {
+		game: _microgame_key,
 		dist: 0,
 		spd: 0,
 		wait: irandom(60*2),
@@ -324,9 +323,7 @@ for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
 		scale: ou_games_global_scale,
 		pullback:0,
 	});
-}}
-
-
+}
 
 
 

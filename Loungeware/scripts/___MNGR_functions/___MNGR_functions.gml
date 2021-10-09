@@ -79,6 +79,7 @@ function ___MG_MNGR_declare_functions(){
 			var _points = 1; //1 + (___MG_MNGR.microgame_timer / ___MG_MNGR.microgame_timer_max) + (DIFFICULTY/5);
 			___MG_MNGR.score_total += _points;
 			games_won += 1;
+			microgame_add_to_played_record(___MG_MNGR.microgame_current_name);
 		} 
 	
 		if (DIFFICULTY < ___global.difficulty_max && !gallery_mode && !TEST_MODE_ACTIVE){
@@ -584,9 +585,9 @@ function ___MG_MNGR_declare_functions(){
 		// check if new score makes it onto leaderboard
 		var _board = ___global.scores_local;
 		var _max = ___global.scores_local_count_max;
-		for (var i = 0; i < array_length(_board); i++){
+		for (var i = 0; i < _max; i++){
 			
-			if (_score >= variable_struct_get(_board[i], "points")){
+			if (i >= array_length(_board) || _score >= variable_struct_get(_board[i], "points")){
 				
 				// insert score into board
 				var _data = new ___score_create("", _score);
@@ -643,6 +644,22 @@ function ___MG_MNGR_declare_functions(){
 		}
 		
 		
+	}
+	
+	//--------------------------------------------------------------------------------------------------------
+	// add game to the record of won games so that it can be displayed during the end sequence
+	//--------------------------------------------------------------------------------------------------------
+	function microgame_add_to_played_record(_microgame_key){
+	
+		array_push(played_record, {
+			game: _microgame_key,
+			dist: 0,
+			spd: 0,
+			wait: irandom(60*2),
+			state: 0,
+			scale: ou_games_global_scale,
+			pullback:0,
+		});
 	}
 
 }
