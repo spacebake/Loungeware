@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":{"name":"82d28d7d-0537-4888-99c6-496d73649a4e","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},"LayerId":{"name":"82d28d7d-0537-4888-99c6-496d73649a4e","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchsplore_label","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},"resourceVersion":"1.0","name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},
+    "spriteId": {"name":"katsaii_witchsplore_label","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5ef1abb6-744a-4802-b853-56ea3b2c7a63","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d109cfe6-e222-4209-b0f6-5d6325377a5b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},
+    "parent": {"name":"katsaii_witchsplore_label","path":"sprites/katsaii_witchsplore_label/katsaii_witchsplore_label.yy",},
     "resourceVersion": "1.3",
-    "name": "katsaii_witchcraft_label",
+    "name": "katsaii_witchsplore_label",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "witchcraft",
-    "path": "folders/Microgames/katsaii/witchcraft.yy",
+    "name": "witchsplore",
+    "path": "folders/Microgames/katsaii/witchsplore.yy",
   },
   "resourceVersion": "1.0",
-  "name": "katsaii_witchcraft_label",
+  "name": "katsaii_witchsplore_label",
   "tags": [],
   "resourceType": "GMSprite",
 }
