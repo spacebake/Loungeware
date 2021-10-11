@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "katsaii_witchsplore_tree",
+    "path": "sprites/katsaii_witchsplore_tree/katsaii_witchsplore_tree.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -17,7 +20,9 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -25,7 +30,7 @@
     "path": "folders/Microgames/katsaii/witchsplore.yy",
   },
   "resourceVersion": "1.0",
-  "name": "katsaii_witchsplore_game",
+  "name": "katsaii_witchsplore_inst",
   "tags": [],
   "resourceType": "GMObject",
 }
