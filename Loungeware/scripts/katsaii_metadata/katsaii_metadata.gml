@@ -76,7 +76,7 @@ microgame_register("katsaii_witchsplore", {
     view_width : -1,
     view_height : -1,
     time_seconds : 12,
-    music_track : noone,
+    music_track : katsaii_witchsplore_bgm,
     music_loops : false,
     interpolation_on : false,
     cartridge_col_primary : [204, 107, 102], // [214, 184, 206], // [205, 147, 154], //[254, 238, 235], //[255, 191, 190],

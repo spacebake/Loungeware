@@ -831,6 +831,7 @@
     {"id":{"name":"tfg_collision_spr_confetti_purple","path":"sprites/tfg_collision_spr_confetti_purple/tfg_collision_spr_confetti_purple.yy",},"order":2,},
     {"id":{"name":"tfg_collision_obj_error","path":"objects/tfg_collision_obj_error/tfg_collision_obj_error.yy",},"order":12,},
     {"id":{"name":"n8fl_escape3_rake_spr","path":"sprites/n8fl_escape3_rake_spr/n8fl_escape3_rake_spr.yy",},"order":5,},
+    {"id":{"name":"katsaii_witchsplore_bgm","path":"sounds/katsaii_witchsplore_bgm/katsaii_witchsplore_bgm.yy",},"order":5,},
     {"id":{"name":"tfg_collision_obj_dead_bug","path":"objects/tfg_collision_obj_dead_bug/tfg_collision_obj_dead_bug.yy",},"order":11,},
     {"id":{"name":"tfg_collision_obj_confetti","path":"objects/tfg_collision_obj_confetti/tfg_collision_obj_confetti.yy",},"order":9,},
     {"id":{"name":"tfg_collision_obj_game","path":"objects/tfg_collision_obj_game/tfg_collision_obj_game.yy",},"order":1,},
