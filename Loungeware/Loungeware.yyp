@@ -399,6 +399,7 @@
     {"id":{"name":"baku_mine_snd_creeper","path":"sounds/baku_mine_snd_creeper/baku_mine_snd_creeper.yy",},"order":4,},
     {"id":{"name":"Nahoo_sArrow","path":"sprites/Nahoo_sArrow/Nahoo_sArrow.yy",},"order":1,},
     {"id":{"name":"katsaii_witchcraft_9","path":"sprites/katsaii_witchcraft_9/katsaii_witchcraft_9.yy",},"order":8,},
+    {"id":{"name":"katsaii_witchsplore_wanda","path":"sprites/katsaii_witchsplore_wanda/katsaii_witchsplore_wanda.yy",},"order":6,},
     {"id":{"name":"sam_cd_spr_background","path":"sprites/sam_cd_spr_background/sam_cd_spr_background.yy",},"order":0,},
     {"id":{"name":"sng_zandy_xylo","path":"sounds/sng_zandy_xylo/sng_zandy_xylo.yy",},"order":6,},
     {"id":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"order":9,},
