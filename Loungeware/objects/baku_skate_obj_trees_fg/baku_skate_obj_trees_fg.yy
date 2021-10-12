@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "baku_skate_spr_bg",
-    "path": "sprites/baku_skate_spr_bg/baku_skate_spr_bg.yy",
+    "name": "baku_skate_spr_trees_fg",
+    "path": "sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",
   },
   "solid": false,
   "visible": false,
@@ -32,7 +32,7 @@
     "path": "folders/Microgames/baku/skate/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "baku_skate_obj_bg",
+  "name": "baku_skate_obj_trees_fg",
   "tags": [],
   "resourceType": "GMObject",
 }

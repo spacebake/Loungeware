@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Microgames/baku/skate/Sprites.yy",
+    "name": "Mimpy",
+    "path": "folders/Microgames/baku/skate/Sprites/Mimpy.yy",
   },
   "resourceVersion": "1.0",
   "name": "baku_skate_spr_mimpy_idle",
