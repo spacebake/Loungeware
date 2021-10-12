@@ -9,6 +9,7 @@ angle = 0;
 targetAngle = 0;
 flipX = false;
 flipY = false;
+freezePlayer = false;
 x = 0;
 y = 0;
 view_enabled = true;

@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},"LayerId":{"name":"a51ee743-0f64-4c7a-a22f-925ea4a19bf0","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_wanda_broom","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},"resourceVersion":"1.0","name":"424719b5-2442-421e-b531-c3e73f499a3d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},"LayerId":{"name":"a51ee743-0f64-4c7a-a22f-925ea4a19bf0","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchsplore_wanda_broom","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},"resourceVersion":"1.0","name":"424719b5-2442-421e-b531-c3e73f499a3d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchwanda_spr_wanda_broom","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},
+    "spriteId": {"name":"katsaii_witchsplore_wanda_broom","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"abf55e1a-8133-483b-a208-270e5793f99b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"94c838df-804b-401f-97ec-c6606ce65e09","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"424719b5-2442-421e-b531-c3e73f499a3d","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 2,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchwanda_spr_wanda_broom","path":"sprites/katsaii_witchwanda_spr_wanda_broom/katsaii_witchwanda_spr_wanda_broom.yy",},
+    "parent": {"name":"katsaii_witchsplore_wanda_broom","path":"sprites/katsaii_witchsplore_wanda_broom/katsaii_witchsplore_wanda_broom.yy",},
     "resourceVersion": "1.3",
-    "name": "katsaii_witchwanda_spr_wanda_broom",
+    "name": "katsaii_witchsplore_wanda_broom",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -69,11 +69,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Microgames/katsaii/witchwanda/Player.yy",
+    "name": "witchsplore",
+    "path": "folders/Microgames/katsaii/witchsplore.yy",
   },
   "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_spr_wanda_broom",
+  "name": "katsaii_witchsplore_wanda_broom",
   "tags": [],
   "resourceType": "GMSprite",
 }

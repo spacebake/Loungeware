@@ -1,8 +1,8 @@
 /// @desc Update position.
-var dir_strafe = KEY_RIGHT - KEY_LEFT;
-var dir_up = KEY_UP - KEY_DOWN;
+var dir_strafe = freezePlayer ? 0 : KEY_RIGHT - KEY_LEFT;
+var dir_up = freezePlayer ? 0 : KEY_UP - KEY_DOWN;
 var scale_x = 1;
-var scale_y = 0.75;
+var scale_y = 0.5;
 offX += lengthdir_x(dir_up, angle) - lengthdir_y(dir_strafe, angle);
 offY += lengthdir_y(dir_up, angle) + lengthdir_x(dir_strafe, angle);
 vX[@ 0] = scale_x * -lengthdir_y(1, angle);
