@@ -1,13 +1,13 @@
 {
-  "spriteId": {
-    "name": "katsaii_witchsplore_tree",
-    "path": "sprites/katsaii_witchsplore_tree/katsaii_witchsplore_tree.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "katsaii_witchsplore_inst",
+    "path": "objects/katsaii_witchsplore_inst/katsaii_witchsplore_inst.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,8 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -31,7 +31,7 @@
     "path": "folders/Microgames/katsaii/witchsplore.yy",
   },
   "resourceVersion": "1.0",
-  "name": "katsaii_witchsplore_inst",
+  "name": "katsaii_witchsplore_island",
   "tags": [],
   "resourceType": "GMObject",
 }

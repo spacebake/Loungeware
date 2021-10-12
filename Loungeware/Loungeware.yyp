@@ -284,6 +284,7 @@
     {"id":{"name":"space_scooter_snd_cheer","path":"sounds/space_scooter_snd_cheer/space_scooter_snd_cheer.yy",},"order":4,},
     {"id":{"name":"n8fl_escape1_win","path":"sounds/n8fl_escape1_win/n8fl_escape1_win.yy",},"order":2,},
     {"id":{"name":"katsaii_witchwanda_spr_cloud","path":"sprites/katsaii_witchwanda_spr_cloud/katsaii_witchwanda_spr_cloud.yy",},"order":1,},
+    {"id":{"name":"katsaii_witchsplore_island","path":"objects/katsaii_witchsplore_island/katsaii_witchsplore_island.yy",},"order":11,},
     {"id":{"name":"mimpy_firealarm_douse","path":"sounds/mimpy_firealarm_douse/mimpy_firealarm_douse.yy",},"order":0,},
     {"id":{"name":"mimpy_firealarm_drop","path":"sounds/mimpy_firealarm_drop/mimpy_firealarm_drop.yy",},"order":1,},
     {"id":{"name":"baku_chug_spr_confetti_blue","path":"sprites/baku_chug_spr_confetti_blue/baku_chug_spr_confetti_blue.yy",},"order":1,},
