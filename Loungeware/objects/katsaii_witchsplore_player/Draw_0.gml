@@ -1,3 +1,2 @@
 /// @desc Draw player.
-var skin = 
-draw_sprite(katsaii_witchsplore_wanda, 0, 0, 0);
+draw_sprite_ext(katsaii_witchsplore_wanda, image_index + (flipY ? 4 : 0), 0, 0, flipX ? -1 : 1, 1, 0, c_white, 1);

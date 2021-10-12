@@ -18,3 +18,16 @@ if (point_distance(trailX, trailY, offX, offY) > cam_trail_threshold) {
 }
 var angle_diff = angle_difference(angle, targetAngle);
 angle -= angle_diff * 0.025;
+// update sprite
+if (dir_up == 0 && dir_strafe == 0) {
+    image_index = 0;
+} else {
+    if (dir_up != 0) {
+        flipY = dir_up > 0;
+    }
+    if (dir_strafe != 0) {
+        flipX = dir_strafe < 0;
+    }
+    var images = [1, 2, 3, 2];
+    image_index = images[floor(current_time * 0.005 % 4)];
+}
