@@ -1,9 +1,12 @@
 /// @desc Initialise player.
 offX = xstart;
 offY = ystart;
+trailX = offX;
+trailY = offY;
 vX = [0, 0];
 vY = [0, 0];
 angle = 0;
+targetAngle = 0;
 x = 0;
 y = 0;
 view_enabled = true;
