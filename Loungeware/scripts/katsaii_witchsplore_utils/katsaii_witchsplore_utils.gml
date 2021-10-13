@@ -26,7 +26,7 @@ function katsaii_witchsplore_draw_island(_x, _y, _z, _w, _h, _depth=200) {
     var y4 = v[1];
     var step = 0.0125;
     var dark = -1;
-    draw_primitive_begin(pr_trianglestrip);
+    draw_primitive_begin(pr_trianglelist);
     for (var i = 0; i <= 1; i += step) {
         dark += 1;
         if (dark >= 4) {
@@ -36,11 +36,15 @@ function katsaii_witchsplore_draw_island(_x, _y, _z, _w, _h, _depth=200) {
                 dark < 2 ? KATSAII_WITCHSPLORE_CLIFF_DARK : KATSAII_WITCHSPLORE_CLIFF_LIGHT, i);
         if (1 - i < step) {
             col = KATSAII_WITCHSPLORE_CLIFF_GRASS;
+        } else if (1 - i < 2 * step) {
+            col = merge_colour(col, KATSAII_WITCHSPLORE_CLIFF_GRASS, 0.5);
         }
         var off_y = lerp(_z + _depth, _z, i);
         draw_vertex_color(x1, y1 + off_y, col, 1);
         draw_vertex_color(x2, y2 + off_y, col, 1);
         draw_vertex_color(x4, y4 + off_y, col, 1);
+        draw_vertex_color(x4, y4 + off_y, col, 1);
+        draw_vertex_color(x2, y2 + off_y, col, 1);
         draw_vertex_color(x3, y3 + off_y, col, 1);
     }
     draw_primitive_end();

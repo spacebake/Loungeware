@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 21,
-  "bbox_right": 42,
-  "bbox_top": 40,
-  "bbox_bottom": 62,
+  "bbox_left": 5,
+  "bbox_right": 53,
+  "bbox_top": 4,
+  "bbox_bottom": 63,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -121,6 +121,12 @@
     {"compositeImage":{"FrameId":{"name":"f572a27f-1ad7-4c55-8637-037c0765ee53","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"f572a27f-1ad7-4c55-8637-037c0765ee53","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":{"name":"dd3f5ffb-ef41-4a16-b548-dffc9e6f3d5d","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"katsaii_witchsplore_foliage","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"f572a27f-1ad7-4c55-8637-037c0765ee53","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b8d92d36-86ac-454f-9f24-d6d1763dd302","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b8d92d36-86ac-454f-9f24-d6d1763dd302","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":{"name":"dd3f5ffb-ef41-4a16-b548-dffc9e6f3d5d","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchsplore_foliage","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"b8d92d36-86ac-454f-9f24-d6d1763dd302","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"412514c3-5a7e-4967-931c-ca1f881b168f","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"412514c3-5a7e-4967-931c-ca1f881b168f","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"LayerId":{"name":"dd3f5ffb-ef41-4a16-b548-dffc9e6f3d5d","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchsplore_foliage","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","name":"412514c3-5a7e-4967-931c-ca1f881b168f","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"katsaii_witchsplore_foliage","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},
@@ -130,7 +136,7 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 6.0,
+    "length": 8.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
@@ -141,6 +147,8 @@
             {"id":"4e1430fe-3ff2-4ff2-a97e-3430032df859","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"cda27746-c3db-4c37-9af0-84a7a5bf3038","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"20d11cd7-3290-4c3d-8a80-951463a5c2e5","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"41e103d3-bd8c-4504-b0a1-0a5b59a31d0d","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"40ff8286-b470-48e9-828e-de1bbcfdb570","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f572a27f-1ad7-4c55-8637-037c0765ee53","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"26d611de-628b-4c25-b138-5727dd8dd7d7","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b8d92d36-86ac-454f-9f24-d6d1763dd302","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ef2c2abb-7b43-477d-9b5e-6d6712dc4a0c","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"412514c3-5a7e-4967-931c-ca1f881b168f","path":"sprites/katsaii_witchsplore_foliage/katsaii_witchsplore_foliage.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,

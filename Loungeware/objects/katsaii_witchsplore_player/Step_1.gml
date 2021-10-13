@@ -3,6 +3,7 @@ var dir_strafe = freezePlayer ? 0 : KEY_RIGHT - KEY_LEFT;
 var dir_up = freezePlayer ? 0 : KEY_UP - KEY_DOWN;
 if (!freezePlayer && jumpTimer == -1 && KEY_PRIMARY) {
     jumpTimer = 0;
+    sfx_play(katsaii_witchsplore_jump, 0.25, false);
 }
 var scale_x = 1;
 var scale_y = 0.5;
