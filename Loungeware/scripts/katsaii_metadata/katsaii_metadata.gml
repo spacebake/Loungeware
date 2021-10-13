@@ -85,7 +85,7 @@ microgame_register("katsaii_witchsplore", {
     default_is_fail : true,
     supports_difficulty_scaling : false,
     allow_subpixels : false,
-    credits : ["Katsaii"],
+    credits : ["Katsaii", "Mimpy", "net8floz"],
     date_added : {
         day : 11,
         month : "October",

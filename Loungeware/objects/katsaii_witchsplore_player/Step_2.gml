@@ -15,5 +15,4 @@ if (!collision && fallTimer == -1) {
     freezePlayer = true;
     alarm[0] = 2 * game_get_speed(gamespeed_fps);
     targetAngle += 180;
-    depth += 1000; // so that depth sorting with islands works correctly
 }

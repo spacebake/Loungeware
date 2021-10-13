@@ -22,11 +22,17 @@ var angle_diff = angle_difference(angle, targetAngle);
 angle -= angle_diff * 0.025;
 // update sprite
 if (fallTimer != -1) {
+    var last_time = fallTimer;
     fallTimer += 0.01;
+    if (last_time < 0.5 && fallTimer >= 0.5) {
+        var snd = sfx_play(katsaii_witchsplore_fail, 1, false);
+        audio_sound_pitch(snd, choose(1.2, 1.3, 1.1));
+    }
     flipY = false; // always look forwards
     if (fallTimer < 0.5) {
         image_index = 1;
     } else {
+        depth = 1000; // so that depth sorting with islands works correctly
         image_index = floor(lerp(8, 11.5, (fallTimer - 0.5) * 2));
     }
 } else if (dir_up == 0 && dir_strafe == 0) {
