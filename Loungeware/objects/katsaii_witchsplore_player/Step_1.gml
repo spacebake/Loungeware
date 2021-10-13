@@ -26,6 +26,8 @@ if (fallTimer != -1) {
     flipY = false; // always look forwards
     if (fallTimer < 0.5) {
         image_index = 1;
+    } else {
+        image_index = floor(lerp(8, 11.5, (fallTimer - 0.5) * 2));
     }
 } else if (dir_up == 0 && dir_strafe == 0) {
     image_index = 0;
