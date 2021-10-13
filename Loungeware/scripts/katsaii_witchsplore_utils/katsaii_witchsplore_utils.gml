@@ -51,6 +51,7 @@ function katsaii_witchsplore_draw_island(_x, _y, _z, _w, _h, _depth=200) {
 #macro KATSAII_WITCHSPLORE_CLIFF_DARK make_colour_rgb(110, 101, 98)
 #macro KATSAII_WITCHSPLORE_CLIFF_LIGHT make_colour_rgb(138, 123, 118)
 #macro KATSAII_WITCHSPLORE_CLIFF_GRASS make_colour_rgb(119, 158, 181)
+#macro KATSAII_WITCHSPLORE_CLIFF_FAR make_colour_rgb(205, 147, 154)
 
 //make_colour_rgb(145, 105, 92); //make_colour_rgb(140, 98, 74);
 //make_colour_rgb(193, 168, 135);
