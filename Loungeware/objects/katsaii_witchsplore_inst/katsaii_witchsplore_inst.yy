@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "katsaii_witchsplore_tree",
-    "path": "sprites/katsaii_witchsplore_tree/katsaii_witchsplore_tree.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

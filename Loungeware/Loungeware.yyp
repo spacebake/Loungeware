@@ -629,6 +629,7 @@
     {"id":{"name":"mimpy_duckdate_obj_table","path":"objects/mimpy_duckdate_obj_table/mimpy_duckdate_obj_table.yy",},"order":1,},
     {"id":{"name":"space_ll_snd_baku_gasp","path":"sounds/space_ll_snd_baku_gasp/space_ll_snd_baku_gasp.yy",},"order":0,},
     {"id":{"name":"___snd_henry_jazz","path":"sounds/___snd_henry_jazz/___snd_henry_jazz.yy",},"order":2,},
+    {"id":{"name":"katsaii_witchsplore_collider","path":"objects/katsaii_witchsplore_collider/katsaii_witchsplore_collider.yy",},"order":12,},
     {"id":{"name":"___spr_frogtype_midscale","path":"sprites/___spr_frogtype_midscale/___spr_frogtype_midscale.yy",},"order":19,},
     {"id":{"name":"tfg_swipe_fnt_game","path":"fonts/tfg_swipe_fnt_game/tfg_swipe_fnt_game.yy",},"order":9,},
     {"id":{"name":"n8fl_reach_for_it_mister_csahaun_spr","path":"sprites/n8fl_reach_for_it_mister_csahaun_spr/n8fl_reach_for_it_mister_csahaun_spr.yy",},"order":9,},

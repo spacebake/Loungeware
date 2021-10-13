@@ -10,16 +10,24 @@ vX[@ 1] = scale_y * -lengthdir_x(1, angle);
 vY[@ 0] = scale_x * lengthdir_x(1, angle);
 vY[@ 1] = scale_y * -lengthdir_y(1, angle);
 // update camera angle
-var cam_trail_threshold = 20;
-if (point_distance(trailX, trailY, offX, offY) > cam_trail_threshold) {
-    targetAngle = point_direction(trailX, trailY, offX, offY);
-    trailX = offX - lengthdir_x(cam_trail_threshold, targetAngle);
-    trailY = offY - lengthdir_y(cam_trail_threshold, targetAngle);
+if (fallTimer == -1) {
+    var cam_trail_threshold = 20;
+    if (point_distance(trailX, trailY, offX, offY) > cam_trail_threshold) {
+        targetAngle = point_direction(trailX, trailY, offX, offY);
+        trailX = offX - lengthdir_x(cam_trail_threshold, targetAngle);
+        trailY = offY - lengthdir_y(cam_trail_threshold, targetAngle);
+    }
 }
 var angle_diff = angle_difference(angle, targetAngle);
 angle -= angle_diff * 0.025;
 // update sprite
-if (dir_up == 0 && dir_strafe == 0) {
+if (fallTimer != -1) {
+    fallTimer += 0.01;
+    flipY = false; // always look forwards
+    if (fallTimer < 0.5) {
+        image_index = 1;
+    }
+} else if (dir_up == 0 && dir_strafe == 0) {
     image_index = 0;
 } else {
     if (dir_up != 0) {
