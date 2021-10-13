@@ -14,12 +14,8 @@
   ],
   "layers": [
     {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_player","path":"objects/katsaii_witchsplore_player/katsaii_witchsplore_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":96.0,"resourceVersion":"1.0","name":"inst_71A1215D","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_exit","path":"objects/katsaii_witchsplore_exit/katsaii_witchsplore_exit.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":257.0,"y":-6.0,"resourceVersion":"1.0","name":"inst_9BDE88A","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_background","path":"objects/katsaii_witchsplore_background/katsaii_witchsplore_background.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,"resourceVersion":"1.0","name":"inst_42D88E60","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_island","path":"objects/katsaii_witchsplore_island/katsaii_witchsplore_island.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":100.0,"y":95.0,"resourceVersion":"1.0","name":"inst_1838EE55","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_island","path":"objects/katsaii_witchsplore_island/katsaii_witchsplore_island.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":148.0,"y":19.0,"resourceVersion":"1.0","name":"inst_6D84B1C5","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_island","path":"objects/katsaii_witchsplore_island/katsaii_witchsplore_island.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":226.0,"y":-9.0,"resourceVersion":"1.0","name":"inst_3C28A366","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_player","path":"objects/katsaii_witchsplore_player/katsaii_witchsplore_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,"resourceVersion":"1.0","name":"inst_71A1215D","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"katsaii_witchsplore_background","path":"objects/katsaii_witchsplore_background/katsaii_witchsplore_background.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":32.0,"y":0.0,"resourceVersion":"1.0","name":"inst_42D88E60","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
   ],
   "inheritLayers": false,
@@ -27,11 +23,7 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_71A1215D","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
-    {"name":"inst_9BDE88A","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
     {"name":"inst_42D88E60","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
-    {"name":"inst_1838EE55","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
-    {"name":"inst_6D84B1C5","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
-    {"name":"inst_3C28A366","path":"rooms/katsaii_witchsplore_rm/katsaii_witchsplore_rm.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

@@ -1,4 +1,30 @@
 
+function katsaii_witchsplore_generate_island(_x, _y, _w, _h) {
+    with (instance_create_layer(_x, _y, layer, katsaii_witchsplore_island)) {
+        width = _w;
+        height = _h;
+    }
+}
+
+function katsaii_witchsplore_generate_goal(_x, _y) {
+    instance_create_layer(_x, _y, layer, katsaii_witchsplore_exit);
+}
+
+function katsaii_witchsplore_generate_random_level() {
+    switch (irandom(0)) {
+    case 0:
+        var widths = [20, 13, 10, 7, 5];
+        var lengths = [100, 200, 300, 350, 400];
+        var width = widths[DIFFICULTY - 1];
+        var length = lengths[DIFFICULTY - 1];
+        katsaii_witchsplore_generate_island(0, 0, 100, 100);
+        katsaii_witchsplore_generate_island(50 + length / 2, 0, length, width);
+        katsaii_witchsplore_generate_island(100 + length, 0, 100, 100);
+        katsaii_witchsplore_generate_goal(100 + length, 0);
+        break;
+    }
+}
+
 function katsaii_witchsplore_transform_point(_x, _y) {
     static arr = [0, 0];
     var off_x = _x - katsaii_witchsplore_player.offX;
