@@ -25,12 +25,15 @@ function katsaii_witchsplore_draw_island(_x, _y, _z, _w, _h, _depth=200) {
     var x4 = v[0];
     var y4 = v[1];
     var step = 0.0125;
-    var dark = true;
+    var dark = -1;
     draw_primitive_begin(pr_trianglestrip);
     for (var i = 0; i <= 1; i += step) {
-        dark = !dark;
+        dark += 1;
+        if (dark >= 4) {
+            dark = 0;
+        }
         var col = merge_color(KATSAII_WITCHSPLORE_SKY_PINK,
-                dark ? KATSAII_WITCHSPLORE_CLIFF_DARK : KATSAII_WITCHSPLORE_CLIFF_LIGHT, i);
+                dark < 2 ? KATSAII_WITCHSPLORE_CLIFF_DARK : KATSAII_WITCHSPLORE_CLIFF_LIGHT, i);
         if (1 - i < step) {
             col = KATSAII_WITCHSPLORE_CLIFF_GRASS;
         }
