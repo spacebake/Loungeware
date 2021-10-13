@@ -1,6 +1,6 @@
 /// @desc Initialise island.
 event_inherited();
 background = true;
-width = 500;
-height = 500;
+width = 50;
+height = 50;
 alarm[0] = 1;
