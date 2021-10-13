@@ -1,4 +1,7 @@
 /// @desc Check collisions.
+if (jumpTimer != -1) {
+    exit;
+}
 var collision = false;
 var off_x = offX;
 var off_y = offY;

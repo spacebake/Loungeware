@@ -1,6 +1,9 @@
 /// @desc Update position.
 var dir_strafe = freezePlayer ? 0 : KEY_RIGHT - KEY_LEFT;
 var dir_up = freezePlayer ? 0 : KEY_UP - KEY_DOWN;
+if (!freezePlayer && jumpTimer == -1 && KEY_PRIMARY) {
+    jumpTimer = 0;
+}
 var scale_x = 1;
 var scale_y = 0.5;
 offX += lengthdir_x(dir_up, angle) - lengthdir_y(dir_strafe, angle);
@@ -19,9 +22,14 @@ if (fallTimer == -1) {
     }
 }
 var angle_diff = angle_difference(angle, targetAngle);
-angle -= angle_diff * 0.025;
+angle -= angle_diff * 0.01;
 // update sprite
-if (fallTimer != -1) {
+if (jumpTimer != -1) {
+    jumpTimer += 0.03;
+    if (jumpTimer > 1) {
+        jumpTimer = -1;
+    }
+} else if (fallTimer != -1) {
     var last_time = fallTimer;
     fallTimer += 0.01;
     if (last_time < 0.5 && fallTimer >= 0.5) {
