@@ -11,7 +11,7 @@ function katsaii_witchsplore_generate_goal(_x, _y) {
 }
 
 function katsaii_witchsplore_generate_random_level() {
-    switch (irandom(0)) {
+    switch (irandom(1)) {
     case 0:
         var widths = [20, 13, 10, 7, 5];
         var lengths = [100, 200, 300, 350, 400];
@@ -21,6 +21,34 @@ function katsaii_witchsplore_generate_random_level() {
         katsaii_witchsplore_generate_island(50 + length / 2, 0, length, width);
         katsaii_witchsplore_generate_island(100 + length, 0, 100, 100);
         katsaii_witchsplore_generate_goal(100 + length, 0);
+        break;
+    case 1:
+        var seps = [15, 20, 25, 30, 35];
+        var rads = [[50, 75], [40, 75], [30, 55], [15, 35], [5, 15]];
+        var sep = seps[DIFFICULTY - 1];
+        var rad_minmax = rads[DIFFICULTY - 1];
+        var pivot_x = 0;
+        var pivot_y = 0;
+        var rad = 100;
+        var angle = 0;
+        katsaii_witchsplore_generate_island(pivot_x, pivot_y, rad, rad);
+        for (var i = 5; i >= 0; i -= 1) {
+            angle += random_range(-45, 45);
+            var jump_x = lengthdir_x(1, angle);
+            var jump_y = lengthdir_y(1, angle);
+            var next_rad = i == 0 ? 100 : random_range(rad_minmax[0], rad_minmax[1]);
+            var jump_target = rad / 2 + next_rad / 2 + sep;
+            var jump_x_scale = jump_target / abs(jump_x);
+            var jump_y_scale = jump_target / abs(jump_y);
+            var jump_scale = min(jump_x_scale, jump_y_scale);
+            pivot_x += jump_x * jump_scale;
+            pivot_y += jump_y * jump_scale;
+            rad = next_rad;
+            katsaii_witchsplore_generate_island(pivot_x, pivot_y, rad, rad);
+            if (i == 0) {
+                katsaii_witchsplore_generate_goal(pivot_x, pivot_y);
+            }
+        }
         break;
     }
 }
