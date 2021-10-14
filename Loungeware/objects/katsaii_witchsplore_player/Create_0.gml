@@ -12,6 +12,7 @@ flipY = false;
 freezePlayer = false;
 fallTimer = -1;
 jumpTimer = -1;
+allowJump = true;
 x = 0;
 y = 0;
 view_enabled = true;

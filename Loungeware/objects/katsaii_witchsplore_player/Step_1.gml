@@ -1,9 +1,17 @@
 /// @desc Update position.
 var dir_strafe = freezePlayer ? 0 : KEY_RIGHT - KEY_LEFT;
 var dir_up = freezePlayer ? 0 : KEY_UP - KEY_DOWN;
-if (!freezePlayer && jumpTimer == -1 && KEY_PRIMARY) {
-    jumpTimer = 0;
-    sfx_play(katsaii_witchsplore_jump, 0.25, false);
+if (allowJump) {
+    if (!freezePlayer && jumpTimer == -1 && KEY_PRIMARY) {
+        allowJump = false;
+        jumpTimer = 0;
+        sfx_play(katsaii_witchsplore_jump, 0.25, false);
+        // set image index prematurely
+        image_index = flipY ? 13 : 12;
+        flipY = false; // silly hack because of how the jump animation is set up
+    }
+} else if (KEY_PRIMARY_RELEASED) {
+    allowJump = true;
 }
 var scale_x = 1;
 var scale_y = 0.5;
@@ -26,9 +34,15 @@ var angle_diff = angle_difference(angle, targetAngle);
 angle -= angle_diff * 0.01;
 // update sprite
 if (jumpTimer != -1) {
+    var jump_prev = jumpTimer;
     jumpTimer += 0.03;
+    if (jump_prev < 0.5 && jumpTimer >= 0.5) {
+        image_index = image_index == 13 ? 5 : 1;
+    }
     if (jumpTimer > 1) {
         jumpTimer = -1;
+        flipY = image_index == 13 || image_index == 5;
+        image_index = 0;
     }
 } else if (fallTimer != -1) {
     var last_time = fallTimer;
