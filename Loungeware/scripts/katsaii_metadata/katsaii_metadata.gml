@@ -65,23 +65,23 @@ microgame_register("katsaii_witchwanda", {
     how_to_play: ["Use the primary keys to fire bullets at opposing witches. Holding down continuous fire will decrease the rate of fire over time, so try to fire in bursts. Use the arrow keys to move around and avoid the projectiles."],
 });
 
-microgame_register("katsaii_witchsplore", {
+microgame_register("katsaii_wandaxplore", {
     config_version : 1,
-    game_name : "Witchsplore",
+    game_name : "Wandaxplore",
     authors : {
         katsaii : "Katsaii",
     },
     prompt : "EXPLORE",
-    init_room : katsaii_witchsplore_rm,
+    init_room : katsaii_wandaxplore_rm,
     view_width : -1,
     view_height : -1,
     time_seconds : 12,
-    music_track : katsaii_witchsplore_bgm,
+    music_track : katsaii_wandaxplore_bgm,
     music_loops : false,
     interpolation_on : false,
     cartridge_col_primary : [204, 107, 102], // [214, 184, 206], // [205, 147, 154], //[254, 238, 235], //[255, 191, 190],
     cartridge_col_secondary : [232, 182, 181], //[155, 197, 230],
-    cartridge_label : katsaii_witchsplore_label,
+    cartridge_label : katsaii_wandaxplore_label,
     default_is_fail : true,
     supports_difficulty_scaling : false,
     allow_subpixels : false,
