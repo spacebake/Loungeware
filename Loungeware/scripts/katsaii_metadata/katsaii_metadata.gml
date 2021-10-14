@@ -79,11 +79,11 @@ microgame_register("katsaii_wandaxplore", {
     music_track : katsaii_wandaxplore_bgm,
     music_loops : false,
     interpolation_on : false,
-    cartridge_col_primary : [204, 107, 102], // [214, 184, 206], // [205, 147, 154], //[254, 238, 235], //[255, 191, 190],
-    cartridge_col_secondary : [232, 182, 181], //[155, 197, 230],
+    cartridge_col_primary : [100, 133, 153],
+    cartridge_col_secondary : [119, 158, 181],
     cartridge_label : katsaii_wandaxplore_label,
     default_is_fail : true,
-    supports_difficulty_scaling : false,
+    supports_difficulty_scaling : true,
     allow_subpixels : false,
     credits : ["Katsaii", "Mimpy", "net8floz"],
     date_added : {
@@ -94,6 +94,6 @@ microgame_register("katsaii_wandaxplore", {
     is_enabled : true,
     supports_html : true,
     show_on_website : true,
-    description : ["Explore an open world and find the goal!"],
+    description : ["Solve platforming puzzles to find your broom!"],
     how_to_play: ["Use the arrow keys to navigate and the button keys to jump over obstacles."],
 });
