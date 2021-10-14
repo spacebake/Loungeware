@@ -13,26 +13,80 @@ function katsaii_witchsplore_generate_goal(_x, _y) {
 function katsaii_witchsplore_generate_random_level() {
     switch (irandom(1)) {
     case 0:
-        var widths = [20, 13, 10, 7, 5];
-        var lengths = [100, 200, 300, 350, 400];
-        var width = widths[DIFFICULTY - 1];
-        var length = lengths[DIFFICULTY - 1];
-        katsaii_witchsplore_generate_island(0, 0, 100, 100);
-        katsaii_witchsplore_generate_island(50 + length / 2, 0, length, width);
-        katsaii_witchsplore_generate_island(100 + length, 0, 100, 100);
-        katsaii_witchsplore_generate_goal(100 + length, 0);
+        var width = 5;
+        var length = 75;
+        var rad = 50;
+        var pivot_x = 0;
+        var pivot_y = 0;
+        var grid_x = 0;
+        var grid_y = 0;
+        var grid = ds_map_create();
+        katsaii_witchsplore_generate_island(pivot_x, pivot_y, rad, rad);
+        grid[? string([round(grid_x), round(grid_y)])] = true;
+        var angle_last = 0;
+        for (var i = DIFFICULTY - 1; i >= 0; i -= 1) {
+            var jump_grid_x, jump_grid_y;
+            var angle;
+            do {
+                angle = irandom(3);
+            } until (angle != angle_last);
+            switch (angle) {
+            case 0:
+                jump_grid_x = 0;
+                jump_grid_y = 1;
+                break;
+            case 1:
+                jump_grid_x = 0;
+                jump_grid_y = -1;
+                break;
+            case 2:
+                jump_grid_x = 1;
+                jump_grid_y = 0;
+                break;
+            case 3:
+                jump_grid_x = -1;
+                jump_grid_y = 0;
+                break;
+            }
+            if (ds_map_exists(grid, string([round(grid_x + jump_grid_x), round(grid_y + jump_grid_y)]))) {
+                i += 1;
+                continue;
+            }
+            log([angle, angle_last]);
+            angle_last = angle;
+            var jump_x = (rad + length) / 2 * jump_grid_x;
+            var jump_y = (rad + length) / 2 * jump_grid_y;
+            grid_x += jump_grid_x;
+            grid_y += jump_grid_y;
+            pivot_x += jump_x;
+            pivot_y += jump_y;
+            var random_scale = choose(1, 1, 1, 1, 0.5);
+            katsaii_witchsplore_generate_island(pivot_x, pivot_y,
+                    jump_grid_x != 0 ? random_scale * length : width,
+                    jump_grid_x != 0 ? width : random_scale * length);
+            pivot_x += jump_x;
+            pivot_y += jump_y;
+            katsaii_witchsplore_generate_island(pivot_x, pivot_y, rad, rad);
+            grid[? string([round(grid_x), round(grid_y)])] = true;
+            if (i == 0) {
+                katsaii_witchsplore_generate_goal(pivot_x, pivot_y);
+            }
+        }
+        ds_map_destroy(grid);
         break;
     case 1:
-        var seps = [15, 20, 25, 30, 35];
+        var seps = [13, 17, 20, 23, 28];
         var rads = [[50, 75], [40, 75], [30, 55], [15, 35], [5, 15]];
+        var counts = [3, 4, 5, 5, 6];
         var sep = seps[DIFFICULTY - 1];
         var rad_minmax = rads[DIFFICULTY - 1];
+        var count = counts[DIFFICULTY - 1];
         var pivot_x = 0;
         var pivot_y = 0;
         var rad = 100;
         var angle = 0;
         katsaii_witchsplore_generate_island(pivot_x, pivot_y, rad, rad);
-        for (var i = 5; i >= 0; i -= 1) {
+        for (var i = count; i >= 0; i -= 1) {
             angle += random_range(-45, 45);
             var jump_x = lengthdir_x(1, angle);
             var jump_y = lengthdir_y(1, angle);

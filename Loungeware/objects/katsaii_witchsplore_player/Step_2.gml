@@ -5,10 +5,11 @@ if (jumpTimer != -1) {
 var collision = false;
 var off_x = offX;
 var off_y = offY;
+var hitbox_radius = 5;
 with (katsaii_witchsplore_collider) {
     var pos_x = clamp(off_x, xstart - width / 2, xstart + width / 2);
     var pos_y = clamp(off_y, ystart - height / 2, ystart + height / 2);
-    if (point_distance(off_x, off_y, pos_x, pos_y) < 10) {
+    if (point_distance(off_x, off_y, pos_x, pos_y) < hitbox_radius) {
         collision = true;
     }
 }
