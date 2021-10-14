@@ -115,6 +115,7 @@ function ___state_setup(_starting_state){
 	subsubstate = 0;
 	store_substate = 0;
 	substate_begin = false;
+	force_substate = noone;
 }
 
 // ------------------------------------------------------------------------------------------
@@ -323,7 +324,7 @@ function ___sound_menu_tick_vertical(){
 	var _snd_id = audio_play_sound(_snd_index, 0, 0);
 	var _vol = 0.8 * VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index);
 	audio_sound_gain(_snd_id, _vol, 0);
-	audio_sound_pitch(_snd_id, 1);
+	audio_sound_pitch(_snd_id, 0.99 + random(0.01));
 }
 
 function ___sound_menu_tick_horizontal(){
@@ -731,4 +732,70 @@ function ___struct_to_ds_list(_struct){
 		ds_list_add(_val);
 	}
 	return _list;
+}
+
+// ------------------------------------------------------------------------------------------
+// takes a sign (to be used for menu navigation) and returns another sign based on timers, for fluid menu movement (hard to describe, just read the code)
+// ------------------------------------------------------------------------------------------
+function ___menu_sign_timed_input_horizontal(_sign){
+	static _sign_prev = 0;
+	static _input_cd = 0;
+	var _input_cd__max_initial = 20;
+	var _input_cd_max_subsequent = 4;
+	
+	if (_sign == 0){
+		_input_cd = 0;
+		_sign_prev = _sign;
+		return 0;
+	} 
+	
+	if (_sign != _sign_prev){
+		_input_cd = _input_cd__max_initial;
+		_sign_prev = _sign;
+		return _sign;
+	}
+	
+	if (_sign == _sign_prev){
+		if (_input_cd > 0){
+			_input_cd = max(0, _input_cd - 1);
+			return 0;
+		} else {
+			_input_cd = _input_cd_max_subsequent;
+			_sign_prev = _sign;
+			return _sign;
+		}
+	}
+}
+
+// ------------------------------------------------------------------------------------------
+// same as previous functions, but this needs to be seperate so that 
+// ------------------------------------------------------------------------------------------
+function ___menu_sign_timed_input_vertical(_sign){
+	static _sign_prev = 0;
+	static _input_cd = 0;
+	var _input_cd__max_initial = 30;
+	var _input_cd_max_subsequent = 4;
+	
+	if (_sign == 0){
+		_input_cd = 0;
+		_sign_prev = _sign;
+		return 0;
+	} 
+	
+	if (_sign != _sign_prev){
+		_input_cd = _input_cd__max_initial;
+		_sign_prev = _sign;
+		return _sign;
+	}
+	
+	if (_sign == _sign_prev){
+		if (_input_cd > 0){
+			_input_cd = max(0, _input_cd - 1);
+			return 0;
+		} else {
+			_input_cd = _input_cd_max_subsequent;
+			_sign_prev = _sign;
+			return _sign;
+		}
+	}
 }
