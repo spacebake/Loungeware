@@ -73,7 +73,7 @@ passed_bench = false;
 
 // Crashing
 crashed = false;
-collide_y = -50;
+collide_y = -45;
 crash_dir = 0;
 crash_landed = false;
 
