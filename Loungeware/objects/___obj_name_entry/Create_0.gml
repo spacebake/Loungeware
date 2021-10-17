@@ -9,6 +9,7 @@ col_bar = make_color_rgb(45, 41, 66);
 
 name = "";
 name_max_chars = 11;
+name_min_chars = 3;
 
 allowed_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 allowed_numbers = "0123456789";
@@ -16,7 +17,8 @@ allowed_special = "-_";
 allowed_chars = allowed_letters + allowed_numbers + allowed_special;
 name_confirmed = false;
 
-score_int = 5400;
+score_int = variable_struct_get(___global.score_last_as_obj, "points");
+score_id_local = variable_struct_get(___global.score_last_as_obj, "score_id_local");
 score_string = "";
 
 letter_count = 0;
@@ -44,7 +46,13 @@ input_y_offset = 0;
 input_prompt_alpha = 1;
 input_lettershake = 0;
 
-show_confimation_text = false;
+input_error_msg = "";
+input_error_show = false;
+input_error_shake = 0;
+input_error_shake_max = 10;
+input_error_alpha = 0;
+
+
 confirmation_alpha = 0;
 
 input_text_col = c_gbwhite;
@@ -274,19 +282,102 @@ function ___menu_sign_timed_input_vertical(_sign){
 	}
 }
 
+post_id = noone;
+http_error_msg = "ERROR";
 
 function sbmt_scr(){
 	
+	// TO DO:
+	// make sure score is submitted with a local ID to prevent double post
+	// do a check on name length before allowing name submission, currently you can still attempt to submit ""
+	
 	var _data = {
-		name: "asdasda",
+		name: name,
 		points: score_int,
 		str: "if you cheat at this game you're a fuggin loser",
 		sprite: sprite_get_name(isd_icon_spr),
 		frame: isd_cursor_index,
+		score_id_local: score_id_local,
+		player_id: ___global.player_id,
 	}
+	
+	store_submitted_score_id("hello");
 	var _json = json_stringify(_data);
 	var _url = "ht"+"tps:"+"//ww"+"w.spa"+"cebak"+"e.xy"+"z/loung";
 	_url += "eware_lea"+"derboard/subm"+"it_sco"+"re.p"+"hp";
-	http_post_string(_url, _json);
+	post_id = http_post_string(_url, _json);
 }
 
+
+function throw_http_error(_msg){
+	http_error_msg = _msg;
+	show_message("ERROR: " + string(_msg));
+}
+
+score_id_list = [];
+score_list_fp = "score_id_list.lw"
+function store_submitted_score_id(_id){
+	
+	score_id_list = load_submitted_score_id_list();
+	array_push(score_id_list, _id);
+	
+	// save score here
+	var _file = file_text_open_write(score_list_fp);
+	var _json = json_stringify(score_id_list);
+	file_text_write_string(_file, _json);
+	file_text_close(_file);
+}
+
+function load_submitted_score_id_list(){
+	
+		var _file_exists = file_exists(score_list_fp);
+		var _json_is_valid = false;
+		var _data;
+		
+		if (_file_exists){
+			var _file = file_text_open_read(score_list_fp);
+			var _json = file_text_read_string(_file);
+			try {
+				_data = json_parse(_json);
+				_json_is_valid = true;
+			}
+			catch(_exception){
+				show_debug_message(_exception.message);
+				file_delete(score_list_fp);
+			}
+		
+			file_text_close(_file);
+		}
+		
+		if (_json_is_valid){
+			return _data;
+		} else {
+			return [];
+		}
+}
+
+input_error_msg_queued = "";
+function input_name_validate(_name){
+	input_error_msg_queued = "";
+	var _len = string_length(_name);
+	var _letter_count = 0;
+	var _min_letters = 3; // letters not the same as characters
+	for (var i = 0; i < string_length(_name); i++){
+		var _char = string_char_at(_name, i+1);
+		if (string_has_char(allowed_letters, _char)){
+			_letter_count += 1;
+
+		}
+	}
+	
+	if (_letter_count < _min_letters) input_error_msg_queued = "NAME MUST CONTAIN AT LEAST " + string(_min_letters) + " LETTERS";
+	if (_len < name_min_chars) input_error_msg_queued = "NAME MUST BE AT LEAST " + string(name_min_chars) + " CHARACTERS";
+	if (_len > name_max_chars) input_error_msg_queued = "IDK HOW YOU DID THAT BUT NAME MUST BE " + string(name_max_chars) + " OR FEWER";
+	
+	if (input_error_msg_queued != ""){
+		return false;
+	}
+	
+	input_error_show = false;
+	return true;
+}

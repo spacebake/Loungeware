@@ -799,3 +799,52 @@ function ___menu_sign_timed_input_vertical(_sign){
 		}
 	}
 }
+
+// ------------------------------------------------------------------------------------------
+function ___uniqid(){
+	var _len = 13;
+	var _chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	var _str = "";
+	for (var i = 0; i < _len; i++){
+		_str += string_char_at(_chars, random_range(1, string_length(_chars)));
+	}
+	return _str;
+}
+
+// ------------------------------------------------------------------------------------------
+function ___store_score_for_submission(_score){
+	___global.score_last_as_obj = {points: _score, score_id_local: ___uniqid()}
+}
+
+// ------------------------------------------------------------------------------------------
+// returns the current player id if it exists in save file, otherwise: creates a new one and saves it
+// ------------------------------------------------------------------------------------------
+function ___load_or_create_player_id(){
+	var _path = "pid.lw";
+	var _file_exists = file_exists(_path);
+	var _id_is_valid = false;
+	var _id;
+	var _file;
+		
+	if (_file_exists){
+		_file = file_text_open_read(_path);
+		_id = file_text_read_string(_file);
+		if (string_length(_id) == 13){
+			_id_is_valid = true;
+		} else {
+			show_debug_message("invalid pid");
+			file_delete(_path);
+		}
+		
+		file_text_close(_file);
+	}
+		
+	if (!_id_is_valid){
+		_id = ___uniqid();
+		_file = file_text_open_write(_path);
+		file_text_write_string(_file, _id);
+		file_text_close(_file); 
+	}
+	
+	return _id;
+}

@@ -892,6 +892,7 @@ if (state == "end_screen"){
 		pause_enabled = false;
 		load_local_scores();
 		add_score_to_board_local(ou_score_display);
+		___store_score_for_submission(ou_score_display);
 		var _sng = (es_score_in_scoreboard) ? ___sng_zandy_foo : ___sng_zandy_foo_lose;
 		es_song_id = ___play_song(_sng, 1, true);
 	}

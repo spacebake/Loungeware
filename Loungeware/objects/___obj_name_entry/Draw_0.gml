@@ -81,6 +81,15 @@ if (draw_input_box){
 
 	}
 	
+	if (input_error_show){
+		draw_set_color(c_gbpink);
+		var _store_font = draw_get_font();
+		draw_set_font(fnt_frogtype);
+		var _str_final = "<shake," + string(input_error_shake/2) + ">" +  input_error_msg;
+		___global.___draw_text_advanced(VIEW_W/2, _name_y + 57, 30, true, true, _str_final, 1, 1, 2);
+		draw_set_font(_store_font);
+	}
+	
 	if (icon_selection_draw_enabled && isd_show_prompt){
 		draw_set_alpha(isd_prompt_alpha);
 		draw_set_color(c_gbyellow);

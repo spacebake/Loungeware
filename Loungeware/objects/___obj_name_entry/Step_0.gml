@@ -1,6 +1,8 @@
 if (keyboard_check_pressed(vk_space)){
-	name = "heeelloo";
-	sbmt_scr();
+		
+
+	var _url = "https://www.spacebake.xyz/loungeware_leaderboard/get_scores.php";
+	post_id = http_get(_url);
 }
 
 
@@ -98,12 +100,21 @@ if (state == "entry"){
 	
 	keyboard_string_prev = keyboard_string;
 	name = keyboard_string;
+	input_name_validate(name);
 	
 	if (keyboard_check_pressed(vk_enter)){
-		input_lettershake = 10;
-		last_letter_timer = 0;
-		___state_change("transition_to_icon_selection");
-		___sound_menu_select();
+		
+		if (input_name_validate(name)){
+			input_lettershake = 10;
+			last_letter_timer = 0;
+			___state_change("transition_to_icon_selection");
+			___sound_menu_select();
+		} else {
+			___play_sfx(___snd_bumper, 0.08, 2.2 + random(0.01));
+			input_error_show = true;
+			input_error_shake = input_error_shake_max;
+			input_error_msg = input_error_msg_queued;
+		}
 	}
 	
 	
@@ -308,6 +319,7 @@ if (state == "confirmation_screen"){
 		if (substate_begin){
 
 			// send score
+			// begin a timer, if no response in recieved before timer runs out, go to timeout page
 		}
 	}
 		
@@ -415,3 +427,5 @@ backfade_alpha = max(0, backfade_alpha - (1/backfade_alpha_time));
 
 confirm_menu_y_target = (draw_confirm_menu) ? confirm_menu_y_show : confirm_menu_y_hidden;
 confirm_menu_y = ___smooth_move(confirm_menu_y, confirm_menu_y_target, 2, 5);
+input_error_shake = max(input_error_shake - 1, 0);
+input_error_alpha = toggle_fade(input_error_alpha,  input_error_show, 5);

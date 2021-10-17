@@ -28,9 +28,12 @@ function ___GAME_INIT(){
 	___global.macro_c_gbdark = make_color_rgb(31,27,37);
 	
 	// local scores
+	___global.player_id = ___load_or_create_player_id();
 	___global.scores_local = [];
 	___global.scores_local_count_max = 5;
 	___global.scores_local_fp = "local_scores.lw";
+	___global.score_last_as_obj = noone;
+	___global.score_allow_submission = false;
 
 	// default inputs
 	___global.default_input_keys = {
