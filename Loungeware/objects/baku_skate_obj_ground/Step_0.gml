@@ -1,4 +1,6 @@
 
+spd = baku_skate_obj_game.spd;
+
 x -= lengthdir_x(spd, dir);
 y -= lengthdir_y(spd, dir);
 
