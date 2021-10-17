@@ -1,0 +1,22 @@
+/// @desc Initialise player.
+offX = xstart;
+offY = ystart;
+trailX = offX;
+trailY = offY;
+vX = [0, 0];
+vY = [0, 0];
+angle = random(360);
+targetAngle = 0;
+flipX = false;
+flipY = false;
+freezePlayer = false;
+fallTimer = -1;
+jumpTimer = -1;
+allowJump = true;
+x = 0;
+y = 0;
+view_enabled = true;
+view_set_visible(0, true);
+camera_set_view_pos(view_camera[0], -floor(room_width / 2), -floor(room_height / 1.25));
+image_speed = 0;
+katsaii_wandaxplore_generate_random_level();
