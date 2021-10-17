@@ -432,6 +432,7 @@
     {"id":{"name":"baku_mine_rm","path":"rooms/baku_mine_rm/baku_mine_rm.yy",},"order":6,},
     {"id":{"name":"___snd_microgame_heart_pop","path":"sounds/___snd_microgame_heart_pop/___snd_microgame_heart_pop.yy",},"order":2,},
     {"id":{"name":"katsaii_witchwanda_spr_witch_a","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"order":2,},
+    {"id":{"name":"___obj_leaderboard","path":"objects/___obj_leaderboard/___obj_leaderboard.yy",},"order":9,},
     {"id":{"name":"___sng_microgame_lose","path":"sounds/___sng_microgame_lose/___sng_microgame_lose.yy",},"order":0,},
     {"id":{"name":"___sng_microgame_win","path":"sounds/___sng_microgame_win/___sng_microgame_win.yy",},"order":1,},
     {"id":{"name":"sng_zandy_ratatooey","path":"sounds/sng_zandy_ratatooey/sng_zandy_ratatooey.yy",},"order":22,},

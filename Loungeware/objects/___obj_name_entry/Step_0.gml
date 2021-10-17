@@ -1,8 +1,8 @@
 if (keyboard_check_pressed(vk_space)){
 		
 
-	var _url = "https://www.spacebake.xyz/loungeware_leaderboard/get_scores.php";
-	post_id = http_get(_url);
+	var _url = ___BASE_URL + "/loungeware_leaderboard/get_scores.php";
+	//post_id = http_get(_url);
 }
 
 

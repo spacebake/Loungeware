@@ -223,7 +223,7 @@ function ___GAME_INIT(){
 		//___MG_MNGR.restartable = true;
 		
 		room_goto(___rm_main_menu);
-		instance_create_layer(0, 0, layer, ___obj_name_entry)
+		instance_create_layer(0, 0, layer, ___obj_leaderboard)
 	
 	
 	// if game is running in browser
