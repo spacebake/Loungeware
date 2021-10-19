@@ -678,6 +678,7 @@
     {"id":{"name":"sam_cd_snd_thats_it","path":"sounds/sam_cd_snd_thats_it/sam_cd_snd_thats_it.yy",},"order":5,},
     {"id":{"name":"n8fl_reach_for_it_mister_label","path":"sprites/n8fl_reach_for_it_mister_label/n8fl_reach_for_it_mister_label.yy",},"order":11,},
     {"id":{"name":"space_ll_rm_main","path":"rooms/space_ll_rm_main/space_ll_rm_main.yy",},"order":0,},
+    {"id":{"name":"katsaii_wandaring_label","path":"sprites/katsaii_wandaring_label/katsaii_wandaring_label.yy",},"order":0,},
     {"id":{"name":"kilo_jaywalker_sprJayWalkerDown","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"order":1,},
     {"id":{"name":"katsaii_witchcraft_3","path":"sprites/katsaii_witchcraft_3/katsaii_witchcraft_3.yy",},"order":2,},
     {"id":{"name":"sam_cs_spr_ending","path":"sprites/sam_cs_spr_ending/sam_cs_spr_ending.yy",},"order":5,},
@@ -1109,6 +1110,7 @@
     {"folderPath":"folders/Microgames/baku/skate/Sound.yy","order":4,"resourceVersion":"1.0","name":"Sound","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/baku/skate/Shaders.yy","order":5,"resourceVersion":"1.0","name":"Shaders","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Microgames/katsaii/wandaxplore.yy","order":3,"resourceVersion":"1.0","name":"wandaxplore","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Microgames/katsaii/wandaring.yy","order":4,"resourceVersion":"1.0","name":"wandaring","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
@@ -1120,7 +1122,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"index.html","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.399",
+    "IDEVersion": "23.1.1.408",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",

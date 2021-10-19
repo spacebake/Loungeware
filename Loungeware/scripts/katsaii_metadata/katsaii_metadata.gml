@@ -97,3 +97,37 @@ microgame_register("katsaii_wandaxplore", {
     description : ["Solve platforming puzzles to find your broom!"],
     how_to_play: ["Use the arrow keys to navigate and the button keys to jump over obstacles."],
 });
+
+microgame_register("katsaii_wandaring", {
+    config_version : 1,
+    game_name : "Wandaring Candyland",
+    authors : {
+        katsaii : "Katsaii",
+        mashmerlow : "Mashmerlow",
+    },
+    prompt : "COLLECT STARS",
+    init_room : katsaii_wandaxplore_rm,
+    view_width : -1,
+    view_height : -1,
+    time_seconds : 12,
+    music_track : katsaii_wandaxplore_bgm,
+    music_loops : false,
+    interpolation_on : false,
+    cartridge_col_primary : [85, 67, 122], //[255, 218, 161],
+    cartridge_col_secondary : [117, 100, 153],
+    cartridge_label : katsaii_wandaring_label,
+    default_is_fail : true,
+    supports_difficulty_scaling : true,
+    allow_subpixels : false,
+    credits : ["Katsaii", "Mashmerlow"],
+    date_added : {
+        day : 20,
+        month : "October",
+        year : 2021,
+    },
+    is_enabled : true,
+    supports_html : true,
+    show_on_website : true,
+    description : ["Collect all the stars and escape Candyland!"],
+    how_to_play: ["Use the arrow keys to navigate and the button keys to change perspective."],
+});
