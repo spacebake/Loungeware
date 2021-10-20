@@ -6,33 +6,19 @@ if (respawnTimer != -1) {
     }
 }
 zprevious = z;
-var dir_x = katsaii_wandaring_input_direction(keyboard_check, [vk_right, ord("D")], [vk_left, ord("A")]);
-var dir_y = katsaii_wandaring_input_direction(keyboard_check, [vk_down, ord("S")], [vk_up, ord("W")]);
+var dir_x = KEY_RIGHT - KEY_LEFT;
+var dir_y = KEY_DOWN - KEY_UP;
 if (instance_exists(katsaii_wandaring_obj_gameend)) {
     dir_x = 0;
     dir_y = 0;
 }
-targetAngle += 45 * katsaii_wandaring_input_direction(keyboard_check_pressed, [ord("Q")], [ord("E")]);
+targetAngle += 2 * (KEY_SECONDARY - KEY_PRIMARY);
 x += dir_y * -dsin(katsaii_wandaring_obj_control.angle) + dir_x * dcos(katsaii_wandaring_obj_control.angle);
 y += dir_y * dcos(katsaii_wandaring_obj_control.angle) + dir_x * dsin(katsaii_wandaring_obj_control.angle);
 var diff = -angle_difference(katsaii_wandaring_obj_control.angle, targetAngle);
 katsaii_wandaring_obj_control.angle += diff * 0.1;
 if (instance_exists(katsaii_wandaring_obj_gameend)) {
     exit;
-}
-// jump
-if (allowJump) {
-    if (jumpTimer == -1 && katsaii_wandaring_input(keyboard_check, [vk_space, ord("X"), vk_enter])) {
-        allowJump = false;
-        jumpTimer = 0;
-        jumpZ = z;
-        jumpParity = !jumpParity;
-        var snd = sfx_play(katsaii_wandaring_snd_jump, 0, false);
-        audio_sound_gain(snd, choose(1.5, 1.75), 0);
-        audio_sound_pitch(snd, choose(0.8, 1.25, 1.5));
-    }
-} else if (katsaii_wandaring_input(keyboard_check_released, [vk_space, ord("X"), vk_enter])) {
-    allowJump = true;
 }
 // update sprite
 var moving = x != xprevious || y != yprevious;
@@ -63,8 +49,8 @@ if (jumpTimer != -1) {
 var hitbox_radius = 5;
 var grounded = false;
 with (katsaii_wandaring_obj_platform) {
-    var pos_x = clamp(other.x, x, x + CELL_SIZE);
-    var pos_y = clamp(other.y, y, y + CELL_SIZE);
+    var pos_x = clamp(other.x, x, x + KATSAII_WANDARING_CELL_SIZE);
+    var pos_y = clamp(other.y, y, y + KATSAII_WANDARING_CELL_SIZE);
     var pos_distance = point_distance(pos_x, pos_y, other.x, other.y);
     if (pos_distance >= hitbox_radius) {
         // outside of collider
@@ -77,6 +63,7 @@ with (katsaii_wandaring_obj_platform) {
         other.z = z;
         other.jumpTimer = -1;
         other.lastPlatform = id;
+        grounded = true;
     } else if (other.z > z) {
         var push_angle = point_direction(pos_x, pos_y, other.x, other.y);
         var push_distance = hitbox_radius - pos_distance;
@@ -85,9 +72,13 @@ with (katsaii_wandaring_obj_platform) {
     }
 }
 if (!grounded && jumpTimer == -1) {
-    jumpTimer = 0.5;
-    jumpZ = z + jumpHeight;
+    // jump
+    jumpTimer = 0;
+    jumpZ = z;
     jumpParity = !jumpParity;
+    var snd = sfx_play(katsaii_wandaring_snd_jump, 0, false);
+    audio_sound_gain(snd, choose(1.5, 1.75), 0);
+    audio_sound_pitch(snd, choose(0.8, 1.25, 1.5));
 }
 if (respawnTimer == -1) {
     katsaii_wandaring_obj_control.posX = x;

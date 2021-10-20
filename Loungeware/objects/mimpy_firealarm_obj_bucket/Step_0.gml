@@ -1,6 +1,6 @@
-var katsaii_wandaring_input = KEY_RIGHT - KEY_LEFT;
-if (katsaii_wandaring_input != 0) {
-	hsp = clamp(hsp + katsaii_wandaring_input * accel, -max_spd, max_spd);
+var input = KEY_RIGHT - KEY_LEFT;
+if (input != 0) {
+	hsp = clamp(hsp + input * accel, -max_spd, max_spd);
 }
 else {
 	hsp = median(hsp - sign(hsp) * accel, hsp, 0);

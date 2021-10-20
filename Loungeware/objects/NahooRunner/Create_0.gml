@@ -34,7 +34,7 @@
 				fucks off to your mums house ;)
 				
 			run
-				collects player katsaii_wandaring_input
+				collects player input
 				moves player if tile is empty (0) or goal (3)
 				processes enemies (moves up or down, if touching lose)
 				finds win / lose states

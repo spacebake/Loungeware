@@ -1,14 +1,14 @@
 
-#macro FOLIAGE_RED make_colour_rgb(251, 192, 192)
-#macro FOLIAGE_ORANGE make_colour_rgb(255, 218, 161)
-#macro FOLIAGE_ORANGE_2 make_colour_rgb(244, 154, 63)
-#macro FOLIAGE_YELLOW make_colour_rgb(249, 255, 201)
-#macro FOLIAGE_GREEN make_colour_rgb(186, 255, 229)
-#macro FOLIAGE_GREEN_2 make_colour_rgb(106, 165, 118)
-#macro FOLIAGE_BLUE make_colour_rgb(169, 205, 255)
-#macro FOLIAGE_PURPLE make_colour_rgb(124, 84, 101)
-#macro FOLIAGE_GREY make_colour_rgb(221, 221, 221)
-#macro FOLIAGE_PINK make_colour_rgb(255, 70, 131)
+#macro KATSAII_WANDARING_FOLIAGE_RED make_colour_rgb(251, 192, 192)
+#macro KATSAII_WANDARING_FOLIAGE_ORANGE make_colour_rgb(255, 218, 161)
+#macro KATSAII_WANDARING_FOLIAGE_ORANGE_2 make_colour_rgb(244, 154, 63)
+#macro KATSAII_WANDARING_FOLIAGE_YELLOW make_colour_rgb(249, 255, 201)
+#macro KATSAII_WANDARING_FOLIAGE_GREEN make_colour_rgb(186, 255, 229)
+#macro KATSAII_WANDARING_FOLIAGE_GREEN_2 make_colour_rgb(106, 165, 118)
+#macro KATSAII_WANDARING_FOLIAGE_BLUE make_colour_rgb(169, 205, 255)
+#macro KATSAII_WANDARING_FOLIAGE_PURPLE make_colour_rgb(124, 84, 101)
+#macro KATSAII_WANDARING_FOLIAGE_GREY make_colour_rgb(221, 221, 221)
+#macro KATSAII_WANDARING_FOLIAGE_PINK make_colour_rgb(255, 70, 131)
 
 /// @desc Draws a simple dithering effect, but keeps the same colour blend.
 function katsaii_wandaring_shader_set_effect_dissolve() {
@@ -26,50 +26,37 @@ function katsaii_wandaring_shader_set_effect_colour_grey() {
 
 function katsaii_wandaring_get_foliage_colour(_z) {
     static colours = [
-        FOLIAGE_BLUE,
-        FOLIAGE_GREEN,
-        FOLIAGE_GREY,
-        FOLIAGE_GREEN_2,
-        FOLIAGE_YELLOW,
-        FOLIAGE_PINK,
-        FOLIAGE_PURPLE,
-        FOLIAGE_ORANGE,
-        FOLIAGE_RED,
-        FOLIAGE_ORANGE_2,
+        KATSAII_WANDARING_FOLIAGE_BLUE,
+        KATSAII_WANDARING_FOLIAGE_GREEN,
+        KATSAII_WANDARING_FOLIAGE_GREY,
+        KATSAII_WANDARING_FOLIAGE_GREEN_2,
+        KATSAII_WANDARING_FOLIAGE_YELLOW,
+        KATSAII_WANDARING_FOLIAGE_PINK,
+        KATSAII_WANDARING_FOLIAGE_PURPLE,
+        KATSAII_WANDARING_FOLIAGE_ORANGE,
+        KATSAII_WANDARING_FOLIAGE_RED,
+        KATSAII_WANDARING_FOLIAGE_ORANGE_2,
     ];
-    var n = floor(_z / CELL_SIZE);
+    var n = floor(_z / KATSAII_WANDARING_CELL_SIZE);
     n = ((n % 10) + 10) % 10;
     return colours[n];
 }
 
-function katsaii_wandaring_input_direction(_f, _vks_pos, _vks_neg) {
-    return katsaii_wandaring_input(_f, _vks_pos) - katsaii_wandaring_input(_f, _vks_neg);
-}
-
-function katsaii_wandaring_input(_f, _vks) {
-    for (var i = array_length(_vks) - 1; i >= 0; i -= 1) {
-        if (_f(_vks[i])) {
-            return true;
-        }
-    }
-    return false;
-}
-
-#macro CELL_SIZE (16)
-#macro CELL_LEFT (1)
-#macro CELL_BOTTOM (2)
-#macro CELL_RIGHT (4)
-#macro CELL_TOP (8)
-#macro CELL_ALL (CELL_LEFT | CELL_BOTTOM | CELL_RIGHT | CELL_TOP)
-#macro CELL_NONE (0)
+#macro KATSAII_WANDARING_CELL_SIZE (16)
+#macro KATSAII_WANDARING_CELL_LEFT (1)
+#macro KATSAII_WANDARING_CELL_BOTTOM (2)
+#macro KATSAII_WANDARING_CELL_RIGHT (4)
+#macro KATSAII_WANDARING_CELL_TOP (8)
+#macro KATSAII_WANDARING_CELL_ALL (KATSAII_WANDARING_CELL_LEFT | KATSAII_WANDARING_CELL_BOTTOM | KATSAII_WANDARING_CELL_RIGHT | KATSAII_WANDARING_CELL_TOP)
+#macro KATSAII_WANDARING_CELL_NONE (0)
 
 function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
     var col = image_blend;
     var col_cliff = make_colour_rgb(171, 134, 113);
     var x1 = _cell_x;
     var y1 = _cell_y;
-    var x2 = x1 + CELL_SIZE;
-    var y2 = y1 + CELL_SIZE;
+    var x2 = x1 + KATSAII_WANDARING_CELL_SIZE;
+    var y2 = y1 + KATSAII_WANDARING_CELL_SIZE;
     var z_bot = 0;
     var z_top = _height;
     katsaii_wandaring_rf3d_draw_begin(katsaii_wandaring_spr_grass, 0);
@@ -80,28 +67,28 @@ function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
             x1, y2, z_top, col);
     katsaii_wandaring_rf3d_draw_end();
     katsaii_wandaring_rf3d_draw_begin(katsaii_wandaring_spr_grass, 1);
-    if not (_occlude & CELL_LEFT) {
+    if not (_occlude & KATSAII_WANDARING_CELL_LEFT) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x1, y1, z_top,
                 x1, y2, z_top,
                 x1, y2, z_bot,
                 x1, y1, z_bot, col_cliff);
     }
-    if not (_occlude & CELL_BOTTOM) {
+    if not (_occlude & KATSAII_WANDARING_CELL_BOTTOM) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x1, y2, z_top,
                 x2, y2, z_top,
                 x2, y2, z_bot,
                 x1, y2, z_bot, col_cliff);
     }
-    if not (_occlude & CELL_RIGHT) {
+    if not (_occlude & KATSAII_WANDARING_CELL_RIGHT) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x2, y2, z_top,
                 x2, y1, z_top,
                 x2, y1, z_bot,
                 x2, y2, z_bot, col_cliff);
     }
-    if not (_occlude & CELL_TOP) {
+    if not (_occlude & KATSAII_WANDARING_CELL_TOP) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x2, y1, z_top,
                 x1, y1, z_top,
@@ -111,28 +98,28 @@ function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
     katsaii_wandaring_rf3d_draw_end();
     katsaii_wandaring_rf3d_draw_begin(katsaii_wandaring_spr_grass_edge, 0);
     var hang = 3;
-    if not (_occlude & CELL_LEFT) {
+    if not (_occlude & KATSAII_WANDARING_CELL_LEFT) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x1, y1, z_top,
                 x1, y2, z_top,
                 x1 - hang, y2, z_top + hang,
                 x1 - hang, y1, z_top + hang, col);
     }
-    if not (_occlude & CELL_BOTTOM) {
+    if not (_occlude & KATSAII_WANDARING_CELL_BOTTOM) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x1, y2, z_top,
                 x2, y2, z_top,
                 x2, y2 + hang, z_top + hang,
                 x1, y2 + hang, z_top + hang, col);
     }
-    if not (_occlude & CELL_RIGHT) {
+    if not (_occlude & KATSAII_WANDARING_CELL_RIGHT) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x2, y2, z_top,
                 x2, y1, z_top,
                 x2 + hang, y1, z_top + hang,
                 x2 + hang, y2, z_top + hang, col);
     }
-    if not (_occlude & CELL_TOP) {
+    if not (_occlude & KATSAII_WANDARING_CELL_TOP) {
         katsaii_wandaring_rf3d_add_sprite_pos(
                 x2, y1, z_top,
                 x1, y1, z_top,
@@ -143,9 +130,9 @@ function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
 }
 
 function katsaii_wandaring_instance_create_on_grid(_row, _col, _obj, _offset=undefined) {
-    var inst = instance_create_layer(_row * CELL_SIZE, _col * CELL_SIZE, layer, _obj);
+    var inst = instance_create_layer(_row * KATSAII_WANDARING_CELL_SIZE, _col * KATSAII_WANDARING_CELL_SIZE, layer, _obj);
     if (_offset != undefined) {
-        inst.z = -(_offset + 1) * CELL_SIZE;
+        inst.z = -(_offset + 1) * KATSAII_WANDARING_CELL_SIZE;
         inst.zstart = inst.z;
         if (_obj == katsaii_wandaring_obj_foliage || _obj == katsaii_wandaring_obj_platform) {
             inst.image_blend = katsaii_wandaring_get_foliage_colour(inst.z);
@@ -234,5 +221,12 @@ function katsaii_wandaring_load_room_from_file(_path) {
 function katsaii_wandaring_generate_random_room() {
     katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_platform, 0);
     katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
-    katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 2);
+    katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 5);
+    for (var i = 0; i < 10; i += 1) {
+        for (var j = 0; j < 10; j += 1) {
+            katsaii_wandaring_instance_create_on_grid(2 + i, j, katsaii_wandaring_obj_platform, 0);
+        }
+    }
+    katsaii_wandaring_instance_create_on_grid(-2, 0, katsaii_wandaring_obj_platform, 1);
+    katsaii_wandaring_instance_create_on_grid(-3, 0, katsaii_wandaring_obj_platform, 2);
 }

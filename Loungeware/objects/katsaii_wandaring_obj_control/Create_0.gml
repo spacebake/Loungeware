@@ -1,6 +1,6 @@
 /// @desc Initialise controller and load the room.
-angle = 0;
-pitch = 45;
+angle = 45;
+pitch = 50;
 posX = 0;
 posY = 0;
 posZ = 0;

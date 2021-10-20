@@ -5,7 +5,7 @@ function ___macro_keyboard_check(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an katsaii_wandaring_input :)
+			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
@@ -30,7 +30,7 @@ function ___macro_keyboard_check_pressed(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_pressed(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an katsaii_wandaring_input :)
+			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
@@ -46,7 +46,7 @@ function ___macro_keyboard_check_released(_keystr){
 	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_released(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an katsaii_wandaring_input :)
+			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
 	for (var i=0;i<gamepad_get_device_count();i++) {
