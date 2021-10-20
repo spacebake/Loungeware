@@ -351,6 +351,14 @@ if (!surface_exists(surf_circle)){
 	surf_circle = surface_create(_size, _size);
 }
 
+// draw button guide
+if (button_guide_alpha > 0 && ___global.show_button_prompts_menu){
+	draw_set_alpha(button_guide_alpha);
+	draw_sprite(___spr_back_prompt, 2, 0, 0);
+	draw_set_alpha(1);
+}
+
+
 if (state == "fadeout_back"){
 	surface_set_target(surf_circle);
 	draw_clear(col_bg);
@@ -373,14 +381,7 @@ if (state == "fadeout_back"){
 }
 
 
-// draw open transition cover
-if (cover_alpha > 0){
-	draw_set_color(col_bg);
-	draw_set_alpha(cover_alpha);
-	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
-	draw_set_alpha(1);
-	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
-}
+
 
 if (state == "move_cart"){
 	var _cart_goto_x = 182;
@@ -412,3 +413,14 @@ if (state == "move_cart"){
 
 }
 
+
+
+
+// draw open transition cover
+if (cover_alpha > 0){
+	draw_set_color(col_bg);
+	draw_set_alpha(cover_alpha);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
+}

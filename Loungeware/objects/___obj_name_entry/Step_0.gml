@@ -1,27 +1,11 @@
-if (keyboard_check_pressed(vk_space)){
-		
-
-	var _url = ___BASE_URL + "/loungeware_leaderboard/get_scores.php";
-	//post_id = http_get(_url);
-}
-
-
-if (!CONFIG_IS_SHIPPING && keyboard_check_pressed(ord("R"))){
-	instance_create_depth(0, 0, depth, object_index);
-	instance_destroy();
-}
 
 ___state_handler();
 
 var _key_back_pressed = (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace));
 
-
-var _input_fade_time = 5;
-input_prompt_alpha = (draw_input_prompt)? min(1, input_prompt_alpha + (1/_input_fade_time)) : max(0, input_prompt_alpha - (1/_input_fade_time));
-
-
-
-
+//----------------------------------------------------------------------------------
+// NAME ENTRY
+//----------------------------------------------------------------------------------
 if (state == "entry"){
 	
 	if (state_begin){
@@ -30,8 +14,14 @@ if (state == "entry"){
 		input_text_col = c_gbwhite;
 		input_y_offset = 0;
 		icon_selection_draw_enabled = false;
+		draw_confirm_menu = false;
+		confirm_icon_alpha = 0;
+		confirm_score_alpha = 0;
 		icon_selection_scale = 0;
 		ignore_next_key_input_timer = 10;
+		button_guide_frame = 1;
+		button_guide_show = true;
+		
 	}
 	
 	last_letter_timer = max(0, last_letter_timer - 1);
@@ -121,7 +111,20 @@ if (state == "entry"){
 	ee_check();
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+if (state == "hide_loader"){
+	loader_scale = max(0, loader_scale - (1/10));
+	if (loader_scale <= 0){
+		___state_change("success");
+	}
+	loader_dir += 30;
+}
+
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
 if (state == "transition_to_icon_selection"){
 	if (state_begin){
 		ee_show = false;
@@ -132,7 +135,6 @@ if (state == "transition_to_icon_selection"){
 		icon_selection_draw_enabled = false;
 		icon_selection_scale = 0;
 	}
-	
 	
 	
 	if (substate == 0){
@@ -171,7 +173,9 @@ if (state == "transition_to_icon_selection"){
 	
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
 if (state == "icon_selection"){
 	if (state_begin){
 		isd_cursor_enabled = true;
@@ -185,8 +189,9 @@ if (state == "icon_selection"){
 		isd_show_prompt = true
 		confirm_score_alpha = 0;
 		icon_selection_scale = 1;
-
 		
+		button_guide_frame = 0;
+		button_guide_show = true;
 	}
 	
 
@@ -251,37 +256,41 @@ if (state == "icon_selection"){
 	
 }
 
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
 if (state == "confirmation_screen"){
 	
 	if (state_begin){
 		confirm_menu_navigation_enabled = true;
+		confirm_menu_confirmed = false;
 		confirm_cursor = 0;
+		close_circle_prog = 1;
+		button_guide_frame = 0;
+		button_guide_show = true;
 	}
 	
 	if (substate == 0){
 		
-		var _goback = function(){
-			___state_change("icon_selection");
-			backfade_alpha = 1;
-		}
-		
 		// back button
 		if (_key_back_pressed){
-			_goback();
+			___state_change("icon_selection");
+			backfade_alpha = 1;
 		}
 		
 		// confirm button
 		if (KEY_PRIMARY_PRESSED || keyboard_check_pressed(vk_enter)){
 			confirm_menu_navigation_enabled = false;
 			if (confirm_cursor == 1){
-				_goback();
+				redo_info();
 			} else {
 				confirm_menu_confirmed = true;
-				confirm_shake_time = 15;
 				___sound_menu_select();
-				wait = 20;
+				wait = 0;
 				___substate_change(substate+1);
+				button_guide_show = false;
 			}
+			confirm_menu_confirmed = false;
 		}
 	}
 		
@@ -297,6 +306,7 @@ if (state == "confirmation_screen"){
 		if (close_circle_prog <= 0){
 			
 			wait = 20;
+			
 			___substate_change(substate+1);
 		}
 	}
@@ -309,27 +319,173 @@ if (state == "confirmation_screen"){
 		}
 		if (wait <= 0){
 			close_circle_prog = 1;
-			___substate_change(substate+1);
+			___state_change("submit");
 		}
 		wait--;
-	}
-	
-	// show loader, wait for response
-	if (substate == 4){
-		if (substate_begin){
-
-			// send score
-			// begin a timer, if no response in recieved before timer runs out, go to timeout page
-		}
 	}
 		
 
 }
 
+//----------------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------------
+if (state == "submit"){
+	if (state_begin){
+		sbmt_scr();
+		retries = max_retries;
+		request_time = request_time_max;
+		loader_scale = 0;
+		loader_scale_done = false;
+		loader_scale_dir = 0;
+		button_guide_show = false;
+	}
+	
+	show_loader_timer = max(0, show_loader_timer - 1);
+	if (show_loader_timer <= 0){
+		button_guide_show = true;
+		
+		if (!loader_scale_done){
+			loader_scale = -lengthdir_y(1.1, loader_scale_dir);
+			loader_scale_dir += 5;
+			if (loader_scale_dir > 90 && loader_scale <= 1){
+				loader_scale_done = true;
+				loader_scale = 1;
+			}
+		}
+	}
+	
+	var _loader_speed = 5 + abs(lengthdir_y(12, loader_dir_speed_dir));
+	loader_dir_speed_dir += 2;
+	if (loader_dir_speed_dir >= 360) loader_dir_speed_dir -= 360;
+	loader_dir += _loader_speed;
+	
+	if (request_time <= 0){
+		request_time = request_time_max;
+		if (retries <= 0){
+			throw_http_error("server is not responding");
+		} else {
+			sbmt_scr();
+		}
+		retries -= 1;
+	}
+	request_time--;
+	
+	if (submission_successful){
+		___state_change("hide_loader");
+	}
 
+}
 
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+if (state == "error_screen"){
+	if (state_begin){
+		http_error_show = true;
+		http_error_menu_confirmed = false;
+		http_error_menu_cursor = 0;
+		button_guide_frame = 3;
+		button_guide_show = true;
+		http_error_menu_y_offset = http_error_menu_y_offset_max;
+	}
+	
+	http_error_menu_y_offset = ___smooth_move(http_error_menu_y_offset, 0, 1, 5);
+	
+	// navigate menu
+	if (!http_error_menu_confirmed){
+		var _vmove = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = http_error_menu_cursor;
+		http_error_menu_cursor += _vmove;
+		if (http_error_menu_cursor > array_length(http_error_menu)-1) http_error_menu_cursor = 0;
+		if (http_error_menu_cursor < 0) http_error_menu_cursor = array_length(http_error_menu)-1;
+		if (_store_pos != http_error_menu_cursor){
+			___sound_menu_tick_vertical();
+		}
+		if (KEY_PRIMARY){
+			http_error_menu_confirmed = true;
+			http_error_show = false;
+			___sound_menu_select();
+		}
+	} else {
+		if (http_error_alpha <= 0){
+			var _action = variable_struct_get(http_error_menu[http_error_menu_cursor], "action");
+			_action();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------
+// exit confirmation
+//----------------------------------------------------------------------------------
+if (state == "exit_confirmation"){
+	if (state_begin){
+		ec_show = true;
+		ec_menu_y_offset = ec_menu_y_offset_max;
+		ec_menu_confirmed = false;
+		button_guide_frame = 3;
+		button_guide_show = true;
+		ec_menu_cursor = 0;
+	}
+	
+	ec_menu_y_offset = ___smooth_move(ec_menu_y_offset, 0, 0.5, 5);
+	
+	// back button
+	if (_key_back_pressed){
+		___state_change(state_previous);
+		backfade_alpha = 1;
+		ec_show = false;
+		ec_alpha = 0;
+	}
+	
+	// navigate menu
+	if (!ec_menu_confirmed){
+		var _vmove = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = ec_menu_cursor;
+		ec_menu_cursor += _vmove;
+		if (ec_menu_cursor > array_length(ec_menu)-1) ec_menu_cursor = 0;
+		if (ec_menu_cursor < 0) ec_menu_cursor = array_length(ec_menu)-1;
+		if (_store_pos != ec_menu_cursor){
+			___sound_menu_tick_vertical();
+		}
+		if (KEY_PRIMARY){
+			ec_menu_confirmed = true;
+			ec_show = false;
+			___sound_menu_select();
+		}
+	} else {
+		
+		if (ec_alpha <= 0){
+			ec_menu_confirmed = false;
+			var _action = variable_struct_get(ec_menu[ec_menu_cursor], "action");
+			_action();
+		}
+	}
+}
+//----------------------------------------------------------------------------------
+// exit menu
+//----------------------------------------------------------------------------------
+if (state == "exit_menu"){
+	if (state_begin){
+		close_circle_prog = 1;
+		button_guide_show = false;
+		wait = 40;
+	}
+	close_circle_prog = max(0, close_circle_prog - (1/20));
+	if (close_circle_prog <= 0) wait--;
+	
+	if (wait <= 0){
+		room_goto(exit_goto_room);
+		exit_goto_object = instance_create_layer(0, 0, layer, exit_goto_object);
+		exit_goto_object.skip_intro = true;
+		if (song_id != noone && audio_is_playing(song_id)) audio_stop_sound(song_id);
+		instance_destroy();
+	}
+}
+
+//----------------------------------------------------------------------------------
 // icon menu navigation
+//----------------------------------------------------------------------------------
 if (isd_cursor_enabled){
 	
 	var _store_cursor_index = isd_cursor_index ;
@@ -405,7 +561,53 @@ if (isd_cursor_enabled){
 	
 }
 
+//----------------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------------
+if (state == "success"){
+	if (state_begin){
+		___sound_menu_success();
+		ss_menu_offset = ss_menu_offset_max;
+		ss_menu_confirmed = false;
+		ss_menu_cursor = 0;
+		ss_show = true;
+	}
+	
+	ss_menu_offset = ___smooth_move(ss_menu_offset, 0, 0.5, 5);
+	if (!ss_title_scale_done){
+		
+		ss_title_scale = abs(lengthdir_y(1.1, ss_title_scale_dir));
+		ss_title_scale_dir += 15;
+		if (ss_title_scale <= 1 && ss_title_scale_dir > 90){
+			ss_title_scale_done = true;
+			ss_title_scale = 1;
+		}
+	}
+	
+	if (!ss_menu_confirmed){
+		var _vmove = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = ss_menu_cursor;
+		ss_menu_cursor += _vmove;
+		if (ss_menu_cursor > array_length(ss_menu)-1) ss_menu_cursor = 0;
+		if (ss_menu_cursor < 0) ss_menu_cursor = array_length(ss_menu)-1;
+		if (_store_pos != ss_menu_cursor){
+			___sound_menu_tick_vertical();
+		}
+		if (KEY_PRIMARY){
+			ss_menu_confirmed = true;
+			var _action = variable_struct_get(ss_menu[ss_menu_cursor], "action");
+			_action();
+			___sound_menu_select();
+		}
+	} 
+
+
+}
+
+
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
 if (confirm_menu_navigation_enabled){
 	var _store_cursor = confirm_cursor;
 	var _vmove =  ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
@@ -419,13 +621,19 @@ if (confirm_menu_navigation_enabled){
 	
 }
 
+//----------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------
+input_prompt_alpha = ___toggle_fade(input_prompt_alpha, draw_input_prompt, 5);
 input_lettershake = max(0, input_lettershake - 1);
-
-ee_alpha = toggle_fade(ee_alpha,  ee_show, 6);
+ee_alpha = ___toggle_fade(ee_alpha,  ee_show, 6);
 backfade_alpha = max(0, backfade_alpha - (1/backfade_alpha_time));
-
-
 confirm_menu_y_target = (draw_confirm_menu) ? confirm_menu_y_show : confirm_menu_y_hidden;
 confirm_menu_y = ___smooth_move(confirm_menu_y, confirm_menu_y_target, 2, 5);
 input_error_shake = max(input_error_shake - 1, 0);
-input_error_alpha = toggle_fade(input_error_alpha,  input_error_show, 5);
+input_error_alpha = ___toggle_fade(input_error_alpha,  input_error_show, 5);
+http_error_alpha = ___toggle_fade(http_error_alpha,  http_error_show, 10);
+http_error_shake_timer = max(0, http_error_shake_timer - 1);
+ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
+button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
+ss_alpha = ___toggle_fade(ss_alpha, ss_show, 10);

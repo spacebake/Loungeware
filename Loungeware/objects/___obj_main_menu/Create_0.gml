@@ -81,3 +81,8 @@ menu_method[1] = function(){
 	instance_create_layer(0, 0, layer, ___obj_menu_gallery);
 	instance_destroy();
 }
+
+menu_method[2] = function(){
+	instance_create_layer(0, 0, layer, ___obj_leaderboard);
+	instance_destroy();
+}

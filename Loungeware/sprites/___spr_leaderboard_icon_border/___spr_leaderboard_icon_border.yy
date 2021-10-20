@@ -121,7 +121,7 @@
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"ff5ece0c-56c5-4e49-9d2f-117767886cda","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6633a362-7e50-41b4-bd7f-c546b21dbd15","path":"sprites/___spr_leaderboard_icon_border/___spr_leaderboard_icon_border.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -148,8 +148,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "GUI",
-    "path": "folders/__Base Game (keep out)/GUI.yy",
+    "name": "Leaderboard",
+    "path": "folders/__Base Game (keep out)/GUI/Leaderboard.yy",
   },
   "resourceVersion": "1.0",
   "name": "___spr_leaderboard_icon_border",

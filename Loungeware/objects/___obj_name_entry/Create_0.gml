@@ -2,10 +2,20 @@ camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 
 ___state_setup("entry");
 
+wait = 0;
+exit_goto_room = ___rm_main_menu;
+exit_goto_object = ___obj_main_menu;
+function exit_leaderboard(){
+	___state_change("exit_menu");
+}
+
+song_id = noone;
 
 title_text = "ENTER YOUR NAME";
 fnt_gallery = ___global.___fnt_gallery;
 col_bar = make_color_rgb(45, 41, 66);
+col_green = make_color_rgb(168, 160, 38);
+submission_successful = false;
 
 name = "";
 name_max_chars = 11;
@@ -69,11 +79,13 @@ confirm_menu_confirmed = false;
 confirm_prompt_text = "CONFIRM AND SUBMIT?";
 confirm_shake_time = 0;
 
+
 confirm_menu = [
-	{text : "CONFIRM AND SUBMIT", action : ___noop}, 
-	{text : "HOLD UP", action : ___noop},
+	{text : "SUBMIT SCORE", action : ___noop}, 
+	{text : "EDIT INFO", action : ___noop},
 ];
 confirm_cursor = 0;
+
 
 
 surf_circle = noone;
@@ -130,6 +142,86 @@ isd_record_max_scroll = ((max((isd_line_count-1)-4, 0) * (isd_icon_size_with_sep
 backfade_alpha = 0;
 backfade_alpha_time = 20;
 
+request_time_max = 60*4;
+request_time = request_time_max;
+max_retries = 3;
+retries = max_retries;
+show_loader_timer = 60*2;
+loader_scale = 0;
+loader_scale_dir = 0;
+loader_scale_done = false;
+loader_dir = 0;
+loader_dir_speed_dir = 0;
+
+http_error_msg = "An unexpected error occurred";
+http_error_show = false;
+http_error_alpha = 0;
+
+redo_info = function(){
+	___state_change("entry");
+	backfade_alpha = 1;
+}
+http_error_action_retry = function(){
+	___state_change("submit");
+}
+http_error_action_exit = function(){
+	___state_change("exit_confirmation");
+}
+
+http_error_menu = [
+	{text : "RETRY", action : http_error_action_retry},
+	{text : "EDIT DETAILS", action : redo_info},
+	{text : "CANCEL AND EXIT", action : http_error_action_exit},
+];
+http_error_menu_cursor = 0;
+http_error_menu_confirmed = false;
+http_error_shake_timer = 0;
+http_error_shake_timer_max = 15;
+http_error_menu_y_offset_max = 300;
+http_error_menu_y_offset = http_error_menu_y_offset_max;
+
+button_guide_show = false;
+button_guide_alpha = 0;
+button_guide_frame = 0;
+
+ec_alpha = 0;
+ec_show = false;
+ec_action_0 = function(){
+	___state_change("entry");
+	backfade_alpha = 1;
+}
+ec_action_1 = function(){
+	___state_change("exit_menu");
+}
+ec_menu_title = "YOU WILL NOT GET ANOTHER\nCHANCE TO SUBMIT THIS SCORE\n\nARE YOU SURE YOU \nWANT TO EXIT?";
+ec_menu = [
+	{text : "SUBMIT MY SCORE", action : ec_action_0},
+	{text : "EXIT WITHOUT SAVING", action : ec_action_1},
+];
+ec_menu_cursor = 0;
+ec_menu_y_offset_max = 300;
+ec_menu_y_offset = 0;
+ec_menu_confirmed = false;
+
+ss_show = false;
+ss_alpha = 0;
+ss_title = "SCORE SUBMITTED SUCCESSFULLY"
+ss_title_scale = 0;
+ss_title_scale_dir = 0;
+ss_title_scale_done = false;
+ss_action_0 = function(){
+	exit_goto_object = ___obj_leaderboard;
+	___state_change("exit_menu");
+}
+ss_menu = [
+	{text : "VIEW LEADERBOARD", action : ss_action_0},
+	{text : "GO TOO MAIN MENU", action : ec_action_1},
+];
+ss_menu_cursor = 0;
+ss_menu_confirmed = false;
+ss_menu_offset_max = 200;
+ss_menu_offset = 0;
+
 
 function string_has_char(_string_to_check, _char){
 	return (string_pos(_char, _string_to_check) != 0);
@@ -147,16 +239,6 @@ function snd_play_key(_backspace=false){
 	___play_sfx(_snd, _vol, _pitch, false);
 	last_key_snd = _snd;
 }
-
-function toggle_fade(_val, _is_show, _steps){
-	if (_is_show){
-		return min(1, _val + (1/_steps));
-	} else {
-		return max(0, _val - (1/_steps));
-	}
-}
-
-// CHECK NOTES
 
 
 function string_contains(_string_to_check, _substring_array, _match_length=false){
@@ -283,7 +365,7 @@ function ___menu_sign_timed_input_vertical(_sign){
 }
 
 post_id = noone;
-http_error_msg = "ERROR";
+
 
 function sbmt_scr(){
 	
@@ -301,6 +383,8 @@ function sbmt_scr(){
 		player_id: ___global.player_id,
 	}
 	
+	_data.score_id_local = "mxlQC84DTn7eq";
+	
 	store_submitted_score_id("hello");
 	var _json = json_stringify(_data);
 	var _url = "ht"+"tps:"+"//ww"+"w.spa"+"cebak"+"e.xy"+"z/loung";
@@ -311,7 +395,10 @@ function sbmt_scr(){
 
 function throw_http_error(_msg){
 	http_error_msg = _msg;
-	show_message("ERROR: " + string(_msg));
+	___state_change("error_screen");
+	http_error_shake_timer = http_error_shake_timer_max;
+	http_error_menu_y_offset = http_error_menu_y_offset_max;
+	___sound_menu_error();
 }
 
 score_id_list = [];

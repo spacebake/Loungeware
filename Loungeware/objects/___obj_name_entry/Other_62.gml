@@ -1,28 +1,33 @@
-if (async_load[? "id"] == post_id){
-	show_message(json_encode(async_load));
-	exit;
-}
-// handle submission confirmation
-//if (state == "confirmation_screen" && substate == 4){
-	if (async_load[? "id"] == post_id){
-		show_debug_message(json_encode(async_load));
-		var _response = json_parse(json_encode(async_load));
-		if (variable_struct_get(_response, "id") == post_id){
-			show_debug_message("http response");
+if (state != "submit") exit;
 
-			if  (variable_struct_get(_response, "status") >= 0){
-				var _return_obj = json_parse(variable_struct_get(_response, "result"));
-				var _is_error = "true" == variable_struct_get(_return_obj, "is_error");
- 
-				if (_is_error){
-					throw_http_error(variable_struct_get(_return_obj, "error_msg"));
-				} else {
-					// success, go to high score screen
-				}
-			} else {
-				throw_http_error("Server Error: " + string(variable_struct_get(_response, "http_status")));
-			}
-	
-		} 
+var _response, _is_error, _return_obj, _has_result, _result_data, _has_score_data;
+
+_response = json_parse(json_encode(async_load));
+_has_result = variable_struct_exists(_response, "result");
+_has_score_data = false;
+if (_has_result){
+	_result_data = variable_struct_get(_response, "result");
+	try {
+		if (typeof(_result_data) == "string") _result_data = json_parse(_result_data);
 	}
-//}
+	catch(_exception) {
+		throw_http_error("SERVER DOIN SOMETHIN WEIRD");
+		exit;
+	}
+	_has_score_data = variable_struct_exists(_result_data, "is_error");
+}
+
+/// @description 
+if (async_load[? "id"] == post_id && _has_score_data){
+		
+	_return_obj = variable_struct_get(_response, "result");
+	if (typeof(_return_obj) == "string") _return_obj = json_parse(_return_obj);	
+	_is_error = ("true" == variable_struct_get(_return_obj, "is_error"));
+	if (_is_error){
+		throw_http_error(variable_struct_get(_return_obj, "error_msg"));
+		
+	} else {
+		submission_successful = true;
+	}
+ 	
+} 

@@ -116,6 +116,7 @@ function ___state_setup(_starting_state){
 	store_substate = 0;
 	substate_begin = false;
 	force_substate = noone;
+	state_previous = noone;
 }
 
 // ------------------------------------------------------------------------------------------
@@ -125,6 +126,7 @@ function ___state_setup(_starting_state){
 function ___state_change(_state_goto){
 	// note: when this function is called state_begin is set to TRUE for the next step 
 	//(this will happen even if you try to change into a state you are already in).
+	if (state != _state_goto) state_previous = state;
 	state_goto = _state_goto;
 }
 	
@@ -337,6 +339,20 @@ function ___sound_menu_tick_horizontal(){
 
 function ___sound_menu_select(){
 	var _snd_index  = ___snd_cart_insert;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
+	audio_sound_gain(_snd_id, _vol, 0);
+}
+
+function ___sound_menu_error(){
+	var _snd_index  = ___snd_error;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
+	audio_sound_gain(_snd_id, _vol, 0);
+}
+
+function ___sound_menu_success(){
+	var _snd_index  = ___snd_success;
 	var _snd_id = audio_play_sound(_snd_index, 0, 0);
 	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
 	audio_sound_gain(_snd_id, _vol, 0);
@@ -847,4 +863,57 @@ function ___load_or_create_player_id(){
 	}
 	
 	return _id;
+}
+
+// ------------------------------------------------------------------------------------------
+// DRAWS A TEXT MENU VERTICALLY
+// ------------------------------------------------------------------------------------------
+function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _v_sep=35, _fnt=___global.___fnt_gallery){
+	
+	static prev_confirmed = false;
+	static shake_timer_max = 15;
+	static shake_timer = 0;
+	
+	var _store_halign = draw_get_halign();
+	draw_set_halign(fa_center);
+	
+	for (var i = 0; i < array_length(_menu_array); i++){
+		var _selected = (_cursor_pos == i);
+		var _scale = 1;
+		var _txt = variable_struct_get(_menu_array[i], "text");
+		draw_set_color(c_gbwhite);
+		draw_set_font(_fnt);
+		
+		if (_selected){
+			if (_confirmed){
+				_txt = "<shake," + string(floor(shake_timer/2)) + ">" + _txt;
+				shake_timer = max(0, shake_timer - 1);
+				draw_set_color(c_gbpink);
+				_scale = 1.2;
+			} else {
+				_txt = "<wave,1>" + _txt;
+				draw_set_color(c_gbyellow);
+			}
+			
+		}
+		___global.___draw_text_advanced(_x, _y, _v_sep, true, true, _txt, 1, _scale, 2);
+		_y += _v_sep;
+	}
+	draw_set_halign(_store_halign);
+	if (prev_confirmed == false && _confirmed == true){
+		shake_timer = shake_timer_max;
+	}
+	prev_confirmed = _confirmed;
+}
+
+
+// ------------------------------------------------------------------------------------------
+// moves a value from 0-1 or 1-0 based on a true false value and a step count
+// ------------------------------------------------------------------------------------------
+function ___toggle_fade(_val, _is_show, _steps){
+	if (_is_show){
+		return min(1, _val + (1/_steps));
+	} else {
+		return max(0, _val - (1/_steps));
+	}
 }

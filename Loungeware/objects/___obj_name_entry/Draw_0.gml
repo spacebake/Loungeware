@@ -2,7 +2,9 @@ draw_set_font(fnt_gallery);
 
 var _line_x = 0;
 
+// ----------------------------------------------------------------------------------------------
 // title
+// ----------------------------------------------------------------------------------------------
 if (input_prompt_alpha > 0){
 	draw_set_color(c_gbyellow);
 	draw_set_font(fnt_gallery);
@@ -18,7 +20,7 @@ if (input_prompt_alpha > 0){
 
 
 // ----------------------------------------------------------------------------------------------
-
+// NAME INPUT
 // ----------------------------------------------------------------------------------------------
 if (draw_input_box){
 
@@ -128,47 +130,35 @@ if (draw_input_box){
 
 }
 
-
+// ----------------------------------------------------------------------------------------------
 // confirmation menu
+// ----------------------------------------------------------------------------------------------
 if (draw_confirm_menu){
-	draw_set_font(fnt_gallery);
-	draw_set_halign(fa_center);
+
+	// draw sperator 
 	var _cx = VIEW_W/2;
-	var _cy = confirm_menu_y;
-	var _v_sep = 35;
-	
-	
 	var _line_margin = 20;
 	var _line_w = VIEW_W - (_line_margin * 2);
 	var _line_y = VIEW_H/2;
 	draw_set_color(col_bar);
 	draw_dotted_line(_cx - (_line_w/2), _line_y , _cx + (_line_w/2), _line_y , 2, 2);
 	
-	for (var i = 0; i < array_length(confirm_menu); i++){
-		var _selected = (confirm_cursor == i);
-		var _scale = 1;
-		var _txt = variable_struct_get(confirm_menu[i], "text");
-		draw_set_color(c_gbwhite);
-		if (_selected){
-			if (confirm_menu_confirmed){
-				_txt = "<shake," + string(floor(confirm_shake_time/2)) + ">" + _txt;
-				confirm_shake_time = max(0, confirm_shake_time - 1);
-				draw_set_color(c_gbpink);
-				_scale = 1.2;
-			} else {
-				_txt = "<wave,1>" + _txt;
-				draw_set_color(c_gbyellow);
-			}
-			
-			
-		}
-		___global.___draw_text_advanced(_cx, _cy, _v_sep, true, true, _txt, 1, _scale, 2);
-		_cy += _v_sep;
-	}
-	draw_set_halign(fa_left);
+	// draw error menu
+	____menu_text_vertical_draw(
+		VIEW_W/2,
+		confirm_menu_y,
+		confirm_menu,
+		confirm_cursor,
+		confirm_menu_confirmed,
+	);
+	
+
 }
 
 
+// ----------------------------------------------------------------------------------------------
+// ICON SELECTION
+// ----------------------------------------------------------------------------------------------
 if (icon_selection_draw_enabled){
 	
 	
@@ -211,20 +201,12 @@ if (icon_selection_draw_enabled){
 	var _scale  = icon_selection_scale;
 	var _surf_x1 = (VIEW_W - (_surf_w*_scale))/2;
 	var _surf_y1 = isd_surf_y_base + ((_surf_h - (_surf_h*_scale))/2);
-	if (_scale > 1 && state == "icon_selection"){
-		var _sv = 5;
-		
-		_surf_x1 += random_range(-_sv, _sv);
-		_surf_y1 += random_range(-_sv, _sv);
-	}
+
 	var _w = _surf_w * _scale;
 	var _h = _surf_h * _scale;
 	var _surf_x2 = _surf_x1 + _w;
 	var _surf_y2 = _surf_y1 + _h;
 	var _border_thickness = 4;
-	
-
-	
 	
 	draw_set_color(col_bar);
 	draw_set_alpha(min(1, _scale));
@@ -257,14 +239,18 @@ if (icon_selection_draw_enabled){
 
 
 
-
+// ----------------------------------------------------------------------------------------------
+// E E
+// ----------------------------------------------------------------------------------------------
 if (ee_alpha > 0){
 	draw_set_alpha(ee_alpha);
 	draw_sprite(___spr_ee, ee_frame, VIEW_W/2, 50);
 	draw_set_alpha(1);
 }
 
+// ----------------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------------
 if (backfade_alpha > 0){
 	draw_set_color(c_gbdark);
 	draw_set_alpha(backfade_alpha);
@@ -274,13 +260,160 @@ if (backfade_alpha > 0){
 
 
 
+
+// ----------------------------------------------------------------------------------------------
+// draw loader
+// ----------------------------------------------------------------------------------------------
+if ((state == "submit" || state == "hide_loader") && show_loader_timer <= 0){
+	var _lx = VIEW_W/2;
+	var _ly = VIEW_H/2;
+	draw_sprite_ext(___spr_leaderboard_spinner, 0, _lx, _ly, loader_scale, loader_scale, loader_dir, c_white, 1);
+}
+
+// ----------------------------------------------------------------------------------------------
+// draw error
+// ----------------------------------------------------------------------------------------------
+if (http_error_alpha > 0){
+	
+
+	
+	draw_set_font(fnt_frogtype);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	draw_set_color(c_gbpink);
+	draw_set_alpha(http_error_alpha);
+	var _y_os = -40;
+	var _ex = VIEW_W/2;
+	var _ey = (VIEW_H/2) + _y_os;
+	var _sx = 0, _sy = 0;
+	var _error_title = "ERROR";
+	var _str = string_upper(http_error_msg);
+	if (http_error_shake_timer > 0){
+		var _sv = 2;
+		_sx = random_range(-_sv, _sv);
+		_sy = random_range(-_sv, _sv);
+		var _wavetxt = "<shake," + string(http_error_shake_timer/3) + ">";
+		_error_title = _wavetxt + _error_title;
+		_str = _wavetxt + _str;
+	}
+
+	
+	___global.___draw_text_advanced(_ex-1, _ey + 12, 32, true, true, _str, 1, 1, 1, 4);
+	draw_set_font(fnt_gallery);
+	___global.___draw_text_advanced(_ex, _ey - 38, 32, true, true, _error_title, 1, 2, 2 , 4);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
+	draw_sprite(___spr_http_errors, 0, _sx, _y_os + _sy);
+
+	
+	// draw error menu
+	____menu_text_vertical_draw(
+		VIEW_W/2,
+		(VIEW_H/2) + 75 + http_error_menu_y_offset,
+		http_error_menu,
+		http_error_menu_cursor,
+		http_error_menu_confirmed,
+	)
+	
+	
+	draw_set_alpha(1);
+}
+
+// ----------------------------------------------------------------------------------------------
+// exit confirmation
+// ----------------------------------------------------------------------------------------------
+if (ec_alpha > 0){
+	draw_set_alpha(ec_alpha);
+	draw_set_font(fnt_gallery);
+	draw_set_halign(fa_center);
+	draw_set_color(c_gbpink);
+	var _ecx = VIEW_W/2;
+	var _ecy = (VIEW_H/2) - 80;
+	___global.___draw_text_advanced(_ecx, _ecy, 24, true, true, ec_menu_title, 1, 1, 4);
+	
+	____menu_text_vertical_draw(
+		_ecx, 
+		_ecy + 200,
+		ec_menu, 
+		ec_menu_cursor,
+		ec_menu_confirmed
+	);
+	
+	// draw warning sprite
+	draw_sprite(___spr_warning, 0, _ecx, _ecy - 80);
+
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
+}
+
+// ----------------------------------------------------------------------------------------------
+// SUCCESS SCREEN
+// ----------------------------------------------------------------------------------------------
+if (ss_alpha > 0){
+	
+	draw_set_alpha(ss_alpha);
+	
+	var _y_shift = 20;
+	
+	draw_set_color(col_green);
+	draw_set_halign(fa_center);
+	var _title = ss_title;
+	if (ss_title_scale > 1){
+		_title = "<shake," + string((ss_title_scale-1)*50) + ">" + _title;
+	}
+	___global.___draw_text_advanced(
+		VIEW_W/2,
+		((VIEW_H/2) - 30) + _y_shift,
+		32, 
+		true,
+		true, 
+		ss_title,
+		1,
+		ss_title_scale
+	);
+	
+	____menu_text_vertical_draw(
+		VIEW_W/2,
+		((VIEW_H/2) + 80 + ss_menu_offset) + _y_shift,
+		ss_menu, 
+		ss_menu_cursor,
+		ss_menu_confirmed
+	)
+	
+	draw_sprite_ext(
+		___spr_success, 
+		0, 
+		VIEW_W/2, 
+		(VIEW_H/2 - 120) + _y_shift,
+		ss_title_scale,
+		ss_title_scale,
+		0,
+		c_white, 
+		draw_get_alpha()
+	);
+	
+	draw_set_halign(fa_left);
+	draw_set_alpha(1);
+}
+
+// ----------------------------------------------------------------------------------------------
+// draw button guide
+// ----------------------------------------------------------------------------------------------
+if (button_guide_alpha > 0 && ___global.show_button_prompts_menu){
+	draw_set_alpha(button_guide_alpha);
+	draw_sprite(___spr_back_prompt, button_guide_frame, 4, 4);
+	draw_set_alpha(1);
+}
+
+// ----------------------------------------------------------------------------------------------
 // closing circle
+// ----------------------------------------------------------------------------------------------
 if (close_circle_prog < 1){
 	var _size = WINDOW_BASE_SIZE/2;
 	if (!surface_exists(surf_circle)){
 		surf_circle = surface_create(_size, _size);
 	}
-	log("aaaaaaaaaa");
+	
 	surface_set_target(surf_circle);
 	draw_clear(c_gbdark);
 	gpu_set_blendmode(bm_subtract);

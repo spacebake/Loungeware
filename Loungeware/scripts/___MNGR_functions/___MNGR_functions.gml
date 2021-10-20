@@ -533,7 +533,7 @@ function ___MG_MNGR_declare_functions(){
 	
 		if (!prompt_scale_done){
 		
-			prompt_scale = -lengthdir_y(1.25, prompt_scale_dir);
+			prompt_scale = -lengthdir_y(1.5, prompt_scale_dir);
 			prompt_scale_dir += 5;
 			if (prompt_scale_dir > 90 && prompt_scale <= 1){
 				prompt_scale = 1;

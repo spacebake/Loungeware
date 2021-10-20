@@ -62,7 +62,9 @@ fadeout_began = false;
 fadeout_ended = false;
 fadeout_do = function(){};
 
-
+// button guide
+button_guide_alpha = 0;
+button_guide_show = true;
 
 function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){

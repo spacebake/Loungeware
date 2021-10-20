@@ -291,8 +291,15 @@ var _action_main_menu = function(){
 	instance_create_layer(0, 0, layer, ___obj_main_menu);
 	instance_destroy();
 }
+var _action_submit_score = function(){
+	workspace_end();
+	application_surface_draw_enable(true);
+	room_goto(___rm_main_menu);
+	instance_create_layer(0, 0, layer, ___obj_name_entry);
+	instance_destroy();
+}
 es_menu = [
-	{name:"SUBMIT SCORE", action: ___noop},
+	{name:"SUBMIT SCORE", action: _action_submit_score},
 	{name:"PLAY AGAIN", action: _action_play_again},
 	{name:"MAIN MENU", action: _action_main_menu},
 ];

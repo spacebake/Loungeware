@@ -30,6 +30,7 @@ for (var i = 0; i < array_length(menu); i++){
 			if (confirm_shake_time > 0) _str = "<shake, " + string(floor(confirm_shake_time/4)) + ">" + _str + "</shake>";
 			confirm_shake_time = max(0, confirm_shake_time - 1);
 			_scale_final = 2.5;
+			_text_y_final -= 3;
 		} else {
 			_str = "<wave, 2>" + _str + "</shake>";
 			

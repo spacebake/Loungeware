@@ -103,7 +103,6 @@ function ___GAME_INIT(){
 	
 	// default volume
 	___global.default_vol = { sfx: 1, msc: 1, master: 1, }
-	
 	___global.max_microgame_time = 12;
 	___global.save_filename = "dot.dot";
 	___global.microgame_metadata = ___init_metadata();
@@ -119,6 +118,7 @@ function ___GAME_INIT(){
 	
 	// options
 	___global.opt_show_button_presses = true;
+	___global.show_button_prompts_menu = true;
 	
 	// add public songs to credits
 	var _is_public_music = false;
@@ -223,7 +223,7 @@ function ___GAME_INIT(){
 		//___MG_MNGR.restartable = true;
 		
 		room_goto(___rm_main_menu);
-		instance_create_layer(0, 0, layer, ___obj_leaderboard)
+		instance_create_layer(0, 0, layer, ___obj_name_entry);
 	
 	
 	// if game is running in browser
