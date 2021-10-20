@@ -161,7 +161,11 @@ function katsaii_wandaring_instance_create_particle(_x, _y, _z, _speed, _angle, 
 }
 
 function katsaii_wandaring_generate_random_room() {
-    var level = irandom(7);
+    var class_a = choose(6);
+    var class_b = choose(0, 2, 3, 7);
+    var class_c = choose(1, 4, 5, 8);
+    var levels = [class_a, choose(class_a, class_b), class_b, choose(class_b, class_c), class_c];
+    var level = levels[DIFFICULTY - 1];
     switch (level) {
     case 0:
         katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 1);
@@ -257,6 +261,20 @@ function katsaii_wandaring_generate_random_room() {
         katsaii_wandaring_instance_create_on_grid(0, 3, katsaii_wandaring_obj_star, 4);
         katsaii_wandaring_instance_create_on_grid(0, 2.5, katsaii_wandaring_obj_star, 2);
         katsaii_wandaring_instance_create_on_grid(0, 2, katsaii_wandaring_obj_star, 0);
+        break;
+    case 8:
+        katsaii_wandaring_instance_create_on_grid_region(0, -1, 2, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(1, 0, katsaii_wandaring_obj_wanda, 0);
+        katsaii_wandaring_instance_create_on_grid(3, 0, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(3, 1, katsaii_wandaring_obj_platform, 3);
+        katsaii_wandaring_instance_create_on_grid(3, 2, katsaii_wandaring_obj_platform, 5);
+        katsaii_wandaring_instance_create_on_grid(3, 3, katsaii_wandaring_obj_platform, 7);
+        katsaii_wandaring_instance_create_on_grid(3, 4, katsaii_wandaring_obj_platform, 9);
+        katsaii_wandaring_instance_create_on_grid(1, 2, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(1, 3, katsaii_wandaring_obj_platform, 4);
+        katsaii_wandaring_instance_create_on_grid(1, 4, katsaii_wandaring_obj_platform, 6);
+        katsaii_wandaring_instance_create_on_grid(1, 5, katsaii_wandaring_obj_platform, 8);
+        katsaii_wandaring_instance_create_on_grid(3, 4, katsaii_wandaring_obj_star, 10);
         break;
     }
 }

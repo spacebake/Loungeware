@@ -12,7 +12,7 @@ if (instance_exists(katsaii_wandaring_obj_gameend)) {
     dir_x = 0;
     dir_y = 0;
 }
-targetAngle += 2 * (KEY_SECONDARY - KEY_PRIMARY);
+targetAngle += 45 * (KEY_SECONDARY_PRESSED - KEY_PRIMARY_PRESSED);
 x += dir_y * -dsin(katsaii_wandaring_obj_control.angle) + dir_x * dcos(katsaii_wandaring_obj_control.angle);
 y += dir_y * dcos(katsaii_wandaring_obj_control.angle) + dir_x * dsin(katsaii_wandaring_obj_control.angle);
 var diff = -angle_difference(katsaii_wandaring_obj_control.angle, targetAngle);
