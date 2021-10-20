@@ -5,6 +5,22 @@ posX = 0;
 posY = 0;
 posZ = 0;
 depth = 10000; // draw the background first uwu
+// initialise colours
+colours = [
+    KATSAII_WANDARING_FOLIAGE_BLUE,
+    KATSAII_WANDARING_FOLIAGE_GREEN,
+    KATSAII_WANDARING_FOLIAGE_GREY,
+    KATSAII_WANDARING_FOLIAGE_GREEN_2,
+    KATSAII_WANDARING_FOLIAGE_YELLOW,
+    KATSAII_WANDARING_FOLIAGE_PINK,
+    KATSAII_WANDARING_FOLIAGE_PURPLE,
+    KATSAII_WANDARING_FOLIAGE_ORANGE,
+    KATSAII_WANDARING_FOLIAGE_RED,
+    KATSAII_WANDARING_FOLIAGE_ORANGE_2,
+];
+array_sort(colours, function(_a, _b) {
+    return choose(-1, 0, 1);
+});
 // load room
 katsaii_wandaring_generate_random_room();
 var snd = sfx_play(katsaii_wandaring_bgm_music, 0, true);

@@ -25,21 +25,9 @@ function katsaii_wandaring_shader_set_effect_colour_grey() {
 }
 
 function katsaii_wandaring_get_foliage_colour(_z) {
-    static colours = [
-        KATSAII_WANDARING_FOLIAGE_BLUE,
-        KATSAII_WANDARING_FOLIAGE_GREEN,
-        KATSAII_WANDARING_FOLIAGE_GREY,
-        KATSAII_WANDARING_FOLIAGE_GREEN_2,
-        KATSAII_WANDARING_FOLIAGE_YELLOW,
-        KATSAII_WANDARING_FOLIAGE_PINK,
-        KATSAII_WANDARING_FOLIAGE_PURPLE,
-        KATSAII_WANDARING_FOLIAGE_ORANGE,
-        KATSAII_WANDARING_FOLIAGE_RED,
-        KATSAII_WANDARING_FOLIAGE_ORANGE_2,
-    ];
     var n = floor(_z / KATSAII_WANDARING_CELL_SIZE);
     n = ((n % 10) + 10) % 10;
-    return colours[n];
+    return katsaii_wandaring_obj_control.colours[n];
 }
 
 #macro KATSAII_WANDARING_CELL_SIZE (16)
@@ -130,6 +118,10 @@ function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
 }
 
 function katsaii_wandaring_instance_create_on_grid(_row, _col, _obj, _offset=undefined) {
+    if (_obj != katsaii_wandaring_obj_platform) {
+        _row += 0.5;
+        _col += 0.5;
+    }
     var inst = instance_create_layer(_row * KATSAII_WANDARING_CELL_SIZE, _col * KATSAII_WANDARING_CELL_SIZE, layer, _obj);
     if (_offset != undefined) {
         inst.z = -(_offset + 1) * KATSAII_WANDARING_CELL_SIZE;
@@ -139,6 +131,19 @@ function katsaii_wandaring_instance_create_on_grid(_row, _col, _obj, _offset=und
         }
     }
     return inst;
+}
+
+function katsaii_wandaring_instance_create_on_grid_region(_row_1, _col_1, _row_2, _col_2, _obj, _offset=undefined, _step=1) {
+    var step = abs(_step);
+    var row_start = min(_row_1, _row_2);
+    var row_end = max(_row_1, _row_2);
+    var col_start = min(_col_1, _col_2);
+    var col_end = max(_col_1, _col_2);
+    for (var i = row_start; i <= row_end; i += step) {
+        for (var j = col_start; j <= col_end; j += step) {
+            katsaii_wandaring_instance_create_on_grid(i, j, _obj, _offset);
+        }
+    }
 }
 
 function katsaii_wandaring_instance_create_particle(_x, _y, _z, _speed, _angle, _pitch) {
@@ -153,81 +158,103 @@ function katsaii_wandaring_instance_create_particle(_x, _y, _z, _speed, _angle, 
     return inst;
 }
 
-function katsaii_wandaring_convert_byte_to_number(_byte) {
-    if (_byte >= ord("0") && _byte <= ord("9")) {
-        return _byte - ord("0");
-    }
-    return 0;
-}
-
-function katsaii_wandaring_load_room_from_file(_path) {
-    var grid = load_csv(_path);
-    for (var row = ds_grid_width(grid) - 1; row >= 0; row -= 1) {
-        for (var col = ds_grid_height(grid) - 1; col >= 0; col -= 1) {
-            var line = grid[# row, col];
-            if not (is_string(line)) {
-                line = string(line);
-            }
-            switch (string_length(line)) {
-            case 0:
-                line += "X";
-            case 1:
-                line += "0";
-            case 2:
-                line += "X";
-            case 3:
-                line += "0";
-            }
-            var p_type = string_byte_at(line, 1);
-            var p_offset = katsaii_wandaring_convert_byte_to_number(string_byte_at(line, 2));
-            var e_type = string_byte_at(line, 3);
-            var e_offset = katsaii_wandaring_convert_byte_to_number(string_byte_at(line, 4)) + p_offset;
-            switch (p_type) {
-            case ord("X"):
-                break;
-            case ord("p"):
-                katsaii_wandaring_instance_create_on_grid(row, col, katsaii_wandaring_obj_platform, p_offset);
-                break;
-            }
-            var e_row = row + 0.5;
-            var e_col = col + 0.5;
-            switch (e_type) {
-            case ord("X"):
-                break;
-            case ord("w"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_wanda, e_offset);
-                break;
-            case ord("s"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_star, e_offset);
-                break;
-            case ord("T"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_foliage, e_offset).image_index = choose(2, 3);
-                break;
-            case ord("t"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_foliage, e_offset).image_index = 4;
-                break;
-            case ord("b"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_foliage, e_offset).image_index = choose(0, 1);
-                break;
-            case ord("c"):
-                katsaii_wandaring_instance_create_on_grid(e_row, e_col, katsaii_wandaring_obj_candy, e_offset).image_index = choose(5, 6, 7, 8, 9);
-                break;
-            }
-        }
-    }
-    ds_grid_destroy(grid);
-}
-
 function katsaii_wandaring_generate_random_room() {
-    katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_platform, 0);
-    katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
-    katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 5);
-    for (var i = 0; i < 10; i += 1) {
-        for (var j = 0; j < 10; j += 1) {
-            katsaii_wandaring_instance_create_on_grid(2 + i, j, katsaii_wandaring_obj_platform, 0);
-        }
+    var level = 7;
+    switch (level) {
+    case 0:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 1);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 3.5);
+        break;
+    case 1:
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_platform, 9);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 9);
+        katsaii_wandaring_instance_create_on_grid(2.25, 0, katsaii_wandaring_obj_star, 11.5);
+        katsaii_wandaring_instance_create_on_grid(-2.25, 0, katsaii_wandaring_obj_star, 11.5);
+        katsaii_wandaring_instance_create_on_grid(0, 2.25, katsaii_wandaring_obj_star, 11.5);
+        katsaii_wandaring_instance_create_on_grid(0, -2.25, katsaii_wandaring_obj_star, 11.5);
+        break;
+    case 2:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 4);
+        katsaii_wandaring_instance_create_on_grid(2, 0, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(3, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(4, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(5, 0, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(6, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(7, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(8, 0, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid_region(9, -1, 9, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(10, -1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(10, 0, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(10, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid_region(11, -1, 11, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(12, 0, katsaii_wandaring_obj_star, 3);
+        break;
+    case 3:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 1);
+        katsaii_wandaring_instance_create_on_grid_region(-5, -5, -3, -3, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid_region(5, 5, 3, 3, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid_region(-5, 5, -3, 3, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid_region(5, -5, 3, -3, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(-4, 0, katsaii_wandaring_obj_platform, 3);
+        katsaii_wandaring_instance_create_on_grid(4, 0, katsaii_wandaring_obj_platform, 3);
+        katsaii_wandaring_instance_create_on_grid(0, -4, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(0, 4, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 4, katsaii_wandaring_obj_star, 4);
+        katsaii_wandaring_instance_create_on_grid(4, 4, katsaii_wandaring_obj_star, 2);
+        katsaii_wandaring_instance_create_on_grid(-4, -4, katsaii_wandaring_obj_star, 1);
+        break;
+    case 4:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 7);
+        katsaii_wandaring_instance_create_on_grid(2, 0, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(3, 0, katsaii_wandaring_obj_platform, 3);
+        katsaii_wandaring_instance_create_on_grid(4, 1, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(4, 0, katsaii_wandaring_obj_platform, 5);
+        katsaii_wandaring_instance_create_on_grid(5, -1, katsaii_wandaring_obj_platform, 4);
+        katsaii_wandaring_instance_create_on_grid(4, -2, katsaii_wandaring_obj_platform, 6);
+        katsaii_wandaring_instance_create_on_grid(5, -3, katsaii_wandaring_obj_platform, 8);
+        katsaii_wandaring_instance_create_on_grid(6, -4, katsaii_wandaring_obj_platform, 6);
+        katsaii_wandaring_instance_create_on_grid(8, -4, katsaii_wandaring_obj_platform, 7);
+        katsaii_wandaring_instance_create_on_grid(2, -3, katsaii_wandaring_obj_platform, 9);
+        break;
+    case 5:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
+        katsaii_wandaring_instance_create_on_grid(-4, 0, katsaii_wandaring_obj_star, 0);
+        katsaii_wandaring_instance_create_on_grid(2, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(3, 0, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(4, 0, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(5, 1, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(6, 2, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(7, 2, katsaii_wandaring_obj_platform, 2);
+        katsaii_wandaring_instance_create_on_grid(8, 2, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid_region(9, 1, 11, 3, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid(10, 2, katsaii_wandaring_obj_star, 1);
+        break;
+    case 6:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -4, 1, 4, katsaii_wandaring_obj_platform, 0);
+        katsaii_wandaring_instance_create_on_grid_region(2, -4, 2, 4, katsaii_wandaring_obj_platform, 1);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_wanda, 0);
+        katsaii_wandaring_instance_create_on_grid(0, 0, katsaii_wandaring_obj_star, 4);
+        katsaii_wandaring_instance_create_on_grid(0, -3, katsaii_wandaring_obj_star, 4);
+        katsaii_wandaring_instance_create_on_grid(0, 3, katsaii_wandaring_obj_star, 4);
+        break;
+    case 7:
+        katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 9);
+        katsaii_wandaring_instance_create_on_grid(3, 0, katsaii_wandaring_obj_platform, 8);
+        katsaii_wandaring_instance_create_on_grid(5, 0, katsaii_wandaring_obj_platform, 7);
+        katsaii_wandaring_instance_create_on_grid(7, 0, katsaii_wandaring_obj_platform, 6);
+        katsaii_wandaring_instance_create_on_grid(7, 0, katsaii_wandaring_obj_wanda, 6);
+        katsaii_wandaring_instance_create_on_grid(0, 4.5, katsaii_wandaring_obj_star, 8);
+        katsaii_wandaring_instance_create_on_grid(0, 3.5, katsaii_wandaring_obj_star, 6);
+        katsaii_wandaring_instance_create_on_grid(0, 3, katsaii_wandaring_obj_star, 4);
+        katsaii_wandaring_instance_create_on_grid(0, 2.5, katsaii_wandaring_obj_star, 2);
+        katsaii_wandaring_instance_create_on_grid(0, 2, katsaii_wandaring_obj_star, 0);
+        break;
     }
-    katsaii_wandaring_instance_create_on_grid(-2, 0, katsaii_wandaring_obj_platform, 1);
-    katsaii_wandaring_instance_create_on_grid(-3, 0, katsaii_wandaring_obj_platform, 2);
-    katsaii_wandaring_instance_create_on_grid(-4, 0, katsaii_wandaring_obj_platform, 4);
 }

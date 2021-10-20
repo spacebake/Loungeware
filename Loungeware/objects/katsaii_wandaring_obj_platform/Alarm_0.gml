@@ -51,9 +51,9 @@ if (neighbour) {
 }
 // spawn random foliage
 if (random(1) < 0.25) {
-    var foliage_state = [0, 0, choose(0, 0, 1), choose(0, 0, 0, 0, 1, 1, 2), choose(0, 0, 0, 1, 1, 2)];
-    var row = round(x / KATSAII_WANDARING_CELL_SIZE) + 0.5;
-    var col = round(y / KATSAII_WANDARING_CELL_SIZE) + 0.5;
+    var foliage_state = [0, 0, 0, choose(0, 0, 0, 0, 1, 1, 2), choose(0, 0, 0, 1, 1, 2)];
+    var row = round(x / KATSAII_WANDARING_CELL_SIZE);
+    var col = round(y / KATSAII_WANDARING_CELL_SIZE);
     var off = -round(z / KATSAII_WANDARING_CELL_SIZE) - 1;
     switch (foliage_state[neighbour_count]) {
     case 0: // bushes
