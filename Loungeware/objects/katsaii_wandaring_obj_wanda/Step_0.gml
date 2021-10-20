@@ -48,6 +48,7 @@ if (jumpTimer != -1) {
 // collision check
 var hitbox_radius = 5;
 var grounded = false;
+var jump_up_wall = false;
 with (katsaii_wandaring_obj_platform) {
     var pos_x = clamp(other.x, x, x + KATSAII_WANDARING_CELL_SIZE);
     var pos_y = clamp(other.y, y, y + KATSAII_WANDARING_CELL_SIZE);
@@ -69,9 +70,12 @@ with (katsaii_wandaring_obj_platform) {
         var push_distance = hitbox_radius - pos_distance;
         other.x += lengthdir_x(push_distance, push_angle);
         other.y += lengthdir_y(push_distance, push_angle);
+        if (abs(other.z - z) < KATSAII_WANDARING_CELL_SIZE * 1.5) {
+            jump_up_wall = true;
+        }
     }
 }
-if (!grounded && jumpTimer == -1) {
+if (jumpTimer == -1 && (!grounded || jump_up_wall)) {
     // jump
     jumpTimer = 0;
     jumpZ = z;

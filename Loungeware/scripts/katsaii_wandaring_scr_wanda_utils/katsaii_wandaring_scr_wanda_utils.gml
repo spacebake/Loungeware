@@ -229,4 +229,5 @@ function katsaii_wandaring_generate_random_room() {
     }
     katsaii_wandaring_instance_create_on_grid(-2, 0, katsaii_wandaring_obj_platform, 1);
     katsaii_wandaring_instance_create_on_grid(-3, 0, katsaii_wandaring_obj_platform, 2);
+    katsaii_wandaring_instance_create_on_grid(-4, 0, katsaii_wandaring_obj_platform, 4);
 }
