@@ -42,18 +42,18 @@ _tick = function(){
 		image_index = 0;	
 	}
 	
-	var input = 0;
+	var katsaii_wandaring_input = 0;
 	if(KEY_LEFT){
-		input = -1;
+		katsaii_wandaring_input = -1;
 	}else if(KEY_RIGHT){
-		input = 1;	
+		katsaii_wandaring_input = 1;	
 	}
 	
-	if(input == 0){
+	if(katsaii_wandaring_input == 0){
 		key_press_timer = 0;	
 	}else{
 		if(key_press_timer % key_press_interval == 0){
-			_on_dir_keypress(input);
+			_on_dir_keypress(katsaii_wandaring_input);
 		}
 		key_press_timer++;	
 	}
@@ -67,8 +67,8 @@ _tick = function(){
 	y= min(_start_y, y);
 }
 
-_on_dir_keypress = function(input){
-	active_button += input;
+_on_dir_keypress = function(katsaii_wandaring_input){
+	active_button += katsaii_wandaring_input;
 	if(active_button < 0){
 		active_button = 1;	
 	}
@@ -77,7 +77,7 @@ _on_dir_keypress = function(input){
 	}
 }
 
-_on_select_keypress = function(input){
+_on_select_keypress = function(katsaii_wandaring_input){
 	with(n8fl_admin_simulator_btn){
 		if(index == other.active_button){
 			click();	
