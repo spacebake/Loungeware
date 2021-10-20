@@ -118,6 +118,8 @@ function katsaii_wandaring_draw_island(_cell_x, _cell_y, _height, _occlude) {
 }
 
 function katsaii_wandaring_instance_create_on_grid(_row, _col, _obj, _offset=undefined) {
+    _row *= katsaii_wandaring_obj_control.mirrorX;
+    _col *= katsaii_wandaring_obj_control.mirrorY;
     if (_obj != katsaii_wandaring_obj_platform) {
         _row += 0.5;
         _col += 0.5;
@@ -159,7 +161,7 @@ function katsaii_wandaring_instance_create_particle(_x, _y, _z, _speed, _angle, 
 }
 
 function katsaii_wandaring_generate_random_room() {
-    var level = 7;
+    var level = irandom(7);
     switch (level) {
     case 0:
         katsaii_wandaring_instance_create_on_grid_region(-1, -1, 1, 1, katsaii_wandaring_obj_platform, 1);

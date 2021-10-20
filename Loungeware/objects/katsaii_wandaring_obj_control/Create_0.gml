@@ -21,8 +21,13 @@ colours = [
 array_sort(colours, function(_a, _b) {
     return choose(-1, 0, 1);
 });
+// mirror state
+mirrorX = choose(1, -1);
+mirrorY = choose(1, -1);
 // load room
 katsaii_wandaring_generate_random_room();
+mirrorX = 1;
+mirrorY = 1;
 var snd = sfx_play(katsaii_wandaring_bgm_music, 0, true);
 audio_sound_gain(snd, 0.125, game_get_speed(gamespeed_microseconds) * 2 / 10);
 // set view
