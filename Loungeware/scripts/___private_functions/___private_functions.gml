@@ -358,6 +358,14 @@ function ___sound_menu_success(){
 	audio_sound_gain(_snd_id, _vol, 0);
 }
 
+function ___sound_menu_back(){
+	var _snd_index  = ___snd_bumper;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.3;
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, 1);
+}
+
 // ------------------------------------------------------------------------------------------
 // DRAW DOTTED LINE
 // ------------------------------------------------------------------------------------------
@@ -873,6 +881,13 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 	static prev_confirmed = false;
 	static shake_timer_max = 15;
 	static shake_timer = 0;
+	static x_prev = _x;
+	static y_prev = _y;
+	
+	// prevent wastefully shaking chars during menu movement
+	var _moving = (x_prev != _x || y_prev != _y);
+	x_prev = _x;
+	y_prev = _y;
 	
 	var _store_halign = draw_get_halign();
 	draw_set_halign(fa_center);
@@ -881,6 +896,7 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 		var _selected = (_cursor_pos == i);
 		var _scale = 1;
 		var _txt = variable_struct_get(_menu_array[i], "text");
+		var _is_disabled = (variable_struct_get(_menu_array[i], "action") == ___noop);
 		draw_set_color(c_gbwhite);
 		draw_set_font(_fnt);
 		
@@ -896,14 +912,34 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 			}
 			
 		}
-		___global.___draw_text_advanced(_x, _y, _v_sep, true, true, _txt, 1, _scale, 2);
+		var _letter_spacing = 2;
+		___global.___draw_text_advanced(_x, _y, _v_sep, !_moving, true, _txt, 1, _scale, _letter_spacing);
+		
+		// strikethrough disabled menu items
+		if (_is_disabled){
+			var _str_count = string_length(_txt);
+			var _str_w = string_width(___global.___string_strip_tags(_txt)) + ((_str_count-1) * _letter_spacing);
+			var _overshoot = 5;
+			var _line_y_center = _y + 9;
+			var _thickness = 4;
+			draw_rectangle_fix(
+				_x - (_str_w/2) - _overshoot,
+				_line_y_center - (_thickness/2),
+				_x + (_str_w/2) + _overshoot,
+				_line_y_center + (_thickness/2)
+			);
+		}
+		
+		
 		_y += _v_sep;
 	}
 	draw_set_halign(_store_halign);
 	if (prev_confirmed == false && _confirmed == true){
 		shake_timer = shake_timer_max;
 	}
+	
 	prev_confirmed = _confirmed;
+
 }
 
 
@@ -917,3 +953,4 @@ function ___toggle_fade(_val, _is_show, _steps){
 		return max(0, _val - (1/_steps));
 	}
 }
+

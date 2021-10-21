@@ -1,38 +1,35 @@
-// draw logo
-var _logo_x = WINDOW_BASE_SIZE/2;
-var _logo_y = WINDOW_BASE_SIZE/2;
-var _spr = ___spr_logo_title;
-var _frame = 0;
-var _pump_scale = 1.2;
-var _pump_speed = 15;
-draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, logo_scale, logo_scale, 0, c_white, logo_scale);
 
 
 
-if (substate == 0){
-	logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
-	if (logo_scale_dir > 90 && logo_scale <= 1){
-		substate++;
-		logo_scale = 1;
-		logo_scale_dir = 180;
-	}
-	logo_scale_dir += _pump_speed;
-}
-
-if (substate == 1){
-	var _pump_speed = 20;
-	if (trigger_pump){
-		logo_scale_dir = 0; 
-		trigger_pump = false;
-	}
-	_pump_scale = 1.05;
-	var _extra_scale = abs(lengthdir_y(_pump_scale-1, logo_scale_dir));
-	logo_scale = 1 + _extra_scale;
-	logo_scale_dir = min(180, logo_scale_dir + _pump_speed);
+if (logo_show_pump){
 	
+	var _pump_scale, _pump_speed;
 	
-}
+	if (logo_pumpstate == 0){
+		_pump_scale = 1.2;
+		_pump_speed = 15
+		logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
+		if (logo_scale_dir > 90 && logo_scale <= 1){
+			logo_pumpstate++;
+			logo_scale = 1;
+			logo_scale_dir = 180;
+		}
+		logo_scale_dir += _pump_speed;
+	}
 
+	if (logo_pumpstate == 1){
+		_pump_speed = 20;
+		_pump_scale = 1.05;
+		if (trigger_pump){
+			logo_scale_dir = 0; 
+			trigger_pump = false;
+		}
+		
+		var _extra_scale = abs(lengthdir_y(_pump_scale-1, logo_scale_dir));
+		logo_scale = 1 + _extra_scale;
+		logo_scale_dir = min(180, logo_scale_dir + _pump_speed);
+	}
+}
 
 ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
 
@@ -74,7 +71,7 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 }
 
 
-if (state == "close"){
+if (close_circle_prog < 1){
 	
 	var _size = WINDOW_BASE_SIZE/2;
 	if (!surface_exists(circle_surf)){
@@ -87,17 +84,23 @@ if (state == "close"){
 	var _rad = close_circle_prog * (_size/2);
 	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
 	gpu_set_blendmode(bm_normal);
-
 	surface_reset_target();
 	draw_surface_stretched(circle_surf, 0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-	close_circle_prog = max(0, close_circle_prog - (1/30));
-	//close_circle_prog = ___smooth_move(close_circle_prog, 0, 0.025, 10);
-	if (close_circle_prog <= 0) close_wait--;
-	if (close_wait <= 0){
-		instance_create_layer(0, 0, layer, ___obj_main_menu);
-		instance_destroy();
-	}
-
-
 }
+
+
+// draw logo
+var _logo_x = WINDOW_BASE_SIZE/2;
+var _logo_y = logo_y;
+if (logo_shake > 0){
+	var _sv = logo_shake / 2;
+	_logo_x += random_range(-_sv, _sv);
+	_logo_y += random_range(-_sv, _sv);
+}
+var _spr = ___spr_logo_title;
+var _frame = 0;
+var _alpha = logo_scale;
+if (state == "logo_move") _alpha = 1;
+
+draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, logo_scale, logo_scale, 0, c_white, _alpha);
 

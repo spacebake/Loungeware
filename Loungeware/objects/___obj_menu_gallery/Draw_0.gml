@@ -380,7 +380,14 @@ if (state == "fadeout_back"){
 	}
 }
 
-
+// draw open transition cover
+if (cover_alpha > 0){
+	draw_set_color(col_bg);
+	draw_set_alpha(cover_alpha);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
+}
 
 
 if (state == "move_cart"){
@@ -416,11 +423,3 @@ if (state == "move_cart"){
 
 
 
-// draw open transition cover
-if (cover_alpha > 0){
-	draw_set_color(col_bg);
-	draw_set_alpha(cover_alpha);
-	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
-	draw_set_alpha(1);
-	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
-}

@@ -20,12 +20,14 @@ submission_successful = false;
 name = "";
 name_max_chars = 11;
 name_min_chars = 3;
+name_zoom_offset = 290;
+first_wait = 30;
 
 allowed_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 allowed_numbers = "0123456789";
 allowed_special = "-_";
 allowed_chars = allowed_letters + allowed_numbers + allowed_special;
-name_confirmed = false;
+
 
 score_int = variable_struct_get(___global.score_last_as_obj, "points");
 score_id_local = variable_struct_get(___global.score_last_as_obj, "score_id_local");
@@ -80,13 +82,12 @@ confirm_prompt_text = "CONFIRM AND SUBMIT?";
 confirm_shake_time = 0;
 
 
+
 confirm_menu = [
-	{text : "SUBMIT SCORE", action : ___noop}, 
-	{text : "EDIT INFO", action : ___noop},
+	{text : "SUBMIT SCORE", action : function(){/*not noop*/}}, 
+	{text : "EDIT INFO", action : function(){/*not noop*/}},
 ];
 confirm_cursor = 0;
-
-
 
 surf_circle = noone;
 close_circle_prog = 1;
@@ -166,6 +167,7 @@ http_error_action_retry = function(){
 }
 http_error_action_exit = function(){
 	___state_change("exit_confirmation");
+	___sound_menu_error();
 }
 
 http_error_menu = [
@@ -382,8 +384,6 @@ function sbmt_scr(){
 		score_id_local: score_id_local,
 		player_id: ___global.player_id,
 	}
-	
-	_data.score_id_local = "mxlQC84DTn7eq";
 	
 	store_submitted_score_id("hello");
 	var _json = json_stringify(_data);

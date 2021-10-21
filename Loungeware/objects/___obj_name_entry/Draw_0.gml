@@ -3,13 +3,13 @@ draw_set_font(fnt_gallery);
 var _line_x = 0;
 
 // ----------------------------------------------------------------------------------------------
-// title
+// title (for name input)
 // ----------------------------------------------------------------------------------------------
 if (input_prompt_alpha > 0){
 	draw_set_color(c_gbyellow);
 	draw_set_font(fnt_gallery);
 	var _title_x = VIEW_W/2;
-	var _title_y = 220;
+	var _title_y = 220 - name_zoom_offset;
 	draw_set_halign(fa_center);
 	draw_set_alpha(input_prompt_alpha);
 	___global.___draw_text_advanced(_title_x, _title_y,16, true, true, title_text, 0.5, 1, 5);
@@ -28,7 +28,7 @@ if (draw_input_box){
 	var _name_w = _letter_sep_x * string_length(name);
 	var _name_w_max = _letter_sep_x * name_max_chars;
 	var _name_x = ((VIEW_W/2) - (_name_w/2))  + string_width("M");
-	var _name_y = (270) + input_y_offset;
+	var _name_y = (270) + input_y_offset + name_zoom_offset;
 	var _char_x = 0;
 	var _line_x, _line_y, _line_thickness;
 	var _name_margin = 12;

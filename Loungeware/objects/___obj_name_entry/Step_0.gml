@@ -1,7 +1,7 @@
 
 ___state_handler();
 
-var _key_back_pressed = (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace));
+var _key_back_pressed = (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape));
 
 //----------------------------------------------------------------------------------
 // NAME ENTRY
@@ -19,96 +19,115 @@ if (state == "entry"){
 		confirm_score_alpha = 0;
 		icon_selection_scale = 0;
 		ignore_next_key_input_timer = 10;
-		button_guide_frame = 1;
-		button_guide_show = true;
+	}
+	
+	if (substate == 0){
+
+		first_wait = max(0, first_wait - 1);
+		if (first_wait == 1) ___play_sfx(___snd_swoosh, 0.1, 0.7);
+		if (first_wait <= 0){
+			name_zoom_offset = ___smooth_move(name_zoom_offset, 0, 1, 6);
+			if (name_zoom_offset == 0) ___substate_change(substate+1);
+		}
+	}
+	
+	if (substate == 1){
 		
-	}
+		if (substate_begin){
+			button_guide_frame = 1;
+			button_guide_show = true;
+		}
+		if (_key_back_pressed){
+			http_error_action_exit();
+			exit;
+		}
 	
-	last_letter_timer = max(0, last_letter_timer - 1);
-	cursor_flash_timer--;
-	if (cursor_flash_timer <= 0) cursor_flash_timer = cursor_flash_timer_max;
+		last_letter_timer = max(0, last_letter_timer - 1);
+		cursor_flash_timer--;
+		if (cursor_flash_timer <= 0) cursor_flash_timer = cursor_flash_timer_max;
 	
-	ignore_next_key_input_timer = max(0, ignore_next_key_input_timer - 1);
-	if (ignore_next_key_input_timer){
-		keyboard_string = keyboard_string_prev;
-	}
+		ignore_next_key_input_timer = max(0, ignore_next_key_input_timer - 1);
+		if (ignore_next_key_input_timer){
+			keyboard_string = keyboard_string_prev;
+		}
 
 	
-	if (keyboard_string != keyboard_string_prev){
+		if (keyboard_string != keyboard_string_prev){
 		
-		letter_count = 0;
-		num_count = 0;
-		special_count = 0;
+			letter_count = 0;
+			num_count = 0;
+			special_count = 0;
 		
-		// cut string if longer than max
-		if (string_length(keyboard_string) > name_max_chars) keyboard_string = string_copy(keyboard_string, 1, name_max_chars);
+			// cut string if longer than max
+			if (string_length(keyboard_string) > name_max_chars) keyboard_string = string_copy(keyboard_string, 1, name_max_chars);
 		
-		// disallow dobule specials
-		if (!allow_double_specials && string_length(keyboard_string) >= 2){
-			var _last_char = string_char_at(keyboard_string, string_length(keyboard_string));
-			var _second_to_last_char =  string_char_at(keyboard_string, string_length(keyboard_string)-1);
-			if (string_has_char(allowed_special, _last_char) && string_has_char(allowed_special, _second_to_last_char)){
-				keyboard_string = string_copy(keyboard_string, 1, string_length(keyboard_string)-1);
+			// disallow dobule specials
+			if (!allow_double_specials && string_length(keyboard_string) >= 2){
+				var _last_char = string_char_at(keyboard_string, string_length(keyboard_string));
+				var _second_to_last_char =  string_char_at(keyboard_string, string_length(keyboard_string)-1);
+				if (string_has_char(allowed_special, _last_char) && string_has_char(allowed_special, _second_to_last_char)){
+					keyboard_string = string_copy(keyboard_string, 1, string_length(keyboard_string)-1);
+				}
+			}
+		
+			// disallow starting with special
+			if (!allow_starting_with_special && string_has_char(allowed_special, string_char_at(keyboard_string, 1))){
+				keyboard_string = string_copy(keyboard_string, 2,  string_length(keyboard_string)-1);
+			}
+	
+			for (var i = 0; i < string_length(keyboard_string); i++){
+				var _index = i+1;
+				var _char = string_char_at(keyboard_string, _index);
+				var _char_legal = string_has_char(allowed_chars, _char);
+				if (!_char_legal){
+					keyboard_string = string_delete(keyboard_string, _index, 1);
+					i--;
+				} else {
+					letter_count += string_has_char(allowed_letters, _char);
+					num_count += string_has_char(allowed_numbers, _char);
+					special_count += string_has_char(allowed_special, _char);
+				}
 			}
 		}
-		
-		// disallow starting with special
-		if (!allow_starting_with_special && string_has_char(allowed_special, string_char_at(keyboard_string, 1))){
-			keyboard_string = string_copy(keyboard_string, 2,  string_length(keyboard_string)-1);
+	
+		// zoom new letter for a moment
+		if (string_length(keyboard_string) > string_length(keyboard_string_prev)){
+			last_letter_timer = last_letter_timer_max;
+			snd_play_key();
 		}
 	
-		for (var i = 0; i < string_length(keyboard_string); i++){
-			var _index = i+1;
-			var _char = string_char_at(keyboard_string, _index);
-			var _char_legal = string_has_char(allowed_chars, _char);
-			if (!_char_legal){
-				keyboard_string = string_delete(keyboard_string, _index, 1);
-				i--;
-			} else {
-				letter_count += string_has_char(allowed_letters, _char);
-				num_count += string_has_char(allowed_numbers, _char);
-				special_count += string_has_char(allowed_special, _char);
-			}
+		// backspace sound
+		if (string_length(keyboard_string) < string_length(keyboard_string_prev)){
+			snd_play_key(true);
 		}
-	}
-	
-	// zoom new letter for a moment
-	if (string_length(keyboard_string) > string_length(keyboard_string_prev)){
-		last_letter_timer = last_letter_timer_max;
-		snd_play_key();
-	}
-	
-	// backspace sound
-	if (string_length(keyboard_string) < string_length(keyboard_string_prev)){
-		snd_play_key(true);
-	}
 	
 	
-	if (string_length(keyboard_string) < string_length(keyboard_string_prev)){
-		last_letter_timer = 0;
-	}
-	
-	keyboard_string_prev = keyboard_string;
-	name = keyboard_string;
-	input_name_validate(name);
-	
-	if (keyboard_check_pressed(vk_enter)){
-		
-		if (input_name_validate(name)){
-			input_lettershake = 10;
+		if (string_length(keyboard_string) < string_length(keyboard_string_prev)){
 			last_letter_timer = 0;
-			___state_change("transition_to_icon_selection");
-			___sound_menu_select();
-		} else {
-			___play_sfx(___snd_bumper, 0.08, 2.2 + random(0.01));
-			input_error_show = true;
-			input_error_shake = input_error_shake_max;
-			input_error_msg = input_error_msg_queued;
 		}
+	
+		keyboard_string_prev = keyboard_string;
+		name = keyboard_string;
+		input_name_validate(name);
+	
+		if (keyboard_check_pressed(vk_enter) && name_zoom_offset == 0){
+		
+			if (input_name_validate(name)){
+				input_lettershake = 10;
+				last_letter_timer = 0;
+				___state_change("transition_to_icon_selection");
+				___sound_menu_select();
+			} else {
+				___play_sfx(___snd_bumper, 0.08, 2.2 + random(0.01));
+				input_error_show = true;
+				input_error_shake = input_error_shake_max;
+				input_error_msg = input_error_msg_queued;
+			}
+		}
+	
+	
+		ee_check();
 	}
-	
-	
-	ee_check();
 }
 
 //----------------------------------------------------------------------------------
@@ -201,6 +220,7 @@ if (state == "icon_selection"){
 		if (_key_back_pressed){
 			___state_change("entry");
 			backfade_alpha = 1;
+			___sound_menu_back();
 		}
 		
 		
@@ -276,6 +296,7 @@ if (state == "confirmation_screen"){
 		if (_key_back_pressed){
 			___state_change("icon_selection");
 			backfade_alpha = 1;
+			___sound_menu_back();
 		}
 		
 		// confirm button
@@ -426,6 +447,8 @@ if (state == "exit_confirmation"){
 		button_guide_frame = 3;
 		button_guide_show = true;
 		ec_menu_cursor = 0;
+		draw_input_prompt = false;
+		draw_input_box = false;
 	}
 	
 	ec_menu_y_offset = ___smooth_move(ec_menu_y_offset, 0, 0.5, 5);
@@ -436,6 +459,7 @@ if (state == "exit_confirmation"){
 		backfade_alpha = 1;
 		ec_show = false;
 		ec_alpha = 0;
+		___sound_menu_back();
 	}
 	
 	// navigate menu

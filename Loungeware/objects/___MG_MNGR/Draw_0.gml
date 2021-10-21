@@ -362,7 +362,6 @@ if (state == "end_screen"){
 	var _str, _str_w, _selected, _text_y_final; 
 	draw_set_halign(fa_center);
 	draw_set_font(___global.___fnt_gallery);
-	log(es_menu_cursor);
 	for (var i = 0; i < array_length(es_menu); i++){
 		
 		_scale = 0.5;
