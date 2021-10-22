@@ -1,7 +1,7 @@
 
 z = 0;
 z_og = z;
-tex = baku_mine_spr_diamond_drop;
+texture_name = "drop_diamond";
 spin = true;
 glow_col = c_white;
 glow_alpha = 0;

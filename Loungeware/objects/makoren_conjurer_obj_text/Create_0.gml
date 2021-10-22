@@ -54,14 +54,14 @@ win = function() {
 	makoren_conjurer_obj_item.image_index = selected_indices[0];
 	makoren_conjurer_obj_larold.sprite_index = makoren_conjurer_spr_larold_win;
 	
-	audio_play_sound(makoren_conjurer_snd_powerup, 100, false);
+	sfx_play(makoren_conjurer_snd_powerup, 1, false);
 }
 
 lose = function() {
 	inputs_disabled = true;
 	should_draw = false;
 	
-	audio_play_sound(makoren_conjurer_snd_lose, 100, false);
+	sfx_play(makoren_conjurer_snd_lose, 1, false);
 	
 	makoren_conjurer_obj_larold.sprite_index = makoren_conjurer_spr_larold_lose;
 	

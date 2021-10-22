@@ -50,7 +50,7 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 		
 		// Aim
 		aim_dir -= (KEY_RIGHT - KEY_LEFT) * aim_spd;
-		// aim_pitch += (keyboard_check(ord("F")) - keyboard_check(ord("V"))) * aim_spd; // Debug pitch
+		aim_pitch += (keyboard_check(ord("F")) - keyboard_check(ord("V"))) * aim_spd; // Debug pitch
 		
 		// Movement speed
 		var _fb_keys = (KEY_UP - KEY_DOWN) * max_spd;
@@ -189,7 +189,7 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 		// Mine the block
 		if block_aim_id != noone {
 			if block_aim_id.is_ore == true {
-				if KEY_PRIMARY and crack_img > sprite_get_number(baku_mine_spr_crack) - 1 {
+				if KEY_PRIMARY and crack_img > 5 {
 					
 					var _win = false;
 					
@@ -197,11 +197,11 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 					with block_aim_id {
 						// Create drop
 						var _inst = instance_create_layer(x, y, layer, baku_mine_obj_drop);
-						_inst.tex = drop_tex;
 						_inst.z = z;
 						_inst.glow_col = glow_col;
 						_inst.glow_alpha = glow_alpha;
 						_inst.z_og = z;
+						_inst.texture_name = texture_name_drop;
 						
 						// Did we win?
 						if ore_type == other.prompt_to_ore_translator[$ PROMPT] {
@@ -257,10 +257,10 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 if !win {
 
 	// Spawn think bubble
-	if (TIME_REMAINING_SECONDS <= 9) and (DIFFICULTY <= 2) and !think_spawned and !creeper_spawned and !lose {
-		think_spawned = true;
-		sfx_play(baku_mine_snd_think, 1, false);
-	}
+	// if (TIME_REMAINING_SECONDS <= 9) and (DIFFICULTY <= 2) and !think_spawned and !creeper_spawned and !lose {
+	// 	think_spawned = true;
+	// 	sfx_play(baku_mine_snd_think, 1, false);
+	// }
 	
 	// Spawn creeper
 	var _creeper_time = 4 + max(DIFFICULTY - 4, 0);
@@ -374,3 +374,13 @@ with baku_mine_obj_frustum_culler {
 	}
 	
 #endregion
+
+// Prompt display stuff
+prompt_wait = approach(prompt_wait, 0, 1);
+if !prompt_wait {
+	prompt_scale = lerp(prompt_scale, 1.5, prompt_lerp);
+	prompt_y = lerp(prompt_y, 24, prompt_lerp);
+	prompt_col_merge += 0.0025;
+	prompt_col = merge_colour(c_gbwhite, c_gbpink, clamp(prompt_col_merge, 0, 1));
+	prompt_shake += 0.01;
+}

@@ -6,7 +6,7 @@ microgame_register("makoren_conjurer", {
     init_room: makoren_conjurer_rm_main,
     view_width: 120,
     view_height: 80,
-    time_seconds: 6,
+    time_seconds: 8,
     music_track: sng_ennway_bit_battle,
     music_loops: true,
     interpolation_on: false,

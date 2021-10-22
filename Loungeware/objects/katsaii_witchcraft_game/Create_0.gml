@@ -16,6 +16,5 @@ failed = false;
 win = false;
 craftAnimation = -1;
 craftSpeed = 0.075;
-resultAudio = audio_emitter_create();
 resultTimer = 0;
 resultSpeed = 0.04;
