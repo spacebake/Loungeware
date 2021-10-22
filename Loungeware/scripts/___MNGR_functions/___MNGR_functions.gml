@@ -81,6 +81,22 @@ function ___MG_MNGR_declare_functions(){
 			games_won += 1;
 			microgame_add_to_played_record(___MG_MNGR.microgame_current_name);
 		} 
+		
+		// report data 🤫
+		var _mode = "arcade";
+		if (gallery_mode) _mode = "gallery";
+		var _data = {
+			key : ___MG_MNGR.microgame_current_name,
+			difficulty : DIFFICULTY,
+			win : ___MG_MNGR.microgame_won, 
+			player_id : ___global.player_id, 
+			mode : _mode,
+			game_name : ___MG_MNGR.microgame_current_metadata.game_name,
+			is_html : HTML_MODE
+		}
+		var _json = json_stringify(_data);
+		http_post_string(___API_BASE_URL + "stats", _json);
+		
 	
 		if (DIFFICULTY < ___global.difficulty_max && !gallery_mode && !TEST_MODE_ACTIVE){
 			games_until_next_diff_up = max(games_until_next_diff_up-1, 0);

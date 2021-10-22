@@ -6,11 +6,11 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 }
 
 
-if (state =="aaa"){
+if (state =="dev_test"){
 	//transition_difficulty_up = true;
-	microgame_fail();
-	ou_score_display = 9400;
-	___state_change("end_screen");
+	//microgame_fail();
+	//ou_score_display = 9400;
+	//___state_change("end_screen");
 }
 
 // --------------------------------------------------------------------------------
@@ -887,14 +887,23 @@ if (state == "outro"){
 // STATE | END SCREEN
 // --------------------------------------------------------------------------------
 if (state == "end_screen"){
+	
 	if (state_begin){
-		
+		ec_show = false;
+		es_draw = true;
 		pause_enabled = false;
 		load_local_scores();
 		add_score_to_board_local(ou_score_display);
 		___store_score_for_submission(ou_score_display);
 		var _sng = (es_score_in_scoreboard) ? ___sng_zandy_foo : ___sng_zandy_foo_lose;
-		es_song_id = ___play_song(_sng, 1, true);
+		if (es_song_id != noone && audio_is_playing(es_song_id)){
+			audio_sound_gain(es_song_id, 1, 250);
+		} else {
+			es_song_id = ___play_song(_sng, 1, true);
+		}
+		es_menu_confirmed = false;
+		button_guide_frame = 3;
+		button_guide_show = true;
 	}
 	
 	// fade in
@@ -904,29 +913,14 @@ if (state == "end_screen"){
 	
 		// move cursor
 		var _menu_len = array_length(es_menu);
-		es_cursor_v_move = -KEY_UP + KEY_DOWN;
-		if (es_cursor_v_move != es_cursor_v_move_last){
-			es_input_cooldown = 0;
-			es_input_is_scrolling = false;
-		}
-		es_cursor_v_move_last = es_cursor_v_move;
-	
-		if (abs(es_cursor_v_move) && es_input_cooldown <= 0){
-			if (es_input_is_scrolling){
-				es_input_cooldown = es_input_cooldown_max;
-			} else {
-				es_input_cooldown = es_input_cooldown_init_max;
-				es_input_is_scrolling = true;
-			}
-			___sound_menu_tick_vertical();
-		
-		} else {
-			es_cursor_v_move = 0;
-			es_input_cooldown = max(0, es_input_cooldown - 1);
-		}
-		es_menu_cursor += es_cursor_v_move;
-		if (es_menu_cursor > _menu_len - 1) es_menu_cursor = 0;
+		var _v_move = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = es_menu_cursor;
+		es_menu_cursor += _v_move;
+		if (es_menu_cursor >= _menu_len) es_menu_cursor = 0;
 		if (es_menu_cursor < 0) es_menu_cursor = _menu_len - 1;
+		if (es_menu_cursor != _store_pos){
+			___sound_menu_tick_vertical();
+		}
 
 		if (KEY_PRIMARY_PRESSED){
 			___sound_menu_select();
@@ -936,27 +930,108 @@ if (state == "end_screen"){
 	
 	}
 	
-	// fade out music
+	//// fade out music
+	//if (substate == 1){
+	//	var _time = 30;
+	//	if (substate_begin){
+	//		audio_sound_gain(es_song_id, 0, (_time/60)*1000);
+	//		wait = 10;
+	//	}
+	//	es_close_circle_prog = max(0, es_close_circle_prog - (1/_time));
+	//	if (es_close_circle_prog <= 0) wait--;
+		
+	//	if (wait <= 0){
+	//		___substate_change(substate+1);
+	//	}
+	//}
+	
+	// perform menu action
 	if (substate == 1){
-		var _time = 30;
 		if (substate_begin){
+			var _selection = es_menu[es_menu_cursor];
+			_selection.action();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------
+// exit to submit screen
+//---------------------------------------------------------------------------------
+if (state == "exit_transition"){
+		var _time = 30;
+		
+		if (state_begin){
 			audio_sound_gain(es_song_id, 0, (_time/60)*1000);
 			wait = 10;
+			es_close_circle_prog = 1;
+			button_guide_show = false;
 		}
+		
 		es_close_circle_prog = max(0, es_close_circle_prog - (1/_time));
 		if (es_close_circle_prog <= 0) wait--;
 		
 		if (wait <= 0){
-			___substate_change(substate+1);
+			
+			workspace_end();
+			room_goto(___rm_main_menu);
+			application_surface_draw_enable(true);
+			if (es_exit_to == "submit"){
+				instance_create_layer(0, 0, layer, ___obj_name_entry);
+			} else if (es_exit_to == "main_menu"){
+				with(instance_create_layer(0, 0, layer, ___obj_main_menu)) skip_intro = true;
+			}
+			instance_destroy();
 		}
+}
+
+
+//----------------------------------------------------------------------------------
+// exit confirmation
+//----------------------------------------------------------------------------------
+if (state == "exit_confirmation"){
+	if (state_begin){
+		ec_show = true;
+		ec_menu_y_offset = ec_menu_y_offset_max;
+		ec_menu_confirmed = false;
+		ec_menu_cursor = 0;
+		ec_shake = ec_shake_max;
+		es_draw = false;
+		ec_menu_cursor = 0;
+		audio_sound_gain(es_song_id, 0, 100);
+		___sound_menu_error();
+		button_guide_frame = 6;
+		button_guide_show = true;
 	}
 	
-	// perform menu action
-	if (substate == 2){
-		if (substate_begin){
-			audio_stop_sound(es_song_id);
-			var _selection = es_menu[es_menu_cursor];
-			_selection.action();
+	ec_menu_y_offset = ___smooth_move(ec_menu_y_offset, 0, 0.5, 5);
+	
+	// back button
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)){
+		ec_action_0();
+		___sound_menu_back();
+	}
+	
+	// navigate menu
+	if (!ec_menu_confirmed){
+		var _vmove = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = ec_menu_cursor;
+		ec_menu_cursor += _vmove;
+		if (ec_menu_cursor > array_length(ec_menu)-1) ec_menu_cursor = 0;
+		if (ec_menu_cursor < 0) ec_menu_cursor = array_length(ec_menu)-1;
+		if (_store_pos != ec_menu_cursor){
+			___sound_menu_tick_vertical();
+		}
+		if (KEY_PRIMARY_PRESSED){
+			ec_menu_confirmed = true;
+			ec_show = false;
+			___sound_menu_select();
+		}
+	} else {
+		
+		if (ec_alpha <= 0){
+			ec_menu_confirmed = false;
+			var _action = variable_struct_get(ec_menu[ec_menu_cursor], "action");
+			_action();
 		}
 	}
 }
@@ -979,3 +1054,7 @@ if (ou_flash > 0){
 	ou_flash = max(0, ou_flash - (1/6));
 }
 
+ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
+ec_shake = max(0, ec_shake-1);
+es_menu_fade = max(0, es_menu_fade - (1/15));
+button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);

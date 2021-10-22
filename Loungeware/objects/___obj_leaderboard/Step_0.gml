@@ -18,7 +18,7 @@ if (state == "error_screen"){
 		http_error_menu_cursor = 0;
 		http_error_menu_y_offset = http_error_menu_y_offset_max;
 		button_guide_show = true;
-		button_guide_frame = 0;
+		button_guide_frame = 3;
 
 	}
 	
@@ -55,15 +55,15 @@ if (state == "load"){
 		loader_scale_done = false;
 		loader_scale_dir = 0;
 		button_guide_show = true;
-		button_guide_frame = 4;
+		button_guide_frame = 8;
 		
-		if (false){
-			throw_http_error("ONLINE FEATURES ARE CURRENTLY ONLY AVAILABLE\nIN THE WINDOWS VERSION OF THE GAME, SORRY.");
-			array_delete(http_error_menu, 0, 1);
-			var _str = http_error_menu[0];
-			_str.text = "RETURN";
-			exit;
-		}
+		//if (false){
+		//	throw_http_error("ONLINE FEATURES ARE CURRENTLY ONLY AVAILABLE\nIN THE WINDOWS VERSION OF THE GAME, SORRY.");
+		//	array_delete(http_error_menu, 0, 1);
+		//	var _str = http_error_menu[0];
+		//	_str.text = "RETURN";
+		//	exit;
+		//}
 	}
 	
 	show_loader_timer = max(0, show_loader_timer - 1);
@@ -109,7 +109,7 @@ if (state == "board_display"){
 	if (state_begin){
 		show_board = true;
 		button_guide_show = true;
-		button_guide_frame = 4;
+		button_guide_frame = 8;
 		if (song_id != noone && audio_is_playing(song_id)) audio_stop_sound(song_id);
 		song_id = ___play_song(___sng_zandy_bakunova);
 	}

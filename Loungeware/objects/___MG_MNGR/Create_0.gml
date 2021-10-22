@@ -1,6 +1,8 @@
 randomize();
 played_record = [];
+fnt_gallery = ___global.___fnt_gallery;
 ___state_setup("start");
+
 ___MG_MNGR_declare_functions();
 ___MG_MNGR_declare_variables();
 application_surface_draw_enable(false);
@@ -28,4 +30,4 @@ if (!TEST_MODE_ACTIVE){
 } 
 
 
-//___state_change("aaa");
+//___state_change("dev_test");

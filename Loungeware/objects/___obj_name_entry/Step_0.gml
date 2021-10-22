@@ -37,7 +37,7 @@ if (state == "entry"){
 			button_guide_frame = 1;
 			button_guide_show = true;
 		}
-		if (_key_back_pressed){
+		if (keyboard_check_pressed(vk_escape)){
 			http_error_action_exit();
 			exit;
 		}
@@ -209,7 +209,7 @@ if (state == "icon_selection"){
 		confirm_score_alpha = 0;
 		icon_selection_scale = 1;
 		
-		button_guide_frame = 0;
+		button_guide_frame = 7;
 		button_guide_show = true;
 	}
 	
@@ -286,7 +286,7 @@ if (state == "confirmation_screen"){
 		confirm_menu_confirmed = false;
 		confirm_cursor = 0;
 		close_circle_prog = 1;
-		button_guide_frame = 0;
+		button_guide_frame = 6;
 		button_guide_show = true;
 	}
 	
@@ -445,21 +445,28 @@ if (state == "exit_confirmation"){
 		ec_menu_y_offset = ec_menu_y_offset_max;
 		ec_menu_confirmed = false;
 		button_guide_frame = 3;
+		if (state_previous == "error_screen") button_guide_frame = 6;
 		button_guide_show = true;
 		ec_menu_cursor = 0;
 		draw_input_prompt = false;
 		draw_input_box = false;
+		ec_shake = ec_shake_max;
 	}
 	
 	ec_menu_y_offset = ___smooth_move(ec_menu_y_offset, 0, 0.5, 5);
 	
 	// back button
 	if (_key_back_pressed){
-		___state_change(state_previous);
-		backfade_alpha = 1;
-		ec_show = false;
-		ec_alpha = 0;
+		ec_shake = ec_shake_max;
 		___sound_menu_back();
+		
+		if (state_previous == "error_screen"){
+			___state_change(state_previous);
+			backfade_alpha = 1;
+			ec_show = false;
+			ec_alpha = 0;
+			___sound_menu_back();
+		}
 	}
 	
 	// navigate menu
@@ -617,7 +624,7 @@ if (state == "success"){
 		if (_store_pos != ss_menu_cursor){
 			___sound_menu_tick_vertical();
 		}
-		if (KEY_PRIMARY){
+		if (KEY_PRIMARY_PRESSED){
 			ss_menu_confirmed = true;
 			var _action = variable_struct_get(ss_menu[ss_menu_cursor], "action");
 			_action();
@@ -659,5 +666,6 @@ input_error_alpha = ___toggle_fade(input_error_alpha,  input_error_show, 5);
 http_error_alpha = ___toggle_fade(http_error_alpha,  http_error_show, 10);
 http_error_shake_timer = max(0, http_error_shake_timer - 1);
 ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
+ec_shake = max(0, ec_shake-1);
 button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
 ss_alpha = ___toggle_fade(ss_alpha, ss_show, 10);

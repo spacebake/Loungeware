@@ -78,8 +78,8 @@ menu_action_2 = function(){
 cursor = ___global.menu_cursor_main;
 menu = [
 	{text : "PLAY", action : menu_action_0},
-	{text : "GALLERY", action : menu_action_1},
 	{text : "LEADERBOARD", action : menu_action_2},
+	{text : "GALLERY", action : menu_action_1},
 	{text : "OPTIONS", action : ___noop},
 	{text : "CREDITS", action : ___noop},
 ]

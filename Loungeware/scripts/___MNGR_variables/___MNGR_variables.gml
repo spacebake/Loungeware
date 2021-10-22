@@ -1,5 +1,6 @@
 function ___MG_MNGR_declare_variables(){
 
+
 //--------------------------------------------------------------------------------------------------------
 // gallery mode
 //--------------------------------------------------------------------------------------------------------
@@ -30,14 +31,14 @@ pause_enabled = true;
 //--------------------------------------------------------------------------------------------------------
 score_total = 0;
 life_max = 4;
-life = 1;
+life = life_max;
 games_played = 0;
 games_won = 0;
 
 //--------------------------------------------------------------------------------------------------------
 // DIFFICULTY 
 //--------------------------------------------------------------------------------------------------------
-games_until_next_diff_up_max = 1;
+games_until_next_diff_up_max = 8;
 games_until_next_diff_up = games_until_next_diff_up_max;
 ___global.difficulty_level = 1;
 support_no_difficulty_up_to_level = 3; //if difficulty level is higher than this var then games which don't support difficulty will be ignored
@@ -278,46 +279,67 @@ es_new_high_score = false;
 es_col_bar = make_color_rgb(43, 36, 56);
 es_col_date = make_color_rgb(99, 81, 110);
 es_song_id = noone;
-var _action_play_again = function(){
-	workspace_end();
-	application_surface_draw_enable(true);
-	instance_create_layer(0, 0, layer, ___MG_MNGR);
-	instance_destroy();
+es_after_warning_action = noone;
+es_draw = false;
+es_exit_to = "";
+
+//es_action_play_again = function(){
+//	workspace_end();
+//	application_surface_draw_enable(true);
+//	instance_create_layer(0, 0, layer, ___MG_MNGR);
+//	instance_destroy();
+//}
+
+es_action_main_menu = function(){
+	___state_change("exit_confirmation");
 }
-var _action_main_menu = function(){
-	workspace_end();
-	application_surface_draw_enable(true);
-	room_goto(___rm_main_menu);
-	instance_create_layer(0, 0, layer, ___obj_main_menu);
-	instance_destroy();
+es_action_submit_score = function(){
+	___state_change("exit_transition");
+	es_exit_to = "submit";
 }
-var _action_submit_score = function(){
-	workspace_end();
-	application_surface_draw_enable(true);
-	room_goto(___rm_main_menu);
-	instance_create_layer(0, 0, layer, ___obj_name_entry);
-	instance_destroy();
-}
+
 es_menu = [
-	{name:"SUBMIT SCORE", action: _action_submit_score},
-	{name:"PLAY AGAIN", action: _action_play_again},
-	{name:"MAIN MENU", action: _action_main_menu},
+	{text : "SUBMIT SCORE", action : es_action_submit_score},
+	//{text : "PLAY AGAIN", action : es_action_goto_exit_warning_play_again},
+	{text : "EXIT", action : es_action_main_menu},
 ];
 es_menu_cursor = 0;
 es_menu_confirmed = false;
-es_confirm_shake_time = 15;
-es_cursor_v_move = 0;
-es_cursor_v_move_last = 0;
-es_input_cooldown = 0;
-es_input_is_scrolling = false;
-es_input_cooldown_init_max = 14;
-es_input_cooldown_max = 7;
-es_score_submitted = false;
-
 es_close_circle_prog = 1;
 es_surf_circle = noone;
+es_menu_fade = 0;
 
 
+
+//--------------------------------------------------------------------------------------------------------
+// EXIT WARNING
+//--------------------------------------------------------------------------------------------------------
+ec_alpha = 0;
+ec_show = false;
+ec_action_0 = function(){
+	___state_change("end_screen");
+	es_menu_fade = 1;
+}
+ec_action_1 = function(){
+	___state_change("exit_transition");
+	es_exit_to = "main_menu";
+}
+ec_menu_title = "YOU WILL NOT GET ANOTHER\nCHANCE TO SUBMIT THIS SCORE\n\nARE YOU SURE YOU \nWANT TO EXIT?";
+ec_menu = [
+	{text : "GO BACK", action : ec_action_0},
+	{text : "EXIT WITHOUT SUBMITTING", action : ec_action_1},
+];
+ec_menu_cursor = 0;
+ec_menu_y_offset_max = 300;
+ec_menu_y_offset = 0;
+ec_menu_confirmed = false;
+ec_shake_max = 15;
+ec_shake = 0;
+ec_surface = noone;
+
+button_guide_show = false;
+button_guide_alpha = 0;
+button_guide_frame = 0;
 
 function microgame_add_to_played_record(_microgame_key){
 	

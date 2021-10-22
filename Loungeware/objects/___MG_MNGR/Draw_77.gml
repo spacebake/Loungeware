@@ -13,7 +13,10 @@ if (state == "playing_microgame"){
 	draw_circle_transition();
 	draw_master_surface();
 } else {
-	draw_surface_stretched(application_surface, 0, 0, window_get_height(), window_get_height());
+	var _draw_size = window_get_height();
+	var _x = (window_get_width() - _draw_size)/2;
+	var _y = 0;
+	draw_surface_stretched(application_surface, _x, _y, _draw_size, _draw_size);
 }
 
 // -----------------------------------------------------------

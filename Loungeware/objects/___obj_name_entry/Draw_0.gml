@@ -9,7 +9,7 @@ if (input_prompt_alpha > 0){
 	draw_set_color(c_gbyellow);
 	draw_set_font(fnt_gallery);
 	var _title_x = VIEW_W/2;
-	var _title_y = 220 - name_zoom_offset;
+	var _title_y = 220 + name_zoom_offset;
 	draw_set_halign(fa_center);
 	draw_set_alpha(input_prompt_alpha);
 	___global.___draw_text_advanced(_title_x, _title_y,16, true, true, title_text, 0.5, 1, 5);
@@ -329,6 +329,11 @@ if (ec_alpha > 0){
 	draw_set_color(c_gbpink);
 	var _ecx = VIEW_W/2;
 	var _ecy = (VIEW_H/2) - 80;
+	if (ec_shake){
+		var _sv = min(3, ec_shake/2);
+		_ecx += random_range(-_sv, _sv);
+		_ecy += random_range(-_sv, _sv);
+	}
 	___global.___draw_text_advanced(_ecx, _ecy, 24, true, true, ec_menu_title, 1, 1, 4);
 	
 	____menu_text_vertical_draw(
@@ -401,7 +406,7 @@ if (ss_alpha > 0){
 // ----------------------------------------------------------------------------------------------
 if (button_guide_alpha > 0 && ___global.show_button_prompts_menu){
 	draw_set_alpha(button_guide_alpha);
-	draw_sprite(___spr_back_prompt, button_guide_frame, 4, 4);
+	draw_sprite(___spr_back_prompt, button_guide_frame, 0, 0);
 	draw_set_alpha(1);
 }
 

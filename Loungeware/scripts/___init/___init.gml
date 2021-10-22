@@ -214,17 +214,12 @@ function ___GAME_INIT(){
 	// -------------------------------------------------------------------------------------
 	
 	// this one is just for testing stuff
-	if (1){
+	if (0){
 	
-
 		//room_goto(___rm_restroom);
 		//___microgame_list_remove_incompatible();
 		//instance_create_layer(0, 0, layer, ___MG_MNGR);
 		//___MG_MNGR.restartable = true;
-		
-		room_goto(___rm_main_menu);
-		instance_create_layer(0, 0, layer, ___obj_name_entry);
-	
 	
 	// if game is running in browser
 	} else if (HTML_MODE) {

@@ -6,7 +6,7 @@ wait = 0;
 fnt_gallery = ___global.___fnt_gallery;
 col_bar = make_color_rgb(45, 41, 66);
 col_pos = make_color_rgb(59, 56, 83);
-scoreboard_url = ___BASE_URL + "/loungeware_leaderboard/get_scores.php";
+
 leaderboard_data = [];
 data_retrieved = false;
 request_id = noone;
@@ -74,7 +74,7 @@ http_error_menu_y_offset_max = 300;
 http_error_menu_y_offset = http_error_menu_y_offset_max;
 
 function get_scores(){
-	request_id = http_get(scoreboard_url);
+	request_id = http_get(___API_BASE_URL + "larold-board");
 };
 
 function throw_http_error(_msg){
@@ -92,7 +92,8 @@ function is_player(_score_struct){
 }
 
 function is_latest_score(_score_struct){
-	return (_score_struct.id_local == variable_struct_get(___global.score_last_as_obj, "score_id_local"));
+
+	return (_score_struct.score_id_local == variable_struct_get(___global.score_last_as_obj, "score_id_local"));
 }
 
 function stringify_position(_position_num){
@@ -111,7 +112,7 @@ function fill_blanks(_array, _max_size){
 				score: -1,
 				sprite: "___spr_leaderboard_icon_noexist",
 				frame: 0,
-				id_local:"",
+				score_id_local:"",
 				player_id: "blank",
 				timestamp:0,
 			}

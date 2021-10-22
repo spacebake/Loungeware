@@ -2,6 +2,7 @@ if (state != "load") exit;
 var _response, _is_error, _return_obj, _has_result, _result_data, _has_score_data;
 
 _response = json_parse(json_encode(async_load));
+log(json_encode(async_load));
 _has_result = variable_struct_exists(_response, "result");
 _has_score_data = false;
 if (_has_result){

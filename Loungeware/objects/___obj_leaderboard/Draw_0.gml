@@ -50,13 +50,13 @@ if (show_board){
 		}
 		 
 		 // get position
-		 if (_is_blank || _score < _prev_score){
+		 if (_is_blank || _this.score < _prev_score){
 			 _position = _position + 1 + _position_store;
 			 _position_store = 0;
 		 } else {
 			 _position_store += 1;
 		 }
-		 _prev_score = _score;
+		 _prev_score = _this.score;
 		 
 		 // draw horizontal seperator line
 		draw_set_color(col_bar);
@@ -155,13 +155,13 @@ if (show_board){
 		}
 		
 		// get position
-		if (_is_blank || _score < _prev_score){
+		if (_is_blank || _this.score < _prev_score){
 			_position = _position + 1 + _position_store;
 			_position_store = 0;
 		} else {
 			_position_store += 1;
 		}
-		_prev_score = _score;
+		_prev_score = _this.score;
 		
 
 		draw_set_alpha(_bar_alpha);
@@ -281,7 +281,7 @@ if (show_board){
 // draw button guide
 if (button_guide_show){
 	draw_set_alpha(button_guide_alpha);
-	draw_sprite(___spr_back_prompt, button_guide_frame, 4, 4);
+	draw_sprite(___spr_back_prompt, button_guide_frame, 0, 0);
 	draw_set_alpha(1);
 }
 

@@ -876,13 +876,15 @@ function ___load_or_create_player_id(){
 // ------------------------------------------------------------------------------------------
 // DRAWS A TEXT MENU VERTICALLY
 // ------------------------------------------------------------------------------------------
-function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _v_sep=35, _fnt=___global.___fnt_gallery){
+function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery){
 	
 	static prev_confirmed = false;
 	static shake_timer_max = 15;
 	static shake_timer = 0;
 	static x_prev = _x;
 	static y_prev = _y;
+	
+	_v_sep = _v_sep * _scale;
 	
 	// prevent wastefully shaking chars during menu movement
 	var _moving = (x_prev != _x || y_prev != _y);
@@ -894,7 +896,7 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 	
 	for (var i = 0; i < array_length(_menu_array); i++){
 		var _selected = (_cursor_pos == i);
-		var _scale = 1;
+		var _scale_final = 1 * _scale;
 		var _txt = variable_struct_get(_menu_array[i], "text");
 		var _is_disabled = (variable_struct_get(_menu_array[i], "action") == ___noop);
 		draw_set_color(c_gbwhite);
@@ -902,18 +904,18 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 		
 		if (_selected){
 			if (_confirmed){
-				_txt = "<shake," + string(floor(shake_timer/2)) + ">" + _txt;
+				_txt = "<shake," + string(floor((shake_timer/2)*_scale)) + ">" + _txt;
 				shake_timer = max(0, shake_timer - 1);
 				draw_set_color(c_gbpink);
-				_scale = 1.2;
+				_scale_final = 1.2 * _scale;
 			} else {
 				_txt = "<wave,1>" + _txt;
 				draw_set_color(c_gbyellow);
 			}
 			
 		}
-		var _letter_spacing = 2;
-		___global.___draw_text_advanced(_x, _y, _v_sep, !_moving, true, _txt, 1, _scale, _letter_spacing);
+		var _letter_spacing = 2 * _scale;
+		___global.___draw_text_advanced(_x, _y, _v_sep, !_moving, true, _txt, 1, _scale_final, _letter_spacing);
 		
 		// strikethrough disabled menu items
 		if (_is_disabled){

@@ -151,14 +151,9 @@ if (state == "cart_preview"){
 	draw_sprite_ext(cart_sprite, 0, _x, _y, _scale, _scale, 0, c_white, 1);
 }
 
-
-
 // --------------------------------------------------------------------------------
-// gameboy crack and swing
+// draw game carts for ending seq
 // --------------------------------------------------------------------------------
-
-
-
 if (ou_draw_games){
 	var _xc = VIEW_W/2;
 	var _yc = VIEW_H/2;
@@ -186,7 +181,6 @@ if (ou_draw_games){
 
 	}
 
-	
 }
 
 if (ou_draw_scorebox){
@@ -238,7 +232,7 @@ if (ou_flash > 0){
 // --------------------------------------------------------------------------------
 // STATE | END SCREEN (no new high score)
 // --------------------------------------------------------------------------------
-if (state == "end_screen"){
+if (es_draw){
 	draw_set_color(c_gbwhite);
 	draw_set_font(___global.___fnt_gallery);
 	draw_set_halign(fa_center);
@@ -246,7 +240,7 @@ if (state == "end_screen"){
 	var _str = string(ou_score_display);
 	while (string_length(_str) < 3) _str = "0" + _str;
 	var _x = VIEW_W/2;
-	var _y = 16;
+	var _y = 28;
 	var _line_margin = 32;
 	var _sep = 6;
 	var _line_h = string_height("M") - 3;
@@ -353,45 +347,85 @@ if (state == "end_screen"){
 	
 	
 	// dram menu - - - - - - - - - - - - - - - - - - 
-
-	var _scale = 0.5;
-	var _v_sep = 32 * _scale;
 	var _text_y = _score_y + 20;
 	var _text_x = VIEW_W/2;
-	var _h_sep = 2
-	var _str, _str_w, _selected, _text_y_final; 
-	draw_set_halign(fa_center);
-	draw_set_font(___global.___fnt_gallery);
-	for (var i = 0; i < array_length(es_menu); i++){
-		
-		_scale = 0.5;
-		_str = string_upper(es_menu[i].name);
-		_selected = (es_menu_cursor == i);
-		_str_w = (___global.___draw_text_advanced_width(_str, _h_sep) * _scale) + 8;
-		_text_y_final =  _text_y  + (_v_sep * i);
-		draw_set_color(c_gbwhite);
-		
-		if (_selected){
-			draw_set_color(c_gbyellow);
-			
-			if (es_menu_confirmed){
-				draw_set_color(c_gbpink);
-				if (es_confirm_shake_time > 0) _str = "<shake, " + string(floor(es_confirm_shake_time/4)) + ">" + _str + "</shake>";
-				es_confirm_shake_time = max(0, es_confirm_shake_time - 1);
-				_scale = 0.62;
-			} else {
-				_str = "<wave, 1>" + _str + "</shake>";
-			
-			}
-		}
-		//draw strikethrough
-		//if (es_menu[i].action == ___noop) draw_rectangle_fix(_text_x-(_str_w/2), _text_y_final + 4, _text_x + (_str_w/2), _text_y_final + 7); 
-		// draw menu item
-		___global.___draw_text_advanced(_text_x, _text_y_final, _v_sep, true, true, _str, 0.5, _scale, _h_sep);
 
+	____menu_text_vertical_draw(
+		_text_x,
+		_text_y,
+		es_menu,
+		es_menu_cursor,
+		es_menu_confirmed,
+		0.5
+	);
+
+}
+
+
+
+// ----------------------------------------------------------------------------------------------
+// exit confirmation
+// ----------------------------------------------------------------------------------------------
+if (ec_alpha > 0){
+	
+	var _surf_wh = WINDOW_BASE_SIZE;
+	if (!surface_exists(ec_surface)){
+		ec_surface = surface_create(_surf_wh, _surf_wh);
 	}
 	
+	surface_set_target(ec_surface);
+	draw_clear(c_gbdark);
+	
+	draw_set_alpha(ec_alpha);
+	draw_set_font(fnt_gallery);
+	draw_set_halign(fa_center);
+	draw_set_color(c_gbpink);
+	var _ecx = _surf_wh/2;
+	var _ecy = (_surf_wh/2) - 80;
+	if (ec_shake){
+		var _sv = min(3, ec_shake/2);
+		_ecx += random_range(-_sv, _sv);
+		_ecy += random_range(-_sv, _sv);
+	}
+	___global.___draw_text_advanced(_ecx, _ecy, 24, true, true, ec_menu_title, 1, 1, 4);
+	
+	____menu_text_vertical_draw(
+		_ecx, 
+		_ecy + 200,
+		ec_menu, 
+		ec_menu_cursor,
+		ec_menu_confirmed
+	);
+	
+	// draw warning sprite
+	draw_sprite(___spr_warning, 0, _ecx, _ecy - 80);
+
+	draw_set_alpha(1);
+	draw_set_halign(fa_left);
+	
+	surface_reset_target();
+	draw_surface_stretched(ec_surface, 0, 0, VIEW_W, VIEW_H);
 }
+
+
+if (es_menu_fade > 0){
+	draw_set_alpha(es_menu_fade);
+	draw_set_color(c_gbdark);
+	gpu_set_colorwriteenable(1, 1, 1, 0); 
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	gpu_set_colorwriteenable(1, 1, 1, 1); 
+	draw_set_alpha(1);
+
+}
+
+// ----------------------------------------------------------------------------------------------
+// draw button guide
+// ----------------------------------------------------------------------------------------------
+if (button_guide_alpha > 0 && ___global.show_button_prompts_menu){
+	var _scale = VIEW_W / WINDOW_BASE_SIZE;
+	draw_sprite_ext(___spr_back_prompt, button_guide_frame, 0, 0, _scale, _scale, 0, c_white, button_guide_alpha);
+}
+
 
 // closing circle
 if (es_close_circle_prog < 1){
@@ -418,3 +452,5 @@ if (ou_light_alpha > 0){
 	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
 	draw_set_alpha(1);
 }
+
+

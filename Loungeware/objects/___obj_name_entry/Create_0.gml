@@ -20,8 +20,8 @@ submission_successful = false;
 name = "";
 name_max_chars = 11;
 name_min_chars = 3;
-name_zoom_offset = 290;
-first_wait = 30;
+name_zoom_offset = 320;
+first_wait = 10;
 
 allowed_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 allowed_numbers = "0123456789";
@@ -198,12 +198,14 @@ ec_action_1 = function(){
 ec_menu_title = "YOU WILL NOT GET ANOTHER\nCHANCE TO SUBMIT THIS SCORE\n\nARE YOU SURE YOU \nWANT TO EXIT?";
 ec_menu = [
 	{text : "SUBMIT MY SCORE", action : ec_action_0},
-	{text : "EXIT WITHOUT SAVING", action : ec_action_1},
+	{text : "EXIT WITHOUT SUBMITTING", action : ec_action_1},
 ];
 ec_menu_cursor = 0;
 ec_menu_y_offset_max = 300;
 ec_menu_y_offset = 0;
 ec_menu_confirmed = false;
+ec_shake_max = 15;
+ec_shake = 0;
 
 ss_show = false;
 ss_alpha = 0;
@@ -371,10 +373,6 @@ post_id = noone;
 
 function sbmt_scr(){
 	
-	// TO DO:
-	// make sure score is submitted with a local ID to prevent double post
-	// do a check on name length before allowing name submission, currently you can still attempt to submit ""
-	
 	var _data = {
 		name: name,
 		points: score_int,
@@ -385,10 +383,9 @@ function sbmt_scr(){
 		player_id: ___global.player_id,
 	}
 	
-	store_submitted_score_id("hello");
 	var _json = json_stringify(_data);
-	var _url = "ht"+"tps:"+"//ww"+"w.spa"+"cebak"+"e.xy"+"z/loung";
-	_url += "eware_lea"+"derboard/subm"+"it_sco"+"re.p"+"hp";
+	var _url = ___API_BASE_URL + "larold-board";
+	log(_json);
 	post_id = http_post_string(_url, _json);
 }
 
@@ -401,19 +398,7 @@ function throw_http_error(_msg){
 	___sound_menu_error();
 }
 
-score_id_list = [];
-score_list_fp = "score_id_list.lw"
-function store_submitted_score_id(_id){
-	
-	score_id_list = load_submitted_score_id_list();
-	array_push(score_id_list, _id);
-	
-	// save score here
-	var _file = file_text_open_write(score_list_fp);
-	var _json = json_stringify(score_id_list);
-	file_text_write_string(_file, _json);
-	file_text_close(_file);
-}
+
 
 function load_submitted_score_id_list(){
 	

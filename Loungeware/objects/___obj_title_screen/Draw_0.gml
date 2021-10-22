@@ -1,44 +1,18 @@
+draw_set_alpha(1 * bg_alpha_multiplier);
+draw_sprite(___spr_mainmenu_bg0, bg_frame, VIEW_W/2, VIEW_W/2);
+draw_set_alpha(1);
+bg_frame += 1;
 
 
 
-if (logo_show_pump){
-	
-	var _pump_scale, _pump_speed;
-	
-	if (logo_pumpstate == 0){
-		_pump_scale = 1.2;
-		_pump_speed = 15
-		logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
-		if (logo_scale_dir > 90 && logo_scale <= 1){
-			logo_pumpstate++;
-			logo_scale = 1;
-			logo_scale_dir = 180;
-		}
-		logo_scale_dir += _pump_speed;
-	}
 
-	if (logo_pumpstate == 1){
-		_pump_speed = 20;
-		_pump_scale = 1.05;
-		if (trigger_pump){
-			logo_scale_dir = 0; 
-			trigger_pump = false;
-		}
-		
-		var _extra_scale = abs(lengthdir_y(_pump_scale-1, logo_scale_dir));
-		logo_scale = 1 + _extra_scale;
-		logo_scale_dir = min(180, logo_scale_dir + _pump_speed);
-	}
-}
-
-ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
 
 
 
 // label anim
-var _label_y = ((WINDOW_BASE_SIZE - label_h) - label_sep);
+var _label_y = ((WINDOW_BASE_SIZE - label_h));
 var _this_x, _prog, _dir, _rad, _yy;
-
+var _vgap = 0;
 _rad = 0;
 	draw_set_color(c_gbyellow);
 	//draw_rectangle_fix(0, 0, WINDOW_BASE_SIZE, label_h + (label_sep*2));
@@ -54,8 +28,8 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 	
 	
 	if (_this_x + label_w >= 0  && _this_x < WINDOW_BASE_SIZE) {
-		draw_sprite_stretched(label_list[| i], 0, _this_x, _yy + _y_hide_offset, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0,  -_this_x + (WINDOW_BASE_SIZE - label_w), (_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset, label_w, label_h);
+		draw_sprite_stretched(label_list[| i], 0, _this_x, (_yy + _y_hide_offset) - _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0,  -_this_x + (WINDOW_BASE_SIZE - label_w), ((_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
 	}
 	
 	_this_x -= label_w_total;
@@ -64,8 +38,8 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 	_yy = _label_y + lengthdir_y(_rad, _dir);
 	
 	if (_this_x + label_w >= 0 && _this_x < WINDOW_BASE_SIZE) {
-		draw_sprite_stretched(label_list[| i], 0, _this_x, _yy + _y_hide_offset, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0, -_this_x +  (WINDOW_BASE_SIZE - label_w), (_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset, label_w, label_h);
+		draw_sprite_stretched(label_list[| i], 0, _this_x, (_yy + _y_hide_offset) - _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0, -_this_x +  (WINDOW_BASE_SIZE - label_w), ((_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
 	}
 	
 }

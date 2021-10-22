@@ -2,13 +2,25 @@ any_key = KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED || ___KEY_PAUSE_PRESSED;
 if (step <= 10) any_key = false;
 ___state_handler();
 
+if (state == "wait"){
+	wait--;
+	if (wait <= 0) ___state_change("intro");
+}
+
 if (state == "intro"){
+	if (state_begin){
+		sng_id = audio_play_sound(___sng_zandintro, 0, 1);
+		logo_show_pump = true;
+	}
 	beat_count_prev = beat_count;
 	beat_count = floor((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval);
+
 	
+	ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
 
 	if (ribbon_hide_prog > 0) label_x = label_x_snap_target;
 	label_x = ___smooth_move(label_x, label_x_snap_target, 0.5, 3);
+	
 	if (beat_count > beat_count_prev){
 		label_x_snap_target -= (label_w + label_sep);
 		trigger_pump = true;
@@ -19,6 +31,9 @@ if (state == "intro"){
 		label_x += label_w_total;
 		label_x_snap_target = label_x - (label_w + label_sep);
 	}
+	
+
+
 	
 	if (any_key){
 		___state_change("close");
@@ -51,11 +66,11 @@ if (state == "close"){
 }
 
 if (state == "logo_move"){
-	
+
 	if (state_begin){
 		___play_sfx(___snd_score_pulse_1, 0.4, 1.5);
 	}
-	
+	log(substate)
 	if (substate == 0){
 		if (logo_show_pump && logo_scale <= 1){
 			logo_show_pump = false;
@@ -83,5 +98,36 @@ if (state == "logo_move"){
 	}
 }
 
+if (logo_show_pump){
+	var _pump_scale, _pump_speed;
+	if (logo_pumpstate == 0){
+		_pump_scale = 1.2;
+		_pump_speed = 15
+		logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
+		if (logo_scale_dir > 90 && logo_scale <= 1){
+			logo_pumpstate++;
+			logo_scale = 1;
+			logo_scale_dir = 180;
+		}
+		logo_scale_dir += _pump_speed;
+	}
+
+	if (logo_pumpstate == 1){
+		_pump_speed = 20;
+		_pump_scale = 1.05;
+		if (trigger_pump){
+			logo_scale_dir = 0; 
+			trigger_pump = false;
+		}
+		
+		var _extra_scale = abs(lengthdir_y(_pump_scale-1, logo_scale_dir));
+		logo_scale = 1 + _extra_scale;
+		logo_scale_dir = min(180, logo_scale_dir + _pump_speed);
+	}
+}
+
+if (logo_show_pump) bg_alpha_multiplier = min(1, bg_alpha_multiplier+(1/10));
 logo_shake = max(0, logo_shake - 1);
 step++;
+
+
