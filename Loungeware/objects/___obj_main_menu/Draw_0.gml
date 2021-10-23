@@ -4,26 +4,14 @@ if (bg_show){
 	var _bg_x = VIEW_W/2;
 	var _bg_y = VIEW_H/2;
 	var _bg_scale = 1.05 * bg_scale;
-	var _secondary_alpha = 0.02;
-	//draw_sprite_ext(___spr_mainmenu_bg0, bg_frame, _bg_x, _bg_y, 1, 1, 0, c_white, 1 * (1-((bg_scale-1)/1)));
-
-	//draw_sprite_ext(___spr_mainmenu_bg1, bg_frame, _bg_x, _bg_y, -_bg_scale*0.8, -_bg_scale*0.8, bg_spin, c_white, _secondary_alpha);
-	//draw_sprite_ext(___spr_mainmenu_bg2, bg_frame, _bg_x, _bg_y, -_bg_scale*0.8, -_bg_scale*0.8, -bg_spin, c_white, _secondary_alpha);
-	
-	draw_sprite_ext(___spr_mainmenu_bg1, bg_frame, _bg_x, _bg_y, _bg_scale, _bg_scale, bg_spin, c_white, _bg_alpha);
-	draw_sprite_ext(___spr_mainmenu_bg2, bg_frame, _bg_x, _bg_y, _bg_scale*1.1, _bg_scale*1.25, -bg_spin, c_white, _bg_alpha);
-
+	draw_sprite_ext(___spr_mainmenu_bg_small, bg_frame, _bg_x, _bg_y, _bg_scale*2, _bg_scale*2, bg_spin, c_white, _bg_alpha);
+	draw_sprite_ext(___spr_mainmenu_bg_small2, bg_frame, _bg_x, _bg_y, (_bg_scale*1.1)*2, (_bg_scale*1.25)*2, -bg_spin, c_white, _bg_alpha);
 	bg_frame += 0.5;
-	//bg_spin += 0.025;
-	if (bg_spin >= 360) bg_spin -= 360;
 }
 
 //------------------------------------------------------------------------------------------
 // STATE | *
 //------------------------------------------------------------------------------------------
-
-
-
 
 // draw logo
 var _logo_x = VIEW_W/2;
@@ -47,6 +35,7 @@ ____menu_text_vertical_draw(
 	cursor,
 	menu_confirmed
 );
+
 
 //------------------------------------------------------------------------------------------
 // button prompt

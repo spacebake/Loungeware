@@ -9,16 +9,19 @@ if (state == "wait"){
 
 if (state == "intro"){
 	if (state_begin){
+		bg_show = true;
 		sng_id = audio_play_sound(___sng_zandintro, 0, 1);
 		logo_show_pump = true;
 	}
 	beat_count_prev = beat_count;
 	beat_count = floor((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval);
-
+	next_beat_prog = ((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval) - beat_count;
 	
+		
 	ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
-
 	if (ribbon_hide_prog > 0) label_x = label_x_snap_target;
+	
+
 	label_x = ___smooth_move(label_x, label_x_snap_target, 0.5, 3);
 	
 	if (beat_count > beat_count_prev){
@@ -53,6 +56,7 @@ if (state == "close" || state == "logo_move") && (any_key){
 		skip_intro = true;
 	}
 	instance_destroy();
+	exit;
 }
 
 if (state == "close"){
@@ -69,8 +73,9 @@ if (state == "logo_move"){
 
 	if (state_begin){
 		___play_sfx(___snd_score_pulse_1, 0.4, 1.5);
+		next_beat_prog = 0;
 	}
-	log(substate)
+
 	if (substate == 0){
 		if (logo_show_pump && logo_scale <= 1){
 			logo_show_pump = false;
@@ -83,6 +88,7 @@ if (state == "logo_move"){
 		var _div = 5;
 		logo_scale = ___smooth_move(logo_scale, 0.5, 0.001, _div);
 		logo_y = ___smooth_move(logo_y, logo_end_target, 0.5, _div);
+		logo_scale_master = max(0, logo_scale_master - (1/10));
 		if (logo_scale <= 0.5 && logo_y == logo_end_target){
 			logo_scale = 0.5;
 			logo_y = logo_end_target;
@@ -106,6 +112,7 @@ if (logo_show_pump){
 		logo_scale = abs(lengthdir_y(_pump_scale, logo_scale_dir));
 		if (logo_scale_dir > 90 && logo_scale <= 1){
 			logo_pumpstate++;
+			
 			logo_scale = 1;
 			logo_scale_dir = 180;
 		}
@@ -127,7 +134,7 @@ if (logo_show_pump){
 }
 
 if (logo_show_pump) bg_alpha_multiplier = min(1, bg_alpha_multiplier+(1/10));
+bg_alpha = ___toggle_fade(bg_alpha, bg_show, 20);
 logo_shake = max(0, logo_shake - 1);
 step++;
-
 

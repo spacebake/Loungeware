@@ -1,8 +1,6 @@
 ___state_setup("begin");
-
-
-camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
-surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+//camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
+//surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE)
 
 sng_id = noone;
 sng_index = noone;
@@ -20,14 +18,14 @@ function main_menu_theme_play(_skipintro=false){
 
 
 function main_menu_theme_stop(){
-	audio_stop_sound(sng_id);
+	if (sng_id != noone) audio_stop_sound(sng_id);
 }
 
 wait = 42;
 logo_y = VIEW_H * 1.5;
 logo_y_target = 160;
 logo_shake_timer = 0;
-menu_y = VIEW_H * 1.2;
+menu_y = VIEW_H + 20;
 menu_y_target = 280;
 logo_scale = 1;
 logo_scale_done = false;
@@ -85,10 +83,6 @@ menu = [
 ]
 menu_confirmed = false;
 menu_active = false;
-
-
-
-
 
 
 if (!HTML_MODE){

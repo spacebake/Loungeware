@@ -1,11 +1,57 @@
-draw_set_alpha(1 * bg_alpha_multiplier);
-draw_sprite(___spr_mainmenu_bg0, bg_frame, VIEW_W/2, VIEW_W/2);
-draw_set_alpha(1);
-bg_frame += 1;
+if (bg_alpha > 0){
+	
+	if (!surface_exists(bg_shd_surf)){
+		bg_shd_surf = surface_create(WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
+	}
+	
+	var _draw_y = bg_y + bg_y2;
+	
+	draw_set_alpha(bg_alpha);
+	draw_sprite(___spr_title_bg, 1, bg_x, _draw_y);
+	draw_sprite(___spr_title_bg, 1, bg_x, _draw_y - VIEW_H);
+	draw_sprite(___spr_title_bg, 1, bg_x, _draw_y - (VIEW_H*2));
+	
+	draw_sprite(___spr_title_bg, 1, bg_x-VIEW_W, _draw_y );
+	draw_sprite(___spr_title_bg, 1, bg_x-VIEW_W, _draw_y - VIEW_H );
+	draw_sprite(___spr_title_bg, 1, bg_x-VIEW_W, _draw_y - (VIEW_H*2) );
+	draw_set_alpha(1);
+	
+	surface_set_target(bg_shd_surf);
+	draw_clear_alpha(c_white, 0);
+	
+	
+	draw_sprite(___spr_title_bg, bg_frame, bg_x, _draw_y);
+	draw_sprite(___spr_title_bg, bg_frame, bg_x, _draw_y - VIEW_H);
+	draw_sprite(___spr_title_bg, bg_frame, bg_x, _draw_y - (VIEW_H*2));
+	
+	draw_sprite(___spr_title_bg, bg_frame, bg_x-VIEW_W, _draw_y );
+	draw_sprite(___spr_title_bg, bg_frame, bg_x-VIEW_W, _draw_y - VIEW_H );
+	draw_sprite(___spr_title_bg, bg_frame, bg_x-VIEW_W, _draw_y - (VIEW_H*2) );
 
+	
+	gpu_set_blendmode(bm_subtract);
+	var _rad = bg_circle_rad  + lengthdir_y(10, next_beat_prog * 180);
+	var _circle_scale = ((_rad*2) / sprite_get_width(___spr_circle_64));
+	draw_sprite_ext(___spr_circle_64, 0, WINDOW_BASE_SIZE/2, WINDOW_BASE_SIZE/2, _circle_scale, _circle_scale, 0, c_white, 1);
+	gpu_set_blendmode(bm_normal);
 
+	
+	surface_reset_target();
+	draw_set_alpha(bg_alpha);
+	draw_surface_stretched(bg_shd_surf, 0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
+	draw_set_alpha(1);
 
+	bg_x += bg_speed;
+	bg_y += bg_speed;
+	bg_y2 += bg_speed/2;
+	if (bg_y2 >= VIEW_H) bg_y2 -= VIEW_H;
+	if (bg_x >= VIEW_W){
+		bg_x -= VIEW_W;
+		bg_y -= VIEW_W;
+	}
 
+	
+}
 
 
 
@@ -74,7 +120,9 @@ if (logo_shake > 0){
 var _spr = ___spr_logo_title;
 var _frame = 0;
 var _alpha = logo_scale;
-if (state == "logo_move") _alpha = 1;
-
-draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, logo_scale, logo_scale, 0, c_white, _alpha);
+var _logo_scale = logo_scale - ((0.1 * (((next_beat_prog-1)/4) / 0.25)) * logo_scale_master);
+if (state == "logo_move"){
+	_alpha = 1;
+}
+draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, _logo_scale, _logo_scale, 0, c_white, _alpha);
 

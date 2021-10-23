@@ -57,6 +57,9 @@ ribbon_hide_prog = 1;
 
 //logo
 logo_scale = 0;
+logo_scale_master = 1;
+
+
 logo_scale_dir = 0;
 trigger_pump = false;
 logo_show_pump = false;
@@ -74,5 +77,13 @@ close_wait = 10;
 
 
 
+bg_x = irandom(VIEW_W);
+bg_y = bg_x;
+bg_speed = 2;
+bg_show = false;
+bg_alpha = 0;
+bg_y2 = 0;
+bg_circle_rad = 240;
+bg_shd_surf = noone;
 
-
+next_beat_prog = 0;
