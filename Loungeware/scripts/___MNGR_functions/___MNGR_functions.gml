@@ -535,7 +535,6 @@ function ___MG_MNGR_declare_functions(){
 	
 		var _prompt_x = ((_win_w / 2) - ((_win_h * prompt_scale)/2)) + _shake_x;
 		_prompt_y -= (prompt_scale - 1) * (_win_h/2);
-		log(_win_w, _win_h);
 	
 		draw_sprite_stretched_ext(
 			prompt_sprite,
