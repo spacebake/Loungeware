@@ -43,7 +43,7 @@ if (show_board){
 		 _bar_alpha = min(1, _this.scale);
 		 _player_name = string_upper(string_copy(_this.name, 1, floor(string_length(_this.name)) * _bar_alpha));
 		 _xx = _xx_base;
-		 _is_blank = _this.score == -1;
+		 _is_blank = (_this.name == "----");
 		 if (_is_blank){
 			_score = "----";
 			_player_name = "----";

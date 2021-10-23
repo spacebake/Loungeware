@@ -86,7 +86,7 @@ if (state == "logo_move"){
 	
 	if (substate == 1){
 		var _div = 5;
-		logo_scale = ___smooth_move(logo_scale, 0.5, 0.001, _div);
+		logo_scale = ___smooth_move(logo_scale, 0.5, 0.002, _div);
 		logo_y = ___smooth_move(logo_y, logo_end_target, 0.5, _div);
 		logo_scale_master = max(0, logo_scale_master - (1/10));
 		if (logo_scale <= 0.5 && logo_y == logo_end_target){

@@ -282,6 +282,7 @@ es_song_id = noone;
 es_after_warning_action = noone;
 es_draw = false;
 es_exit_to = "";
+es_score_saved = false;
 
 //es_action_play_again = function(){
 //	workspace_end();

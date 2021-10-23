@@ -79,7 +79,7 @@ close_wait = 10;
 
 bg_x = irandom(VIEW_W);
 bg_y = bg_x;
-bg_speed = 2;
+bg_speed = 1;
 bg_show = false;
 bg_alpha = 0;
 bg_y2 = 0;

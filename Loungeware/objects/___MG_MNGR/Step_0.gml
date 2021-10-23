@@ -892,9 +892,12 @@ if (state == "end_screen"){
 		ec_show = false;
 		es_draw = true;
 		pause_enabled = false;
-		load_local_scores();
-		add_score_to_board_local(ou_score_display);
-		___store_score_for_submission(ou_score_display);
+		if (!es_score_saved){
+			load_local_scores();
+			add_score_to_board_local(ou_score_display);
+			___store_score_for_submission(ou_score_display);
+			es_score_saved = true;
+		}
 		var _sng = (es_score_in_scoreboard) ? ___sng_zandy_foo : ___sng_zandy_foo_lose;
 		if (es_song_id != noone && audio_is_playing(es_song_id)){
 			audio_sound_gain(es_song_id, 1, 250);

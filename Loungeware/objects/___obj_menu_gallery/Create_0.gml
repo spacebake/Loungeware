@@ -46,8 +46,8 @@ cover_alpha = 1;
 cart_x = 0;
 cart_y = 0;
 
-gameboy_x = ((VIEW_W - sprite_get_width(___spr_gameboy_back))/2) + 6;
-gameboy_y = VIEW_H;
+gameboy_x = ((WINDOW_BASE_SIZE - sprite_get_width(___spr_gameboy_back))/2) + 6;
+gameboy_y = WINDOW_BASE_SIZE;
 
 // close
 close_wait_before = 0;
