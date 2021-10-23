@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "GUI",
-    "path": "folders/__Base Game (keep out)/GUI.yy",
+    "name": "fonts",
+    "path": "folders/__Base Game (keep out)/GUI/fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "___fnt_gallery_elipses",

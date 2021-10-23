@@ -1,10 +1,13 @@
 camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
 step = 0;
-state = "intro";
-substate = 0;
+___state_setup("wait");
 
-sng_id = audio_play_sound(___sng_zandintro, 0, 1);
+wait = 30;
+bg_frame = 0;
+bg_alpha_multiplier = 0;
+
+sng_id = noone;
 var _vol = VOL_MSC * VOL_MASTER * audio_sound_get_gain(___snd_gtr);
 audio_sound_gain(sng_id, _vol, 0);
 
@@ -54,8 +57,18 @@ ribbon_hide_prog = 1;
 
 //logo
 logo_scale = 0;
+logo_scale_master = 1;
+
+
 logo_scale_dir = 0;
 trigger_pump = false;
+logo_show_pump = false;
+logo_pumpstate = 0;
+logo_close_bounce_dir = 0;
+logo_end_target = 160;
+logo_y =  WINDOW_BASE_SIZE/2;
+logo_shake = 0;
+
 
 // close
 close_circle_prog = 1;
@@ -64,5 +77,13 @@ close_wait = 10;
 
 
 
+bg_x = irandom(VIEW_W);
+bg_y = bg_x;
+bg_speed = 2;
+bg_show = false;
+bg_alpha = 0;
+bg_y2 = 0;
+bg_circle_rad = 240;
+bg_shd_surf = noone;
 
-
+next_beat_prog = 0;

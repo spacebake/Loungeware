@@ -1,7 +1,3 @@
-
-camera_set_view_size(CAMERA, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-surface_resize(application_surface, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-
 state = "normal";
 
 sng_id = audio_play_sound(___sng_gallery, 1, 1);
@@ -62,7 +58,9 @@ fadeout_began = false;
 fadeout_ended = false;
 fadeout_do = function(){};
 
-
+// button guide
+button_guide_alpha = 0;
+button_guide_show = true;
 
 function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){

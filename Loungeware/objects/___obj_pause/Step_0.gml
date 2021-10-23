@@ -125,8 +125,9 @@ if (state == "end"){
 	with(___MG_MNGR){
 		pause_cooldown = 1;
 		if (room != ___rm_restroom){
+			audio_stop_all();
 			___state_change("playing_microgame");
-			___microgame_start(microgame_current_name);
+			microgame_start(microgame_current_name);
 		}
 	}
 	

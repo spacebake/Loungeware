@@ -1,10 +1,7 @@
 deactivated_instances = [];
 paused_sounds = [];
 microgame_current_metadata = ___MG_MNGR.microgame_current_metadata;
-
-instances_deactivated = false;
 jam_id = noone;
-
 input_cooldown = 0;
 input_cooldown_init_max = 14;
 input_cooldown_max = 10;

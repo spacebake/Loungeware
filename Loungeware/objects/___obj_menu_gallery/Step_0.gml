@@ -5,3 +5,5 @@ if (state == "start_game"){
 	instance_destroy();
 }
 
+
+button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 10);

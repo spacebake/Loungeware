@@ -33,6 +33,8 @@ function ___drhtmlf(x1, y1, x2, y2, outline){
 #macro ___KEY_PAUSE_PRESSED ___macro_keyboard_check_pressed("pause")
 #macro ___KEY_PAUSE_RELEASED ___macro_keyboard_check_released("pause")
 
+#macro ___API_BASE_URL "https://loungeware.games/game/api/"
+
 // config specific
 #macro Shipping:show_debug_overlay ___noop
 

@@ -6,38 +6,30 @@ window_scale = _min / WINDOW_BASE_SIZE;
 // STATE | PLAYING_MICROGAME
 // -----------------------------------------------------------
 if (state == "playing_microgame"){
-	
 	gpu_set_texfilter(false);
 	create_master_surface();
 	draw_gameboy_overlay();
 	draw_microgame();
-	
-	// circle transition surface
 	draw_circle_transition();
-	
-	// prompt
-	if (prompt_timer > 0){
-		surface_set_target(surf_master);
-		var _prompt_scale = 2;
-		var _prompt_x = ((canvas_x + (canvas_w/2)) * 1);
-		var _prompt_y = ((canvas_y + (canvas_h/2)) * 1);
-		draw_sprite_ext(
-			prompt_sprite, 0, 
-			_prompt_x * window_scale, 
-			_prompt_y * window_scale, 
-			_prompt_scale * window_scale, 
-			_prompt_scale * window_scale, 
-			0, 
-			c_white, 
-			prompt_alpha
-		);
-		surface_reset_target();
-		prompt_timer = max(0, prompt_timer-1);
-	}
-
 	draw_master_surface();
-	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(true);
-	
+} else {
+	var _draw_size = window_get_height();
+	var _x = (window_get_width() - _draw_size)/2;
+	var _y = 0;
+	draw_surface_stretched(application_surface, _x, _y, _draw_size, _draw_size);
 }
 
+// -----------------------------------------------------------
+// draw prompt
+// -----------------------------------------------------------
+if (prompt_timer > 0){
+	draw_prompt();
+}
+
+// -----------------------------------------------------------
+// turn on interpolation if applicable (this should come last)
+// -----------------------------------------------------------
+if (state == "playing_microgame"){
+	if (microgame_current_metadata.interpolation_on) gpu_set_texfilter(true);
+}
 
