@@ -1047,15 +1047,543 @@ if (ou_draw_games){
 	ou_scorebox_larold_shake = max(ou_scorebox_larold_shake-1, 0);
 	ou_scorebox_scale_mod = max(0, ou_scorebox_scale_mod - (ou_scorebox_scale_mod_max/6));
 }
+		if (substate_begin){
+			gb_scale = gb_scale_min;
+			gb_cover_cartridge = true;
+			gb_spin = 180;
+			gb_slot_is_empty = true;
+			cart_x = cart_in_slot_x;
+			cart_y = cart_offscreen_y;
+			cart_show = true;
+			cart_scale = 1;
+			cart_vsp = 0.2;
+			wait = 40 / transition_speed;	
+		}
+		
+		if (wait <= 0){
+			cart_y += cart_vsp * transition_speed;
+			cart_vsp = min(8, cart_vsp * (1.3)) * transition_speed;
+			if (cart_y + cart_vsp >= cart_in_slot_y){
+				gb_slot_is_empty = false;
+				cart_vsp = 0;
+				___substate_change(substate+1);
+				exit;
+			}
+		}
+		
+		var _fall_dist_max = (cart_in_slot_y - cart_offscreen_y);
+		var _fall_dist_current = (cart_y - cart_offscreen_y);
+		title_alpha = _fall_dist_current / _fall_dist_max;
+		wait--;
+	}
+	
+	// catch cart / bounce - - - - - - - - - - - - - - - - - - - - - 
+	if (substate == 6){
+		if (substate_begin){
+			gb_scale = gb_scale_min;
+			gb_cover_cartridge = false;
+			gb_slot_is_empty = false;
+			cart_show = false;
+			title_alpha = 1;
+			snapback_dir = 250;
+			snapback_rad = 5;
+			sfx_play(___snd_cart_insert, 1, 0);
+			
+		}
+		
+		var _snapback_dir_speed = 10;
+		var _snapback_rad_reduction_speed = 0.3;
+		gb_y_offset = lengthdir_y(snapback_rad, snapback_dir);
+		snapback_dir += _snapback_dir_speed  * transition_speed;
+		snapback_rad = max(0, snapback_rad - (_snapback_rad_reduction_speed  * transition_speed));
+		if (snapback_rad <= 0 && wait <= 0){
+			gb_y_offset = 0;
+			___substate_change(substate+1);
+			exit;
+		}
+		
+	}
+	
+	// spin back - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	if (substate == 7){
+		if (substate_begin){
+			gb_scale = 0.4;
+			gb_x_offset = 0;
+			gb_y_offset = 0;
+			title_alpha = 1;
+			wait = 20;
+			if (intro_first_game_switch) wait = 0;
+		}
+		
+		if (wait <= 0) gb_spin += gb_spin_speed;
+		wait--;
+		
+		if (gb_spin >= 360){
+			gb_spin = 0;
+			___substate_change(substate+1);
+			exit;
+		}
+	}
+	
+	// zoom back in - - - - - - - - - - - - - - - - - - - - - - -
+	if (substate == 8){
+		
+		if (substate_begin){
+			title_alpha = 1;
+			//if (gallery_mode && !gallery_first_pass) title_alpha = 0;
+			title_fade_time = 10 / transition_speed;
+			wait = 30 / transition_speed;
+			larold_index = 1;
+			if (df_bg_show) gb_shake = 10;
+		}
+		
+		if (df_bg_show && wait <= 15) gb_shake = 1;
+		
+		if (gallery_mode && wait > 0) title_alpha = min(1, title_alpha + ((1/10)*transition_speed));
+		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
+		
+		if (title_alpha <= 0) gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
+		if (gb_scale >= gb_scale_max){
+			df_bg_show = false;
+			df_bg_alpha = 0;
+			___substate_change(substate+1);
+			exit;
+		}
+		wait--;
+		
+	}
+	
+	// draw prompt and reflection - - - - - - - - - - - - - - - -
+	if (substate == 9){
+		if (substate_begin){
+			prompt_timer = prompt_timer_max;
+			prompt_scale_dir = 45;
+			prompt_scale = 0;
+			prompt_scale_done = false;
+			prompt = microgame_get_prompt(microgame_next_name);
+			prompt_sprite = ___prompt_sprite_create(prompt);
+			wait = 5/transition_speed;
+		}
+		
+		if (wait <= 0){
+			gallery_first_pass = false;
+			gb_show = false;
+			title_alpha = 0;
+			cart_show = false;
+			gb_cover_cartridge = false;
+			intro_first_game_switch = false;
+			microgame_start(microgame_next_name);
+			___state_change("playing_microgame");
+			exit;
+		}
+		
+		if (prompt_scale_done) wait--;
+		
+	}
+	
+}
+
+// --------------------------------------------------------------------------------
+// STATE | OUTRO
+// --------------------------------------------------------------------------------
+if (state == "outro"){
+	
+	if (state_begin){
+		gb_show = true;
+		gb_scale = gb_scale_max;
+		gb_spin = 0;
+		gb_y_offset = 0;
+		gb_cover_cartridge = false;
+		gb_spin_speed = 9 * transition_speed;
+		
+		ou_draw_games = true;
+		
+	}
+	
+	// zoom out gameboy - - - - - - - - - - - - - - - - - - - - - - - - 
+	if (substate == 0){
+		var _min = 0.005;
+		var _div = 5;
+		if (intro_first_game_switch){
+			//_min = 1;
+			_div = 4;
+		}
+		gb_scale = ___smooth_move(gb_scale, gb_scale_min, _min, _div);
+		if (gb_scale <= gb_scale_min){
+			gb_scale = gb_scale_min;
+			//gb_show = false;
+			//ou_gameboy_swing_show = true;
+			___substate_change(substate+1);
+			;
+			exit;
+		}
+	}
+	
+	// wait for heart sequence to finish - - - - - - - - - - - - - - - -
+	if (substate == 1){
+		if (heart_show_lose_seq && heart_sound_played) ___substate_change(substate+1);
+	}
+	
+	// spin Y - - - - - - - - - - - - - - - - - - - - - - - -
+	if (substate == 2){
+		if (substate_begin){
+			sfx_play(___snd_glass_crack, 1, false);
+			ou_gameboy_y_is_spinning = true;
+			ou_flash = 0.5;
+			gb_shake = 5;
+		}
+
+		var _max_spin = 300;
+		gb_y_offset += 0.5;
+		//ou_gameboy_y_angle = min(ou_gameboy_y_angle + ou_gameboy_angle_speed, _max_spin);
+		ou_gameboy_y_angle = ___smooth_move(ou_gameboy_y_angle, _max_spin, 20, 5);
+		//ou_gameboy_angle_speed = max(ou_gameboy_angle_speed - 0.5, 0);
+		if (ou_gameboy_y_angle >= _max_spin){
+			___substate_change(substate+1);
+			___play_sfx(___snd_gameboy_drop, 0.8);
+			
+		}
+		
+	}
+
+	// shake - - - - - - - - - - - - - - - - - - - - - - - -
+	if (substate == 3){
+		if (substate_begin){
+			wait = 0;
+			gb_shake = 10;
+			ou_draw_scorebox = true;
+		}
+		if (wait <= 0){	
+			___substate_change(substate+1);
+		}
+		wait--;
+
+	}
+	
+	if (!ou_scorebox_larold_scale_done && ou_draw_scorebox){
+			ou_scorebox_larold_scale = -lengthdir_y(1.2, ou_scorebox_larold_scale_dir);
+			ou_scorebox_larold_scale_dir += 10;
+			if (ou_scorebox_larold_scale <= 1 && ou_scorebox_larold_scale_dir > 90){
+				ou_scorebox_larold_scale = 1;
+				ou_scorebox_larold_scale_done = true;
+			}
+	}
+
+	
+	// shake gameboy then fall - - - - - - - - - - - - - - - - 
+	
+	// bring in games (and larold
+	if (substate == 4){
+		if (substate_begin){
+			
+			wait = 10;
+		}
+		
+
+		
+		ou_games_global_rad = ___smooth_move(ou_games_global_rad, ou_games_global_rad_target_1, 0.5, 18);
+		//var _prog = ((ou_games_global_rad-100)/50)
+		//ou_games_global_scale = 1 + (3 * _prog);
+		
+		if (ou_games_global_rad <= ou_games_global_rad_target_1){
+			wait--;
+			ou_games_global_scale = 1;
+			ou_games_global_rad = ou_games_global_rad_target_1;
+			if (wait <= 0) ___substate_change(substate+1);
+		}
+		
+	}
+	
+	// shoot games at center
+	if (substate == 5){
+		
+		var _all_done = true;
+		
+		for (var i = 0; i < array_length(played_record); i++){
+			
+			with(played_record[i]){
+				
+				if (state < 3) _all_done = false;
+				
+				// wait
+				if (state == 0){
+					if (wait <= 0){
+						state++;
+						wait = 20;
+					}
+					
+					wait = max(0, wait-1);
+					
+					
+				}
+				// shake
+				if (state == 1){
+					pullback = 0;
+					if (wait <= 0){
+						___play_sfx(___snd_cartzip, 0.1 + random(0.1), /* 1.15 + random(0.25)*/other.ou_pitch_shift + 0.15 + random(0.25), false);
+						state++;
+					}
+					wait = max(0, wait-1);
+				}
+				// shoot
+				if (state == 2){
+					spd = min(8, spd + 1);
+					dist -= spd;
+					if (abs(dist) > other.ou_games_global_rad){
+						dist = -other.ou_games_global_rad;
+						other.ou_scorebox_scale_mod = other.ou_scorebox_scale_mod_max;
+						other.ou_score_display += other.ou_score_per_game;
+						other.ou_flash = random(0.02);
+						other.ou_scorebox_larold_shake = 2;
+						___play_sfx(___snd_cart_insert, 0.6 + random(0.1), /*0.9 + random(0.2)*/other.ou_pitch_shift + random_range(-0.1,0.1), false, 100);
+						state++;
+					}
+				}
+			}
+		}
+		
+		
+		if (_all_done){
+			___substate_change(substate+1);
+			wait = 20;
+			
+		}
+	}
+	
+	// wait 
+	if (substate == 6){
+		wait--;
+		if (wait <= 0) ___substate_change(substate+1);
+	}
+	
+	// score rise
+	if (substate == 7){
+		if (substate_begin){
+			ou_draw_games = false;
+			___play_sfx(___snd_score_pulse_1)
+		}
+		var _tar = -60;
+		ou_scorebox_y_offset = ___smooth_move(ou_scorebox_y_offset, _tar, 0.5, 12);
+		if (ou_scorebox_y_offset <= _tar){
+			wait = 10;
+			 ___substate_change(substate+1);
+		}
+	}
+	
+	// wait
+	if (substate == 8){
+		wait--;
+		if (wait <= 0) ___substate_change(substate+1);
+	}
+	
+	// shake
+	if (substate == 9){
+		var _time = 60;
+		var _max_alpha = 0.5;
+		if (substate_begin){
+			___play_sfx(___snd_score_powerup)
+			ou_scorebox_larold_shake = _time;
+		}
+		ou_scorebox_larold_scale += 0.01;
+		gb_shake = 1;
+		if (ou_scorebox_larold_scale >= 1.25) ou_light_alpha = min(ou_light_alpha + (_max_alpha/_time), _max_alpha);
+		if (ou_light_alpha >= _max_alpha){
+			___play_sfx(___snd_score_pop);
+			ou_light_alpha = 1;
+			wait = 60*2;
+			ou_draw_games = false;
+			ou_draw_scorebox = false;
+			gb_show = false;
+			___substate_change(substate+1);
+		}
+	}
+	
+	// wait
+	if (substate == 10){
+		wait--;
+		if (wait <= 0) ___substate_change(substate+1);
+	}
+	
+	// fade in light
+	if (substate == 11){
+		if (substate_begin){
+			
+			___state_change("end_screen");
+
+		}
+		
+	}
+	
+}
+
+// --------------------------------------------------------------------------------
+// STATE | END SCREEN
+// --------------------------------------------------------------------------------
+if (state == "end_screen"){
+	
+	if (state_begin){
+		ec_show = false;
+		es_draw = true;
+		pause_enabled = false;
+		load_local_scores();
+		add_score_to_board_local(ou_score_display);
+		___store_score_for_submission(ou_score_display);
+		var _sng = (es_score_in_scoreboard) ? ___sng_zandy_foo : ___sng_zandy_foo_lose;
+		if (es_song_id != noone && audio_is_playing(es_song_id)){
+			audio_sound_gain(es_song_id, 1, 250);
+		} else {
+			es_song_id = ___play_song(_sng, 1, true);
+		}
+		es_menu_confirmed = false;
+		button_guide_frame = 3;
+		button_guide_show = true;
+	}
+	
+	// fade in
+	if (substate == 0){
+		
+		ou_light_alpha = max(0, ou_light_alpha - (1/40));
+	
+		// move cursor
+		var _menu_len = array_length(es_menu);
+		var _v_move = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = es_menu_cursor;
+		es_menu_cursor += _v_move;
+		if (es_menu_cursor >= _menu_len) es_menu_cursor = 0;
+		if (es_menu_cursor < 0) es_menu_cursor = _menu_len - 1;
+		if (es_menu_cursor != _store_pos){
+			___sound_menu_tick_vertical();
+		}
+
+		if (KEY_PRIMARY_PRESSED){
+			___sound_menu_select();
+			es_menu_confirmed = true;
+			___substate_change(substate+1);
+		}
+	
+	}
+	
+	//// fade out music
+	//if (substate == 1){
+	//	var _time = 30;
+	//	if (substate_begin){
+	//		audio_sound_gain(es_song_id, 0, (_time/60)*1000);
+	//		wait = 10;
+	//	}
+	//	es_close_circle_prog = max(0, es_close_circle_prog - (1/_time));
+	//	if (es_close_circle_prog <= 0) wait--;
+		
+	//	if (wait <= 0){
+	//		___substate_change(substate+1);
+	//	}
+	//}
+	
+	// perform menu action
+	if (substate == 1){
+		if (substate_begin){
+			var _selection = es_menu[es_menu_cursor];
+			_selection.action();
+		}
+	}
+}
+
+//----------------------------------------------------------------------------------
+// exit to submit screen
+//---------------------------------------------------------------------------------
+if (state == "exit_transition"){
+		var _time = 30;
+		
+		if (state_begin){
+			audio_sound_gain(es_song_id, 0, (_time/60)*1000);
+			wait = 10;
+			es_close_circle_prog = 1;
+			button_guide_show = false;
+		}
+		
+		es_close_circle_prog = max(0, es_close_circle_prog - (1/_time));
+		if (es_close_circle_prog <= 0) wait--;
+		
+		if (wait <= 0){
+			
+			workspace_end();
+			room_goto(___rm_main_menu);
+			application_surface_draw_enable(true);
+			if (es_exit_to == "submit"){
+				instance_create_layer(0, 0, layer, ___obj_name_entry);
+			} else if (es_exit_to == "main_menu"){
+				with(instance_create_layer(0, 0, layer, ___obj_main_menu)) skip_intro = true;
+			}
+			instance_destroy();
+		}
+}
+
+
+//----------------------------------------------------------------------------------
+// exit confirmation
+//----------------------------------------------------------------------------------
+if (state == "exit_confirmation"){
+	if (state_begin){
+		ec_show = true;
+		ec_menu_y_offset = ec_menu_y_offset_max;
+		ec_menu_confirmed = false;
+		ec_menu_cursor = 0;
+		ec_shake = ec_shake_max;
+		es_draw = false;
+		ec_menu_cursor = 0;
+		audio_sound_gain(es_song_id, 0, 100);
+		___sound_menu_error();
+		button_guide_frame = 6;
+		button_guide_show = true;
+	}
+	
+	ec_menu_y_offset = ___smooth_move(ec_menu_y_offset, 0, 0.5, 5);
+	
+	// back button
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)){
+		ec_action_0();
+		___sound_menu_back();
+	}
+	
+	// navigate menu
+	if (!ec_menu_confirmed){
+		var _vmove = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		var _store_pos = ec_menu_cursor;
+		ec_menu_cursor += _vmove;
+		if (ec_menu_cursor > array_length(ec_menu)-1) ec_menu_cursor = 0;
+		if (ec_menu_cursor < 0) ec_menu_cursor = array_length(ec_menu)-1;
+		if (_store_pos != ec_menu_cursor){
+			___sound_menu_tick_vertical();
+		}
+		if (KEY_PRIMARY_PRESSED){
+			ec_menu_confirmed = true;
+			ec_show = false;
+			___sound_menu_select();
+		}
+	} else {
+		
+		if (ec_alpha <= 0){
+			ec_menu_confirmed = false;
+			var _action = variable_struct_get(ec_menu[ec_menu_cursor], "action");
+			_action();
+		}
+	}
+}
 
 
 
+if (ou_draw_games){
+	ou_games_dir += 0.2;
+	ou_games_global_rad_dir += 6;
+	ou_scorebox_larold_shake = max(ou_scorebox_larold_shake-1, 0);
+	ou_scorebox_scale_mod = max(0, ou_scorebox_scale_mod - (ou_scorebox_scale_mod_max/6));
+}
 
 
 // flash  - - - - - - - - - - - - - - - - - - - - - - - -
 if (ou_flash > 0){
 	ou_flash = max(0, ou_flash - (1/6));
 }
+
 
 ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
 ec_shake = max(0, ec_shake-1);
