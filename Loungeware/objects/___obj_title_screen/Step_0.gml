@@ -54,6 +54,7 @@ if (state == "close" || state == "logo_move") && (any_key){
 	if (audio_is_playing(sng_id)) audio_stop_sound(sng_id);
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
 		skip_intro = true;
+		logo_disable_zoom_intro = true;
 	}
 	instance_destroy();
 	exit;

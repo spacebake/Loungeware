@@ -17,6 +17,11 @@ if (df_bg_show){
 	if (df_bg_frame >= df_bg_frame_max) df_bg_frame -= df_bg_frame_max;
 }
 
+// draw score and diff
+if (gb_show){
+
+	draw_score();
+}
 
 
 // draw the gameboy

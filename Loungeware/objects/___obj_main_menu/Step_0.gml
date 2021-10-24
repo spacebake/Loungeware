@@ -9,6 +9,7 @@ if (sng_index == ___snd_gtr_intro && !audio_is_playing(sng_id)){
 // didnt use track position because of html bug
 if (step <= 0){
 	if (skip_intro){
+		if (logo_disable_zoom_intro) logo_shake_timer = 10;
 		main_menu_theme_play(true);
 		wait = 0;
 	} else {
@@ -24,7 +25,7 @@ if (step <= 0){
 if (state == "begin"){
 	
 	if (state_begin){
-		if (skip_intro) logo_scale = 0;
+		if (skip_intro && !logo_disable_zoom_intro) logo_scale = 0;
 	}
 	
 	// slide in
@@ -98,7 +99,7 @@ if (state == "fadeout"){
 }
 
 
-if (skip_intro && !logo_scale_done){
+if (!logo_disable_zoom_intro && skip_intro && !logo_scale_done){
 	logo_scale = abs(lengthdir_y(1.1, logo_scale_dir));
 	logo_scale_dir += 5;
 	if (logo_scale_dir > 90 && logo_scale <= 1){

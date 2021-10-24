@@ -30,6 +30,7 @@ menu_y_target = 280;
 logo_scale = 1;
 logo_scale_done = false;
 logo_scale_dir = 0;
+logo_disable_zoom_intro = false;
 
 input_cooldown = 0;
 input_cooldown_init_max = 14;

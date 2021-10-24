@@ -68,18 +68,15 @@ function ___MG_MNGR_declare_functions(){
 		}
 		___save_game();
 	
-		// send to server if data collection on
-		if (___global.save_data.data_collection){
-			// < CODE GO HERE AT SOME POINT >
-		}
 		
 		// if win
 		if (___MG_MNGR.microgame_won){
+			log("MG WON!");
+			var _game_name = ___MG_MNGR.microgame_current_name;
+			var _points = ou_score_per_game + ((DIFFICULTY-1) * ou_score_additional_per_diff);
 			larold_index = 1;
-			var _points = 1; //1 + (___MG_MNGR.microgame_timer / ___MG_MNGR.microgame_timer_max) + (DIFFICULTY/5);
-			___MG_MNGR.score_total += _points;
 			games_won += 1;
-			microgame_add_to_played_record(___MG_MNGR.microgame_current_name);
+			microgame_add_to_played_record(_game_name, _points);
 		} 
 		
 		if (!TEST_MODE_ACTIVE){
@@ -105,7 +102,6 @@ function ___MG_MNGR_declare_functions(){
 				games_until_next_diff_up = games_until_next_diff_up_max;
 				transition_difficulty_up = true;
 				___global.difficulty_level = min(___global.difficulty_level + 1, ___global.difficulty_max);
-				if (DIFFICULTY > support_no_difficulty_up_to_level) cull_gameslist_no_difficulty();
 			
 			}
 		}
@@ -117,34 +113,58 @@ function ___MG_MNGR_declare_functions(){
 		if (!TEST_MODE_ACTIVE && !gallery_mode){
 		
 
-		
+			// if uplayed list is empty (of if there are no remaining games which support this difficulty level), repopulate it with all games (exclude the one just played)
+			if (ds_list_size(microgame_unplayed_list) <= 1 || (DIFFICULTY > support_no_difficulty_up_to_level && playlist_count_microgames_with_difficulty <= 1)){
+				microgame_populate_unplayed_list();
+	
+			}
+
+			
 			// remove game from unplayed list 
 			var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-			ds_list_delete(microgame_unplayed_list, _index_to_remove);
-	
-			// if uplayed list is empty, repopulate it with all games (exclude the one just played, if possble, see below)
-			if (ds_list_size(microgame_unplayed_list) <= 0){
+			if (_index_to_remove != -1 && ds_list_size(microgame_unplayed_list) > 1) ds_list_delete(microgame_unplayed_list, _index_to_remove);
 			
-				microgame_populate_unplayed_list();
-				// remove games with no difficulty scaling if difficulty is more than N (Again)
-				if (DIFFICULTY > support_no_difficulty_up_to_level) cull_gameslist_no_difficulty();
-		
-		
-				// if there is more than 1 game, delete the last played game from the new list as to not get repeats
-				if (ds_list_size(microgame_unplayed_list) > 1){
-					_index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-					ds_list_delete(microgame_unplayed_list, _index_to_remove);
+			var _get_first_microgame_with_difficulty_scaling_key = function(){
+				for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
+					var _key = microgame_unplayed_list[| i];
+					var _data = variable_struct_get(___global.microgame_metadata, _key);
+					if (_data.supports_difficulty_scaling){
+						return _key;
+					}
 				}
+				return "";
 			}
 	
-			// choose next game from uplayed list
-			microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
-			microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+			
+			// ignore games that dont support difficulty after level N
+			if (DIFFICULTY > support_no_difficulty_up_to_level){
+				microgame_next_name = _get_first_microgame_with_difficulty_scaling_key();
+				microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+			} else {
+				microgame_next_name = microgame_unplayed_list[| 0];
+				microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+			}
+		
+		// repeat last game if gallery mode or test mode
 		} else {
 			microgame_next_name = microgame_current_name;
 			microgame_next_metadata = microgame_current_metadata;
 		}
 	
+	}
+	
+	//--------------------------------------------------------------------------------------------------------
+	// check how many games in the current unplayed list support difficulty scaling
+	//--------------------------------------------------------------------------------------------------------
+	function playlist_count_microgames_with_difficulty(){
+		var _count = 0;
+		for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
+			var _key = microgame_unplayed_list[| i];
+			var _data =  variable_struct_get(___global.microgame_metadata, _key);
+			var _supports_difficulty = _data.supports_difficulty_scaling;
+			if (_supports_difficulty) _count++;
+		}
+		return _count;
 	}
 
 	//--------------------------------------------------------------------------------------------------------
@@ -181,7 +201,7 @@ function ___MG_MNGR_declare_functions(){
 		for (var i = 0; i < array_length(microgame_namelist); i++){
 			ds_list_add(microgame_unplayed_list, microgame_namelist[i]);
 		}
-
+		ds_list_shuffle(microgame_unplayed_list);
 	}
 
 	//--------------------------------------------------------------------------------------------------------
@@ -666,8 +686,9 @@ function ___MG_MNGR_declare_functions(){
 	//--------------------------------------------------------------------------------------------------------
 	// add game to the record of won games so that it can be displayed during the end sequence
 	//--------------------------------------------------------------------------------------------------------
-	function microgame_add_to_played_record(_microgame_key){
-	
+
+	function microgame_add_to_played_record(_microgame_key, _points){
+		tsd_score += _points;
 		array_push(played_record, {
 			game: _microgame_key,
 			dist: 0,
@@ -676,7 +697,106 @@ function ___MG_MNGR_declare_functions(){
 			state: 0,
 			scale: ou_games_global_scale,
 			pullback:0,
+			points: _points,
 		});
+	}
+
+	
+	//--------------------------------------------------------------------------------------------------------
+	// draw the current score
+	//--------------------------------------------------------------------------------------------------------
+	function draw_score(_scale=0.5){
+		if (gallery_mode || TEST_MODE_ACTIVE) exit;
+		
+		
+		var  _draw_score_box, _score, _score_str, _margin, 
+		_xx, _yy, _padding_x1, _padding_y1, _label_txt, 
+		_label_txt_w, _score_w, _sep_x, _total_w, _diff_x, 
+		_diff_y, _sv, _store_halign, _store_col, _store_font, 
+		_store_alpha, _y_offset;
+		
+		_y_offset = -40 * (1-tsd_alpha);
+		
+		var _draw_score_box = function(_x1, _y1, _x2, _sep_x, _scale){
+			var _spr = ___spr_gui_score_display_box;
+			var _w = sprite_get_width(_spr) * _scale;
+			for (var _xx = _x1; _xx < _x2; _xx += _w){
+				var _frame = 0;
+				draw_sprite_ext(_spr, _frame, _xx, _y1, _scale, _scale, 0, c_white, draw_get_alpha());
+			}
+			draw_sprite_ext(_spr, 1, _x1, _y1, _scale, _scale, 0, c_white, draw_get_alpha());
+			draw_sprite_ext(_spr, 1, _x2, _y1, _scale, _scale, 0, c_white, draw_get_alpha());
+			draw_sprite_ext(_spr, 1, _sep_x, _y1, _scale, _scale, 0, c_white, draw_get_alpha());
+		}
+		
+		_score = tsd_score;
+		_score_str = string(_score);
+		while (string_length(_score_str) < 4) _score_str = "0" + _score_str;
+		
+		_store_halign = draw_get_halign();
+		_store_col = draw_get_color();
+		_store_font = draw_get_font();
+		_store_alpha = draw_get_alpha();
+		draw_set_halign(fa_left);
+		draw_set_color(tsd_col);
+		draw_set_font(fnt_frogtype);
+		draw_set_alpha(1);
+		
+		
+		
+		_margin = 6;
+		_xx = _margin;
+		_yy = _margin + _y_offset;
+		_padding_x1 = 2.5;
+		_padding_y1 = 2.5;
+		
+		_label_txt = "SCORE";
+		_label_txt_w = string_width(_label_txt) * _scale;
+		_score_w = string_width(_score_str) * _scale;
+		_sep_x = (_xx + (_label_txt_w) + (_padding_x1*2)) - 1.5;
+		_total_w = (_padding_x1 + _label_txt_w + (_padding_x1 * 2) + _score_w)-0.5;
+		
+		// draw score
+		_draw_score_box(
+			_xx, 
+			_yy, 
+			_xx + _total_w, 
+			_sep_x , 
+			_scale
+		);
+		draw_text_transformed(_xx + _padding_x1, _yy + _padding_y1, _label_txt, _scale, _scale, 0);
+		draw_set_color(c_gbwhite);
+		draw_text_transformed(_sep_x + _padding_x1, _yy + _padding_y1, _score_str, _scale, _scale, 0);
+		draw_set_color(tsd_col);
+		
+		_diff_x = _xx;
+		_diff_y = _yy + 13;
+		
+		if (tsd_shake_timer > 0){
+			_sv = 1;
+			_diff_x += random_range(-_sv, _sv);
+			_diff_y += random_range(-_sv, _sv);
+		}
+		
+		// draw difficulty
+		_label_txt = "DIFF";
+		_label_txt_w = string_width(_label_txt) * _scale;
+		_sep_x = (_diff_x + (_label_txt_w) + (_padding_x1*2)) - 1.5;
+		_draw_score_box(
+			_diff_x, 
+			_diff_y , 
+			_diff_x + 52, 
+			_sep_x , 
+			_scale
+		);
+		
+		draw_text_transformed(_diff_x + _padding_x1, _diff_y  + _padding_y1, _label_txt, _scale, _scale, 0);
+		draw_sprite_ext(___spr_gui_diff_display_bars, tsd_draw_diff-1, _sep_x+1, _diff_y+1, _scale, _scale, 0, c_white, draw_get_alpha());
+		
+		draw_set_halign(_store_halign);
+		draw_set_color(_store_col);
+		draw_set_font(_store_font);
+		draw_set_alpha(_store_alpha);
 	}
 
 }

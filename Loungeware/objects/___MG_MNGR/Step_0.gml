@@ -56,6 +56,8 @@ if (dft_state > -1){
 		if (dft_wait <= 0){
 			dft_wait = 30;
 			dft_state++;
+			tsd_draw_diff = DIFFICULTY;
+			tsd_shake_timer = dft_shake_max;
 		}
 	}
 	
@@ -398,6 +400,8 @@ if (state == "game_switch"){
 		cart_angle = 0;
 		cart_x = 81;
 		cart_y = 109;
+		tsd_show = true;
+		
 	}
 	
 	// zoom out gameboy - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -609,7 +613,10 @@ if (state == "game_switch"){
 		if (gallery_mode && wait > 0) title_alpha = min(1, title_alpha + ((1/10)*transition_speed));
 		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
 		
-		if (title_alpha <= 0) gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
+		if (title_alpha <= 0){
+			gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
+			tsd_show = false;
+		}
 		if (gb_scale >= gb_scale_max){
 			df_bg_show = false;
 			df_bg_alpha = 0;
@@ -799,7 +806,7 @@ if (state == "outro"){
 					if (abs(dist) > other.ou_games_global_rad){
 						dist = -other.ou_games_global_rad;
 						other.ou_scorebox_scale_mod = other.ou_scorebox_scale_mod_max;
-						other.ou_score_display += other.ou_score_per_game;
+						other.ou_score_display += points;
 						other.ou_flash = random(0.02);
 						other.ou_scorebox_larold_shake = 2;
 						___play_sfx(___snd_cart_insert, 0.6 + random(0.1), /*0.9 + random(0.2)*/other.ou_pitch_shift + random_range(-0.1,0.1), false, 100);
@@ -1061,3 +1068,5 @@ ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
 ec_shake = max(0, ec_shake-1);
 es_menu_fade = max(0, es_menu_fade - (1/15));
 button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
+tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 5);
+tsd_shake_timer = max(0, tsd_shake_timer-1);
