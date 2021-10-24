@@ -8,9 +8,12 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 
 if (state =="dev_test"){
 	//transition_difficulty_up = true;
-	//microgame_fail();
+	
 	//ou_score_display = 9400;
-	//___state_change("end_screen");
+	___global.difficulty_level = 5;
+	microgame_fail();
+	transition_difficulty_down = true;
+	___state_change("microgame_result");
 }
 
 // --------------------------------------------------------------------------------
@@ -38,6 +41,13 @@ if (transition_music_began && !audio_is_playing(transition_music_current)){
 				transition_difficulty_up = false;
 				gb_shake = 15;
 			}
+			
+			if (transition_difficulty_down){
+				transition_difficulty_down = false;
+				df_bg_show = true;
+				show_message("aaaa");
+			}
+			
 			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, false);
 			transition_music_began = false;
 			audio_sound_pitch(transition_music_current, transition_speed);

@@ -55,6 +55,9 @@ function ___MG_MNGR_declare_functions(){
 	
 		games_played += 1;
 		show_debug_overlay(false);
+		
+		var _won_last_game = ___MG_MNGR.microgame_won;
+		var _is_arcade_mode = (!gallery_mode && !TEST_MODE_ACTIVE);
 	
 		// update save data
 		if (!TEST_MODE_ACTIVE && !gallery_mode){
@@ -70,12 +73,11 @@ function ___MG_MNGR_declare_functions(){
 	
 		
 		// if win
-		if (___MG_MNGR.microgame_won){
+		if (_won_last_game){
 			log("MG WON!");
 			var _game_name = ___MG_MNGR.microgame_current_name;
 			var _points = ou_score_per_game + ((DIFFICULTY-1) * ou_score_additional_per_diff);
 			larold_index = 1;
-			games_won += 1;
 			microgame_add_to_played_record(_game_name, _points);
 		} 
 		
@@ -96,14 +98,26 @@ function ___MG_MNGR_declare_functions(){
 			http_post_string(___API_BASE_URL + "stats", _json);
 		}
 	
-		if (DIFFICULTY < ___global.difficulty_max && !gallery_mode && !TEST_MODE_ACTIVE){
-			games_until_next_diff_up = max(games_until_next_diff_up-1, 0);
-			if (games_until_next_diff_up <= 0){
-				games_until_next_diff_up = games_until_next_diff_up_max;
-				transition_difficulty_up = true;
-				___global.difficulty_level = min(___global.difficulty_level + 1, ___global.difficulty_max);
+		if (_is_arcade_mode){
 			
+			// increase difficulty by 1 after N consecutive wins
+			if (_won_last_game && DIFFICULTY < ___global.difficulty_max){
+				games_until_next_diff_up = max(games_until_next_diff_up-1, 0);
+				if (games_until_next_diff_up <= 0){
+					games_until_next_diff_up = games_until_next_diff_up_max;
+					transition_difficulty_up = true;
+					___global.difficulty_level = min(___global.difficulty_level + 1, ___global.difficulty_max);
+			
+				}
 			}
+			
+			// decrease difficulty by 1 after a fail and reset the win counter
+			if (!_won_last_game && DIFFICULTY > 1){
+				___global.difficulty_level = max(0, DIFFICULTY - 1);
+				transition_difficulty_down = true;
+				games_until_next_diff_up = games_until_next_diff_up_max;
+			}
+			
 		}
 	
 	

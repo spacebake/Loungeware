@@ -32,7 +32,7 @@ pause_enabled = true;
 life_max = 4;
 life = life_max;
 games_played = 0;
-games_won = 0;
+
 
 //--------------------------------------------------------------------------------------------------------
 // DIFFICULTY 
@@ -114,6 +114,7 @@ transition_garbo_sprites = ds_list_create();
 transition_music_current = noone;
 transition_music_began = false;
 transition_difficulty_up = false;
+transition_difficulty_down = false;
 wait = 0;
 
 //--------------------------------------------------------------------------------------------------------
