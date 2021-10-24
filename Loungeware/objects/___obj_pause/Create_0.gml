@@ -31,7 +31,7 @@ function menu_exit(){
 	if (___obj_pause.gallery_mode){
 		instance_create_layer(0, 0, ___obj_pause.layer, ___obj_menu_gallery);
 	} else {
-		instance_create_layer(0, 0, ___obj_pause.layer, ___obj_main_menu);
+		with (instance_create_layer(0, 0, ___obj_pause.layer, ___obj_main_menu)) skip_intro = true;
 	}
 	workspace_end(); 
 	application_surface_draw_enable(true);

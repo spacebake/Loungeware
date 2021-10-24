@@ -29,7 +29,6 @@ pause_enabled = true;
 //--------------------------------------------------------------------------------------------------------
 // score
 //--------------------------------------------------------------------------------------------------------
-score_total = 0;
 life_max = 4;
 life = life_max;
 games_played = 0;
@@ -253,6 +252,7 @@ ou_scorebox_scale_mod = 0;
 ou_scorebox_scale_mod_max = 0.1;
 ou_score_display = 0;
 ou_score_per_game = 100;
+ou_score_additional_per_diff = 12;
 ou_draw_scorebox = false;
 ou_cart_pullback_max = 6;
 ou_scorebox_frame = 0;
@@ -271,6 +271,16 @@ ou_larold_frame = 0;
 ou_larold_speed = 1/6;
 
 //--------------------------------------------------------------------------------------------------------
+// SCORE AND DIFF DISPLAY
+//--------------------------------------------------------------------------------------------------------
+tsd_show = false;
+tsd_col = make_color_rgb(99, 81, 110);
+tsd_alpha = 0;
+tsd_shake_timer = 0;
+tsd_draw_diff = DIFFICULTY;
+tsd_score = 0;
+
+//--------------------------------------------------------------------------------------------------------
 // END SCREEN
 //--------------------------------------------------------------------------------------------------------
 es_score_highlight = -1;
@@ -282,6 +292,7 @@ es_song_id = noone;
 es_after_warning_action = noone;
 es_draw = false;
 es_exit_to = "";
+es_score_saved = false;
 
 //es_action_play_again = function(){
 //	workspace_end();
@@ -290,10 +301,10 @@ es_exit_to = "";
 //	instance_destroy();
 //}
 
-es_action_main_menu = function(){
+var es_action_main_menu = function(){
 	___state_change("exit_confirmation");
 }
-es_action_submit_score = function(){
+var es_action_submit_score = function(){
 	___state_change("exit_transition");
 	es_exit_to = "submit";
 }
@@ -309,6 +320,8 @@ es_close_circle_prog = 1;
 es_surf_circle = noone;
 es_menu_fade = 0;
 
+fbg_frame = 0;
+fbg_speed = 1;
 
 
 //--------------------------------------------------------------------------------------------------------
@@ -341,20 +354,9 @@ button_guide_show = false;
 button_guide_alpha = 0;
 button_guide_frame = 0;
 
-function microgame_add_to_played_record(_microgame_key){
-	
-	array_push(played_record, {
-		game: _microgame_key,
-		dist: 0,
-		spd: 0,
-		wait: irandom(60*2),
-		state: 0,
-		scale: ou_games_global_scale,
-		pullback:0,
-	});
-}
-
 
 
 }
+
+
 

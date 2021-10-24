@@ -22,14 +22,15 @@ function main_menu_theme_stop(){
 }
 
 wait = 42;
-logo_y = VIEW_H * 1.5;
+logo_y = WINDOW_BASE_SIZE * 1.5;
 logo_y_target = 160;
 logo_shake_timer = 0;
-menu_y = VIEW_H + 20;
+menu_y = WINDOW_BASE_SIZE + 20;
 menu_y_target = 280;
 logo_scale = 1;
 logo_scale_done = false;
 logo_scale_dir = 0;
+logo_disable_zoom_intro = false;
 
 input_cooldown = 0;
 input_cooldown_init_max = 14;

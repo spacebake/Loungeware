@@ -219,7 +219,7 @@ function ___GAME_INIT(){
 	
 		//room_goto(___rm_main_menu);
 		//___microgame_list_remove_incompatible();
-		//instance_create_layer(0, 0, layer, ___obj_main_menu);
+		//instance_create_layer(0, 0, layer, ___MG_MNGR);
 		//___MG_MNGR.restartable = true;
 	
 	// if game is running in browser
