@@ -423,8 +423,6 @@ if (state == "game_switch"){
 		cart_x = 81;
 		cart_y = 109;
 		tsd_show = true;
-		
-		
 	}
 	
 	// zoom out gameboy - - - - - - - - - - - - - - - - - - - - - - - - 

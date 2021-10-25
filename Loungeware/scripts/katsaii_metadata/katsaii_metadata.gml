@@ -126,7 +126,7 @@ microgame_register("katsaii_wandaring", {
         year : 2021,
     },
     is_enabled : true,
-    supports_html : true,
+    supports_html : false,
     show_on_website : true,
     description : ["Collect all the stars and escape Candyland!"],
     how_to_play: ["Use the arrow keys to navigate and the button keys to change perspective."],
