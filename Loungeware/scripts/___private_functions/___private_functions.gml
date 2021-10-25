@@ -956,3 +956,19 @@ function ___toggle_fade(_val, _is_show, _steps){
 	}
 }
 
+// ------------------------------------------------------------------------------------------
+// array shuffle
+// ------------------------------------------------------------------------------------------
+function ___array_shuffle(_array){
+	var _ds_list = ds_list_create();
+	var _new_array = [];
+	for (var i = 0; i < array_length(_array); i++){
+		_ds_list[| i] = _array[i];
+	}
+	ds_list_shuffle(_ds_list);
+	for (var i = 0; i < ds_list_size(_ds_list); i++){
+		array_push(_new_array, _ds_list[| i]);
+	}
+	ds_list_destroy(_ds_list);
+	return _new_array;
+}

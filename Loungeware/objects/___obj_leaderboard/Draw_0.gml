@@ -141,7 +141,7 @@ if (show_board){
 		_xx = _xx_base;
 		_this = leaderboard_data[i]; 
 		_score = string(_this.score);
-		_is_blank = (_this.score == -1);
+
 		while (string_length(_score) < 4) _score = "0" + _score;
 		_score = string_upper(string_copy(_score, 1, floor(string_length(_score)) * _bar_alpha));
 		_player_name = string_upper(string_copy(_this.name, 1, floor(string_length(_this.name)) * min(1, _this.scale)));
@@ -149,6 +149,8 @@ if (show_board){
 		_icon_frame = _this.frame;
 		_bar_alpha = min(1, _this.scale);
 		
+
+		_is_blank = (_this.name == "----");
 		if (_is_blank){
 			_score = "----";
 			_player_name = "----";
@@ -294,22 +296,7 @@ if ((state == "load" || state == "hide_loader") && show_loader_timer <= 0){
 }
 
 
-// closing circle
-if (close_circle_prog < 1){
-	var _size = WINDOW_BASE_SIZE/2;
-	if (!surface_exists(surf_circle)){
-		surf_circle = surface_create(_size, _size);
-	}
-	
-	surface_set_target(surf_circle);
-	draw_clear(c_gbdark);
-	gpu_set_blendmode(bm_subtract);
-	draw_circle(_size/2, (_size/2), close_circle_prog * ( _size*0.8), 0);
-	gpu_set_blendmode(bm_normal);
 
-	surface_reset_target();
-	draw_surface_stretched(surf_circle, 0, 0, VIEW_W, VIEW_H);
-}
 
 
 
@@ -359,4 +346,22 @@ if (http_error_alpha > 0){
 	
 	
 	draw_set_alpha(1);
+}
+
+
+// closing circle
+if (close_circle_prog < 1){
+	var _size = WINDOW_BASE_SIZE/2;
+	if (!surface_exists(surf_circle)){
+		surf_circle = surface_create(_size, _size);
+	}
+	
+	surface_set_target(surf_circle);
+	draw_clear(c_gbdark);
+	gpu_set_blendmode(bm_subtract);
+	draw_circle(_size/2, (_size/2), close_circle_prog * ( _size*0.8), 0);
+	gpu_set_blendmode(bm_normal);
+
+	surface_reset_target();
+	draw_surface_stretched(surf_circle, 0, 0, VIEW_W, VIEW_H);
 }

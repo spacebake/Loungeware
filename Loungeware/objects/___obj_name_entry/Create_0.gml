@@ -154,7 +154,7 @@ loader_scale_done = false;
 loader_dir = 0;
 loader_dir_speed_dir = 0;
 
-http_error_msg = "An unexpected error occurred";
+http_error_msg = "Server is not responding";
 http_error_show = false;
 http_error_alpha = 0;
 
@@ -273,7 +273,7 @@ function ee_check(){
 		return;
 	}
 	//net
-	if (string_contains(name, ["NET8FLOZ", "BIG_PAPPA", "BIG-PAPPA", "BIG_PAPA", "BIG-PAPA", "BIG-POPPA", "BIG_POPPA", "WIDEGURL", "WIDEGURL2000"]) || string_contains(name, ["NET"], true)){
+	if (string_contains(name, ["NET8FLOZ", "BIG_PAPPA", "BIG-PAPPA", "BIG_PAPA", "BIG-PAPA", "BIG-POPPA", "BIG_POPPA", "WIDEGURL", "WIDEGURL2000", "BIGPAPPA"]) || string_contains(name, ["NET"], true)){
 		ee_frame = 3;
 		return;
 	}
@@ -382,6 +382,11 @@ function sbmt_scr(){
 		score_id_local: score_id_local,
 		player_id: ___global.player_id,
 	}
+	
+	// uncomment for testing
+	//_data.points = 100;
+	//_data.score_id_local = ___uniqid();
+	
 	
 	var _json = json_stringify(_data);
 	var _url = ___API_BASE_URL + "larold-board";

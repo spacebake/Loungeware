@@ -1,11 +1,4 @@
-// difficulty bg
-if (false && diff_bg != noone && state != "playing_microgame"){
-	draw_set_alpha(0.8);
-	draw_sprite_stretched(diff_bg, diff_bg_frame, 0, 0, VIEW_W, VIEW_H);
-	draw_set_alpha(1);
-	diff_bg_frame += diff_bg_speed;
-	if (diff_bg_frame >= sprite_get_number(diff_bg)) diff_bg_frame -= sprite_get_number(diff_bg);
-}
+
 
 
 // difficulty UP bg
@@ -16,6 +9,18 @@ if (df_bg_show){
 	df_bg_frame += 0.6;
 	if (df_bg_frame >= df_bg_frame_max) df_bg_frame -= df_bg_frame_max;
 }
+
+// difficulty DOWN bg
+if (dd_bg_alpha > 0){
+	draw_set_alpha(dd_bg_alpha * 0.3);
+	gpu_set_colorwriteenable(1, 1, 1, 0); 
+	draw_sprite_stretched(dd_bg_sprite, dd_bg_frame, 0, 0, VIEW_W, VIEW_H);
+	gpu_set_colorwriteenable(1, 1, 1, 1); 
+	draw_set_alpha(1);
+	dd_bg_frame += 0.6;
+	if (dd_bg_frame >= dd_bg_frame_max) dd_bg_frame -= dd_bg_frame_max;
+}
+
 
 // draw score and diff
 if (gb_show){

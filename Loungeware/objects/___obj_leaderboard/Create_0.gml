@@ -72,6 +72,7 @@ http_error_shake_timer = 0;
 http_error_shake_timer_max = 15;
 http_error_menu_y_offset_max = 300;
 http_error_menu_y_offset = http_error_menu_y_offset_max;
+http_error_msg = "server is not responding";
 
 function get_scores(){
 	request_id = http_get(___API_BASE_URL + "larold-board");

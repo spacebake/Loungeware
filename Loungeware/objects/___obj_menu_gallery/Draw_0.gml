@@ -365,19 +365,9 @@ if (state == "fadeout_back"){
 	gpu_set_blendmode(bm_subtract);
 	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
 	gpu_set_blendmode(bm_normal);
-
 	surface_reset_target();
 	draw_surface_stretched(surf_circle, 0, 0, VIEW_W, VIEW_H);
-	close_circle_prog = max(0, close_circle_prog - (1/20));
-	if (close_wait_before > 0){
-		close_wait_before -=1;
-	} else {
-		if (close_circle_prog <= 0) close_wait--;
-		if (close_wait <= 0 && !fadeout_ended){
-			fadeout_do();
-			fadeout_ended = true;
-		}
-	}
+
 }
 
 // draw open transition cover

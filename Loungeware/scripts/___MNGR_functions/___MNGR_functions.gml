@@ -81,6 +81,7 @@ function ___MG_MNGR_declare_functions(){
 			microgame_add_to_played_record(_game_name, _points);
 		} 
 		
+		
 		if (!TEST_MODE_ACTIVE){
 			// 🤫
 			var _mode = "arcade";
@@ -112,74 +113,51 @@ function ___MG_MNGR_declare_functions(){
 			}
 			
 			// decrease difficulty by 1 after a fail and reset the win counter
-			if (!_won_last_game && DIFFICULTY > 1){
-				___global.difficulty_level = max(0, DIFFICULTY - 1);
-				transition_difficulty_down = true;
+			if (!_won_last_game){
+				if (DIFFICULTY > 1){
+					___global.difficulty_level = max(1, DIFFICULTY - 1);
+					transition_difficulty_down = true;
+					dd_trigger_shake_diff_down  = true;
+				}
+				
 				games_until_next_diff_up = games_until_next_diff_up_max;
 			}
 			
 		}
 	
 	
-		// go to rest room (lol)
-		room_goto(___rm_restroom);
-	
-		if (!TEST_MODE_ACTIVE && !gallery_mode){
-		
-
-			// if uplayed list is empty (of if there are no remaining games which support this difficulty level), repopulate it with all games (exclude the one just played)
-			if (ds_list_size(microgame_unplayed_list) <= 1 || (DIFFICULTY > support_no_difficulty_up_to_level && playlist_count_microgames_with_difficulty <= 1)){
-				microgame_populate_unplayed_list();
-	
-			}
-
+		if (_is_arcade_mode){
 			
-			// remove game from unplayed list 
-			var _index_to_remove = ds_list_find_index(microgame_unplayed_list, ___MG_MNGR.microgame_current_name);
-			if (_index_to_remove != -1 && ds_list_size(microgame_unplayed_list) > 1) ds_list_delete(microgame_unplayed_list, _index_to_remove);
-			
-			var _get_first_microgame_with_difficulty_scaling_key = function(){
-				for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
-					var _key = microgame_unplayed_list[| i];
-					var _data = variable_struct_get(___global.microgame_metadata, _key);
-					if (_data.supports_difficulty_scaling){
-						return _key;
-					}
-				}
-				return "";
+			// go to next game in playlist (loops back around and shuffles if end of list is reached)
+			microgame_playlist_increment();
+				
+			var _supports_difficulty = function(){
+				var _potential_next_microgame_metadata = variable_struct_get(___global.microgame_metadata, microgame_playlist[microgame_playlist_index]);
+				return _potential_next_microgame_metadata.supports_difficulty_scaling;
 			}
-	
-			
-			// ignore games that dont support difficulty after level N
-			if (DIFFICULTY > support_no_difficulty_up_to_level){
-				microgame_next_name = _get_first_microgame_with_difficulty_scaling_key();
-				microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
-			} else {
-				microgame_next_name = microgame_unplayed_list[| 0];
-				microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+				
+			// increment playlist index until a suitable game is found
+			while (DIFFICULTY  > support_no_difficulty_up_to_level && !_supports_difficulty()){
+				microgame_playlist_increment();
+				// note: game will freeze here if there are no enabled microgames in the project that support difficulty scaling
 			}
-		
+			
+			microgame_next_name = microgame_playlist[microgame_playlist_index];
+			microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
+			
 		// repeat last game if gallery mode or test mode
 		} else {
 			microgame_next_name = microgame_current_name;
 			microgame_next_metadata = microgame_current_metadata;
 		}
+		
+		
+		
+		// go to rest room (lol)
+		room_goto(___rm_restroom);
 	
 	}
 	
-	//--------------------------------------------------------------------------------------------------------
-	// check how many games in the current unplayed list support difficulty scaling
-	//--------------------------------------------------------------------------------------------------------
-	function playlist_count_microgames_with_difficulty(){
-		var _count = 0;
-		for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
-			var _key = microgame_unplayed_list[| i];
-			var _data =  variable_struct_get(___global.microgame_metadata, _key);
-			var _supports_difficulty = _data.supports_difficulty_scaling;
-			if (_supports_difficulty) _count++;
-		}
-		return _count;
-	}
 
 	//--------------------------------------------------------------------------------------------------------
 	// LOAD FAKE MICROGAME
@@ -192,9 +170,7 @@ function ___MG_MNGR_declare_functions(){
 			cart_sprite = ___cart_sprite_create(_cart);
 			microgame_current_metadata = _cart;
 			cart_change(microgame_current_metadata);
-
-			//show_message(microgame_current_metadata);
-			microgame_next_name = microgame_unplayed_list[| irandom_range(0, ds_list_size(microgame_unplayed_list) - 1)];
+			microgame_next_name = microgame_playlist[microgame_playlist_index];
 			microgame_next_metadata = variable_struct_get(___global.microgame_metadata, microgame_next_name);
 	}
 
@@ -210,12 +186,9 @@ function ___MG_MNGR_declare_functions(){
 	//--------------------------------------------------------------------------------------------------------
 	// MICRO GAME POPULATE UNPLAYED LIST
 	//--------------------------------------------------------------------------------------------------------
-	function microgame_populate_unplayed_list(){
-		ds_list_clear(microgame_unplayed_list);
-		for (var i = 0; i < array_length(microgame_namelist); i++){
-			ds_list_add(microgame_unplayed_list, microgame_namelist[i]);
-		}
-		ds_list_shuffle(microgame_unplayed_list);
+	function microgame_playlist_shuffle(){
+		microgame_playlist = ___array_shuffle(microgame_namelist);
+		log("playlist suffled");
 	}
 
 	//--------------------------------------------------------------------------------------------------------
@@ -425,7 +398,7 @@ function ___MG_MNGR_declare_functions(){
 	//--------------------------------------------------------------------------------------------------------
 	function create_master_surface(){
 		// create the master surface if it doesn't exit
-		if (!surface_exists(surf_master) && window_scale != 0){
+		if (!surface_exists(surf_master)){
 			var _size = max(5, WINDOW_BASE_SIZE * window_scale);
 			surf_master = surface_create(_size, _size);
 		}
@@ -434,6 +407,10 @@ function ___MG_MNGR_declare_functions(){
 			var _size = max(5, WINDOW_BASE_SIZE * window_scale);
 			surface_resize(surf_master, _size, _size);
 		}
+		
+		surface_set_target(surf_master);
+		draw_clear_alpha(c_white, 0);
+		surface_reset_target();
 	}
 	function draw_master_surface(){
 	
@@ -457,6 +434,8 @@ function ___MG_MNGR_declare_functions(){
 	// DRAW GAMEBOY CENTERED | draws the gameboy for transitions
 	//--------------------------------------------------------------------------------------------------------
 	function draw_gameboy(_scale, _x_offset, _y_offset, _spin_angle, _slot_is_empty){
+	
+		if (state == "playing_microgame") exit;
 	
 		var _draw_scale = VIEW_W / WINDOW_BASE_SIZE;
 		var _y_offset_at_zoom_min = 114;
@@ -608,25 +587,6 @@ function ___MG_MNGR_declare_functions(){
 		dft_scale_hard = 1;
 	}
 
-
-
-
-	//--------------------------------------------------------------------------------------------------------
-	// cull games from list which dont support difficulty
-	//--------------------------------------------------------------------------------------------------------
-	// if difficulty is more than 3, remove all games that dont support difficulty
-	function cull_gameslist_no_difficulty(){
-	
-		for (var i = 0; i < ds_list_size(microgame_unplayed_list); i++){
-			var _key = microgame_unplayed_list[| i];
-			var _metadata = variable_struct_get(___global.microgame_metadata, _key);
-			var _supports_difficulty = _metadata.supports_difficulty_scaling;
-			if (!_supports_difficulty){
-				ds_list_delete(microgame_unplayed_list, i);
-				i--;
-			}
-		}
-	}
 	
 	//--------------------------------------------------------------------------------------------------------
 	// add a new score to the local scoreboard if it is great enough
@@ -724,12 +684,11 @@ function ___MG_MNGR_declare_functions(){
 		
 		
 		var  _draw_score_box, _score, _score_str, _margin, 
-		_xx, _yy, _padding_x1, _padding_y1, _label_txt, 
-		_label_txt_w, _score_w, _sep_x, _total_w, _diff_x, 
-		_diff_y, _sv, _store_halign, _store_col, _store_font, 
-		_store_alpha, _y_offset;
+		_xx, _yy, _padding_x1, _padding_y1, 
+		 _sv, _store_halign, _store_col, _store_font, 
+		_store_alpha, _y_offset, _meter_x, _meter_y;
 		
-		_y_offset = -40 * (1-tsd_alpha);
+		_y_offset = 60 * (1-tsd_alpha);
 		
 		var _draw_score_box = function(_x1, _y1, _x2, _sep_x, _scale){
 			var _spr = ___spr_gui_score_display_box;
@@ -756,61 +715,130 @@ function ___MG_MNGR_declare_functions(){
 		draw_set_font(fnt_frogtype);
 		draw_set_alpha(1);
 		
-		
-		
 		_margin = 6;
-		_xx = _margin;
-		_yy = _margin + _y_offset;
+		_xx = 38;
+		_yy = ( VIEW_H - 40) + _y_offset;
 		_padding_x1 = 2.5;
 		_padding_y1 = 2.5;
+	
+		//if (tsd_shake_timer > 0){
+		//	_sv = (tsd_shake_timer / tsd_shake_max) * 4;
+		//	_xx += random_range(-_sv, _sv);
+		//	_yy += random_range(-_sv, _sv);
+		//}
 		
-		_label_txt = "SCORE";
-		_label_txt_w = string_width(_label_txt) * _scale;
-		_score_w = string_width(_score_str) * _scale;
-		_sep_x = (_xx + (_label_txt_w) + (_padding_x1*2)) - 1.5;
-		_total_w = (_padding_x1 + _label_txt_w + (_padding_x1 * 2) + _score_w)-0.5;
+
+		// draw score bar
+		draw_sprite_ext(___spr_diff_meter, 2, _xx, _yy, _scale, _scale, 0, c_white, draw_get_alpha());
 		
-		// draw score
-		_draw_score_box(
-			_xx, 
-			_yy, 
-			_xx + _total_w, 
-			_sep_x , 
-			_scale
-		);
-		draw_text_transformed(_xx + _padding_x1, _yy + _padding_y1, _label_txt, _scale, _scale, 0);
+		// draw score text
+		var _text_x = _xx + 3;
+		var _text_y = _yy + 11;
+		draw_set_font(___global.___fnt_transition_score);
 		draw_set_color(c_gbwhite);
-		draw_text_transformed(_sep_x + _padding_x1, _yy + _padding_y1, _score_str, _scale, _scale, 0);
-		draw_set_color(tsd_col);
+		draw_text_transformed(_text_x, _text_y, _score_str, _scale, _scale, 0);
 		
-		_diff_x = _xx;
-		_diff_y = _yy + 13;
-		
-		if (tsd_shake_timer > 0){
-			_sv = 1;
-			_diff_x += random_range(-_sv, _sv);
-			_diff_y += random_range(-_sv, _sv);
+		// draw meter
+		_meter_x = _xx;
+		_meter_y = _yy;
+		if (tsd_shake_timer > 0 || tsd_draw_diff >= 5){
+			_sv = (tsd_shake_timer / tsd_shake_max) * 5;
+			if (tsd_draw_diff >= 5) _sv = 0.5;
+			_meter_x += random_range(-_sv, _sv);
+			_meter_y += random_range(-_sv, _sv);
 		}
-		
-		// draw difficulty
-		_label_txt = "DIFF";
-		_label_txt_w = string_width(_label_txt) * _scale;
-		_sep_x = (_diff_x + (_label_txt_w) + (_padding_x1*2)) - 1.5;
-		_draw_score_box(
-			_diff_x, 
-			_diff_y , 
-			_diff_x + 52, 
-			_sep_x , 
-			_scale
-		);
-		
-		draw_text_transformed(_diff_x + _padding_x1, _diff_y  + _padding_y1, _label_txt, _scale, _scale, 0);
-		draw_sprite_ext(___spr_gui_diff_display_bars, tsd_draw_diff-1, _sep_x+1, _diff_y+1, _scale, _scale, 0, c_white, draw_get_alpha());
+		draw_diff_meter(_meter_x, _meter_y);
+
+
+
 		
 		draw_set_halign(_store_halign);
 		draw_set_color(_store_col);
 		draw_set_font(_store_font);
 		draw_set_alpha(_store_alpha);
+	}
+	
+	// ------------------------------------------------------------------------------------------
+	// draw difficulty meter
+	// ------------------------------------------------------------------------------------------
+	function draw_diff_meter(_x, _y, _scale=0.5){
+		static _current_dir = 180;
+		var _dir_lock = [180, 135, 90, 45, 0];
+		var _dir_goto = _dir_lock[tsd_draw_diff-1];
+		_current_dir = ___smooth_move(_current_dir, _dir_goto, 0.1, 12);
+		
+		draw_sprite_ext(___spr_diff_meter, 0, _x, _y, _scale, _scale, 0, c_white, draw_get_alpha());
+		var _red_alpha = (tsd_draw_diff-1)/4;
+		draw_sprite_ext(___spr_diff_meter, 3, _x, _y, _scale, _scale, 0, c_white, _red_alpha);
+		draw_sprite_ext(___spr_diff_meter, 1, _x, _y, _scale, _scale, _current_dir, c_white, draw_get_alpha());
+		
+		var _part_x_range = 26 * _scale;
+		if (tsd_draw_diff >= 5 && !irandom(10)) particle_fire_create(_x + random_range(-_part_x_range, _part_x_range), _y);
+		particle_fire_draw();
+	}
+	
+	// ------------------------------------------------------------------------------------------
+	// increment playlist index
+	// ------------------------------------------------------------------------------------------
+	function microgame_playlist_increment(){
+		microgame_playlist_index++;
+		
+		if (microgame_playlist_index >= array_length(microgame_playlist)){
+			var _store_previous = microgame_playlist[microgame_playlist_index];
+			microgame_playlist = ___array_shuffle(microgame_namelist);
+			microgame_playlist_index = 0;
+			if (microgame_playlist[0] == _store_previous) microgame_playlist_index++;
+			
+		}
+	}
+	
+	// ------------------------------------------------------------------------------------------
+	// create spark particle
+	// ------------------------------------------------------------------------------------------
+	function particle_fire_create(_x, _y){
+		var _part = {
+			x : _x,
+			y : _y,
+			vsp : random_range(-3, -1),
+			hsp : random_range(-0.5, 0.5),
+			grav : random_range(0.15, 0.2),
+			grav_max : random_range(0.5, 0.75),
+			deaccel : random_range(0.95, 0.99),
+			alpha : 1 - random(0.2),
+			frame : irandom(sprite_get_number(___spr_diff_fire_part)-1),
+		}
+		array_push(tsd_flame_parts, _part);
+	}
+	
+	// ------------------------------------------------------------------------------------------
+	// draw spark particle
+	// ------------------------------------------------------------------------------------------
+	function particle_fire_draw(){
+		for (var i = 0; i < array_length(tsd_flame_parts); i++){
+			with (tsd_flame_parts[i]){	
+				draw_sprite_ext(___spr_diff_fire_part, frame, x, y, 1, 1, 0, c_white, alpha * draw_get_alpha);
+			}
+		}
+	}
+	
+	// ------------------------------------------------------------------------------------------
+	// move spark particle
+	// ------------------------------------------------------------------------------------------
+	function particle_fire_move(){
+		for (var i = 0; i < array_length(tsd_flame_parts); i++){
+			with (tsd_flame_parts[i]){
+				vsp = min(grav_max, vsp + grav);
+				hsp = hsp * deaccel;
+				if (vsp >= grav_max) alpha -= (1/10);
+				x += hsp;
+				y += vsp;
+				if (alpha <= 0){
+					array_delete(other.tsd_flame_parts, i, 1);
+					i--;
+				}
+			}
+		}
+		log(array_length(tsd_flame_parts));
 	}
 
 }

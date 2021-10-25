@@ -56,7 +56,7 @@ surf_circle = noone;
 close_wait = 20;
 fadeout_began = false;
 fadeout_ended = false;
-fadeout_do = function(){};
+fadeout_do = ___noop();
 
 // button guide
 button_guide_alpha = 0;

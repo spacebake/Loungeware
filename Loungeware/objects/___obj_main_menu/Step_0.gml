@@ -24,10 +24,6 @@ if (step <= 0){
 
 if (state == "begin"){
 	
-	if (state_begin){
-		if (skip_intro && !logo_disable_zoom_intro) logo_scale = 0;
-	}
-	
 	// slide in
 	if (wait <= 0 && menu_y != menu_y_target){
 		menu_y = ___smooth_move(menu_y, menu_y_target, 0.5, 8);

@@ -1,3 +1,8 @@
+if (state == "begin" && state_begin){
+	// this has to be in the draw event for first frame reasons
+	if (skip_intro && !logo_disable_zoom_intro) logo_scale = 0;
+
+}
 
 if (bg_show){
 	var _bg_alpha = 0.2;
