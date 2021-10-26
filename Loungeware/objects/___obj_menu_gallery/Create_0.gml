@@ -1,3 +1,5 @@
+//# ALLOW banned-functions
+
 state = "normal";
 
 sng_id = audio_play_sound(___sng_gallery, 1, 1);
