@@ -1,3 +1,4 @@
+//# ALLOW banned-functions
 
 room_goto_after = noone;
 object_create_after = noone;

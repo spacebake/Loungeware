@@ -1,3 +1,5 @@
+//# ALLOW banned-functions
+
 //--------------------------------------------------------------------------------------------------------
 // DRAW RECTANGLE FIX
 // draws a rectangle but with 1 pixel removed from the x2 and y2 values
