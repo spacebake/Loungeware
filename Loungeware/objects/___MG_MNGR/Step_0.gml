@@ -8,7 +8,8 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 
 if (state =="dev_test"){
 	
-
+	//games_until_next_diff_up_max = 1;
+	//games_until_next_diff_up = games_until_next_diff_up_max;
 	//___global.difficulty_level = 5;
 	//tsd_draw_diff = DIFFICULTY;
 	//___state_change("game_switch");
@@ -1093,6 +1094,6 @@ ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
 ec_shake = max(0, ec_shake-1);
 es_menu_fade = max(0, es_menu_fade - (1/15));
 button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
-tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 7);
+tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.03, 7);
 tsd_shake_timer = max(0, tsd_shake_timer-1);
 particle_fire_move();
