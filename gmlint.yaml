@@ -1,0 +1,5 @@
+allow:
+ - "inconsistent-indentation"
+ - "bad-tab-style"
+banned:
+ - audio_play_sound
