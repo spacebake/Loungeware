@@ -716,8 +716,8 @@ function ___MG_MNGR_declare_functions(){
 		draw_set_alpha(1);
 		
 		_margin = 6;
-		_xx = 38;
-		_yy = ( VIEW_H - 40) + _y_offset;
+		_xx = 30;
+		_yy = ( VIEW_H - 28) + _y_offset;
 		_padding_x1 = 2.5;
 		_padding_y1 = 2.5;
 	
@@ -763,17 +763,20 @@ function ___MG_MNGR_declare_functions(){
 	// ------------------------------------------------------------------------------------------
 	function draw_diff_meter(_x, _y, _scale=0.5){
 		static _current_dir = 180;
+		var _diff_is_max = (tsd_draw_diff >= 5);
 		var _dir_lock = [180, 135, 90, 45, 0];
 		var _dir_goto = _dir_lock[tsd_draw_diff-1];
 		_current_dir = ___smooth_move(_current_dir, _dir_goto, 0.1, 12);
+		var _dir_draw = _current_dir;
+		if (_diff_is_max) _dir_draw += random_range(-4,4);
 		
 		draw_sprite_ext(___spr_diff_meter, 0, _x, _y, _scale, _scale, 0, c_white, draw_get_alpha());
 		var _red_alpha = (tsd_draw_diff-1)/4;
 		draw_sprite_ext(___spr_diff_meter, 3, _x, _y, _scale, _scale, 0, c_white, _red_alpha);
-		draw_sprite_ext(___spr_diff_meter, 1, _x, _y, _scale, _scale, _current_dir, c_white, draw_get_alpha());
+		draw_sprite_ext(___spr_diff_meter, 1, _x, _y, _scale, _scale, _dir_draw, c_white, draw_get_alpha());
 		
 		var _part_x_range = 26 * _scale;
-		if (tsd_draw_diff >= 5 && !irandom(10)) particle_fire_create(_x + random_range(-_part_x_range, _part_x_range), _y);
+		if (_diff_is_max && !irandom(8)) particle_fire_create(_x + random_range(-_part_x_range, _part_x_range), _y);
 		particle_fire_draw();
 	}
 	
@@ -781,10 +784,10 @@ function ___MG_MNGR_declare_functions(){
 	// increment playlist index
 	// ------------------------------------------------------------------------------------------
 	function microgame_playlist_increment(){
+		var _store_previous = microgame_playlist[microgame_playlist_index];
 		microgame_playlist_index++;
 		
 		if (microgame_playlist_index >= array_length(microgame_playlist)){
-			var _store_previous = microgame_playlist[microgame_playlist_index];
 			microgame_playlist = ___array_shuffle(microgame_namelist);
 			microgame_playlist_index = 0;
 			if (microgame_playlist[0] == _store_previous) microgame_playlist_index++;
@@ -816,7 +819,7 @@ function ___MG_MNGR_declare_functions(){
 	function particle_fire_draw(){
 		for (var i = 0; i < array_length(tsd_flame_parts); i++){
 			with (tsd_flame_parts[i]){	
-				draw_sprite_ext(___spr_diff_fire_part, frame, x, y, 1, 1, 0, c_white, alpha * draw_get_alpha);
+				draw_sprite_ext(___spr_diff_fire_part, frame, x, y, 1, 1, 0, c_white, alpha * draw_get_alpha());
 			}
 		}
 	}
