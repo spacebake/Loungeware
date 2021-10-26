@@ -7,15 +7,10 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 
 
 if (state =="dev_test"){
-	//transition_difficulty_up = true;
 	
-	//ou_score_display = 9400;
-	//games_until_next_diff_up_max = 1;
-	//games_until_next_diff_up = games_until_next_diff_up_max;
+
 	//___global.difficulty_level = 5;
 	//tsd_draw_diff = DIFFICULTY;
-	//microgame_fail();
-	//transition_difficulty_down = true;
 	//___state_change("game_switch");
 }
 
@@ -635,9 +630,12 @@ if (state == "game_switch"){
 		if (gallery_mode && wait > 0) title_alpha = min(1, title_alpha + ((1/10)*transition_speed));
 		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
 		
+		if (title_alpha < 0.5){
+			tsd_show = false;
+		}
+		
 		if (title_alpha <= 0){
 			gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
-			tsd_show = false;
 		}
 		if (gb_scale >= gb_scale_max){
 			df_bg_show = false;
@@ -1095,6 +1093,6 @@ ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
 ec_shake = max(0, ec_shake-1);
 es_menu_fade = max(0, es_menu_fade - (1/15));
 button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
-tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 3);
+tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 7);
 tsd_shake_timer = max(0, tsd_shake_timer-1);
 particle_fire_move();

@@ -713,7 +713,8 @@ function ___MG_MNGR_declare_functions(){
 		draw_set_halign(fa_left);
 		draw_set_color(tsd_col);
 		draw_set_font(fnt_frogtype);
-		draw_set_alpha(1);
+		draw_set_alpha(tsd_alpha);
+		gpu_set_colorwriteenable(1, 1, 1, 0);
 		
 		_margin = 6;
 		_xx = 30;
@@ -751,7 +752,7 @@ function ___MG_MNGR_declare_functions(){
 
 
 
-		
+		gpu_set_colorwriteenable(1, 1, 1, 1);
 		draw_set_halign(_store_halign);
 		draw_set_color(_store_col);
 		draw_set_font(_store_font);
@@ -772,7 +773,7 @@ function ___MG_MNGR_declare_functions(){
 		
 		draw_sprite_ext(___spr_diff_meter, 0, _x, _y, _scale, _scale, 0, c_white, draw_get_alpha());
 		var _red_alpha = (tsd_draw_diff-1)/4;
-		draw_sprite_ext(___spr_diff_meter, 3, _x, _y, _scale, _scale, 0, c_white, _red_alpha);
+		draw_sprite_ext(___spr_diff_meter, 3, _x, _y, _scale, _scale, 0, c_white, _red_alpha * draw_get_alpha());
 		draw_sprite_ext(___spr_diff_meter, 1, _x, _y, _scale, _scale, _dir_draw, c_white, draw_get_alpha());
 		
 		var _part_x_range = 26 * _scale;
