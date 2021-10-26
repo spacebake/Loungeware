@@ -10,6 +10,7 @@ function ___GAME_INIT(){
 	
 	// font
 	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><:", false, 0);
+	___global.___fnt_transition_score = font_add_sprite_ext(___spr_font_transition_score, "0123456789", false, 1);
 	
 	// colours
 	___global.macro_c_magenta = make_color_rgb(255, 0, 255);
@@ -220,6 +221,7 @@ function ___GAME_INIT(){
 		//room_goto(___rm_main_menu);
 		//___microgame_list_remove_incompatible();
 		//instance_create_layer(0, 0, layer, ___MG_MNGR);
+		//audio_set_master_gain(0, 0.1)
 		//___MG_MNGR.restartable = true;
 	
 	// if game is running in browser

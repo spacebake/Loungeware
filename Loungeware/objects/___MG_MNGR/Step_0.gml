@@ -7,17 +7,20 @@ if (intro_first_game_switch) && (gallery_mode || TEST_MODE_ACTIVE){
 
 
 if (state =="dev_test"){
-	//transition_difficulty_up = true;
-	//microgame_fail();
-	//ou_score_display = 9400;
-	//___state_change("end_screen");
+	
+
+	//___global.difficulty_level = 5;
+	//tsd_draw_diff = DIFFICULTY;
+	//___state_change("game_switch");
 }
 
 // --------------------------------------------------------------------------------
 // fade bg in/out
 // --------------------------------------------------------------------------------
-var _df_bg_fadespeed = 1/20;
-df_bg_alpha = (df_bg_show) ? min(1, df_bg_alpha + _df_bg_fadespeed) : max(0, df_bg_alpha - _df_bg_fadespeed);
+
+df_bg_alpha = ___toggle_fade(df_bg_alpha, df_bg_show, 20);
+dd_bg_alpha = ___toggle_fade(dd_bg_alpha, dd_bg_show, 5);
+
 
 // --------------------------------------------------------------------------------
 // fade timer bar
@@ -38,6 +41,7 @@ if (transition_music_began && !audio_is_playing(transition_music_current)){
 				transition_difficulty_up = false;
 				gb_shake = 15;
 			}
+			
 			transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, false);
 			transition_music_began = false;
 			audio_sound_pitch(transition_music_current, transition_speed);
@@ -58,6 +62,7 @@ if (dft_state > -1){
 			dft_state++;
 			tsd_draw_diff = DIFFICULTY;
 			tsd_shake_timer = dft_shake_max;
+			
 		}
 	}
 	
@@ -95,6 +100,13 @@ if (dft_state > -1){
 if (heart_show_lose_seq){
 
 	if (heart_begin){
+		
+		if (transition_difficulty_down){
+			transition_difficulty_down = false;
+			dd_bg_show = true;
+			
+		}
+		
 		heart_begin = false;
 		gb_show = true;
 		
@@ -132,6 +144,11 @@ if (heart_show_lose_seq){
 	if (heart_last_frame >= 4 && !heart_sound_played){
 		heart_sound_played = true;
 		sfx_play(___snd_microgame_heart_pop, 1, 0);
+		tsd_draw_diff = DIFFICULTY;
+		if (dd_trigger_shake_diff_down){
+			tsd_shake_timer = tsd_shake_max;
+			dd_trigger_shake_diff_down = false;
+		}
 	}
 	
 	// heart fade
@@ -401,7 +418,6 @@ if (state == "game_switch"){
 		cart_x = 81;
 		cart_y = 109;
 		tsd_show = true;
-		
 	}
 	
 	// zoom out gameboy - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -444,6 +460,7 @@ if (state == "game_switch"){
 	// wait a sec
 	if (substate == 2){
 		if (substate_begin){
+			dd_bg_show = false;
 			wait = 18 / transition_speed;
 		}
 		if (wait <= 0) ___substate_change(substate+1);
@@ -613,13 +630,18 @@ if (state == "game_switch"){
 		if (gallery_mode && wait > 0) title_alpha = min(1, title_alpha + ((1/10)*transition_speed));
 		if (wait <= 0) title_alpha = max(0, title_alpha - (1/title_fade_time));
 		
+		if (title_alpha < 0.5){
+			tsd_show = false;
+		}
+		
 		if (title_alpha <= 0){
 			gb_scale = ___smooth_move(gb_scale, gb_scale_max, 0.01, 8);
-			tsd_show = false;
 		}
 		if (gb_scale >= gb_scale_max){
 			df_bg_show = false;
 			df_bg_alpha = 0;
+			dd_bg_show = false;
+			dd_bg_alpha = 0;
 			___substate_change(substate+1);
 			exit;
 		}
@@ -669,8 +691,11 @@ if (state == "outro"){
 		gb_y_offset = 0;
 		gb_cover_cartridge = false;
 		gb_spin_speed = 9 * transition_speed;
-		
 		ou_draw_games = true;
+		df_bg_show = false;
+		df_bg_alpha = 0;
+		dd_bg_show = false;
+		dd_bg_alpha = 0;
 		
 	}
 	
@@ -1068,5 +1093,6 @@ ec_alpha = ___toggle_fade(ec_alpha, ec_show, 10);
 ec_shake = max(0, ec_shake-1);
 es_menu_fade = max(0, es_menu_fade - (1/15));
 button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 24);
-tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 5);
+tsd_alpha = ___smooth_move(tsd_alpha, tsd_show, 0.01, 7);
 tsd_shake_timer = max(0, tsd_shake_timer-1);
+particle_fire_move();

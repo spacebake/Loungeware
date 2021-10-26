@@ -32,7 +32,7 @@ pause_enabled = true;
 life_max = 4;
 life = life_max;
 games_played = 0;
-games_won = 0;
+
 
 //--------------------------------------------------------------------------------------------------------
 // DIFFICULTY 
@@ -41,9 +41,6 @@ games_until_next_diff_up_max = 8;
 games_until_next_diff_up = games_until_next_diff_up_max;
 ___global.difficulty_level = 1;
 support_no_difficulty_up_to_level = 3; //if difficulty level is higher than this var then games which don't support difficulty will be ignored
-diff_bg = ___spr_diff_bg_2;
-diff_bg_frame = 0;
-diff_bg_speed = 1;
 
 //--------------------------------------------------------------------------------------------------------
 // GUI resize
@@ -65,8 +62,9 @@ microgame_timer_skip = false;
 microgame_won = false;
 microgame_time_finished = 100000;
 microgame_namelist = variable_struct_get_names(___global.microgame_metadata);
-microgame_unplayed_list = ds_list_create();
-microgame_populate_unplayed_list();
+microgame_playlist = [];
+microgame_playlist_index = 0;
+microgame_playlist_shuffle();
 microgame_music = noone;
 microgame_music_auto_stopped = false;
 microgame_initiated = false;
@@ -114,6 +112,8 @@ transition_garbo_sprites = ds_list_create();
 transition_music_current = noone;
 transition_music_began = false;
 transition_difficulty_up = false;
+transition_difficulty_down = false;
+
 wait = 0;
 
 //--------------------------------------------------------------------------------------------------------
@@ -154,6 +154,13 @@ df_bg_alpha = 0;
 df_bg_sprite = ___spr_difficulty_up;
 df_bg_frame_max = sprite_get_number(df_bg_sprite);
 df_bg_frame = 0;
+
+dd_bg_show = false;
+dd_bg_alpha = 0;
+dd_bg_sprite = ___spr_difficulty_down;
+dd_bg_frame_max = sprite_get_number(dd_bg_sprite);
+dd_bg_frame = 0;
+dd_trigger_shake_diff_down = false;
 
 //--------------------------------------------------------------------------------------------------------
 // DIFFICULTY TRANSITION TEXT
@@ -277,8 +284,10 @@ tsd_show = false;
 tsd_col = make_color_rgb(99, 81, 110);
 tsd_alpha = 0;
 tsd_shake_timer = 0;
+tsd_shake_max = 20;
 tsd_draw_diff = DIFFICULTY;
 tsd_score = 0;
+tsd_flame_parts = [];
 
 //--------------------------------------------------------------------------------------------------------
 // END SCREEN
