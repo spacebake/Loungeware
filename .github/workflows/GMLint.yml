@@ -25,8 +25,11 @@ jobs:
         run: |
           RESULT=$(./gmlint)
           echo "$RESULT"
+          echo ""
           if [ -z "$RESULT" ]; then
+            echo "Everything looks good!"
             exit 0
           else
+            echo "Your code smells, check the list of errors above for reasons why ^"
             exit 1
           fi
