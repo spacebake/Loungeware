@@ -23,7 +23,7 @@ jobs:
 
       - name: Verify Code
         run: |
-          RESULT=$(./gmlint)
+          RESULT=$(./scripts/gmlint/gmlint)
           echo "$RESULT"
           echo ""
           if [ -z "$RESULT" ]; then
