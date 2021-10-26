@@ -1,3 +1,5 @@
+//# ALLOW banned-functions
+
 any_key = KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED || ___KEY_PAUSE_PRESSED;
 if (step <= 10) any_key = false;
 ___state_handler();
