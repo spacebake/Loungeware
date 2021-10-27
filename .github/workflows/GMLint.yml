@@ -10,6 +10,9 @@ jobs:
       - name: Verify Code
         run: |
           RESULT=$(./scripts/gmlint/gmlint)
+          echo "--- test results ---"
+          echo "$RESULT"
+          echo "--- end results ---"
           mkdir -p output/
           if [ -z "$RESULT" ]; then
             echo "Everything looks good!" > output/results.txt
@@ -35,7 +38,10 @@ jobs:
       - name: Fail Workflow
         run: |
           RESULT=$(cat output/results.txt)
-          if [ ! -z "$RESULT" ]; then
+          if [ -z "$RESULT" ]; then
+            echo "Test passed!"
+          else
+            echo "Test failed!"
             exit 1
           fi
 
