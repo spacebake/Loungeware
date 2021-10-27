@@ -24,6 +24,7 @@ jobs:
             echo "$RESULT" >> $OUT
             echo '```' >> $OUT
           fi
+          cat $OUT
           MESSAGE=$(cat $OUT)
           echo "::set-output name=result::$MESSAGE"
       - name: Comment on PR
