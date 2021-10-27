@@ -40,7 +40,7 @@ jobs:
             ${{ steps.verify-code.outputs.message }}
       - name: Fail Workflow
         run: |
-          RESULT="${{ steps.verify-code.outputs.message }}"
+          RESULT="${{ steps.verify-code.outputs.result }}"
           echo "$RESULT"
           if [ -z "$RESULT" ]; then
             echo "Test passed!"
