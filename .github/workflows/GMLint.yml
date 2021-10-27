@@ -13,27 +13,29 @@ jobs:
           RESULT=$(./scripts/gmlint/gmlint)
           echo "--- test results ---"
           echo "$RESULT"
+          echo "$RESULT" > "test-result.txt"
           echo "--- end results ---"
-          MESSAGE=$(
-            if [ -z "$RESULT" ]; then
-              echo "Everything looks good!"
-            else
-              echo "Your code smells, and here and some reasons why:"
-              echo '```'
-              echo "$RESULT"
-              echo '```'
-            fi
-          )
+          OUT="comment-message.md"
+          if [ -z "$RESULT" ]; then
+            echo "Everything looks good!" > $OUT
+          else
+            echo "Your code smells, and here and some reasons why:" > $OUT
+            echo '```' >> $OUT
+            echo "$RESULT" >> $OUT
+            echo '```' >> $OUT
+          fi
+          MESSAGE=$(cat $OUT)
           echo "::set-output name=result::$MESSAGE"
       - name: Comment on PR
         uses: NejcZdovc/comment-pr@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          message: "${{ steps.verify-code.outputs.result }}"
-          indentifier: "GITHUB_COMMENT_RESULT"
+          message: |
+            ${{ steps.verify-code.outputs.result }}
       - name: Fail Workflow
         run: |
+          RESULT="test-result.txt"
           if [ -z "$RESULT" ]; then
             echo "Test passed!"
           else
