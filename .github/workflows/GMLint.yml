@@ -11,10 +11,7 @@ jobs:
         id: verify-code
         run: |
           RESULT=$(./scripts/gmlint/gmlint)
-          echo "--- test results ---"
-          echo "$RESULT"
           echo "$RESULT" > "test-result.txt"
-          echo "--- end results ---"
           OUT="comment-message.md"
           if [ -z "$RESULT" ]; then
             echo "Everything looks good!" > $OUT
@@ -24,8 +21,7 @@ jobs:
             echo "$RESULT" >> $OUT
             echo '```' >> $OUT
           fi
-          cat $OUT
-          MESSAGE=$(cat $OUT)
+          MESSAGE="$(cat $OUT)"
           echo "::set-output name=result::$MESSAGE"
       - name: Comment on PR
         uses: NejcZdovc/comment-pr@v1
