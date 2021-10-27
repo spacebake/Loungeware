@@ -19,7 +19,7 @@ jobs:
           else
             echo "Your code smells, and here and some reasons why:" > output/results.txt
             echo '```sh' >> output/results.txt
-            echo "RESULT" >> output/results.txt
+            echo "$RESULT" >> output/results.txt
             echo '```' >> output/results.txt
           fi
       - uses: actions/upload-artifact@v1
