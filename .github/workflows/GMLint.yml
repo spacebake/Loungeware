@@ -1,7 +1,7 @@
 name: GMLint
 on:
-  pull_request_target:
-
+  pull_request:
+    branches: [main]
 jobs:
   check:
     runs-on: ubuntu-latest
