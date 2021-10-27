@@ -18,7 +18,7 @@ jobs:
             echo "Everything looks good!" > output/results.txt
           else
             echo "Your code smells, and here and some reasons why:" > output/results.txt
-            echo '```sh' >> output/results.txt
+            echo '```' >> output/results.txt
             echo "$RESULT" >> output/results.txt
             echo '```' >> output/results.txt
           fi
@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: results/results.txt
+          path: output/results.txt
       - name: Fail Workflow
         run: |
           RESULT=$(cat output/results.txt)
