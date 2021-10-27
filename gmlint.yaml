@@ -4,4 +4,3 @@ allow:
 banned:
  - [audio_play_sound, sfx_play]
  - [audio_stop_dound, sfx_stop]
- - katsaii_wandaring_rf3d_set_orientation
