@@ -1,7 +1,7 @@
 name: GMLint
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -17,8 +17,7 @@ jobs:
             echo "Everything looks good!" > $OUT
           else
             echo "Your code smells, and here and some reasons why:" > $OUT
-            echo '```' >> $OUT
-            echo "$RESULT" >> $OUT
+            echo '```$RESULT' >> $OUT
             echo '```' >> $OUT
           fi
           MESSAGE="$(cat $OUT)"
