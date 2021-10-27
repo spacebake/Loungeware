@@ -14,8 +14,10 @@ jobs:
           if [ -z "$RESULT" ]; then
             echo "Everything looks good!" > output/results.txt
           else
-            echo "RESULT" > output/results.txt
-            echo "Your code smells, check the list of errors above for reasons why ^" >> output/results.txt
+            echo "Your code smells, and here and some reasons why:" > output/results.txt
+            echo '```sh' >> output/results.txt
+            echo "RESULT" >> output/results.txt
+            echo '```' >> output/results.txt
           fi
       - uses: actions/upload-artifact@v1
         with:
@@ -30,3 +32,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           path: results/results.txt
+      - name: Fail Workflow
+        run: |
+          RESULT=$(cat output/results.txt)
+          if [ ! -z "$RESULT" ]; then
+            exit 1
+          fi
+
