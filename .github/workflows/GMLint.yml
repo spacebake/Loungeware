@@ -17,7 +17,7 @@ jobs:
             echo "Everything looks good!" > $OUT
           else
             echo "Your code smells, and here and some reasons why:" > $OUT
-            echo '```$RESULT' >> $OUT
+            echo '```'"$RESULT" >> $OUT
             echo '```' >> $OUT
           fi
           MESSAGE="$(cat $OUT)"
