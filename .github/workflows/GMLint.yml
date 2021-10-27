@@ -10,6 +10,7 @@ jobs:
       - name: Verify Code
         run: |
           RESULT=$(./scripts/gmlint/gmlint)
+          mkdir -p output/
           if [ -z "$RESULT" ]; then
             echo "Everything looks good!" > output/results.txt
           else
