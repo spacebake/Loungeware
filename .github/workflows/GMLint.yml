@@ -11,7 +11,12 @@ jobs:
         id: verify-code
         run: |
           RESULT=$(./scripts/gmlint/gmlint)
-          echo "$RESULT" > "test-result.txt"
+          echo "$RESULT"
+          MESSAGE_RESULT="$RESULT"
+          MESSAGE_RESULT="${MESSAGE_RESULT//'%'/'%25'}"
+          MESSAGE_RESULT="${MESSAGE_RESULT//$'\n'/'%0A'}"
+          MESSAGE_RESULT="${MESSAGE_RESULT//$'\r'/'%0D'}"
+          echo "::set-output name=result::$MESSAGE_RESULT"
           OUT="comment-message.md"
           if [ -z "$RESULT" ]; then
             echo "Everything looks good!" > $OUT
@@ -25,21 +30,21 @@ jobs:
           MESSAGE="${MESSAGE//'%'/'%25'}"
           MESSAGE="${MESSAGE//$'\n'/'%0A'}"
           MESSAGE="${MESSAGE//$'\r'/'%0D'}"
-          echo "::set-output name=result::$MESSAGE"
+          echo "::set-output name=message::$MESSAGE"
       - name: Comment on PR
         uses: NejcZdovc/comment-pr@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           message: |
-            ${{ steps.verify-code.outputs.result }}
+            ${{ steps.verify-code.outputs.message }}
       - name: Fail Workflow
         run: |
-          RESULT="test-result.txt"
+          RESULT="${{ steps.verify-code.outputs.message }}"
+          echo "$RESULT"
           if [ -z "$RESULT" ]; then
             echo "Test passed!"
           else
             echo "Test failed!"
             exit 1
           fi
-
