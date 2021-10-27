@@ -3,41 +3,37 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Verify Code
+        id: verify-code
         run: |
           RESULT=$(./scripts/gmlint/gmlint)
           echo "--- test results ---"
           echo "$RESULT"
           echo "--- end results ---"
-          mkdir -p output/
-          if [ -z "$RESULT" ]; then
-            echo "Everything looks good!" > output/results.txt
-          else
-            echo "Your code smells, and here and some reasons why:" > output/results.txt
-            echo '```' >> output/results.txt
-            echo "$RESULT" >> output/results.txt
-            echo '```' >> output/results.txt
-          fi
-      - uses: actions/upload-artifact@v1
-        with:
-          name: results
-          path: output
-      - uses: actions/download-artifact@v1
-        with:
-          name: results
+          MESSAGE=$(
+            if [ -z "$RESULT" ]; then
+              echo "Everything looks good!"
+            else
+              echo "Your code smells, and here and some reasons why:"
+              echo '```'
+              echo "$RESULT"
+              echo '```'
+            fi
+          )
+          echo "::set-output name=result::$MESSAGE"
       - name: Comment on PR
-        uses: machine-learning-apps/pr-comment@master
+        uses: NejcZdovc/comment-pr@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          path: output/results.txt
+          message: "${{ steps.verify-code.outputs.result }}"
+          indentifier: "GITHUB_COMMENT_RESULT"
       - name: Fail Workflow
         run: |
-          RESULT=$(cat output/results.txt)
           if [ -z "$RESULT" ]; then
             echo "Test passed!"
           else
