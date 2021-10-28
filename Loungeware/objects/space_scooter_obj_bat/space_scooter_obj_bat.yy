@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "scooter",
-    "path": "folders/Microgames/Space/scooter.yy",
+    "path": "folders/Microgames/space/scooter.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_obj_bat",

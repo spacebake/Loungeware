@@ -47,7 +47,7 @@
   },
   "parent": {
     "name": "larold_lineup",
-    "path": "folders/Microgames/Space/larold_lineup.yy",
+    "path": "folders/Microgames/space/larold_lineup.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_ll_rm_main",

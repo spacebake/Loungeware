@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Space",
-    "path": "folders/Microgames/Space.yy",
+    "name": "space",
+    "path": "folders/Microgames/space.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_metadata",
