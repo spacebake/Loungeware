@@ -220,7 +220,7 @@ function ___GAME_INIT(){
 	
 		//room_goto(___rm_main_menu);
 		//___microgame_list_remove_incompatible();
-		//instance_create_layer(0, 0, layer, ___MG_MNGR);
+		//instance_create_layer(0, 0, layer, ___obj_title_screen);
 		//audio_set_master_gain(0, 0.1)
 		//___MG_MNGR.restartable = true;
 	

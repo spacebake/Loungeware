@@ -58,7 +58,7 @@ ribbon_hide_prog = 1;
 //logo
 logo_scale = 0;
 logo_scale_master = 1;
-
+logo_scale_stored = logo_scale;
 
 logo_scale_dir = 0;
 trigger_pump = false;
@@ -68,7 +68,7 @@ logo_close_bounce_dir = 0;
 logo_end_target = 160;
 logo_y =  WINDOW_BASE_SIZE/2;
 logo_shake = 0;
-
+logo_draw_last = false;
 
 // close
 close_circle_prog = 1;
@@ -87,3 +87,30 @@ bg_circle_rad = 240;
 bg_shd_surf = noone;
 
 next_beat_prog = 0;
+
+mimpytimer = 60*9; //6
+mimpydone = false;
+
+function ___draw_logo(){
+	
+	// draw logo
+	var _logo_x = WINDOW_BASE_SIZE/2;
+	var _logo_y = logo_y;
+	if (logo_shake > 0){
+		var _sv = logo_shake / 2;
+		_logo_x += random_range(-_sv, _sv);
+		_logo_y += random_range(-_sv, _sv);
+	}
+	var _spr = ___spr_logo_title;
+	var _frame = 0;
+	var _alpha = logo_scale;
+	var _logo_scale = logo_scale - ((0.1 * (((next_beat_prog-1)/4) / 0.25)) * logo_scale_master);
+	logo_scale_stored = _logo_scale;
+	if (state == "logo_move"){
+		_alpha = 1;
+	}
+	draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, _logo_scale, _logo_scale, 0, c_white, _alpha);
+
+}
+
+bg_layer = noone;

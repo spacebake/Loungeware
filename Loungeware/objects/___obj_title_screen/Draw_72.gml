@@ -91,38 +91,6 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 }
 
 
-if (close_circle_prog < 1){
-	
-	var _size = WINDOW_BASE_SIZE/2;
-	if (!surface_exists(circle_surf)){
-		circle_surf = surface_create(_size, _size);
-	}
-
-	surface_set_target(circle_surf);
-	draw_clear(c_gbdark);
-	gpu_set_blendmode(bm_subtract);
-	var _rad = close_circle_prog * (_size/2);
-	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
-	gpu_set_blendmode(bm_normal);
-	surface_reset_target();
-	draw_surface_stretched(circle_surf, 0, 0, WINDOW_BASE_SIZE, WINDOW_BASE_SIZE);
-}
-
-
 // draw logo
-var _logo_x = WINDOW_BASE_SIZE/2;
-var _logo_y = logo_y;
-if (logo_shake > 0){
-	var _sv = logo_shake / 2;
-	_logo_x += random_range(-_sv, _sv);
-	_logo_y += random_range(-_sv, _sv);
-}
-var _spr = ___spr_logo_title;
-var _frame = 0;
-var _alpha = logo_scale;
-var _logo_scale = logo_scale - ((0.1 * (((next_beat_prog-1)/4) / 0.25)) * logo_scale_master);
-if (state == "logo_move"){
-	_alpha = 1;
-}
-draw_sprite_ext(_spr, _frame, _logo_x, _logo_y, _logo_scale, _logo_scale, 0, c_white, _alpha);
+if (!logo_draw_last) ___draw_logo();
 
