@@ -1,0 +1,9 @@
+allow:
+ - "inconsistent-indentation"
+ - "bad-tab-style"
+banned:
+ - pattern: audio_play_sound
+   instead: sfx_play
+ - pattern: audio_stop_dound
+   instead: sfx_stop
+ - pattern: "___*"

@@ -1,5 +1,3 @@
-//# ALLOW banned-functions
-
 ___state_handler();
 
 // play the second part of song when intro finishes
