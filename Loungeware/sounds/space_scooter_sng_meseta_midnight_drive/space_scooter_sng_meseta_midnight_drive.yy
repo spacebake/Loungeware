@@ -14,7 +14,7 @@
   "duration": 12.005,
   "parent": {
     "name": "sounds",
-    "path": "folders/Microgames/Space/scooter/sounds.yy",
+    "path": "folders/Microgames/space/scooter/sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_sng_meseta_midnight_drive",

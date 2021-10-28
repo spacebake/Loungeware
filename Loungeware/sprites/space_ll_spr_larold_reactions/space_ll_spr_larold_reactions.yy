@@ -297,7 +297,7 @@
             {"id":"49f05482-a20c-4f74-9a40-9325b9f37bd4","Key":42.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"79a48c80-5e00-4020-9bf4-524afc5f8307","path":"sprites/space_ll_spr_larold_reactions/space_ll_spr_larold_reactions.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"0079c48e-1ad6-4b5c-9280-a3373f91690d","Key":43.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7c95742a-c24a-4c5f-92b7-619d00e80a9d","path":"sprites/space_ll_spr_larold_reactions/space_ll_spr_larold_reactions.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"acd09be6-4725-468d-aced-fb21c80fc73a","Key":44.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2225be46-bad5-4cf1-9424-08a45ad907e4","path":"sprites/space_ll_spr_larold_reactions/space_ll_spr_larold_reactions.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -325,7 +325,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/Space/larold_lineup/Sprites.yy",
+    "path": "folders/Microgames/space/larold_lineup/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_ll_spr_larold_reactions",

@@ -11,10 +11,10 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "space_scooter_snd_squeak.wav",
-  "duration": 0.313146,
+  "duration": 0.308146,
   "parent": {
     "name": "sounds",
-    "path": "folders/Microgames/Space/scooter/sounds.yy",
+    "path": "folders/Microgames/space/scooter/sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_snd_squeak",

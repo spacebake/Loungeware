@@ -349,8 +349,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "GUI",
-    "path": "folders/__Base Game (keep out)/GUI.yy",
+    "name": "Title Screen + Main Menu",
+    "path": "folders/__Base Game (keep out)/GUI/Title Screen + Main Menu.yy",
   },
   "resourceVersion": "1.0",
   "name": "___spr_mainmenu_bg_small",

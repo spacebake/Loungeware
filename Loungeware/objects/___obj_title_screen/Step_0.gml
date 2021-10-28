@@ -9,6 +9,8 @@ if (state == "wait"){
 
 if (state == "intro"){
 	if (state_begin){
+		bg_layer = layer_background_get_id(layer_get_id("Background"));
+		layer_background_visible(bg_layer, false);
 		bg_show = true;
 		sng_id = audio_play_sound(___sng_zandintro, 0, 1);
 		logo_show_pump = true;
@@ -43,6 +45,7 @@ if (state == "intro"){
 		logo_shake = 10;
 		___sound_menu_select();
 		audio_sound_gain(sng_id, 0, 500);
+		logo_draw_last = true;
 		any_key = false;
 	}
 
@@ -137,5 +140,10 @@ if (logo_show_pump){
 if (logo_show_pump) bg_alpha_multiplier = min(1, bg_alpha_multiplier+(1/10));
 bg_alpha = ___toggle_fade(bg_alpha, bg_show, 20);
 logo_shake = max(0, logo_shake - 1);
+mimpytimer = max(0, mimpytimer - 1);
+if (mimpytimer <= 0 && !mimpydone){
+	mimpydone = true;
+	instance_create_layer(0, 0, layer, ___obj_title_actor_mimp);
+}
 step++;
 
