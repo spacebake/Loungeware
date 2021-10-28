@@ -1,5 +1,3 @@
-//# ALLOW banned-functions
-
 deactivated_instances = [];
 paused_sounds = [];
 microgame_current_metadata = ___MG_MNGR.microgame_current_metadata;
