@@ -1,5 +1,3 @@
-//# ALLOW banned-functions
-
 // use these to get the game's current volume levels
 #macro VOL_SFX ___global.volume_read("sfx")
 #macro VOL_MSC ___global.volume_read("msc")

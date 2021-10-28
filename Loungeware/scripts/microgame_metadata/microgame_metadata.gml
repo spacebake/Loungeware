@@ -1,4 +1,6 @@
+//# ALLOW banned-functions
 function ___init_metadata(){
+//# WARN banned-functions
 	
 	// ---------------------------------------------------------------------------------------------------------------
 	SET_TEST_VARS {

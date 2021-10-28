@@ -1,6 +1,0 @@
-allow:
- - "inconsistent-indentation"
- - "bad-tab-style"
-banned:
- - [audio_play_sound, sfx_play]
- - [audio_stop_dound, sfx_stop]
