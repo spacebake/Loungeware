@@ -7,4 +7,4 @@
 
 # Isolate binary files in case the auto-detection algorithm fails and
 # marks them as text files (which could brick them).
-*.{png,jpg,jpeg,gif,webp,woff,woff2} binary
+*.{png,jpg,jpeg,gif,bmp,tiff,psd,mp4,mkv,avi,mov,mpg,mp3,wav,flac,ogg,mka,pdf,doc,zip,rar,7z,tar,exe,dll,webp,woff,woff2} binary
