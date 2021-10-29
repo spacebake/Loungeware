@@ -1,10 +1,9 @@
 *.yy  linguist-language=Json
 *.yyp linguist-language=Json
 
-# We'll let Git's auto-detection algorithm infer if a file is text. If it is,
 # enforce LF line endings regardless of OS or git configurations.
-* text=auto eol=lf
+*.{yy,yyp,json,ini,csv,txt,gml,js,c,cpp,vsh,fsh,md,yml}    text eol=lf
 
 # Isolate binary files in case the auto-detection algorithm fails and
 # marks them as text files (which could brick them).
-*.{png,jpg,jpeg,gif,bmp,tiff,psd,mp4,mkv,avi,mov,mpg,mp3,wav,flac,ogg,mka,pdf,doc,zip,rar,7z,tar,exe,dll,webp,woff,woff2} binary
+# *.{png,jpg,jpeg,gif,bmp,tiff,psd,mp4,mkv,avi,mov,mpg,mp3,wav,flac,ogg,mka,pdf,doc,zip,rar,7z,tar,exe,dll,webp,woff,woff2} binary
