@@ -162,7 +162,7 @@ if (state != "wait"){
 	//draw larold credit
 	draw_set_font(fnt_impendium);
 	draw_set_color(c_gbwhite);
-	___global.___draw_text_advanced(_xx, 50, 32, true, true, "" + larold_credits[larold_frame], 1, 1, 4);
+	___global.___draw_text_advanced(_xx, 50, 32, true, true, "" + larold_credits[larold_frame], 1, 1.5, 4);
 
 	
 	draw_set_valign(fa_top);

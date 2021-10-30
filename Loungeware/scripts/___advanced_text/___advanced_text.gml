@@ -176,9 +176,9 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 		if (!hidden){
 			switch (def_halign){
 
-				case fa_left: {draw_text_transformed(((x + x_mod) + (insert)), ((y + y_mod) + (line * line_height)) , this_letter, scale, scale, 0); break};
-				case fa_right: {draw_text_transformed(((x + x_mod) - current_line_width + (insert)), ((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
-				case fa_center: {draw_text_transformed(((x + x_mod) - ((current_line_width)/2) + (insert)), ((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
+				case fa_left: {draw_text_transformed(floor((x + x_mod) + (insert)), floor((y + y_mod) + (line * line_height)) , this_letter, scale, scale, 0); break};
+				case fa_right: {draw_text_transformed(floor((x + x_mod) - current_line_width + (insert)), floor((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
+				case fa_center: {draw_text_transformed(floor((x + x_mod) - ((current_line_width)/2) + (insert)), floor((y + y_mod) + (line * line_height)), this_letter, scale, scale, 0); break};
 			}
 		}
 		
