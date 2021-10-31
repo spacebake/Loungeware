@@ -11,13 +11,13 @@ microgame_register("objfrog_yeehaw_shooter", {
     config_version: 1,
     game_name: "Example Game",
     authors : "john doe",
-    prompt: "SHOOT",
+    prompt: "SPIN 'N SHOOT",
     init_room: objfrog_ys_room,
     view_width: 240,
     view_height: 160,
     time_seconds: 12,
     music_track: false, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: true, // nullable, defaults to true
+    music_loops: false, // nullable, defaults to true
     interpolation_on: false,
     cartridge_col_primary: [50, 44, 63],
     cartridge_col_secondary: [168, 84, 100],
