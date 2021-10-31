@@ -9,16 +9,22 @@ with baku_skate_obj_trees_bg event_perform(ev_draw, 0);
 // Ground
 with baku_skate_obj_ground event_perform(ev_draw, 0);
 
+// Skateboard "particle" shadow
+with baku_skate_obj_skateboard event_perform(ev_other, ev_user0);
+
 // Mimpy coords
 var _mimpy_x = mimpy_x;
 var _mimpy_y = mimpy_y;
-_mimpy_x += lengthdir_x(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_x(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
-_mimpy_y += lengthdir_y(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_y(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
+_mimpy_x += wobble_x;
+_mimpy_y += wobble_y;
 
 // Mimpy shadow
 var _shadow_scale = clamp(map(jump_y, 0, -128, 1, 0.5), 0.5, 1);
 var _img = grounded ? image_index : 0;
 draw_sprite_ext(shadow_sprite, _img, _mimpy_x, _mimpy_y, _shadow_scale, _shadow_scale, 0, c_white, 1);
+
+// Skateboard "particle" board
+with baku_skate_obj_skateboard event_perform(ev_draw, 0);
 
 // Bench
 with baku_skate_obj_bench event_perform(ev_draw, 0);
@@ -71,13 +77,11 @@ if audio_is_playing(baku_skate_snd_alarm) {
 
 // Do a kickflip!!!
 if instance_exists(baku_skate_obj_bench) {
-	if !crashed and !passed_bench {
-		draw_sprite_ext(baku_skate_spr_kickflip_msg, 0, 0, 320, 2, 2, 0, c_white, 1);
-	} else if passed_bench {
-		draw_sprite_ext(baku_skate_spr_kickflip_msg, 1, 0, 320, 2, 2, 0, c_white, 1);
-	} else if crashed {
-		draw_sprite_ext(baku_skate_spr_kickflip_msg, 2, 0, 320, 2, 2, 0, c_white, 1);
-	}
+	var _img = 0;
+	if !crashed and !passed_bench	_img = 0;
+	else if passed_bench			_img = 1;
+	else if crashed					_img = 2;
+	draw_sprite_ext(baku_skate_spr_kickflip_msg, _img, 0, 320 - 48, 2, 2, 0, c_white, 1);
 }
 
 // DEBUG
