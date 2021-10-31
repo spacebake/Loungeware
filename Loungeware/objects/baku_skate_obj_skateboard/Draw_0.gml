@@ -1,6 +1,3 @@
 
 // Draw bench
-draw_self();
-
-// Bbox
-// draw_rectangle_colour(bbox_left, bbox_top, bbox_right, bbox_bottom, c_red, c_red, c_red, c_red, true);
+draw_sprite_ext(sprite_index, image_index, board_x, board_y + jump_y, image_xscale, image_yscale, board_dir, image_blend, image_alpha);
