@@ -215,6 +215,7 @@ function ___MG_MNGR_declare_functions(){
 				draw_set_color(c_white);
 				draw_circle(_stc_w /2, _stc_h /2, transition_circle_rad / _circle_pixel_scale, 0);
 				surface_reset_target();
+				
 			}
 		
 			// cut the new circle out of the reflection surface
@@ -229,10 +230,11 @@ function ___MG_MNGR_declare_functions(){
 			surface_set_target(surf_master);
 			draw_surface_stretched(
 				surf_reflection, 
-				canvas_x * window_scale, 
-				canvas_y * window_scale, 
-				canvas_w * window_scale, 
-				canvas_h * window_scale
+				floor(canvas_x * window_scale), 
+				floor(canvas_y * window_scale),
+				floor(canvas_w * window_scale), 
+				floor(canvas_h * window_scale),
+
 			);
 			surface_reset_target();
 	}
@@ -373,15 +375,18 @@ function ___MG_MNGR_declare_functions(){
 			// IMPLEMENTED BY KAT, CRY ABOUT IT!!!!
 			surface_resize(application_surface, room_width, room_height);
 		}
+		
+		
 
 		// draw game view onto master surface
 		surface_set_target(surf_master);
+		
 		draw_surface_stretched(
 			application_surface, 
-			canvas_x * window_scale, 
-			canvas_y * window_scale,
-			canvas_w * window_scale, 
-			canvas_h * window_scale
+			floor(canvas_x * window_scale), 
+			floor(canvas_y * window_scale),
+			floor(canvas_w * window_scale), 
+			floor(canvas_h * window_scale)
 		);
 		surface_reset_target();
 	
@@ -461,16 +466,19 @@ function ___MG_MNGR_declare_functions(){
 		var _scale_prog = clamp(((_scale - gb_scale_min) / (1-gb_scale_min)), 0, 1);
 		var _y = round((_y_offset_at_zoom_min * (1-_scale_prog)) + _y_offset);
 
-		var _screen_margin = 15;
-		var _screen_x = _x + (_screen_margin * _scale);
-		var _screen_y = _y + (_screen_margin * _scale);
-		if (_spin_lock) draw_reflection(_screen_x, _screen_y, _screen_scale)
-	
 		if (gb_shake > 0){
 			_x += random_range(-gb_shake, gb_shake);
 			_y += random_range(-gb_shake, gb_shake);
 			gb_shake = max(0, gb_shake-1);
 		}
+
+		var _screen_margin = 15;
+		var _screen_x = _x + (_screen_margin * _scale);
+		var _screen_y = _y + (_screen_margin * _scale);
+		if (_spin_lock) draw_reflection(_screen_x, _screen_y, _screen_scale); // < here
+
+	
+
 	
 		if (ou_gameboy_y_is_spinning){
 			_sprite = ___spr_gameboy_spin_y;
@@ -500,6 +508,7 @@ function ___MG_MNGR_declare_functions(){
 	// DRAW REFLECTION
 	//--------------------------------------------------------------------------------------------------------
 	function draw_reflection(_x, _y, _scale){
+		
 		//draw reflection
 		var _reflection_alpha = clamp(((_scale - gb_scale_min) / (1-gb_scale_min)), 0, 1);
 		var _larold_alpha = 0.025;
@@ -528,7 +537,7 @@ function ___MG_MNGR_declare_functions(){
 		gpu_set_colorwriteenable(1, 1, 1, 1); 
 		surface_reset_target();
 		draw_set_color(c_gboff);
-		draw_rectangle_fix(_x, _y, _x + surface_get_width(surf_reflection) * _scale, _y + surface_get_height(surf_reflection) * _scale); 
+		if (_reflection_alpha > 0) draw_rectangle_fix(_x, _y, _x + (surface_get_width(surf_reflection) * _scale), (_y + (surface_get_height(surf_reflection) * _scale) + 2)); 
 		draw_surface_ext(surf_reflection, _x, _y, _scale, _scale, 0, c_white, _reflection_alpha);
 	}
 

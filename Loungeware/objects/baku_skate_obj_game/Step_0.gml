@@ -1,4 +1,8 @@
 
+// Wobble coords
+wobble_x = lengthdir_x(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_x(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
+wobble_y = lengthdir_y(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_y(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
+
 // Grav
 y_spd += grav;
 
@@ -18,29 +22,31 @@ if jump_y >= 0 {
 		sfx_play(baku_skate_snd_skating, 1, true);
 	}
 	if spd > 0 {
+		// Clouds (big)
 		var _chance = crashed ? 30 : 10;
 		if random(100) < _chance {
 			var _len = random_range(-32, 24);
 			var _x = mimpy_x + lengthdir_x(_len, world_angle);
 			var _y = mimpy_y + lengthdir_y(_len, world_angle) + 8;
-			_x += lengthdir_x(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_x(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
-			_y += lengthdir_y(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_y(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
+			_x += wobble_x;
+			_y += wobble_y;
 			var _inst = instance_create_layer(_x, _y, layer, baku_skate_obj_cloud);
 			_inst.image_index = choose(5, 6, 7);
 			_inst.spd = spd;
-			_inst.dir = other.world_angle;
+			_inst.dir = world_angle;
 		}
+		
+		// Clouds (small)
 		_chance = crashed ? 15 : 5;
 		if random(100) < _chance {
-			var _len = random_range(-32, 24);
 			var _x = mimpy_x - 60;
 			var _y = mimpy_y - 16;
-			_x += lengthdir_x(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_x(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
-			_y += lengthdir_y(sin(wobble_time / (77 / DIFFICULTY)) * 8, 45) + lengthdir_y(cos(wobble_time / (99 / DIFFICULTY)) * 16, world_angle);
+			_x += wobble_x;
+			_y += wobble_y;
 			var _inst = instance_create_layer(_x, _y, layer, baku_skate_obj_cloud);
 			_inst.image_index = choose(0, 1, 2, 3, 4, 5, 6);
 			_inst.spd = spd;
-			_inst.dir = other.world_angle;
+			_inst.dir = world_angle;
 		}
 	}
 } else {
@@ -85,7 +91,8 @@ if TIME_REMAINING == bench_time {
 
 // Crash into bench
 if instance_exists(baku_skate_obj_bench) {
-	if mimpy_x > baku_skate_obj_bench.bbox_left and mimpy_x < baku_skate_obj_bench.bbox_right {
+	var _coll_x = mimpy_x + wobble_x;
+	if _coll_x > baku_skate_obj_bench.bbox_left and _coll_x < baku_skate_obj_bench.bbox_right {
 		
 		// Crash into the bench
 		// if y_spd > -1 and jump_y > collide_y and !crashed {
@@ -101,10 +108,20 @@ if instance_exists(baku_skate_obj_bench) {
 			sfx_play(baku_skate_snd_error, 1, false);
 			microgame_fail();
 			alarm[1] = 60*2.5;
+			
+			// Skateboard "particle"
+			var _x = mimpy_x + wobble_x;
+			var _y = mimpy_y + wobble_y;
+			var _spd = spd;
+			instance_create_layer(_x, _y, layer, baku_skate_obj_skateboard);
+			with baku_skate_obj_skateboard {
+				board_x = _x;
+				board_y = _y;
+			}
 		}
 	}
 	
-	if mimpy_x > baku_skate_obj_bench.bbox_right and !crashed and !passed_bench {
+	if _coll_x > baku_skate_obj_bench.bbox_right and !crashed and !passed_bench {
 		passed_bench = true;
 		sfx_play(baku_skate_snd_yeehaw, 1, false);
 		sfx_play(baku_skate_snd_success, 1, false);

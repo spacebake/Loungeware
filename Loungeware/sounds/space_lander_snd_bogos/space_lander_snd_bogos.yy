@@ -14,7 +14,7 @@
   "duration": 0.498542,
   "parent": {
     "name": "sounds",
-    "path": "folders/Microgames/Space/space_rocket_lander/sounds.yy",
+    "path": "folders/Microgames/space/space_rocket_lander/sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_lander_snd_bogos",

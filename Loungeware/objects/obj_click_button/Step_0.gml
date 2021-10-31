@@ -7,6 +7,8 @@
 
 
 if (audio_system_is_available()){
+//# ALLOW banned-functions
 	room_goto(___rm_init);
+//# WARN banned-functions
 	instance_destroy();
 }

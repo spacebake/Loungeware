@@ -14,7 +14,7 @@
   "duration": 0.2325,
   "parent": {
     "name": "Sounds",
-    "path": "folders/Microgames/Space/larold_lineup/Sounds.yy",
+    "path": "folders/Microgames/space/larold_lineup/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_ll_snd_gavel",
