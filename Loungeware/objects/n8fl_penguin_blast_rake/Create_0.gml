@@ -1,4 +1,4 @@
-image_speed = 0.21 + (DIFFICULTY / 5) * 0.13;
+image_speed = 0.3;
 do_shoot = false;
 
 words = 
@@ -13,41 +13,116 @@ words =
 	]
 ];
 
+_score_total = 0;
+get_score_total = function() { return _score_total; }
 
 phrase = ds_list_create();
 
-var max_syl = 15;
+var difficulties = [
+	function(){
+		// Difficulty 1. Repeat Piece, Bomb, Piece, Bomb with some room to breathe
+		// get the player used to switching between DIRECTION ( down ) and Pieces ( A / B )
+		microgame_set_timer_max(6);
+		var word = choose(n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary);
+		ds_list_add(phrase, word);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, word);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		
+		// allow 1 miss
+		_score_total--;
+	},
+	function(){
+		// Difficulty 2. Increase speed
+		microgame_set_timer_max(5);
+		var word = choose(n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary);
+		ds_list_add(phrase, word);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, word);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
+		
+		// allow 1 miss
+		_score_total--;
+	},
+	function(){
+		// Difficulty 3. Introduce mixed pieces
+		microgame_set_timer_max(5);
+		var phrasePart = choose(
+			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
+			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
+		);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
+		
+		// allow 1 miss
+		_score_total--;
+	},
+	function(){
+		// Difficulty 4, Show them we're not scared
+		microgame_set_timer_max(6);
+		var phrasePart = choose(
+			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
+			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
+		);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
+		
+		// allow 1 miss
+		_score_total--;
+	},
+	function(){
+		// Difficulty 5, Really fuck them up
+		microgame_set_timer_max(6);
+		var phrasePart = choose(
+			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
+			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
+		);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
+		
+		// allow 2 miss
+		_score_total--;
+		_score_total--;
+	}
+];
 
-while(ds_list_size(phrase) < max_syl){
-	var use_hard_ones = true;
-	switch(DIFFICULTY){
-		case 0:
-		case 1:
-		case 2:
-			use_hard_ones = ds_list_size(phrase) > max_syl / 1.5;
-			break;
-		case 3:
-		case 4:
-		case 5:
-			use_hard_ones = ds_list_size(phrase) > max_syl / 2
-		break;
+difficulties[DIFFICULTY-1]();
+var _i=0;
+repeat(ds_list_size(phrase)){
+	var _word = phrase[| _i];
+	if(_word == n8fl_penguin_blast_EProjectile.Primary || _word == n8fl_penguin_blast_EProjectile.Secondary){
+		_score_total++;	
 	}
-	
-	var group = words[use_hard_ones ? 1 : 0];
-	
-	var index = irandom_range(0, array_length(group)-1);
-	
-	var word = group[index];
-	if(ds_list_size(phrase) + array_length(word) > max_syl){
-		continue;
-	}
-	
-	for(var i = 0; i < array_length(word); i++){
-		ds_list_add(phrase, word[i]);
-	}
-	
-	ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-	ds_list_add(phrase, -1);
+	++_i;
 }
 
 _tick = function(){

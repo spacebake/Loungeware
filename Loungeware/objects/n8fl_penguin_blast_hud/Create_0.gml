@@ -8,8 +8,9 @@ make_intense = function(){
 
 _draw = function(){
 	var blast_player = n8fl_penguin_blast_player;
+	var blast_rake = n8fl_penguin_blast_rake;
 
-	if(instance_exists(blast_player) == false){
+	if(instance_exists(blast_player) == false || instance_exists(blast_rake) == false){
 		exit;	
 	}
 
@@ -29,7 +30,7 @@ _draw = function(){
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
 	//draw_set_font(fnt_frogtype);
-	var p = clamp((((ds_list_size(blast_player.score_list) / blast_player.score_total) * 100) div 10) * 10, 0, 100);
+	var p = clamp((((ds_list_size(blast_player.score_list) / blast_rake.get_score_total()) * 100) div 10) * 10, 0, 100);
 	draw_text_transformed(62, 32, string(p)+"%", scale, scale, angle);
 
 	if(blast_player.game_over){
