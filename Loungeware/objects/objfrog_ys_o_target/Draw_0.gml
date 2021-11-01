@@ -1,7 +1,7 @@
 // Draw sprite
 draw_sprite_part(
 	sprite_index,
-	0,
+	image_index,
 	0,
 	0,
 	sprite_width,

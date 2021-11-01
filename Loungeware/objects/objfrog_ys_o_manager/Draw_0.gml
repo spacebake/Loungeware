@@ -1,6 +1,9 @@
-/// @description Shadows
+/// @description Count & Shadows
 
-/// @description  Draw Shadows
+// Target count
+var targets_left = targets_to_make + instance_number(objfrog_ys_o_target);
+draw_text(room_width/2, room_height - 16, targets_left);
+
 // Create surface
 if (!surface_exists(shadow_surface))
 {
@@ -12,7 +15,6 @@ surface_set_target(shadow_surface);
 draw_clear_alpha(c_black, 0);
 gpu_set_fog(true, c_black, 0, 1);
 
-// Draw on surface for each object
 with (objfrog_ys_o_collision_parent)
 {
 	draw_sprite_ext(
@@ -29,10 +31,9 @@ with (objfrog_ys_o_collision_parent)
 }
 
 with (objfrog_ys_o_target) {
-	// Draw shadow
 	draw_sprite_part_ext(
 		sprite_index,
-		0,
+		image_index,
 		0,
 		0,
 		sprite_width,

@@ -12,8 +12,9 @@ if (targets_to_make > 0) {
 
 		
 		while (
-			point_distance(xx, yy, objfrog_ys_o_cowboy.x, objfrog_ys_o_cowboy.y) < 64 || 
-			place_meeting(xx, yy, objfrog_ys_o_collision_parent)
+			point_distance(xx, yy, objfrog_ys_o_cowboy.x, objfrog_ys_o_cowboy.y) < 64 ||  
+			place_meeting(xx, yy, objfrog_ys_o_collision_parent) ||
+			place_meeting(xx, yy, objfrog_ys_o_target)
 		) {
 			xx = irandom_range(target_width, room_width - target_width);
 			yy = irandom_range(target_height, room_height - target_height);
@@ -25,4 +26,9 @@ if (targets_to_make > 0) {
 		targets_to_make--;
 	}
 
+} else {
+	
+	// Won the game!
+	microgame_win();
+	
 }
