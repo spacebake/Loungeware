@@ -1,7 +1,7 @@
 microgame_register("space_rocket_lander", {
     config_version: 1,
     game_name: "Rocket Lander",
-    authors : "Space",
+    authors : "space",
     prompt: "LAND",
     init_room: space_lander_rm_lander,
     view_width: 240,
@@ -31,7 +31,7 @@ microgame_register("space_rocket_lander", {
 microgame_register("space_scooter", {
     config_version: 1,
     game_name: "Rixel Rider",
-    authors : "Space",
+    authors : "space",
     prompt: "Backflip",
     init_room: space_scoot_rm,
     view_width: 120,
@@ -59,10 +59,10 @@ microgame_register("space_scooter", {
 	],
 });
 
-microgame_register("larold_lineup", {
+microgame_register("space_larold_lineup", {
     config_version: 1,
     game_name: "Larold Lineup",
-    authors : "Space",
+    authors : "space",
     prompt: "Memorize",
     init_room: space_ll_rm_main,
     view_width: 240,

@@ -1,7 +1,8 @@
 
 // Movement stuff
 speeds = [7, 9, 11, 13, 15];
-spd = speeds[DIFFICULTY - 1];
+spd_og = speeds[DIFFICULTY - 1];
+spd = spd_og;
 
 // Angle of world
 world_angle_x = 1024;
@@ -37,6 +38,8 @@ mimpy_x = 100;
 mimpy_y = 140;
 wobble_time = 0;
 wobble_spd = 0;
+wobble_x = 0;
+wobbly_y = 0;
 
 // Mimpy sprite
 sprite_index = baku_skate_spr_mimpy_skate1;
@@ -91,3 +94,6 @@ cloud_surf = -1;
 cloud_surf_create = function() {
 	cloud_surf = surface_create(480, 320);
 }
+
+// Move camera up so you can see more of kickflip animation, ur welcome zchmandy
+camera_set_view_pos(CAMERA, 0, -48);

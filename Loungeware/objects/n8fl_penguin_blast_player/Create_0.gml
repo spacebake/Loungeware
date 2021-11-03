@@ -9,7 +9,7 @@ enum n8fl_penguin_blast_EPlayerAnimation{
 image_speed = 0;
 game_t = 0;
 
-score_total = 6;
+
 score_t = 0;
 
 score_list = ds_list_create();
@@ -48,8 +48,8 @@ _tick = function(){
 		}
 	}
 
-	game_t = clamp((TIME_MAX - TIME_REMAINING) / (TIME_MAX * 0.85), 0, 1);
-	score_t = ds_list_size(score_list) / score_total;
+	game_t = clamp((TIME_MAX - TIME_REMAINING) / (TIME_MAX-room_speed), 0, 1);
+	score_t = ds_list_size(score_list) / n8fl_penguin_blast_rake.get_score_total();
 
 	if(game_over == false){
 		if(game_t >= 1){

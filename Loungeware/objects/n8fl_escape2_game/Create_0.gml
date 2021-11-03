@@ -1,5 +1,5 @@
 randomize();
-_travel_speed = -3;
+_travel_speed = -4	;
 _chars = ds_list_create();
 
 _init = function(){
