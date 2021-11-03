@@ -4,10 +4,10 @@ if (KEY_RIGHT) {
 }
 
 if (KEY_LEFT) {
-	direction += spin_speed;	
+	direction += spin_speed;
 }
 
-if (KEY_PRIMARY_PRESSED) {
+if (KEY_PRIMARY_PRESSED && shooting_allowed) {
 	// Create bullet
 	var bullet_depth = (image_index == 1) ? depth + 2 : depth - 1;
 	var bullet_x = x + lengthdir_x(16, direction);
@@ -21,6 +21,9 @@ if (KEY_PRIMARY_PRESSED) {
 	var muzzle_flash_depth = (image_index == 1) ? depth + 1 : depth - 2;
 	var muzzle_flash = instance_create_depth(bullet_x, bullet_y - gun_height, muzzle_flash_depth, objfrog_ys_o_muzzle_flash);
 	muzzle_flash.image_angle = direction;
+	
+	shooting_allowed = false;
+	alarm[0] = room_speed * .2;
 	
 	sfx_play(objfrog_ys_sfx_shoot, 1, false);
 }
