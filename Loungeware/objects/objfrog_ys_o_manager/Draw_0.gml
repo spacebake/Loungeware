@@ -2,6 +2,8 @@
 
 // Target count
 var targets_left = targets_to_make + instance_number(objfrog_ys_o_target);
+draw_set_halign(fa_center);
+draw_set_color(c_red);
 draw_text(room_width/2, room_height - 16, targets_left);
 
 // Create surface

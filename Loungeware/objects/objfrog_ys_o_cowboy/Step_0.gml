@@ -22,7 +22,7 @@ if (KEY_PRIMARY_PRESSED) {
 	var muzzle_flash = instance_create_depth(bullet_x, bullet_y - gun_height, muzzle_flash_depth, objfrog_ys_o_muzzle_flash);
 	muzzle_flash.image_angle = direction;
 	
-	audio_play_sound(objfrog_ys_sfx_shoot, 0, false);
+	sfx_play(objfrog_ys_sfx_shoot, 1, false);
 }
 
 // Rotation

@@ -1,5 +1,5 @@
 // Target stuff
-targets_to_make = 12;
+targets_to_make = (DIFFICULTY+3)*2;
 targets_shown = 3;
 
 // Surface stuff

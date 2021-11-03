@@ -9,28 +9,28 @@
 
 microgame_register("objfrog_yeehaw_shooter", {
     config_version: 1,
-    game_name: "Example Game",
-    authors : "john doe",
+    game_name: "Yeehaw Shooter",
+    authors : "objFrog",
     prompt: "SPIN 'N SHOOT",
     init_room: objfrog_ys_room,
     view_width: 240,
     view_height: 160,
-    time_seconds: 12,
-    music_track: false, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: false, // nullable, defaults to true
+    time_seconds: 10,
+    music_track: sng_zandy_woodblocks, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: true, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [50, 44, 63],
-    cartridge_col_secondary: [168, 84, 100],
-    cartridge_label: johndoe_examplegame_spr_label,
+    cartridge_col_primary: [110, 80, 35],
+    cartridge_col_secondary: [165, 115, 45],
+    cartridge_label: objfrog_ys_s_label,
     default_is_fail: true, // nullable, defaults to true
-    supports_difficulty_scaling: false,
-    credits: ["john doe", "jane doe"],
+    supports_difficulty_scaling: true,
+    credits: ["objFrog", "@wise1studio", "Space"],
     date_added:{
-	  day : 25,
-	  month : 7,
-	  year : 2099
+	  day : 3,
+	  month : 11,
+	  year : 2021
 	},
-	is_enabled: false,
+	is_enabled: true,
 	supports_html:false,
-	show_on_website: false,
+	show_on_website: true,
 });
