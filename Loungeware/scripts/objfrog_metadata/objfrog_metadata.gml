@@ -31,6 +31,6 @@ microgame_register("objfrog_yeehaw_shooter", {
 	  year : 2021
 	},
 	is_enabled: true,
-	supports_html:false,
+	supports_html: true,
 	show_on_website: true,
 });
