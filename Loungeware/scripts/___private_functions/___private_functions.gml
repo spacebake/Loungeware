@@ -836,8 +836,19 @@ function ___uniqid(){
 }
 
 // ------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------------------------
 function ___store_score_for_submission(_score){
-	___global.score_last_as_obj = {points: _score, score_id_local: ___uniqid()}
+	
+	var _last_microgame_key = ___MG_MNGR.microgame_current_name;
+	var _last_microgame_name =  variable_struct_get(___MG_MNGR.microgame_current_metadata, "game_name");
+	
+	___global.score_last_as_obj = {
+		points: _score, 
+		score_id_local: ___uniqid(),
+		last_microgame_key : _last_microgame_key,
+		last_microgame_name : _last_microgame_name,
+	}
 }
 
 // ------------------------------------------------------------------------------------------
