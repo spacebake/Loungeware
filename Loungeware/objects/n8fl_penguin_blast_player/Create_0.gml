@@ -39,12 +39,12 @@ _tick = function(){
 	}else if(!game_over){
 		image_index = n8fl_penguin_blast_EPlayerAnimation.Idle;
 
-		if(KEY_DOWN){
-			image_index = n8fl_penguin_blast_EPlayerAnimation.Dodge;	
-		}else if(KEY_PRIMARY){
+		if(KEY_PRIMARY){
 			image_index = n8fl_penguin_blast_EPlayerAnimation.Primary;	
 		}else if(KEY_SECONDARY){
 			image_index = n8fl_penguin_blast_EPlayerAnimation.Secondary;	
+		}else if(KEY_DOWN){
+			image_index = n8fl_penguin_blast_EPlayerAnimation.Dodge;
 		}
 	}
 
