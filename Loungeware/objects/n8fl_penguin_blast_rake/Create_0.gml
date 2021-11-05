@@ -18,97 +18,118 @@ get_score_total = function() { return _score_total; }
 
 phrase = ds_list_create();
 
+
+
 var difficulties = [
 	function(){
-		// Difficulty 1. Repeat Piece, Bomb, Piece, Bomb with some room to breathe
-		// get the player used to switching between DIRECTION ( down ) and Pieces ( A / B )
+		// Difficulty 1. Give a stream of bombs to get the player used to holding down, but make 
+		// them fail a few times by giving a word at the end
 		microgame_set_timer_max(6);
 		var word = choose(n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary);
-		ds_list_add(phrase, word);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, -1);
 		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, -1);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, choose(-1, n8fl_penguin_blast_EProjectile.Bomb));
 		ds_list_add(phrase, word);
-		ds_list_add(phrase, -1);
+		ds_list_add(phrase, word);
+		ds_list_add(phrase, word);
 		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
 		
-		// allow 1 miss
-		_score_total--;
+		// allow 0 miss
+		//_score_total--;
 	},
 	function(){
-		// Difficulty 2. Increase speed
-		microgame_set_timer_max(5);
-		var word = choose(n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary);
-		ds_list_add(phrase, word);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, word);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
-		
-		// allow 1 miss
-		_score_total--;
-	},
-	function(){
-		// Difficulty 3. Introduce mixed pieces
-		microgame_set_timer_max(5);
-		var phrasePart = choose(
-			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
-			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
-		);
-		ds_list_add(phrase, phrasePart[0]);
-		ds_list_add(phrase, phrasePart[1]);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, phrasePart[0]);
-		ds_list_add(phrase, phrasePart[1]);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
-		
-		// allow 1 miss
-		_score_total--;
-	},
-	function(){
-		// Difficulty 4, Show them we're not scared
+		// Difficulty 2. Player should be used to holding by now and can take some heat
 		microgame_set_timer_max(6);
 		var phrasePart = choose(
 			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
 			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
 		);
-		ds_list_add(phrase, phrasePart[0]);
-		ds_list_add(phrase, phrasePart[0]);
-		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[0]);	
+		ds_list_add(phrase, phrasePart[0]);	
 		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, phrasePart[1]);
-		ds_list_add(phrase, phrasePart[1]);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[1]);	
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
 		
 		// allow 1 miss
 		_score_total--;
 	},
 	function(){
-		// Difficulty 5, Really fuck them up
-		microgame_set_timer_max(6);
+		// Difficulty 3. Begin patterns of mixed words back to back, requiring quick switching
+		microgame_set_timer_max(7);
+		var phrasePart = choose(
+			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
+			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
+		);
+		
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		
+		// allow 1 miss
+		_score_total--;
+	},
+	function(){
+		// Difficulty 4
+		microgame_set_timer_max(7);
+		var phrasePart = choose(
+			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
+			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
+		);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[1]);	
+		ds_list_add(phrase, phrasePart[1]);	
+		ds_list_add(phrase, phrasePart[0]);	
+		ds_list_add(phrase, phrasePart[0]);	
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+		ds_list_add(phrase, phrasePart[0]);	
+		ds_list_add(phrase, phrasePart[0]);	
+		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[1]);	
+		ds_list_add(phrase, choose(n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Bomb));
+	
+		// allow 2 miss
+		_score_total--;
+		_score_total--;
+	},
+	function(){
+		// Difficulty 5
+		microgame_set_timer_max(7);
 		var phrasePart = choose(
 			[n8fl_penguin_blast_EProjectile.Primary, n8fl_penguin_blast_EProjectile.Secondary],
 			[n8fl_penguin_blast_EProjectile.Secondary, n8fl_penguin_blast_EProjectile.Primary]
 		);
 		ds_list_add(phrase, phrasePart[0]);
 		ds_list_add(phrase, phrasePart[0]);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-		ds_list_add(phrase, -1);
-		ds_list_add(phrase, phrasePart[1]);
 		ds_list_add(phrase, phrasePart[1]);
 		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
-		ds_list_add(phrase, -1);
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[1]);
 		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
 		ds_list_add(phrase, phrasePart[1]);
-		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);		
-		
+		ds_list_add(phrase, phrasePart[1]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, phrasePart[0]);
+		ds_list_add(phrase, n8fl_penguin_blast_EProjectile.Bomb);
+
 		// allow 2 miss
 		_score_total--;
 		_score_total--;

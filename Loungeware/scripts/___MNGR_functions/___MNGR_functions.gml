@@ -52,12 +52,15 @@ function ___MG_MNGR_declare_functions(){
 	// name says it all tbh
 	//--------------------------------------------------------------------------------------------------------
 	function microgame_end(){
+		
+		
 	
 		games_played += 1;
 		show_debug_overlay(false);
 		
 		var _won_last_game = ___MG_MNGR.microgame_won;
 		var _is_arcade_mode = (!gallery_mode && !TEST_MODE_ACTIVE);
+		var _is_game_over = (life <= 1) && _is_arcade_mode;
 	
 		// update save data
 		if (!TEST_MODE_ACTIVE && !gallery_mode){
@@ -93,7 +96,8 @@ function ___MG_MNGR_declare_functions(){
 				player_id : ___global.player_id, 
 				mode : _mode,
 				game_name : ___MG_MNGR.microgame_current_metadata.game_name,
-				is_html : HTML_MODE
+				is_html : HTML_MODE,
+				is_game_over : _is_game_over,
 			}
 			var _json = json_stringify(_data);
 			http_post_string(___API_BASE_URL + "stats", _json);

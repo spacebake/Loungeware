@@ -31,6 +31,9 @@ allowed_chars = allowed_letters + allowed_numbers + allowed_special;
 
 score_int = variable_struct_get(___global.score_last_as_obj, "points");
 score_id_local = variable_struct_get(___global.score_last_as_obj, "score_id_local");
+last_microgame_key = variable_struct_get(___global.score_last_as_obj, "last_microgame_key");
+last_microgame_name = variable_struct_get(___global.score_last_as_obj, "last_microgame_name");
+
 score_string = "";
 
 letter_count = 0;
@@ -381,10 +384,12 @@ function sbmt_scr(){
 		frame: isd_cursor_index,
 		score_id_local: score_id_local,
 		player_id: ___global.player_id,
+		last_microgame_key: last_microgame_key,
+		last_microgame_name: last_microgame_name,
 	}
 	
 	// uncomment for testing
-	//_data.points = 100;
+	//_data.points = 99999999;
 	//_data.score_id_local = ___uniqid();
 	
 	
