@@ -39,8 +39,9 @@
 #endregion
 #region Game win
 
-	if (targets_to_make < 1 && instance_number(objfrog_ys_o_target) < 1) {
+	if (targets_hit >= TOTAL_TARGETS && !MICROGAME_WON) {
 		// Won the game!
+		sfx_play(objfrog_ys_sfx_yeehawww, 1, false);
 		microgame_win();
 	}
 
