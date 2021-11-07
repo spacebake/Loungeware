@@ -8,7 +8,6 @@ fric = .02;
 // Rotation
 direction = 0;
 rotation_direction = 0;
-max_rotation_amount = 3;
 
 // Collisions
 hsp_remaining = 0;
