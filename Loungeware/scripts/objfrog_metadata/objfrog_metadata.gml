@@ -15,8 +15,8 @@ microgame_register("objfrog_parking_plunder", {
     view_width: 240,
     view_height: 160,
     time_seconds: 10,
-    music_track: false, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: false, // nullable, defaults to true
+    music_track: sng_ennway_bit_battle, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: true, // nullable, defaults to true
     interpolation_on: false,
     cartridge_col_primary: [110, 80, 35],
     cartridge_col_secondary: [165, 115, 45],

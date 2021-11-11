@@ -5,10 +5,6 @@ max_reverse_speed = -.6;
 acceleration = .05;
 fric = .02;
 
-// Rotation
-direction = 0;
-rotation_direction = 0;
-
 // Collisions
 hsp_remaining = 0;
 vsp_remaining = 0;
