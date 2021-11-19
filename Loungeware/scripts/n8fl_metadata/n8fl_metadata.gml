@@ -137,7 +137,7 @@ microgame_register("n8fl_penguin_blast", {
 	},
     game_name: "Penguin Blast",
     authors :  { n8fl: "net8floz" },
-    prompt: "HOLD DOWN, HOLD A/B",
+    prompt: "Don't Get Blasted",
     init_room: n8fl_penguin_blast_rm,
     view_width: 240,
     view_height: 160,

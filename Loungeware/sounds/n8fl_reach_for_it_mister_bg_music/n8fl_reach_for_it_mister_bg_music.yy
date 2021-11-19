@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "n8fl_reach_for_it_mister_bg_music.wav",
-  "duration": 16.0,
+  "duration": 16.005,
   "parent": {
     "name": "audio",
     "path": "folders/Microgames/net8floz/n8fl_reach_for_it_mister/audio.yy",

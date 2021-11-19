@@ -44,8 +44,8 @@ function sfx_stop(_snd_id, _time){
 // ------------------------------------------------------------------------------------------
 /// @function                      microgame_music_start(_sound_index, _loops);
 /// @param {sound}  _sound_index    the index of the song to play
-/// @param {number} _vol            volume to play at (0-1).
 /// @param {bool} _loop            whether or not to loop the song
+/// @param {number} _vol            volume to play at (0-1).
 function microgame_music_start(_sng, _vol, _loop){
 	var _snd_id = audio_play_sound(_sng, 0, _loop);
 	audio_sound_gain(_snd_id, _vol * audio_sound_get_gain(_sng) * VOL_MSC * VOL_MASTER, 0);
