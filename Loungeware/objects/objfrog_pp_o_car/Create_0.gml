@@ -1,3 +1,5 @@
+direction = image_angle;
+
 // Acceleration
 velocity = 0;
 max_forward_speed = .8;

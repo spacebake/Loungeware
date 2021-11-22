@@ -1,4 +1,6 @@
 depth = -y;
+x = clamp(x, 0, room_width);
+y = clamp(y, 0, room_height);
 
 #region Acceleration
 
@@ -10,7 +12,6 @@ depth = -y;
 	} else {
 		velocity = approach(velocity, 0, fric);
 	}
-
 	velocity = clamp(velocity, max_reverse_speed, max_forward_speed);
 	
 	
@@ -25,11 +26,6 @@ depth = -y;
 	var vsp = lengthdir_y(velocity, direction);
 	var next_angle_change = rotation_direction * (abs(hsp) + abs(vsp)) * 1.6;
 	
-	// Do it again with the wanted direction
-	hsp = lengthdir_x(velocity, direction + next_angle_change);
-	vsp = lengthdir_y(velocity, direction + next_angle_change);
-	
-	
 	hsp_remaining += hsp;
 	repeat(abs(hsp_remaining)) {
       
@@ -40,7 +36,6 @@ depth = -y;
 	  if (place_meeting(x + _dir, y, objfrog_pp_o_collision_parent)) {
 	    hsp = 0;
 	    hsp_remaining = 0;
-		rotation_direction = 0;
 		next_angle_change = 0;
 	    break;
 	  }
@@ -57,25 +52,21 @@ depth = -y;
 	  if (place_meeting(x, y + _dir, objfrog_pp_o_collision_parent)) {
 	    vsp = 0;
 	    vsp_remaining = 0;
-		rotation_direction = 0;
 		next_angle_change = 0;
 	    break;
 	  }
 	  y += _dir;
 	}
 	
-	x = clamp(x, 0, room_width);
-	y = clamp(y, 0, room_height);
 	
-	
-#endregion
-#region Rotate
-	
-	
-	if !(place_meeting(x + hsp, y, objfrog_pp_o_collision_parent) && place_meeting(x, y + vsp, objfrog_pp_o_collision_parent)) {
-		direction += next_angle_change;
+	var previous_angle = direction;
+	direction += next_angle_change;
+	image_angle = direction;
+	if (place_meeting(x, y, objfrog_pp_o_collision_parent)) {
+		direction = previous_angle;
 		image_angle = direction;
 	}
 	
-
+	
+	
 #endregion

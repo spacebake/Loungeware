@@ -17,5 +17,7 @@ if (!triggered && point_distance(x, y, objfrog_pp_o_car.x, objfrog_pp_o_car.y) <
 	// Hooray :D
 	microgame_win();
 	sfx_play(objfrog_pp_sfx_yeehawww, 1, false);
+	alarm[0] = room_speed * 2.5;
+	instance_create_layer(room_width/2, room_height/2, "Instances", objfrog_pp_o_win_screen);
 	triggered = true;
 }

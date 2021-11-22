@@ -11,19 +11,19 @@ microgame_register("objfrog_parking_plunder", {
     game_name: "Parking Plunder",
     authors : "objFrog",
     prompt: "PARK",
-    init_room: objfrog_pp_room,
+    init_room: objfrog_pp_r_init,
     view_width: 240,
     view_height: 160,
-    time_seconds: 10,
+    time_seconds: 12,
     music_track: sng_ennway_bit_battle, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [110, 80, 35],
-    cartridge_col_secondary: [165, 115, 45],
-    cartridge_label: objfrog_ys_s_label,
+    cartridge_col_primary: [150, 150, 30],
+    cartridge_col_secondary: [215, 215, 30],
+    cartridge_label: objfrog_pp_s_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
-    credits: ["objFrog", "@wise1studio", "Space", "Zandy"],
+    credits: ["objFrog"],
     date_added:{
 	  day : 3,
 	  month : 11,
