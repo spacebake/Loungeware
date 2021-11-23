@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "objfrog_pp_s_car",
-    "path": "sprites/objfrog_pp_s_car/objfrog_pp_s_car.yy",
+    "name": "spr_button_a",
+    "path": "sprites/spr_button_a/spr_button_a.yy",
   },
   "solid": false,
   "visible": true,
@@ -21,10 +21,8 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":4,"eventType":7,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -33,7 +31,7 @@
     "path": "folders/Microgames/objfrog/objfrog_parking_plunder/objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objfrog_pp_o_car",
+  "name": "objfrog_pp_o_button",
   "tags": [],
   "resourceType": "GMObject",
 }
