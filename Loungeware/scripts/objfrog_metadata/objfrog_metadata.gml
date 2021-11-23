@@ -23,9 +23,9 @@ microgame_register("objfrog_parking_plunder", {
     cartridge_label: objfrog_pp_s_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
-    credits: ["objFrog"],
+    credits: ["objFrog", "ennway"],
     date_added:{
-	  day : 3,
+	  day : 23,
 	  month : 11,
 	  year : 2021
 	},
@@ -33,10 +33,10 @@ microgame_register("objfrog_parking_plunder", {
 	supports_html: true,
 	show_on_website: true,
 	description: [
-		"Practice yer' aim in the wild west by shootin' some targets. Hit 'em all within the time limit.", 
+		"Park your car in the marked spot. That's all there is to it, stinker.", 
 	],
 	how_to_play: [
-		"Left and right to spin, A to shoot."
+		"Left/right to turn, A to accelerate, B to reverse.",
 	],
 });
 
@@ -58,7 +58,7 @@ microgame_register("objfrog_yeehaw_shooter", {
     cartridge_label: objfrog_ys_s_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
-    credits: ["objFrog", "@wise1studio", "Space", "Zandy"],
+    credits: ["objFrog", "@wise1studio", "space", "Zandy"],
     date_added:{
 	  day : 3,
 	  month : 11,
