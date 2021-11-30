@@ -13,8 +13,8 @@
   "soundFile": "___sng_gallery.wav",
   "duration": 45.6273956,
   "parent": {
-    "name": "main menu",
-    "path": "folders/__Base Game (keep out)/main menu.yy",
+    "name": "Music",
+    "path": "folders/__Base Game (keep out)/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "___sng_gallery",

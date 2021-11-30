@@ -62,7 +62,7 @@
             {"id":"59d7e226-d628-43d1-b018-b9777a1e49f3","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f07f3804-d93c-486e-85b3-8b082dc9467e","path":"sprites/space_scooter_spr_bat_light/space_scooter_spr_bat_light.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"4adfc351-0158-4410-916d-6ca34b00d255","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"23196a32-bb51-458a-8bb9-ea826e0a72cf","path":"sprites/space_scooter_spr_bat_light/space_scooter_spr_bat_light.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"fcfd24ae-9ee2-4f9c-b306-6386d0b635fe","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91845dd1-07a6-4ebb-8a63-d91828d56a86","path":"sprites/space_scooter_spr_bat_light/space_scooter_spr_bat_light.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -90,7 +90,7 @@
   "nineSlice": null,
   "parent": {
     "name": "sprites",
-    "path": "folders/Microgames/Space/scooter/sprites.yy",
+    "path": "folders/Microgames/space/scooter/sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_spr_bat_light",

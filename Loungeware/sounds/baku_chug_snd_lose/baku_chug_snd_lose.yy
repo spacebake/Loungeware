@@ -11,7 +11,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "baku_chug_snd_lose.wav",
-  "duration": 0.658855,
+  "duration": 0.653855,
   "parent": {
     "name": "Sound",
     "path": "folders/Microgames/baku/chug/Sound.yy",

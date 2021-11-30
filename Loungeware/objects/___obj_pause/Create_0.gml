@@ -1,10 +1,7 @@
 deactivated_instances = [];
 paused_sounds = [];
 microgame_current_metadata = ___MG_MNGR.microgame_current_metadata;
-
-instances_deactivated = false;
 jam_id = noone;
-
 input_cooldown = 0;
 input_cooldown_init_max = 14;
 input_cooldown_max = 10;
@@ -34,7 +31,7 @@ function menu_exit(){
 	if (___obj_pause.gallery_mode){
 		instance_create_layer(0, 0, ___obj_pause.layer, ___obj_menu_gallery);
 	} else {
-		instance_create_layer(0, 0, ___obj_pause.layer, ___obj_main_menu);
+		with (instance_create_layer(0, 0, ___obj_pause.layer, ___obj_main_menu)) skip_intro = true;
 	}
 	workspace_end(); 
 	application_surface_draw_enable(true);

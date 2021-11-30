@@ -47,7 +47,7 @@
   },
   "parent": {
     "name": "space_rocket_lander",
-    "path": "folders/Microgames/Space/space_rocket_lander.yy",
+    "path": "folders/Microgames/space/space_rocket_lander.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_lander_rm_lander",

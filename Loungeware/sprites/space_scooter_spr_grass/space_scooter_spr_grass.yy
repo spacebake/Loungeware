@@ -66,7 +66,7 @@
             {"id":"b6dad2d1-d216-4409-a194-4abd7cfca36d","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b7b9ce29-ddf9-4a61-a8b5-ead0b8888d5c","path":"sprites/space_scooter_spr_grass/space_scooter_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"b5458e26-7ba3-4e19-9ec3-02a1b9902de7","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f3179128-c21c-4eec-b88e-8f75afb12ec1","path":"sprites/space_scooter_spr_grass/space_scooter_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"479ffb73-cd68-42ac-93de-4a29d2e866bd","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3793ef54-a793-4c30-9ec5-71745e5f26fd","path":"sprites/space_scooter_spr_grass/space_scooter_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -94,7 +94,7 @@
   "nineSlice": null,
   "parent": {
     "name": "sprites",
-    "path": "folders/Microgames/Space/scooter/sprites.yy",
+    "path": "folders/Microgames/space/scooter/sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_spr_grass",

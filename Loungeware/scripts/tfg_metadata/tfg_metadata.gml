@@ -16,7 +16,11 @@ microgame_register("tfg_collision", {
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["tfg", "ennway", "zandy"],
-    date_added: "21/07/09",
+    date_added: {
+		day: 9,
+		month: 7,
+		year: 21,
+	},
 	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,

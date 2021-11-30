@@ -13,8 +13,8 @@
   "soundFile": "___sng_zandintro_through_wall.wav",
   "duration": 64.0,
   "parent": {
-    "name": "main menu",
-    "path": "folders/__Base Game (keep out)/main menu.yy",
+    "name": "Music",
+    "path": "folders/__Base Game (keep out)/Sound/Music.yy",
   },
   "resourceVersion": "1.0",
   "name": "___sng_zandintro_through_wall",

@@ -5,3 +5,19 @@ if (state == "start_game"){
 	instance_destroy();
 }
 
+
+button_guide_alpha = ___toggle_fade(button_guide_alpha, button_guide_show, 10);
+
+// ---------------------------------------------------------
+if (state == "fadeout_back"){
+	close_circle_prog = max(0, close_circle_prog - (1/20));
+	if (close_wait_before > 0){
+		close_wait_before -=1;
+	} else {
+		if (close_circle_prog <= 0) close_wait--;
+		if (close_wait <= 0 && !fadeout_ended){
+			fadeout_do();
+			fadeout_ended = true;
+		}
+	}
+}

@@ -70,7 +70,7 @@
             {"id":"b000edfa-a3a0-4d5e-9a62-f9732f790a78","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"56d65ddb-0d95-4a77-9695-23cb9a5e7cb7","path":"sprites/space_scooter_spc_scooter_body/space_scooter_spc_scooter_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"dae818e5-36be-4e5a-9b11-b60264880cbb","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"07986827-d781-4882-9fcf-b5cdf1ecad09","path":"sprites/space_scooter_spc_scooter_body/space_scooter_spc_scooter_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ea91aed0-9e68-4c17-b1f4-961efe36fe1d","Key":7.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"10d4aee4-56d9-4696-b911-fe1ea22d4400","path":"sprites/space_scooter_spc_scooter_body/space_scooter_spc_scooter_body.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -98,7 +98,7 @@
   "nineSlice": null,
   "parent": {
     "name": "sprites",
-    "path": "folders/Microgames/Space/scooter/sprites.yy",
+    "path": "folders/Microgames/space/scooter/sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_spc_scooter_body",

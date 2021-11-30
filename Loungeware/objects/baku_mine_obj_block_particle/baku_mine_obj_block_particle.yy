@@ -4,10 +4,7 @@
   "visible": false,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "baku_mine_par_block",
-    "path": "objects/baku_mine_par_block/baku_mine_par_block.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

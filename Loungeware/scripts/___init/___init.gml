@@ -9,7 +9,8 @@ function ___GAME_INIT(){
 	___global.gallery_goto_key = "";
 	
 	// font
-	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><", false, 0);
+	___global.___fnt_gallery = font_add_sprite_ext(___spr_frogtype_midscale, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!\"$^&*%[]{}()+=-_?/@'£#|¬.,><:", false, 0);
+	___global.___fnt_transition_score = font_add_sprite_ext(___spr_font_transition_score, "0123456789", false, 1);
 	
 	// colours
 	___global.macro_c_magenta = make_color_rgb(255, 0, 255);
@@ -26,6 +27,14 @@ function ___GAME_INIT(){
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
 	___global.macro_c_gbdark = make_color_rgb(31,27,37);
+	
+	// local scores
+	___global.player_id = ___load_or_create_player_id();
+	___global.scores_local = [];
+	___global.scores_local_count_max = 5;
+	___global.scores_local_fp = "local_scores.lw";
+	___global.score_last_as_obj = noone;
+	___global.score_allow_submission = false;
 
 	// default inputs
 	___global.default_input_keys = {
@@ -95,8 +104,6 @@ function ___GAME_INIT(){
 	
 	// default volume
 	___global.default_vol = { sfx: 1, msc: 1, master: 1, }
-	
-	
 	___global.max_microgame_time = 12;
 	___global.save_filename = "dot.dot";
 	___global.microgame_metadata = ___init_metadata();
@@ -110,7 +117,9 @@ function ___GAME_INIT(){
 	___global.test_mode_check = function(){return ___global.developer_mode_active;}
 	___global.is_microgame_won = function(){return ___MG_MNGR.microgame_won;}
 	
-
+	// options
+	___global.opt_show_button_presses = true;
+	___global.show_button_prompts_menu = true;
 	
 	// add public songs to credits
 	var _is_public_music = false;
@@ -206,11 +215,14 @@ function ___GAME_INIT(){
 
 	// -------------------------------------------------------------------------------------
 	
-	
 	// this one is just for testing stuff
-	if (false){
+	if (0){
 	
-
+		//room_goto(___rm_main_menu);
+		//___microgame_list_remove_incompatible();
+		//instance_create_layer(0, 0, layer, ___obj_title_screen);
+		//audio_set_master_gain(0, 0.1)
+		//___MG_MNGR.restartable = true;
 	
 	// if game is running in browser
 	} else if (HTML_MODE) {

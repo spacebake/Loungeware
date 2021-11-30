@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "baku_mine_spr_mask_stone",
-    "path": "sprites/baku_mine_spr_mask_stone/baku_mine_spr_mask_stone.yy",
+    "name": "baku_mine_spr_mask_block",
+    "path": "sprites/baku_mine_spr_mask_block/baku_mine_spr_mask_block.yy",
   },
   "solid": false,
   "visible": false,

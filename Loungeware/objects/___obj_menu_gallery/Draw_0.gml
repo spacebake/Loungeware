@@ -351,27 +351,24 @@ if (!surface_exists(surf_circle)){
 	surf_circle = surface_create(_size, _size);
 }
 
+// draw button guide
+if (button_guide_alpha > 0 && ___global.show_button_prompts_menu){
+	draw_set_alpha(button_guide_alpha);
+	draw_sprite(___spr_back_prompt, 2, 0, 0);
+	draw_set_alpha(1);
+}
+
+
 if (state == "fadeout_back"){
 	surface_set_target(surf_circle);
 	draw_clear(col_bg);
 	gpu_set_blendmode(bm_subtract);
 	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
 	gpu_set_blendmode(bm_normal);
-
 	surface_reset_target();
 	draw_surface_stretched(surf_circle, 0, 0, VIEW_W, VIEW_H);
-	close_circle_prog = max(0, close_circle_prog - (1/20));
-	if (close_wait_before > 0){
-		close_wait_before -=1;
-	} else {
-		if (close_circle_prog <= 0) close_wait--;
-		if (close_wait <= 0 && !fadeout_ended){
-			fadeout_do();
-			fadeout_ended = true;
-		}
-	}
-}
 
+}
 
 // draw open transition cover
 if (cover_alpha > 0){
@@ -381,6 +378,7 @@ if (cover_alpha > 0){
 	draw_set_alpha(1);
 	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
 }
+
 
 if (state == "move_cart"){
 	var _cart_goto_x = 182;
@@ -401,7 +399,7 @@ if (state == "move_cart"){
 	_cart_y += sprite_get_height(___spr_cart_gallery) + _cart_margin_y;
 	
 
-	var _gameboy_goto_y = 240;
+	var _gameboy_goto_y = 230;
 	gameboy_y = ___smooth_move(gameboy_y, _gameboy_goto_y, _min, _div);
 	var _gameboy_on_target = gameboy_y == _gameboy_goto_y;
 	draw_sprite(___spr_gameboy_back, 0, gameboy_x, gameboy_y);
@@ -411,4 +409,7 @@ if (state == "move_cart"){
 	}
 
 }
+
+
+
 

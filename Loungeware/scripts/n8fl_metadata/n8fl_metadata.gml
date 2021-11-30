@@ -70,7 +70,7 @@ microgame_register("n8fl_escape1", {
     date_added: "21/07/07",
     is_enabled: false,
 	supports_html: true,
-	show_on_website: true,
+	show_on_website: false,
 });
 
 microgame_register("n8fl_escape2", {
@@ -95,7 +95,7 @@ microgame_register("n8fl_escape2", {
     date_added: "21/07/07",
     is_enabled: false,
 	supports_html: true,
-	show_on_website: true,
+	show_on_website: false,
 });
 
 microgame_register("n8fl_escape3", {
@@ -137,7 +137,7 @@ microgame_register("n8fl_penguin_blast", {
 	},
     game_name: "Penguin Blast",
     authors :  { n8fl: "net8floz" },
-    prompt: "Don't Get Blasted",
+    prompt: "HOLD DOWN, HOLD A/B",
     init_room: n8fl_penguin_blast_rm,
     view_width: 240,
     view_height: 160,
@@ -152,7 +152,7 @@ microgame_register("n8fl_penguin_blast", {
     supports_difficulty_scaling: true,
     credits: ["net8floz"],
     date_added: "21/07/05",
-    is_enabled: false,
+    is_enabled: true,
 	description: [
 	"The evil orange cat with sunglasses has kidnapped the fair Mimpy Penguin. The only problem? This penguin can't swim."
 	],

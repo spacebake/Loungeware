@@ -14,7 +14,7 @@
   "duration": 1.228209,
   "parent": {
     "name": "sounds",
-    "path": "folders/Microgames/Space/scooter/sounds.yy",
+    "path": "folders/Microgames/space/scooter/sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_scooter_snd_fail",

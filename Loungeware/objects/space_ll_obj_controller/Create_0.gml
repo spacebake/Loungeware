@@ -7,7 +7,9 @@ function value_in_array(val, array){
 
 function smooth_move(_current_val, _target_val, _minimum, _divider){
 	
+//# ALLOW banned-functions
 	if (object_index == ___MG_MNGR){
+//# WARN banned-functions
 		_divider = (_divider / transition_speed);
 		_minimum = (_minimum * transition_speed);
 	}

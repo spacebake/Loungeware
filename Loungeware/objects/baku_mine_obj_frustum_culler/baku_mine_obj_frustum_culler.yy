@@ -4,7 +4,7 @@
     "path": "sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

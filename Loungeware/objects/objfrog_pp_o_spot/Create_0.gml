@@ -1,0 +1,2 @@
+triggered = false;
+decrease = true;

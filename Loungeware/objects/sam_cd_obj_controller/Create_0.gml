@@ -44,6 +44,10 @@ phase3 = function() {
 
 	with cookie
 	{
+		if x > 208
+		and x < 304
+			x = 256;
+			
 		repeat(other.cookie_drop_speed)
 		{
 			if !place_meeting(x, y + 1, sam_cd_obj_barrier)

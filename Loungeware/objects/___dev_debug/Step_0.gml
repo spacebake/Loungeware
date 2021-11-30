@@ -63,6 +63,5 @@ if (keyboard_check_pressed(ord("P"))){
 	var _file = file_text_open_write("skipdevintro.lw");
 	file_text_close(_file);
 	game_restart();
-	
 	instance_destroy();
 }

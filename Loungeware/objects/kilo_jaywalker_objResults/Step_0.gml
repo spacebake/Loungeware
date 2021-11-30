@@ -5,7 +5,7 @@ if (delay <= 0)
 
 if (delay == 0 and image_index == 0)
 {
-	audio_play_sound(kilo_jaywalker_sndWin,1,false);
+	sfx_play(kilo_jaywalker_sndWin, 1, false);
 }
 
 delay --;

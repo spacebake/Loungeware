@@ -21,6 +21,7 @@ function LW_FGameLoader() constructor{
 			var rule = _rules[i];
 			
 			if(rule.is_valid(meta) == false && rule.get_is_nullable() == false){
+				is_valid = false;
 				show_debug_message("WARNING: Invalid field " + rule.get_field_name());
 				config_is_valid = false;
 			}else{

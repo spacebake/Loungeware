@@ -142,7 +142,7 @@
             {"id":"70722e3f-2487-4730-b4f0-c88e6fa2afdd","Key":23.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9d8e57b0-6c69-4998-907a-f33c01e568eb","path":"sprites/space_ll_spr_baku_thrown_alt/space_ll_spr_baku_thrown_alt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"2a83cb72-de14-4a4e-a25e-0d56a1d2188c","Key":24.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ea44c6ee-16bf-4f4e-98b4-eccc757edcbb","path":"sprites/space_ll_spr_baku_thrown_alt/space_ll_spr_baku_thrown_alt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"dde6a50d-109f-4665-95f7-049c920e9701","Key":25.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6da2bfad-0733-4328-876b-2723a98b2ec5","path":"sprites/space_ll_spr_baku_thrown_alt/space_ll_spr_baku_thrown_alt.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -170,7 +170,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/Space/larold_lineup/Sprites.yy",
+    "path": "folders/Microgames/space/larold_lineup/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "space_ll_spr_baku_thrown_alt",
