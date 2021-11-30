@@ -84,7 +84,7 @@ microgame_register("mimpy_highnote", {
     interpolation_on: false,
     cartridge_col_primary: [94, 116, 204],
     cartridge_col_secondary: [177, 209, 215],
-    cartridge_label: mimpy_objection_spr_label,
+    cartridge_label: mimpy_highnote_spr_label,
     default_is_fail: true,
     supports_difficulty_scaling: false,
     credits: ["Mimpy"],

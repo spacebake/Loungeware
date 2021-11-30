@@ -19,7 +19,7 @@ period = 150;
 time = 0;
 
 progress = 0;
-duration = game_get_speed(gamespeed_fps) * (1 + (min(DIFFICULTY, 4) - 1) / 4);
+duration = game_get_speed(gamespeed_fps) * (1 + DIFFICULTY / 5);
 margin = lerp(1, 0.75, diff / 4);
 
 victory = false;
