@@ -24,3 +24,9 @@ if (victory) {
 }
 
 audio_sound_pitch(oh, 1 + frequency / 5);
+
+layer_sprite_y(arrow, lerp(frame_y + frame_height, frame_y, frequency / 10));
+layer_sprite_yscale(singer, 0.9 + 0.1 * sin(current_time / 1000 * 2 * pi));
+layer_sprite_angle(singer, 10 * sin(current_time / 1000 * pi));
+
+layer_sprite_y(crowd, crowd_y + 8 + 8 * sin(current_time / 1000 * pi * 2));

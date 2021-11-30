@@ -27,3 +27,16 @@ victory = false;
 oh = sfx_play(mimpy_highnote_snd_note, 1, true);
 
 close = false;
+
+arrow = layer_sprite_get_id("Bar", "mimpy_highnote_graphic_arrow");
+singer = layer_sprite_get_id("UI", "mimpy_highnote_graphic_singer");
+bubble = layer_sprite_get_id("UI", "mimpy_highnote_graphic_bubble");
+crowd = layer_sprite_get_id("Crowd", "mimpy_highnote_graphic_crowd");
+crowd_y = layer_sprite_get_y(crowd);
+
+frame = layer_sprite_get_id("UI", "mimpy_highnote_graphic_frame");
+frame_x = layer_sprite_get_x(frame) + 13;
+frame_y = layer_sprite_get_y(frame) + 5;
+var spr = layer_sprite_get_sprite(frame);
+frame_width = sprite_get_width(spr) - 16;
+frame_height = sprite_get_height(spr) - 8;
