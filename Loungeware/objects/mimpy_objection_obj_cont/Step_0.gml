@@ -9,7 +9,7 @@ if (!presenting) {
 	if (mov != 0) {
 		if (audio_is_playing(sel_snd))
 			sfx_stop(sel_snd, 0);
-		sel_snd = sfx_play(mimpy_duckdate_snd_love, 0.2, false);
+		sel_snd = sfx_play(mimpy_duckdate_snd_love, 0.6, false);
 	}
 	selection += KEY_RIGHT_PRESSED - KEY_LEFT_PRESSED;
 	selection -= floor(selection / 3) * 3;
