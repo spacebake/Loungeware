@@ -41,9 +41,9 @@ microgame_register("mimpy_fire_alarm", {
     supports_difficulty_scaling: true,
     credits: ["Mimpy"],
     date_added: "21/07/06",
-	  is_enabled: true,
-	  supports_html: true,
-	  show_on_website: true,
+	is_enabled: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("mimpy_objection", {
@@ -66,8 +66,8 @@ microgame_register("mimpy_objection", {
     credits: ["Mimpy"],
     date_added: "21/08/22",
     is_enabled: true,
-	  supports_html: true,
-	  show_on_website: true,
+	supports_html: true,
+	show_on_website: true,
 });
 
 microgame_register("mimpy_highnote", {
@@ -82,14 +82,14 @@ microgame_register("mimpy_highnote", {
     music_track: -1,
     music_loops: false,
     interpolation_on: false,
-    cartridge_col_primary: [94, 116, 204],
-    cartridge_col_secondary: [177, 209, 215],
+    cartridge_col_primary: [71, 28, 41],
+    cartridge_col_secondary: [192, 137, 147],
     cartridge_label: mimpy_highnote_spr_label,
     default_is_fail: true,
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["Mimpy"],
-    date_added: "21/08/22",
+    date_added: "21/11/30",
     is_enabled: true,
-	  supports_html: true,
-	  show_on_website: true,
+	supports_html: true,
+	show_on_website: true,
 });
