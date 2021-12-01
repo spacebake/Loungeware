@@ -16,7 +16,7 @@ function ___macro_keyboard_check(_keystr){
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
-	for (var i=0;i<gamepad_get_device_count();i++) {
+	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.held[$ _keystr]) return true;
 	}
 	return false;
@@ -32,7 +32,7 @@ function ___macro_keyboard_check_pressed(_keystr){
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
-	for (var i=0;i<gamepad_get_device_count();i++) {
+	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
 	}
 	return false;
@@ -49,7 +49,7 @@ function ___macro_keyboard_check_released(_keystr){
 			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
 		}
 	}
-	for (var i=0;i<gamepad_get_device_count();i++) {
+	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.released[$ _keystr]) return true;
 	}
 	return false;
@@ -982,4 +982,48 @@ function ___array_shuffle(_array){
 	}
 	ds_list_destroy(_ds_list);
 	return _new_array;
+}
+
+
+//
+//
+//
+
+function ___new_controller() {
+	return {
+		active: false,
+		axes: {
+			horizontal: 0,
+			vertical: 0,
+		},
+		state: {
+			pressed: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+				primary: false,
+				secondary: false,
+				pause: false,
+			},
+			held: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+				primary: false,
+				secondary: false,
+				pause: false,
+			},
+			released: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+				primary: false,
+				secondary: false,
+				pause: false,
+			}
+		}
+	}
 }
