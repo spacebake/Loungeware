@@ -64,42 +64,7 @@ function ___GAME_INIT(){
 	___global.controller_values = [];
 	for (var i=0;i<gamepad_get_device_count();i++) {
 		var connected = gamepad_is_connected(i);
-		___global.controller_values[i] = {
-			active: connected,
-			axes: {
-				horizontal: 0,
-				vertical: 0,
-			},
-			state: {
-				pressed: {
-					up: false,
-					down: false,
-					left: false,
-					right: false,
-					primary: false,
-					secondary: false,
-					pause: false,
-				},
-				held: {
-					up: false,
-					down: false,
-					left: false,
-					right: false,
-					primary: false,
-					secondary: false,
-					pause: false,
-				},
-				released: {
-					up: false,
-					down: false,
-					left: false,
-					right: false,
-					primary: false,
-					secondary: false,
-					pause: false,
-				}
-			}
-		}
+		___global.controller_values[i] = ___new_controller();
 	}
 	
 	// default volume

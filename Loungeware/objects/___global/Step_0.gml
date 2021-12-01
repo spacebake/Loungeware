@@ -15,7 +15,7 @@ for (var i = 0; i < ds_list_size(___song_stop_list); i++){
 
 // controller updates
 var _deadzone = 0.5;
-for (var i=0;i<gamepad_get_device_count();i++) {
+for (var i=0;i<array_length(controller_values);i++) {
 	controller_values[i].active = gamepad_is_connected(i);
 	if (controller_values[i] == false) continue;
 	var axes_hor = default_controller_axes.horizontal;
