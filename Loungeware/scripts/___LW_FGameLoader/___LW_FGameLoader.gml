@@ -233,7 +233,7 @@ function LW_FGameLoaderBoolTransformer(field_name, default_value) : LW_FGameLoad
 	_base_validate = _is_valid_internal;
 	
 	_is_valid_internal = function(_bool){
-		return  is_string(_bool) == false && is_real(_bool) && _bool == 0 || _bool == 1;
+		return (is_string(_bool) == false) && (_bool == 0 || _bool == 1);
 	}
 }
 
