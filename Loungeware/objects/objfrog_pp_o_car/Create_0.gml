@@ -15,3 +15,7 @@ vsp_remaining = 0;
 function approach(a, b, amount) {
     return (a + clamp(b - a, -amount, amount));
 }
+
+// Sprite button blinky
+button_subimg = 0;
+alarm[0] = room_speed/2;

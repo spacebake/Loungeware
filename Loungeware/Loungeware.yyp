@@ -680,7 +680,6 @@
     {"id":{"name":"n8fl_penguin_blast_damsel_spr","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"order":3,},
     {"id":{"name":"Nahoo_sFace","path":"sprites/Nahoo_sFace/Nahoo_sFace.yy",},"order":2,},
     {"id":{"name":"n8fl_penguin_blast_damsel_weight_spr","path":"sprites/n8fl_penguin_blast_damsel_weight_spr/n8fl_penguin_blast_damsel_weight_spr.yy",},"order":4,},
-    {"id":{"name":"objfrog_pp_o_button","path":"objects/objfrog_pp_o_button/objfrog_pp_o_button.yy",},"order":9,},
     {"id":{"name":"obj_click_button","path":"objects/obj_click_button/obj_click_button.yy",},"order":15,},
     {"id":{"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"order":5,},
     {"id":{"name":"katsaii_witchwanda_spr_witch_i","path":"sprites/katsaii_witchwanda_spr_witch_i/katsaii_witchwanda_spr_witch_i.yy",},"order":10,},
@@ -1319,7 +1318,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"index.html","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "2.3.7.603",
+    "IDEVersion": "2.3.7.606",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
