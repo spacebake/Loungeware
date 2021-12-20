@@ -794,11 +794,16 @@ function ___menu_sign_timed_input_horizontal(_sign){
 // ------------------------------------------------------------------------------------------
 // same as previous functions, but this needs to be seperate so that 
 // ------------------------------------------------------------------------------------------
-function ___menu_sign_timed_input_vertical(_sign){
+function ___menu_sign_timed_input_vertical(_sign, do_fast_scrolling=false){
 	static _sign_prev = 0;
 	static _input_cd = 0;
-	var _input_cd__max_initial = 30;
-	var _input_cd_max_subsequent = 4;
+	if (!do_fast_scrolling){
+		var _input_cd__max_initial = 30;
+		var _input_cd_max_subsequent = 4;
+	} else {
+		var _input_cd__max_initial = 10;
+		var _input_cd_max_subsequent = 4;	
+	}
 	
 	if (_sign == 0){
 		_input_cd = 0;
