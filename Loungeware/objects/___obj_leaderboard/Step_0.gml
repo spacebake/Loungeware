@@ -112,7 +112,7 @@ if (state == "board_display"){
 		button_guide_frame = 8;
 		if (HTML_MODE) button_guide_frame = 9;
 		if (song_id != noone && audio_is_playing(song_id)) audio_stop_sound(song_id);
-		song_id = ___play_song(___sng_zandy_bakunova);
+		song_id = ___play_song(___sng_zandy_lofi);
 	}
 	
 
