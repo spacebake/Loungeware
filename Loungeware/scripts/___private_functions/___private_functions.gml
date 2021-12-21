@@ -2,8 +2,9 @@
 // DRAW RECTANGLE FIX
 // draws a rectangle but with 1 pixel removed from the x2 and y2 values
 //--------------------------------------------------------------------------------------------------------
-function draw_rectangle_fix(_x1, _y1, _x2, _y2){
-	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, 0);
+function draw_rectangle_fix(_x1, _y1, _x2, _y2, _c = draw_get_colour(), _a = draw_get_alpha()){
+	//draw_rectangle is macroed
+	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, false, _c, _a);
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -369,7 +370,7 @@ function ___sound_menu_back(){
 // ------------------------------------------------------------------------------------------
 // DRAW DOTTED LINE
 // ------------------------------------------------------------------------------------------
-function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
+function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size, _c = draw_get_colour(), _a = draw_get_alpha()){
 	// swap x1 and x2 if x2 is smaller
 	var _xx = _x1;
 	var _yy = _y1;
@@ -379,7 +380,7 @@ function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
 	var _seg_count = floor((_dist + _gap_size) / (_dot_size + _gap_size)) + 1;
 	repeat(_seg_count){
 		
-		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2));
+		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2), _a, _c);
 		_xx += lengthdir_x(_gap_size + _dot_size, _direction);
 		_yy += lengthdir_y(_gap_size + _dot_size, _direction);
 	}

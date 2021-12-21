@@ -17,8 +17,8 @@
   "width": 174,
   "height": 152,
   "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
+    "name": "___gallery",
+    "path": "texturegroups/___gallery",
   },
   "swatchColours": null,
   "gridX": 0,
