@@ -794,10 +794,11 @@ function ___menu_sign_timed_input_horizontal(_sign){
 // ------------------------------------------------------------------------------------------
 // same as previous functions, but this needs to be seperate so that 
 // ------------------------------------------------------------------------------------------
-function ___menu_sign_timed_input_vertical(_sign){
+function ___menu_sign_timed_input_vertical(_sign, initial_pause_time=30){
 	static _sign_prev = 0;
-	static _input_cd = 0;
-	var _input_cd__max_initial = 30;
+	static _input_cd = 0
+	
+	var _input_cd__max_initial = initial_pause_time;
 	var _input_cd_max_subsequent = 4;
 	
 	if (_sign == 0){
