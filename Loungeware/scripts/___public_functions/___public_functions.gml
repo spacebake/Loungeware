@@ -1,3 +1,5 @@
+show_debug_overlay(true)
+
 //--------------------------------------------------------------------------------------------------------
 // returns the current difficulty level
 #macro DIFFICULTY ___global.difficulty_read() 
