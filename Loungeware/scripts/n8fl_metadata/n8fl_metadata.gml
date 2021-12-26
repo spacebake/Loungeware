@@ -20,6 +20,7 @@ microgame_register("n8fl_adminsim", {
     date_added: "21/07/09",
     is_enabled: false,
 	supports_html: false,
+	supports_pi: false,
 	show_on_website: false,
 });
 
@@ -45,6 +46,7 @@ microgame_register("n8fl_cheat_seat", {
     date_added: "21/07/07",
     is_enabled: false,
 	supports_html: false,
+	supports_pi: false,
 	show_on_website: false,
 });
 
@@ -69,6 +71,7 @@ microgame_register("n8fl_escape1", {
     credits: ["net8floz", "meseta", "space", "mixkit.c"],
     date_added: "21/07/07",
     is_enabled: false,
+	supports_pi: true,
 	supports_html: true,
 	show_on_website: false,
 });
@@ -95,6 +98,7 @@ microgame_register("n8fl_escape2", {
     date_added: "21/07/07",
     is_enabled: false,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: false,
 });
 
@@ -119,6 +123,7 @@ microgame_register("n8fl_escape3", {
     date_added: "21/07/07",
     is_enabled: false,
 	supports_html: false,
+	supports_pi: false,
 	show_on_website: false,
 });
 
@@ -159,6 +164,7 @@ microgame_register("n8fl_penguin_blast", {
 	how_to_play: ["Use the Primary Key & Secondary key to match the Red and Green projectiles. Use the Down key to block bombs. Match all the projectiles and save the princess."],
 	author_id: "n8fl",
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -200,5 +206,6 @@ microgame_register("n8fl_reach_for_it_mister", {
   credits: ["nt8floz - game", "meseta - music", "space - art"],
   date_added: "21/07/05",
   supports_html: true,
+  supports_pi: true,
   show_on_website: true,
 });

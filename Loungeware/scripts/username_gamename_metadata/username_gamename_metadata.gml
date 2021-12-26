@@ -30,5 +30,6 @@ microgame_register("username_gamename", {
 	},
 	is_enabled: false,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: false,
 });

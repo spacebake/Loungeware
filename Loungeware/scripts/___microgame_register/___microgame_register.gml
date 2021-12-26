@@ -15,6 +15,9 @@ function microgame_register(microgame_name, metadata){
 		var param_supports_html = new LW_FGameLoaderBoolTransformer("supports_html", false);
 		param_supports_html.set_nullable();
 		
+		var param_supports_pi = new LW_FGameLoaderBoolTransformer("supports_pi", true);
+		param_supports_pi.set_nullable();
+		
 		var param_show_on_website = new LW_FGameLoaderBoolTransformer("show_on_website", true);
 		param_show_on_website.set_nullable();
 		
@@ -72,6 +75,7 @@ function microgame_register(microgame_name, metadata){
 			param_config_version,
 			param_is_enabled,
 			param_supports_html,
+			param_supports_pi,
 			param_show_on_website,
 			param_view_width,
 			param_view_height,
