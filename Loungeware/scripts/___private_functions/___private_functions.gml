@@ -559,8 +559,10 @@ function ___microgame_list_remove_incompatible(){
 		var _disabled = (variable_struct_exists(_data, "is_enabled")) && (_data.is_enabled == false);
 		var _has_html_prop = variable_struct_exists(_data, "supports_html");
 		var _supports_html = (_has_html_prop && _data.supports_html == true);
+		var _has_pi_prop = variable_struct_exists(_data, "supports_pi");
+		var _supports_pi = (_has_pi_prop && _data.supports_pi);
 		
-		if (_disabled || (HTML_MODE && !_supports_html)){
+		if (_disabled || (HTML_MODE && !_supports_html) || (CONFIG_IS_RASPI && !_supports_pi)){
 			var _debug_str = _data.game_name + " was removed from gamelist because ";
 			
 			if (_disabled){
@@ -570,6 +572,12 @@ function ___microgame_list_remove_incompatible(){
 					_debug_str += "[no \"supports_html\" property was found in metadata] ";
 				} else {
 					_debug_str += "[\"supports_html\" property was set to false]";
+				}
+			} else if (CONFIG_IS_RASPI) {
+				if (!_has_pi_prop){
+					_debug_str += "[no \"supports_pi\" property was found in metadata] "
+				} else {
+					_debug_str += "[\"supports_pi\" property was set to false]"
 				}
 			}
 			

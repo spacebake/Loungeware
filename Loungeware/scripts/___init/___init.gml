@@ -3,7 +3,7 @@ function ___GAME_INIT(){
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
 	
-	___global.developer_mode_active = (!CONFIG_IS_SHIPPING_OR_RASPI) && file_exists(___DEV_CONFIG_PATH);
+	___global.developer_mode_active = !CONFIG_IS_SHIPPING && !CONFIG_IS_RASPI && file_exists(___DEV_CONFIG_PATH);
 	___global.window_base_size = 540;
 	___global.gallery_goto_key = "";
 	
@@ -207,7 +207,7 @@ function ___GAME_INIT(){
 		}
 	
 	// if shipping build, go straight to the title screen
-	} else if (CONFIG_IS_SHIPPING_OR_RASPI){
+	} else if (CONFIG_IS_SHIPPING || CONFIG_IS_RASPI){
 		room_goto(___rm_main_menu);
 		instance_create_layer(0, 0, layer, ___obj_title_screen);
 	

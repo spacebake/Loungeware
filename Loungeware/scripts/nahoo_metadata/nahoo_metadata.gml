@@ -19,6 +19,7 @@ microgame_register("nahoo_beenade", {
 	date_added: "21/07/04",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -43,5 +44,6 @@ microgame_register("nahoo_carttypebeat", {
     date_added: "21/07/12",
     is_enabled: false,
 	supports_html: false,
+	supports_pi: false,
 	show_on_website: true,
 });

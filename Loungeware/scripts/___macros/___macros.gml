@@ -38,15 +38,13 @@ function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get
 
 // config specific
 #macro Shipping:show_debug_overlay ___noop
-//#macro RasPi:show_debug_overlay ___noop
+// #macro RasPi:show_debug_overlay ___noop
 
 #macro CONFIG_IS_SHIPPING false
 #macro Shipping:CONFIG_IS_SHIPPING true
 
 #macro CONFIG_IS_RASPI false
 #macro RasPi:CONFIG_IS_RASPI true
-
-#macro CONFIG_IS_SHIPPING_OR_RASPI (CONFIG_IS_SHIPPING || CONFIG_IS_RASPI)
 
 #macro HTML_MODE (!(os_browser == browser_not_a_browser))
 #macro DEVELOPER_MODE (___global.developer_mode_active)

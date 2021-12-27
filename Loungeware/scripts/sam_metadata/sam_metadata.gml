@@ -31,7 +31,8 @@ microgame_register("sam_cookiedunk", {
 	  year : 2021
 	},
 	is_enabled: true,
-	supports_html:true,
+	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -59,6 +60,7 @@ microgame_register("sam_catsnatch", {
 	  year : 2021
 	},
 	is_enabled: true,
-	supports_html:true,
+	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });

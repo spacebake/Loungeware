@@ -23,5 +23,6 @@ microgame_register("kilomatter_jaywalker", {
     date_added: "21/08/17",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
