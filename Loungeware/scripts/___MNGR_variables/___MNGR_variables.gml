@@ -37,8 +37,8 @@ games_played = 0;
 //--------------------------------------------------------------------------------------------------------
 // DIFFICULTY 
 //--------------------------------------------------------------------------------------------------------
-games_until_next_diff_up_max = 8;
-games_until_next_diff_up = games_until_next_diff_up_max;
+games_until_next_diff_up_max = 5;
+games_until_next_diff_up = 6;
 ___global.difficulty_level = 1;
 support_no_difficulty_up_to_level = 3; //if difficulty level is higher than this var then games which don't support difficulty will be ignored
 

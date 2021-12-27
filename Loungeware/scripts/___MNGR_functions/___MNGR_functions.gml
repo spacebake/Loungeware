@@ -191,7 +191,7 @@ function ___MG_MNGR_declare_functions(){
 	//--------------------------------------------------------------------------------------------------------
 	function microgame_playlist_shuffle(){
 		microgame_playlist = ___array_shuffle(microgame_namelist);
-		log("playlist suffled");
+		log("playlist shuffled");
 	}
 
 	//--------------------------------------------------------------------------------------------------------
@@ -854,7 +854,8 @@ function ___MG_MNGR_declare_functions(){
 				}
 			}
 		}
-		log(array_length(tsd_flame_parts));
+		// stupid stinky log
+		//log(array_length(tsd_flame_parts));
 	}
 
 }

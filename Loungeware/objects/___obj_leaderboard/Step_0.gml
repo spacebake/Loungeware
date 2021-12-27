@@ -112,7 +112,7 @@ if (state == "board_display"){
 		button_guide_frame = 8;
 		if (HTML_MODE) button_guide_frame = 9;
 		if (song_id != noone && audio_is_playing(song_id)) audio_stop_sound(song_id);
-		song_id = ___play_song(___sng_zandy_bakunova);
+		song_id = ___play_song(___sng_zandy_lofi);
 	}
 	
 
@@ -141,14 +141,14 @@ if (state == "board_display"){
 	if (scrolling_enabled){
 		
 
-		var _vmove = ___menu_sign_timed_input_vertical((KEY_UP + -KEY_DOWN));
+		var _vmove = ___menu_sign_timed_input_vertical((KEY_UP + -KEY_DOWN), 10);
 		
 		var _mouse_wheel_move = -mouse_wheel_down() + mouse_wheel_up();
 		if (!HTML_MODE && _mouse_wheel_move != 0){
 			_vmove = _mouse_wheel_move;
 		}
 
-		scroll_offset_target += (score_height_minor*5) * _vmove;
+		scroll_offset_target += (score_height_minor*3) * _vmove;
 		if (scroll_offset_target > 0){
 			scroll_offset_target = 0;
 		}
