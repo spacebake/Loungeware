@@ -1,7 +1,10 @@
+show_debug_message(___global.save_data.vol)
+
 if (gallery_mode && gallery_init &&  microgame_current_metadata.supports_difficulty_scaling){
 	if (state == "wait") state = "pause_room";
 	gallery_init = false;
-	array_insert(menu, 1, {name:"DIFFICULTY", execute: function(){___obj_pause.confirm_shake_timer = 0;}});
+	array_insert(menu, array_length(menu) - 1, {menu_type: SLIDER, name: "DIFFICULTY", left: difficulty_down, right: difficulty_up, 
+		value: function(){ return string(DIFFICULTY) }});
 }
 
 beat_count_prev = beat_count;
@@ -44,6 +47,8 @@ if (state == "paused"){
 	var _vmove = -KEY_UP + KEY_DOWN;
 	var _confirm = KEY_PRIMARY_PRESSED;
 	var _menu_len = array_length(menu);
+	var _type = menu[cursor].menu_type;
+	
 	if (_vmove != last_v_move){
 		input_cooldown = 0;
 		input_is_scrolling = false;
@@ -65,13 +70,25 @@ if (state == "paused"){
 	if (cursor >= _menu_len) cursor = 0;
 	if (cursor < 0) cursor = _menu_len - 1;
 	
-	if (_confirm){
+	if (_confirm && _type == OPTION){
 		confirm_shake_timer = confirm_shake_timer_max;
 		menu[cursor].execute();
 
 		//var _snd_index  = ___snd_cart_insert;
 		//var _snd_id = audio_play_sound(_snd_index, 0, 0);
 		// var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
+	}
+	
+	var _left = KEY_LEFT_PRESSED;
+	var _right = KEY_RIGHT_PRESSED;
+	if (_left && _type == SLIDER) {
+		confirm_shake_timer = confirm_shake_timer_max;
+		menu[cursor].left()
+	}
+	
+	if (_right && _type == SLIDER) {
+		confirm_shake_timer = confirm_shake_timer_max;
+		menu[cursor].right()
 	}
 	
 	if (!_confirm) && (___KEY_PAUSE_PRESSED || KEY_SECONDARY_PRESSED){
@@ -120,6 +137,7 @@ if (state == "end"){
 	for (var i = 0; i < array_length(paused_sounds); i++){
 		var _snd_id = paused_sounds[i];
 		audio_resume_sound(_snd_id);
+		audio_sound_gain(_snd_id, VOL_MASTER, 0);
 	}
 
 	with(___MG_MNGR){

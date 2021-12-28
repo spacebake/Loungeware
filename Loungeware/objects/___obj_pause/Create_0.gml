@@ -8,6 +8,12 @@ input_cooldown_max = 10;
 input_is_scrolling = false;
 last_v_move = 0;
 
+vol_step = 0.1;
+arrow_xoff = 10;
+
+OPTION = 0;
+SLIDER = 1;
+
 
 function menu_jam(){
 	
@@ -39,10 +45,52 @@ function menu_exit(){
 	instance_destroy(___obj_pause);
 }
 
+master_vol_down = method(self, function() {
+	var res = ___global.save_data.vol.master - vol_step;
+	
+	___global.save_data.vol.master = max(0, res);
+
+	if (___global.save_data.vol.master == res) 
+		___sound_menu_tick_horizontal();
+
+	audio_sound_gain(jam_id, res, 0);
+});
+
+master_vol_up = method(self, function() {
+	var res = ___global.save_data.vol.master + vol_step;
+	
+	___global.save_data.vol.master = min(1, res);
+	
+	if (___global.save_data.vol.master == res) 
+		___sound_menu_tick_horizontal();
+	
+	audio_sound_gain(jam_id, res, 0);
+});
+
+difficulty_down = method(self, function() {
+	var res = ___global.difficulty_level - 1;
+	
+	___global.difficulty_level = max(1, res);
+
+	if (___global.difficulty_level == res) 
+		___sound_menu_tick_horizontal();
+});
+
+difficulty_up = method(self, function() {
+	var res = ___global.difficulty_level + 1;
+	
+	___global.difficulty_level = min(___global.difficulty_max, res);
+
+	if (___global.difficulty_level == res) 
+		___sound_menu_tick_horizontal();
+});
+
 menu = [
-	{name:"RESUME", execute: function(){___obj_pause.state = "end";}},
-	{name:"JAM", execute: menu_jam},
-	{name:"EXIT", execute: menu_exit},
+	{menu_type: OPTION, name:"RESUME", execute: function(){___obj_pause.state = "end";}},
+	{menu_type: OPTION, name:"JAM", execute: menu_jam},
+	{menu_type: OPTION, name:"EXIT", execute: menu_exit},
+	{menu_type: SLIDER, name:"MASTER VOLUME", left: master_vol_down, right: master_vol_up, 
+		value: function(){ return string(round(VOL_MASTER * 100)) + "%" }}
 ]
 
 cursor = 0;
