@@ -99,28 +99,8 @@ if (state != "wait"){
 		draw_set_color(c_gbwhite);
 		var _txt = menu[i].name;
 		var _scale_final = 1;
-		//var _is_diff = (_txt == "DIFFICULTY");
 		var _letter_sep = 2;
 		var _letter_w = string_width("M");
-		
-		//if (_is_diff){
-		//	if (cursor == i){
-		//		var _diffmove = -KEY_LEFT_PRESSED + KEY_RIGHT_PRESSED;
-		//		var _store_diff = DIFFICULTY;
-		//		___global.difficulty_level = clamp(___global.difficulty_level + _diffmove, 1, ___global.difficulty_max);
-		//		if (_store_diff != DIFFICULTY){
-		//			___sound_menu_tick_horizontal();
-		//		}
-				
-		//	}
-		//	_txt = _txt + ": " + string(DIFFICULTY);
-		//	if (cursor == i){
-		//		var _w = 8 + floor((string_length(_txt) * (_letter_sep + _letter_w)) - _letter_sep);
-		//		var _arrow_y = _yy - 5;
-		//		draw_sprite(___spr_gallery_arrows, 4, _xx - (_w/2), _arrow_y);
-		//		draw_sprite(___spr_gallery_arrows, 5, _xx + (_w/2), _arrow_y);
-		//	}
-		//}
 		
 		if (menu[i].menu_type == SLIDER) {
 			_txt = _txt + ": " + menu[i].value();

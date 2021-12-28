@@ -1,5 +1,3 @@
-show_debug_message(___global.save_data.vol)
-
 if (gallery_mode && gallery_init &&  microgame_current_metadata.supports_difficulty_scaling){
 	if (state == "wait") state = "pause_room";
 	gallery_init = false;
