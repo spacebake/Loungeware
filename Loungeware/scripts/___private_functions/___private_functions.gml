@@ -725,11 +725,12 @@ function ___draw_title(_x, _y){
 
 	draw_text_ext_transformed(_x, _y, _game_name, _sep, _w, _scale, _scale, 0);
 	draw_set_color(c_gbpink);
-	draw_rectangle_fix(_line_x1, (_y - _padding) - 2, _line_x2, _y - _padding);
+	//idk lol but draw_sprite_ext doesnt work	
+	___draw_rectangle_real(_line_x1, (_y - _padding) - 2, _line_x2 + HTML_MODE - 1, _y - _padding + HTML_MODE - 1, false);
 	_y += (_name_h + _margin);
 	draw_text_ext_transformed(_x, _y, _game_creator, _sep, _w, _scale, _scale, 0);
 	_y += (_creator_h);
-	draw_rectangle_fix(_line_x1, (_y + _padding) - 2, _line_x2, _y + _padding);
+	___draw_rectangle_real(_line_x1, (_y + _padding) - 2, _line_x2 + HTML_MODE - 1, _y + _padding + HTML_MODE - 1, false);
 	draw_set_halign(fa_left);
 	
 }
