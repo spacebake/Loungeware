@@ -2,12 +2,11 @@ ___state_setup("normal");
 
 t = 0
 xpos = room_width / 2;
-ypos = room_height / 2 - 200;
+ypos = room_height / 2 - 100;
 menu_y = ypos + 200;
-prompt_ypos = ypos + 50;
+prompt_ypos = ypos + 100;
 
 confirmed = false;
-prev_confirmed = false;
 cursor = 0;
 title_txt = {
 	normal: "OPTIONS",
@@ -25,6 +24,13 @@ menu = [
 		op: method(self, function() { ___state_change("controls") }), 
 	},
 ];
+
+rebinding = false;
+rebinds = ["right", "up", "left", "down", "primary", "secondary", "pause"];
+rebind_index = 0;
+rebind_y = ypos + 200;
+rebind_curr_y = rebind_y + 100;
+rebind_gap = 20;
 
 function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
