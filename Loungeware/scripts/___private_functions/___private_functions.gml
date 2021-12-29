@@ -1038,3 +1038,21 @@ function ___new_controller() {
 		}
 	}
 }
+
+/// @function ___struct_copy( _target )
+/// @argument {struct} _target The struct to clone from
+/// @returns {struct} The newly cloned struct
+function ___struct_copy( _target ) {
+    var _clone = {}, _keys = variable_struct_get_names(_target);
+    for(var i = 0, _i = array_length(_keys); i < _i; i++) {
+        var _key = _keys[i], _copy = _target[$ _key];
+        if (is_struct(_copy)) {
+            _clone[$ _key] = ___struct_copy(_copy);
+        } else if (is_method(_copy)) {
+            _clone[$ _key] = method(_clone, _copy);
+        } else {
+            _clone[$ _key] = _copy;
+        }
+    }
+    return _clone;
+}

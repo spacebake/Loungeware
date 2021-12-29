@@ -45,6 +45,8 @@ function ___GAME_INIT(){
 		secondary: [ord("Z"), ord("K")],
 		pause: [vk_escape, vk_enter],
 	}
+	___global.curr_input_keys = ___struct_copy(___global.default_input_keys);
+	
 	___global.default_controller_keys = {
 		right: [gp_padr],
 		up: [gp_padu],
@@ -54,11 +56,13 @@ function ___GAME_INIT(){
 		secondary: [gp_face2],
 		pause: [gp_start],
 	}
+	___global.curr_controller_keys = ___struct_copy(___global.default_controller_keys);
 	
 	___global.default_controller_axes = {
 		horizontal: [gp_axislh],
 		vertical: [gp_axislv],
 	}
+	___global.curr_controller_axes = ___struct_copy(___global.default_controller_axes);
 	
 	___global.controller_values = [];
 	for (var i=0;i<gamepad_get_device_count();i++) {

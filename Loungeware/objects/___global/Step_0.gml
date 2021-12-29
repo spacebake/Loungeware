@@ -18,8 +18,8 @@ var _deadzone = 0.5;
 for (var i=0;i<array_length(controller_values);i++) {
 	controller_values[i].active = gamepad_is_connected(i);
 	if (controller_values[i] == false) continue;
-	var axes_hor = default_controller_axes.horizontal;
-	var axes_vert = default_controller_axes.vertical;
+	var axes_hor = curr_controller_axes.horizontal;
+	var axes_vert = curr_controller_axes.vertical;
 	
 	// horizontal
 	var _hor_axis_max_value = 0;
@@ -42,7 +42,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	controller_values[i].axes.vertical = _vert_axis_max_value;
 	
 	// up
-	if (___gamepad_check_button_multiple(i,default_controller_keys.up)
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.up)
 		|| abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == -1) {
 		//
 		if (controller_values[i].state.pressed.up == false) {
@@ -63,7 +63,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	}
 	
 	// down
-	if (___gamepad_check_button_multiple(i,default_controller_keys.down)
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.down)
 		|| abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == 1) {
 		//
 		if (controller_values[i].state.pressed.down == false) {
@@ -84,7 +84,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	}
 	
 	// left
-	if (___gamepad_check_button_multiple(i,default_controller_keys.left)
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.left)
 		|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == -1) {
 		//
 		if (controller_values[i].state.pressed.left == false) {
@@ -105,7 +105,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	}
 	
 	// right
-	if (___gamepad_check_button_multiple(i,default_controller_keys.right)
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.right)
 		|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == 1) {
 		//
 		if (controller_values[i].state.pressed.right == false) {
@@ -128,7 +128,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	
 	
 	// primary
-	if (___gamepad_check_button_multiple(i,default_controller_keys.primary)) {
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.primary)) {
 		//
 		if (controller_values[i].state.pressed.primary == false) {
 			if (controller_values[i].state.held.primary == false) {
@@ -149,7 +149,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	}
 	
 	// secondary
-	if (___gamepad_check_button_multiple(i,default_controller_keys.secondary)) {
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.secondary)) {
 		//
 		if (controller_values[i].state.pressed.secondary == false) {
 			if (controller_values[i].state.held.secondary == false) {
@@ -170,7 +170,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 	}
 	
 	// pause
-	if (___gamepad_check_button_multiple(i,default_controller_keys.pause)) {
+	if (___gamepad_check_button_multiple(i,curr_controller_keys.pause)) {
 		//
 		if (controller_values[i].state.pressed.pause == false) {
 			if (controller_values[i].state.held.pause == false) {
