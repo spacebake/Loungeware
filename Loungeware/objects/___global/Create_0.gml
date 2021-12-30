@@ -34,6 +34,9 @@ ___center_window();
 window_set_min_width(540);
 window_set_min_height(540);
 
+//basically keyboard_lastkey but only keys allowed
+___global.last_key = -1;
+
 //-------------------------------------------------------------------------------------
 // KEYCODE -> TEXT
 // For control rebinding

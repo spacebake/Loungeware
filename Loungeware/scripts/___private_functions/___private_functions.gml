@@ -8,13 +8,20 @@ function draw_rectangle_fix(_x1, _y1, _x2, _y2, _c = draw_get_colour(), _a = dra
 }
 
 //--------------------------------------------------------------------------------------------------------
-// checks if key is held using ___global.default_input_keys. provide a string as the property name for key type
+// checks if key is held using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_keyboard_check(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
 	for (var i=0;i<array_length(___global.controller_values);i++) {
@@ -24,13 +31,20 @@ function ___macro_keyboard_check(_keystr){
 }
 
 //--------------------------------------------------------------------------------------------------------
-// checks if key is pressed using ___global.default_input_keys. provide a string as the property name for key type
+// checks if key is pressed using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_keyboard_check_pressed(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_pressed(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
 	for (var i=0;i<array_length(___global.controller_values);i++) {
@@ -41,13 +55,20 @@ function ___macro_keyboard_check_pressed(_keystr){
 
 
 //--------------------------------------------------------------------------------------------------------
-// checks if key is released using ___global.default_input_keys. provide a string as the property name for key type
+// checks if key is released using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_keyboard_check_released(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_released(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
 	for (var i=0;i<array_length(___global.controller_values);i++) {

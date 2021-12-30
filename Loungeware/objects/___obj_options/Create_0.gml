@@ -26,6 +26,8 @@ menu = [
 ];
 
 rebinding = false;
+listen_for_rebind = false;
+time_since_listen_for_rebind = 0;
 rebinds = ["right", "up", "left", "down", "primary", "secondary", "pause"];
 rebind_index = 0;
 rebind_y = ypos + 200;
