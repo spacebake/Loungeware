@@ -59,6 +59,13 @@ if (state == "normal") {
 			xx += string_width(keystrs_curr[i]);
 		}
 		
+		//no bindings
+		if (array_length(keyboard_curr) == 0) {
+			draw_set_halign(fa_center);
+			draw_text(xx, rebind_curr_y, "---");
+			
+		}
+		
 		//var all_controls = ds_list_create();
 		//for (var i = 0; i < array_length(___global.curr_input_keys[$ curr_rebind]); i++) {
 		//	ds_list_add(all_controls, ___global.curr_input_keys[$ curr_rebind][i]);

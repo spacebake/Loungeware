@@ -17,31 +17,52 @@ if (state == "normal") {
 		rebinding = true;
 	
 	if (rebinding) {
-		if (listen_for_rebind)
-			time_since_listen_for_rebind++;
-		else
-			time_since_listen_for_rebind = 0;
-		
-		if (time_since_listen_for_rebind >= 2 && KEY_ANY_PRESSED) {
-			log(___global.keycode_to_str[___global.last_key])
-			
-			array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
-			listen_for_rebind = false;
-			time_since_listen_for_rebind = 0;
-		}	
-		
-		if (KEY_PRIMARY_PRESSED) {
-			listen_for_rebind = true;
-		}
-		
-		if (KEY_SECONDARY_PRESSED) {
-			rebind_index++;	
-			
-			if (rebind_index == array_length(rebinds)) {
-				rebinding = false;
-				rebind_index = 0;	
+		// primary + right -> cycle next
+		ok = true;
+		if (KEY_PRIMARY) {
+			if (KEY_ANY_RELEASED) {
+				log(___global.keycode_to_str[___global.last_key])
+				
+				array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
+				listen_for_rebind = false;
 			}
+			
+		} else {
+			//exit
+			if (KEY_SECONDARY) {
+				rebinding = false;
+				rebind_index = 0;
+			}
+			
+			//reset mappings
+			if (KEY_UP) {
+				___global.curr_input_keys[$ rebinds[rebind_index]] = [];	
+			}
+			
+			var dx = KEY_RIGHT_PRESSED - KEY_LEFT_PRESSED;
+			rebind_index = clamp(rebind_index + dx, 0, array_length(rebinds) - 1);
 		}
+		
+		
+		//if (listen_for_rebind && KEY_ANY_PRESSED) {
+		//	log(___global.keycode_to_str[___global.last_key])
+			
+		//	array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
+		//	listen_for_rebind = false;
+		//}	
+		
+		//if (KEY_PRIMARY_PRESSED) {
+		//	listen_for_rebind = true;
+		//}
+		
+		//if (KEY_SECONDARY_PRESSED) {
+		//	rebind_index++;
+			
+		//	if (rebind_index == array_length(rebinds)) {
+		//		rebinding = false;
+		//		rebind_index = 0;	
+		//	}
+		//}
 	}
 }
 
