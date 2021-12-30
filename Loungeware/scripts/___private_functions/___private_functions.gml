@@ -919,7 +919,7 @@ function ___load_or_create_player_id(){
 // ------------------------------------------------------------------------------------------
 // DRAWS A TEXT MENU VERTICALLY
 // ------------------------------------------------------------------------------------------
-function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery){
+function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery, _halign = fa_left){
 	
 	static prev_confirmed = false;
 	static shake_timer_max = 15;
@@ -935,7 +935,7 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 	y_prev = _y;
 	
 	var _store_halign = draw_get_halign();
-	draw_set_halign(fa_center);
+	draw_set_halign(_halign);
 	
 	for (var i = 0; i < array_length(_menu_array); i++){
 		var _selected = (_cursor_pos == i);
@@ -967,12 +967,26 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 			var _overshoot = 5;
 			var _line_y_center = _y + 9;
 			var _thickness = 4;
-			draw_rectangle_fix(
-				_x - (_str_w/2) - _overshoot,
-				_line_y_center - (_thickness/2),
-				_x + (_str_w/2) + _overshoot,
-				_line_y_center + (_thickness/2)
-			);
+			
+			if (_halign == fa_center) {
+				draw_rectangle_fix(
+					_x - (_str_w/2) - _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + (_str_w/2) + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
+				
+			} else if (_halign == fa_left) {
+				draw_rectangle_fix(
+					_x - _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + _str_w + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
+				
+			} else if (_halign == fa_right) {
+				log("no")
+			}
 		}
 		
 		
@@ -1076,4 +1090,14 @@ function ___struct_copy( _target ) {
         }
     }
     return _clone;
+}
+
+///@func ___array_exists(arr, value)
+function ___array_exists(_arr, _value) {
+	for (var i = 0; i < array_length(_arr); i++) {
+		if (_arr[i] == _value)
+			return true;
+	}
+	
+	return false;
 }

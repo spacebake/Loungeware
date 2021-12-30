@@ -10,62 +10,84 @@ if (state == "normal") {
 		menu[cursor].op();
 	}
 
-} else if (state == "controls") {	
-	if (___KEY_PAUSE_PRESSED)
-		___state_change("normal");
-	else if (KEY_ANY_PRESSED)
-		rebinding = true;
+} else if (state == "controls") {
 	
-	if (rebinding) {
-		// primary + right -> cycle next
-		ok = true;
-		if (KEY_PRIMARY) {
-			if (KEY_ANY_RELEASED) {
-				log(___global.keycode_to_str[___global.last_key])
+	
+	
+	//if (___KEY_PAUSE_PRESSED)
+	//	___state_change("normal");
+	//else if (KEY_ANY_PRESSED)
+	//	rebinding = true;
+	
+	//if (rebinding) {
+	//	//
+	//	//if (KEY_PRIMARY) {
+	//	//	if (KEY_ANY_RELEASED) {
+	//	//		log(___global.keycode_to_str[___global.last_key])
 				
-				array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
-				listen_for_rebind = false;
-			}
+	//	//		var arr = ___global.curr_input_keys[$ rebinds[rebind_index]];
+				
+	//	//		if (!___array_exists(arr, ___global.last_key)) {
+	//	//			array_push(arr, ___global.last_key);
+	//	//		}
+	//	//	}
+	//	//if (KEY_ANY && last_last_key == ___global.last_key) {
+	//	//	rebind_hold++;
+	//	//} else {
+	//	//	rebind_hold = 0
 			
-		} else {
-			//exit
-			if (KEY_SECONDARY) {
-				rebinding = false;
-				rebind_index = 0;
-			}
+	//	//	if (KEY_UP) 
+	//	//		___global.curr_input_keys[$ rebinds[rebind_index]] = [];	
+	//	//}
+		
+	//	//last_last_key = ___global.last_key;
+		
+	//	//if (rebind_hold > 10) {
+	//	//	rebind_hold = 0;
 			
-			//reset mappings
-			if (KEY_UP) {
-				___global.curr_input_keys[$ rebinds[rebind_index]] = [];	
-			}
+	//	//	var arr = ___global.curr_input_keys[$ rebinds[rebind_index]];
 			
-			var dx = KEY_RIGHT_PRESSED - KEY_LEFT_PRESSED;
-			rebind_index = clamp(rebind_index + dx, 0, array_length(rebinds) - 1);
-		}
+	//	//	log(arr)
+	//	//	if (!___array_exists(arr, ___global.last_key)) {
+	//	//		array_push(arr, ___global.last_key);
+	//	//	}
+	//	//}
+			
+	//	////exit
+	//	//if (KEY_SECONDARY_RELEASED && !___array_exists(arr, ___global.last_key)) {
+	//	//	rebinding = false;
+	//	//	rebind_index = 0;
+	//	//}
+			
+	//	////reset mappings
+	//	//if (KEY_UP_RELEASED) {
+	//	//	___global.curr_input_keys[$ rebinds[rebind_index]] = [];	
+	//	//}
+			
+	//	//var dx = KEY_RIGHT_PRESSED - KEY_LEFT_PRESSED;
+	//	//rebind_index = clamp(rebind_index + dx, 0, array_length(rebinds) - 1);
 		
 		
-		//if (listen_for_rebind && KEY_ANY_PRESSED) {
-		//	log(___global.keycode_to_str[___global.last_key])
+	//	//if (listen_for_rebind && KEY_ANY_PRESSED) {
+	//	//	log(___global.keycode_to_str[___global.last_key])
 			
-		//	array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
-		//	listen_for_rebind = false;
-		//}	
+	//	//	array_push(___global.curr_input_keys[$ rebinds[rebind_index]], ___global.last_key);
+	//	//	listen_for_rebind = false;
+	//	//}	
 		
-		//if (KEY_PRIMARY_PRESSED) {
-		//	listen_for_rebind = true;
-		//}
+	//	//if (KEY_PRIMARY_PRESSED) {
+	//	//	listen_for_rebind = true;
+	//	//}
 		
-		//if (KEY_SECONDARY_PRESSED) {
-		//	rebind_index++;
+	//	//if (KEY_SECONDARY_PRESSED) {
+	//	//	rebind_index++;
 			
-		//	if (rebind_index == array_length(rebinds)) {
-		//		rebinding = false;
-		//		rebind_index = 0;	
-		//	}
-		//}
-	}
+	//	//	if (rebind_index == array_length(rebinds)) {
+	//	//		rebinding = false;
+	//	//		rebind_index = 0;	
+	//	//	}
+	//	//}
+	//}
 }
-
-show_debug_message(state);
 
 t++;
