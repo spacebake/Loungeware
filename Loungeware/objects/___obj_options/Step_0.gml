@@ -15,7 +15,7 @@ if (state == "normal") {
 	if (listening && KEY_ANY_PRESSED && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
 		listening = false;
 		
-		add_key(rebind_index, ___global.last_key);
+		add_key(rebind_index, ___global.last_key, false);
 	}
 	
 	//ADD A KEY
@@ -25,7 +25,7 @@ if (state == "normal") {
 	
 	//CLEAR REBINDS
 	if (KEY_SECONDARY_PRESSED && !just_listening) {
-		clear_rebinds(rebind_index);
+		clear_rebinds(rebind_index, false);
 		
 		listening = false;
 		just_listening = false;
