@@ -12,14 +12,14 @@ if (state == "normal") {
 
 } else if (state == "key_controls") {
 	
-	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
+	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
 		listening = false;
 		
 		add_key(rebind_index, keyboard_lastkey, false);
 	}
 	
 	//ADD A KEY
-	if (KEY_PRIMARY_PRESSED && controls_t != 0 && !just_listening) {
+	if (KEY_PRIMARY_PRESSED && rebinds_t != 0 && !just_listening) {
 		listening = true;
 	}
 	
@@ -32,14 +32,14 @@ if (state == "normal") {
 	}
 	
 	
-	if (!listening) {
+	if (!just_listening) {
 		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
 		
-		rebind_index = ___mod2(rebind_index + dy, array_length(rebinds));
+		rebind_index = ___mod2(rebind_index + dy, array_length(keyboard_rebinds));
 	}
 	
 	
-	controls_t++;
+	rebinds_t++;
 	
 	just_listening = listening;
 	
