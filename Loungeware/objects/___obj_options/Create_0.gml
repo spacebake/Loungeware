@@ -10,18 +10,20 @@ confirmed = false;
 cursor = 0;
 title_txt = {
 	normal: "OPTIONS",
-	controls: "CONTROLS",
+	key_controls: "KEYBOARD MAPPING",
+	pad_controls: "GAMEPAD MAPPING",
 };
 	
 menu = [
 	{ 
-		text: "CONTROLS",
+		text: "KEYBOARD MAPPING",
 		prompt: "Press [A] to add a key, or [B] to clear keys",
-		op: method(self, function() { ___state_change("controls") }), 
+		op: method(self, function() { ___state_change("key_controls") }), 
 	},
 	{ 
-		text: "ASDFG",
-		op: method(self, function() { ___state_change("controls") }), 
+		text: "GAMEPAD_MAPPING",
+		prompt: "Press [A] to add a key, or [B] to clear keys",
+		op: method(self, function() { ___state_change("pad_controls") }), 
 	},
 ];
 
@@ -65,8 +67,18 @@ rebind_gap = 20;
 listening = false;
 just_listening = false;
 listening_ypos = room_height - 50;
-function add_key(index, keycode) {
-	array_push(___global.curr_input_keys[$ rebinds[index]], keycode);
+function add_key(index, keycode, is_gamepad) {
+	if (is_gamepad)
+		array_push(___global.curr_controller_keys[$ rebinds[index]], keycode);
+	else 
+		array_push(___global.curr_input_keys[$ rebinds[index]], keycode);
+}
+
+function clear_rebinds(index, is_gamepad) {
+	if (is_gamepad)
+		___global.curr_controller_keys[$ rebinds[index]] = [];
+	else
+		___global.curr_input_keys[$ rebinds[index]] = [];
 }
 
 function back_to_main(){

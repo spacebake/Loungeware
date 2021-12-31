@@ -10,7 +10,7 @@ if (state == "normal") {
 		menu[cursor].op();
 	}
 
-} else if (state == "controls") {
+} else if (state == "key_controls") {
 	
 	if (listening && KEY_ANY_PRESSED && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
 		listening = false;
@@ -21,6 +21,14 @@ if (state == "normal") {
 	//ADD A KEY
 	if (KEY_PRIMARY_PRESSED && controls_t != 0 && !just_listening) {
 		listening = true;
+	}
+	
+	//CLEAR REBINDS
+	if (KEY_SECONDARY_PRESSED && !just_listening) {
+		clear_rebinds(rebind_index);
+		
+		listening = false;
+		just_listening = false;
 	}
 	
 	

@@ -27,7 +27,7 @@ if (state == "normal") {
 		cursor,
 		confirmed
 	);
-} else if (state == "controls") {
+} else if (state == "key_controls") {
 	draw_set_font(___fnt_gallery_elipses);
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_middle);
