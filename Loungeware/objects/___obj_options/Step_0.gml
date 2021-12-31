@@ -1,21 +1,21 @@
 ___state_handler()
 
 if (state == "normal") {
-	var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
+	var dy = ___keyboard_check_pressed("down") - ___keyboard_check_pressed("up");
 
 	cursor = (cursor + dy) % array_length(menu);
 
-	if (KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
+	if (___keyboard_check_pressed("primary") || ___keyboard_check_pressed("secondary")) {
 		confirmed = true
 		menu[cursor].op();
 	}
 
 } else if (state == "key_controls") {
 	
-	if (listening && KEY_ANY_PRESSED && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
+	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
 		listening = false;
 		
-		add_key(rebind_index, ___global.last_key, false);
+		add_key(rebind_index, keyboard_lastkey, false);
 	}
 	
 	//ADD A KEY

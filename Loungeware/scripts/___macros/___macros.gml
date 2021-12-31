@@ -34,6 +34,38 @@ function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get
 #macro ___KEY_PAUSE_PRESSED ___macro_any_check_pressed("pause")
 #macro ___KEY_PAUSE_RELEASED ___macro_any_check_released("pause")
 
+//the diff. between this and the public macros is these only check the specific type of device.
+#macro ___KEYBOARD_PRIMARY ___keyboard_check("primary")
+#macro ___KEYBOARD_PRIMARY_PRESSED ___keyboard_check_pressed("primary")
+#macro ___KEYBOARD_PRIMARY_RELEASED ___keyboard_check_released("primary")
+
+#macro ___KEYBOARD_SECONDARY ___keyboard_check("secondary")
+#macro ___KEYBOARD_SECONDARY_PRESSED ___keyboard_check_pressed("secondary")
+#macro ___KEYBOARD_SECONDARY_RELEASED ___keyboard_check_released("secondary")
+
+#macro ___KEYBOARD_RIGHT ___keyboard_check("right")
+#macro ___KEYBOARD_RIGHT_PRESSED ___keyboard_check_pressed("right")
+#macro ___KEYBOARD_RIGHT_RELEASED ___keyboard_check_released("right")
+
+#macro ___KEYBOARD_UP ___keyboard_check("up")
+#macro ___KEYBOARD_UP_PRESSED ___keyboard_check_pressed("up")
+#macro ___KEYBOARD_UP_RELEASED ___keyboard_check_released("up")
+
+#macro ___KEYBOARD_LEFT ___keyboard_check("left")
+#macro ___KEYBOARD_LEFT_PRESSED ___keyboard_check_pressed("left")
+#macro ___KEYBOARD_LEFT_RELEASED ___keyboard_check_released("left")
+
+#macro ___KEYBOARD_DOWN ___keyboard_check("down")
+#macro ___KEYBOARD_DOWN_PRESSED ___keyboard_check_pressed("down")
+#macro ___KEYBOARD_DOWN_RELEASED ___keyboard_check_released("down")
+
+#macro ___KEYBOARD_PAUSE ___keyboard_check("pause")
+#macro ___KEYBOARD_PAUSE_PRESSED ___keyboard_check_pressed("pause")
+#macro ___KEYBOARD_PAUSE_RELEASED ___keyboard_check_released("pause")
+
+//#macro ___KEYBOARD_CHECK_ANY
+
+
 #macro ___API_BASE_URL "https://loungeware.games/game/api/"
 
 // config specific

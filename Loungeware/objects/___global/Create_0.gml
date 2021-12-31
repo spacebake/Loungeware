@@ -72,7 +72,10 @@ ___global.last_key = -1;
 // KEYCODE -> TEXT
 // For control rebinding
 //-------------------------------------------------------------------------------------
-___global.keycode_to_str = [];
+___global.keycode_to_str = array_create(256);
+for (var i = 0; i < array_length(___global.keycode_to_str); i++) {
+	___global.keycode_to_str[i] = "unknown";	
+}
 ___global.keycode_to_str[vk_escape] = "ESC";
 ___global.keycode_to_str[vk_f1] = "F1";
 ___global.keycode_to_str[vk_f2] = "F2";
