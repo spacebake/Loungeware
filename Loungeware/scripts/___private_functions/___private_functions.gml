@@ -10,7 +10,7 @@ function draw_rectangle_fix(_x1, _y1, _x2, _y2, _c = draw_get_colour(), _a = dra
 //--------------------------------------------------------------------------------------------------------
 // checks if key is held using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check(_keystr){
+function ___keyboard_check(_keystr){
 	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check(_list[i])) {
@@ -24,10 +24,27 @@ function ___macro_keyboard_check(_keystr){
 			}
 		}
 	}
-	for (var i=0;i<array_length(___global.controller_values);i++) {
-		if (___global.controller_values[i].state.held[$ _keystr]) return true;
-	}
+	
 	return false;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// checks if gamepad button is held using ___global.curr_input_keys. provide a string as the property name for key type
+//--------------------------------------------------------------------------------------------------------
+function ___gamepad_check(_keystr){
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].state.held[$ _keystr])
+			return true;
+	}
+	
+	return false;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// checks if gamepad button, axis, or key is held using ___global.curr_input_keys. provide a string as the property name for key type
+//--------------------------------------------------------------------------------------------------------
+function ___macro_any_check(_keystr){
+	return 	___keyboard_check(_keystr) || ___gamepad_check(_keystr) || ___axis_check(_keystr);
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -1075,7 +1092,27 @@ function ___new_controller() {
 				secondary: false,
 				pause: false,
 			}
-		}
+		},
+		axes_state: {
+			pressed: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+			},
+			held: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+			},
+			released: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,	
+			}
+		},
 	}
 }
 

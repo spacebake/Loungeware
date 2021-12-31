@@ -34,6 +34,37 @@ ___center_window();
 window_set_min_width(540);
 window_set_min_height(540);
 
+//str_which is "up", "primary", etc
+function toggle_controller_values(held, pressed, released, yesno, str_which) {
+	var held_which = held[$ str_which];
+	var pressed_which = pressed[$ str_which];
+	var released_which = released[$ str_which];
+	
+	if (yesno) {
+		if (!pressed_which) {
+			if (!held_which) {
+				pressed[$ str_which] = true;
+			}
+			
+		} else {
+			pressed[$ str_which] = false;	
+		}
+		
+		held[$ str_which] = true;
+		
+	} else {
+		pressed[$ str_which] = false;
+		released[$ str_which] = false;
+		
+		if (held_which) {
+			released[$ str_which] = true;	
+		}
+		
+		held[$ str_which] = false;
+		
+	}
+}
+
 //basically keyboard_lastkey but only keys allowed
 ___global.last_key = -1;
 
