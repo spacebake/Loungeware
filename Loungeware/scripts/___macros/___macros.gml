@@ -30,9 +30,9 @@ function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get
 #macro ___cart_label_default johndoe_examplegame_spr_label
 #macro ___DEV_CONFIG_PATH "devconfig.lw"
 
-#macro ___KEY_PAUSE ___macro_keyboard_check("pause")
-#macro ___KEY_PAUSE_PRESSED ___macro_keyboard_check_pressed("pause")
-#macro ___KEY_PAUSE_RELEASED ___macro_keyboard_check_released("pause")
+#macro ___KEY_PAUSE ___macro_any_check("pause")
+#macro ___KEY_PAUSE_PRESSED ___macro_any_check_pressed("pause")
+#macro ___KEY_PAUSE_RELEASED ___macro_any_check_released("pause")
 
 #macro ___API_BASE_URL "https://loungeware.games/game/api/"
 

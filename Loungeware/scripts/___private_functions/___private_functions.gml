@@ -63,10 +63,7 @@ function ___macro_any_check(_keystr){
 	return 	___keyboard_check(_keystr) || ___gamepad_check(_keystr) || ___axis_check(_keystr);
 }
 
-//--------------------------------------------------------------------------------------------------------
-// checks if key is pressed using ___global.curr_input_keys. provide a string as the property name for key type
-//--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check_pressed(_keystr){
+function ___keyboard_check_pressed(_keystr){
 	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_pressed(_list[i])) {
@@ -80,17 +77,34 @@ function ___macro_keyboard_check_pressed(_keystr){
 			}
 		}
 	}
-	for (var i=0;i<array_length(___global.controller_values);i++) {
-		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
-	}
+	
 	return false;
 }
 
+function ___gamepad_check_pressed(_keystr){
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
+	}
+	
+	return false;
+}
 
-//--------------------------------------------------------------------------------------------------------
-// checks if key is released using ___global.curr_input_keys. provide a string as the property name for key type
-//--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check_released(_keystr){
+function ___axis_check_pressed(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+	
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.pressed[$ _keystr]) return true;
+	}
+	
+	return false;
+}
+
+function ___macro_any_check_pressed(_keystr){
+	return 	___keyboard_check_pressed(_keystr) || ___gamepad_check_pressed(_keystr) || ___axis_check_pressed(_keystr);
+}
+
+function ___keyboard_check_released(_keystr){
 	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_released(_list[i])) {
@@ -104,10 +118,31 @@ function ___macro_keyboard_check_released(_keystr){
 			}
 		}
 	}
+	
+	return false;
+}
+
+function ___gamepad_check_released(_keystr){
 	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.released[$ _keystr]) return true;
 	}
+	
 	return false;
+}
+
+function ___axis_check_released(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+	
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.released[$ _keystr]) return true;
+	}
+	
+	return false;	
+}
+
+function ___macro_any_check_released(_keystr){
+	return 	___keyboard_check_released(_keystr) || ___gamepad_check_released(_keystr) || ___axis_check_released(_keystr);
 }
 
 // ------------------------------------------------------------------------------------------
