@@ -12,6 +12,28 @@ if (state == "normal") {
 
 } else if (state == "controls") {
 	
+	if (listening && KEY_ANY_PRESSED && !___array_exists(rebinds_values_right(rebind_index), ___global.last_key)) {
+		listening = false;
+		
+		add_key(rebind_index, ___global.last_key);
+	}
+	
+	//ADD A KEY
+	if (KEY_PRIMARY_PRESSED && controls_t != 0 && !just_listening) {
+		listening = true;
+	}
+	
+	
+	if (!listening) {
+		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
+		
+		rebind_index = ___mod2(rebind_index + dy, array_length(rebinds));
+	}
+	
+	
+	controls_t++;
+	
+	just_listening = listening;
 	
 	
 	//if (___KEY_PAUSE_PRESSED)
@@ -89,5 +111,3 @@ if (state == "normal") {
 	//	//}
 	//}
 }
-
-t++;

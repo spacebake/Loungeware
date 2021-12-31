@@ -919,7 +919,7 @@ function ___load_or_create_player_id(){
 // ------------------------------------------------------------------------------------------
 // DRAWS A TEXT MENU VERTICALLY
 // ------------------------------------------------------------------------------------------
-function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery, _halign = fa_left){
+function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery, _halign = fa_center){
 	
 	static prev_confirmed = false;
 	static shake_timer_max = 15;
@@ -985,7 +985,12 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 				);
 				
 			} else if (_halign == fa_right) {
-				log("no")
+				draw_rectangle_fix(
+					_x + _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + str_w + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
 			}
 		}
 		
@@ -1100,4 +1105,9 @@ function ___array_exists(_arr, _value) {
 	}
 	
 	return false;
+}
+
+///@func ___mod2
+function ___mod2(value, divisor) {
+	return value - floor(value/divisor) * divisor;
 }

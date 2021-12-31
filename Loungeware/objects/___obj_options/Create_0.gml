@@ -1,10 +1,10 @@
 ___state_setup("normal");
 
-t = 0
+controls_t = 0
 xpos = room_width / 2;
 ypos = room_height / 2 - 200;
 menu_y = ypos + 200;
-prompt_ypos = ypos + 100;
+prompt_ypos = ypos + 70;
 
 confirmed = false;
 cursor = 0;
@@ -16,7 +16,7 @@ title_txt = {
 menu = [
 	{ 
 		text: "CONTROLS",
-		prompt: "Press [ANYKEY] to start remapping, or [PAUSE] to go back",
+		prompt: "Press [A] to add a key, or [B] to clear keys",
 		op: method(self, function() { ___state_change("controls") }), 
 	},
 	{ 
@@ -56,13 +56,18 @@ function rebinds_menu_right() {
 	
 	return res;
 }
-rebind_left_xpos = xpos - 100;
-rebind_right_xpos = xpos + 100;
+rebind_left_xpos = xpos - 220;
+rebind_right_xpos = xpos + 220;
 rebind_index = 0;
-rebind_y = ypos + 200;
+rebind_y = ypos + 120;
 rebind_curr_y = rebind_y + 100;
 rebind_gap = 20;
-
+listening = false;
+just_listening = false;
+listening_ypos = room_height - 50;
+function add_key(index, keycode) {
+	array_push(___global.curr_input_keys[$ rebinds[index]], keycode);
+}
 
 function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
