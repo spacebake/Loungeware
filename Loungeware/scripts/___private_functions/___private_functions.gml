@@ -41,6 +41,22 @@ function ___gamepad_check(_keystr){
 }
 
 //--------------------------------------------------------------------------------------------------------
+// checks if gamepad axes is held using ___global.curr_input_keys. provide a string as the property name for key type
+// if _keystr is not an axis, returns false.
+//--------------------------------------------------------------------------------------------------------
+function ___axis_check(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+		
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.held[$ _keystr])
+			return true;
+	}
+	
+	return false;
+}
+
+//--------------------------------------------------------------------------------------------------------
 // checks if gamepad button, axis, or key is held using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
 function ___macro_any_check(_keystr){

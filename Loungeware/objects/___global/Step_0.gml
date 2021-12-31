@@ -40,7 +40,7 @@ for (var i=0;i<array_length(controller_values);i++) {
 		}
 	}
 	controller_values[i].axes.vertical = _vert_axis_max_value;
-	
+
 	// up
 	//if (___gamepad_check_button_multiple(i,curr_controller_keys.up)) {
 	//	//|| abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == -1) {
@@ -61,138 +61,195 @@ for (var i=0;i<array_length(controller_values);i++) {
 	//	}
 	//	controller_values[i].state.held.up = false;
 	//}
+	//buttons
 	toggle_controller_values(controller_values[i].state.held, 
 		controller_values[i].state.pressed, 
 		controller_values[i].state.released,
 		___gamepad_check_button_multiple(i, curr_controller_keys.up), 
 		"up");
+	//axes
+	toggle_controller_values(controller_values[i].axes_state.held, 
+		controller_values[i].axes_state.pressed, 
+		controller_values[i].axes_state.released,
+		abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == -1, 
+		"up");
 	
 	// down
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.down)) {
-		//|| abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == 1) {
-		//
-		if (controller_values[i].state.pressed.down == false) {
-			if (controller_values[i].state.held.down == false) {
-				controller_values[i].state.pressed.down = true;
-			}
-		} else {
-			controller_values[i].state.pressed.down = false;
-		}
-		controller_values[i].state.held.down = true;
-	} else {
-		controller_values[i].state.pressed.down = false;
-		controller_values[i].state.released.down = false;
-		if (controller_values[i].state.held.down) {
-			controller_values[i].state.released.down = true;
-		}
-		controller_values[i].state.held.down = false;
-	}
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.down)) {
+	//	//|| abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == 1) {
+	//	//
+	//	if (controller_values[i].state.pressed.down == false) {
+	//		if (controller_values[i].state.held.down == false) {
+	//			controller_values[i].state.pressed.down = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.down = false;
+	//	}
+	//	controller_values[i].state.held.down = true;
+	//} else {
+	//	controller_values[i].state.pressed.down = false;
+	//	controller_values[i].state.released.down = false;
+	//	if (controller_values[i].state.held.down) {
+	//		controller_values[i].state.released.down = true;
+	//	}
+	//	controller_values[i].state.held.down = false;
+	//}
+	//buttons
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.down),
+		"down");
+	//axes
+	toggle_controller_values(controller_values[i].axes_state.held, 
+		controller_values[i].axes_state.pressed, 
+		controller_values[i].axes_state.released,
+		abs(_vert_axis_max_value) > _deadzone && sign(_vert_axis_max_value) == 1, 
+		"down");
 	
 	// left
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.left)) {
-		//|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == -1) {
-		//
-		if (controller_values[i].state.pressed.left == false) {
-			if (controller_values[i].state.held.left == false) {
-				controller_values[i].state.pressed.left = true;
-			}
-		} else {
-			controller_values[i].state.pressed.left = false;
-		}
-		controller_values[i].state.held.left = true;
-	} else {
-		controller_values[i].state.pressed.left = false;
-		controller_values[i].state.released.left = false;
-		if (controller_values[i].state.held.left) {
-			controller_values[i].state.released.left = true;
-		}
-		controller_values[i].state.held.left = false;
-	}
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.left)) {
+	//	//|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == -1) {
+	//	//
+	//	if (controller_values[i].state.pressed.left == false) {
+	//		if (controller_values[i].state.held.left == false) {
+	//			controller_values[i].state.pressed.left = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.left = false;
+	//	}
+	//	controller_values[i].state.held.left = true;
+	//} else {
+	//	controller_values[i].state.pressed.left = false;
+	//	controller_values[i].state.released.left = false;
+	//	if (controller_values[i].state.held.left) {
+	//		controller_values[i].state.released.left = true;
+	//	}
+	//	controller_values[i].state.held.left = false;
+	//}
+	//buttons
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.left),
+		"left");
+	//axes
+	toggle_controller_values(controller_values[i].axes_state.held, 
+		controller_values[i].axes_state.pressed, 
+		controller_values[i].axes_state.released,
+		abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == -1, 
+		"left");
 	
 	// right
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.right)) {
-		//|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == 1) {
-		//
-		if (controller_values[i].state.pressed.right == false) {
-			if (controller_values[i].state.held.right == false) {
-				controller_values[i].state.pressed.right = true;
-			}
-		} else {
-			controller_values[i].state.pressed.right = false;	
-		}
-		controller_values[i].state.held.right = true;
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.right)) {
+	//	//|| abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == 1) {
+	//	//
+	//	if (controller_values[i].state.pressed.right == false) {
+	//		if (controller_values[i].state.held.right == false) {
+	//			controller_values[i].state.pressed.right = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.right = false;	
+	//	}
+	//	controller_values[i].state.held.right = true;
 		
-	} else {
-		controller_values[i].state.pressed.right = false;
-		controller_values[i].state.released.right = false;
-		if (controller_values[i].state.held.right) {
-			controller_values[i].state.released.right = true;
-		}
-		controller_values[i].state.held.right = false;
-	}
-	
+	//} else {
+	//	controller_values[i].state.pressed.right = false;
+	//	controller_values[i].state.released.right = false;
+	//	if (controller_values[i].state.held.right) {
+	//		controller_values[i].state.released.right = true;
+	//	}
+	//	controller_values[i].state.held.right = false;
+	//}
+	//buttons
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.right),
+		"right");
+	//axes
+	toggle_controller_values(controller_values[i].axes_state.held, 
+		controller_values[i].axes_state.pressed, 
+		controller_values[i].axes_state.released,
+		abs(_hor_axis_max_value) > _deadzone && sign(_hor_axis_max_value) == 1, 
+		"right");
 	
 	// primary
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.primary)) {
-		//
-		if (controller_values[i].state.pressed.primary == false) {
-			if (controller_values[i].state.held.primary == false) {
-				controller_values[i].state.pressed.primary = true;
-			}
-		} else {
-			controller_values[i].state.pressed.primary = false;	
-		}
-		controller_values[i].state.held.primary = true;
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.primary)) {
+	//	//
+	//	if (controller_values[i].state.pressed.primary == false) {
+	//		if (controller_values[i].state.held.primary == false) {
+	//			controller_values[i].state.pressed.primary = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.primary = false;	
+	//	}
+	//	controller_values[i].state.held.primary = true;
 		
-	} else {
-		controller_values[i].state.pressed.primary = false;
-		controller_values[i].state.released.primary = false;
-		if (controller_values[i].state.held.primary) {
-			controller_values[i].state.released.primary = true;
-		}
-		controller_values[i].state.held.primary = false;
-	}
+	//} else {
+	//	controller_values[i].state.pressed.primary = false;
+	//	controller_values[i].state.released.primary = false;
+	//	if (controller_values[i].state.held.primary) {
+	//		controller_values[i].state.released.primary = true;
+	//	}
+	//	controller_values[i].state.held.primary = false;
+	//}
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.primary),
+		"primary");
 	
 	// secondary
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.secondary)) {
-		//
-		if (controller_values[i].state.pressed.secondary == false) {
-			if (controller_values[i].state.held.secondary == false) {
-				controller_values[i].state.pressed.secondary = true;
-			}
-		} else {
-			controller_values[i].state.pressed.secondary = false;	
-		}
-		controller_values[i].state.held.secondary = true;
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.secondary)) {
+	//	//
+	//	if (controller_values[i].state.pressed.secondary == false) {
+	//		if (controller_values[i].state.held.secondary == false) {
+	//			controller_values[i].state.pressed.secondary = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.secondary = false;	
+	//	}
+	//	controller_values[i].state.held.secondary = true;
 		
-	} else {
-		controller_values[i].state.pressed.secondary = false;
-		controller_values[i].state.released.secondary = false;
-		if (controller_values[i].state.held.secondary) {
-			controller_values[i].state.released.secondary = true;
-		}
-		controller_values[i].state.held.secondary = false;
-	}
+	//} else {
+	//	controller_values[i].state.pressed.secondary = false;
+	//	controller_values[i].state.released.secondary = false;
+	//	if (controller_values[i].state.held.secondary) {
+	//		controller_values[i].state.released.secondary = true;
+	//	}
+	//	controller_values[i].state.held.secondary = false;
+	//}
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.secondary),
+		"secondary");
 	
 	// pause
-	if (___gamepad_check_button_multiple(i,curr_controller_keys.pause)) {
-		//
-		if (controller_values[i].state.pressed.pause == false) {
-			if (controller_values[i].state.held.pause == false) {
-				controller_values[i].state.pressed.pause = true;
-			}
-		} else {
-			controller_values[i].state.pressed.pause = false;	
-		}
-		controller_values[i].state.held.pause = true;
+	//if (___gamepad_check_button_multiple(i,curr_controller_keys.pause)) {
+	//	//
+	//	if (controller_values[i].state.pressed.pause == false) {
+	//		if (controller_values[i].state.held.pause == false) {
+	//			controller_values[i].state.pressed.pause = true;
+	//		}
+	//	} else {
+	//		controller_values[i].state.pressed.pause = false;	
+	//	}
+	//	controller_values[i].state.held.pause = true;
 		
-	} else {
-		controller_values[i].state.pressed.pause = false;
-		controller_values[i].state.released.pause = false;
-		if (controller_values[i].state.held.pause) {
-			controller_values[i].state.released.pause = true;
-		}
-		controller_values[i].state.held.pause = false;
-	}
+	//} else {
+	//	controller_values[i].state.pressed.pause = false;
+	//	controller_values[i].state.released.pause = false;
+	//	if (controller_values[i].state.held.pause) {
+	//		controller_values[i].state.released.pause = true;
+	//	}
+	//	controller_values[i].state.held.pause = false;
+	//}
+	toggle_controller_values(controller_values[i].state.held,
+		controller_values[i].state.pressed,
+		controller_values[i].state.released,
+		___gamepad_check_button_multiple(i, curr_controller_keys.pause),
+		"pause");
 	
 }
