@@ -42,6 +42,47 @@ if (state == "normal") {
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
 	}
 	
+} else if (state == "gamepad_controls") {
+	
+	//var last_gamepad_button = undefined;
+	//var last_gamepad_axis = undefined;
+	
+	//for (var i=0;i<array_length(___global.controller_values);i++) {
+	//	for ( var j = gp_face1; j < gp_axisrv; j++ ) {
+	//	    if ( gamepad_button_check( i, j ) ) {
+	//			last_gamepad_button = i;
+	//			break;
+	//		}
+	//	}
+		
+	//	for (var j = 0; j < gamepad_axis_count(i); j++) {
+	//		if (gamepad_axis_value(i, j) != 0) {
+	//			last_gamepad_axis = j;
+	//			break;
+	//		}
+	//	}
+		
+		
+	//}
+	
+	//draw_set_font(-1);
+	//draw_set_halign(fa_left);
+	//draw_text(10, 10, [gamepad_axis_count(i), last_gamepad_button, last_gamepad_axis,]);
+	
+	//TODO: METHODS
+	draw_set_font(___fnt_gallery_elipses);
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_middle);
+	
+	draw_text(xpos, prompt_ypos, menu[cursor].prompt);
+	
+	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, gamepad_rebinds_menu_left, rebind_index, false, undefined, undefined, undefined, fa_left);
+	____menu_text_vertical_draw(rebind_right_xpos, rebind_y, gamepad_rebinds_menu_right(), rebind_index, false, undefined, undefined, undefined, fa_right);
+	
+	if (listening) {
+		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
+	}
+}
 	
 	if (true) {} else {
 		
@@ -79,7 +120,6 @@ if (state == "normal") {
 		//}
 		
 	}
-}
 
 //draw_set_font(___fnt_gallery_elipses);
 //for (var i = 0; i < array_length(options); i++) {

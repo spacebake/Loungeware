@@ -42,8 +42,84 @@ if (state == "normal") {
 	rebinds_t++;
 	
 	just_listening = listening;
+
+} else if (state == "gamepad_controls") {
+	
+	var last_gamepad_button = undefined;
+	var last_gamepad_axis = undefined;
+	
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		for ( var j = gp_face1; j < gp_axisrv; j++ ) {
+		    if ( gamepad_button_check( i, j ) ) {
+				last_gamepad_button = i;
+				break;
+			}
+		}
+		
+		for (var j = 0; j < gamepad_axis_count(i); j++) {
+			if (gamepad_axis_value(i, j) != 0) {
+				last_gamepad_axis = j;
+				break;
+			}
+		}
+		
+		log(___global.controller_values, gamepad_axis_count(i), last_gamepad_button, last_gamepad_axis);
+	}
 	
 	
+	var isAxis = gamepad_rebinds[rebind_index] == "h axis" || gamepad_rebinds[rebind_index] == "v axis";
+	
+	if (isAxis) {
+		if (listening && last_gamepad_axis != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_axis)) {
+			listening = false;
+		
+			add_key(rebind_index, last_gamepad_axis, true);
+		}
+		
+	} else {
+		if (listening && last_gamepad_button != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
+			listening = false;
+		
+			add_key(rebind_index, last_gamepad_button, true);
+		}
+	}
+	
+	//ADD A KEY
+	if (KEY_PRIMARY_PRESSED && rebinds_t != 0 && !just_listening) {
+		listening = true;
+	}
+	
+	//CLEAR REBINDS
+	if (KEY_SECONDARY_PRESSED && !just_listening) {
+		clear_rebinds(rebind_index, false);
+		
+		listening = false;
+		just_listening = false;
+	}
+	
+	
+	if (!just_listening) {
+		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
+		
+		rebind_index = ___mod2(rebind_index + dy, array_length(keyboard_rebinds));
+	}
+	
+	
+	rebinds_t++;
+	
+	just_listening = listening;
+}
+
+if (state == "key_controls" || state == "gamepad_controls") {
+	if (___KEY_PAUSE) {
+		___state_change("normal");
+		
+		rebinds_t = 0;
+		just_listening = false;
+		listening = false;
+	}
+}
+
 	//if (___KEY_PAUSE_PRESSED)
 	//	___state_change("normal");
 	//else if (KEY_ANY_PRESSED)
@@ -118,4 +194,3 @@ if (state == "normal") {
 	//	//	}
 	//	//}
 	//}
-}

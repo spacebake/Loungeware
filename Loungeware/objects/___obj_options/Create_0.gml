@@ -10,7 +10,7 @@ cursor = 0;
 title_txt = {
 	normal: "OPTIONS",
 	key_controls: "KEYBOARD MAPPING",
-	pad_controls: "GAMEPAD MAPPING",
+	gamepad_controls: "GAMEPAD MAPPING",
 };
 	
 menu = [
@@ -22,13 +22,24 @@ menu = [
 	{ 
 		text: "GAMEPAD MAPPING",
 		prompt: "Press [A] to add a key, or [B] to clear keys",
-		op: method(self, function() { ___state_change("pad_controls") }), 
+		op: method(self, function() { ___state_change("gamepad_controls") }), 
 	},
 ];
 
 // -> [Int]
 function keyboard_rebinds_values_right(index) {
 	return ___global.curr_input_keys[$ keyboard_rebinds[index]]
+}
+
+// -> [{ indexes:Int, isAxis:Bool }]
+function gamepad_rebinds_values_right(index) {
+	if (gamepad_rebinds[index] == "h axis")
+		return { indexes: ___global.curr_controller_axes.horizontal, isAxes: true };
+	
+	if (gamepad_rebinds[index] == "v axis")
+		return { indexes: ___global.curr_controller_axes.vertical, isAxes: true };
+		
+	return { indexes: ___global.curr_controller_keys[$ gamepad_rebinds[index]], isAxes: false };
 }
 
 rebinding = false;
@@ -62,7 +73,46 @@ function keyboard_rebinds_menu_right() {
 	
 	var res = [];
 	for (var i = 0; i < array_length(keyboard_rebinds); i++) {
-		array_push(res, { text: arr_to_str(keyboard_rebinds_values_right(i)) });
+		var txt = arr_to_str(keyboard_rebinds_values_right(i));
+		
+		if (txt == "")
+			txt = "---";
+			
+		array_push(res, { text: txt });
+	}
+	
+	return res;
+}
+
+function gamepad_rebinds_menu_right() {
+	//arr:[{indexes:Int, isAxes:Bool}]
+	var arr_to_str = function(arr) {
+		var s = "";
+		
+		for (var ii = 0; ii < array_length(arr.indexes); ii++) {
+			if (arr.isAxes) {
+				s += "AXIS " + string(arr.indexes[ii]);
+			} else {
+				s += "BUTTON " + string(arr.indexes[ii]);
+			}
+			
+			if (ii != array_length(arr.indexes) - 1)
+				s += ", ";
+		}
+		
+		return s;
+	}
+	
+	var res = [];
+	for (var i = 0; i < array_length(gamepad_rebinds); i++) {
+		log(gamepad_rebinds_values_right(i));
+		
+		var txt = arr_to_str(gamepad_rebinds_values_right(i));
+		
+		if (txt == "")
+			txt = "---";
+		
+		array_push(res, { text: txt });
 	}
 	
 	return res;
@@ -110,10 +160,4 @@ function clear_rebinds(index, is_gamepad) {
 		___global.curr_input_keys[$ keyboard_rebinds[index]] = [];
 }
 
-function back_to_main(){
-	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
-		skip_intro = true;
-	}
-	___global.menu_cursor_gallery = 0;
-	instance_destroy();
-}
+show_debug_overlay(true);
