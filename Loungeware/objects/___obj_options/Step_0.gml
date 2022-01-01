@@ -45,31 +45,23 @@ if (state == "normal") {
 
 } else if (state == "gamepad_controls") {
 	
-	var last_gamepad_button = undefined;
-	var last_gamepad_axis = undefined;
-	
-	for (var i=0;i<array_length(___global.controller_values);i++) {
-		for ( var j = gp_face1; j < gp_axisrv; j++ ) {
-		    if ( gamepad_button_check( i, j ) ) {
-				last_gamepad_button = i;
-				break;
-			}
-		}
-		
-		for (var j = 0; j < gamepad_axis_count(i); j++) {
-			if (gamepad_axis_value(i, j) != 0) {
-				last_gamepad_axis = j;
-				break;
-			}
-		}
-		
-		log(___global.controller_values, gamepad_axis_count(i), last_gamepad_button, last_gamepad_axis);
-	}
-	
-	
 	var isAxis = gamepad_rebinds[rebind_index] == "h axis" || gamepad_rebinds[rebind_index] == "v axis";
 	
 	if (isAxis) {
+		
+		var last_gamepad_axis = undefined;
+	
+		for (var i=0;i<array_length(___global.controller_values);i++) {
+			if (!___global.controller_values[i].active) continue;
+		
+			for (var j = 0; j < gamepad_axis_count(i); j++) {
+				if (gamepad_axis_value(i, j) != 0) {
+					last_gamepad_axis = j;
+					break;
+				}
+			}
+		}
+		
 		if (listening && last_gamepad_axis != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_axis)) {
 			listening = false;
 		
@@ -77,6 +69,20 @@ if (state == "normal") {
 		}
 		
 	} else {
+		
+		var last_gamepad_button = undefined;
+	
+		for (var i=0;i<array_length(___global.controller_values);i++) {
+			if (!___global.controller_values[i].active) continue;
+		
+			for ( var j = gp_face1; j < gp_axisrv; j++ ) {
+			    if ( gamepad_button_check( i, j ) ) {
+					last_gamepad_button = i;
+					break;
+				}
+			}
+		}
+		
 		if (listening && last_gamepad_button != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
 			listening = false;
 		
@@ -101,7 +107,7 @@ if (state == "normal") {
 	if (!just_listening) {
 		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
 		
-		rebind_index = ___mod2(rebind_index + dy, array_length(keyboard_rebinds));
+		rebind_index = ___mod2(rebind_index + dy, array_length(gamepad_rebinds));
 	}
 	
 	
