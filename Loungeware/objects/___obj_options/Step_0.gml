@@ -123,6 +123,7 @@ if (state == "key_controls" || state == "gamepad_controls") {
 		rebinds_t = 0;
 		just_listening = false;
 		listening = false;
+		confirmed = false;
 	}
 }
 
