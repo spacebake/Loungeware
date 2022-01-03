@@ -32,7 +32,8 @@ ___global._DTA_SCALE = 1;
 // -------------------------------------------------------------------------------------
 // DRAW TEXT ADVANCED
 // -------------------------------------------------------------------------------------
-function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str, _OPT_aliveshakeval, _OPT_scale, _OPT_letter_spacing){
+function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str, _OPT_aliveshakeval, _OPT_scale, _OPT_letter_spacing, 
+	_c = draw_get_colour(), _a = draw_get_alpha(), _font = draw_get_font(), _halign = draw_get_halign(), _valign = draw_get_valign()){
 	if (0) return argument[0];
 	
 	// fix broken end tag on string
@@ -53,11 +54,11 @@ function ___draw_text_advanced(x, y, line_height, is_alive, string_complete, str
 	var current_line_width = ___DTA_return_line_width(str, line, _OPT_letter_spacing) * scale;
 	var letter_width = (string_width("M") + _OPT_letter_spacing)*scale;
 	
-	var def_draw_col = draw_get_color();
-	var def_halign = draw_get_halign();
-	var def_valign = draw_get_valign();
-	var def_font = draw_get_font();
-	var def_alpha = draw_get_alpha();
+	var def_draw_col = _c
+	var def_halign = _halign;
+	var def_valign = _valign;
+	var def_font = _font;
+	var def_alpha = _a;
 	
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);

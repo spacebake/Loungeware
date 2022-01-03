@@ -23,6 +23,7 @@ microgame_register("jdllama_unscrew", {
     },
 	is_enabled: false,
 	supports_html: false,
+	supports_pi: true,
 	show_on_website: false,
 	
 });
@@ -48,6 +49,7 @@ microgame_register("jdllama_hammer", {
     date_added: "21/08/12",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	
 });
@@ -73,6 +75,7 @@ microgame_register("jdllama_target", {
     date_added: "21/08/09",
     is_enabled: true,
     supports_html: true,
+	supports_pi: true,
     show_on_website: true,
     description: [
         "Invasion! Chaos! ANARCHY! We are being bombarded by living bullseye targets, and only YOU can save us!."

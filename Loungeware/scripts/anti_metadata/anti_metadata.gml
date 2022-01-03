@@ -19,5 +19,6 @@ microgame_register("anti_hats", {
     date_added: "21/07/14",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });

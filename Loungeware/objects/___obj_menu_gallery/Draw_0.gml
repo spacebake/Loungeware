@@ -55,8 +55,7 @@ if (cursor < 0) cursor = _list_len -1;
 
 // draw bg
 draw_set_halign(fa_left);
-draw_set_color(col_bg);
-draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+draw_rectangle_fix(0, 0, VIEW_W, VIEW_H, col_bg);
 
 var _margin = 28;
 var _game_info_display_w = VIEW_W/2;
@@ -68,13 +67,10 @@ var _div_x1 = (VIEW_W - (_game_info_display_w + (_margin*2))) + 8;
 var _div_x2 = _div_x1 + _div_w;
 var _div_y1 = _div_margin;
 var _div_y2 = VIEW_H - _div_margin;
-draw_set_color(col_bar);
-draw_rectangle_fix(_div_x1, _div_y1, _div_x2, _div_y2);
+draw_rectangle_fix(_div_x1, _div_y1, _div_x2, _div_y2, col_bar);
 
 
 // draw menu entries
-draw_set_font(___fnt_gallery_elipses);
-draw_set_color(c_gbwhite);
 var _list_margin_x = 8;
 var _list_margin_y = _div_y1;
 var _list_x = _list_margin_x;
@@ -102,16 +98,12 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 	var _text_adjust_y = 2;
 	
 	if (i == cursor) {
-		
-		draw_set_color(col_bar);
 		var x1 = 0;
 		var y1 = _list_y - _list_line_sep*0.5;
 		var x2 = _div_x1 - 2;
 		var y2 = _list_y + _list_line_height;
-		draw_rectangle(x1, y1-3, x2+1, y2+5, false);
-		draw_set_color(c_gbyellow);
+		draw_rectangle_fix(x1, y1-3, x2+2, y2+6, col_bar);
 	}
-	
 	
 	// draw mini cart
 	___shader_cartridge_on(_data);
@@ -128,9 +120,7 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 	
 	_name = ___global.___DTA_linebreak_pixels(_name, _list_max_w + 32, draw_get_font(), _list_letter_sep);
 	var _lines = string_count("\n", _name)+1;
-	draw_set_color(c_gbwhite);
 	if (i == cursor){
-		draw_set_color(c_gbyellow);
 		_name = "<wave>" + _name;
 		scroll_y_target = ((VIEW_H/2)-25) - (_list_total_h);
 		if (scroll_skip){
@@ -147,19 +137,21 @@ for (var i = 0; i < array_length(microgame_keylist); i++){
 			_list_line_height, 
 			true, true,
 			_name,
-			1, 1, _list_letter_sep
+			1, 1, _list_letter_sep,
+			i == cursor ? c_gbyellow : c_gbwhite, 
+			draw_get_alpha(), 
+			___fnt_gallery_elipses
 		)
 	}
 
 	_list_y += (_list_line_height * _lines) + (_list_line_sep/2);
 
 	// draw seperator line
-	draw_set_color(col_bar);
 	var _dot_size = 2;
 	
 	if (_in_view){
 		if (i != array_length(microgame_keylist)-1){
-			draw_dotted_line(_list_x, _list_y-2, _list_x + _list_max_w, _list_y-2, _dot_size, _dot_size);
+			draw_dotted_line(_list_x, _list_y-2, _list_x + _list_max_w, _list_y-2, _dot_size, _dot_size, col_bar);
 		}
 	}
 	
@@ -176,19 +168,15 @@ scroll_y_target = clamp(scroll_y_target, -_list_total_h, 0);
 //draw_sprite(___spr_gallery_arrows, 2, _div_x1, _cursor_y-5);
 
 // draw covers
-draw_set_color(col_bar);
 var _cover_height = _div_y1;
 var _bar_y = (VIEW_H - (_cover_height));
 var _arrow_fade_steps = 10;
 
 // draw bottom cover
 var _show_bottom_cover = (_list_y > VIEW_H);
-draw_set_color(col_bg);
 
-draw_rectangle_fix(0, _bar_y, _div_x1, VIEW_H);
-draw_set_alpha(bottom_cover_prog);
-draw_sprite(___spr_gallery_arrows, 0, _div_x1 / 2, _bar_y);
-draw_set_alpha(1);
+draw_rectangle_fix(0, _bar_y, _div_x1, VIEW_H+2, col_bg);
+draw_sprite_ext(___spr_gallery_arrows, 0, _div_x1 / 2, _bar_y, 1, 1, 0, col_bg, bottom_cover_prog);
 
 if (_show_bottom_cover){
 	bottom_cover_prog = min(1, bottom_cover_prog + (1/_arrow_fade_steps));
@@ -199,12 +187,9 @@ if (_show_bottom_cover){
 // draw top cover
 var _show_top_cover = (_list_y - _list_total_h < 0);
 var _bar_y = _cover_height;
-draw_set_color(col_bg);
 
-draw_rectangle_fix(0, 0, _div_x1, _bar_y)
-draw_set_alpha(top_cover_prog);
-draw_sprite(___spr_gallery_arrows, 1, _div_x1 / 2, _bar_y - sprite_get_height(___spr_gallery_arrows));
-draw_set_alpha(1);
+draw_rectangle_fix(0, 0, _div_x1, _bar_y, col_bg)
+draw_sprite_ext(___spr_gallery_arrows, 1, _div_x1 / 2, _bar_y - sprite_get_height(___spr_gallery_arrows), 1, 1, 0, col_bg, top_cover_prog);
 
 if (_show_top_cover){
 	top_cover_prog = min(1, top_cover_prog + (1/_arrow_fade_steps));
@@ -238,8 +223,7 @@ draw_sprite(_label, 0, _label_x, _label_y);
 _cart_y += sprite_get_height(___spr_cart_gallery) + _cart_margin_y;
 
 // draw cart seperator (under)
-draw_set_color(col_bar);
-draw_dotted_line(_div_x2 + _margin, _cart_y, VIEW_W - _margin, _cart_y, 3, 3);
+draw_dotted_line(_div_x2 + _margin, _cart_y, VIEW_W - _margin, _cart_y, 3, 3, col_bar);
 
 // draw game name
 //var _col_primary = _current_game_data.cartridge_col_primary;
@@ -250,11 +234,9 @@ var _game_name = string_upper(_current_game_data.game_name);
 var _text_sep = 30
 
 _game_name = ___global._DTA_linebreak_chars(_game_name, 21);
-draw_set_color(c_gbyellow);
-draw_set_halign(fa_center);
-draw_set_font(fnt_gallery);
 _game_name = _game_name;
-___global.___draw_text_advanced(_info_x, _info_y, _text_sep, true, true, _game_name, 1, 1, 0);
+___global.___draw_text_advanced(_info_x, _info_y, _text_sep, true, true, _game_name, 1, 1, 0,
+	c_gbyellow, draw_get_alpha(), fnt_gallery, fa_center);
 var _lines = string_count("\n" , _game_name);
 _info_y += _lines * _text_sep;
 _info_y += _margin;
@@ -273,8 +255,7 @@ _info_y -= 3;
 
 // divider
 // draw cart seperator (under creator name)
-draw_set_color(col_bar);
-draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3);
+draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3, col_bar);
 
 // draw difficulty
 var _str = "DIFFICULTY: ";
@@ -303,8 +284,7 @@ if (_current_game_data.supports_difficulty_scaling){
 // draw cart seperator (under difficulty)
 _info_y += string_height("W");
 _info_y += (_cart_margin_y/2)-2;
-draw_set_color(col_bar);
-draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3);
+draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3, col_bar);
 
 
 // draw date
@@ -318,8 +298,7 @@ _info_y += string_height("W");
 _info_y += (_cart_margin_y/2)-2;
 // divider
 // draw cart seperator (under date)
-draw_set_color(col_bar);
-draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3);
+draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3, col_bar);
 _info_y += (_cart_margin_y/2)-2;
 
 // draw credits
@@ -341,9 +320,8 @@ _info_y += _credits_line_h * _credits_line_count;
 
 
 // draw sep (under credits)
-draw_set_color(col_bar);
 _info_y += 4;
-draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3);
+draw_dotted_line(_div_x2 + _margin, _info_y, VIEW_W - _margin, _info_y, 3, 3, col_bar);
 _info_y += (_cart_margin_y/2)-2;
 
 var _size = WINDOW_BASE_SIZE/2;

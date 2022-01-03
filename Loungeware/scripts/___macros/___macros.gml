@@ -3,12 +3,13 @@
 
 // html rectangle fix
 #macro ___draw_rectangle_real draw_rectangle
-function ___drhtmlf(x1, y1, x2, y2, outline){
+function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get_alpha()){
 	if (HTML_MODE){
 		x2 += 1;
 		y2 += 1;
 	}
-	___draw_rectangle_real(x1, y1, x2, y2, outline);
+	//___draw_rectangle_real(x1, y1, x2, y2, outline);
+	draw_sprite_ext(___spr_pixel, 0, x1, y1, x2 - x1 - 1, y2 - y1 - 1, 0, c, a)
 }
 #macro draw_rectangle ___drhtmlf
 
@@ -37,9 +38,13 @@ function ___drhtmlf(x1, y1, x2, y2, outline){
 
 // config specific
 #macro Shipping:show_debug_overlay ___noop
+// #macro RasPi:show_debug_overlay ___noop
 
 #macro CONFIG_IS_SHIPPING false
 #macro Shipping:CONFIG_IS_SHIPPING true
+
+#macro CONFIG_IS_RASPI false
+#macro RasPi:CONFIG_IS_RASPI true
 
 #macro HTML_MODE (!(os_browser == browser_not_a_browser))
 #macro DEVELOPER_MODE (___global.developer_mode_active)

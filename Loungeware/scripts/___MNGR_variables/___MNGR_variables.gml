@@ -318,11 +318,22 @@ var es_action_submit_score = function(){
 	es_exit_to = "submit";
 }
 
+var es_action_main_menu_pi = function() {
+	___state_change("exit_transition");
+	es_exit_to = "main_menu";
+}
+
 es_menu = [
 	{text : "SUBMIT SCORE", action : es_action_submit_score},
 	//{text : "PLAY AGAIN", action : es_action_goto_exit_warning_play_again},
 	{text : "EXIT", action : es_action_main_menu},
 ];
+
+if (CONFIG_IS_RASPI)
+	es_menu = [
+		{text : "EXIT", action : es_action_main_menu_pi},
+	];
+
 es_menu_cursor = 0;
 es_menu_confirmed = false;
 es_close_circle_prog = 1;

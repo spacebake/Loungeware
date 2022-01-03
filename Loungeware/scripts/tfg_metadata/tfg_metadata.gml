@@ -23,6 +23,7 @@ microgame_register("tfg_collision", {
 	},
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -47,5 +48,6 @@ microgame_register("tfg_swipe", {
     date_added: "21/08/15",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
