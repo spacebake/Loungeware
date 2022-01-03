@@ -56,7 +56,6 @@ function ___MG_MNGR_declare_functions(){
 		
 	
 		games_played += 1;
-		show_debug_overlay(false);
 		
 		var _won_last_game = ___MG_MNGR.microgame_won;
 		var _is_arcade_mode = (!gallery_mode && !TEST_MODE_ACTIVE);

@@ -31,6 +31,7 @@ microgame_register("objfrog_parking_plunder", {
 	},
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	description: [
 		"Park your car in the marked spot. That's all there is to it, stinker.", 
@@ -66,6 +67,7 @@ microgame_register("objfrog_yeehaw_shooter", {
 	},
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	description: [
 		"Practice yer' aim in the wild west by shootin' some targets. Hit 'em all within the time limit.", 

@@ -2,8 +2,9 @@
 // DRAW RECTANGLE FIX
 // draws a rectangle but with 1 pixel removed from the x2 and y2 values
 //--------------------------------------------------------------------------------------------------------
-function draw_rectangle_fix(_x1, _y1, _x2, _y2){
-	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, 0);
+function draw_rectangle_fix(_x1, _y1, _x2, _y2, _c = draw_get_colour(), _a = draw_get_alpha()){
+	//draw_rectangle is macroed
+	draw_rectangle(_x1, _y1, _x2 - 1, _y2 - 1, false, _c, _a);
 }
 
 //--------------------------------------------------------------------------------------------------------
@@ -369,7 +370,7 @@ function ___sound_menu_back(){
 // ------------------------------------------------------------------------------------------
 // DRAW DOTTED LINE
 // ------------------------------------------------------------------------------------------
-function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
+function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size, _c = draw_get_colour(), _a = draw_get_alpha()){
 	// swap x1 and x2 if x2 is smaller
 	var _xx = _x1;
 	var _yy = _y1;
@@ -379,7 +380,7 @@ function draw_dotted_line(_x1, _y1, _x2, _y2, _dot_size, _gap_size){
 	var _seg_count = floor((_dist + _gap_size) / (_dot_size + _gap_size)) + 1;
 	repeat(_seg_count){
 		
-		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2));
+		draw_rectangle_fix(_xx - (_dot_size/2), _yy - (_dot_size/2), _xx+(_dot_size/2), _yy + (_dot_size/2), _a, _c);
 		_xx += lengthdir_x(_gap_size + _dot_size, _direction);
 		_yy += lengthdir_y(_gap_size + _dot_size, _direction);
 	}
@@ -558,8 +559,10 @@ function ___microgame_list_remove_incompatible(){
 		var _disabled = (variable_struct_exists(_data, "is_enabled")) && (_data.is_enabled == false);
 		var _has_html_prop = variable_struct_exists(_data, "supports_html");
 		var _supports_html = (_has_html_prop && _data.supports_html == true);
+		var _has_pi_prop = variable_struct_exists(_data, "supports_pi");
+		var _supports_pi = (_has_pi_prop && _data.supports_pi);
 		
-		if (_disabled || (HTML_MODE && !_supports_html)){
+		if (_disabled || (HTML_MODE && !_supports_html) || (CONFIG_IS_RASPI && !_supports_pi)){
 			var _debug_str = _data.game_name + " was removed from gamelist because ";
 			
 			if (_disabled){
@@ -569,6 +572,12 @@ function ___microgame_list_remove_incompatible(){
 					_debug_str += "[no \"supports_html\" property was found in metadata] ";
 				} else {
 					_debug_str += "[\"supports_html\" property was set to false]";
+				}
+			} else if (CONFIG_IS_RASPI) {
+				if (!_has_pi_prop){
+					_debug_str += "[no \"supports_pi\" property was found in metadata] "
+				} else {
+					_debug_str += "[\"supports_pi\" property was set to false]"
 				}
 			}
 			
@@ -716,11 +725,12 @@ function ___draw_title(_x, _y){
 
 	draw_text_ext_transformed(_x, _y, _game_name, _sep, _w, _scale, _scale, 0);
 	draw_set_color(c_gbpink);
-	draw_rectangle_fix(_line_x1, (_y - _padding) - 2, _line_x2, _y - _padding);
+	//idk lol but draw_sprite_ext doesnt work	
+	___draw_rectangle_real(_line_x1, (_y - _padding) - 2, _line_x2 + HTML_MODE - 1, _y - _padding + HTML_MODE - 1, false);
 	_y += (_name_h + _margin);
 	draw_text_ext_transformed(_x, _y, _game_creator, _sep, _w, _scale, _scale, 0);
 	_y += (_creator_h);
-	draw_rectangle_fix(_line_x1, (_y + _padding) - 2, _line_x2, _y + _padding);
+	___draw_rectangle_real(_line_x1, (_y + _padding) - 2, _line_x2 + HTML_MODE - 1, _y + _padding + HTML_MODE - 1, false);
 	draw_set_halign(fa_left);
 	
 }

@@ -19,6 +19,7 @@ microgame_register("mimpy_dinner_date", {
     date_added: "21/07/09",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -43,6 +44,7 @@ microgame_register("mimpy_fire_alarm", {
     date_added: "21/07/06",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -67,6 +69,7 @@ microgame_register("mimpy_objection", {
     date_added: "21/08/22",
     is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });
 
@@ -91,5 +94,6 @@ microgame_register("mimpy_highnote", {
     date_added: "21/11/30",
     is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 });

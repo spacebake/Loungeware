@@ -19,6 +19,7 @@ microgame_register("space_rocket_lander", {
     date_added: "21/07/04",
 	is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	description: [
 		"Land a spaceship on the planet's surface. Be careful though, the ship is fragile.", 
@@ -49,6 +50,7 @@ microgame_register("space_scooter", {
     date_added: "21/07/12",
     is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	description: [
 		"Cruisin' through the forest at midnight with only bats for company.", 
@@ -80,6 +82,7 @@ microgame_register("space_larold_lineup", {
     date_added: "21/09/22",
     is_enabled: true,
 	supports_html: true,
+	supports_pi: true,
 	show_on_website: true,
 	description: [
 		"Detective Baku has been called down to the station to identify a very naughty larold."
