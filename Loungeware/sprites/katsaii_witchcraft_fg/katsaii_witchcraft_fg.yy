@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 32,
-  "bbox_right": 1613,
-  "bbox_top": 97,
-  "bbox_bottom": 347,
+  "bbox_left": 0,
+  "bbox_right": 1655,
+  "bbox_top": 66,
+  "bbox_bottom": 420,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"af652431-781f-4481-bdd5-4f02a6c0fd0a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"af652431-781f-4481-bdd5-4f02a6c0fd0a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"LayerId":{"name":"0810fb84-fd6b-4a23-abc0-bd88db239e4d","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchcraft_fg","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","name":"af652431-781f-4481-bdd5-4f02a6c0fd0a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"398739c6-8cf0-4ba6-8e78-6bc88e0f342a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"398739c6-8cf0-4ba6-8e78-6bc88e0f342a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"LayerId":{"name":"5c8731df-299b-4435-ae92-782e3aa71a3c","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchcraft_fg","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","name":"398739c6-8cf0-4ba6-8e78-6bc88e0f342a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"katsaii_witchcraft_fg","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},
@@ -41,8 +41,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"792dbb60-a30d-4808-ae50-f2b5ab93eef3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"af652431-781f-4481-bdd5-4f02a6c0fd0a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"527f737c-3128-44f4-86b3-5f34b186d04e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"398739c6-8cf0-4ba6-8e78-6bc88e0f342a","path":"sprites/katsaii_witchcraft_fg/katsaii_witchcraft_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0810fb84-fd6b-4a23-abc0-bd88db239e4d","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5c8731df-299b-4435-ae92-782e3aa71a3c","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
