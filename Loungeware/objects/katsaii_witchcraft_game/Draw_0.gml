@@ -17,19 +17,25 @@ for (var i = 0; i <= 2; i += 1) {
     var scale = lerp(0.95, 1.05, (wiggle + 1) / 2);
     var scale2 = scale;
     if (i == selectionID) {
-        scale2 *= 1.25;
+        scale2 *= 1.5;
     }
     var img = wandOrder[i];
     if (wandCurrent == img) {
         var fade = craftAnimation == -1 ? 1 : abs(lerp(-1, 0, craftAnimation));
-        gpu_set_blendmode(bm_add);
         matrix_set(matrix_world, matrix_build(pos_x, pos_y_pentagram, 0, 0, 0, 0, 1, 0.5, 1));
-        draw_sprite_ext(katsaii_witchcraft_pentagram, 0, 0, 0, 0.5 * scale, 0.5 * scale, current_time * 0.1, c_white, fade * 0.75);
-        matrix_set(matrix_world, matrix_build_identity());
+        draw_sprite_ext(katsaii_witchcraft_pentagram, 0, 0, 0, 0.5 * scale + 0.05 * wiggle, 0.5 * scale, -current_time * 0.1, c_white, fade * 0.75);
+        gpu_set_blendmode(bm_add);
+        draw_sprite_ext(katsaii_witchcraft_pentagram, 0, 0, 0, 0.5 * scale, 0.5 * scale + 0.05 * wiggle, current_time * 0.1, c_white, fade * 0.5);
         gpu_set_blendmode(bm_normal);
+        matrix_set(matrix_world, matrix_build_identity());
     }
     if (img >= wandCurrent) {
         draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 1);
+        if (i == selectionID) {
+            gpu_set_blendmode(bm_add);
+            draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 1);
+            gpu_set_blendmode(bm_normal);
+        }
     }
 }
 var angle = lerp(0, 180, selectionAmount);
@@ -43,12 +49,12 @@ if (craftAnimation != -1) {
         yoffset = (2 - craftAnimation) * 300;
     }
 }
-draw_sprite_ext(katsaii_witchcraft_cat, 0, lerp(left, right, smooth), bottom + yoffset, 1, 1, weight * 20 * sign(selectionSpeed), c_white, 1);
+draw_sprite_ext(katsaii_witchcraft_cat, 0, lerp(left, right, smooth), bottom + 100 + yoffset, 1.5, 1.5, weight * 20 * sign(selectionSpeed), c_white, 1);
 if (failed || win) {
     var fg = failed ? katsaii_witchcraft_finish_bad : katsaii_witchcraft_finish_good;
     var bg = failed ? katsaii_witchcraft_finish_bad_bg : katsaii_witchcraft_finish_good_bg;
     var msg = failed ? katsaii_witchcraft_finish_bad_msg : katsaii_witchcraft_finish_good_msg;
-    var scale_multiplier = failed ? 1.4 : 1.1;
+    var scale_multiplier = failed ? 1.5 : 1.2;
     var scale_limit = failed ? 1.4 : 1.1;
     var wiggle1 = sin(current_time * 0.01);
     var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
