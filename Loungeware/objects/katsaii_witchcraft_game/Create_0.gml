@@ -18,3 +18,4 @@ craftAnimation = -1;
 craftSpeed = 0.075;
 resultTimer = 0;
 resultSpeed = 0.04;
+alarm[2] = 1;

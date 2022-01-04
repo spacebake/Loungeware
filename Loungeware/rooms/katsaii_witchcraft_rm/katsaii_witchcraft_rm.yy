@@ -22,9 +22,10 @@
     {"assets":[
         {"sequenceId":{"name":"katsaii_witchcraft_seq","path":"sequences/katsaii_witchcraft_seq/katsaii_witchcraft_seq.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":608.0,"y":768.0,"resourceVersion":"1.0","name":"graphic_74D82EC4","tags":[],"resourceType":"GMRSequenceGraphic",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Sequence","tags":[],"resourceType":"GMRAssetLayer",},
+    {"instances":[],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"TearInstances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"katsaii_witchcraft_bg","path":"sprites/katsaii_witchcraft_bg/katsaii_witchcraft_bg.yy",},"headPosition":0.0,"rotation":0.0,"scaleX":1.22927463,"scaleY":1.22927463,"animationSpeed":1.0,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-33.0,"y":-13.0,"resourceVersion":"1.0","name":"graphic_39FC8A86","tags":[],"resourceType":"GMRSpriteGraphic",},
-      ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRAssetLayer",},
+      ],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRAssetLayer",},
   ],
   "inheritLayers": false,
   "creationCodeFile": "",
