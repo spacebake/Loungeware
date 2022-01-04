@@ -48,7 +48,7 @@ if (failed || win) {
     var fg = failed ? katsaii_witchcraft_finish_bad : katsaii_witchcraft_finish_good;
     var bg = failed ? katsaii_witchcraft_finish_bad_bg : katsaii_witchcraft_finish_good_bg;
     var msg = failed ? katsaii_witchcraft_finish_bad_msg : katsaii_witchcraft_finish_good_msg;
-    var scale_multiplier = failed ? 1.4 : 1.1;
+    var scale_multiplier = failed ? 1.5 : 1.2;
     var scale_limit = failed ? 1.4 : 1.1;
     var wiggle1 = sin(current_time * 0.01);
     var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
