@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "wanda",
-    "path": "folders/Microgames/katsaii/witchcraft/wanda.yy",
+    "name": "others",
+    "path": "folders/Microgames/katsaii/witchcraft/others.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchcraft_fg",

@@ -298,8 +298,8 @@
   "eventToFunction": {},
   "eventStubScript": null,
   "parent": {
-    "name": "witchcraft",
-    "path": "folders/Microgames/katsaii/witchcraft.yy",
+    "name": "wanda",
+    "path": "folders/Microgames/katsaii/witchcraft/wanda.yy",
   },
   "resourceVersion": "1.3",
   "name": "katsaii_witchcraft_seq",
