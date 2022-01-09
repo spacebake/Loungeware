@@ -54,6 +54,51 @@ function gamepad_rebinds_values_right(index) {
 	return { indexes: ___global.curr_controller_keys[$ gamepad_rebinds[index]], isAxes: false };
 }
 
+function draw_rebinds(arr, x, y) {
+	static whiteball_square_w = sprite_get_width(___spr_whiteball_square);
+	static whiteball_rect_w = sprite_get_width(___spr_whiteball_rect);
+	
+	var texts = [];
+	var widths = [];
+	for (var i = 0; i < array_length(arr); i++) {
+		var _str_or_spr = ___global.keycode_to_str[arr[i]]
+		
+		array_push(texts, _str_or_spr);
+		
+		if (is_string(_str_or_spr)) {
+			draw_set_font(___fnt_lw)	
+			array_push(widths, string_width(_str_or_spr));
+		} else 
+			array_push(widths, sprite_get_width(_str_or_spr));
+	}
+	
+	var xx = rebind_right_xpos;
+	log(array_length(widths))
+	for (var i = 0; i < array_length(widths); i++) {
+		var text_or_spr = texts[i];
+		
+		if ((is_string(text_or_spr) && string_length(text_or_spr) <= 3) || 
+			(text_or_spr == ___spr_arrow_down || text_or_spr == ___spr_arrow_left || text_or_spr == ___spr_arrow_right || text_or_spr == ___spr_arrow_up || text_or_spr == ___spr_backspace)) {
+				
+			draw_sprite(___spr_whiteball_square, 0, xx, y);
+			
+			if (is_string(text_or_spr)) {
+				draw_set_font(___fnt_key);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_text_color(xx, y, text_or_spr, c_keyred, c_keyred, c_keyred, c_keyred, 1);
+				
+			} else {
+				log(sprite_get_name(text_or_spr));
+				draw_sprite_ext(text_or_spr, 0, xx, y, 1, 1, 0, c_keyred, 1);
+			}
+			
+			xx -= whiteball_square_w + whiteball_spacing;
+		}
+	}
+}
+
+whiteball_spacing = 8;
 rebinding = false;
 pause_t = 0;
 keyboard_rebinds = ["right", "up", "left", "down", "primary", "secondary", "pause"];

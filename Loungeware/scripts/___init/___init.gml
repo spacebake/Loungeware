@@ -26,6 +26,7 @@ function ___GAME_INIT(){
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
 	___global.macro_c_gbdark = make_color_rgb(31,27,37);
+	___global.macro_c_keyred = 0x4E55C8;
 	
 	// local scores
 	___global.player_id = ___load_or_create_player_id();

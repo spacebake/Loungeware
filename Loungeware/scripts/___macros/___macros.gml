@@ -25,6 +25,7 @@ function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get
 #macro c_gbwhite ___global.macro_c_gbwhite
 #macro c_gbdark ___global.macro_c_gbdark
 #macro c_larold ___global.macro_c_larold
+#macro c_keyred ___global.macro_c_keyred
 #macro ___cart_primary_col_default ___global.macro_c_cart_primary
 #macro ___cart_secondary_col_default ___global.macro_c_cart_secondary
 #macro ___cart_label_default johndoe_examplegame_spr_label
