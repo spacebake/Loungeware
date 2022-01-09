@@ -82,6 +82,25 @@ if (state == "normal") {
 	if (listening) {
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
 	}
+	
+} 
+
+if (state == "gamepad_controls" || state == "key_controls") {
+	
+	draw_set_font(___fnt_gallery_elipses);
+	var xx = xpos - string_width(menu[cursor].prompt) / 2 //left
+		+ string_width("Press") + string_width(" ")*1.5 //adjust right
+		- 9; //half width of button
+		
+	var yy = prompt_ypos - 10; //half height of button
+	
+	draw_sprite(spr_button_a, 0, xx, yy);
+	
+	xx = xpos - string_width(menu[cursor].prompt) / 2 //left
+		+ string_width("Press   to add a key, or") + string_width(" ")*1.5 //adjust right
+		- 9; //half width of button
+		
+	draw_sprite(spr_button_b, 0, xx, yy);
 }
 	
 	if (true) {} else {

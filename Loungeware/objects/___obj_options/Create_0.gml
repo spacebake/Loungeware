@@ -2,15 +2,15 @@ ___state_setup("normal");
 
 xpos = room_width / 2;
 ypos = room_height / 2 - 200;
-menu_y = ypos + 180;
-prompt_ypos = ypos + 70;
+menu_y = ypos + 140;
+prompt_ypos = ypos + 50;
 
 confirmed = false;
 cursor = 0;
 title_txt = {
 	normal: "OPTIONS",
-	key_controls: "KEYBOARD MAPPING",
-	gamepad_controls: "GAMEPAD MAPPING",
+	key_controls: "KEYMAP",
+	gamepad_controls: "GAMEPAD MAP",
 };
 
 function back_to_main(){
@@ -24,12 +24,12 @@ function back_to_main(){
 menu = [
 	{ 
 		text: "KEYBOARD MAPPING",
-		prompt: "Press [A] to add a key, or [B] to clear keys",
+		prompt: "Press   to add a key, or   to clear keys",
 		op: method(self, function() { ___state_change("key_controls") }), 
 	},
 	{ 
 		text: "GAMEPAD MAPPING",
-		prompt: "Press [A] to add a key, or [B] to clear keys",
+		prompt: "Press   to add a key, or   to clear keys",
 		op: method(self, function() { ___state_change("gamepad_controls") }), 
 	},
 	{ 
