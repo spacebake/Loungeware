@@ -101,6 +101,10 @@ if (state == "gamepad_controls" || state == "key_controls") {
 		- 9; //half width of button
 		
 	draw_sprite(spr_button_b, 0, xx, yy);
+	
+	
+	draw_set_font(___fnt_lw)
+	log(string_height("M"));
 }
 	
 	if (true) {} else {
