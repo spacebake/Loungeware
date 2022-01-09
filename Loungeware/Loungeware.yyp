@@ -131,6 +131,7 @@
     {"id":{"name":"n8fl_penguin_blast_damsel_weight","path":"objects/n8fl_penguin_blast_damsel_weight/n8fl_penguin_blast_damsel_weight.yy",},"order":2,},
     {"id":{"name":"n8fl_penguin_blast_hit_fail_snd","path":"sounds/n8fl_penguin_blast_hit_fail_snd/n8fl_penguin_blast_hit_fail_snd.yy",},"order":5,},
     {"id":{"name":"n8fl_cheat_seaet_btn_prompt_spr","path":"sprites/n8fl_cheat_seaet_btn_prompt_spr/n8fl_cheat_seaet_btn_prompt_spr.yy",},"order":6,},
+    {"id":{"name":"___spr_gp_face1","path":"sprites/___spr_gp_face1/___spr_gp_face1.yy",},"order":18,},
     {"id":{"name":"n8fl_penguin_blast_goal_weight","path":"objects/n8fl_penguin_blast_goal_weight/n8fl_penguin_blast_goal_weight.yy",},"order":3,},
     {"id":{"name":"___spr_leaderboard_icon_border","path":"sprites/___spr_leaderboard_icon_border/___spr_leaderboard_icon_border.yy",},"order":2,},
     {"id":{"name":"katsaii_wandaring_spr_sparkle","path":"sprites/katsaii_wandaring_spr_sparkle/katsaii_wandaring_spr_sparkle.yy",},"order":5,},
