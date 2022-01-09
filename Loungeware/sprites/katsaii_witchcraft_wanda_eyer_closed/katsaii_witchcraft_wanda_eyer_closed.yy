@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "wanda-new",
-    "path": "folders/Microgames/katsaii/witchcraft/wanda-new.yy",
+    "name": "wanda",
+    "path": "folders/Microgames/katsaii/witchcraft/wanda.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchcraft_wanda_eyer_closed",
