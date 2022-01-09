@@ -55,7 +55,7 @@ function gamepad_rebinds_values_right(index) {
 }
 
 rebinding = false;
-rebind_hold = 0;
+pause_t = 0;
 keyboard_rebinds = ["right", "up", "left", "down", "primary", "secondary", "pause"];
 gamepad_rebinds = ["h axis", "v axis", "right", "up", "left", "down", "primary", "secondary", "pause"];
 var generate_rebinds_menu = function(rebinds) {

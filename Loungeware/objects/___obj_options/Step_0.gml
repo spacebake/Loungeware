@@ -75,12 +75,20 @@ if (state == "normal") {
 		for (var i=0;i<array_length(___global.controller_values);i++) {
 			if (!___global.controller_values[i].active) continue;
 		
+			//someone has better way of checking all buttons? this doesnt get all of them
 			for ( var j = gp_face1; j < gp_axisrv; j++ ) {
 			    if ( gamepad_button_check( i, j ) ) {
 					last_gamepad_button = i;
 					break;
 				}
 			}
+			
+			//for (var j = 0; j < gamepad_button_count(i); j++) {
+			//	if (gamepad_button_check(i, j)) {
+			//		last_gamepad_button = i;
+			//		break;
+			//	}
+			//}
 		}
 		
 		if (listening && last_gamepad_button != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
@@ -116,14 +124,34 @@ if (state == "normal") {
 	just_listening = listening;
 }
 
-if (state == "key_controls" || state == "gamepad_controls") {
-	if (___KEY_PAUSE) {
+if ((state == "key_controls" || state == "gamepad_controls") && !listening && !just_listening) {
+	log(pause_t);
+	
+	if (keyboard_check(vk_escape)) {
+		pause_t++;
+		
+		if (pause_t > 60) {
+			if (state == "key_controls") {
+				___global.curr_input_keys = ___global.default_input_keys;
+				
+			} else if (state == "gamepad_controls") {
+				
+				___global.curr_controller_keys = ___global.default_controller_keys;
+				___global.curr_controller_axes = ___global.default_controller_axes;
+			}
+		}
+		
+	} else if (keyboard_check_released(vk_escape)) {
 		___state_change("normal");
 		
 		rebinds_t = 0;
 		just_listening = false;
 		listening = false;
 		confirmed = false;
+		pause_t = 0;
+		
+	} else {
+		pause_t = 0;	
 	}
 }
 

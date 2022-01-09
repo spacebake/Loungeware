@@ -56,11 +56,23 @@ function ___GAME_INIT(){
 		secondary: [gp_face2],
 		pause: [gp_start],
 	}
+	if (CONFIG_IS_RASPI) {
+		___global.default_controller_keys = {
+			right: [gp_padr],
+			up: [gp_padu],
+			left: [gp_padl],
+			down: [gp_padd],
+			primary: [3], //correct
+			secondary: [0], //correct
+			pause: [7], //not 8, 9, 0, 1, 2, 3, 4
+		}
+	}
+		
 	___global.curr_controller_keys = ___struct_copy(___global.default_controller_keys);
 	
 	___global.default_controller_axes = {
-		horizontal: [gp_axislh],
-		vertical: [gp_axislv],
+		horizontal: [0], //correct
+		vertical: [2], //correct
 	}
 	___global.curr_controller_axes = ___struct_copy(___global.default_controller_axes);
 	

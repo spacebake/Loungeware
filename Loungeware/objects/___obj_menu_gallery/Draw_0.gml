@@ -39,7 +39,7 @@ if (state == "normal"){
 	}
 
 	// back button OR escape key
-	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)){
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape) || ___KEY_PAUSE_PRESSED){
 		state = "fadeout_back";
 		fadeout_do =  back_to_main;
 		// stop sound
