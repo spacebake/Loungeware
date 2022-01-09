@@ -35,9 +35,10 @@ if (state == "normal") {
 	
 	draw_text(xpos, prompt_ypos, menu[cursor].prompt);
 	
-	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, keyboard_rebinds_menu_left, rebind_index, false, undefined, undefined, undefined, fa_left);
+	draw_set_font(___fnt_lw);
+	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, keyboard_rebinds_menu_left, rebind_index, false, undefined,rebinds_base_sep + rebinds_bonus_sep, undefined, fa_left);
 	//____menu_text_vertical_draw(rebind_right_xpos, rebind_y, empty_rebinds, rebind_index, false, undefined, undefined, undefined, fa_right);
-	draw_rebinds(keyboard_rebinds_values_right(0), 0, 100);
+	draw_all_rebinds();
 	
 	if (listening) {
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	

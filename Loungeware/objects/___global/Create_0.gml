@@ -105,6 +105,7 @@ ___global.keycode_to_str[48] = "0";
 ___global.keycode_to_str[189] = "-";
 ___global.keycode_to_str[187] = "=";
 ___global.keycode_to_str[vk_backspace] = ___spr_backspace;
+___global.keycode_to_str[vk_tab] = "TAB";
 ___global.keycode_to_str[65] = "A";
 ___global.keycode_to_str[66] = "B";
 ___global.keycode_to_str[67] = "C";

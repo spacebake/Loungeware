@@ -132,7 +132,7 @@
     "path": "folders/__Base Game (keep out).yy",
   },
   "resourceVersion": "1.0",
-  "name": "___fnt_key",
+  "name": "___fnt_key_small",
   "tags": [],
   "resourceType": "GMFont",
 }

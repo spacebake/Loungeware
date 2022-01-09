@@ -54,7 +54,19 @@ function gamepad_rebinds_values_right(index) {
 	return { indexes: ___global.curr_controller_keys[$ gamepad_rebinds[index]], isAxes: false };
 }
 
-function draw_rebinds(arr, x, y) {
+function draw_all_rebinds() {
+	static whiteball_h = sprite_get_height(___spr_whiteball_square);
+	
+	for (var i = 0; i < array_length(keyboard_rebinds); i++) {
+		var arr = keyboard_rebinds_values_right(i);
+		
+		var xx = rebind_right_xpos;
+		
+		draw_rebinds(arr, xx, rebind_y + i*(whiteball_h+rebinds_bonus_sep));
+	}
+}
+
+function draw_rebinds(arr, _x, _y) {
 	static whiteball_square_w = sprite_get_width(___spr_whiteball_square);
 	static whiteball_rect_w = sprite_get_width(___spr_whiteball_rect);
 	
@@ -72,28 +84,50 @@ function draw_rebinds(arr, x, y) {
 			array_push(widths, sprite_get_width(_str_or_spr));
 	}
 	
-	var xx = rebind_right_xpos;
-	log(array_length(widths))
+	var xx = _x;
+	var was_square = false;
 	for (var i = 0; i < array_length(widths); i++) {
 		var text_or_spr = texts[i];
 		
 		if ((is_string(text_or_spr) && string_length(text_or_spr) <= 3) || 
 			(text_or_spr == ___spr_arrow_down || text_or_spr == ___spr_arrow_left || text_or_spr == ___spr_arrow_right || text_or_spr == ___spr_arrow_up || text_or_spr == ___spr_backspace)) {
 				
-			draw_sprite(___spr_whiteball_square, 0, xx, y);
+			if (!was_square) xx += whiteball_square_w / 2;
+				
+			draw_sprite(___spr_whiteball_square, 0, xx, _y);
 			
 			if (is_string(text_or_spr)) {
 				draw_set_font(___fnt_key);
 				draw_set_halign(fa_center);
 				draw_set_valign(fa_middle);
-				draw_text_color(xx, y, text_or_spr, c_keyred, c_keyred, c_keyred, c_keyred, 1);
+				draw_text_color(xx, _y, text_or_spr, c_keyred, c_keyred, c_keyred, c_keyred, 1);
 				
 			} else {
-				log(sprite_get_name(text_or_spr));
-				draw_sprite_ext(text_or_spr, 0, xx, y, 1, 1, 0, c_keyred, 1);
+				draw_sprite_ext(text_or_spr, 0, xx, _y, 1, 1, 0, c_keyred, 1);
 			}
 			
 			xx -= whiteball_square_w + whiteball_spacing;
+			was_square = true;
+			
+		} else {
+			if (i != 0 && was_square)
+				xx -= whiteball_square_w / 2;
+			
+			draw_sprite(___spr_whiteball_rect, 0, xx, _y);
+			
+			if (is_string(text_or_spr)) {
+				draw_set_font(___fnt_key_small);
+				draw_set_halign(fa_center);
+				draw_set_valign(fa_middle);
+				draw_text_color(xx, _y, text_or_spr, c_keyred, c_keyred, c_keyred, c_keyred, 1);
+				//draw_text_ext_transformed_color(xx, _y, text_or_spr, 20, 9999, 0.7, 0.7, 0, c_keyred, c_keyred, c_keyred, c_keyred, 1);
+				
+			} else {
+				draw_sprite_ext(text_or_spr, 0, xx, _y, 1, 1, 0, c_keyred, 1);
+			}
+			
+			xx -= whiteball_rect_w + whiteball_spacing;
+			was_square = false;
 		}
 	}
 }
@@ -140,6 +174,11 @@ function keyboard_rebinds_menu_right() {
 	
 	return res;
 }
+
+var whiteball_h = sprite_get_height(___spr_whiteball_square);
+draw_set_font(___global.___fnt_gallery);
+rebinds_base_sep = whiteball_h - string_height("M") + 17.5;
+rebinds_bonus_sep = 6;
 
 function gamepad_rebinds_menu_right() {
 	//arr:[{indexes:Int, isAxes:Bool}]
