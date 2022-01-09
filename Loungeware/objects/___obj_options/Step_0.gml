@@ -12,7 +12,9 @@ if (state == "normal") {
 
 } else if (state == "key_controls") {
 	
-	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
+	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
+		!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
+			
 		listening = false;
 		
 		add_key(rebind_index, keyboard_lastkey, false);

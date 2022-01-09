@@ -216,13 +216,14 @@ function gamepad_rebinds_menu_right() {
 rebind_left_xpos = xpos - 220;
 rebind_right_xpos = xpos + 220;
 rebind_index = 0;
-rebind_y = ypos + 120;
+rebind_y = ypos + 90;
 rebind_curr_y = rebind_y + 100;
 rebind_gap = 20;
 rebinds_t = 0;
 listening = false;
 just_listening = false;
 listening_ypos = room_height - 50;
+rejects = [vk_f11, vk_f8]
 function add_key(index, keycode, is_gamepad) {
 	if (is_gamepad) {
 		if (variable_struct_exists(___global.curr_controller_keys, gamepad_rebinds[index]))
