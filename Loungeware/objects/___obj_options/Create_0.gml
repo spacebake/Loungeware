@@ -225,19 +225,33 @@ just_listening = false;
 listening_ypos = room_height - 50;
 rejects = [vk_f11, vk_f8]
 function add_key(index, keycode, is_gamepad) {
+	static push = function(is_controller, _keycode, _index) {
+		var arr;
+	
+		if (is_controller) {
+			arr = ___global.curr_controller_keys[$ gamepad_rebinds[_index]];
+		} else {
+			arr = ___global.curr_input_keys[$ keyboard_rebinds[_index]];
+		}
+		
+		array_push(arr, _keycode);
+		if (array_length(arr) > 4)
+			array_delete(arr, 0, 1);
+	}
+	
 	if (is_gamepad) {
 		if (variable_struct_exists(___global.curr_controller_keys, gamepad_rebinds[index]))
-			array_push(___global.curr_controller_keys[$ gamepad_rebinds[index]], keycode);
+			push(true, keycode, index);
 		else {
 			if (gamepad_rebinds[index] == "h axis")
-				array_push(___global.curr_controller_axes.horizontal, keycode);
+				push(true, keycode, index);
 			else if (gamepad_rebinds[index] == "v axis")
-				array_push(___global.curr_controller_axes.vertical, keycode);
+				push(true, keycode, index);
 			
 		}
 		
 	} else 
-		array_push(___global.curr_input_keys[$ keyboard_rebinds[index]], keycode);
+		push(false, keycode, index);
 }
 
 function clear_rebinds(index, is_gamepad) {
