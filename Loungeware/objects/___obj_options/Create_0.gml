@@ -141,9 +141,17 @@ function draw_gamepad_rebinds(struct, _x, _y) {
 	static whiteball_rect_w = sprite_get_width(___spr_whiteball_rect);
 	
 	for (var i = 0; i < array_length(struct.indexes); i++) {
-		var spr = ___global.gp_to_str[? struct.indexes[i]];
+		var xx = _x+i*(whiteball_rect_w+rebinds_bonus_sep);
 		
-		draw_sprite(___spr_whiteball_rect, 0, _x+i*(whiteball_rect_w+rebinds_bonus_sep), _y);
+		var spr = ___global.gp_to_str[? struct.indexes[i]];
+		if (spr == undefined) {
+			if (struct.isAxes) spr = ___spr_gp_face1;
+			else spr = ___spr_gp_face1;
+		}
+		
+		draw_sprite(___spr_whiteball_rect, 0, xx, _y);
+		
+		draw_sprite(spr, 0, xx, _y);
 	}
 }
 
