@@ -148,32 +148,32 @@ var generate_rebinds_menu = function(rebinds) {
 }
 keyboard_rebinds_menu_left = generate_rebinds_menu(keyboard_rebinds);
 gamepad_rebinds_menu_left = generate_rebinds_menu(gamepad_rebinds);
-function keyboard_rebinds_menu_right() {
-	var arr_to_str = function(arr) {
-		var s = "";
+//function keyboard_rebinds_menu_right() {
+//	var arr_to_str = function(arr) {
+//		var s = "";
 		
-		for (var ii = 0; ii < array_length(arr); ii++) {
-			s += ___global.keycode_to_str[arr[ii]];	
+//		for (var ii = 0; ii < array_length(arr); ii++) {
+//			s += ___global.keycode_to_str[arr[ii]];	
 			
-			if (ii != array_length(arr) - 1)
-				s += ", ";
-		}
+//			if (ii != array_length(arr) - 1)
+//				s += ", ";
+//		}
 		
-		return s;
-	}	
+//		return s;
+//	}	
 	
-	var res = [];
-	for (var i = 0; i < array_length(keyboard_rebinds); i++) {
-		var txt = arr_to_str(keyboard_rebinds_values_right(i));
+//	var res = [];
+//	for (var i = 0; i < array_length(keyboard_rebinds); i++) {
+//		var txt = arr_to_str(keyboard_rebinds_values_right(i));
 		
-		if (txt == "")
-			txt = "---";
+//		if (txt == "")
+//			txt = "---";
 			
-		array_push(res, { text: txt });
-	}
+//		array_push(res, { text: txt });
+//	}
 	
-	return res;
-}
+//	return res;
+//}
 
 var whiteball_h = sprite_get_height(___spr_whiteball_square);
 draw_set_font(___global.___fnt_gallery);

@@ -177,3 +177,28 @@ ___global.keycode_to_str[vk_right] = ___spr_arrow_right;
 ___global.keycode_to_str[vk_up] = ___spr_arrow_up;
 ___global.keycode_to_str[vk_down] = ___spr_arrow_down;
 
+//-------------------------------------------------------------------------------------
+// GAMEPAD BUTTON CONSTANT -> SPRITE
+// For control rebinding
+//-------------------------------------------------------------------------------------
+___global.gp_to_str = ds_map_create();
+___global.gp_to_str[? gp_face1] = ___spr_gp_face1;	//Top button 1 (this maps to the "A" on an Xbox 360 controller and the cross on a PS controller)
+___global.gp_to_str[? gp_face2] = ___spr_gp_face1;	//Top button 2 (this maps to the "B" on an Xbox 360 controller and the circle on a PS controller)
+___global.gp_to_str[? gp_face3] = ___spr_gp_face1;	//Top button 3 (this maps to the "X" on an Xbox 360 controller and the square on a PS controller)
+___global.gp_to_str[? gp_face4] = ___spr_gp_face1;	//Top button 4 (this maps to the "Y" on an Xbox 360 controller and the triangle on a PS controller)
+___global.gp_to_str[? gp_shoulderl] = ___spr_gp_face1;	//Left shoulder button
+___global.gp_to_str[? gp_shoulderlb] = ___spr_gp_face1;	//Left shoulder trigger
+___global.gp_to_str[? gp_shoulderr] = ___spr_gp_face1;	//Right shoulder button
+___global.gp_to_str[? gp_shoulderrb] = ___spr_gp_face1;	//Right shoulder trigger
+___global.gp_to_str[? gp_select] = ___spr_gp_face1;	//The select button (on a DS4 controller, this triggers when you press the touchpad down)
+___global.gp_to_str[? gp_start] = ___spr_gp_face1;	//The start button (this is the "options" button on a PS4 controller)
+___global.gp_to_str[? gp_stickl] = ___spr_gp_face1;	//The left stick pressed (as a button)
+___global.gp_to_str[? gp_stickr] = ___spr_gp_face1;	//The right stick pressed (as a button)
+___global.gp_to_str[? gp_padu] = ___spr_gp_face1;	//D-pad up
+___global.gp_to_str[? gp_padd] = ___spr_gp_face1;	//D-pad down
+___global.gp_to_str[? gp_padl] = ___spr_gp_face1;	//D-pad left
+___global.gp_to_str[? gp_padr] = ___spr_gp_face1;	//D-pad right
+___global.gp_to_str[? gp_axislh] = ___spr_gp_face1;	//	Left stick horizontal axis (analog)
+___global.gp_to_str[? gp_axislv] = ___spr_gp_face1;	//	Left stick vertical axis (analog)
+___global.gp_to_str[? gp_axisrh] = ___spr_gp_face1;	//	Right stick horizontal axis (analog)
+___global.gp_to_str[? gp_axisrv] = ___spr_gp_face1;	//	Right stick vertical axis (analog)
