@@ -1,9 +1,9 @@
 ___state_setup("normal");
 
 xpos = room_width / 2;
-ypos = room_height / 2 - 200;
-menu_y = ypos + 140;
-prompt_ypos = ypos + 50;
+ypos = room_height / 2 - 220;
+prompt_ypos = ypos + 40;
+menu_y = prompt_ypos + 80;
 
 confirmed = false;
 cursor = 0;
@@ -54,19 +54,24 @@ function gamepad_rebinds_values_right(index) {
 	return { indexes: ___global.curr_controller_keys[$ gamepad_rebinds[index]], isAxes: false };
 }
 
-function draw_all_rebinds() {
+function draw_all_rebinds(is_gamepad) {
 	static whiteball_h = sprite_get_height(___spr_whiteball_square);
+	static xx = rebind_right_xpos;
 	
-	for (var i = 0; i < array_length(keyboard_rebinds); i++) {
-		var arr = keyboard_rebinds_values_right(i);
-		
-		var xx = rebind_right_xpos;
-		
-		draw_rebinds(arr, xx, rebind_y + i*(whiteball_h+rebinds_bonus_sep));
+	if (is_gamepad) {
+		for (var i = 0; i < array_length(gamepad_rebinds); i++) {
+			var arr = gamepad_rebinds_values_right(i);
+			draw_gamepad_rebinds(arr, xx, rebind_y + i*(whiteball_h+rebinds_bonus_sep));
+		}
+	} else {
+		for (var i = 0; i < array_length(keyboard_rebinds); i++) {
+			var arr = keyboard_rebinds_values_right(i);
+			draw_keyboard_rebinds(arr, xx, rebind_y + i*(whiteball_h+rebinds_bonus_sep));
+		}
 	}
 }
 
-function draw_rebinds(arr, _x, _y) {
+function draw_keyboard_rebinds(arr, _x, _y) {
 	static whiteball_square_w = sprite_get_width(___spr_whiteball_square);
 	static whiteball_rect_w = sprite_get_width(___spr_whiteball_rect);
 	
@@ -106,7 +111,7 @@ function draw_rebinds(arr, _x, _y) {
 				draw_sprite_ext(text_or_spr, 0, xx, _y, 1, 1, 0, c_keyred, 1);
 			}
 			
-			xx -= whiteball_square_w + whiteball_spacing;
+			xx -= whiteball_square_w + rebinds_bonus_sep;
 			was_square = true;
 			
 		} else {
@@ -126,13 +131,22 @@ function draw_rebinds(arr, _x, _y) {
 				draw_sprite_ext(text_or_spr, 0, xx, _y, 1, 1, 0, c_keyred, 1);
 			}
 			
-			xx -= whiteball_rect_w + whiteball_spacing;
+			xx -= whiteball_rect_w + rebinds_bonus_sep;
 			was_square = false;
 		}
 	}
 }
 
-whiteball_spacing = 8;
+function draw_gamepad_rebinds(struct, _x, _y) {
+	static whiteball_rect_w = sprite_get_width(___spr_whiteball_rect);
+	
+	for (var i = 0; i < array_length(struct.indexes); i++) {
+		var spr = ___global.gp_to_str[? struct.indexes[i]];
+		
+		draw_sprite(___spr_whiteball_rect, 0, _x+i*(whiteball_rect_w+rebinds_bonus_sep), _y);
+	}
+}
+
 rebinding = false;
 pause_t = 0;
 keyboard_rebinds = ["right", "up", "left", "down", "primary", "secondary", "pause"];
@@ -177,8 +191,9 @@ gamepad_rebinds_menu_left = generate_rebinds_menu(gamepad_rebinds);
 
 var whiteball_h = sprite_get_height(___spr_whiteball_square);
 draw_set_font(___global.___fnt_gallery);
-rebinds_base_sep = whiteball_h - string_height("M") + 17.5;
-rebinds_bonus_sep = 6;
+//rebinds_base_sep = whiteball_h - string_height("M") + 35;
+rebinds_base_sep = 40; //someone smarter than me think of a smart way to programatically calculate this
+rebinds_bonus_sep = 4;
 
 function gamepad_rebinds_menu_right() {
 	//arr:[{indexes:Int, isAxes:Bool}]
@@ -218,7 +233,6 @@ rebind_right_xpos = xpos + 220;
 rebind_index = 0;
 rebind_y = ypos + 90;
 rebind_curr_y = rebind_y + 100;
-rebind_gap = 20;
 rebinds_t = 0;
 listening = false;
 just_listening = false;

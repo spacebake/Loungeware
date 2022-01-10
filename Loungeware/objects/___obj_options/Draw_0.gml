@@ -11,7 +11,7 @@ for (var i = -1; i < 4; i++) {
 
 //draw yellow under
 draw_set_colour(c_gbyellow);
-for (var i = 0; i < 4; i++)
+for (var i = 0; i < 3; i++)
 	draw_text(xpos, ypos + i, title_txt[$ state]);
 
 //first big text
@@ -38,7 +38,7 @@ if (state == "normal") {
 	draw_set_font(___fnt_lw);
 	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, keyboard_rebinds_menu_left, rebind_index, false, undefined,rebinds_base_sep + rebinds_bonus_sep, undefined, fa_left);
 	//____menu_text_vertical_draw(rebind_right_xpos, rebind_y, empty_rebinds, rebind_index, false, undefined, undefined, undefined, fa_right);
-	draw_all_rebinds();
+	draw_all_rebinds(false);
 	
 	if (listening) {
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
@@ -78,8 +78,8 @@ if (state == "normal") {
 	
 	draw_text(xpos, prompt_ypos, menu[cursor].prompt);
 	
-	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, gamepad_rebinds_menu_left, rebind_index, false, undefined, undefined, undefined, fa_left);
-	____menu_text_vertical_draw(rebind_right_xpos, rebind_y, gamepad_rebinds_menu_right(), rebind_index, false, undefined, undefined, undefined, fa_right);
+	____menu_text_vertical_draw(rebind_left_xpos, rebind_y, gamepad_rebinds_menu_left, rebind_index, false, undefined, rebinds_base_sep + rebinds_bonus_sep, undefined, fa_left);
+	draw_all_rebinds(true);
 	
 	if (listening) {
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
