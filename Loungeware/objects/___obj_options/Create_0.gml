@@ -142,14 +142,22 @@ function draw_gamepad_rebinds(struct, _x, _y) {
 	
 	for (var i = 0; i < array_length(struct.indexes); i++) {
 		var xx = _x+i*(whiteball_rect_w+rebinds_bonus_sep);
+		var idx = struct.indexes[i];
 		
-		var spr = ___global.gp_to_str[? struct.indexes[i]];
-		if (spr == undefined) {
-			if (struct.isAxes) spr = ___spr_gp_analog;
-			else spr = ___spr_gp_button;
+		var spr = ___global.gp_to_str[? idx];
+		if (spr == undefined && !struct.isAxes) {
+			spr = ___spr_gp_button;
 		}
+		if (struct.isAxes) spr = ___spr_gp_analog;
 		
 		draw_sprite(___spr_whiteball_rect, 0, xx, _y);
+		
+		if (spr == ___spr_gp_button || spr == ___spr_gp_analog) {
+			draw_set_font(___fnt_key);
+			draw_set_halign(fa_center);
+			draw_set_valign(fa_middle);
+			draw_text_color(xx + 18, _y, idx, c_keyred, c_keyred, c_keyred, c_keyred, 1);
+		}
 		
 		draw_sprite(spr, 0, xx, _y);
 	}
