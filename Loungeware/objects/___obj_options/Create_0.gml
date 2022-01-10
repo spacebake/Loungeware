@@ -145,8 +145,8 @@ function draw_gamepad_rebinds(struct, _x, _y) {
 		
 		var spr = ___global.gp_to_str[? struct.indexes[i]];
 		if (spr == undefined) {
-			if (struct.isAxes) spr = ___spr_gp_face1;
-			else spr = ___spr_gp_face1;
+			if (struct.isAxes) spr = ___spr_gp_analog;
+			else spr = ___spr_gp_button;
 		}
 		
 		draw_sprite(___spr_whiteball_rect, 0, xx, _y);
