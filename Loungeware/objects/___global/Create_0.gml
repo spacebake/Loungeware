@@ -183,9 +183,9 @@ ___global.keycode_to_str[vk_down] = ___spr_arrow_down;
 //-------------------------------------------------------------------------------------
 ___global.gp_to_str = ds_map_create();
 ___global.gp_to_str[? gp_face1] = ___spr_gp_face1;	//Top button 1 (this maps to the "A" on an Xbox 360 controller and the cross on a PS controller)
-___global.gp_to_str[? gp_face2] = ___spr_gp_face1;	//Top button 2 (this maps to the "B" on an Xbox 360 controller and the circle on a PS controller)
-___global.gp_to_str[? gp_face3] = ___spr_gp_face1;	//Top button 3 (this maps to the "X" on an Xbox 360 controller and the square on a PS controller)
-___global.gp_to_str[? gp_face4] = ___spr_gp_face1;	//Top button 4 (this maps to the "Y" on an Xbox 360 controller and the triangle on a PS controller)
+___global.gp_to_str[? gp_face2] = ___spr_gp_face2;	//Top button 2 (this maps to the "B" on an Xbox 360 controller and the circle on a PS controller)
+___global.gp_to_str[? gp_face3] = ___spr_gp_face3;	//Top button 3 (this maps to the "X" on an Xbox 360 controller and the square on a PS controller)
+___global.gp_to_str[? gp_face4] = ___spr_gp_face4;	//Top button 4 (this maps to the "Y" on an Xbox 360 controller and the triangle on a PS controller)
 ___global.gp_to_str[? gp_shoulderl] = ___spr_gp_face1;	//Left shoulder button
 ___global.gp_to_str[? gp_shoulderlb] = ___spr_gp_face1;	//Left shoulder trigger
 ___global.gp_to_str[? gp_shoulderr] = ___spr_gp_face1;	//Right shoulder button

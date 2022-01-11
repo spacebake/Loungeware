@@ -46,7 +46,15 @@ function ___GAME_INIT(){
 		secondary: [ord("Z"), ord("K")],
 		pause: [vk_escape, vk_enter],
 	}
-	___global.curr_input_keys = ___struct_copy(___global.default_input_keys);
+	___global.curr_input_keys = { //no struct_copy, need deepcopy
+		right: [vk_right, ord("D")],
+		up: [vk_up, ord("W")],
+		left: [vk_left, ord("A")],
+		down: [vk_down, ord("S")],
+		primary: [ord("X"), ord("L")],
+		secondary: [ord("Z"), ord("K")],
+		pause: [vk_escape, vk_enter],
+	}
 	
 	___global.default_controller_keys = {
 		right: [gp_padr],

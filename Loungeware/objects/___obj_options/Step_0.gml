@@ -134,16 +134,23 @@ if ((state == "key_controls" || state == "gamepad_controls") && !listening && !j
 		
 		if (pause_t > 60) {
 			if (state == "key_controls") {
-				___global.curr_input_keys = ___global.default_input_keys;
+				//___global.curr_input_keys = ___global.default_input_keys;
+				___struct_foreach(
+					___global.curr_input_keys, function(_key, _value) {
+						___global.curr_input_keys[$ _key] = ___global.default_input_keys[$ _key];	
+					}
+				);
 				
 			} else if (state == "gamepad_controls") {
 				
 				___global.curr_controller_keys = ___global.default_controller_keys;
 				___global.curr_controller_axes = ___global.default_controller_axes;
 			}
+			
+			rebinds_just_reset = true;
 		}
 		
-	} else if (keyboard_check_released(vk_escape)) {
+	} else if (keyboard_check_released(vk_escape) && pause_t == 0) {
 		___state_change("normal");
 		
 		rebinds_t = 0;
