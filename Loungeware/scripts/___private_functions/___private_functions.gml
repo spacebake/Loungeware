@@ -1199,3 +1199,17 @@ function ___array_exists(_arr, _value) {
 function ___mod2(value, divisor) {
 	return value - floor(value/divisor) * divisor;
 }
+
+/// @desc Calls some procedure for each key-value pairs of a struct.
+/// @param {struct} struct The struct to apply the function tfg_to.
+/// @param {script} f The function to apply.
+/// @author Katsaii
+function ___struct_foreach(_struct, _f) {
+	var count = variable_struct_names_count(_struct);
+	var names = variable_struct_get_names(_struct);
+	for (var i = count - 1; i >= 0; i -= 1) {
+		var key = names[i];
+		var val = variable_struct_get(_struct, key);
+		_f(key, val);
+	}
+}

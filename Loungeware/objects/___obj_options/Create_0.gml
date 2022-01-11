@@ -178,6 +178,7 @@ var generate_rebinds_menu = function(rebinds) {
 }
 keyboard_rebinds_menu_left = generate_rebinds_menu(keyboard_rebinds);
 gamepad_rebinds_menu_left = generate_rebinds_menu(gamepad_rebinds);
+rebinds_just_reset = false;
 //function keyboard_rebinds_menu_right() {
 //	var arr_to_str = function(arr) {
 //		var s = "";
