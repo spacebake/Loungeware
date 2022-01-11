@@ -1,11 +1,11 @@
 ___state_handler()
 
 if (state == "normal") {
-	var dy = ___keyboard_check_pressed("down") - ___keyboard_check_pressed("up");
+	var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
 
 	cursor = (cursor + dy) % array_length(menu);
 
-	if (___keyboard_check_pressed("primary") || ___keyboard_check_pressed("secondary")) {
+	if (KEY_PRIMARY_PRESSED || KEY_UP_PRESSED) {
 		confirmed = true
 		menu[cursor].op();
 	}
@@ -64,6 +64,9 @@ if (state == "normal") {
 			}
 		}
 		
+		//if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
+		//!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
+		
 		if (listening && last_gamepad_axis != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_axis)) {
 			listening = false;
 		
@@ -79,7 +82,7 @@ if (state == "normal") {
 		
 			//someone has better way of checking all buttons? this doesnt get all of them
 			for ( var j = gp_face1; j < gp_axisrv; j++ ) {
-			    if ( gamepad_button_check( i, j ) ) {
+			    if ( gamepad_button_check_pressed( i, j ) ) {
 					last_gamepad_button = i;
 					break;
 				}
@@ -93,6 +96,8 @@ if (state == "normal") {
 			//}
 		}
 		
+		//if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
+		//!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
 		if (listening && last_gamepad_button != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
 			listening = false;
 		

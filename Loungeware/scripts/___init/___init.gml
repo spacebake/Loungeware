@@ -1,4 +1,6 @@
 function ___GAME_INIT(){
+	if (CONFIG_IS_RASPI) event_perform(ev_keypress, vk_f8);
+	
 	randomize();
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
