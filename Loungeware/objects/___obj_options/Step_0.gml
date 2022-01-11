@@ -132,25 +132,45 @@ if ((state == "key_controls" || state == "gamepad_controls") && !listening && !j
 	if (keyboard_check(vk_escape)) {
 		pause_t++;
 		
+		// mutability is the root of all evil
 		if (pause_t > 60) {
 			if (state == "key_controls") {
 				//___global.curr_input_keys = ___global.default_input_keys;
-				___struct_foreach(
-					___global.curr_input_keys, function(_key, _value) {
-						___global.curr_input_keys[$ _key] = ___global.default_input_keys[$ _key];	
-					}
-				);
+				___struct_foreach(___global.curr_input_keys, function(_key, _value) {
+					
+					//default is a keyword??
+					var default_ = ___global.default_input_keys[$ _key];
+						
+					___global.curr_input_keys[$ _key] = [];
+					array_copy(___global.curr_input_keys[$ _key], 0, default_, 0, array_length(default_));
+				});
 				
 			} else if (state == "gamepad_controls") {
 				
-				___global.curr_controller_keys = ___global.default_controller_keys;
-				___global.curr_controller_axes = ___global.default_controller_axes;
+				//___global.curr_controller_keys = ___global.default_controller_keys;
+				___struct_foreach(___global.curr_controller_keys, function(_key, _value) {
+					
+					//default is a keyword??
+					var default_ = ___global.default_controller_keys[$ _key];
+						
+					___global.curr_input_keys[$ _key] = [];
+					array_copy(___global.curr_controller_keys[$ _key], 0, default_, 0, array_length(default_));
+				});
+				//___global.curr_controller_axes = ___global.default_controller_axes;
+				___struct_foreach(___global.curr_controller_axes, function(_key, _value) {
+					
+					//default is a keyword??
+					var default_ = ___global.default_controller_axes[$ _key];
+						
+					___global.curr_input_keys[$ _key] = [];
+					array_copy(___global.curr_controller_axes[$ _key], 0, default_, 0, array_length(default_));
+				});
 			}
 			
 			rebinds_just_reset = true;
 		}
 		
-	} else if (keyboard_check_released(vk_escape) && pause_t == 0) {
+	} else if (keyboard_check_released(vk_escape) && !rebinds_just_reset) {
 		___state_change("normal");
 		
 		rebinds_t = 0;
@@ -158,9 +178,11 @@ if ((state == "key_controls" || state == "gamepad_controls") && !listening && !j
 		listening = false;
 		confirmed = false;
 		pause_t = 0;
+		rebinds_just_reset = false;
 		
 	} else {
-		pause_t = 0;	
+		pause_t = 0;
+		rebinds_just_reset = false;
 	}
 }
 
