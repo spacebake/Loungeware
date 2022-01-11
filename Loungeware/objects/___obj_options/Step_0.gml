@@ -131,7 +131,7 @@ if (state == "normal") {
 	just_listening = listening;
 }
 
-if ((state == "key_controls" || state == "gamepad_controls") && !listening && !just_listening) {
+if (state == "key_controls" || state == "gamepad_controls") {
 	log(pause_t);
 	
 	if (keyboard_check(vk_escape)) {

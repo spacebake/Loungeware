@@ -254,7 +254,7 @@ rebinds_t = 0;
 listening = false;
 just_listening = false;
 listening_ypos = room_height - 50;
-rejects = [vk_f11, vk_f8]
+rejects = [vk_f11, vk_f8, vk_escape]
 function add_key(index, keycode, is_gamepad) {
 	static push = function(is_controller, _keycode, _index) {
 		var arr;
