@@ -5,10 +5,12 @@ if (state == "normal") {
 
 	cursor = (cursor + dy) % array_length(menu);
 
-	if (KEY_PRIMARY_PRESSED || KEY_UP_PRESSED) {
+	if (KEY_PRIMARY_PRESSED) {
 		confirmed = true
 		menu[cursor].op();
 	}
+
+	if (KEY_SECONDARY_PRESSED || ___KEY_PAUSE_PRESSED) back_to_main();
 
 } else if (state == "key_controls") {
 	

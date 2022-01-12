@@ -41,7 +41,7 @@ if (state == "normal") {
 	draw_all_rebinds(false);
 	
 	if (listening) {
-		draw_set_font(___fnt_lw);
+		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
@@ -85,7 +85,7 @@ if (state == "normal") {
 	draw_all_rebinds(true);
 	
 	if (listening) {
-		draw_set_font(___fnt_lw);
+		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
 		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
@@ -109,10 +109,6 @@ if (state == "gamepad_controls" || state == "key_controls") {
 		- 9; //half width of button
 		
 	draw_sprite(spr_button_b, 0, xx, yy);
-	
-	
-	draw_set_font(___fnt_lw)
-	log(string_height("M"));
 }
 	
 	if (true) {} else {
