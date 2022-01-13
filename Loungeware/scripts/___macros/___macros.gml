@@ -8,8 +8,8 @@ function ___drhtmlf(x1, y1, x2, y2, outline, c = draw_get_colour(), a = draw_get
 		x2 += 1;
 		y2 += 1;
 	}
-	//___draw_rectangle_real(x1, y1, x2, y2, outline);
-	draw_sprite_ext(___spr_pixel, 0, x1, y1, x2 - x1 - 1, y2 - y1 - 1, 0, c, a)
+	___draw_rectangle_real(x1, y1, x2, y2, outline);
+	//draw_sprite_ext(___spr_pixel, 0, x1, y1, x2 - x1 - 1, y2 - y1 - 1, 0, c, a)
 }
 #macro draw_rectangle ___drhtmlf
 
