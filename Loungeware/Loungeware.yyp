@@ -818,6 +818,7 @@
     {"id":{"name":"sam_cs_spr_ending","path":"sprites/sam_cs_spr_ending/sam_cs_spr_ending.yy",},"order":5,},
     {"id":{"name":"baku_skate_rm","path":"rooms/baku_skate_rm/baku_skate_rm.yy",},"order":0,},
     {"id":{"name":"n8fl_reach_for_it_mister_proj_spr","path":"sprites/n8fl_reach_for_it_mister_proj_spr/n8fl_reach_for_it_mister_proj_spr.yy",},"order":12,},
+    {"id":{"name":"___spr_gp_select","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"order":28,},
     {"id":{"name":"baku_skate_spr_mimpy_idle","path":"sprites/baku_skate_spr_mimpy_idle/baku_skate_spr_mimpy_idle.yy",},"order":0,},
     {"id":{"name":"objfrog_pp_r_4","path":"rooms/objfrog_pp_r_4/objfrog_pp_r_4.yy",},"order":5,},
     {"id":{"name":"makoren_conjurer_snd_powerup","path":"sounds/makoren_conjurer_snd_powerup/makoren_conjurer_snd_powerup.yy",},"order":7,},

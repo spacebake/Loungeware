@@ -81,13 +81,24 @@ function ___GAME_INIT(){
 		}
 	}
 		
-	___global.curr_controller_keys = ___struct_copy(___global.default_controller_keys);
+	___global.curr_controller_keys = {
+		right: [gp_select],
+		up: [gp_shoulderr],
+		left: [gp_shoulderrb],
+		down: [gp_padd],
+		primary: [gp_face1],
+		secondary: [gp_face2],
+		pause: [gp_start],
+	}
 	
 	___global.default_controller_axes = {
 		horizontal: [0], //correct
 		vertical: [2], //correct
 	}
-	___global.curr_controller_axes = ___struct_copy(___global.default_controller_axes);
+	___global.curr_controller_axes = {
+		horizontal: [0], //correct
+		vertical: [2], //correct
+	}
 	
 	___global.controller_values = [];
 	for (var i=0;i<gamepad_get_device_count();i++) {
