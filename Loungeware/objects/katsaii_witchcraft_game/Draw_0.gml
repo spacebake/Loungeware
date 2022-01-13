@@ -59,14 +59,18 @@ if (failed || win) {
     var wiggle1 = sin(current_time * 0.01);
     var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
     var wiggle3 = sin(current_time * 0.007);
+    var whack = 0;
+    if (failed)
+    {
+        var chan = animcurve_get_channel(katsaii_witchcraft_whack, 0);
+        whack = animcurve_channel_evaluate(chan, current_time * 0.004 % 1);
+    }
     draw_sprite_ext(bg, 0, midx, midy, scale_multiplier * lerp(1, scale_limit, (wiggle2 + 1) / 2), scale_multiplier, 5 * wiggle1, c_white, resultTimer);
-    draw_sprite_ext(fg, 0, midx + lerp(-600, 0, resultTimer * resultTimer), midy, 1.1, 1.1 + 0.05 * wiggle2, 2 * -wiggle1, c_white, resultTimer);
+    draw_sprite_ext(fg, 0, midx + lerp(-600, 0, resultTimer * resultTimer), midy, 1.1, 1.1 + lerp(0, 0.1, whack) + 0.05 * wiggle2, 2 * -wiggle1, c_white, resultTimer);
     draw_sprite_ext(msg, 0, midx, mean(midy, bottom) + lerp(200, 0, resultTimer * resultTimer), 1 + 0.05 * wiggle2, 1 + 0.05 * wiggle1, 2 * -wiggle2, c_white, resultTimer);
     if (failed) {
-        var chan = animcurve_get_channel(katsaii_witchcraft_whack, 0);
-        var amount = animcurve_channel_evaluate(chan, current_time * 0.004 % 1);
-        draw_sprite_ext(wandComplete, 0, midx + 15 * wiggle1 + 200, midy + 10 * wiggle3 - 10, 1, 1, 100 + 10 * wiggle2 + lerp(30, -10, amount), c_white, resultTimer);
+        draw_sprite_ext(wandComplete, 0, midx + 15 * wiggle1 + 200, midy + 10 * wiggle3 - 10, 1, 1, 100 + 10 * wiggle2 + lerp(30, -10, whack), c_white, resultTimer);
     } else {
-        draw_sprite_ext(wandComplete, 0, lerp(midx, left + 100, resultTimer * resultTimer) + 15 * wiggle1, lerp(top - 200, midy - 100 + 10 * wiggle3, resultTimer), 1, 1, 10 + 5 * wiggle2, c_white, resultTimer);
+        draw_sprite_ext(wandComplete, 0, lerp(midx, left + 200, resultTimer * resultTimer) + 15 * wiggle1, lerp(top - 200, midy - 150 + 10 * wiggle3, resultTimer), 1, 1, 10 + 5 * wiggle2, c_white, resultTimer);
     }
 }
