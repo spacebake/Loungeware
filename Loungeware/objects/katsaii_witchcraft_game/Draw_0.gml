@@ -30,10 +30,10 @@ for (var i = 0; i <= 2; i += 1) {
         matrix_set(matrix_world, matrix_build_identity());
     }
     if (img >= wandCurrent) {
-        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 1);
+        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, 0xf0f0f0, 1);
         if (i == selectionID) {
             gpu_set_blendmode(bm_add);
-            draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 1);
+            draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 0.15);
             gpu_set_blendmode(bm_normal);
         }
     }
@@ -58,7 +58,15 @@ if (failed || win) {
     var scale_limit = failed ? 1.4 : 1.1;
     var wiggle1 = sin(current_time * 0.01);
     var wiggle2 = sin(current_time * 0.01 + 0.5 * pi);
+    var wiggle3 = sin(current_time * 0.007);
     draw_sprite_ext(bg, 0, midx, midy, scale_multiplier * lerp(1, scale_limit, (wiggle2 + 1) / 2), scale_multiplier, 5 * wiggle1, c_white, resultTimer);
     draw_sprite_ext(fg, 0, midx + lerp(-600, 0, resultTimer * resultTimer), midy, 1.1, 1.1 + 0.05 * wiggle2, 2 * -wiggle1, c_white, resultTimer);
     draw_sprite_ext(msg, 0, midx, mean(midy, bottom) + lerp(200, 0, resultTimer * resultTimer), 1 + 0.05 * wiggle2, 1 + 0.05 * wiggle1, 2 * -wiggle2, c_white, resultTimer);
+    if (failed) {
+        var chan = animcurve_get_channel(katsaii_witchcraft_whack, 0);
+        var amount = animcurve_channel_evaluate(chan, current_time * 0.004 % 1);
+        draw_sprite_ext(wandComplete, 0, midx + 15 * wiggle1 + 200, midy + 10 * wiggle3 - 10, 1, 1, 100 + 10 * wiggle2 + lerp(30, -10, amount), c_white, resultTimer);
+    } else {
+        draw_sprite_ext(wandComplete, 0, lerp(midx, left + 100, resultTimer * resultTimer) + 15 * wiggle1, lerp(top - 200, midy - 100 + 10 * wiggle3, resultTimer), 1, 1, 10 + 5 * wiggle2, c_white, resultTimer);
+    }
 }
