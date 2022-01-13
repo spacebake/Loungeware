@@ -13,8 +13,8 @@ for (var i = 0; i <= 2; i += 1) {
     var pos_x = lerp(left, right, amount);
     var pos_y = bottom - table_height * 1.1;
     var pos_y_pentagram = bottom - table_height * 0.5;
-    var wiggle = sin(current_time * 0.01 + pos_x);
-    var scale = lerp(0.95, 1.05, (wiggle + 1) / 2);
+    var wiggle = sin(current_time * 0.01 + 23 * amounts[i]);
+    var scale = lerp(0.95, 1.1, (wiggle + 1) / 2);
     var scale2 = scale;
     if (i == selectionID) {
         scale2 *= 1.5;
@@ -30,12 +30,7 @@ for (var i = 0; i <= 2; i += 1) {
         matrix_set(matrix_world, matrix_build_identity());
     }
     if (img >= wandCurrent) {
-        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, 0xf0f0f0, 1);
-        if (i == selectionID) {
-            gpu_set_blendmode(bm_add);
-            draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, c_white, 0.15);
-            gpu_set_blendmode(bm_normal);
-        }
+        draw_sprite_ext(wandSprite, img, pos_x, pos_y, scale2, scale2, 2 * wiggle, i == selectionID ? c_white : c_grey, 1);
     }
 }
 var angle = lerp(0, 180, selectionAmount);
