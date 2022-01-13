@@ -69,6 +69,16 @@ function ___GAME_INIT(){
 		secondary: [gp_face2],
 		pause: [gp_start],
 	}
+		
+	___global.curr_controller_keys = {
+		right: [gp_padr],
+		up: [gp_padu],
+		left: [gp_padl],
+		down: [gp_padd],
+		primary: [gp_face1],
+		secondary: [gp_face2],
+		pause: [gp_start],
+	}
 	if (CONFIG_IS_RASPI) {
 		___global.default_controller_keys = {
 			right: [gp_padr],
@@ -79,16 +89,15 @@ function ___GAME_INIT(){
 			secondary: [0], //correct
 			pause: [7], //not 8, 9, 0, 1, 2, 3, 4
 		}
-	}
-		
-	___global.curr_controller_keys = {
-		right: [gp_select],
-		up: [gp_shoulderr],
-		left: [gp_shoulderrb],
-		down: [gp_padd],
-		primary: [gp_face1],
-		secondary: [gp_face2],
-		pause: [gp_start],
+		___global.curr_controller_keys = {
+			right: [gp_padr],
+			up: [gp_padu],
+			left: [gp_padl],
+			down: [gp_padd],
+			primary: [3], //correct
+			secondary: [0], //correct
+			pause: [7], //not 8, 9, 0, 1, 2, 3, 4
+		}
 	}
 	
 	___global.default_controller_axes = {
