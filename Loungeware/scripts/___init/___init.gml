@@ -1,4 +1,8 @@
 function ___GAME_INIT(){
+	if (CONFIG_IS_RASPI) {
+		event_perform_object(___global, ev_keypress, vk_f8);
+	}
+	
 	randomize();
 	if (instance_exists(___global)) instance_destroy(___global);
 	instance_create_layer(0, 0, layer, ___global);
@@ -26,6 +30,7 @@ function ___GAME_INIT(){
 	___global.macro_c_gbwhite = make_color_rgb(255, 200, 156);
 	___global.macro_c_larold = make_color_rgb(228, 181, 129);
 	___global.macro_c_gbdark = make_color_rgb(31,27,37);
+	___global.macro_c_keyred = 0x4E55C8;
 	
 	// local scores
 	___global.player_id = ___load_or_create_player_id();
@@ -45,6 +50,16 @@ function ___GAME_INIT(){
 		secondary: [ord("Z"), ord("K")],
 		pause: [vk_escape, vk_enter],
 	}
+	___global.curr_input_keys = { //no struct_copy, need deepcopy
+		right: [vk_right, ord("D")],
+		up: [vk_up, ord("W")],
+		left: [vk_left, ord("A")],
+		down: [vk_down, ord("S")],
+		primary: [ord("X"), ord("L")],
+		secondary: [ord("Z"), ord("K")],
+		pause: [vk_escape, vk_enter],
+	}
+	
 	___global.default_controller_keys = {
 		right: [gp_padr],
 		up: [gp_padu],
@@ -54,10 +69,44 @@ function ___GAME_INIT(){
 		secondary: [gp_face2],
 		pause: [gp_start],
 	}
+		
+	___global.curr_controller_keys = {
+		right: [gp_padr],
+		up: [gp_padu],
+		left: [gp_padl],
+		down: [gp_padd],
+		primary: [gp_face1],
+		secondary: [gp_face2],
+		pause: [gp_start],
+	}
+	if (CONFIG_IS_RASPI) {
+		___global.default_controller_keys = {
+			right: [gp_padr],
+			up: [gp_padu],
+			left: [gp_padl],
+			down: [gp_padd],
+			primary: [3], //correct
+			secondary: [0], //correct
+			pause: [7], //not 8, 9, 0, 1, 2, 3, 4
+		}
+		___global.curr_controller_keys = {
+			right: [gp_padr],
+			up: [gp_padu],
+			left: [gp_padl],
+			down: [gp_padd],
+			primary: [3], //correct
+			secondary: [0], //correct
+			pause: [7], //not 8, 9, 0, 1, 2, 3, 4
+		}
+	}
 	
 	___global.default_controller_axes = {
-		horizontal: [gp_axislh],
-		vertical: [gp_axislv],
+		horizontal: [0], //correct
+		vertical: [2], //correct
+	}
+	___global.curr_controller_axes = {
+		horizontal: [0], //correct
+		vertical: [2], //correct
 	}
 	
 	___global.controller_values = [];
@@ -233,6 +282,7 @@ function ___save_game(){
 		//file_text_close(_file);
 	}
 }
+
 
 
 

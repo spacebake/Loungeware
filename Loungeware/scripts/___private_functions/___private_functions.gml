@@ -8,52 +8,141 @@ function draw_rectangle_fix(_x1, _y1, _x2, _y2, _c = draw_get_colour(), _a = dra
 }
 
 //--------------------------------------------------------------------------------------------------------
-// checks if key is held using ___global.default_input_keys. provide a string as the property name for key type
+// checks if key is held using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+function ___keyboard_check(_keystr){
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
-	for (var i=0;i<array_length(___global.controller_values);i++) {
-		if (___global.controller_values[i].state.held[$ _keystr]) return true;
-	}
+	
 	return false;
 }
 
 //--------------------------------------------------------------------------------------------------------
-// checks if key is pressed using ___global.default_input_keys. provide a string as the property name for key type
+// checks if gamepad button is held using ___global.curr_input_keys. provide a string as the property name for key type
 //--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check_pressed(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+function ___gamepad_check(_keystr){
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].state.held[$ _keystr])
+			return true;
+	}
+	
+	return false;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// checks if gamepad axes is held using ___global.curr_input_keys. provide a string as the property name for key type
+// if _keystr is not an axis, returns false.
+//--------------------------------------------------------------------------------------------------------
+function ___axis_check(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+		
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.held[$ _keystr])
+			return true;
+	}
+	
+	return false;
+}
+
+//--------------------------------------------------------------------------------------------------------
+// checks if gamepad button, axis, or key is held using ___global.curr_input_keys. provide a string as the property name for key type
+//--------------------------------------------------------------------------------------------------------
+function ___macro_any_check(_keystr){
+	return 	___keyboard_check(_keystr) || ___gamepad_check(_keystr) || ___axis_check(_keystr);
+}
+
+function ___keyboard_check_pressed(_keystr){
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_pressed(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
+	
+	return false;
+}
+
+function ___gamepad_check_pressed(_keystr){
 	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.pressed[$ _keystr]) return true;
 	}
+	
 	return false;
 }
 
+function ___axis_check_pressed(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+	
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.pressed[$ _keystr]) return true;
+	}
+	
+	return false;
+}
 
-//--------------------------------------------------------------------------------------------------------
-// checks if key is released using ___global.default_input_keys. provide a string as the property name for key type
-//--------------------------------------------------------------------------------------------------------
-function ___macro_keyboard_check_released(_keystr){
-	var _list =  variable_struct_get(___global.default_input_keys, _keystr);
+function ___macro_any_check_pressed(_keystr){
+	return 	___keyboard_check_pressed(_keystr) || ___gamepad_check_pressed(_keystr) || ___axis_check_pressed(_keystr);
+}
+
+function ___keyboard_check_released(_keystr){
+	var _list =  variable_struct_get(___global.curr_input_keys, _keystr);
 	for (var i = 0; i < array_length(_list); i++){
 		if (keyboard_check_released(_list[i])) {
-			return (_list[i] == vk_enter) ? !keyboard_check(vk_alt) : true; // Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			// Makes Alt + Enter (which toggles fullscreen) not trigger an input :)
+			if !(_list[i] == vk_enter && keyboard_check(vk_alt)) {
+				___global.last_key = _list[i];
+				return true
+				
+			} else {
+				return false;	
+			}
 		}
 	}
+	
+	return false;
+}
+
+function ___gamepad_check_released(_keystr){
 	for (var i=0;i<array_length(___global.controller_values);i++) {
 		if (___global.controller_values[i].state.released[$ _keystr]) return true;
 	}
+	
 	return false;
+}
+
+function ___axis_check_released(_keystr){
+	if (!___array_exists(["right", "left", "up", "down"], _keystr)) 
+		return false;
+	
+	for (var i=0;i<array_length(___global.controller_values);i++) {
+		if (___global.controller_values[i].axes_state.released[$ _keystr]) return true;
+	}
+	
+	return false;	
+}
+
+function ___macro_any_check_released(_keystr){
+	return 	___keyboard_check_released(_keystr) || ___gamepad_check_released(_keystr) || ___axis_check_released(_keystr);
 }
 
 // ------------------------------------------------------------------------------------------
@@ -898,7 +987,7 @@ function ___load_or_create_player_id(){
 // ------------------------------------------------------------------------------------------
 // DRAWS A TEXT MENU VERTICALLY
 // ------------------------------------------------------------------------------------------
-function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery){
+function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirmed, _scale=1, _v_sep=35, _fnt=___global.___fnt_gallery, _halign = fa_center){
 	
 	static prev_confirmed = false;
 	static shake_timer_max = 15;
@@ -914,7 +1003,7 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 	y_prev = _y;
 	
 	var _store_halign = draw_get_halign();
-	draw_set_halign(fa_center);
+	draw_set_halign(_halign);
 	
 	for (var i = 0; i < array_length(_menu_array); i++){
 		var _selected = (_cursor_pos == i);
@@ -946,12 +1035,31 @@ function ____menu_text_vertical_draw(_x, _y, _menu_array, _cursor_pos,  _confirm
 			var _overshoot = 5;
 			var _line_y_center = _y + 9;
 			var _thickness = 4;
-			draw_rectangle_fix(
-				_x - (_str_w/2) - _overshoot,
-				_line_y_center - (_thickness/2),
-				_x + (_str_w/2) + _overshoot,
-				_line_y_center + (_thickness/2)
-			);
+			
+			if (_halign == fa_center) {
+				draw_rectangle_fix(
+					_x - (_str_w/2) - _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + (_str_w/2) + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
+				
+			} else if (_halign == fa_left) {
+				draw_rectangle_fix(
+					_x - _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + _str_w + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
+				
+			} else if (_halign == fa_right) {
+				draw_rectangle_fix(
+					_x + _overshoot,
+					_line_y_center - (_thickness/2),
+					_x + str_w + _overshoot,
+					_line_y_center + (_thickness/2)
+				);
+			}
 		}
 		
 		
@@ -1035,6 +1143,73 @@ function ___new_controller() {
 				secondary: false,
 				pause: false,
 			}
-		}
+		},
+		axes_state: {
+			pressed: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+			},
+			held: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,
+			},
+			released: {
+				up: false,
+				down: false,
+				left: false,
+				right: false,	
+			}
+		},
+	}
+}
+
+/// @function ___struct_copy( _target )
+/// @argument {struct} _target The struct to clone from
+/// @returns {struct} The newly cloned struct
+function ___struct_copy( _target ) {
+    var _clone = {}, _keys = variable_struct_get_names(_target);
+    for(var i = 0, _i = array_length(_keys); i < _i; i++) {
+        var _key = _keys[i], _copy = _target[$ _key];
+        if (is_struct(_copy)) {
+            _clone[$ _key] = ___struct_copy(_copy);
+        } else if (is_method(_copy)) {
+            _clone[$ _key] = method(_clone, _copy);
+        } else {
+            _clone[$ _key] = _copy;
+        }
+    }
+    return _clone;
+}
+
+///@func ___array_exists(arr, value)
+function ___array_exists(_arr, _value) {
+	for (var i = 0; i < array_length(_arr); i++) {
+		if (_arr[i] == _value)
+			return true;
+	}
+	
+	return false;
+}
+
+///@func ___mod2
+function ___mod2(value, divisor) {
+	return value - floor(value/divisor) * divisor;
+}
+
+/// @desc Calls some procedure for each key-value pairs of a struct.
+/// @param {struct} struct The struct to apply the function tfg_to.
+/// @param {script} f The function to apply.
+/// @author Katsaii
+function ___struct_foreach(_struct, _f) {
+	var count = variable_struct_names_count(_struct);
+	var names = variable_struct_get_names(_struct);
+	for (var i = count - 1; i >= 0; i -= 1) {
+		var key = names[i];
+		var val = variable_struct_get(_struct, key);
+		_f(key, val);
 	}
 }

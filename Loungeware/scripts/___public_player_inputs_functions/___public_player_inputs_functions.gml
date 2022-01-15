@@ -5,35 +5,35 @@
 // here's an example of how you might use these macros: ```if (KEY_PRIMARY) shoot_bullet();```
 
 // key primary (A button)
-#macro KEY_PRIMARY ___macro_keyboard_check("primary")
-#macro KEY_PRIMARY_PRESSED ___macro_keyboard_check_pressed("primary")
-#macro KEY_PRIMARY_RELEASED ___macro_keyboard_check_released("primary")
+#macro KEY_PRIMARY ___macro_any_check("primary")
+#macro KEY_PRIMARY_PRESSED ___macro_any_check_pressed("primary")
+#macro KEY_PRIMARY_RELEASED ___macro_any_check_released("primary")
 
 // key secondary (B button)
-#macro KEY_SECONDARY ___macro_keyboard_check("secondary")
-#macro KEY_SECONDARY_PRESSED ___macro_keyboard_check_pressed("secondary")
-#macro KEY_SECONDARY_RELEASED ___macro_keyboard_check_released("secondary")
+#macro KEY_SECONDARY ___macro_any_check("secondary")
+#macro KEY_SECONDARY_PRESSED ___macro_any_check_pressed("secondary")
+#macro KEY_SECONDARY_RELEASED ___macro_any_check_released("secondary")
 
 
 // key right
-#macro KEY_RIGHT ___macro_keyboard_check("right")
-#macro KEY_RIGHT_PRESSED ___macro_keyboard_check_pressed("right")
-#macro KEY_RIGHT_RELEASED ___macro_keyboard_check_released("right")
+#macro KEY_RIGHT ___macro_any_check("right")
+#macro KEY_RIGHT_PRESSED ___macro_any_check_pressed("right")
+#macro KEY_RIGHT_RELEASED ___macro_any_check_released("right")
 
 // key up
-#macro KEY_UP ___macro_keyboard_check("up")
-#macro KEY_UP_PRESSED ___macro_keyboard_check_pressed("up")
-#macro KEY_UP_RELEASED ___macro_keyboard_check_released("up")
+#macro KEY_UP ___macro_any_check("up")
+#macro KEY_UP_PRESSED ___macro_any_check_pressed("up")
+#macro KEY_UP_RELEASED ___macro_any_check_released("up")
 
 // key left
-#macro KEY_LEFT ___macro_keyboard_check("left")
-#macro KEY_LEFT_PRESSED ___macro_keyboard_check_pressed("left")
-#macro KEY_LEFT_RELEASED ___macro_keyboard_check_released("left")
+#macro KEY_LEFT ___macro_any_check("left")
+#macro KEY_LEFT_PRESSED ___macro_any_check_pressed("left")
+#macro KEY_LEFT_RELEASED ___macro_any_check_released("left")
 
 // key down
-#macro KEY_DOWN ___macro_keyboard_check("down")
-#macro KEY_DOWN_PRESSED ___macro_keyboard_check_pressed("down")
-#macro KEY_DOWN_RELEASED ___macro_keyboard_check_released("down")
+#macro KEY_DOWN ___macro_any_check("down")
+#macro KEY_DOWN_PRESSED ___macro_any_check_pressed("down")
+#macro KEY_DOWN_RELEASED ___macro_any_check_released("down")
 
 
 // key any
