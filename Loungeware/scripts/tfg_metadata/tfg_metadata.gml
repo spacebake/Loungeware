@@ -1,6 +1,6 @@
 microgame_register("tfg_collision", {
     config_version: 1,
-    game_name: "Fix Collision",
+    game_name: "FIX COLLISION",
     authors : "tfg",
     prompt: "FIND ERROR",
     init_room: tfg_collision_rm_game,
@@ -29,7 +29,7 @@ microgame_register("tfg_collision", {
 
 microgame_register("tfg_swipe", {
     config_version: 1,
-    game_name: "Swipe",
+    game_name: "SWIPE",
     authors : "tfg",
     prompt: "SWIPE",
     init_room: tfg_swipe_rm_game,
@@ -46,35 +46,6 @@ microgame_register("tfg_swipe", {
     supports_difficulty_scaling: false,
     credits: ["tfg", "zandy", "space"],
     date_added: "21/08/15",
-	is_enabled: true,
-	supports_html: true,
-	supports_pi: true,
-	show_on_website: true,
-});
-
-microgame_register("tfg_guess", {
-    config_version: 1,
-    game_name: "Locate",
-    authors : "tfg",
-    prompt: "LOCATE",
-    init_room: tfg_guess_rm_game,
-    view_width: -1,
-    view_height: -1,
-    time_seconds: 10,
-    music_track: sng_zandy_koto,
-    music_loops: true,
-    interpolation_on: false,
-    cartridge_col_primary: "0x62b4de",
-    cartridge_col_secondary: "0xcbf5ef",
-    cartridge_label: tfg_guess_spr_cartridge,
-    default_is_fail: true,
-    supports_difficulty_scaling: true,
-    credits: ["tfg", "space", "zandy"],
-    date_added: {
-		day: 16,
-		month: 1,
-		year: 22,
-	},
 	is_enabled: true,
 	supports_html: true,
 	supports_pi: true,

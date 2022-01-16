@@ -1,1 +1,0 @@
-if (tfg_animation_end()) image_speed = 0;
