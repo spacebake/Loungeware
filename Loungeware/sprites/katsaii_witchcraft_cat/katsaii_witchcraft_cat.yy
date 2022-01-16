@@ -7,15 +7,15 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 0,
-  "bbox_right": 110,
-  "bbox_top": 0,
-  "bbox_bottom": 252,
+  "bbox_left": 24,
+  "bbox_right": 134,
+  "bbox_top": 16,
+  "bbox_bottom": 266,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 112,
-  "height": 253,
+  "width": 147,
+  "height": 272,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"48ceff4b-f34f-40c3-b009-4b442e26d99e","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"48ceff4b-f34f-40c3-b009-4b442e26d99e","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"LayerId":{"name":"f6303c20-98e0-416e-a982-c53381d2753b","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchcraft_cat","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","name":"48ceff4b-f34f-40c3-b009-4b442e26d99e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"ff38d614-e4e8-479e-bfb8-c6c6f8a2001d","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ff38d614-e4e8-479e-bfb8-c6c6f8a2001d","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"LayerId":{"name":"733c387c-5c53-49dd-aa8c-274750c3b098","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchcraft_cat","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","name":"ff38d614-e4e8-479e-bfb8-c6c6f8a2001d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"katsaii_witchcraft_cat","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},
@@ -41,8 +41,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"3c568bcf-30a8-46d9-8375-fab42d32ffc3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"48ceff4b-f34f-40c3-b009-4b442e26d99e","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"0fe5c084-fa7a-40b8-9bba-53376cc9a70b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ff38d614-e4e8-479e-bfb8-c6c6f8a2001d","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -54,8 +54,8 @@
     "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
-    "xorigin": 60,
-    "yorigin": 200,
+    "xorigin": 84,
+    "yorigin": 217,
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"katsaii_witchcraft_cat","path":"sprites/katsaii_witchcraft_cat/katsaii_witchcraft_cat.yy",},
@@ -65,12 +65,12 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f6303c20-98e0-416e-a982-c53381d2753b","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"733c387c-5c53-49dd-aa8c-274750c3b098","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
-    "name": "wanda",
-    "path": "folders/Microgames/katsaii/witchcraft/wanda.yy",
+    "name": "others",
+    "path": "folders/Microgames/katsaii/witchcraft/others.yy",
   },
   "resourceVersion": "1.0",
   "name": "katsaii_witchcraft_cat",
