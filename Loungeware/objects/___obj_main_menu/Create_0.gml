@@ -73,13 +73,16 @@ menu_action_2 = function(){
 	instance_create_layer(0, 0, layer, ___obj_leaderboard);
 	instance_destroy();
 }
+menu_action_3 = function(){
+	instance_create_layer(0, 0, layer, ___obj_options);
+}
 
 cursor = ___global.menu_cursor_main;
 menu = [
 	{text : "PLAY", action : menu_action_0},
 	{text : "LEADERBOARD", action : menu_action_2},
 	{text : "GALLERY", action : menu_action_1},
-	{text : "OPTIONS", action : ___noop},
+	{text : "OPTIONS", action : menu_action_3},
 	{text : "CREDITS", action : ___noop},
 ]
 menu_confirmed = false;
