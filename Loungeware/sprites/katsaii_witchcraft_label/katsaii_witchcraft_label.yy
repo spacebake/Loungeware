@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":{"name":"82d28d7d-0537-4888-99c6-496d73649a4e","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"d69058a9-ade0-4acd-85c3-179a02c013dc","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"d69058a9-ade0-4acd-85c3-179a02c013dc","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"LayerId":{"name":"5b8441a9-99c5-4514-960a-1dd76bf93d4e","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","name":"d69058a9-ade0-4acd-85c3-179a02c013dc","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"katsaii_witchcraft_label","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5ef1abb6-744a-4802-b853-56ea3b2c7a63","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c2f5bb6d-896c-48b9-9f16-48389ca6628a","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1ccedd70-053f-48df-8d03-658de2ec19cb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d69058a9-ade0-4acd-85c3-179a02c013dc","path":"sprites/katsaii_witchcraft_label/katsaii_witchcraft_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"82d28d7d-0537-4888-99c6-496d73649a4e","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5b8441a9-99c5-4514-960a-1dd76bf93d4e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

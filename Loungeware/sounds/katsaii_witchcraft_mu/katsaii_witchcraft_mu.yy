@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "katsaii_witchcraft_mu.wav",
-  "duration": 8.91,
+  "duration": 9.000272,
   "parent": {
     "name": "witchcraft",
     "path": "folders/Microgames/katsaii/witchcraft.yy",
