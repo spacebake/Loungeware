@@ -1,9 +1,19 @@
 alarm[0] = 1;
-wandSprite = choose(
-        katsaii_witchcraft_wand_arrow,
-        katsaii_witchcraft_wand_basic,
-        katsaii_witchcraft_wand_other,
-        katsaii_witchcraft_wand_sandwhich);
+wands = [
+    katsaii_witchcraft_basic_parts,
+    katsaii_witchcraft_fancy_parts,
+    katsaii_witchcraft_gem_parts,
+    katsaii_witchcraft_subway_parts,
+];
+wandsComplete = [
+    katsaii_witchcraft_basic,
+    katsaii_witchcraft_fancy,
+    katsaii_witchcraft_gem,
+    katsaii_witchcraft_subway,
+];
+var wandId = irandom(array_length(wands) - 1);
+wandSprite = wands[wandId];
+wandComplete = wandsComplete[wandId];
 wandOrder = choose(
         [0, 1, 2], [0, 2, 1],
         [1, 2, 0], [1, 0, 2],
