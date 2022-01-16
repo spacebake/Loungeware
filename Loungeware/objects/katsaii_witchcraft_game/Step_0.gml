@@ -45,10 +45,10 @@ if (KEY_PRIMARY_PRESSED || KEY_SECONDARY_PRESSED) {
         if (wandCurrent >= 2) {
             microgame_win();
             win = true;
-            var s = sfx_play(katsaii_witchcraft_cheer, 0.5, false);
+            var s = sfx_play(katsaii_witchcraft_cheer, 1, false);
             audio_sound_pitch(s, random_range(0.9, 1));
         } else {
-            var s = sfx_play(katsaii_witchcraft_good, 0.7, false);
+            var s = sfx_play(katsaii_witchcraft_good, 1, false);
             audio_sound_pitch(s, random_range(0.8, 1.2));
         }
         craftAnimation = 0;
@@ -65,6 +65,6 @@ if (TIME_REMAINING < 2 * game_get_speed(gamespeed_fps)) {
 if (failed) {
     microgame_fail();
     microgame_music_stop(0.5);
-    var s = sfx_play(katsaii_witchcraft_bad, 0.75, false);
+    var s = sfx_play(katsaii_witchcraft_bad, 1, false);
     audio_sound_pitch(s, random_range(0.8, 1.1));
 }

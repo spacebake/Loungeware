@@ -78,11 +78,17 @@ function tfg_chance(_percent){
 	return _percent > random(1)
 }
 
-/// @func		animation_end()
+/// @func		tfg_animation_end()
 /// @returns	{bool}						Whether sprite_index has finished animating or not
 /// @author		Minty Python
 function tfg_animation_end() {
 	return (image_index + image_speed*sprite_get_speed(sprite_index)/(sprite_get_speed_type(sprite_index)==spritespeed_framespergameframe? 1 : game_get_speed(gamespeed_fps)) >= image_number);	
+}
+
+/// @func		tfg_animation_begin()
+/// @returns	{bool}						Whether sprite_index has finished animating or not, but if image_speed = -1
+function tfg_animation_begin() {
+	return (image_index + image_speed*sprite_get_speed(sprite_index)/(sprite_get_speed_type(sprite_index)==spritespeed_framespergameframe? 1 : game_get_speed(gamespeed_fps)) <= 0);	
 }
 
 /// @func tfg_draw_set_text(colour, font, halign, valign)
