@@ -44,5 +44,10 @@
 		sfx_play(objfrog_ys_sfx_yeehawww, 1, false);
 		microgame_win();
 	}
+	
+	early_end_t += MICROGAME_WON;
+	if (early_end_t >= 90) {
+		microgame_end_early();
+	}
 
 #endregion
