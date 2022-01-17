@@ -9,7 +9,9 @@
 		spin_amount = approach(spin_amount, 0, 2);
 	}
 	
-	spin_amount = clamp(spin_amount, -5, 5);
+	var minimum = -5 + (5 - DIFFICULTY) * 0.4;
+	var maximum = 5 - (5 - DIFFICULTY) * 0.4;
+	spin_amount = clamp(spin_amount, minimum, maximum);
 	direction += spin_amount
 
 	// Body rotation
