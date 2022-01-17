@@ -9,7 +9,7 @@ microgame_register("katsaii_witchcraft", {
     init_room : katsaii_witchcraft_rm,
     view_width : 1,
     view_height : 1,
-    time_seconds : 7,
+    time_seconds : 8,
     music_track : katsaii_witchcraft_mu,
     music_loops : false,
     interpolation_on : true,

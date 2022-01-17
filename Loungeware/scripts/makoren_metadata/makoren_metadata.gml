@@ -14,7 +14,7 @@ microgame_register("makoren_conjurer", {
     cartridge_col_secondary: [69, 41, 95],
     cartridge_label: makoren_conjurer_label,
     default_is_fail: true,
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["Makoren"],
     date_added: "21/07/10",
 	is_enabled: true,

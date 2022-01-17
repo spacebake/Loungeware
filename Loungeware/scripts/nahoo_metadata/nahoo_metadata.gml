@@ -14,7 +14,7 @@ microgame_register("nahoo_beenade", {
 	cartridge_col_secondary: [241, 161, 96], 
 	cartridge_label: Nahoo_beenade_cartridge,
 	default_is_fail: true,
-	supports_difficulty_scaling: false,
+	supports_difficulty_scaling: true,
 	credits: ["Nahoo"],
 	date_added: "21/07/04",
 	is_enabled: true,
