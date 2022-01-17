@@ -1137,7 +1137,6 @@
   ],
   "isDnDProject": false,
   "isEcma": false,
-  "tutorialPath": "",
   "configs": {
     "name": "Default",
     "children": [
@@ -1399,7 +1398,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"index.html","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
-    "IDEVersion": "23.1.1.443",
+    "IDEVersion": "23.1.1.457",
   },
   "resourceVersion": "1.4",
   "name": "Loungeware",
