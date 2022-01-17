@@ -27,12 +27,12 @@
   "gridX": 32,
   "gridY": 32,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},"LayerId":{"name":"88f37771-c248-4a5e-82d6-888c9900768e","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"tfg_guess_spr_bg","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},"resourceVersion":"1.0","name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},"LayerId":{"name":"88f37771-c248-4a5e-82d6-888c9900768e","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"tfg_swipe_spr_bg","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},"resourceVersion":"1.0","name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"tfg_guess_spr_bg","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},
+    "spriteId": {"name":"tfg_swipe_spr_bg","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -44,7 +44,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c6524e51-518e-4945-a387-b6c57d5012f1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e323a51c-55a2-4215-a7be-60148117bbaa","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4bdd6bc2-5a8f-4ede-a9b3-4a0bfb98cb09","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -61,9 +61,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"tfg_guess_spr_bg","path":"sprites/tfg_guess_spr_bg/tfg_guess_spr_bg.yy",},
+    "parent": {"name":"tfg_swipe_spr_bg","path":"sprites/tfg_swipe_spr_bg/tfg_swipe_spr_bg.yy",},
     "resourceVersion": "1.3",
-    "name": "tfg_guess_spr_bg",
+    "name": "tfg_swipe_spr_bg",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -72,11 +72,11 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "tfg_guess",
-    "path": "folders/Microgames/tfg/tfg_guess.yy",
+    "name": "tfg_swipe",
+    "path": "folders/Microgames/tfg/tfg_swipe.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tfg_guess_spr_bg",
+  "name": "tfg_swipe_spr_bg",
   "tags": [],
   "resourceType": "GMSprite",
 }
