@@ -28,7 +28,7 @@ _step = function(){
 		//1 million microseconds in 1 sec
 		var secs = (tap_end - tap_start) / 1000000;
 		
-		if (secs < 0.5) 
+		if (secs < 0.3) 
 			++tap_count;
 	}
 }
