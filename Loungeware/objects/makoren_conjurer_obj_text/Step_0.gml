@@ -1,3 +1,5 @@
+++t;
+
 if (KEY_DOWN_PRESSED and !inputs_disabled) {
 	if (selected_section_index + 1 <= 2)
 		selected_section_index++;

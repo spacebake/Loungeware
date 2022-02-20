@@ -1,6 +1,21 @@
-first_words = ["sword", "potion", "hammer", "bow"];
-second_words = ["righteous", "explosive", "offensive", "thirsty", "dull", "ancient", "dapper", "royal"];
-third_words = ["banning", "lounging", "disease", "energy", "vibes", "garbage"];
+t = 0;
+
+if (DIFFICULTY == 1) {
+	first_words = ["sword", "potion", "hammer", "bow"];
+	second_words = ["righteous", "explosive", "offensive"];
+	third_words = ["banning", "lounging", "disease"];
+	
+} else if (DIFFICULTY <= 3) {
+	first_words = ["sword", "potion", "hammer", "bow"];
+	second_words = ["righteous", "explosive", "offensive", "thirsty", "dull", "ancient"];
+	third_words = ["banning", "lounging", "disease", "energy", "vibes", "garbage"];
+	
+} else {
+	first_words = ["sword", "potion", "hammer", "bow"];
+	second_words = ["righteous", "explosive", "offensive", "thirsty", "dull", "ancient", "dapper", "royal"];
+	third_words = ["banning", "lounging", "disease", "energy", "vibes", "garbage"];
+	
+}
 
 // indices of the text you need to copy
 var _first_index = irandom(array_length(first_words) - 1);

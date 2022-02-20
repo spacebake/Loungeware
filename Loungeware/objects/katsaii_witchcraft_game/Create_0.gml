@@ -19,7 +19,7 @@ wandOrder = choose(
         [1, 2, 0], [1, 0, 2],
         [2, 1, 0], [2, 0, 1]);
 wandCurrent = 0;
-selectionSpeed = lerp(0.015, 0.03, (DIFFICULTY - 1) / 4);
+selectionSpeed = lerp(0.02, 0.04, (DIFFICULTY - 1) / 4);
 selectionAmount = 0;
 selectionID = 0;
 failed = false;

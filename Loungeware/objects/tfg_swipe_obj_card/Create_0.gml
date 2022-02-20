@@ -12,7 +12,7 @@ spd = 0;
 swiped = false;
 
 range = {
-	min: 35,
+	min: 35 + floor((DIFFICULTY - 1) * 1.6),
 	max: 43,
 }
 

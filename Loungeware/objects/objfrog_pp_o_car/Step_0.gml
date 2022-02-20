@@ -20,7 +20,8 @@ y = clamp(y, 0, room_height);
 
 
 	// sign(velocity) is to flip direction in reverse
-	var rotation_direction = (KEY_LEFT - KEY_RIGHT) * sign(velocity);
+	var rotation_direction = (KEY_LEFT - KEY_RIGHT) * sign(velocity) 
+		+ (5 - DIFFICULTY) * 0.1 * (KEY_LEFT - KEY_RIGHT);
 	
 	var hsp = lengthdir_x(velocity, direction);
 	var vsp = lengthdir_y(velocity, direction);

@@ -43,7 +43,7 @@ microgame_register("tfg_swipe", {
     cartridge_col_secondary: "0x959595",
     cartridge_label: tfg_swipe_spr_cartridge,
     default_is_fail: true,
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["tfg", "zandy", "space"],
     date_added: "21/08/15",
 	is_enabled: true,
