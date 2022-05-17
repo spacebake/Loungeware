@@ -222,7 +222,7 @@ ss_action_0 = function(){
 }
 ss_menu = [
 	{text : "VIEW LEADERBOARD", action : ss_action_0},
-	{text : "GO TOO MAIN MENU", action : ec_action_1},
+	{text : "GO TO MAIN MENU", action : ec_action_1},
 ];
 ss_menu_cursor = 0;
 ss_menu_confirmed = false;
