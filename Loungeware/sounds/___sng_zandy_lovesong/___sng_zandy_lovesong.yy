@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___sng_zandy_lovesong.wav",
-  "duration": 106.666664,
+  "duration": 103.08725,
   "parent": {
     "name": "Music",
     "path": "folders/__Base Game (keep out)/Sound/Music.yy",

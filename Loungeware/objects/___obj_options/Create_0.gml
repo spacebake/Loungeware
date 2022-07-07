@@ -301,5 +301,3 @@ function clear_rebinds(index, is_gamepad) {
 	else
 		___global.curr_input_keys[$ keyboard_rebinds[index]] = [];
 }
-
-show_debug_overlay(true);

@@ -25,9 +25,9 @@
   "gridY": 21,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"LayerId":{"name":"a2f0e913-9f79-42b4-b380-d1c4d1ebb2f8","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"LayerId":{"name":"37797b31-b2d7-4a41-8262-d1527b8ae24a","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"LayerId":{"name":"f09c52c0-591d-4562-8ae7-fb4b4c4b821f","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-        {"FrameId":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"LayerId":{"name":"a2f0e913-9f79-42b4-b380-d1c4d1ebb2f8","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"___spr_gp_select","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","name":"ab134d38-3f5f-4996-b745-39829573628b","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
@@ -39,12 +39,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0a4a542a-867d-4497-aaf4-f1ad308b7dfe","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+            {"id":"0a4a542a-867d-4497-aaf4-f1ad308b7dfe","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ab134d38-3f5f-4996-b745-39829573628b","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -61,7 +61,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"___spr_gp_select","path":"sprites/___spr_gp_select/___spr_gp_select.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "___spr_gp_select",
     "tags": [],
     "resourceType": "GMSequence",
