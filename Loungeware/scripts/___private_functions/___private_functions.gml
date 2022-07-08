@@ -456,6 +456,14 @@ function ___sound_menu_back(){
 	audio_sound_pitch(_snd_id, 1);
 }
 
+function ___sound_menu_burp(){
+	var _snd_index  = ___snd_larold_burp;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.8;
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, 1);
+}
+
 // ------------------------------------------------------------------------------------------
 // DRAW DOTTED LINE
 // ------------------------------------------------------------------------------------------

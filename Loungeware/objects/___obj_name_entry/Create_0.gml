@@ -344,7 +344,7 @@ function ee_check(){
 function ___menu_sign_timed_input_vertical(_sign){
 	static _sign_prev = 0;
 	static _input_cd = 0;
-	var _input_cd__max_initial = 30;
+	var _input_cd__max_initial = 20;
 	var _input_cd_max_subsequent = 4;
 	
 	if (_sign == 0){
