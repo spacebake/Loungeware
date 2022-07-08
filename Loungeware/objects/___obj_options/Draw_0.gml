@@ -44,7 +44,11 @@ if (state == "normal") {
 		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
+		var _current_rebind = string_upper(keyboard_rebinds_menu_left[rebind_index].text);
+		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,1>Press a button to assign to " + _current_rebind + "...");	
+	} else {
+		draw_set_colour(c_gbyellow);
+		___global.___draw_text_advanced(xpos, listening_ypos, 20, false, true, "Press ESCAPE to exit\nPress + hold ESCAPE to reset binds");
 	}
 	
 } else if (state == "gamepad_controls") {
@@ -88,7 +92,8 @@ if (state == "normal") {
 		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
+		var _current_rebind = string_upper(gamepad_rebinds_menu_left[rebind_index].text);
+		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,1>Press a button to assign to " + _current_rebind + "...");	
 	}
 	
 } 
@@ -105,7 +110,7 @@ if (state == "gamepad_controls" || state == "key_controls") {
 	draw_sprite(spr_button_a, 0, xx, yy);
 	
 	xx = xpos - string_width(menu[cursor].prompt) / 2 //left
-		+ string_width("Press   to add a key, or") + string_width(" ")*1.5 //adjust right
+		+ string_width("Press   to add a bind, or") + string_width(" ")*1.5 //adjust right
 		- 9; //half width of button
 		
 	draw_sprite(spr_button_b, 0, xx, yy);

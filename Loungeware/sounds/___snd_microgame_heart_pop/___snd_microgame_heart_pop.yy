@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 0.46,
   "preload": false,
@@ -11,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "___snd_microgame_heart_pop.wav",
-  "duration": 0.730374,
+  "duration": 0.725374,
   "parent": {
     "name": "SFX",
     "path": "folders/__Base Game (keep out)/Sound/SFX.yy",

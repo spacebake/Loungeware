@@ -7,6 +7,7 @@ menu_y = prompt_ypos + 80;
 
 confirmed = false;
 cursor = 0;
+can_scroll = true;
 title_txt = {
 	normal: "OPTIONS",
 	key_controls: "KEYMAP",
@@ -17,26 +18,53 @@ function back_to_main(){
 	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
 		skip_intro = true;
 	}
+	
 	___global.menu_cursor_gallery = 0;
 	instance_destroy();
 }
 
+
+master_vol_down = method(self, function() {
+	var res = ___global.save_data.vol.master - vol_step;
+	
+	___global.save_data.vol.master = max(0, res);
+
+	if (___global.save_data.vol.master == res) 
+		___sound_menu_tick_horizontal();
+
+	audio_sound_gain(jam_id, res, 0);
+});
+
+master_vol_up = method(self, function() {
+	var res = ___global.save_data.vol.master + vol_step;
+	
+	___global.save_data.vol.master = min(1, res);
+	
+	if (___global.save_data.vol.master == res) 
+		___sound_menu_tick_horizontal();
+	
+	audio_sound_gain(jam_id, res, 0);
+});
+
+
 menu = [
 	{ 
 		text: "KEYBOARD MAPPING",
-		prompt: "Press   to add a key, or   to clear keys",
+		prompt: "Press   to add a bind, or   to replace a bind",
 		op: method(self, function() { ___state_change("key_controls") }), 
 	},
 	{ 
 		text: "GAMEPAD MAPPING",
-		prompt: "Press   to add a key, or   to clear keys",
-		op: method(self, function() { ___state_change("gamepad_controls") }), 
+		prompt: "Press   to add a bind, or   to replace a bind",
+		op: method(self, function() { return "noop" }),
+		action: ___noop
 	},
-	{ 
+	{
 		text: "EXIT",
 		op: method(self, back_to_main), 
 	},
 ];
+
 
 // -> [Int]
 function keyboard_rebinds_values_right(index) {
@@ -233,7 +261,7 @@ function gamepad_rebinds_menu_right() {
 	
 	var res = [];
 	for (var i = 0; i < array_length(gamepad_rebinds); i++) {
-		log(gamepad_rebinds_values_right(i));
+		//log(gamepad_rebinds_values_right(i));
 		
 		var txt = arr_to_str(gamepad_rebinds_values_right(i));
 		
@@ -254,7 +282,7 @@ rebinds_t = 0;
 listening = false;
 just_listening = false;
 listening_ypos = room_height - 50;
-rejects = [vk_f11, vk_f8, vk_escape]
+rejects = [vk_f11, vk_f8, vk_escape];
 function add_key(index, keycode, is_gamepad) {
 	static push = function(is_controller, _keycode, _index) {
 		var arr;
@@ -267,7 +295,7 @@ function add_key(index, keycode, is_gamepad) {
 		
 		array_push(arr, _keycode);
 		if (array_length(arr) > 4)
-			array_delete(arr, 0, 1);
+		array_delete(arr, 0, 1);
 	}
 	
 	if (is_gamepad) {
@@ -281,8 +309,9 @@ function add_key(index, keycode, is_gamepad) {
 			
 		}
 		
-	} else 
+	} else {
 		push(false, keycode, index);
+	}
 }
 
 function clear_rebinds(index, is_gamepad) {
@@ -302,4 +331,17 @@ function clear_rebinds(index, is_gamepad) {
 		___global.curr_input_keys[$ keyboard_rebinds[index]] = [];
 }
 
-show_debug_overlay(true);
+
+function reset_binds(is_gamepad) {
+	if (is_gamepad) {
+		return
+	} else {
+		var _bind_names = variable_struct_get_names(___global.default_input_keys);
+		for (var i = 0; i < array_length(_bind_names); i++) {
+			var _name = _bind_names[i];
+			var _default_value = variable_struct_get(___global.default_input_keys, _name);
+			variable_struct_set(___global.curr_input_keys, _name, _default_value);
+		}
+		
+	}
+}
