@@ -21,8 +21,11 @@ if (state == "normal") {
 		}
 	}
 
-	if (KEY_SECONDARY_PRESSED || ___KEY_PAUSE_PRESSED) back_to_main();
-
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape) || ___KEY_PAUSE_PRESSED) {
+		state = "fadeout_back";
+		fadeout_do = back_to_main;
+		if (!is_undefined(sng_id)) {audio_sound_gain(sng_id, 0, 100);}
+	}	
 } else if (state == "key_controls") {
 	
 	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey)) {
@@ -172,7 +175,19 @@ if (state == "normal") {
 	just_listening = listening;
 	
 	if (___KEY_PAUSE_PRESSED) {___sound_menu_back();}
+} else if (state == "fadeout_back") {
+	close_circle_prog = max(0, close_circle_prog - (1/20));
+	if (close_wait_before > 0){
+		close_wait_before -=1;
+	} else {
+		if (close_circle_prog <= 0) close_wait--;
+		if (close_wait <= 0 && !fadeout_ended){
+			fadeout_do();
+			fadeout_ended = true;
+		}
+	}
 }
+
 
 if (state == "key_controls" || state == "gamepad_controls") {
 	//log(pause_t);
@@ -182,6 +197,7 @@ if (state == "key_controls" || state == "gamepad_controls") {
 		
 		// mutability is the root of all evil
 		if (pause_t > 40) {
+			listening = false;
 			if (state == "key_controls") {
 				//___global.curr_input_keys = ___global.default_input_keys;
 				___struct_foreach(___global.curr_input_keys, function(_key, _value) {

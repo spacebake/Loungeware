@@ -5,20 +5,38 @@ ypos = room_height / 2 - 220;
 prompt_ypos = ypos + 40;
 menu_y = prompt_ypos + 80;
 
+close_wait_before = 0;
+close_circle_prog = 1;
+surf_circle = noone;
+close_wait = 20;
+fadeout_began = false;
+fadeout_ended = false;
+fadeout_do = ___noop();
+
+top_cover_prog = 0;
+bottom_cover_prog = 1;
+bottom_cover_prog_target = bottom_cover_prog;
+cover_alpha = 1;
+col_bg = make_color_rgb(31, 27, 37);
+
 confirmed = false;
 cursor = 0;
 can_scroll = true;
 title_txt = {
 	normal: "OPTIONS",
+	fadeout_back: "OPTIONS",
 	key_controls: "KEYMAP",
 	gamepad_controls: "GAMEPAD MAP",
 };
 
-function back_to_main(){
-	with (instance_create_layer(0, 0, layer, ___obj_main_menu)){
+sng_id = undefined;
+alarm[1] = 10;
+
+function back_to_main() {
+	with (instance_create_layer(0, 0, layer, ___obj_main_menu)) {
 		skip_intro = true;
 	}
-	
+	if (!is_undefined(sng_id)) {audio_stop_sound(sng_id);}
 	___global.menu_cursor_gallery = 0;
 	instance_destroy();
 }
@@ -51,17 +69,21 @@ menu = [
 	{ 
 		text: "KEYBOARD MAPPING",
 		prompt: "Press   to add a bind, or   to replace a bind",
-		op: method(self, function() { ___state_change("key_controls") }), 
+		op: method(self, function() { alarm[0] = 15; }), 
 	},
 	{ 
 		text: "GAMEPAD MAPPING",
 		prompt: "Press   to add a bind, or   to replace a bind",
 		op: method(self, function() { return "noop" }),
-		action: ___noop
+		action: ___noop,
 	},
 	{
 		text: "EXIT",
-		op: method(self, back_to_main), 
+		op: method(self, function() { 
+			state = "fadeout_back";
+			fadeout_do = back_to_main;
+			if (!is_undefined(sng_id)) {audio_sound_gain(sng_id, 0, 100);} 
+		}), 
 	},
 ];
 

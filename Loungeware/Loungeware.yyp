@@ -950,6 +950,7 @@
     {"id":{"name":"baku_mine_snd_hit_b","path":"sounds/baku_mine_snd_hit_b/baku_mine_snd_hit_b.yy",},"order":1,},
     {"id":{"name":"baku_chug_spr_cry","path":"sprites/baku_chug_spr_cry/baku_chug_spr_cry.yy",},"order":5,},
     {"id":{"name":"objfrog_pp_s_sidewalk","path":"sprites/objfrog_pp_s_sidewalk/objfrog_pp_s_sidewalk.yy",},"order":2,},
+    {"id":{"name":"___sng_microgame_win_nopickup","path":"sounds/___sng_microgame_win_nopickup/___sng_microgame_win_nopickup.yy",},"order":20,},
     {"id":{"name":"tfg_swipe_spr_tfgfloosh","path":"sprites/tfg_swipe_spr_tfgfloosh/tfg_swipe_spr_tfgfloosh.yy",},"order":12,},
     {"id":{"name":"nahoo_metadata","path":"scripts/nahoo_metadata/nahoo_metadata.yy",},"order":2,},
     {"id":{"name":"___spr_gameboy_spin_y","path":"sprites/___spr_gameboy_spin_y/___spr_gameboy_spin_y.yy",},"order":9,},
