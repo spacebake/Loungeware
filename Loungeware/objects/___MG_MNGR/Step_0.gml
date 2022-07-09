@@ -306,8 +306,12 @@ if (state == "microgame_result"){
 		}
 		
 		gb_show = true;
-		var _sound = (microgame_won) ? ___sng_microgame_win : ___sng_microgame_lose;
-		
+		if (microgame_won) {
+			var _sound = (gallery_mode) ? ___sng_microgame_win_nopickup : ___sng_microgame_win;
+		} else {
+			var _sound = ___sng_microgame_lose;
+		}
+
 		if (!TEST_MODE_ACTIVE){
 			if (microgame_won || life > 0){
 				transition_music_current  = ___play_song(_sound,  VOL_MSC * VOL_MASTER, 0);
