@@ -4,7 +4,7 @@
   "volume": 1.0,
   "preload": false,
   "bitRate": 192,
-  "sampleRate": 44100,
+  "sampleRate": 48000,
   "type": 0,
   "bitDepth": 1,
   "audioGroupId": {

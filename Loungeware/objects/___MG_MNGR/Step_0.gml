@@ -332,7 +332,6 @@ if (state == "microgame_result"){
 				heart_show_lose_seq = true;
 				heart_begin = true;
 				gb_slot_is_empty = true;
-
 			}
 			if (life <= 0){ 
 				___state_change("outro");
@@ -410,7 +409,6 @@ if (state == "playing_microgame"){
 // STATE | GAME SWITCH TRANSITION 
 // --------------------------------------------------------------------------------
 if (state == "game_switch"){
-	
 	
 	if (state_begin){
 		gb_show = true;
@@ -718,7 +716,6 @@ if (state == "outro"){
 			//gb_show = false;
 			//ou_gameboy_swing_show = true;
 			___substate_change(substate+1);
-			;
 			exit;
 		}
 	}
@@ -732,6 +729,10 @@ if (state == "outro"){
 	if (substate == 2){
 		if (substate_begin){
 			sfx_play(___snd_glass_crack, 1, false);
+			ou_songid_1 = ___play_song(___sng_zandy_lovesong_drumintro,  VOL_MSC * VOL_MASTER, true);
+			ou_songid_2 = ___play_song(___sng_zandy_lovesong_drumloop, 0, true);
+			ou_songid_3 =  ___play_song(___sng_zandy_lovesong_pickup, 0, true);
+			ou_music_stage = 0;
 			ou_gameboy_y_is_spinning = true;
 			ou_flash = 0.5;
 			gb_shake = 5;
@@ -850,10 +851,9 @@ if (state == "outro"){
 		if (_all_done){
 			___substate_change(substate+1);
 			wait = 20;
-			
 		}
 	}
-	
+
 	// wait 
 	if (substate == 6){
 		wait--;
@@ -894,7 +894,7 @@ if (state == "outro"){
 		if (ou_light_alpha >= _max_alpha){
 			___play_sfx(___snd_score_pop);
 			ou_light_alpha = 1;
-			wait = 60*2;
+			wait = 120;
 			ou_draw_games = false;
 			ou_draw_scorebox = false;
 			gb_show = false;
@@ -909,13 +909,32 @@ if (state == "outro"){
 	}
 	
 	// fade in light
-	if (substate == 11){
-		if (substate_begin){
-			
+	if (substate == 11) {
+		if (substate_begin) {
 			___state_change("end_screen");
-
+			audio_stop_sound(ou_songid_1);
+			audio_stop_sound(ou_songid_2);
 		}
-		
+	}
+	
+	//drumloop transitions
+	if (substate >= 3) {
+		if (audio_sound_get_track_position(ou_songid_1) < 0.03 && ou_music_stage == 0) {
+			ou_music_stage = 1;
+			audio_sound_gain(ou_songid_1, 0, 0);
+			audio_sound_gain(ou_songid_2, VOL_MSC * VOL_MASTER, 0);
+		}
+	}
+	if (substate >= 10) {
+		if (audio_sound_get_track_position(ou_songid_2) < 0.03 && ou_music_stage == 1) {
+			audio_sound_gain(ou_songid_1, 0, 0);
+			audio_sound_gain(ou_songid_2, 0, 0);
+			//var _songid_3_time = audio_sound_get_track_position(ou_songid_2);
+			audio_sound_set_track_position(ou_songid_3, 0);
+			audio_sound_gain(ou_songid_3, VOL_MSC * VOL_MASTER, 0);
+			wait = (audio_sound_length(ou_songid_3) * 60) - 1;
+			ou_music_stage = 2;
+		}
 	}
 	
 }
@@ -936,15 +955,18 @@ if (state == "end_screen"){
 			es_score_saved = true;
 		}
 		//var _sng = (es_score_in_scoreboard) ? ___sng_zandy_lovesong : ___sng_zandy_lofi;
+		audio_stop_sound(transition_music_current);
 		var _sng = ___sng_zandy_lovesong;
 		if (es_song_id != noone && audio_is_playing(es_song_id)){
 			audio_sound_gain(es_song_id, 1, 250);
 		} else {
 			es_song_id = ___play_song(_sng, 1, true);
+			audio_stop_sound(ou_songid_3);
 		}
 		es_menu_confirmed = false;
 		button_guide_frame = 3;
 		button_guide_show = true;
+		
 	}
 	
 	// fade in

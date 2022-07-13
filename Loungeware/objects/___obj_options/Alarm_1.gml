@@ -1,1 +1,1 @@
-sng_id = audio_play_sound(___sng_zandy_leavin, 0, 1);
+sng_id = ___play_song(___sng_zandy_leavin,  VOL_MSC * VOL_MASTER, false);
