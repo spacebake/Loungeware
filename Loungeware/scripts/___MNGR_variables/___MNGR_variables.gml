@@ -276,6 +276,10 @@ ou_light_alpha = 0;
 ou_show_larold = false;
 ou_larold_frame = 0;
 ou_larold_speed = 1/6;
+ou_music_stage = 0;
+ou_songid_1 = undefined;
+ou_songid_2 = undefined;
+ou_songid_3 = undefined;
 
 //--------------------------------------------------------------------------------------------------------
 // SCORE AND DIFF DISPLAY
