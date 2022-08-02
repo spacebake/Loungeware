@@ -88,9 +88,9 @@ difficulty_up = method(self, function() {
 menu = [
 	{menu_type: OPTION, name:"RESUME", execute: function(){___obj_pause.state = "end";}},
 	{menu_type: OPTION, name:"JAM", execute: menu_jam},
+	{menu_type: SLIDER, name:"VOL", left: master_vol_down, right: master_vol_up, value: function(){ return string(round(VOL_MASTER * 100)) + "%" }},
 	{menu_type: OPTION, name:"EXIT", execute: menu_exit},
-	{menu_type: SLIDER, name:"MASTER VOLUME", left: master_vol_down, right: master_vol_up, 
-		value: function(){ return string(round(VOL_MASTER * 100)) + "%" }}
+
 ]
 
 cursor = 0;
