@@ -12,7 +12,7 @@
   "option_html5_outputdebugtoconsole": true,
   "option_html5_display_cursor": true,
   "option_html5_localrunalert": true,
-  "option_html5_index": "use_default",
+  "option_html5_index": "index.html",
   "option_html5_loadingbar": "ImageLoadBar_hook",
   "option_html5_jsprepend": "",
   "option_html5_icon": "${base_options_dir}/html5/fav.ico",
