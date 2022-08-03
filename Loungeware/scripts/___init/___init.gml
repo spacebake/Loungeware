@@ -212,7 +212,7 @@ function ___GAME_INIT(){
 	
 	
 	// delete dev config file if it exists but the microgame with key doesn't exist
-	if (DEVELOPER_MODE && file_exists(___DEV_CONFIG_PATH)){
+	if (DEVELOPER_MODE && !HTML_MODE && file_exists(___DEV_CONFIG_PATH)){
 		var _config_microgame_key = ___dev_config_get_test_key();
 		var _valid_config_exists = false;
 		var _metadata_all = ___global.microgame_metadata;
