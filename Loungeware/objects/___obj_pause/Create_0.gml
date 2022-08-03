@@ -50,8 +50,13 @@ master_vol_down = method(self, function() {
 	
 	___global.save_data.vol.master = max(0, res);
 
-	if (___global.save_data.vol.master == res) 
+	if (___global.save_data.vol.master == res) {
+		confirm_shake_timer = confirm_shake_timer_max * 0.4;
 		___sound_menu_tick_horizontal();
+	} else {
+		confirm_shake_timer = confirm_shake_timer_max * 0.2;
+		___sound_menu_bumper(2);
+	}
 
 	audio_sound_gain(jam_id, res, 0);
 });
@@ -61,8 +66,13 @@ master_vol_up = method(self, function() {
 	
 	___global.save_data.vol.master = min(1, res);
 	
-	if (___global.save_data.vol.master == res) 
+	if (___global.save_data.vol.master == res){
+		confirm_shake_timer = confirm_shake_timer_max * 0.4;
 		___sound_menu_tick_horizontal();
+	} else {
+		confirm_shake_timer = confirm_shake_timer_max * 0.2;
+		___sound_menu_bumper(2);
+	}
 	
 	audio_sound_gain(jam_id, res, 0);
 });
@@ -72,8 +82,13 @@ difficulty_down = method(self, function() {
 	
 	___global.difficulty_level = max(1, res);
 
-	if (___global.difficulty_level == res) 
+	if (___global.difficulty_level == res){
+		confirm_shake_timer = confirm_shake_timer_max * 0.4;
 		___sound_menu_tick_horizontal();
+	} else {
+		confirm_shake_timer = confirm_shake_timer_max * 0.2;
+		___sound_menu_bumper(2);
+	}
 });
 
 difficulty_up = method(self, function() {
@@ -81,8 +96,13 @@ difficulty_up = method(self, function() {
 	
 	___global.difficulty_level = min(___global.difficulty_max, res);
 
-	if (___global.difficulty_level == res) 
+	if (___global.difficulty_level == res){
+		confirm_shake_timer = confirm_shake_timer_max * 0.4;
 		___sound_menu_tick_horizontal();
+	} else {
+		confirm_shake_timer = confirm_shake_timer_max * 0.2;
+		___sound_menu_bumper(2);
+	}
 });
 
 menu = [
