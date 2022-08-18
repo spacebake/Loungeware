@@ -12,7 +12,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "username_gamename_bgm_game.wav",
-  "duration": 0.0,
+  "duration": 8.648667,
   "parent": {
     "name": "__GAME_NAME__",
     "path": "folders/Microgames/__EXAMPLE_NAME__/__GAME_NAME__.yy",
