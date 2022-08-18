@@ -259,7 +259,7 @@ function __katsaii_wandaring_rf3d_get_texture_data(_sprite, _subimg) {
         sprite_data.offY = sprite_get_yoffset(_sprite) - uv_y_offset;
         sprite_data.width = width * uv_x_ratio;
         sprite_data.height = height * uv_y_ratio;
-        sprite_data.page = sprite_get_info(_sprite).frames[_subimg].texture;
+        sprite_data.page = sprite_get_texture(_sprite, _subimg); //sprite_get_info(_sprite).frames[_subimg].texture;
         sprite_data.uvLeft = uv_left;
         sprite_data.uvTop = uv_top;
         sprite_data.uvRight = uv_right;

@@ -2,6 +2,7 @@
   "spriteId": null,
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": {
     "name": "katsaii_witchwanda_spr_wanda_hitbox",
     "path": "sprites/katsaii_witchwanda_spr_wanda_hitbox/katsaii_witchwanda_spr_wanda_hitbox.yy",

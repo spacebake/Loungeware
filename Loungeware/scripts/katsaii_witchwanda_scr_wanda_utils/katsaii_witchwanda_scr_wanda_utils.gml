@@ -282,7 +282,7 @@ function katsaii_witchwanda_lerp_bezier(_amount, _x1, _y1, _x2, _y2, _x3, _y3) {
 /// @param {real} rx The X radius of the enemy.
 /// @param {real} ry The Y radius of the enemy.
 function katsaii_witchwanda_spawn_enemy(_x, _y, _amp_x, _amp_y) {
-    var inst = instance_create_layer(_x, _y, layer, katsaii_witchwanda_obj_enemy);
+    var inst = instance_create_layer(_x, _y, "Foreground", katsaii_witchwanda_obj_enemy);
     with (inst) {
         amplitudeX = _amp_x;
         amplitudeY = _amp_y;

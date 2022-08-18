@@ -59,7 +59,7 @@ if (state == "begin"){
 			___sound_menu_select();
 			___state_change("fadeout");
 		} else {
-			___play_sfx(___snd_bumper, 0.5, 2);
+			___sound_menu_bumper();
 		}
 		
 	}

@@ -114,12 +114,11 @@ if (state != "wait"){
 		}
 		
 		if (cursor == i){
+			draw_set_color(merge_color(c_gbyellow, c_gbpink, confirm_shake_timer/confirm_shake_timer_max));
 			if (confirm_shake_timer > 0){
-				draw_set_color(c_gbpink);
 				_txt = "<shake, " + string(floor(confirm_shake_timer/4)) + ">" + _txt + "</shake>";
 				_scale_final = 1 + (0.5 * (confirm_shake_timer/confirm_shake_timer_max));
 			} else {
-				draw_set_color(c_gbyellow);
 				_txt = "<wave>" + _txt;
 			}
 		}
