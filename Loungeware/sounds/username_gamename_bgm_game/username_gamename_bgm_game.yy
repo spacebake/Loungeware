@@ -1,4 +1,5 @@
 {
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -10,7 +11,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "username_gamename_bgm_game",
+  "soundFile": "username_gamename_bgm_game.wav",
   "duration": 0.0,
   "parent": {
     "name": "__GAME_NAME__",
