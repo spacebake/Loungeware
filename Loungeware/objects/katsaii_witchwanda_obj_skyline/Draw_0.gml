@@ -17,7 +17,7 @@ islandTimer -= islandCountdown;
 if (cloudTimer < 0) {
     cloudTimer = 1;
     katsaii_witchwanda_wanda_skyline_spawn_particles(partSysCloud, cam_left, cam_top, cam_right, cam_bottom);
-    katsaii_witchwanda_wanda_island_spawn_particles(partSys, cam_right, cam_top, cam_right, horizon_line);
+    katsaii_witchwanda_wanda_island_spawn_particles(partSysIslands, cam_right, cam_top, cam_right, horizon_line);
 }
 if (islandTimer < 0) {
     islandTimer = 1;
@@ -25,3 +25,4 @@ if (islandTimer < 0) {
 var padding = sprite_get_width(katsaii_witchwanda_spr_island);
 draw_sprite(katsaii_witchwanda_spr_island, 0, lerp(cam_left - padding, cam_right + padding, islandTimer), horizon_line);
 part_system_drawit(partSys);
+part_system_drawit(partSysIslands);
