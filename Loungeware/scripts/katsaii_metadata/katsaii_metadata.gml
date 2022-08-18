@@ -128,7 +128,7 @@ microgame_register("katsaii_wandaring", {
         month : "October",
         year : 2021,
     },
-    is_enabled : true,
+    is_enabled : false,
     supports_html : false,
     supports_pi: false,
     show_on_website : true,
