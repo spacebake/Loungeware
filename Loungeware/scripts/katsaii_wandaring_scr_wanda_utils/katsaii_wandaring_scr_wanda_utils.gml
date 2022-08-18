@@ -124,7 +124,7 @@ function katsaii_wandaring_instance_create_on_grid(_row, _col, _obj, _offset=und
         _row += 0.5;
         _col += 0.5;
     }
-    var inst = instance_create_layer(_row * KATSAII_WANDARING_CELL_SIZE, _col * KATSAII_WANDARING_CELL_SIZE, layer, _obj);
+    var inst = instance_create_layer(_row * KATSAII_WANDARING_CELL_SIZE, _col * KATSAII_WANDARING_CELL_SIZE, "Instances", _obj);
     if (_offset != undefined) {
         inst.z = -(_offset + 1) * KATSAII_WANDARING_CELL_SIZE;
         inst.zstart = inst.z;
@@ -149,7 +149,7 @@ function katsaii_wandaring_instance_create_on_grid_region(_row_1, _col_1, _row_2
 }
 
 function katsaii_wandaring_instance_create_particle(_x, _y, _z, _speed, _angle, _pitch) {
-    var inst = instance_create_layer(_x, _y, layer, katsaii_wandaring_obj_particle);
+    var inst = instance_create_layer(_x, _y, "Instances", katsaii_wandaring_obj_particle);
     with (inst) {
         z = _z;
         xspeed = _speed * dcos(_angle);
