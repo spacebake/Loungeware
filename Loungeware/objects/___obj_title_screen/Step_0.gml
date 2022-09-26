@@ -145,7 +145,7 @@ logo_shake = max(0, logo_shake - 1);
 mimpytimer = max(0, mimpytimer - 1);
 if (mimpytimer <= 0 && !mimpydone){
 	mimpydone = true;
-	instance_create_layer(0, 0, layer, ___obj_title_actor_mimp);
+	instance_create_layer(0, 0, "mimpy_cutscene", ___obj_title_actor_mimp);
 }
 step++;
 

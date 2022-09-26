@@ -90,7 +90,7 @@ bg_shd_surf = noone;
 
 next_beat_prog = 0;
 
-mimpytimer = 60*9; //6
+mimpytimer = 60*6; //6
 mimpydone = false;
 
 function ___draw_logo(){
