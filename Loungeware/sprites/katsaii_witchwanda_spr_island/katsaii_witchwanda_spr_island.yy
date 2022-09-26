@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_witchwanda_spr_island",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"41c38f7c-e033-4714-ab82-1ffe1c20e098","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"41c38f7c-e033-4714-ab82-1ffe1c20e098","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"LayerId":{"name":"2f3686c6-a189-4055-8307-25338414fcc8","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"resourceVersion":"1.0","name":"41c38f7c-e033-4714-ab82-1ffe1c20e098","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"41c38f7c-e033-4714-ab82-1ffe1c20e098",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchwanda_spr_island","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_witchwanda_spr_island",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ef50df6f-38f5-496e-89ca-8b321f54ec8f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"41c38f7c-e033-4714-ab82-1ffe1c20e098","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ef50df6f-38f5-496e-89ca-8b321f54ec8f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"41c38f7c-e033-4714-ab82-1ffe1c20e098","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 39,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchwanda_spr_island","path":"sprites/katsaii_witchwanda_spr_island/katsaii_witchwanda_spr_island.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_witchwanda_spr_island",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2f3686c6-a189-4055-8307-25338414fcc8","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2f3686c6-a189-4055-8307-25338414fcc8","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Background",
     "path": "folders/Microgames/katsaii/witchwanda/Background.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_spr_island",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

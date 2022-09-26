@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "kilo_jaywalker_sprJayWalkerDown",
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"LayerId":{"name":"2de619cd-369f-45e6-bb8a-268ad89a552f","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"kilo_jaywalker_sprJayWalkerDown","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"1782b3a7-ed98-49af-adcb-25aac984b6c8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1782b3a7-ed98-49af-adcb-25aac984b6c8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"LayerId":{"name":"2de619cd-369f-45e6-bb8a-268ad89a552f","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"kilo_jaywalker_sprJayWalkerDown","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","name":"1782b3a7-ed98-49af-adcb-25aac984b6c8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1782b3a7-ed98-49af-adcb-25aac984b6c8",},
   ],
   "sequence": {
-    "spriteId": {"name":"kilo_jaywalker_sprJayWalkerDown","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "kilo_jaywalker_sprJayWalkerDown",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 12.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"903b9992-0188-441a-ac79-3bac7747927b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"18ec10c9-abd8-4008-9865-177f4a291974","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1782b3a7-ed98-49af-adcb-25aac984b6c8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"903b9992-0188-441a-ac79-3bac7747927b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f22b60aa-0a0e-4e47-aac5-5d0d26bb09d8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"18ec10c9-abd8-4008-9865-177f4a291974","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1782b3a7-ed98-49af-adcb-25aac984b6c8","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 6,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"kilo_jaywalker_sprJayWalkerDown","path":"sprites/kilo_jaywalker_sprJayWalkerDown/kilo_jaywalker_sprJayWalkerDown.yy",},
-    "resourceVersion": "1.4",
-    "name": "kilo_jaywalker_sprJayWalkerDown",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"2de619cd-369f-45e6-bb8a-268ad89a552f","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"2de619cd-369f-45e6-bb8a-268ad89a552f","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "kilo_jaywalker_sprites",
     "path": "folders/Microgames/kilomatter/jaywalker/kilo_jaywalker_sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "kilo_jaywalker_sprJayWalkerDown",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

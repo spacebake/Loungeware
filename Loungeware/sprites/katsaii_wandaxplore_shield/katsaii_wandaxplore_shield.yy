@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_wandaxplore_shield",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"LayerId":{"name":"b138a411-acf5-44f9-bf7a-69974fd93274","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_wandaxplore_shield","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"resourceVersion":"1.0","name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_wandaxplore_shield","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_wandaxplore_shield",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"34d03410-3845-4785-8a28-88c21ce42fcc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"34d03410-3845-4785-8a28-88c21ce42fcc","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bdad3e99-6f89-4a15-849f-ad6dcfcabe14","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_wandaxplore_shield","path":"sprites/katsaii_wandaxplore_shield/katsaii_wandaxplore_shield.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_wandaxplore_shield",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b138a411-acf5-44f9-bf7a-69974fd93274","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b138a411-acf5-44f9-bf7a-69974fd93274","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "wandaxplore",
     "path": "folders/Microgames/katsaii/wandaxplore.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_wandaxplore_shield",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

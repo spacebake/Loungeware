@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "yosi_EFT_spr_ground",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"daecaa25-9efe-4942-bbaf-e041c6b69d76","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"daecaa25-9efe-4942-bbaf-e041c6b69d76","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"LayerId":{"name":"88cd5b8a-e5e5-4394-b8ca-c378d5b6e2da","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"yosi_EFT_spr_ground","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"resourceVersion":"1.0","name":"daecaa25-9efe-4942-bbaf-e041c6b69d76","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"daecaa25-9efe-4942-bbaf-e041c6b69d76",},
   ],
   "sequence": {
-    "spriteId": {"name":"yosi_EFT_spr_ground","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "yosi_EFT_spr_ground",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"28ceb916-6f0e-4bfc-ae4f-fe11dc84766a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"daecaa25-9efe-4942-bbaf-e041c6b69d76","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"28ceb916-6f0e-4bfc-ae4f-fe11dc84766a","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"daecaa25-9efe-4942-bbaf-e041c6b69d76","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"yosi_EFT_spr_ground","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},
-    "resourceVersion": "1.4",
-    "name": "yosi_EFT_spr_ground",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"88cd5b8a-e5e5-4394-b8ca-c378d5b6e2da","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"88cd5b8a-e5e5-4394-b8ca-c378d5b6e2da","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "epic_fire_truck",
     "path": "folders/Microgames/yosi/epic_fire_truck.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "yosi_EFT_spr_ground",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

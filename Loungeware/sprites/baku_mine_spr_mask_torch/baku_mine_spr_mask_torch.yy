@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_mine_spr_mask_torch",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"17ce89dc-d61f-43c9-8fea-c6791623c09b","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"17ce89dc-d61f-43c9-8fea-c6791623c09b","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"LayerId":{"name":"29f6e54f-283d-4583-9f57-1ba4760ff5bd","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_mine_spr_mask_torch","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"resourceVersion":"1.0","name":"17ce89dc-d61f-43c9-8fea-c6791623c09b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"17ce89dc-d61f-43c9-8fea-c6791623c09b",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_mine_spr_mask_torch","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_mine_spr_mask_torch",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cadde6a0-7d07-4dcd-b3b2-54ac929d0f26","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17ce89dc-d61f-43c9-8fea-c6791623c09b","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"cadde6a0-7d07-4dcd-b3b2-54ac929d0f26","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"17ce89dc-d61f-43c9-8fea-c6791623c09b","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_mine_spr_mask_torch","path":"sprites/baku_mine_spr_mask_torch/baku_mine_spr_mask_torch.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_mine_spr_mask_torch",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"29f6e54f-283d-4583-9f57-1ba4760ff5bd","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"29f6e54f-283d-4583-9f57-1ba4760ff5bd","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/baku/mine/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_mine_spr_mask_torch",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

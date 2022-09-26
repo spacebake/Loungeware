@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "jdllama_hammer_spr_moon",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"7080401f-e60c-46a5-a86b-26ad98b5ce91","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"7080401f-e60c-46a5-a86b-26ad98b5ce91","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"LayerId":{"name":"fb30c655-860d-4b3c-b543-8f13d80aa2b8","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"jdllama_hammer_spr_moon","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"resourceVersion":"1.0","name":"7080401f-e60c-46a5-a86b-26ad98b5ce91","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7080401f-e60c-46a5-a86b-26ad98b5ce91",},
   ],
   "sequence": {
-    "spriteId": {"name":"jdllama_hammer_spr_moon","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "jdllama_hammer_spr_moon",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7fbc8678-03ee-47ce-a473-4b66deafd9ab","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7080401f-e60c-46a5-a86b-26ad98b5ce91","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"7fbc8678-03ee-47ce-a473-4b66deafd9ab","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"7080401f-e60c-46a5-a86b-26ad98b5ce91","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"jdllama_hammer_spr_moon","path":"sprites/jdllama_hammer_spr_moon/jdllama_hammer_spr_moon.yy",},
-    "resourceVersion": "1.4",
-    "name": "jdllama_hammer_spr_moon",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fb30c655-860d-4b3c-b543-8f13d80aa2b8","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fb30c655-860d-4b3c-b543-8f13d80aa2b8","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "ending",
     "path": "folders/Microgames/jdllama/hammer/sprites/ending.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "jdllama_hammer_spr_moon",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

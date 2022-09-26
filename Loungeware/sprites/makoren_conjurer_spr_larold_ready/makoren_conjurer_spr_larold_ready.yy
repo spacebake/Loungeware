@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "makoren_conjurer_spr_larold_ready",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"09fd4626-023e-4e50-a794-f879951f1fab","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"09fd4626-023e-4e50-a794-f879951f1fab","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"LayerId":{"name":"fc1d2f26-b6dd-4b10-b59a-b434576e897b","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"makoren_conjurer_spr_larold_ready","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"resourceVersion":"1.0","name":"09fd4626-023e-4e50-a794-f879951f1fab","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"09fd4626-023e-4e50-a794-f879951f1fab",},
   ],
   "sequence": {
-    "spriteId": {"name":"makoren_conjurer_spr_larold_ready","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "makoren_conjurer_spr_larold_ready",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1a3c6d3c-7330-4963-a211-78a6a85a26bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"09fd4626-023e-4e50-a794-f879951f1fab","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"1a3c6d3c-7330-4963-a211-78a6a85a26bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"09fd4626-023e-4e50-a794-f879951f1fab","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 21,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"makoren_conjurer_spr_larold_ready","path":"sprites/makoren_conjurer_spr_larold_ready/makoren_conjurer_spr_larold_ready.yy",},
-    "resourceVersion": "1.4",
-    "name": "makoren_conjurer_spr_larold_ready",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fc1d2f26-b6dd-4b10-b59a-b434576e897b","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fc1d2f26-b6dd-4b10-b59a-b434576e897b","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "makoren_conjurer",
     "path": "folders/Microgames/Makoren/makoren_conjurer.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "makoren_conjurer_spr_larold_ready",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

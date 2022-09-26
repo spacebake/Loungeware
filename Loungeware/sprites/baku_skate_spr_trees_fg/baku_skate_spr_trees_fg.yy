@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_skate_spr_trees_fg",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":{"name":"a6f1b734-1a8b-491b-a9c7-361b82e375e7","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_trees_fg","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":{"name":"a6f1b734-1a8b-491b-a9c7-361b82e375e7","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_trees_fg","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8f9e0205-df43-4246-9944-fc98ec7cdd06","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8f9e0205-df43-4246-9944-fc98ec7cdd06","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"LayerId":{"name":"a6f1b734-1a8b-491b-a9c7-361b82e375e7","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_trees_fg","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","name":"8f9e0205-df43-4246-9944-fc98ec7cdd06","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8f9e0205-df43-4246-9944-fc98ec7cdd06",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_skate_spr_trees_fg","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_skate_spr_trees_fg",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -43,14 +42,14 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 3.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"48c25a56-444b-4e38-ae12-144a453d0c27","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"76f62df5-ebf5-42dd-a9b8-777e9ce589df","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b8b71be1-9548-46aa-bcb5-d5cf185f8afb","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8f9e0205-df43-4246-9944-fc98ec7cdd06","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"48c25a56-444b-4e38-ae12-144a453d0c27","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d8220b6d-47e1-42a0-b7ee-43e2b6f98842","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"76f62df5-ebf5-42dd-a9b8-777e9ce589df","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3e4e12aa-1bcb-4d06-a7fd-b5988b96c754","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b8b71be1-9548-46aa-bcb5-d5cf185f8afb","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8f9e0205-df43-4246-9944-fc98ec7cdd06","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 96,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_skate_spr_trees_fg","path":"sprites/baku_skate_spr_trees_fg/baku_skate_spr_trees_fg.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_skate_spr_trees_fg",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a6f1b734-1a8b-491b-a9c7-361b82e375e7","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a6f1b734-1a8b-491b-a9c7-361b82e375e7","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Environment",
     "path": "folders/Microgames/baku/skate/Sprites/Environment.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_skate_spr_trees_fg",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

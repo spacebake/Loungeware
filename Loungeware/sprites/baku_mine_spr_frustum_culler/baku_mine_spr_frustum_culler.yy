@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_mine_spr_frustum_culler",
   "bboxMode": 0,
   "collisionKind": 5,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"LayerId":{"name":"bd1ef61a-512d-4369-aad1-e759e794afdc","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_mine_spr_frustum_culler","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"resourceVersion":"1.0","name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_mine_spr_frustum_culler","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_mine_spr_frustum_culler",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cb51d602-d0d2-46f4-a297-fd847c989e8c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"cb51d602-d0d2-46f4-a297-fd847c989e8c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8d44ed25-b6a1-40ff-a3c3-bfc5b87b4d2d","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 1,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_mine_spr_frustum_culler","path":"sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_mine_spr_frustum_culler",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"bd1ef61a-512d-4369-aad1-e759e794afdc","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bd1ef61a-512d-4369-aad1-e759e794afdc","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/baku/mine/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_mine_spr_frustum_culler",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

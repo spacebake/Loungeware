@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "n8fl_cheat_seat_teacher_spr",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"LayerId":{"name":"1689a48a-dc27-4992-9032-361932823843","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"n8fl_cheat_seat_teacher_spr","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"resourceVersion":"1.0","name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653",},
   ],
   "sequence": {
-    "spriteId": {"name":"n8fl_cheat_seat_teacher_spr","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "n8fl_cheat_seat_teacher_spr",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bd462ec4-2eb8-4d5b-84e4-8195e54b0e83","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"bd462ec4-2eb8-4d5b-84e4-8195e54b0e83","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"88075f6d-6f18-4d5e-86a3-ee3db4c7e653","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 25,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"n8fl_cheat_seat_teacher_spr","path":"sprites/n8fl_cheat_seat_teacher_spr/n8fl_cheat_seat_teacher_spr.yy",},
-    "resourceVersion": "1.4",
-    "name": "n8fl_cheat_seat_teacher_spr",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1689a48a-dc27-4992-9032-361932823843","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"1689a48a-dc27-4992-9032-361932823843","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/net8floz/n8fl_cheat_seat/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "n8fl_cheat_seat_teacher_spr",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

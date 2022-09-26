@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "n8fl_penguin_blast_goal_weight_spr",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"10e35835-31f6-4c8b-80aa-4ad02d80f533","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"10e35835-31f6-4c8b-80aa-4ad02d80f533","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"LayerId":{"name":"dce38e5b-048d-4f0d-bb43-5a1c6e14a3aa","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"resourceVersion":"1.0","name":"10e35835-31f6-4c8b-80aa-4ad02d80f533","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"10e35835-31f6-4c8b-80aa-4ad02d80f533",},
   ],
   "sequence": {
-    "spriteId": {"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "n8fl_penguin_blast_goal_weight_spr",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"4433cb4b-8177-4de2-a578-71dcf8b456c1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"10e35835-31f6-4c8b-80aa-4ad02d80f533","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"4433cb4b-8177-4de2-a578-71dcf8b456c1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"10e35835-31f6-4c8b-80aa-4ad02d80f533","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 134,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"n8fl_penguin_blast_goal_weight_spr","path":"sprites/n8fl_penguin_blast_goal_weight_spr/n8fl_penguin_blast_goal_weight_spr.yy",},
-    "resourceVersion": "1.4",
-    "name": "n8fl_penguin_blast_goal_weight_spr",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"dce38e5b-048d-4f0d-bb43-5a1c6e14a3aa","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"dce38e5b-048d-4f0d-bb43-5a1c6e14a3aa","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/net8floz/n8fl_penguin_blast/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "n8fl_penguin_blast_goal_weight_spr",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_witchwanda_spr_island_floating",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,24 +27,16 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":{"name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"a383b895-dc31-42e2-847f-4d91049d9227","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a383b895-dc31-42e2-847f-4d91049d9227","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":{"name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"a383b895-dc31-42e2-847f-4d91049d9227","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":{"name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":{"name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"LayerId":{"name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a383b895-dc31-42e2-847f-4d91049d9227",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_witchwanda_spr_island_floating",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -49,16 +44,16 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 5.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"fd7cbd68-647c-425c-abde-0ffa8197b01d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"308b432f-2068-4273-ba05-a249ba3a669a","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a383b895-dc31-42e2-847f-4d91049d9227","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"93efde33-7f2d-44f4-96dd-f9dbff29f361","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"8685593a-1a62-423f-a9e6-0b1e96cbf7e8","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"98b9128e-0317-4d17-aa64-a50c7105630a","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"fd7cbd68-647c-425c-abde-0ffa8197b01d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"10b86a0d-3c11-4b2b-a89f-3c822f2d0db3","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"308b432f-2068-4273-ba05-a249ba3a669a","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a383b895-dc31-42e2-847f-4d91049d9227","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"93efde33-7f2d-44f4-96dd-f9dbff29f361","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"90a372c0-c5e5-4789-80d2-43d8fdcb3397","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"8685593a-1a62-423f-a9e6-0b1e96cbf7e8","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"aa2a6ad1-95ad-4df5-b757-cda4b7f846f6","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"98b9128e-0317-4d17-aa64-a50c7105630a","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"405321fd-4f69-4e9c-aff8-e4a52f21fa57","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -74,22 +69,13 @@
     "yorigin": 17,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_witchwanda_spr_island_floating",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c4924297-eb89-4630-b3d9-293c1ae6b84d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Background",
     "path": "folders/Microgames/katsaii/witchwanda/Background.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_spr_island_floating",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sam_cs_spr_fish",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"LayerId":{"name":"8db7c992-0cd1-4516-8238-82fa1559f1a6","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sam_cs_spr_fish","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"resourceVersion":"1.0","name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf",},
   ],
   "sequence": {
-    "spriteId": {"name":"sam_cs_spr_fish","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sam_cs_spr_fish",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"d495038c-24c0-4573-8446-a61bb1b4a21d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"d495038c-24c0-4573-8446-a61bb1b4a21d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e769254c-6d77-4b45-8bf7-427c08e8ceaf","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 153,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sam_cs_spr_fish","path":"sprites/sam_cs_spr_fish/sam_cs_spr_fish.yy",},
-    "resourceVersion": "1.4",
-    "name": "sam_cs_spr_fish",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8db7c992-0cd1-4516-8238-82fa1559f1a6","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8db7c992-0cd1-4516-8238-82fa1559f1a6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/Sam/Cat Snatch/Resources/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sam_cs_spr_fish",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "___spr_gameboy_button_b",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e21e9925-1582-4708-b2b3-450ebc33594e","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e21e9925-1582-4708-b2b3-450ebc33594e","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"LayerId":{"name":"abd98bd4-11f3-4cec-b6f2-4dbfaf091b00","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_gameboy_button_b","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","name":"e21e9925-1582-4708-b2b3-450ebc33594e","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"ff04a90c-e8ff-4771-88c0-21d803a4055c","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ff04a90c-e8ff-4771-88c0-21d803a4055c","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"LayerId":{"name":"abd98bd4-11f3-4cec-b6f2-4dbfaf091b00","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_gameboy_button_b","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","name":"ff04a90c-e8ff-4771-88c0-21d803a4055c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e21e9925-1582-4708-b2b3-450ebc33594e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ff04a90c-e8ff-4771-88c0-21d803a4055c",},
   ],
   "sequence": {
-    "spriteId": {"name":"___spr_gameboy_button_b","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "___spr_gameboy_button_b",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c1e7236f-13f4-4c04-b788-d7d49ea1bac0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e21e9925-1582-4708-b2b3-450ebc33594e","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b7890b77-be36-4fae-a313-dfd8fd7d2572","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ff04a90c-e8ff-4771-88c0-21d803a4055c","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"c1e7236f-13f4-4c04-b788-d7d49ea1bac0","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e21e9925-1582-4708-b2b3-450ebc33594e","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b7890b77-be36-4fae-a313-dfd8fd7d2572","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ff04a90c-e8ff-4771-88c0-21d803a4055c","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"___spr_gameboy_button_b","path":"sprites/___spr_gameboy_button_b/___spr_gameboy_button_b.yy",},
-    "resourceVersion": "1.4",
-    "name": "___spr_gameboy_button_b",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1 (2)","resourceVersion":"1.0","name":"abd98bd4-11f3-4cec-b6f2-4dbfaf091b00","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"abd98bd4-11f3-4cec-b6f2-4dbfaf091b00","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1 (2)",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Gameboy",
     "path": "folders/__Base Game (keep out)/GUI/Gameboy.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "___spr_gameboy_button_b",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

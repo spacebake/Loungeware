@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_witchcraft_finish_good_msg",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"LayerId":{"name":"a2911876-52ad-415e-8805-fb553ea159a5","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchcraft_finish_good_msg","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"resourceVersion":"1.0","name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchcraft_finish_good_msg","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_witchcraft_finish_good_msg",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ae6c080e-52d4-4a0f-ba90-da9cc2fff1da","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ae6c080e-52d4-4a0f-ba90-da9cc2fff1da","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2c36b456-fccf-4b41-a904-1fc2c2f7cfb5","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 103,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchcraft_finish_good_msg","path":"sprites/katsaii_witchcraft_finish_good_msg/katsaii_witchcraft_finish_good_msg.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_witchcraft_finish_good_msg",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a2911876-52ad-415e-8805-fb553ea159a5","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a2911876-52ad-415e-8805-fb553ea159a5","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "others",
     "path": "folders/Microgames/katsaii/witchcraft/others.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchcraft_finish_good_msg",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

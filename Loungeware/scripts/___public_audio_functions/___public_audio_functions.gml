@@ -18,9 +18,9 @@ function sfx_play(_snd_index, _vol, _loop){
 	var _snd_id = audio_play_sound(_snd_index, 0, _loop);
 	audio_sound_gain(_snd_id, _vol, 0);
 	ds_list_add(___global.___audio_active_list, _snd_id);
-	return _snd_id;dfgdfg
+	return _snd_id;
 }
-
+   
 // ------------------------------------------------------------------------------------------
 // SFX STOP
 // STOPS a sound effect that is currently playing or looping

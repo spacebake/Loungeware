@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "anti_dungeon_sp_back",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e80a32a6-445a-48fd-b406-f7df7224d020","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e80a32a6-445a-48fd-b406-f7df7224d020","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":{"name":"16a55bdc-1ea0-4196-aad0-70a3782297de","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_dungeon_sp_back","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"e80a32a6-445a-48fd-b406-f7df7224d020","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"846d5612-36ae-480c-a073-54829df462e8","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"846d5612-36ae-480c-a073-54829df462e8","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":{"name":"16a55bdc-1ea0-4196-aad0-70a3782297de","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_dungeon_sp_back","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"846d5612-36ae-480c-a073-54829df462e8","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"LayerId":{"name":"16a55bdc-1ea0-4196-aad0-70a3782297de","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_dungeon_sp_back","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e80a32a6-445a-48fd-b406-f7df7224d020",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"846d5612-36ae-480c-a073-54829df462e8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9",},
   ],
   "sequence": {
-    "spriteId": {"name":"anti_dungeon_sp_back","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "anti_dungeon_sp_back",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -43,14 +42,14 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 3.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ca12a01c-ec6e-4cec-8ff6-6ae3b55c6c92","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e80a32a6-445a-48fd-b406-f7df7224d020","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"df36d7c0-97a3-4e42-973c-75f02513bedf","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"846d5612-36ae-480c-a073-54829df462e8","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"239a932b-781c-41b7-9f21-c1bec8b02ee5","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ca12a01c-ec6e-4cec-8ff6-6ae3b55c6c92","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e80a32a6-445a-48fd-b406-f7df7224d020","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"df36d7c0-97a3-4e42-973c-75f02513bedf","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"846d5612-36ae-480c-a073-54829df462e8","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"239a932b-781c-41b7-9f21-c1bec8b02ee5","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bc48dbf5-6c05-4694-aaf5-bc89989d95c9","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"anti_dungeon_sp_back","path":"sprites/anti_dungeon_sp_back/anti_dungeon_sp_back.yy",},
-    "resourceVersion": "1.4",
-    "name": "anti_dungeon_sp_back",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"16a55bdc-1ea0-4196-aad0-70a3782297de","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"16a55bdc-1ea0-4196-aad0-70a3782297de","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "dungeon",
     "path": "folders/Microgames/anti/dungeon.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "anti_dungeon_sp_back",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

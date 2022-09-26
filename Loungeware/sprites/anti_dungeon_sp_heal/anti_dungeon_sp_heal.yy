@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "anti_dungeon_sp_heal",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"67dd564d-f8f7-4e43-a079-fc72ccd66162","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"67dd564d-f8f7-4e43-a079-fc72ccd66162","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"LayerId":{"name":"a331e23b-cdf6-4f16-a2d6-20067652fef4","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_dungeon_sp_heal","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"resourceVersion":"1.0","name":"67dd564d-f8f7-4e43-a079-fc72ccd66162","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"67dd564d-f8f7-4e43-a079-fc72ccd66162",},
   ],
   "sequence": {
-    "spriteId": {"name":"anti_dungeon_sp_heal","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "anti_dungeon_sp_heal",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"9f17907e-dee4-484d-9b16-89936b7c35b8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"67dd564d-f8f7-4e43-a079-fc72ccd66162","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"9f17907e-dee4-484d-9b16-89936b7c35b8","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"67dd564d-f8f7-4e43-a079-fc72ccd66162","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"anti_dungeon_sp_heal","path":"sprites/anti_dungeon_sp_heal/anti_dungeon_sp_heal.yy",},
-    "resourceVersion": "1.4",
-    "name": "anti_dungeon_sp_heal",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a331e23b-cdf6-4f16-a2d6-20067652fef4","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a331e23b-cdf6-4f16-a2d6-20067652fef4","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "dungeon",
     "path": "folders/Microgames/anti/dungeon.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "anti_dungeon_sp_heal",
-  "tags": [],
-  "resourceType": "GMSprite",
 }
