@@ -54,6 +54,8 @@ label_x_snap_target = -(label_w + label_sep);
 label_move_delay = 20;
 tempo = 80; // 45 steps
 ribbon_hide_prog = 1;
+label_shake_timer_max = 0;//12;
+label_shake_timer = 0;
 
 //logo
 logo_scale = 0;

@@ -71,11 +71,19 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 	_dir = _prog * 540;
 	_yy = _label_y;
 	var _y_hide_offset = ribbon_hide_prog * label_h;
+	var _lx, _ly;
 	
+	_lx = _this_x;
+	_ly = _yy;
+	if (label_shake_timer > 0){
+		var _sv = label_shake_timer;
+		_lx += random_range(-_sv, _sv);
+		_ly += random_range(-_sv, _sv);
+	}
 	
 	if (_this_x + label_w >= 0  && _this_x < WINDOW_BASE_SIZE) {
-		draw_sprite_stretched(label_list[| i], 0, _this_x, (_yy + _y_hide_offset) - _vgap, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0,  -_this_x + (WINDOW_BASE_SIZE - label_w), ((_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list[| i], 0, _lx, (_ly + _y_hide_offset) - _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0,  -_lx + (WINDOW_BASE_SIZE - label_w), ((_ly - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
 	}
 	
 	_this_x -= label_w_total;
@@ -83,9 +91,17 @@ for (var i = 0; i < ds_list_size(label_list); i++){
 	_dir = _prog * 720;
 	_yy = _label_y + lengthdir_y(_rad, _dir);
 	
+	_lx = _this_x;
+	_ly = _yy;
+	if (label_shake_timer > 0){
+		var _sv = label_shake_timer/2;
+		_lx += random_range(-_sv, _sv);
+		_ly += random_range(-_sv, _sv);
+	}
+	
 	if (_this_x + label_w >= 0 && _this_x < WINDOW_BASE_SIZE) {
-		draw_sprite_stretched(label_list[| i], 0, _this_x, (_yy + _y_hide_offset) - _vgap, label_w, label_h);
-		draw_sprite_stretched(label_list_2[| i], 0, -_this_x +  (WINDOW_BASE_SIZE - label_w), ((_yy - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list[| i], 0, _lx, (_ly + _y_hide_offset) - _vgap, label_w, label_h);
+		draw_sprite_stretched(label_list_2[| i], 0, -_lx +  (WINDOW_BASE_SIZE - label_w), ((_ly - (WINDOW_BASE_SIZE - (72))) - _y_hide_offset) + _vgap, label_w, label_h);
 	}
 	
 }

@@ -18,7 +18,7 @@ if (state == "intro"){
 	beat_count_prev = beat_count;
 	beat_count = floor((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval);
 	next_beat_prog = ((audio_sound_get_track_position(sng_id)-(beat_interval)) / beat_interval) - beat_count;
-	
+	label_shake_timer = max(0, label_shake_timer-1);
 		
 	ribbon_hide_prog = ___smooth_move(ribbon_hide_prog, 0, 0.01, 6);
 	if (ribbon_hide_prog > 0) label_x = label_x_snap_target;
@@ -30,6 +30,7 @@ if (state == "intro"){
 		label_x_snap_target -= (label_w + label_sep);
 		trigger_pump = true;
 		offbeat_timer = (beat_interval / 2)*60;
+		label_shake_timer = label_shake_timer_max;
 	}
 
 	if (label_x_snap_target <= label_x_min){
@@ -41,6 +42,7 @@ if (state == "intro"){
 
 	
 	if (any_key){
+		label_shake_timer = 0;
 		___state_change("close");
 		logo_shake = 10;
 		___sound_menu_select();
