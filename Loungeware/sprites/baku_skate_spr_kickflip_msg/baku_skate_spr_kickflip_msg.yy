@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_skate_spr_kickflip_msg",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,18 +27,14 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2793f7ac-2683-47de-a475-6187b8bde3e7","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2793f7ac-2683-47de-a475-6187b8bde3e7","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":{"name":"5f2d5076-cf9d-4089-922e-2f447f6ef1df","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_kickflip_msg","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"2793f7ac-2683-47de-a475-6187b8bde3e7","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":{"name":"5f2d5076-cf9d-4089-922e-2f447f6ef1df","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_kickflip_msg","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"LayerId":{"name":"5f2d5076-cf9d-4089-922e-2f447f6ef1df","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_skate_spr_kickflip_msg","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2793f7ac-2683-47de-a475-6187b8bde3e7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_skate_spr_kickflip_msg","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_skate_spr_kickflip_msg",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 0.0,
@@ -43,14 +42,14 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 3.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"bd9ea6c9-d383-4a22-b863-6b95f1f76298","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2793f7ac-2683-47de-a475-6187b8bde3e7","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"2600971b-7f09-41c4-bbae-acf50cbe6d3c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"5e190993-fcc0-413c-88c7-0c081ccb7075","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"bd9ea6c9-d383-4a22-b863-6b95f1f76298","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2793f7ac-2683-47de-a475-6187b8bde3e7","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"2600971b-7f09-41c4-bbae-acf50cbe6d3c","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9d57b8c7-7d41-4531-93cb-8e8e81dea87b","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5e190993-fcc0-413c-88c7-0c081ccb7075","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dd33dd4a-4a9f-4dfa-b038-410b6f20ba60","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -66,22 +65,13 @@
     "yorigin": 80,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_skate_spr_kickflip_msg","path":"sprites/baku_skate_spr_kickflip_msg/baku_skate_spr_kickflip_msg.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_skate_spr_kickflip_msg",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5f2d5076-cf9d-4089-922e-2f447f6ef1df","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5f2d5076-cf9d-4089-922e-2f447f6ef1df","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "UI",
     "path": "folders/Microgames/baku/skate/Sprites/UI.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_skate_spr_kickflip_msg",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

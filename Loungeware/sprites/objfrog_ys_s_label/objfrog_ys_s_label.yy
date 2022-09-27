@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "objfrog_ys_s_label",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"LayerId":{"name":"68f56b8b-6806-4b33-af77-07e1739f862e","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"objfrog_ys_s_label","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"resourceVersion":"1.0","name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8",},
   ],
   "sequence": {
-    "spriteId": {"name":"objfrog_ys_s_label","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "objfrog_ys_s_label",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"82e131c9-b264-4177-b945-3f864d7ebf91","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"82e131c9-b264-4177-b945-3f864d7ebf91","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f74703d3-72b9-437a-8b6d-cad72b8e83e8","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"objfrog_ys_s_label","path":"sprites/objfrog_ys_s_label/objfrog_ys_s_label.yy",},
-    "resourceVersion": "1.4",
-    "name": "objfrog_ys_s_label",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"68f56b8b-6806-4b33-af77-07e1739f862e","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"68f56b8b-6806-4b33-af77-07e1739f862e","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/objfrog/objfrog_yeehaw_shooter/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objfrog_ys_s_label",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "jdllama_hammer_spr_larold",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"LayerId":{"name":"d1796206-95e8-448d-9bb6-f1e730f4dc7d","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"jdllama_hammer_spr_larold","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"resourceVersion":"1.0","name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae",},
   ],
   "sequence": {
-    "spriteId": {"name":"jdllama_hammer_spr_larold","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "jdllama_hammer_spr_larold",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"848bd84b-6235-41ba-83a4-996352bea9f3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"848bd84b-6235-41ba-83a4-996352bea9f3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"ad87d62f-5649-4bc1-8341-9ca6b1967cae","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"jdllama_hammer_spr_larold","path":"sprites/jdllama_hammer_spr_larold/jdllama_hammer_spr_larold.yy",},
-    "resourceVersion": "1.4",
-    "name": "jdllama_hammer_spr_larold",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d1796206-95e8-448d-9bb6-f1e730f4dc7d","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d1796206-95e8-448d-9bb6-f1e730f4dc7d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "ending",
     "path": "folders/Microgames/jdllama/hammer/sprites/ending.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "jdllama_hammer_spr_larold",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

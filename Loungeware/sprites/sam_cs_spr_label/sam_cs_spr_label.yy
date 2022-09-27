@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "sam_cs_spr_label",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"b7175747-e554-4466-9ed7-8227d20c74b8","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"b7175747-e554-4466-9ed7-8227d20c74b8","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"LayerId":{"name":"a07e8687-5863-4d32-8345-235eb01d3b29","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sam_cs_spr_label","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"resourceVersion":"1.0","name":"b7175747-e554-4466-9ed7-8227d20c74b8","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b7175747-e554-4466-9ed7-8227d20c74b8",},
   ],
   "sequence": {
-    "spriteId": {"name":"sam_cs_spr_label","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "sam_cs_spr_label",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 1.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"655f5dd2-6e42-4dd8-889d-1e641a8aa2bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b7175747-e554-4466-9ed7-8227d20c74b8","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"655f5dd2-6e42-4dd8-889d-1e641a8aa2bb","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b7175747-e554-4466-9ed7-8227d20c74b8","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sam_cs_spr_label","path":"sprites/sam_cs_spr_label/sam_cs_spr_label.yy",},
-    "resourceVersion": "1.4",
-    "name": "sam_cs_spr_label",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a07e8687-5863-4d32-8345-235eb01d3b29","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a07e8687-5863-4d32-8345-235eb01d3b29","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/Sam/Cat Snatch/Resources/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sam_cs_spr_label",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

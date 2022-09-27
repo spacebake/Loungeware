@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "spr_button_a",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"3ccc7e31-5561-4ce3-8297-342e055ceb59","path":"sprites/spr_button_a/spr_button_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3ccc7e31-5561-4ce3-8297-342e055ceb59","path":"sprites/spr_button_a/spr_button_a.yy",},"LayerId":{"name":"b0b0a1da-9a0d-40de-b222-95b94f7629a0","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_button_a","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","name":"3ccc7e31-5561-4ce3-8297-342e055ceb59","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"9c69d19d-4358-446c-b367-9364fe006569","path":"sprites/spr_button_a/spr_button_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"9c69d19d-4358-446c-b367-9364fe006569","path":"sprites/spr_button_a/spr_button_a.yy",},"LayerId":{"name":"b0b0a1da-9a0d-40de-b222-95b94f7629a0","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_button_a","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","name":"9c69d19d-4358-446c-b367-9364fe006569","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3ccc7e31-5561-4ce3-8297-342e055ceb59",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9c69d19d-4358-446c-b367-9364fe006569",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_button_a","path":"sprites/spr_button_a/spr_button_a.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "spr_button_a",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"03737cb4-9a79-44d7-8bd5-916209de25cf","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3ccc7e31-5561-4ce3-8297-342e055ceb59","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"ea3b6d7f-32db-4f54-92f8-b4df708544a6","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9c69d19d-4358-446c-b367-9364fe006569","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"03737cb4-9a79-44d7-8bd5-916209de25cf","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3ccc7e31-5561-4ce3-8297-342e055ceb59","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"ea3b6d7f-32db-4f54-92f8-b4df708544a6","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"9c69d19d-4358-446c-b367-9364fe006569","path":"sprites/spr_button_a/spr_button_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_button_a","path":"sprites/spr_button_a/spr_button_a.yy",},
-    "resourceVersion": "1.4",
-    "name": "spr_button_a",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b0b0a1da-9a0d-40de-b222-95b94f7629a0","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b0b0a1da-9a0d-40de-b222-95b94f7629a0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Public Sprites",
     "path": "folders/Public Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "spr_button_a",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

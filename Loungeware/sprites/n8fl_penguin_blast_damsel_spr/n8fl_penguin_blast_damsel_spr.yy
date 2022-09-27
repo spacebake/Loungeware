@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "n8fl_penguin_blast_damsel_spr",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"LayerId":{"name":"81ef1038-bd57-4d9b-ad69-7b4191542f8f","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"n8fl_penguin_blast_damsel_spr","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"resourceVersion":"1.0","name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46",},
   ],
   "sequence": {
-    "spriteId": {"name":"n8fl_penguin_blast_damsel_spr","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "n8fl_penguin_blast_damsel_spr",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"1147f16c-0f0f-45d1-b076-2f8c8a5068d3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"1147f16c-0f0f-45d1-b076-2f8c8a5068d3","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"a4f2686d-53ae-4d8b-af09-6d05a9b78b46","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"n8fl_penguin_blast_damsel_spr","path":"sprites/n8fl_penguin_blast_damsel_spr/n8fl_penguin_blast_damsel_spr.yy",},
-    "resourceVersion": "1.4",
-    "name": "n8fl_penguin_blast_damsel_spr",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"81ef1038-bd57-4d9b-ad69-7b4191542f8f","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"81ef1038-bd57-4d9b-ad69-7b4191542f8f","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/net8floz/n8fl_penguin_blast/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "n8fl_penguin_blast_damsel_spr",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

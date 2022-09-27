@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "space_scooter_spr_tileset",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"09232559-b65f-4a85-9d99-1002db037c90","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"09232559-b65f-4a85-9d99-1002db037c90","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"LayerId":{"name":"bf59453b-03c5-4d5e-85cb-6142b29ab03d","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_scooter_spr_tileset","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"resourceVersion":"1.0","name":"09232559-b65f-4a85-9d99-1002db037c90","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"09232559-b65f-4a85-9d99-1002db037c90",},
   ],
   "sequence": {
-    "spriteId": {"name":"space_scooter_spr_tileset","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "space_scooter_spr_tileset",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f8955bcb-45f9-45f1-8f54-c6345ed84e76","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"09232559-b65f-4a85-9d99-1002db037c90","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"f8955bcb-45f9-45f1-8f54-c6345ed84e76","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"09232559-b65f-4a85-9d99-1002db037c90","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"space_scooter_spr_tileset","path":"sprites/space_scooter_spr_tileset/space_scooter_spr_tileset.yy",},
-    "resourceVersion": "1.4",
-    "name": "space_scooter_spr_tileset",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"bf59453b-03c5-4d5e-85cb-6142b29ab03d","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"bf59453b-03c5-4d5e-85cb-6142b29ab03d","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/space/scooter/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "space_scooter_spr_tileset",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

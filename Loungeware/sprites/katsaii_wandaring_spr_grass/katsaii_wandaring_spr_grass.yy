@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_wandaring_spr_grass",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"05180c04-e4a3-485a-b4b4-758272b20dfa","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"05180c04-e4a3-485a-b4b4-758272b20dfa","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"LayerId":{"name":"b8f7d6bb-5997-4611-a230-947f6b54d293","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_wandaring_spr_grass","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","name":"05180c04-e4a3-485a-b4b4-758272b20dfa","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"e43e2c8c-f22c-4344-9e82-8c961be7680c","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e43e2c8c-f22c-4344-9e82-8c961be7680c","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"LayerId":{"name":"b8f7d6bb-5997-4611-a230-947f6b54d293","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_wandaring_spr_grass","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","name":"e43e2c8c-f22c-4344-9e82-8c961be7680c","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"05180c04-e4a3-485a-b4b4-758272b20dfa",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e43e2c8c-f22c-4344-9e82-8c961be7680c",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_wandaring_spr_grass","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_wandaring_spr_grass",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"6807b32d-0aa4-46d7-a066-198176b0c2da","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"05180c04-e4a3-485a-b4b4-758272b20dfa","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"de504b34-50a3-4ee1-9176-3dfc35de25ff","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e43e2c8c-f22c-4344-9e82-8c961be7680c","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"6807b32d-0aa4-46d7-a066-198176b0c2da","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"05180c04-e4a3-485a-b4b4-758272b20dfa","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"de504b34-50a3-4ee1-9176-3dfc35de25ff","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e43e2c8c-f22c-4344-9e82-8c961be7680c","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_wandaring_spr_grass","path":"sprites/katsaii_wandaring_spr_grass/katsaii_wandaring_spr_grass.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_wandaring_spr_grass",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"b8f7d6bb-5997-4611-a230-947f6b54d293","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b8f7d6bb-5997-4611-a230-947f6b54d293","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/katsaii/wandaring/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_wandaring_spr_grass",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

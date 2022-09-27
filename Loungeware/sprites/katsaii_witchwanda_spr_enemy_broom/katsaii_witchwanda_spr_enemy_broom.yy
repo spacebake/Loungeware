@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_witchwanda_spr_enemy_broom",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"LayerId":{"name":"59a4f093-51d9-49b8-930c-09fdd08feb51","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_enemy_broom","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"resourceVersion":"1.0","name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchwanda_spr_enemy_broom","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_witchwanda_spr_enemy_broom",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c34f598a-9f36-496c-9801-776358d7a4ed","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"c34f598a-9f36-496c-9801-776358d7a4ed","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"818f7c7d-81bc-4c2b-9196-5e5e49bb3a7d","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 4,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchwanda_spr_enemy_broom","path":"sprites/katsaii_witchwanda_spr_enemy_broom/katsaii_witchwanda_spr_enemy_broom.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_witchwanda_spr_enemy_broom",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"59a4f093-51d9-49b8-930c-09fdd08feb51","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"59a4f093-51d9-49b8-930c-09fdd08feb51","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Witches",
     "path": "folders/Microgames/katsaii/witchwanda/Enemies/Witches.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_spr_enemy_broom",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

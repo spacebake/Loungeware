@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "space_lander_part_smoke2",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,30 +27,18 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"584686e6-c730-4310-ac4b-545da9e36642","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"584686e6-c730-4310-ac4b-545da9e36642","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"584686e6-c730-4310-ac4b-545da9e36642","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"509b2e6c-1b39-4715-abde-1726a2f03067","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"509b2e6c-1b39-4715-abde-1726a2f03067","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"509b2e6c-1b39-4715-abde-1726a2f03067","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"29ac13ff-e063-4e9f-b78c-b22ad5199586","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"29ac13ff-e063-4e9f-b78c-b22ad5199586","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"29ac13ff-e063-4e9f-b78c-b22ad5199586","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"42a8116a-014d-488e-850c-de78265e6a06","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"42a8116a-014d-488e-850c-de78265e6a06","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"42a8116a-014d-488e-850c-de78265e6a06","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"LayerId":{"name":"014b6115-e90a-458a-8639-520b8a5773d0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"584686e6-c730-4310-ac4b-545da9e36642",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"509b2e6c-1b39-4715-abde-1726a2f03067",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"29ac13ff-e063-4e9f-b78c-b22ad5199586",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"42a8116a-014d-488e-850c-de78265e6a06",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba",},
   ],
   "sequence": {
-    "spriteId": {"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "space_lander_part_smoke2",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -55,18 +46,18 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 7.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"17d9b985-a13b-4afd-887f-5cf6eaec3425","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"5661d876-f43a-4131-9927-3a9adc424a17","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"584686e6-c730-4310-ac4b-545da9e36642","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"bb364016-ec14-4b1a-ba7f-80efe2a9a8c4","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"509b2e6c-1b39-4715-abde-1726a2f03067","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"461841e0-ee60-4066-90d6-dc456f691bf2","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"29ac13ff-e063-4e9f-b78c-b22ad5199586","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"c1a1252b-0135-43f0-93ef-ca8e6028ebff","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"4d708b62-32c0-409d-bc9a-99a4a61e58bd","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"42a8116a-014d-488e-850c-de78265e6a06","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"4a8cbcf3-fc12-4629-8b28-4b2f1bb58ae5","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"17d9b985-a13b-4afd-887f-5cf6eaec3425","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c005eab0-8e5b-4b38-bd0c-ceb426bf271d","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5661d876-f43a-4131-9927-3a9adc424a17","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"584686e6-c730-4310-ac4b-545da9e36642","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bb364016-ec14-4b1a-ba7f-80efe2a9a8c4","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"509b2e6c-1b39-4715-abde-1726a2f03067","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"461841e0-ee60-4066-90d6-dc456f691bf2","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"29ac13ff-e063-4e9f-b78c-b22ad5199586","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c1a1252b-0135-43f0-93ef-ca8e6028ebff","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"027ab730-fb3b-481b-9e47-d9b680ee8fb0","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4d708b62-32c0-409d-bc9a-99a4a61e58bd","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"42a8116a-014d-488e-850c-de78265e6a06","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"4a8cbcf3-fc12-4629-8b28-4b2f1bb58ae5","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e822fa9d-a79d-4586-9a95-dd5e5e087dba","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -82,22 +73,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"space_lander_part_smoke2","path":"sprites/space_lander_part_smoke2/space_lander_part_smoke2.yy",},
-    "resourceVersion": "1.4",
-    "name": "space_lander_part_smoke2",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"014b6115-e90a-458a-8639-520b8a5773d0","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"014b6115-e90a-458a-8639-520b8a5773d0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/space/space_rocket_lander/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "space_lander_part_smoke2",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

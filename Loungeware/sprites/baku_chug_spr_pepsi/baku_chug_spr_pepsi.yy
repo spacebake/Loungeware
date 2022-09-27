@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_chug_spr_pepsi",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"266341a8-6f79-49b5-925c-906ca53c063e","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"266341a8-6f79-49b5-925c-906ca53c063e","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"LayerId":{"name":"d139742a-4cfe-4269-a87d-b4758d71f89e","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_chug_spr_pepsi","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"resourceVersion":"1.0","name":"266341a8-6f79-49b5-925c-906ca53c063e","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"266341a8-6f79-49b5-925c-906ca53c063e",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_chug_spr_pepsi","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_chug_spr_pepsi",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c36a30ba-e953-4b5a-b434-c2465c719f29","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"266341a8-6f79-49b5-925c-906ca53c063e","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"c36a30ba-e953-4b5a-b434-c2465c719f29","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"266341a8-6f79-49b5-925c-906ca53c063e","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_chug_spr_pepsi","path":"sprites/baku_chug_spr_pepsi/baku_chug_spr_pepsi.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_chug_spr_pepsi",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d139742a-4cfe-4269-a87d-b4758d71f89e","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"d139742a-4cfe-4269-a87d-b4758d71f89e","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/baku/chug/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_chug_spr_pepsi",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "space_scooter_spr_crash_rabbit",
   "bboxMode": 2,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"LayerId":{"name":"978a3245-a9b3-416c-b755-ccdd3dcced93","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_scooter_spr_crash_rabbit","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"e2a5cb71-7738-496d-a68e-be5d157eb227","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e2a5cb71-7738-496d-a68e-be5d157eb227","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"LayerId":{"name":"978a3245-a9b3-416c-b755-ccdd3dcced93","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"space_scooter_spr_crash_rabbit","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","name":"e2a5cb71-7738-496d-a68e-be5d157eb227","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e2a5cb71-7738-496d-a68e-be5d157eb227",},
   ],
   "sequence": {
-    "spriteId": {"name":"space_scooter_spr_crash_rabbit","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "space_scooter_spr_crash_rabbit",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"0deebcb2-2d09-40a6-9948-3aecb5895093","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"b70c8223-9eb6-4ea5-8801-17fa5e1754fb","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e2a5cb71-7738-496d-a68e-be5d157eb227","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"0deebcb2-2d09-40a6-9948-3aecb5895093","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bee3eafa-80a5-4e89-86ba-4bfe33e3318a","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"b70c8223-9eb6-4ea5-8801-17fa5e1754fb","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e2a5cb71-7738-496d-a68e-be5d157eb227","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 9,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"space_scooter_spr_crash_rabbit","path":"sprites/space_scooter_spr_crash_rabbit/space_scooter_spr_crash_rabbit.yy",},
-    "resourceVersion": "1.4",
-    "name": "space_scooter_spr_crash_rabbit",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"978a3245-a9b3-416c-b755-ccdd3dcced93","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"978a3245-a9b3-416c-b755-ccdd3dcced93","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/space/scooter/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "space_scooter_spr_crash_rabbit",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

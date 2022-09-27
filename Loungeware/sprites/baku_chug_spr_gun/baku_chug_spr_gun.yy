@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "baku_chug_spr_gun",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"LayerId":{"name":"3442fc52-4433-4d9c-b4d9-8de990a7027e","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"baku_chug_spr_gun","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"resourceVersion":"1.0","name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87",},
   ],
   "sequence": {
-    "spriteId": {"name":"baku_chug_spr_gun","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "baku_chug_spr_gun",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"dbe15e2d-99c8-4fee-8d55-fffb8f275b7c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"dbe15e2d-99c8-4fee-8d55-fffb8f275b7c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"83ca7a0b-489e-4d15-90e6-31f66c51fc87","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 36,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"baku_chug_spr_gun","path":"sprites/baku_chug_spr_gun/baku_chug_spr_gun.yy",},
-    "resourceVersion": "1.4",
-    "name": "baku_chug_spr_gun",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3442fc52-4433-4d9c-b4d9-8de990a7027e","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3442fc52-4433-4d9c-b4d9-8de990a7027e","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/baku/chug/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "baku_chug_spr_gun",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

@@ -54,6 +54,8 @@ label_x_snap_target = -(label_w + label_sep);
 label_move_delay = 20;
 tempo = 80; // 45 steps
 ribbon_hide_prog = 1;
+label_shake_timer_max = 0;//12;
+label_shake_timer = 0;
 
 //logo
 logo_scale = 0;
@@ -88,7 +90,7 @@ bg_shd_surf = noone;
 
 next_beat_prog = 0;
 
-mimpytimer = 60*9; //6
+mimpytimer = 60*6; //6
 mimpydone = false;
 
 function ___draw_logo(){

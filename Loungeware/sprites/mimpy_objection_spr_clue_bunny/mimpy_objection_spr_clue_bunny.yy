@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "mimpy_objection_spr_clue_bunny",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"LayerId":{"name":"0b6b106b-4b53-440a-bae1-3d0f495fdd4f","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"mimpy_objection_spr_clue_bunny","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"resourceVersion":"1.0","name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d",},
   ],
   "sequence": {
-    "spriteId": {"name":"mimpy_objection_spr_clue_bunny","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "mimpy_objection_spr_clue_bunny",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"71eaed79-7a79-4172-b8ad-713bb2fa1c8b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"71eaed79-7a79-4172-b8ad-713bb2fa1c8b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"bb6300d0-4a2a-46d6-814a-7d6426284a2d","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 1,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"mimpy_objection_spr_clue_bunny","path":"sprites/mimpy_objection_spr_clue_bunny/mimpy_objection_spr_clue_bunny.yy",},
-    "resourceVersion": "1.4",
-    "name": "mimpy_objection_spr_clue_bunny",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"0b6b106b-4b53-440a-bae1-3d0f495fdd4f","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0b6b106b-4b53-440a-bae1-3d0f495fdd4f","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Questions",
     "path": "folders/Microgames/mimpy/objection/Sprites/Questions.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "mimpy_objection_spr_clue_bunny",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

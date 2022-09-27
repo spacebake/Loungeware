@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "mimpy_firealarm_spr_ash",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"91032b73-8151-4d20-a392-0714653fa761","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"91032b73-8151-4d20-a392-0714653fa761","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"LayerId":{"name":"3f065c6c-9726-440f-8df3-98e38f1c86fe","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"mimpy_firealarm_spr_ash","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"resourceVersion":"1.0","name":"91032b73-8151-4d20-a392-0714653fa761","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"91032b73-8151-4d20-a392-0714653fa761",},
   ],
   "sequence": {
-    "spriteId": {"name":"mimpy_firealarm_spr_ash","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "mimpy_firealarm_spr_ash",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ce35b8de-1182-4cda-9950-ca172f517bd4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91032b73-8151-4d20-a392-0714653fa761","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ce35b8de-1182-4cda-9950-ca172f517bd4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"91032b73-8151-4d20-a392-0714653fa761","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 4,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"mimpy_firealarm_spr_ash","path":"sprites/mimpy_firealarm_spr_ash/mimpy_firealarm_spr_ash.yy",},
-    "resourceVersion": "1.4",
-    "name": "mimpy_firealarm_spr_ash",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"3f065c6c-9726-440f-8df3-98e38f1c86fe","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3f065c6c-9726-440f-8df3-98e38f1c86fe","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
     "path": "folders/Microgames/mimpy/loungefire/Sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "mimpy_firealarm_spr_ash",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

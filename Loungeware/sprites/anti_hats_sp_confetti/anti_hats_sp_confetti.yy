@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "anti_hats_sp_confetti",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,27 +27,17 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"043099af-0484-435f-bdf0-9af3a6295da8","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"043099af-0484-435f-bdf0-9af3a6295da8","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"043099af-0484-435f-bdf0-9af3a6295da8","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"393ec3a8-9ca6-43da-af40-97fc57b1d773","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"393ec3a8-9ca6-43da-af40-97fc57b1d773","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"393ec3a8-9ca6-43da-af40-97fc57b1d773","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"018b1394-0d11-403e-ab20-c19a4a1eeab3","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"018b1394-0d11-403e-ab20-c19a4a1eeab3","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"018b1394-0d11-403e-ab20-c19a4a1eeab3","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"49dc707a-7893-47d3-93c9-a49406e1e0e9","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"49dc707a-7893-47d3-93c9-a49406e1e0e9","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"LayerId":{"name":"5e60912c-b89e-4137-af90-3eda097c3fc6","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","name":"49dc707a-7893-47d3-93c9-a49406e1e0e9","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"043099af-0484-435f-bdf0-9af3a6295da8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"393ec3a8-9ca6-43da-af40-97fc57b1d773",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"018b1394-0d11-403e-ab20-c19a4a1eeab3",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"49dc707a-7893-47d3-93c9-a49406e1e0e9",},
   ],
   "sequence": {
-    "spriteId": {"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "anti_hats_sp_confetti",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -52,17 +45,17 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 6.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f1e8fa85-30f6-412e-b8f9-70091009d280","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"dc2444be-7b24-4c3e-b849-a9e19ca03271","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"043099af-0484-435f-bdf0-9af3a6295da8","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"d7fc96a2-a71b-42a7-a711-ab8ed4954597","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"f4f34fae-0c60-407e-8116-8ca603d81f4d","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"393ec3a8-9ca6-43da-af40-97fc57b1d773","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"c8a9ee46-2b7d-42fd-8c60-b84ffc4e079c","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"018b1394-0d11-403e-ab20-c19a4a1eeab3","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"fd44f7cc-a708-42de-a8bf-23147ccb893e","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"49dc707a-7893-47d3-93c9-a49406e1e0e9","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"f1e8fa85-30f6-412e-b8f9-70091009d280","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0b84b6f0-5eb6-4d28-923a-faa893fa9bbe","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"dc2444be-7b24-4c3e-b849-a9e19ca03271","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"043099af-0484-435f-bdf0-9af3a6295da8","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d7fc96a2-a71b-42a7-a711-ab8ed4954597","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ed82c52-737b-40cd-b3e8-b6cdb30d152d","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f4f34fae-0c60-407e-8116-8ca603d81f4d","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"393ec3a8-9ca6-43da-af40-97fc57b1d773","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c8a9ee46-2b7d-42fd-8c60-b84ffc4e079c","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"018b1394-0d11-403e-ab20-c19a4a1eeab3","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"fd44f7cc-a708-42de-a8bf-23147ccb893e","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"49dc707a-7893-47d3-93c9-a49406e1e0e9","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -78,22 +71,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"anti_hats_sp_confetti","path":"sprites/anti_hats_sp_confetti/anti_hats_sp_confetti.yy",},
-    "resourceVersion": "1.4",
-    "name": "anti_hats_sp_confetti",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5e60912c-b89e-4137-af90-3eda097c3fc6","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5e60912c-b89e-4137-af90-3eda097c3fc6","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "hats",
     "path": "folders/Microgames/anti/hats.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "anti_hats_sp_confetti",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

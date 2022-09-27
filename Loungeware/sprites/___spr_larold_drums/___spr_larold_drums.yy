@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "___spr_larold_drums",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,21 +27,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e27105ff-3722-467f-8c96-b8d33f7f88c2","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e27105ff-3722-467f-8c96-b8d33f7f88c2","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":{"name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"e27105ff-3722-467f-8c96-b8d33f7f88c2","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":{"name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8ab58ea8-b91e-417d-9523-845782437048","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8ab58ea8-b91e-417d-9523-845782437048","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":{"name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"8ab58ea8-b91e-417d-9523-845782437048","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"c787a737-b148-4600-b05d-d019623f9670","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c787a737-b148-4600-b05d-d019623f9670","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"LayerId":{"name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","name":"c787a737-b148-4600-b05d-d019623f9670","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e27105ff-3722-467f-8c96-b8d33f7f88c2",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8ab58ea8-b91e-417d-9523-845782437048",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c787a737-b148-4600-b05d-d019623f9670",},
   ],
   "sequence": {
-    "spriteId": {"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "___spr_larold_drums",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 5.0,
@@ -46,15 +43,15 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 4.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"5acec7da-4782-44a7-94d9-99d9757b81e1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e27105ff-3722-467f-8c96-b8d33f7f88c2","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"29c0e73c-e8c8-4d69-8b12-26f74e88a9f4","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"43306d29-83a6-4558-97b6-7cd21b93e08a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ab58ea8-b91e-417d-9523-845782437048","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"bfe46aab-206b-487c-8671-3b91ef5118af","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c787a737-b148-4600-b05d-d019623f9670","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"5acec7da-4782-44a7-94d9-99d9757b81e1","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e27105ff-3722-467f-8c96-b8d33f7f88c2","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"29c0e73c-e8c8-4d69-8b12-26f74e88a9f4","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3b1f094e-ddee-4d10-ad00-85969fe6f9b4","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"43306d29-83a6-4558-97b6-7cd21b93e08a","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8ab58ea8-b91e-417d-9523-845782437048","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bfe46aab-206b-487c-8671-3b91ef5118af","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c787a737-b148-4600-b05d-d019623f9670","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +67,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"___spr_larold_drums","path":"sprites/___spr_larold_drums/___spr_larold_drums.yy",},
-    "resourceVersion": "1.4",
-    "name": "___spr_larold_drums",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e06b4d53-2603-49ce-a61f-6531cdd44d94","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "main menu",
     "path": "folders/__Base Game (keep out)/main menu.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "___spr_larold_drums",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

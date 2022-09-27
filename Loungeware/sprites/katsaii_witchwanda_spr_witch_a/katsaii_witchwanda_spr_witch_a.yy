@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "katsaii_witchwanda_spr_witch_a",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,15 +27,13 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1387c640-1686-403a-9602-964aafab802e","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1387c640-1686-403a-9602-964aafab802e","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"LayerId":{"name":"e4533f5d-7d1e-4fd7-b90d-f3f4652651a0","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_witch_a","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","name":"1387c640-1686-403a-9602-964aafab802e","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"LayerId":{"name":"e4533f5d-7d1e-4fd7-b90d-f3f4652651a0","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"katsaii_witchwanda_spr_witch_a","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"1387c640-1686-403a-9602-964aafab802e",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc",},
   ],
   "sequence": {
-    "spriteId": {"name":"katsaii_witchwanda_spr_witch_a","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "katsaii_witchwanda_spr_witch_a",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -40,13 +41,13 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 2.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"14ada293-f3c0-4a0e-b093-26755201a71f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1387c640-1686-403a-9602-964aafab802e","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-            {"id":"3c7f617c-0223-41e0-83c6-dbcd9a99a444","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"14ada293-f3c0-4a0e-b093-26755201a71f","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1387c640-1686-403a-9602-964aafab802e","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"3c7f617c-0223-41e0-83c6-dbcd9a99a444","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0529f2c3-a34e-4084-8344-a79ee9e8dacc","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -62,22 +63,13 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"katsaii_witchwanda_spr_witch_a","path":"sprites/katsaii_witchwanda_spr_witch_a/katsaii_witchwanda_spr_witch_a.yy",},
-    "resourceVersion": "1.4",
-    "name": "katsaii_witchwanda_spr_witch_a",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e4533f5d-7d1e-4fd7-b90d-f3f4652651a0","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e4533f5d-7d1e-4fd7-b90d-f3f4652651a0","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Witches",
     "path": "folders/Microgames/katsaii/witchwanda/Enemies/Witches.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_spr_witch_a",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

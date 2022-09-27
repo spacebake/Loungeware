@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "objfrog_ys_bg_sand",
   "bboxMode": 0,
   "collisionKind": 1,
   "type": 0,
@@ -24,12 +27,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"LayerId":{"name":"fece3772-d6f5-4f80-a932-19b59d241c1f","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"objfrog_ys_bg_sand","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"resourceVersion":"1.0","name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006",},
   ],
   "sequence": {
-    "spriteId": {"name":"objfrog_ys_bg_sand","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "objfrog_ys_bg_sand",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -37,12 +40,12 @@
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
-    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MessageEventKeyframe",},
-    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
+    "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
+    "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"ffc56a66-e9d5-496e-bd6b-616325e21a37","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+            {"id":"ffc56a66-e9d5-496e-bd6b-616325e21a37","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"02d1bfb8-613c-49ae-8c6d-19f183dc9006","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -58,22 +61,13 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"objfrog_ys_bg_sand","path":"sprites/objfrog_ys_bg_sand/objfrog_ys_bg_sand.yy",},
-    "resourceVersion": "1.4",
-    "name": "objfrog_ys_bg_sand",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"fece3772-d6f5-4f80-a932-19b59d241c1f","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fece3772-d6f5-4f80-a932-19b59d241c1f","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "sprites",
     "path": "folders/Microgames/objfrog/objfrog_yeehaw_shooter/sprites.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "objfrog_ys_bg_sand",
-  "tags": [],
-  "resourceType": "GMSprite",
 }
