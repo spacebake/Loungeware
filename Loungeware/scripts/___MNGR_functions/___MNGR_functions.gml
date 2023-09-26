@@ -11,7 +11,11 @@ function ___MG_MNGR_declare_functions(){
 		
 			// garbo the sprites from last cutscene
 			while (ds_list_size(transition_garbo_sprites) > 0){
-				sprite_delete(transition_garbo_sprites[| 0]);
+				
+				var _sprite = transition_garbo_sprites[| 0];
+				if (sprite_exists(_sprite)){
+					sprite_delete(transition_garbo_sprites[| 0]);
+				}
 				ds_list_delete(transition_garbo_sprites, 0);
 			}
 		
