@@ -35,10 +35,10 @@ microgame_register("giz_laronin", {
 
 });
 
-microgame_register("giz_face_lander", {
+microgame_register("giz_face_off", {
 	
     config_version				: 1,
-    game_name					: "Face Lander",
+    game_name					: "Face Off",
     authors						: "Gizmo199",
     prompt						: "DE-GLOVE",
     init_room					: giz_beast_bullet_rm_main,
@@ -53,7 +53,7 @@ microgame_register("giz_face_lander", {
     cartridge_label				: giz_beast_bullet_label,
     default_is_fail				: true, // nullable, defaults to true
     supports_difficulty_scaling	: true,
-    credits						: ["Gizmo199", "mashmerlow"],
+    credits						: ["Gizmo199", "mashmerlow", "Zandy"],
     date_added					: { day : 26, month : 9, year : 2023 },
 	is_enabled					: true,
 	supports_html				: true,

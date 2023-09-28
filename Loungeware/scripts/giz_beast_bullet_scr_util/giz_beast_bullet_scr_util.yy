@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Scripts",
-    "path": "folders/Microgames/giz/giz_beast_bullet/Scripts.yy",
+    "path": "folders/Microgames/giz/giz_face_off/Scripts.yy",
   },
 }

@@ -13,7 +13,7 @@
   "duration": 0.223696,
   "parent": {
     "name": "Sounds",
-    "path": "folders/Microgames/giz/giz_beast_bullet/Sounds.yy",
+    "path": "folders/Microgames/giz/giz_face_off/Sounds.yy",
   },
   "preload": false,
   "sampleRate": 44100,

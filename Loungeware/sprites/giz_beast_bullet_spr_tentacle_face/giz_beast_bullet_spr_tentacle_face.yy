@@ -28,7 +28,7 @@
   "origin": 3,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Microgames/giz/giz_beast_bullet/Sprites.yy",
+    "path": "folders/Microgames/giz/giz_face_off/Sprites.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

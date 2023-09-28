@@ -27,7 +27,7 @@
   "origin": 0,
   "parent": {
     "name": "Objects",
-    "path": "folders/Microgames/giz/giz_beast_bullet/Objects.yy",
+    "path": "folders/Microgames/giz/giz_face_off/Objects.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {

@@ -29,7 +29,7 @@
   ],
   "parent": {
     "name": "Room",
-    "path": "folders/Microgames/giz/giz_beast_bullet/Room.yy",
+    "path": "folders/Microgames/giz/giz_face_off/Room.yy",
   },
   "parentRoom": null,
   "physicsSettings": {
