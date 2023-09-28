@@ -1,5 +1,3 @@
-draw_text(5, 5, string(phase));
-
 // Check surfaces
 verify_surfaces();
 
