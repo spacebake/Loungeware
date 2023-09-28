@@ -9,6 +9,8 @@ timer_max	= timer;
 
 create_bullet = function(){
 	if ( timer && !--timer ) {
+		sfx_play(giz_beast_bullet_snd_shoot, .2, 0);
+		
 		timer = timer_max;
 		var xx = ( bullet-1 ) * spread * .5;
 		for ( var i=0; i<bullet; i++ ){

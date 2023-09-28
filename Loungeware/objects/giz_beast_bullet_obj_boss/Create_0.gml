@@ -69,8 +69,13 @@ next_phase = function(){
 	if ( phase == phase_max ){
 		giz.game.set_win(true); 
 		giz.game.finish();
+		
+		microgame_music_stop(0);
+		sfx_play(giz_beast_bullet_snd_win, 1, 0);
 		return;
 	}
+	
+	sfx_play(giz_beast_bullet_snd_explosion_big, 1, 0);
 	
 	// Reset things
 	alarm[0] = 15;

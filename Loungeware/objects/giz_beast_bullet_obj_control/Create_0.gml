@@ -6,11 +6,3 @@ giz.game.on_finish.add(function(){
 });
 
 effect = layer_get_fx("ImpactBlur");
-
-//switch(DIFFICULTY){
-//	case 1 : giz.game.time_set(7); break;
-//	case 2 : giz.game.time_set(6); break;
-//	case 3 : giz.game.time_set(5); break;
-//	case 4 : giz.game.time_set(5); break;
-//	case 5 : giz.game.time_set(5); break;
-//}
