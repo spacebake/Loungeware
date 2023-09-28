@@ -1,0 +1,2 @@
+game.update();
+camera.update();
