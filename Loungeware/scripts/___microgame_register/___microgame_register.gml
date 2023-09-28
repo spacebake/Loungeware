@@ -37,7 +37,7 @@ function microgame_register(microgame_name, metadata){
 		param_time_seconds.set_min(3);
 		param_time_seconds.set_max(12);
 		
-		var param_music_track = new LW_FGameLoaderNumberTransformer("music_track", noone);
+		var param_music_track = new LW_FGameLoaderSoundTransformer("music_track", noone);
 		param_music_track.set_nullable();
 		
 		var param_music_loops = new LW_FGameLoaderNumberTransformer("music_loops", true);
