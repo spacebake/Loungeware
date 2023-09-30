@@ -245,7 +245,7 @@ if prompt_setup_done and !win and !lose and !creeper_spawned {
 				}
 			}
 			
-			if block_aim_id.object_index != baku_mine_obj_block_ore {
+			if instance_exists(block_aim_id) && block_aim_id.object_index != baku_mine_obj_block_ore {
 				crack_img = 0;
 			}
 		}
