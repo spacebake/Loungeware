@@ -2,6 +2,8 @@
   "FolderOrderSettings": [
     {"name":"anti","order":1,"path":"folders/Microgames/anti.yy",},
     {"name":"baku","order":2,"path":"folders/Microgames/baku.yy",},
+    {"name":"ddgang","order":3,"path":"folders/Microgames/ddgang.yy",},
+    {"name":"garyflip","order":1,"path":"folders/Microgames/ddgang/garyflip.yy",},
     {"name":"giz","order":4,"path":"folders/Microgames/giz.yy",},
     {"name":"Core","order":1,"path":"folders/Microgames/giz/Core.yy",},
     {"name":"giz_face_off","order":3,"path":"folders/Microgames/giz/giz_face_off.yy",},
@@ -28,8 +30,6 @@
     {"name":"space","order":16,"path":"folders/Microgames/space.yy",},
     {"name":"tfg","order":17,"path":"folders/Microgames/tfg.yy",},
     {"name":"yosi","order":18,"path":"folders/Microgames/yosi.yy",},
-    {"name":"ddgang","order":3,"path":"folders/Microgames/ddgang.yy",},
-    {"name":"garyflip","order":1,"path":"folders/Microgames/ddgang/garyflip.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"___larold_credits","order":9,"path":"scripts/___larold_credits/___larold_credits.yy",},
@@ -669,6 +669,7 @@
     {"name":"jdllama_hammer_seq_ending3","order":3,"path":"sequences/jdllama_hammer_seq_ending3/jdllama_hammer_seq_ending3.yy",},
     {"name":"___sng_gallery","order":6,"path":"sounds/___sng_gallery/___sng_gallery.yy",},
     {"name":"n8fl_ice_broom_goal_bg_spr","order":1,"path":"sprites/n8fl_ice_broom_goal_bg_spr/n8fl_ice_broom_goal_bg_spr.yy",},
+    {"name":"ddgang_garyflip_label","order":8,"path":"sprites/ddgang_garyflip_label/ddgang_garyflip_label.yy",},
     {"name":"space_scooter_obj_crash_rabbit","order":11,"path":"objects/space_scooter_obj_crash_rabbit/space_scooter_obj_crash_rabbit.yy",},
     {"name":"n8fl_ice_broom_pixel","order":2,"path":"sprites/n8fl_ice_broom_pixel/n8fl_ice_broom_pixel.yy",},
     {"name":"space_scooter_obj_slope","order":7,"path":"objects/space_scooter_obj_slope/space_scooter_obj_slope.yy",},

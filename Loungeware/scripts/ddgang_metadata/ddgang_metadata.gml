@@ -19,18 +19,18 @@ microgame_register("{ddgang}_{garyflip}", {
     music_track: sng_zandy_xylo, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [50, 44, 63],
-    cartridge_col_secondary: [168, 84, 100],
-    cartridge_label: johndoe_examplegame_spr_label,
+    cartridge_col_primary: [202, 203, 208],
+    cartridge_col_secondary: [0, 0, 0],
+    cartridge_label: ddgang_garyflip_label,
     default_is_fail: true, // nullable, defaults to true
-    supports_difficulty_scaling: false,
+    supports_difficulty_scaling: true,
     credits: ["Doudoudodogang"],
     date_added:{
-	  day : 20,
+	  day : 30,
 	  month : 9,
 	  year : 2023
 	},
-	is_enabled: false,
-	supports_html:false,
-	show_on_website: false,
+	is_enabled: true,
+	supports_html: false,
+	show_on_website: true,
 });
