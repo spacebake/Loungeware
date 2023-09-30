@@ -12,3 +12,5 @@ reroll = function() {
 //Code
 reroll()
 microgame_music_start(sng_zandy_xylo, 1, false)
+//LEMME DO THE COMMIT
+//i swear to god why does the thing not realize there is change, you want change ? here's change

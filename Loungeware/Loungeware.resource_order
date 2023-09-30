@@ -134,7 +134,6 @@
     {"name":"n8fl_ice_broom_puck","order":3,"path":"objects/n8fl_ice_broom_puck/n8fl_ice_broom_puck.yy",},
     {"name":"katsaii_witchwanda_spr_witch_b","order":3,"path":"sprites/katsaii_witchwanda_spr_witch_b/katsaii_witchwanda_spr_witch_b.yy",},
     {"name":"giz_beast_bullet_spr_ship","order":7,"path":"sprites/giz_beast_bullet_spr_ship/giz_beast_bullet_spr_ship.yy",},
-    {"name":"ddgang_metadata","order":2,"path":"scripts/ddgang_metadata/ddgang_metadata.yy",},
     {"name":"katsaii_witchwanda_spr_wanda_projectile","order":10,"path":"sprites/katsaii_witchwanda_spr_wanda_projectile/katsaii_witchwanda_spr_wanda_projectile.yy",},
     {"name":"n8fl_escape1_car2_spr","order":2,"path":"sprites/n8fl_escape1_car2_spr/n8fl_escape1_car2_spr.yy",},
     {"name":"tfg_collision_checkobj","order":19,"path":"objects/tfg_collision_checkobj/tfg_collision_checkobj.yy",},
