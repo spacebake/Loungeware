@@ -7,7 +7,7 @@
 // https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
 
-microgame_register("{ddgang}_{garyflip}", {
+microgame_register("ddgang_garyflip", {
     config_version: 1,
     game_name: "Gary Flip",
     authors : "Doudoudodogang",
