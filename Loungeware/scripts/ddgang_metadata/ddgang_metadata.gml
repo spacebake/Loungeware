@@ -31,6 +31,6 @@ microgame_register("ddgang_garyflip", {
 	  year : 2023
 	},
 	is_enabled: true,
-	supports_html: false,
+	supports_html: true,
 	show_on_website: true,
 });
