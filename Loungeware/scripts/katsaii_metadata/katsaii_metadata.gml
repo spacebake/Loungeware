@@ -135,3 +135,39 @@ microgame_register("katsaii_wandaring", {
     description : ["Collect all the stars and escape Candyland!"],
     how_to_play: ["Use the arrow keys to navigate and the button keys to change perspective."],
 });
+
+microgame_register("katsaii_wandawhop", {
+    config_version : 1,
+    game_name : "Wanda Whop",
+    authors : {
+        katsaii : "Katsaii",
+        mashmerlow : "Mashmerlow",
+    },
+    prompt : "RETURN",
+    init_room : katsaii_wandawhop_rm,
+    view_width : -1,
+    view_height : -1,
+    time_seconds : 6,
+    music_track : noone,
+    music_loops : false,
+    interpolation_on : false,
+    cartridge_col_primary : [159, 159, 159],
+    cartridge_col_secondary : [236, 236, 236], //[135, 135, 135]
+    cartridge_label : katsaii_wandawhop_label,
+    default_is_fail : false,
+    supports_difficulty_scaling : true,
+    allow_subpixels : false,
+    credits : ["Katsaii", "Mashmerlow"],
+    date_added : {
+        day : 1,
+        month : "October",
+        year : 2023,
+    },
+    is_enabled : true,
+    supports_html : true,
+    supports_pi: true,
+    show_on_website : true,
+    description : ["Whack that stupid witch!"],
+    how_to_play: ["Use the arrow keys to move the tennis racket. Intercept Wanda before it's too late!"],
+});
+
