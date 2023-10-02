@@ -25,7 +25,6 @@ if (serve < 0) {
 if (serve > 1) {
     // player
     var racket = instance_place(x, y, katsaii_wandawhop_racket_obj);
-    show_debug_message(racket);
     if (racket != noone) {
         serve = 1;
         currentServeSpeed = -serveSpeed;
@@ -61,7 +60,9 @@ if (bounce > 1) {
     bounce = 1;
 }
 
-var arc = 4 * serve * (1 - serve);
+var arc = serve / 1.25; // 1.25 == max value
+arc = 4 * arc * (1 - arc);
+
 x = lerp(larlX, targetX, serve);
-y = lerp(larlY- 30, targetY, serve) - 200 * arc; // -30 for racket offset
+y = lerp(larlY - 30, targetY, serve) - 200 * arc; // -30 for racket offset
 depth = lerp(depthMin, depthMax, serve);
