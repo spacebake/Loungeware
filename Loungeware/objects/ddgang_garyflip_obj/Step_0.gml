@@ -8,7 +8,7 @@ if ((KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED) && MICROGAME_WON = false) {
 		count --
 		norrisy += 150
 		ddprompt = "again"
-		ddprompt_timer = 7
+		ddprompt_timer = 14
 		ddprompt_flash = 2
 		sfx_play(ddgang_garyflip_click, 1, false)
 		if (norrispos[0] = true) { input_button_time[0] = 10 } else { input_button_time[1] = 10 }
