@@ -1,2 +1,0 @@
-game.update();
-camera.update();
