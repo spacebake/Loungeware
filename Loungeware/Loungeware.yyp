@@ -232,6 +232,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Sprites","folderPath":"folders/Public Sprites.yy",},
   ],
   "IncludedFiles": [
+    {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"baku_mine_model_level.vbuff","CopyToMask":-1,"filePath":"datafiles/baku/baku_mine",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"diamond_ao.jpg","CopyToMask":-1,"filePath":"datafiles/giz/speed_demon/mtl_diamond",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"diamond_color.jpg","CopyToMask":-1,"filePath":"datafiles/giz/speed_demon/mtl_diamond",},
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"diamond_metal.jpg","CopyToMask":-1,"filePath":"datafiles/giz/speed_demon/mtl_diamond",},
@@ -1568,6 +1569,7 @@
     {"roomId":{"name":"giz_speed_demon_rm_main","path":"rooms/giz_speed_demon_rm_main/giz_speed_demon_rm_main.yy",},},
     {"roomId":{"name":"katsaii_wandawhop_rm","path":"rooms/katsaii_wandawhop_rm/katsaii_wandawhop_rm.yy",},},
   ],
+  "templateType": null,
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Uncropped","autocrop":false,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},
