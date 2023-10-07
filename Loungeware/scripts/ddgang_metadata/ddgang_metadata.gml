@@ -7,7 +7,7 @@
 // https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
 
-microgame_register("{ddgang}_{garyflip}", {
+microgame_register("ddgang_garyflip", {
     config_version: 1,
     game_name: "Gary Flip",
     authors : "Doudoudodogang",
@@ -31,6 +31,6 @@ microgame_register("{ddgang}_{garyflip}", {
 	  year : 2023
 	},
 	is_enabled: true,
-	supports_html: false,
+	supports_html: true,
 	show_on_website: true,
 });

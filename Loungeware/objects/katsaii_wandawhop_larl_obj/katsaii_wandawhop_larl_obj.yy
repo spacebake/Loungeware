@@ -1,18 +1,17 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "ddgang_garyflip_obj",
+  "name": "katsaii_wandawhop_larl_obj",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "garyflip",
-    "path": "folders/Microgames/ddgang/garyflip.yy",
+    "name": "wandawhop",
+    "path": "folders/Microgames/katsaii/wandawhop.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -30,7 +29,10 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": null,
+  "spriteId": {
+    "name": "katsaii_wandawhop_larl",
+    "path": "sprites/katsaii_wandawhop_larl/katsaii_wandawhop_larl.yy",
+  },
   "spriteMaskId": null,
   "visible": true,
 }
