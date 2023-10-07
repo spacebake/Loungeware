@@ -27,6 +27,4 @@ model = giz.d3d.model(giz.d3d.primitive.sphere, mat);
 model.scale = giz.math.vec3(32);
 model.position = giz.math.vec3(giz.camera.position);
 
-giz.d3d.render.add(function(){
-	model.draw();
-});
+giz.d3d.render.add(model.draw);

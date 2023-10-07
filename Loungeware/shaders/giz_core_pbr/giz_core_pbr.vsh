@@ -1,7 +1,7 @@
 attribute vec3	in_Position;   
 attribute vec3	in_Normal;     
 attribute vec2	in_TextureCoord;
-attribute vec4	in_Tangent;
+attribute vec3	in_Tangent;
 
 varying vec2	v_UV;
 varying vec3	v_Position;

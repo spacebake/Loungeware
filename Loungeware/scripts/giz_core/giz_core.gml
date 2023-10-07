@@ -260,15 +260,15 @@ function giz_math() constructor {
 
 function giz_d3d() constructor {
 	
-	default_cam = undefined;
-	render		= new giz_delegate();
-	primitive	= new giz_d3d_primitives();
-	shader		= new giz_d3d_shader();
-	environment	= new giz_d3d_environment();
-	collection	= [ primitive ];
-	sprites		= {};
-	render_surf	= -1;
-	enabled		= false;
+	default_cam		= undefined;
+	render			= new giz_delegate();
+	primitive		= new giz_d3d_primitives();
+	shader			= new giz_d3d_shader();
+	environment		= new giz_d3d_environment();
+	collection		= [ primitive ];
+	sprites			= {};
+	render_surf		= -1;
+	enabled			= false;
 	
 	static load_sprite = function(fileid){
 		var _load = sprite_add(fileid, 0, 0, 0, 0, 0);
@@ -356,6 +356,7 @@ function giz_d3d() constructor {
 		array_foreach(collection, function(class){
 			class.cleanup();
 		});
+		show_debug_message("giz.d3d :: Project Cleaned!");
 	}
 	render_scene = function(){
 		if ( !enabled ) return;
@@ -414,7 +415,7 @@ function giz_d3d_camera(camera_struct) constructor {
 		camera_set_view_mat(id, default_camera.view);
 		camera_set_proj_mat(id, default_camera.proj);
 	}
-	static apply = function(){
+	static apply = function(){		
 		camera_apply(id);
 		
 		var pos = position;
@@ -470,6 +471,8 @@ function giz_d3d_environment() constructor {
 	}
 	draw = function(){
 		
+		draw_clear(0);
+		
 		gpu_set_zwriteenable(false);
 		shader_set(shader);
 		shader_set_uniform_f(uvs, skybox.uvs[0], skybox.uvs[1], skybox.uvs[2]-skybox.uvs[0], skybox.uvs[3]-skybox.uvs[1]);
@@ -480,9 +483,9 @@ function giz_d3d_environment() constructor {
 	}
 	
 }
-function giz_d3d_shader() constructor {
+function giz_d3d_shader(_id=giz_core_pbr) constructor {
 	
-	id				= giz_core_pbr;
+	id				= _id;
 	campos			= shader_get_uniform(id, "u_campos");
 	sundir			= shader_get_uniform(id, "u_sundir");
 	suncol			= shader_get_uniform(id, "u_suncol");
@@ -495,16 +498,7 @@ function giz_d3d_shader() constructor {
 	normal_uvs		= shader_get_uniform(id, "u_normal_uvs");
 	skybox_uvs		= shader_get_uniform(id, "u_skybox_uvs");
 	brdf_uvs		= shader_get_uniform(id, "u_brdf_uvs");
-	
-	mrao = {
-		metallic		: shader_get_sampler_index(giz_core_mrao, "s_metallic"),
-		roughness		: shader_get_sampler_index(giz_core_mrao, "s_roughness"),
-		metallic_uvs	: shader_get_uniform(giz_core_mrao, "u_metallic_uvs"),
-		roughness_uvs	: shader_get_uniform(giz_core_mrao, "u_roughness_uvs"),
-		metalness		: shader_get_uniform(giz_core_mrao, "u_metalness"),
-		roughness		: shader_get_uniform(giz_core_mrao, "u_roughness")
-	}	
-	
+		
 	static sampler_create = function(_sprite, _value, _uniform, _uv_uni=undefined){
 		
 		var mat = other;
@@ -605,16 +599,6 @@ function giz_d3d_material() constructor {
 			surface_set_target(metalrough.surface);
 			draw_clear(0);
 			
-			//shader_set(giz_core_mrao);
-			//texture_set_stage(giz.d3d.shader.mrao.metallic, metallic.texture);
-			//texture_set_stage(giz.d3d.shader.mrao.roughness, roughness.texture);
-			//shader_set_uniform_f(giz.d3d.shader.mrao.metalness, metallic.value);
-			//shader_set_uniform_f(giz.d3d.shader.mrao.roughness, roughness.value);
-			//shader_set_uniform_f_array(giz.d3d.shader.mrao.metallic_uvs, metallic.uvs);
-			//shader_set_uniform_f_array(giz.d3d.shader.mrao.roughness_uvs, roughness.uvs);
-			//draw_sprite_stretched(ambient.sprite, 0, 0, 0, w, h);
-			//shader_reset();
-			
 			draw_sprite_stretched_ext(ambient.sprite, 0, 0, 0, w, h, #FF0000, 1);
 			gpu_set_blendmode(bm_add);
 			draw_sprite_stretched_ext(roughness.sprite, 0, 0, 0, w, h, #00FF00, roughness.value);
@@ -643,20 +627,48 @@ function giz_d3d_material() constructor {
 	}
 	cleanup = function(){
 		if ( surface_exists(metalrough.surface) ) surface_free(metalrough.surface);	
+		show_debug_message("giz.d3d :: Material cleaned or recompiled!");
 	}
 }
 function giz_d3d_primitives() constructor {
 	
-	format	= undefined;
-	sphere	= undefined;
-	plane	= undefined;
-	cube	= undefined;
+	format			= undefined;
+	sphere			= undefined;
+	plane			= undefined;
+	cube			= undefined;
+	cube_data		= [
+	    // Verts
+	    [[-1, 1, -1], [-1, -1, -1], [1, 1, -1], 
+	    [1, -1, -1], [-1, -1, 1], [1, -1, 1],       
+	    [-1, 1, 1], [1, 1, 1], [-1, 1, -1],         
+	    [1, 1, -1], [-1, 1, -1], [-1, 1, 1],        
+	    [1, 1,  -1], [1, 1, 1]], 
+        
+	    // Uvs
+	    [[0, 0.66], [0.25, 0.66], [0, 0.33],    
+	    [0.25, 0.33], [0.5, 0.66], [0.5, 0.33],     
+	    [0.75, 0.66], [0.75, 0.33], [1, 0.66],      
+	    [1, 0.33], [0.25, 1], [0.5, 1],             
+	    [0.25, 0], [0.5, 0]],
+        
+	    // Normals
+	    [[0, 0, -1], [0, 0, -1], [0, 0, 1],     
+	    [0, 0, 1], [0, 1, 0], [0, 1, 0],            
+	    [0, -1, 0], [0, -1, 0], [-1, 0, 0],         
+	    [-1, 0, 0], [1, 0,0], [1, 0, 0] ],
+        
+	    // Triangles
+	    [[0, 2, 1], [1, 2, 3], [4, 5, 6],       
+	    [5, 7, 6], [6, 7, 8], [7, 9 ,8],            
+	    [1, 3, 4], [3, 5, 4], [1, 11,10],           
+	    [1, 4, 11], [3, 12, 5], [5, 12, 13]],       
+	];
 
 	static enable = function(){
-		format	= format_create(["position3d", "normal", "texcoord", "tangent"]);
-		sphere	= vertex_buffer_create_sphere(0.5, 32);
-		plane	= vertex_buffer_create_plane(1, 1);
-		cube	= vertex_buffer_create_cube(1, 1, 1);
+		format			= format_create(["position3d", "normal", "texcoord", "tangent"]);
+		sphere			= vertex_buffer_create_sphere(0.5, 32);
+		plane			= vertex_buffer_create_plane(1, 1);
+		cube			= vertex_buffer_create_cube(1, 1, 1);
 	}
 	cleanup = function(){
 		if ( format == undefined ) return;
@@ -664,6 +676,8 @@ function giz_d3d_primitives() constructor {
 		sphere.cleanup();
 		plane.cleanup();
 		cube.cleanup();
+		
+		show_debug_message("giz.d3d :: Primitives cleaned!");
 	}
 	
 	// Format Function
@@ -688,6 +702,8 @@ function giz_d3d_primitives() constructor {
 										array_push(bytes, {type: buffer_f32, values: ["tx", "ty", "tz"]}); break;
 	        	case "binormal"		:	vertex_format_add_custom(vertex_type_float3, vertex_usage_texcoord);
 										array_push(bytes, {type: buffer_f32, values: ["bx", "by", "bz"]}); break;
+				case "index"		:	vertex_format_add_custom(vertex_type_float2, vertex_usage_texcoord); 
+										array_push(bytes, {type: buffer_f32, values: ["index", "index"]}); break;
 	        }
 	    }
 		var _format = vertex_format_end();
@@ -706,7 +722,7 @@ function giz_d3d_primitives() constructor {
 	    return {
 			x: _x, nx: _nx, u: _u,
 			y: _y, ny: _ny, v: _v,
-			z: _z, nz: _nz, 
+			z: _z, nz: _nz,
 			r: color_get_red(_col),
 			g: color_get_green(_col),
 			b: color_get_blue(_col),
@@ -851,34 +867,8 @@ function giz_d3d_primitives() constructor {
 	static vertex_buffer_create_cube = function(width, height, _depth, _format=undefined){
 	    _format ??= format;
 		var _w = width*.5, _h = height*.5, _d = _depth*.5;
-	    var data = [
-	        // Verts
-	        [[-1, 1, -1], [-1, -1, -1], [1, 1, -1], 
-	        [1, -1, -1], [-1, -1, 1], [1, -1, 1],       
-	        [-1, 1, 1], [1, 1, 1], [-1, 1, -1],         
-	        [1, 1, -1], [-1, 1, -1], [-1, 1, 1],        
-	        [1, 1,  -1], [1, 1, 1]], 
-        
-	        // Uvs
-	        [[0, 0.66], [0.25, 0.66], [0, 0.33],    
-	        [0.25, 0.33], [0.5, 0.66], [0.5, 0.33],     
-	        [0.75, 0.66], [0.75, 0.33], [1, 0.66],      
-	        [1, 0.33], [0.25, 1], [0.5, 1],             
-	        [0.25, 0], [0.5, 0]],
-        
-	        // Normals
-	        [[0, 0, -1], [0, 0, -1], [0, 0, 1],     
-	        [0, 0, 1], [0, 1, 0], [0, 1, 0],            
-	        [0, -1, 0], [0, -1, 0], [-1, 0, 0],         
-	        [-1, 0, 0], [1, 0,0], [1, 0, 0] ],
-        
-	        // Triangles
-	        [[0, 2, 1], [1, 2, 3], [4, 5, 6],       
-	        [5, 7, 6], [6, 7, 8], [7, 9 ,8],            
-	        [1, 3, 4], [3, 5, 4], [1, 11,10],           
-	        [1, 4, 11], [3, 12, 5], [5, 12, 13]],       
-	    ]
-
+		
+		var data = cube_data;
 	    var buffer = buffer_create(1, buffer_grow, 1);
 	    for ( var i=0; i<array_length(data[3]); i++ ){
 	        var t = data[3][i]; // vert
@@ -892,7 +882,6 @@ function giz_d3d_primitives() constructor {
 	        var p3 = vertex_point(v3[0]*_w, v3[1]*_h, v3[2]*_d, n[0], n[1], n[2], u3[0], u3[1]);
 	        vertex_buffer_build_triangle(buffer, [p1, p2, p3], _format);
 	    }
-
 		return vertex_buffer_object(buffer, _format);
 	}
 	

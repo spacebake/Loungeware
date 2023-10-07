@@ -183,4 +183,5 @@ vertex_color(vb_cube, c_white, 1 );
 vertex_texcoord(vb_cube,0.250000000,1.000000000);
 
 vertex_end(vb_cube);
+vertex_freeze(vb_cube);
 }

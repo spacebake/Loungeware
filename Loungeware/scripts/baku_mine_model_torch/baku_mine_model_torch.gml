@@ -183,4 +183,5 @@ vertex_color(vb_torch, c_white, 1 );
 vertex_texcoord(vb_torch,0.250000000,1.000000000);
 
 vertex_end(vb_torch);
+vertex_freeze(vb_torch);
 }
