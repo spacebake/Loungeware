@@ -50,6 +50,8 @@ function baku_mine_player_init_aim(){
 	aim_pitch			= -10;
 	block_aim_id		= noone;
 	block_aim_max_dis	= 64;
+	block_aim_timer		= 1;	// Only check for blocks ever "x" frame
+	block_aim_time		= 5;
 }
 function baku_mine_player_init_pickaxe(){
 	// Pickaxe

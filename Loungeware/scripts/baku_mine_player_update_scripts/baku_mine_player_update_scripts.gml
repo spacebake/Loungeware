@@ -152,6 +152,21 @@ function baku_mine_player_update_movement(){
 	while (place_meeting_3d(x, y, z, baku_mine_par_solid)) z++;
 }
 function baku_mine_player_update_mining(){
+	
+	// Find block we are aiming at while not mining
+	if ( block_aim_timer && !--block_aim_timer ) {
+		block_aim_timer = block_aim_time;
+		var i = 0;
+		block_aim_id = noone;
+		repeat(block_aim_max_dis){
+			var _x2 = x + lengthdir_x(i, aim_dir);
+			var _y2 = y + lengthdir_y(i, aim_dir);
+			var _id = collision_line_list_3d_first(x, y, z + eye_height, _x2, _y2, baku_mine_par_solid);
+				if ( _id != noone ){ block_aim_id = _id.id; break; }
+			i++;
+		}
+	}
+		
 	// Using pickaxe
 	if ( KEY_PRIMARY ) {
 		
@@ -159,127 +174,88 @@ function baku_mine_player_update_mining(){
 		if ( pick_time % pick_time_mod == 0 ) {
 			pick_rot += 360;
 			
-			// Find block ONLY when picking
-			var i = 0;
-			repeat(block_aim_max_dis){
-				var _x2 = x + lengthdir_x(i, aim_dir);
-				var _y2 = y + lengthdir_y(i, aim_dir);
-				block_aim_id = collision_line_list_3d_first(x, y, z + eye_height, _x2, _y2, baku_mine_par_solid);
-								
-				i++;
-				if ( block_aim_id != noone ){
-					
-					// Ore?
-					if ( block_aim_id.is_ore ) {
-						crack_img ++;
+			if ( block_aim_id != noone ) {
+				// Ore?
+				if ( block_aim_id.is_ore ) {
+					block_aim_id.crack_img ++;
 						
-						// Destroyed!
-						if ( crack_img > 5 ) {
+					// Destroyed!
+					if ( block_aim_id.crack_img > 5 ) {
 							
-							// Do block stuffs
-							var _win = false;
-							with ( block_aim_id ) {
-								// Create drop
-								var _inst = instance_create_layer(x, y, layer, baku_mine_obj_drop);
-								_inst.z				= z;
-								_inst.glow_col		= glow_col;
-								_inst.glow_alpha	= glow_alpha;
-								_inst.z_og			= z;
-								_inst.texture_name	= texture_name_drop;
-								_inst.light			= light;
+						// Do block stuffs
+						var _win = false;
+						with ( block_aim_id ) {
+							// Create drop
+							var _inst = instance_create_layer(x, y, layer, baku_mine_obj_drop);
+							_inst.z				= z;
+							_inst.glow_col		= glow_col;
+							_inst.glow_alpha	= glow_alpha;
+							_inst.z_og			= z;
+							_inst.texture_name	= texture_name_drop;
+							_inst.light			= light;
 						
-								// Did we win?
-								if ore_type == other.prompt_to_ore_translator[$ PROMPT] _win = true;
-						
-								// Sound
-								sfx_play(baku_mine_snd_break, 1, false);
-								if _win sfx_play(baku_mine_snd_drop, 1, false);
-						
-								// Block breaking particles
-								repeat 16 {
-									var _radius = 8;
-									var _x = x + random_range(-_radius, _radius);
-									var _y = y + random_range(-_radius, _radius);
-									var _z = z + random_range(-_radius, _radius);
-									var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
-									_inst.z = _z;
-								}
-						
-								// Destroy block
-								instance_destroy();
-							}
-					
 							// Did we win?
-							if _win {
-								win = true;
-								microgame_win();
-								sfx_play(baku_mine_snd_cheer, 1, false);
-							}
-					
-							// No we did not :(
-							else {
-								lose = true;
-								microgame_fail();
-								microgame_music_stop(0);
-								sfx_play(baku_mine_snd_creeper, 1, false);
-								creeper_spawned = true;
-								creeper_aim_dir = aim_dir + 180;
-							}
-							
-						} else {
-							
-							// Regular block break
-							with ( block_aim_id ) {
-								repeat(2) {
-									var _radius = 0;
-									var _dir = point_direction(x, y, other.x, other.y);
-									var _x = x + random_range(-_radius, _radius) + lengthdir_x(8, _dir);
-									var _y = y + random_range(-_radius, _radius) + lengthdir_y(8, _dir);
-									var _z = z + random_range(-_radius, _radius);
-									var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
-									_inst.z = _z;
-								}
-							}
-							
+							if ore_type == other.prompt_to_ore_translator[$ PROMPT] _win = true;
+						
 							// Sound
-							sfx_play(choose(baku_mine_snd_hit_a, baku_mine_snd_hit_b, baku_mine_snd_hit_c, baku_mine_snd_hit_d, baku_mine_snd_hit_e), 1, false);
+							sfx_play(baku_mine_snd_break, 1, false);
+							if _win sfx_play(baku_mine_snd_drop, 1, false);
+						
+							// Block breaking particles
+							repeat 16 {
+								var _radius = 8;
+								var _x = x + random_range(-_radius, _radius);
+								var _y = y + random_range(-_radius, _radius);
+								var _z = z + random_range(-_radius, _radius);
+								var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
+								_inst.z = _z;
+							}
+						
+							// Destroy block
+							instance_destroy();
 						}
+					
+						// Did we win?
+						if _win {
+							win = true;
+							microgame_win();
+							sfx_play(baku_mine_snd_cheer, 1, false);
+						}
+					
+						// No we did not :(
+						else {
+							lose = true;
+							microgame_fail();
+							microgame_music_stop(0);
+							sfx_play(baku_mine_snd_creeper, 1, false);
+							creeper_spawned = true;
+							creeper_aim_dir = aim_dir + 180;
+						}
+							
+					} else {
+							
+						// Regular block break
+						with ( block_aim_id ) {
+							repeat(2) {
+								var _radius = 0;
+								var _dir = point_direction(x, y, other.x, other.y);
+								var _x = x + random_range(-_radius, _radius) + lengthdir_x(8, _dir);
+								var _y = y + random_range(-_radius, _radius) + lengthdir_y(8, _dir);
+								var _z = z + random_range(-_radius, _radius);
+								var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
+								_inst.z = _z;
+							}
+						}
+							
+						// Sound
+						sfx_play(choose(baku_mine_snd_hit_a, baku_mine_snd_hit_b, baku_mine_snd_hit_c, baku_mine_snd_hit_d, baku_mine_snd_hit_e), 1, false);
 					}
-					break;
 				}
 			}
-
-			 
-			////if ( block_aim_id != noone ) {
-			////	if ( block_aim_id.is_ore ) {
-			////		crack_img ++;
-						
-			////		// Block breaking particles
-			////		with ( block_aim_id ) {
-			////			repeat 2 {
-			////				var _radius = 0;
-			////				var _dir = point_direction(x, y, other.x, other.y);
-			////				var _x = x + random_range(-_radius, _radius) + lengthdir_x(8, _dir);
-			////				var _y = y + random_range(-_radius, _radius) + lengthdir_y(8, _dir);
-			////				var _z = z + random_range(-_radius, _radius);
-			////				var _inst = instance_create_layer(_x, _y, layer, baku_mine_obj_block_particle);
-			////				_inst.z = _z;
-			////			}
-			////		}
-			////	}
-					
-			////	// Sound
-			////	sfx_play(choose(baku_mine_snd_hit_a, baku_mine_snd_hit_b, baku_mine_snd_hit_c, baku_mine_snd_hit_d, baku_mine_snd_hit_e), 1, false);
-			////}
 		}
 	}
-	if ( KEY_PRIMARY_RELEASED ){
-		block_aim_id	= noone;
-		pick_time		= pick_time_mod - 1;
-		crack_img		= 0;
-	}
 	pick_rot_lerped = lerp(pick_rot_lerped, pick_rot, 0.1);
-
+	if ( KEY_PRIMARY_RELEASED ) pick_time = pick_time_mod - 1;
 }
 function baku_mine_player_update_non_win_condition(){
 	// Spawn think bubble

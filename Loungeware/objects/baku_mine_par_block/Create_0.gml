@@ -10,3 +10,4 @@ is_ore			= false;
 is_drawn		= true;
 matrix			= array_create(2, undefined);
 cull			= false;
+crack_img		= 0;

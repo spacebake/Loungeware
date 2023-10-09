@@ -12,7 +12,7 @@ function baku_mine_player_draw_begin(){
 	baku_mine_shader_3d.uniform.roundabout_active.set(roundabout_started);
 	baku_mine_shader_3d.uniform.crack_img.set(0);
 	baku_mine_shader_3d.uniform.outline_alpha.set(0);
-	baku_mine_shader_3d.uniform.outline_tex.set(sprite_get_texture(baku_mine_spr_highlight, 0));	
+	baku_mine_shader_3d.uniform.outline_tex.set(sprite_get_texture(baku_mine_spr_highlight, 1));	
 	baku_mine_shader_3d.uniform.tex_data.texdata(textures.stone);
 	baku_mine_shader_3d.uniform.raw_coord.set(0);
 	
@@ -29,11 +29,10 @@ function baku_mine_player_render_blocks() {
 	gpu_set_cullmode(cull_counterclockwise);
 	with ( baku_mine_obj_block_torch ) baku_mine_player_render_torch(other);
 	with ( baku_mine_obj_block_ore ) baku_mine_player_render_block(other);
-		
+	
 	// Reset
 	baku_mine_shader_3d.uniform.outline_alpha.set(0);
 	baku_mine_shader_3d.uniform.crack_img.set(0);
-	baku_mine_shader_3d.uniform.outline_tex.set(sprite_get_texture(baku_mine_spr_highlight, 0));
 	
 	// Main level
 	baku_mine_shader_3d.uniform.raw_coord.set(1);
@@ -65,20 +64,16 @@ function baku_mine_player_render_block(source){
 	source.call_count++
 	source.baku_mine_shader_3d.uniform.tex_data.texdata(variable_struct_get(other.textures, texture_name));
 	
-	var _alpha = 0;
-	var _image = 0;
-	if ( source.block_aim_id == id ) {
-		_alpha = .25;
-		_image = source.crack_img;
-		source.baku_mine_shader_3d.uniform.outline_tex.set(sprite_get_texture(baku_mine_spr_highlight, 1));
-	}
-	source.baku_mine_shader_3d.uniform.outline_alpha.set(_alpha);
-	source.baku_mine_shader_3d.uniform.crack_img.set(_image);
+	if ( source.block_aim_id == id ) source.baku_mine_shader_3d.uniform.outline_alpha.set(1);
+	else source.baku_mine_shader_3d.uniform.outline_alpha.set(0);
+	
+	source.baku_mine_shader_3d.uniform.crack_img.set(crack_img);
 	source.draw_vertex_buffer_simple(source.vb_cube, baku_mine_player_verify_matrix(0, x, y, z, 0, 0, image_angle), source.texpage);
 }
 function baku_mine_player_render_particles(){
 	with ( baku_mine_obj_block_particle ) {
 		other.call_count++
+		
 		other.baku_mine_shader_3d.uniform.tex_data.texdata(variable_struct_get(other.textures, texture_name));
 		other.draw_vertex_buffer(other.vb_cube, pr_trianglelist, other.texpage, x, y, z, 90, 90, dir, scale, scale, scale, matrix_world);
 	}	
@@ -91,6 +86,7 @@ function baku_mine_player_render_items(){
 		//other.baku_mine_shader_3d.uniform.tex_data.texdata(variable_struct_get(other.textures, "drop_shadow"));
 		//other.draw_vertex_buffer(other.vb_plane, pr_trianglelist, other.texpage, x, y, z_og - 8 + 0.1, 0, 0, 0, _scale, _scale, _scale, matrix_world);
 		other.call_count++
+		
 		var _scale = 0.333;
 		other.baku_mine_shader_3d.uniform.tex_data.texdata(variable_struct_get(other.textures, texture_name));
 		other.draw_vertex_buffer(other.vb_plane, pr_trianglelist, other.texpage, x, y, z_draw, 90, 90, current_time / 5, _scale, _scale, _scale, matrix_world);

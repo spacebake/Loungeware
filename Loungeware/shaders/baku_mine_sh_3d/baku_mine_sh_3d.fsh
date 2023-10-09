@@ -30,8 +30,8 @@ void main()
 		// Static batch coords already calculated
 		gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vRawCoord * pixel_size_texels );	
 		
-		// No highlights
-		highlight_col = vec4(0);
+		//// No highlights
+		//highlight_col = vec4(0);
 		
 	} else {
 		
@@ -72,7 +72,7 @@ void main()
 	gl_FragColor.rgb = mix(final_light_col, gl_FragColor.rgb, 0.333);
 	
 	// Highlight
-	gl_FragColor.rgb += highlight_col.rgb * vec3(0.25);
+	gl_FragColor.rgb += highlight_col.rgb * outline_alpha * .25;
 	
 	// Roundabout overlay
 	if (roundabout_active > 0.0) {
