@@ -1,4 +1,4 @@
-
+light.set_all(x, y, z, 32, glow_col, glow_alpha);
 squish_xy = lerp(squish_xy, 1, 0.1);
 squish_z  = lerp(squish_z,  1, 0.1);
 

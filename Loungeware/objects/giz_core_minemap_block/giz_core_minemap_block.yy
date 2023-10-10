@@ -1,16 +1,15 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "baku_mine_obj_frustum_culler",
+  "name": "giz_core_minemap_block",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
     "name": "Objects",
-    "path": "folders/Microgames/baku/mine/Objects.yy",
+    "path": "folders/Microgames/giz/giz_core/Objects.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -28,10 +27,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "baku_mine_spr_frustum_culler",
-    "path": "sprites/baku_mine_spr_frustum_culler/baku_mine_spr_frustum_culler.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

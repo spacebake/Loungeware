@@ -1,0 +1,1 @@
+if ( cull ) instance_deactivate_object(id);

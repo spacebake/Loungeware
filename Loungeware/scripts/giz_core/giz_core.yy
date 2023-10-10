@@ -5,7 +5,7 @@
   "isCompatibility": false,
   "isDnD": false,
   "parent": {
-    "name": "Core",
-    "path": "folders/Microgames/giz/Core.yy",
+    "name": "giz_core",
+    "path": "folders/Microgames/giz/giz_core.yy",
   },
 }

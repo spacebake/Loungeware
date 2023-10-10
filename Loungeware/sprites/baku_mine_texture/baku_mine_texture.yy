@@ -13,14 +13,15 @@
   "edgeFiltering": false,
   "For3D": true,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b766e39b-c30b-4fad-a885-f720c3d4b3b8",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"5e8536e7-1a9d-4e77-b624-9e7f4d9e175a",},
   ],
-  "gridX": 0,
-  "gridY": 0,
+  "gridX": 64,
+  "gridY": 32,
   "height": 512,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5a898808-03da-46bd-a298-a7eeecebe9ef","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b5677fff-9dd8-490e-bb69-9097b5478222","blendMode":0,"displayName":"Layer 1","isLocked":false,"opacity":42.0,"visible":false,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"371f0cba-7368-4182-aa0e-d2635834251a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": {
     "resourceType": "GMNineSliceData",
@@ -77,7 +78,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b766e39b-c30b-4fad-a885-f720c3d4b3b8","path":"sprites/baku_mine_texture/baku_mine_texture.yy",},},},"Disabled":false,"id":"6ddd6cd6-e1f5-4a4f-b744-bb47700f8dd0","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"5e8536e7-1a9d-4e77-b624-9e7f4d9e175a","path":"sprites/baku_mine_texture/baku_mine_texture.yy",},},},"Disabled":false,"id":"dfcf96fe-4a32-4fb5-a6d3-8f085e4173d8","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
