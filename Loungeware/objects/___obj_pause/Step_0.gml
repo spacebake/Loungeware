@@ -96,10 +96,10 @@ confirm_shake_timer = max(0, confirm_shake_timer-1);
 if (state == "pause_room"){
 	
 	with(all){
-		var not_pause = id != other.id;
-		var not_global = object_index != ___global;
+		var _not_pause = id != other.id;
+		var _not_global = object_index != ___global.object_index;
 		
-		if (not_pause && not_global){
+		if (_not_pause && _not_global){
 			instance_deactivate_object(id);
 			array_push(other.deactivated_instances, id);
 		}
