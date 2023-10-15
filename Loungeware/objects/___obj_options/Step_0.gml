@@ -21,7 +21,7 @@ if (state == "normal") {
 		}
 	}
 
-	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape) || ___KEY_PAUSE_PRESSED) {
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)) {
 		state = "fadeout_back";
 		fadeout_do = back_to_main;
 		if (!is_undefined(sng_id)) {audio_sound_gain(sng_id, 0, 100);}
