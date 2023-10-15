@@ -298,9 +298,9 @@ if (http_error_alpha > 0){
 	}
 
 	
-	___global.___draw_text_advanced(_ex-1, _ey + 12, 32, true, true, _str, 1, 1, 1, 4);
+	___global.___draw_text_advanced(_ex-1, _ey + 12, 32, true, true, _str, 1, 1, 1);
 	draw_set_font(fnt_gallery);
-	___global.___draw_text_advanced(_ex, _ey - 38, 32, true, true, _error_title, 1, 2, 2 , 4);
+	___global.___draw_text_advanced(_ex, _ey - 38, 32, true, true, _error_title, 1, 2, 2);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_sprite(___spr_http_errors, 0, _sx, _y_os + _sy);

@@ -6,6 +6,9 @@ if (bg_alpha > 0){
 	
 	var _draw_y = bg_y + bg_y2;
 	
+	draw_set_color(#1F1B25);
+	draw_rectangle(VIEW_X, VIEW_Y, VIEW_X + VIEW_W, VIEW_Y + VIEW_H, 0);
+	
 	draw_set_alpha(bg_alpha);
 	draw_sprite(___spr_title_bg, 1, bg_x, _draw_y);
 	draw_sprite(___spr_title_bg, 1, bg_x, _draw_y - VIEW_H);
