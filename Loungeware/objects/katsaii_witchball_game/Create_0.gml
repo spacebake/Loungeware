@@ -8,7 +8,7 @@ hasAntony = choose(true, false);
 larlState = 0;
 larlDirection = choose(-1, 1);
 
-var specialBall = choose(true, false);
+var specialBall = choose(true, false, false, false);
 if (specialBall) {
     ball = choose(1, 2, 3);
 } else {
@@ -19,7 +19,7 @@ ballAppearTime = choose(100, 150, 200);
 ballImpactSpeed = 0.025;
 ballPosition = -1;
 
-var yoko = choose(true, false);
+var yoko = choose(true, false, false, false, false, false);
 if (yoko) {
     wanda = 3;
 } else {
@@ -30,3 +30,6 @@ wandaState = 0;
 wandaDirection = choose(-1, 1);
 
 wandaDiveTime = -1;
+
+wonGame = false;
+ballInFront = false;

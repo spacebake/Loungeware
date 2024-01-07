@@ -17,10 +17,15 @@ if (hasAntony) {
 }
 
 // ball
-var ballX = room_width / 2 + larlDirection * 60;
-var ballY = lerp(-50, room_height - 35, clamp(ballPosition, 0, 1));
-draw_circle_colour(ballX - 1, ballY - 1, 16, c_white, c_white, false);
-draw_sprite_ext(katsaii_witchball_ball, ball, ballX, ballY, 1, 1, ballY * 5, c_white, 1);
+var drawBall = function () {
+    var ballX = room_width / 2 + larlDirection * 60;
+    var ballY = lerp(-50, room_height - 35, clamp(ballPosition, 0, 1));
+    draw_circle_colour(ballX - 1, ballY - 1, 16, c_white, c_white, false);
+    draw_sprite_ext(katsaii_witchball_ball, ball, ballX, ballY, 1, 1, ballY * 5, c_white, 1);
+};
+if (!ballInFront) {
+    drawBall();
+}
 
 // wanda
 if (wandaState == 0) {
@@ -28,7 +33,17 @@ if (wandaState == 0) {
 } else {
     var spr = wandaState == 1 ? katsaii_witchball_wanda_dive : katsaii_witchball_wanda_fail;
     var shake = wandaState == 1 ? round(timer / 8 % 2) * wandaDirection : 0;
-    draw_sprite_ext(spr, wanda, room_width / 2 + shake, room_height, wandaDirection, 1, 0, c_white, 1);
+    var wandaX = room_width / 2 + shake;
+    var wandaY = room_height;
+    draw_sprite_ext(spr, wanda, wandaX, wandaY, wandaDirection, 1, 0, c_white, 1);
+    if (wandaState == 2 && !wonGame) {
+        draw_sprite(katsaii_witchball_lmao, theme, wandaX + wandaDirection * 15, wandaY);
+    }
+}
+
+// ball (in front)
+if (ballInFront) {
+    drawBall();
 }
 
 // foreground
