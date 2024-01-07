@@ -182,7 +182,7 @@ microgame_register("katsaii_witchball", {
     init_room : katsaii_witchball_rm,
     view_width : -1,
     view_height : -1,
-    time_seconds : 6,
+    time_seconds : 5,
     music_track : katsaii_witchball_ambience,
     music_loops : false,
     interpolation_on : false,

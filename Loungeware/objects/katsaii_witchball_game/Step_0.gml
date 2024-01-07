@@ -43,7 +43,7 @@ if (wandaState == 0) {
 }
 
 if (wandaState == 1) {
-    if (!wonGame && ballPosition < 1 && ballPosition > 0.8) {
+    if (!wonGame && ballPosition < 1 && ballPosition > 0.8 && sign(wandaDirection) == sign(larlDirection)) {
         wonGame = true;
         microgame_win();
         var snd = sfx_play(katsaii_witchball_hit, 1, false);
