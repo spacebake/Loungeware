@@ -30,6 +30,7 @@
     {"name":"jdllama","order":5,"path":"folders/Microgames/jdllama.yy",},
     {"name":"katsaii","order":6,"path":"folders/Microgames/katsaii.yy",},
     {"name":"wandawhop","order":3,"path":"folders/Microgames/katsaii/wandawhop.yy",},
+    {"name":"witchball","order":4,"path":"folders/Microgames/katsaii/witchball.yy",},
     {"name":"kilomatter","order":7,"path":"folders/Microgames/kilomatter.yy",},
     {"name":"Makoren","order":8,"path":"folders/Microgames/Makoren.yy",},
     {"name":"mantaray","order":9,"path":"folders/Microgames/mantaray.yy",},
@@ -42,7 +43,6 @@
     {"name":"space","order":16,"path":"folders/Microgames/space.yy",},
     {"name":"tfg","order":17,"path":"folders/Microgames/tfg.yy",},
     {"name":"yosi","order":18,"path":"folders/Microgames/yosi.yy",},
-    {"name":"witchball","order":4,"path":"folders/Microgames/katsaii/witchball.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"___larold_credits","order":9,"path":"scripts/___larold_credits/___larold_credits.yy",},

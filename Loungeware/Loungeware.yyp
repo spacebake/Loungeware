@@ -113,6 +113,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Sprites","folderPath":"folders/Microgames/katsaii/wandaring/Sprites.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"wandawhop","folderPath":"folders/Microgames/katsaii/wandawhop.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"wandaxplore","folderPath":"folders/Microgames/katsaii/wandaxplore.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"witchball","folderPath":"folders/Microgames/katsaii/witchball.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"witchcraft","folderPath":"folders/Microgames/katsaii/witchcraft.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"others","folderPath":"folders/Microgames/katsaii/witchcraft/others.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"wanda","folderPath":"folders/Microgames/katsaii/witchcraft/wanda.yy",},
@@ -230,7 +231,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"epic_fire_truck","folderPath":"folders/Microgames/yosi/epic_fire_truck.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Music","folderPath":"folders/Public Music.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Public Sprites","folderPath":"folders/Public Sprites.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"witchball","folderPath":"folders/Microgames/katsaii/witchball.yy",},
   ],
   "IncludedFiles": [
     {"resourceType":"GMIncludedFile","resourceVersion":"1.0","name":"baku_mine_model_level.vbuff","CopyToMask":-1,"filePath":"datafiles/baku/baku_mine",},
