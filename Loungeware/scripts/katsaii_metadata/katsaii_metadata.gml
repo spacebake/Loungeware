@@ -171,3 +171,37 @@ microgame_register("katsaii_wandawhop", {
     how_to_play: ["Use the arrow keys to move the tennis racket. Intercept Wanda before it's too late!"],
 });
 
+microgame_register("katsaii_witchball", {
+    config_version : 1,
+    game_name : "Witch Ball",
+    authors : {
+        katsaii : "Katsaii",
+        mashmerlow : "Mashmerlow",
+    },
+    prompt : "SAVE",
+    init_room : katsaii_witchball_rm,
+    view_width : -1,
+    view_height : -1,
+    time_seconds : 6,
+    music_track : noone,
+    music_loops : false,
+    interpolation_on : false,
+    cartridge_col_primary : #CBF0FF, //[0xEE, 0xDA, 0xA2],
+    cartridge_col_secondary : #8EDFFF, //[0xFF, 0xF8, 0xE4],
+    cartridge_label : katsaii_witchball_label,
+    default_is_fail : true,
+    supports_difficulty_scaling : false,
+    allow_subpixels : false,
+    credits : ["Katsaii", "Mashmerlow"],
+    date_added : {
+        day : 7,
+        month : "January",
+        year : 2024,
+    },
+    is_enabled : true,
+    supports_html : true,
+    supports_pi: true,
+    show_on_website : true,
+    description : ["Loungeware beach episode!"],
+    how_to_play: ["Use the arrow keys to dive and save the ball."],
+});
