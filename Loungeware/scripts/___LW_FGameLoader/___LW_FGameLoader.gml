@@ -334,6 +334,10 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 			return true;
 			
 		}
+		if(is_numeric(colour)){
+			// hex colours
+			return true;
+		}
 		if(array_length(colour) != 3){
 			return false;	
 		}
@@ -361,6 +365,9 @@ function LW_FGameLoaderColourTransformer(field_name, default_value) : LW_FGameLo
 		        dec = dec << 4 | (string_pos(string_char_at(colour, p), h) - 1);
 		    }
 		    return (dec & 0xFF0000) >> 16 | (dec & 0x00FF00) | (dec & 0x0000FF) << 16;
+		}
+		if(is_numeric(colour)){
+			return colour;
 		}
 		return make_colour_rgb(colour[0], colour[1], colour[2]);
 	}
