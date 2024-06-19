@@ -33,4 +33,10 @@ microgame_register("orphillius_lunch", {
 	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
+	description: [
+		"It's lunch time and the crowd is rolling in!"
+	],
+	how_to_play: [
+		"Watch the customers' reactions and serve them the food they want."
+	],
 });

@@ -67,7 +67,7 @@ draw_sprite(orphillius_lunch_table_sp,0,0,0)	//draws table overlay
 for (var c=0;c<array_length(customers);c++){
 	var anim_shake=false
 	var o=customers[c]
-	if c=nowserving and o.served=noone and hand_anim=noone{						//changes expression of first customer to show what they want
+	if c=nowserving and o.served=noone and hand_anim=noone and o.x<rmw*.8{						//changes expression of first customer to show what they want
 		if intray=o.req{		//hovering correct tray
 			o.image_index=1
 			if prevtray!=intray{customer_sfx_play(o,o.sfx_excited,1,0)}
