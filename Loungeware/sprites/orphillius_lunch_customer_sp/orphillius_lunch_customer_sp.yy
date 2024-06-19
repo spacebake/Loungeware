@@ -28,7 +28,7 @@
     {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8d12f84a-1dea-4441-b94f-130ab43b49eb","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
-  "origin": 4,
+  "origin": 9,
   "parent": {
     "name": "orphillius_lunch_sprites",
     "path": "folders/Microgames/orphillius/orphillius_lunch/orphillius_lunch_sprites.yy",
