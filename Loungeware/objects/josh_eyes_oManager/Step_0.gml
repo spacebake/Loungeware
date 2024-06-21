@@ -4,8 +4,8 @@ global.final_timer--;
 
 if (global.campfire_timer == 0)
 {
-	audio_stop_all();
-	audio_play_sound(josh_eyes_sndFireOut, 1, false);	
+	sfx_stop(fire_sound);
+	sfx_play(josh_eyes_sndFireOut, 1, false);	
 }
 if (global.campfire_timer == -60)
 {
@@ -38,20 +38,20 @@ if (global.final_timer <= 0)
 	
 	if (KEY_PRIMARY_PRESSED)
 	{
-		audio_stop_sound(sng_zandy_horror_chase);
+		microgame_music_stop();
 		if (new_menu[cursor] == global.right_amount) 
 		{
 			with (josh_eyes_oLarold) {
 				win = true;
 			}
 			microgame_win(); 
-			audio_play_sound(josh_eyes_sndAplause, 1, false);
+			sfx_play(josh_eyes_sndAplause, 1, false);
 			win = true;
 		}
 		else 
 		{
 			microgame_fail();
-			audio_play_sound(josh_eyes_sndCrickets, 1, false);
+			sfx_play(josh_eyes_sndCrickets, 1, false);
 		}
 		done = true;
 	}

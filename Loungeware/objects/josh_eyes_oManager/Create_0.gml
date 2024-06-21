@@ -35,10 +35,6 @@ win = false;
 done = false;
 created = false;
 
-
-
-
-
 josh_array_shuffle = function(array) {
 	var list = ds_list_create();
 	var length = array_length(array);
@@ -59,4 +55,4 @@ josh_array_shuffle = function(array) {
 	return arr;
 }
 
-
+fire_sound = sfx_play(josh_eyes_sndCampfire);

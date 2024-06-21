@@ -26,7 +26,7 @@ microgame_register("josh_eyes_on_eyes", {
     cartridge_label: josh_eyes_sLabel,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: false,
-    credits: ["Josh", "Kilomatter"],
+    credits: ["Josh", "Kilomatter", "Zandy"],
     date_added:{
 	  day : 6,
 	  month : "November",
