@@ -9,7 +9,7 @@ if (global.campfire_timer == 0)
 }
 if (global.campfire_timer == -60)
 {
-	audio_play_sound(sng_zandy_horror_chase, 1, true);
+	microgame_music_start(sng_zandy_horror_chase, 0.5, 1);
 	create();	
 }
 if (global.final_timer <= 0)
@@ -19,7 +19,7 @@ if (global.final_timer <= 0)
 	ang += circle_speed;
 	if (ang >= 360) then ang -= ang;
 	
-	if (KEY_DOWN_PRESSED) 
+	if (KEY_RIGHT_PRESSED) 
 	{
 		cursor++;
 		if (cursor >= length)
@@ -27,7 +27,7 @@ if (global.final_timer <= 0)
 			cursor = 0;
 		}
 	}
-	if (KEY_UP_PRESSED)
+	if (KEY_LEFT_PRESSED)
 	{
 		cursor--;
 		if (cursor < 0)
@@ -41,6 +41,9 @@ if (global.final_timer <= 0)
 		audio_stop_sound(sng_zandy_horror_chase);
 		if (new_menu[cursor] == global.right_amount) 
 		{
+			with (josh_eyes_oLarold) {
+				win = true;
+			}
 			microgame_win(); 
 			audio_play_sound(josh_eyes_sndAplause, 1, false);
 			win = true;

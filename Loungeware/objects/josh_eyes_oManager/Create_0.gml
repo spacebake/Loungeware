@@ -13,11 +13,11 @@ create = function()
 
 initial_y = - 100;
 final_y = room_height/2;
-final_x = room_width/2;
+final_x = (room_width/2);
 text_y = room_height + 100;
 text_final_y = room_height/2 - 80;
 
-len = 10;
+len = 1;
 ang = 0;
 circle_speed = 3;
 
@@ -34,3 +34,29 @@ question = "How many ghosts did you count?";
 win = false;
 done = false;
 created = false;
+
+
+
+
+
+josh_array_shuffle = function(array) {
+	var list = ds_list_create();
+	var length = array_length(array);
+	var arr = [];
+	
+	for (var i = 0; i < length; i++)
+	{
+		list[| i] = array[i];
+	}
+	ds_list_shuffle(list);
+	var ds_size = ds_list_size(list);
+	for (var i = 0; i < ds_size; i++)
+	{
+		array_push(arr, list[| i]);
+	}
+	ds_list_destroy(list);
+	
+	return arr;
+}
+
+

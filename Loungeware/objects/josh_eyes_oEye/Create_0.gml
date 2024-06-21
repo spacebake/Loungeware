@@ -13,7 +13,7 @@ spr_index = spr.spr_normal;
 spr_reverse = spr.spr_reverse;
 sprite_index = spr_index;
 image_speed = 0;
-image_index = choose(0, image_number - 1);
+image_index = 0;
 
 alarm[0] = irandom_range(30,120);
 
