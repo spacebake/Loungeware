@@ -5,5 +5,5 @@ repeat (width * height / 64 * density) {
     instance_create_layer(
             random_range(xstart - width / 2 + pad, xstart + width / 2 - pad),
             random_range(ystart - height / 2 + pad, ystart + height / 2 - pad),
-            layer, katsaii_wandaxplore_island_foliage);
+            "Instances", katsaii_wandaxplore_island_foliage);
 }

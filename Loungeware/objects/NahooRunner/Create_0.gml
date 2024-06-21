@@ -253,7 +253,6 @@ function nahoo_run(m)
 		//You fucking died!
 		microgame_fail();
 		return nahoo_end(0);
-		nahoo_log("You died!")
 	}
 	
 	// Move around
@@ -479,8 +478,16 @@ function nahoo_cum_process(m)
 	}
 	
 	var empty = ((array_length(m) + 1) * (array_length(m[0]) + 1)) - walls;
-	flood = m;
-	
+
+	flood = [[]];
+	for(var i = 0; i < array_length(m); i++)
+	{
+		for(var j = 0; j < array_length(m[0]); j++)
+		{
+			flood[i][j] = m[i][j];
+		}
+	}
+
 	for(var i = 0; i < array_length(m); i++)
 	{
 		for(var j = 0; j < array_length(m[0]); j++)
@@ -544,7 +551,11 @@ function nahoo_cum_process(m)
 
 function nahoo_Array2D(w, h, def)
 {
-	var arr = array_create(w, array_create(h, def));
+	var arr = array_create(w);
+	var len = array_length(arr);
+	for (var i = 0; i < len; i++) {
+		arr[i] = array_create(h, def);
+	}
 	return arr;
 }
 

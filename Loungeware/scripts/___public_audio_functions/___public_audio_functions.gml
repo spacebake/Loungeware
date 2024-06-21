@@ -20,7 +20,7 @@ function sfx_play(_snd_index, _vol, _loop){
 	ds_list_add(___global.___audio_active_list, _snd_id);
 	return _snd_id;
 }
-
+   
 // ------------------------------------------------------------------------------------------
 // SFX STOP
 // STOPS a sound effect that is currently playing or looping

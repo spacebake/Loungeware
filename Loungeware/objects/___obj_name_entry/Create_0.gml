@@ -222,7 +222,7 @@ ss_action_0 = function(){
 }
 ss_menu = [
 	{text : "VIEW LEADERBOARD", action : ss_action_0},
-	{text : "GO TOO MAIN MENU", action : ec_action_1},
+	{text : "GO TO MAIN MENU", action : ec_action_1},
 ];
 ss_menu_cursor = 0;
 ss_menu_confirmed = false;
@@ -344,7 +344,7 @@ function ee_check(){
 function ___menu_sign_timed_input_vertical(_sign){
 	static _sign_prev = 0;
 	static _input_cd = 0;
-	var _input_cd__max_initial = 30;
+	var _input_cd__max_initial = 20;
 	var _input_cd_max_subsequent = 4;
 	
 	if (_sign == 0){

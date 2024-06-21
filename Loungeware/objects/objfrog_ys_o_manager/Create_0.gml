@@ -11,6 +11,7 @@ switch(DIFFICULTY) {
 targets_to_make = TOTAL_TARGETS;
 targets_hit = 0;
 targets_shown = 3;
+early_end_t = 0;
 
 // Surface stuff
 shadow_surface = surface_create(room_width, room_height);

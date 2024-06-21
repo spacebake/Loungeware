@@ -71,21 +71,17 @@ if (state == "paused"){
 	if (_confirm && _type == OPTION){
 		confirm_shake_timer = confirm_shake_timer_max;
 		menu[cursor].execute();
+		___sound_menu_select();
 
-		//var _snd_index  = ___snd_cart_insert;
-		//var _snd_id = audio_play_sound(_snd_index, 0, 0);
-		// var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.7;
 	}
 	
 	var _left = KEY_LEFT_PRESSED;
 	var _right = KEY_RIGHT_PRESSED;
 	if (_left && _type == SLIDER) {
-		confirm_shake_timer = confirm_shake_timer_max;
 		menu[cursor].left()
 	}
 	
 	if (_right && _type == SLIDER) {
-		confirm_shake_timer = confirm_shake_timer_max;
 		menu[cursor].right()
 	}
 	
@@ -100,10 +96,10 @@ confirm_shake_timer = max(0, confirm_shake_timer-1);
 if (state == "pause_room"){
 	
 	with(all){
-		var not_pause = id != other.id;
-		var not_global = object_index != ___global;
+		var _not_pause = id != other.id;
+		var _not_global = object_index != ___global.object_index;
 		
-		if (not_pause && not_global){
+		if (_not_pause && _not_global){
 			instance_deactivate_object(id);
 			array_push(other.deactivated_instances, id);
 		}

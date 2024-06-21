@@ -33,4 +33,5 @@ vertex_color(vb_plane, c_white, 1 );
 vertex_texcoord(vb_plane,0.000000000,1.000000000);
 
 vertex_end(vb_plane);
+vertex_freeze(vb_plane);
 }

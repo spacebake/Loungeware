@@ -10,7 +10,7 @@ step = -1;
 
 
 //--------------------------------------------------------------------------------------------------------
-// IF DEV CONFIG SAVE FILE IS FOUND, SET TEST MODE AND LOAD CHOSED MICROGAME
+// IF DEV CONFIG SAVE FILE IS FOUND, SET TEST MODE AND LOAD CHOSEN MICROGAME
 //--------------------------------------------------------------------------------------------------------
 if (!TEST_MODE_ACTIVE){
 	microgame_load_fake();

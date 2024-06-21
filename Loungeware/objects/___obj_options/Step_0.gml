@@ -1,45 +1,81 @@
 ___state_handler()
+var _cursor_previous = cursor;
+var _rebind_index_previous = rebind_index;
+
+if (KEY_UP_RELEASED || KEY_DOWN_RELEASED || KEY_UP_PRESSED || KEY_DOWN_PRESSED) {
+	can_scroll = true;	
+}
 
 if (state == "normal") {
-	var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
-
+	var dy = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
 	cursor = (cursor + dy) % array_length(menu);
-
+	if (cursor < 0) {cursor = array_length(menu)-1;}
+	
 	if (KEY_PRIMARY_PRESSED) {
-		confirmed = true
-		menu[cursor].op();
+		op_result = menu[cursor].op();
+		if (op_result != "noop") {
+			confirmed = true;
+			___sound_menu_select();
+		} else {
+			___sound_menu_back();	
+		}
 	}
 
-	if (KEY_SECONDARY_PRESSED || ___KEY_PAUSE_PRESSED) back_to_main();
-
+	if (KEY_SECONDARY_PRESSED || keyboard_check_pressed(vk_escape)) {
+		state = "fadeout_back";
+		fadeout_do = back_to_main;
+		if (!is_undefined(sng_id)) {audio_sound_gain(sng_id, 0, 100);}
+	}	
 } else if (state == "key_controls") {
 	
-	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
-		!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
-			
-		listening = false;
-		
-		add_key(rebind_index, keyboard_lastkey, false);
+	if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey)) {
+		can_scroll = false;
+		var _reject_bind = false;
+		var _bind_already_set = false;
+		for (var i=0;i<array_length(keyboard_rebinds);i++) {
+			if (___array_exists(keyboard_rebinds_values_right(i), keyboard_lastkey)) {
+				if (i == rebind_index) {
+					_bind_already_set = true;
+					continue;
+				} else {
+					//_reject_bind = true;
+					for (var j=0;j<array_length(keyboard_rebinds_values_right(i));j++) {
+						if (keyboard_rebinds_values_right(i)[j] == keyboard_lastkey) {
+							array_delete(keyboard_rebinds_values_right(i), j, 1);
+							break;
+						}
+					}
+				}
+			}
+		}
+		if (!_reject_bind) {
+			if (!_bind_already_set) {add_key(rebind_index, keyboard_lastkey, false);}
+			___sound_menu_select();
+			listening = false;
+		} else {
+			___sound_menu_error();	
+		}
 	}
 	
 	//ADD A KEY
 	if (KEY_PRIMARY_PRESSED && rebinds_t != 0 && !just_listening) {
 		listening = true;
+		___sound_menu_tick_horizontal();
 	}
 	
 	//CLEAR REBINDS
 	if (KEY_SECONDARY_PRESSED && !just_listening) {
 		clear_rebinds(rebind_index, false);
-		
-		listening = false;
-		just_listening = false;
+		___sound_menu_back();
+		listening = true;
+		___sound_menu_tick_horizontal();
 	}
 	
-	
 	if (!just_listening) {
-		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
-		
-		rebind_index = ___mod2(rebind_index + dy, array_length(keyboard_rebinds));
+		var dy = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		if (can_scroll) {
+			rebind_index = ___mod2(rebind_index + dy, array_length(keyboard_rebinds));
+		}
 	}
 	
 	
@@ -69,10 +105,12 @@ if (state == "normal") {
 		//if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
 		//!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
 		
-		if (listening && last_gamepad_axis != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_axis)) {
+		if (listening && last_gamepad_axis != undefined) {
 			listening = false;
-		
-			add_key(rebind_index, last_gamepad_axis, true);
+			can_scroll = false;
+			if (!___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_axis)) {
+				add_key(rebind_index, last_gamepad_axis, true);
+			}
 		}
 		
 	} else {
@@ -100,47 +138,66 @@ if (state == "normal") {
 		
 		//if (listening && keyboard_check_pressed(vk_anykey) && !___array_exists(rejects, keyboard_lastkey) && 
 		//!___array_exists(keyboard_rebinds_values_right(rebind_index), keyboard_lastkey)) {
-		if (listening && last_gamepad_button != undefined && !___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
+		if (listening && last_gamepad_button != undefined) {
 			listening = false;
-		
-			add_key(rebind_index, last_gamepad_button, true);
+			can_scroll = false;
+			if (!___array_exists(gamepad_rebinds_values_right(rebind_index).indexes, last_gamepad_button)) {
+				add_key(rebind_index, last_gamepad_button, true);
+			}
 		}
 	}
 	
 	//ADD A KEY
 	if (KEY_PRIMARY_PRESSED && rebinds_t != 0 && !just_listening) {
 		listening = true;
+		___sound_menu_tick_horizontal();
 	}
 	
 	//CLEAR REBINDS
 	if (KEY_SECONDARY_PRESSED && !just_listening) {
 		clear_rebinds(rebind_index, false);
-		
+		___sound_menu_error();
 		listening = false;
 		just_listening = false;
 	}
 	
 	
 	if (!just_listening) {
-		var dy = KEY_DOWN_PRESSED - KEY_UP_PRESSED;
-		
-		rebind_index = ___mod2(rebind_index + dy, array_length(gamepad_rebinds));
+		var dy = ___menu_sign_timed_input_vertical(-KEY_UP + KEY_DOWN);
+		if (can_scroll) {
+			rebind_index = ___mod2(rebind_index + dy, array_length(gamepad_rebinds));
+		}
 	}
 	
 	
 	rebinds_t++;
 	
 	just_listening = listening;
+	
+	if (___KEY_PAUSE_PRESSED) {___sound_menu_back();}
+} else if (state == "fadeout_back") {
+	close_circle_prog = max(0, close_circle_prog - (1/20));
+	if (close_wait_before > 0){
+		close_wait_before -=1;
+	} else {
+		if (close_circle_prog <= 0) close_wait--;
+		if (close_wait <= 0 && !fadeout_ended){
+			fadeout_do();
+			fadeout_ended = true;
+		}
+	}
 }
 
+
 if (state == "key_controls" || state == "gamepad_controls") {
-	log(pause_t);
+	//log(pause_t);
 	
 	if (keyboard_check(vk_escape)) {
 		pause_t++;
 		
 		// mutability is the root of all evil
-		if (pause_t > 60) {
+		if (pause_t > 40) {
+			listening = false;
 			if (state == "key_controls") {
 				//___global.curr_input_keys = ___global.default_input_keys;
 				___struct_foreach(___global.curr_input_keys, function(_key, _value) {
@@ -173,7 +230,9 @@ if (state == "key_controls" || state == "gamepad_controls") {
 					array_copy(___global.curr_controller_axes[$ _key], 0, default_, 0, array_length(default_));
 				});
 			}
-			
+			if (!rebinds_just_reset) {
+				___sound_menu_error();
+			}
 			rebinds_just_reset = true;
 		}
 		
@@ -192,6 +251,11 @@ if (state == "key_controls" || state == "gamepad_controls") {
 		rebinds_just_reset = false;
 	}
 }
+
+if (cursor != _cursor_previous || rebind_index != _rebind_index_previous) {
+	___sound_menu_tick_vertical();
+}
+
 
 	//if (___KEY_PAUSE_PRESSED)
 	//	___state_change("normal");

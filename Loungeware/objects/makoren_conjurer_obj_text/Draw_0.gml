@@ -17,6 +17,9 @@ if (appear_delay <= 0) {
 	}
 }
 
+if (check_if_won() && !MICROGAME_WON) {
+	draw_sprite(spr_button_a, floor(t / 15) % 2 == 0, x + 25, y + 38);	
+}
 
 draw_set_font(-1);
 draw_set_halign(fa_left);

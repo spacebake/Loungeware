@@ -95,8 +95,13 @@ if (show_menu){
 	shader_shadow_on(col_baku_shadow);
 	draw_sprite(space_ll_spr_wanted_poster, 2 + baku_frame, _baku_x-20, _shadow_y+8);
 	shader_reset();
+	
 	// regular baku
 	draw_sprite(space_ll_spr_wanted_poster, 2 + baku_frame, _baku_x, _baku_y);
+	
+	// spooky boi
+	var _spoop_y = _baku_y + lengthdir_y(2, current_time/5);
+	draw_sprite(space_ll_spr_wanted_poster, 8 + baku_frame, _baku_x, _spoop_y );
 	
 	
 	// draw exclamation

@@ -1,0 +1,1 @@
+racketOffset += 0.5 * racketSign;

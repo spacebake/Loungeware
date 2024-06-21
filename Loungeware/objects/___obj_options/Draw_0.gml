@@ -1,3 +1,10 @@
+var _size = WINDOW_BASE_SIZE/2;
+if (!surface_exists(surf_circle)){
+	surf_circle = surface_create(_size, _size);
+}
+
+
+
 draw_set_font(___fnt_options_title);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
@@ -19,7 +26,7 @@ draw_set_colour(c_gbwhite);
 draw_text(xpos, ypos, title_txt[$ state]);
 
 
-if (state == "normal") {
+if (state == "normal" || state == "fadeout_back") {
 	____menu_text_vertical_draw(
 		xpos,
 		menu_y,
@@ -44,7 +51,11 @@ if (state == "normal") {
 		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
+		var _current_rebind = string_upper(keyboard_rebinds_menu_left[rebind_index].text);
+		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,1>Press a button to assign to " + _current_rebind + "...");	
+	} else {
+		draw_set_colour(c_gbyellow);
+		___global.___draw_text_advanced(xpos, listening_ypos, 20, false, true, "Press ESCAPE to exit\nPress + hold ESCAPE to reset binds");
 	}
 	
 } else if (state == "gamepad_controls") {
@@ -88,7 +99,8 @@ if (state == "normal") {
 		draw_set_font(___fnt_gallery_elipses);
 		draw_set_halign(fa_center);
 		draw_set_valign(fa_middle);
-		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,3>Listening...");	
+		var _current_rebind = string_upper(gamepad_rebinds_menu_left[rebind_index].text);
+		___global.___draw_text_advanced(xpos, listening_ypos, 35, false, true, "<wave,1>Press a button to assign to " + _current_rebind + "...");	
 	}
 	
 } 
@@ -105,10 +117,29 @@ if (state == "gamepad_controls" || state == "key_controls") {
 	draw_sprite(spr_button_a, 0, xx, yy);
 	
 	xx = xpos - string_width(menu[cursor].prompt) / 2 //left
-		+ string_width("Press   to add a key, or") + string_width(" ")*1.5 //adjust right
+		+ string_width("Press   to add a bind, or") + string_width(" ")*1.5 //adjust right
 		- 9; //half width of button
 		
 	draw_sprite(spr_button_b, 0, xx, yy);
+}
+
+if (cover_alpha > 0){
+	draw_set_color(col_bg);
+	draw_set_alpha(cover_alpha);
+	draw_rectangle_fix(0, 0, VIEW_W, VIEW_H);
+	draw_set_alpha(1);
+	if (state == "normal") cover_alpha = max(0, cover_alpha - (1/10));
+}
+
+if (state == "fadeout_back"){
+	surface_set_target(surf_circle);
+	draw_clear(col_bg);
+	gpu_set_blendmode(bm_subtract);
+	draw_circle(_size/2, (_size/2)/*-30*/, close_circle_prog * ( _size*0.8), 0);
+	gpu_set_blendmode(bm_normal);
+	surface_reset_target();
+	draw_surface_stretched(surf_circle, 0, 0, VIEW_W, VIEW_H);
+
 }
 	
 	if (true) {} else {
@@ -161,3 +192,4 @@ if (state == "gamepad_controls" || state == "key_controls") {
 	
 //	___draw_text_advanced(xpos, menu_y + i*menu_ystep, option.txt, c, c, c, c, 1);
 //}
+

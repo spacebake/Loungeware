@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "___shd_cartridge",
   "parent": {
     "name": "GUI",
     "path": "folders/__Base Game (keep out)/GUI.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "___shd_cartridge",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }

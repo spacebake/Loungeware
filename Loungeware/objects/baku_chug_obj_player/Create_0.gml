@@ -7,7 +7,8 @@ bg_spd_y	= 0.125;
 
 // Chugging
 chug_value	= 0;
-chug_goal	= 95 + (DIFFICULTY * 5);
+chug_goal	= 85 + (DIFFICULTY * 5);
+if (CONFIG_IS_RASPI) chug_goal = 65 + (DIFFICULTY * 5);
 chug_add	= 5;
 
 // Sprite offsets and other lerped junk

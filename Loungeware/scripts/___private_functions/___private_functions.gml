@@ -434,6 +434,14 @@ function ___sound_menu_select(){
 	audio_sound_gain(_snd_id, _vol, 0);
 }
 
+function ___sound_menu_bumper(_pitch=1.5){
+	var _snd_index = ___snd_bumper;
+	var _snd_id =  audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.5;
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, _pitch);
+}
+
 function ___sound_menu_error(){
 	var _snd_index  = ___snd_error;
 	var _snd_id = audio_play_sound(_snd_index, 0, 0);
@@ -452,6 +460,14 @@ function ___sound_menu_back(){
 	var _snd_index  = ___snd_bumper;
 	var _snd_id = audio_play_sound(_snd_index, 0, 0);
 	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.3;
+	audio_sound_gain(_snd_id, _vol, 0);
+	audio_sound_pitch(_snd_id, 1);
+}
+
+function ___sound_menu_burp(){
+	var _snd_index  = ___snd_larold_burp;
+	var _snd_id = audio_play_sound(_snd_index, 0, 0);
+	var _vol = VOL_SFX * VOL_MASTER * audio_sound_get_gain(_snd_index) * 0.8;
 	audio_sound_gain(_snd_id, _vol, 0);
 	audio_sound_pitch(_snd_id, 1);
 }

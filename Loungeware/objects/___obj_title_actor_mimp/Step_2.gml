@@ -47,7 +47,7 @@ if (state == "reveal"){
 			___play_sfx(___snd_title_mimpy_sqeak, 0.45, 1.8);
 		}
 		
-		image_index += 0.2;
+		image_index += 0.25;
 		if (image_index >= sprite_get_number(sprite_index)){
 			image_index = 0;
 			
@@ -62,7 +62,7 @@ if (state == "reveal"){
 			image_index = 0;
 			wait = 60;
 		}
-		image_speed = 1;
+		image_speed = 0;
 		wait--;
 		if (wait <= 0) ___substate_change(substate+1);
 	}

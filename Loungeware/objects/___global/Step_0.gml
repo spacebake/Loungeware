@@ -2,11 +2,16 @@
 // stops songs that are marked for deletion when they hit 0 volume
 for (var i = 0; i < ds_list_size(___song_stop_list); i++){
 	var _sng = ___song_stop_list[| i];
+	
+	if (!audio_exists(_sng)){
+		ds_list_delete(___song_stop_list, i--);
+		continue;
+	}
+	
 	var _vol = audio_sound_get_gain(_sng);
 	if (_vol <= 0){
 		audio_stop_sound(_sng);
-		ds_list_delete(___song_stop_list, i);
-		i--;
+		ds_list_delete(___song_stop_list, i--);
 	}
 }
 

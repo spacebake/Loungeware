@@ -1,6 +1,6 @@
 
 function katsaii_wandaxplore_generate_island(_x, _y, _w, _h) {
-    with (instance_create_layer(_x, _y, layer, katsaii_wandaxplore_island)) {
+    with (instance_create_layer(_x, _y, "Instances", katsaii_wandaxplore_island)) {
         width = _w;
         height = _h;
     }
