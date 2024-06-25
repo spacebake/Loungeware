@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "___public_functions",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Loungeware",
-    "path": "Loungeware.yyp",
+  "$GMScript":"",
+  "%Name":"___public_functions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"___public_functions",
+  "parent":{
+    "name":"Loungeware",
+    "path":"Loungeware.yyp",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

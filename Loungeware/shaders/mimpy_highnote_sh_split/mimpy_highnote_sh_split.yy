@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "mimpy_highnote_sh_split",
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Microgames/mimpy/highnote/Shaders.yy",
+  "$GMShader":"",
+  "%Name":"mimpy_highnote_sh_split",
+  "name":"mimpy_highnote_sh_split",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Microgames/mimpy/highnote/Shaders.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

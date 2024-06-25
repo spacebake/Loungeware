@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"wae_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wae_metadata",
+  "parent":{
+    "name":"wae",
+    "path":"folders/Microgames/wae.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

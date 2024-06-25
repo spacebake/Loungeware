@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "objfrog_metadata",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "objfrog",
-    "path": "folders/Microgames/objfrog.yy",
+  "$GMScript":"",
+  "%Name":"objfrog_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"objfrog_metadata",
+  "parent":{
+    "name":"objfrog",
+    "path":"folders/Microgames/objfrog.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

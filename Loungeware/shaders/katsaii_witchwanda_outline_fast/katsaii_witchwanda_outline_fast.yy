@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "katsaii_witchwanda_outline_fast",
-  "parent": {
-    "name": "Common",
-    "path": "folders/Microgames/katsaii/witchwanda/Common.yy",
+  "$GMShader":"",
+  "%Name":"katsaii_witchwanda_outline_fast",
+  "name":"katsaii_witchwanda_outline_fast",
+  "parent":{
+    "name":"Common",
+    "path":"folders/Microgames/katsaii/witchwanda/Common.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

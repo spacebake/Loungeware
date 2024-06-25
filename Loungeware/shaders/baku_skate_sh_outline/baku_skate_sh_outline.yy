@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "baku_skate_sh_outline",
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Microgames/baku/skate/Shaders.yy",
+  "$GMShader":"",
+  "%Name":"baku_skate_sh_outline",
+  "name":"baku_skate_sh_outline",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Microgames/baku/skate/Shaders.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

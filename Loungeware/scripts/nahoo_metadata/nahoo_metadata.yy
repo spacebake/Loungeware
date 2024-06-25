@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "nahoo_metadata",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "nahoo",
-    "path": "folders/Microgames/nahoo.yy",
+  "$GMScript":"",
+  "%Name":"nahoo_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"nahoo_metadata",
+  "parent":{
+    "name":"nahoo",
+    "path":"folders/Microgames/nahoo.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

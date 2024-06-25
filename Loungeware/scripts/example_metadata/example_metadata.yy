@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "example_metadata",
-  "isCompatibility": false,
-  "isDnD": false,
-  "parent": {
-    "name": "Microgames",
-    "path": "folders/Microgames.yy",
+  "$GMScript":"",
+  "%Name":"example_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"example_metadata",
+  "parent":{
+    "name":"Microgames",
+    "path":"folders/Microgames.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
