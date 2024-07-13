@@ -1,12 +1,10 @@
 {
-  "$GMShader":"",
-  "%Name":"space_ll_shd_shadow",
-  "name":"space_ll_shd_shadow",
-  "parent":{
-    "name":"larold_lineup",
-    "path":"folders/Microgames/space/larold_lineup.yy",
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "space_ll_shd_shadow",
+  "parent": {
+    "name": "larold_lineup",
+    "path": "folders/Microgames/space/larold_lineup.yy",
   },
-  "resourceType":"GMShader",
-  "resourceVersion":"2.0",
-  "type":1,
+  "type": 1,
 }

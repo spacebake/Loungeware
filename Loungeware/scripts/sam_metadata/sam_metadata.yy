@@ -1,13 +1,11 @@
 {
-  "$GMScript":"",
-  "%Name":"sam_metadata",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"sam_metadata",
-  "parent":{
-    "name":"Sam",
-    "path":"folders/Microgames/Sam.yy",
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "sam_metadata",
+  "isCompatibility": false,
+  "isDnD": false,
+  "parent": {
+    "name": "Sam",
+    "path": "folders/Microgames/Sam.yy",
   },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }

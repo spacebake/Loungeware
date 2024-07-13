@@ -1,13 +1,11 @@
 {
-  "$GMScript":"",
-  "%Name":"baku_mine_player_update_scripts",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"baku_mine_player_update_scripts",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Microgames/baku/mine/Scripts.yy",
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "baku_mine_player_update_scripts",
+  "isCompatibility": false,
+  "isDnD": false,
+  "parent": {
+    "name": "Scripts",
+    "path": "folders/Microgames/baku/mine/Scripts.yy",
   },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }

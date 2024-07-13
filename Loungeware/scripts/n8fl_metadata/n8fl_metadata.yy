@@ -1,13 +1,11 @@
 {
-  "$GMScript":"",
-  "%Name":"n8fl_metadata",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"n8fl_metadata",
-  "parent":{
-    "name":"net8floz",
-    "path":"folders/Microgames/net8floz.yy",
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "n8fl_metadata",
+  "isCompatibility": false,
+  "isDnD": false,
+  "parent": {
+    "name": "net8floz",
+    "path": "folders/Microgames/net8floz.yy",
   },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }

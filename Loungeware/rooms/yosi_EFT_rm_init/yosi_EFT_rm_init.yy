@@ -1,50 +1,48 @@
 {
-  "$GMRoom":"",
-  "%Name":"yosi_EFT_rm_init",
-  "creationCodeFile":"",
-  "inheritCode":false,
-  "inheritCreationOrder":false,
-  "inheritLayers":false,
-  "instanceCreationOrder":[
+  "resourceType": "GMRoom",
+  "resourceVersion": "1.0",
+  "name": "yosi_EFT_rm_init",
+  "creationCodeFile": "",
+  "inheritCode": false,
+  "inheritCreationOrder": false,
+  "inheritLayers": false,
+  "instanceCreationOrder": [
     {"name":"inst_4A0C68A","path":"rooms/yosi_EFT_rm_init/yosi_EFT_rm_init.yy",},
     {"name":"inst_386B2193","path":"rooms/yosi_EFT_rm_init/yosi_EFT_rm_init.yy",},
     {"name":"inst_582191D7","path":"rooms/yosi_EFT_rm_init/yosi_EFT_rm_init.yy",},
   ],
-  "isDnd":false,
-  "layers":[
-    {"$GMRInstanceLayer":"","%Name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
-        {"$GMRInstance":"","%Name":"inst_4A0C68A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4A0C68A","objectId":{"name":"yosi_EFT_obj_game","path":"objects/yosi_EFT_obj_game/yosi_EFT_obj_game.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
-        {"$GMRInstance":"","%Name":"inst_386B2193","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_386B2193","objectId":{"name":"yosi_EFT_obj_firetruck","path":"objects/yosi_EFT_obj_firetruck/yosi_EFT_obj_firetruck.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":16.0,"y":112.0,},
-        {"$GMRInstance":"","%Name":"inst_582191D7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_582191D7","objectId":{"name":"yosi_EFT_obj_building","path":"objects/yosi_EFT_obj_building/yosi_EFT_obj_building.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":352.0,"y":112.0,},
-      ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRAssetLayer":"","%Name":"Assets_1","assets":[
-        {"$GMRSpriteGraphic":"","%Name":"graphic_20A9FB11","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_20A9FB11","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":23.875,"scaleY":2.0,"spriteId":{"name":"yosi_EFT_spr_ground","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"x":-120.0,"y":128.0,},
-      ],"depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Assets_1","properties":[],"resourceType":"GMRAssetLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4294956218,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+  "isDnd": false,
+  "layers": [
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4A0C68A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"yosi_EFT_obj_game","path":"objects/yosi_EFT_obj_game/yosi_EFT_obj_game.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_386B2193","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"yosi_EFT_obj_firetruck","path":"objects/yosi_EFT_obj_firetruck/yosi_EFT_obj_firetruck.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":16.0,"y":112.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_582191D7","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"yosi_EFT_obj_building","path":"objects/yosi_EFT_obj_building/yosi_EFT_obj_building.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":352.0,"y":112.0,},
+      ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRAssetLayer","resourceVersion":"1.0","name":"Assets_1","assets":[
+        {"resourceType":"GMRSpriteGraphic","resourceVersion":"1.0","name":"graphic_20A9FB11","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"rotation":0.0,"scaleX":23.875,"scaleY":2.0,"spriteId":{"name":"yosi_EFT_spr_ground","path":"sprites/yosi_EFT_spr_ground/yosi_EFT_spr_ground.yy",},"x":-120.0,"y":128.0,},
+      ],"depth":100,"effectEnabled":true,"effectType":null,"gridX":8,"gridY":8,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4294956218,"depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"yosi_EFT_rm_init",
-  "parent":{
-    "name":"epic_fire_truck",
-    "path":"folders/Microgames/yosi/epic_fire_truck.yy",
+  "parent": {
+    "name": "epic_fire_truck",
+    "path": "folders/Microgames/yosi/epic_fire_truck.yy",
   },
-  "parentRoom":null,
-  "physicsSettings":{
-    "inheritPhysicsSettings":false,
-    "PhysicsWorld":false,
-    "PhysicsWorldGravityX":0.0,
-    "PhysicsWorldGravityY":10.0,
-    "PhysicsWorldPixToMetres":0.1,
+  "parentRoom": null,
+  "physicsSettings": {
+    "inheritPhysicsSettings": false,
+    "PhysicsWorld": false,
+    "PhysicsWorldGravityX": 0.0,
+    "PhysicsWorldGravityY": 10.0,
+    "PhysicsWorldPixToMetres": 0.1,
   },
-  "resourceType":"GMRoom",
-  "resourceVersion":"2.0",
-  "roomSettings":{
-    "Height":240,
-    "inheritRoomSettings":false,
-    "persistent":false,
-    "Width":320,
+  "roomSettings": {
+    "Height": 240,
+    "inheritRoomSettings": false,
+    "persistent": false,
+    "Width": 320,
   },
-  "sequenceId":null,
-  "views":[
+  "sequenceId": null,
+  "views": [
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1376,"wview":1376,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1376,"wview":1376,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1376,"wview":1376,"xport":0,"xview":0,"yport":0,"yview":0,},
@@ -54,11 +52,11 @@
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1376,"wview":1376,"xport":0,"xview":0,"yport":0,"yview":0,},
     {"hborder":32,"hport":768,"hspeed":-1,"hview":768,"inherit":false,"objectId":null,"vborder":32,"visible":false,"vspeed":-1,"wport":1376,"wview":1376,"xport":0,"xview":0,"yport":0,"yview":0,},
   ],
-  "viewSettings":{
-    "clearDisplayBuffer":true,
-    "clearViewBackground":false,
-    "enableViews":false,
-    "inheritViewSettings":false,
+  "viewSettings": {
+    "clearDisplayBuffer": true,
+    "clearViewBackground": false,
+    "enableViews": false,
+    "inheritViewSettings": false,
   },
-  "volume":1.0,
+  "volume": 1.0,
 }

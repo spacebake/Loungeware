@@ -1,13 +1,11 @@
 {
-  "$GMScript":"",
-  "%Name":"orphillius_metadata",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"orphillius_metadata",
-  "parent":{
-    "name":"orphillius",
-    "path":"folders/Microgames/orphillius.yy",
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "orphillius_metadata",
+  "isCompatibility": false,
+  "isDnD": false,
+  "parent": {
+    "name": "orphillius",
+    "path": "folders/Microgames/orphillius.yy",
   },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }

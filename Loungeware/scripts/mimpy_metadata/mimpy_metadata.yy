@@ -1,13 +1,11 @@
 {
-  "$GMScript":"",
-  "%Name":"mimpy_metadata",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"mimpy_metadata",
-  "parent":{
-    "name":"mimpy",
-    "path":"folders/Microgames/mimpy.yy",
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "mimpy_metadata",
+  "isCompatibility": false,
+  "isDnD": false,
+  "parent": {
+    "name": "mimpy",
+    "path": "folders/Microgames/mimpy.yy",
   },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }
