@@ -30,7 +30,7 @@ microgame_register("wae_HogginAHog", {
 	  month : 6,
 	  year : 2024
 	},
-	is_enabled: true
+	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
 });
