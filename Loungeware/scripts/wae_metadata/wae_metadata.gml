@@ -33,4 +33,10 @@ microgame_register("wae_HogginAHog", {
 	is_enabled: true,
 	supports_html: true,
 	show_on_website: true,
+	description: [
+		"Steer an unwieldy hog to freedom!", 
+	],
+	how_to_play: [
+		"Stabilize the hog so it faces the exit. Use left and right to affect the hog's rotation."
+	],
 });
