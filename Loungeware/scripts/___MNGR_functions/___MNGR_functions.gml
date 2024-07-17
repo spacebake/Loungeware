@@ -32,6 +32,7 @@ function ___MG_MNGR_declare_functions(){
 		
 			microgame_won = false;
 			microgame_timer_skip = false;
+			if sprite_exists(cart_sprite) sprite_delete(cart_sprite);
 			cart_sprite = ___cart_sprite_create(_metadata);
 			gbo_timerbar_visible = true;
 			transition_appsurf_zoomscale = 1;
@@ -174,6 +175,7 @@ function ___MG_MNGR_declare_functions(){
 
 			var _cart = ___get_fake_label();
 			_cart.cartridge_label = ___spr_fake_labels;
+			if sprite_exists(cart_sprite) sprite_delete(cart_sprite);
 			cart_sprite = ___cart_sprite_create(_cart);
 			microgame_current_metadata = _cart;
 			cart_change(microgame_current_metadata);

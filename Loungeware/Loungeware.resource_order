@@ -287,6 +287,7 @@
     {"name":"space_lander_obj_rocket","order":1,"path":"objects/space_lander_obj_rocket/space_lander_obj_rocket.yy",},
     {"name":"katsaii_witchwanda_spr_island_floating","order":3,"path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},
     {"name":"___spr_spotlight","order":13,"path":"sprites/___spr_spotlight/___spr_spotlight.yy",},
+    {"name":"___program_wide_init","order":16,"path":"scripts/___program_wide_init/___program_wide_init.yy",},
     {"name":"giz_beast_bullet_spr_larold_face_mask","order":5,"path":"sprites/giz_beast_bullet_spr_larold_face_mask/giz_beast_bullet_spr_larold_face_mask.yy",},
     {"name":"orphillius_fail","order":1,"path":"sounds/orphillius_fail/orphillius_fail.yy",},
     {"name":"katsaii_witchball_lilghost","order":8,"path":"sprites/katsaii_witchball_lilghost/katsaii_witchball_lilghost.yy",},

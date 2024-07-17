@@ -96,7 +96,6 @@ canvas_y = gbo_padding_y;
 surf_master = noone;
 surf_gameboy = noone;
 surf_transition_circle = noone;
-surf_cart = noone;
 surf_reflection = noone;
 
 //--------------------------------------------------------------------------------------------------------

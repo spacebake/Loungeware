@@ -2,3 +2,4 @@
 //if (file_exists(filename)) file_delete(filename);
 //surface_resize(application_surface, store_appsurf_w, store_appsurf_h);
 audio_stop_sound(jam_id);
+ds_list_destroy(used_frames);

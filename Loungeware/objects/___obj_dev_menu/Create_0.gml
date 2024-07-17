@@ -36,7 +36,6 @@ menu = [
 game_keylist =  ___microgame_get_keylist_chronological();
 cursor2 = 0;
 cart_sprite = noone;
-surf_cart = noone;
 skip_possible = true;
 
 wait = 20;
