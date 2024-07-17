@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if instance_place(x,y,[wae_hog, wae_hog_for_babies]) != -4
+if instance_place(x,y,wae_hog_for_babies) != -4
 {
 	if instance_number(wae_hog) != 0
 	{
