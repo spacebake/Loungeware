@@ -559,6 +559,7 @@
     {"id":{"name":"katsaii_witchwanda_spr_island_floating","path":"sprites/katsaii_witchwanda_spr_island_floating/katsaii_witchwanda_spr_island_floating.yy",},},
     {"id":{"name":"___spr_spotlight","path":"sprites/___spr_spotlight/___spr_spotlight.yy",},},
     {"id":{"name":"katsaii_witchball_rm","path":"rooms/katsaii_witchball_rm/katsaii_witchball_rm.yy",},},
+    {"id":{"name":"___program_wide_init","path":"scripts/___program_wide_init/___program_wide_init.yy",},},
     {"id":{"name":"giz_beast_bullet_spr_larold_face_mask","path":"sprites/giz_beast_bullet_spr_larold_face_mask/giz_beast_bullet_spr_larold_face_mask.yy",},},
     {"id":{"name":"orphillius_fail","path":"sounds/orphillius_fail/orphillius_fail.yy",},},
     {"id":{"name":"katsaii_witchball_lilghost","path":"sprites/katsaii_witchball_lilghost/katsaii_witchball_lilghost.yy",},},

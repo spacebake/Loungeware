@@ -728,6 +728,8 @@ function ___shader_cartridge_off(){
 // ------------------------------------------------------------------------------------------
 function ___cart_sprite_create(_microgame_metadata){
 	
+	static surf_cart = noone; //may be run by different objects, so we just use the same surface
+	
 	// create cart suface if it doesn't exist
 	if (!surface_exists(surf_cart)){
 		surf_cart = surface_create(sprite_get_width(___spr_gameboy_back), sprite_get_width(___spr_gameboy_back));
@@ -1190,10 +1192,10 @@ function ___struct_copy( _target ) {
     var _clone = {}, _keys = variable_struct_get_names(_target);
     for(var i = 0, _i = array_length(_keys); i < _i; i++) {
         var _key = _keys[i], _copy = _target[$ _key];
-        if (is_struct(_copy)) {
-            _clone[$ _key] = ___struct_copy(_copy);
-        } else if (is_method(_copy)) {
+        if (is_method(_copy)) { //methods are structs too, so check them first
             _clone[$ _key] = method(_clone, _copy);
+        } else if (is_struct(_copy)) {
+            _clone[$ _key] = ___struct_copy(_copy);
         } else {
             _clone[$ _key] = _copy;
         }

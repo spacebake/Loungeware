@@ -357,6 +357,7 @@ if (state == "playing_microgame"){
 		gbo_timerbar_visible = true;
 		transition_circle_rad = 0;
 		prompt_alpha = 1;
+		if sprite_exists(prompt_sprite) sprite_delete(prompt_sprite);
 		prompt_sprite = ___prompt_sprite_create(prompt);
 		substate = 0;
 	}
@@ -662,6 +663,7 @@ if (state == "game_switch"){
 			prompt_scale = 0;
 			prompt_scale_done = false;
 			prompt = microgame_get_prompt(microgame_next_name);
+			if sprite_exists(prompt_sprite) sprite_delete(prompt_sprite);
 			prompt_sprite = ___prompt_sprite_create(prompt);
 			wait = 5/transition_speed;
 		}
