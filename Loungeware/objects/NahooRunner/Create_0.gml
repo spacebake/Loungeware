@@ -177,6 +177,17 @@ function nahoo_generate(w, h, iterations)
 		}
 	}
 	
+	//////fixes issue of maps genning with too few empty tiles thus leading to a crash when trying to place player, goal, etc. copyright orphillius do not steal
+    ////counts empty tiles, calls gen again if minimum is not met
+    var empty_tiles_minimum=10;
+    var empty_tiles=0;    //to track the number of empty tiles on the map
+    for (var i=0;i<w;i++){for(var j=0;j<h;j++){    //checks each map tile
+        if (map[i][j]==0){empty_tiles+=1;}        //adds to count if map pos is empty
+    }}
+    if (empty_tiles<empty_tiles_minimum){        //if not enough empty tiles exist, runs generate func again
+        return nahoo_generate(Nahoo_WIDTH, Nahoo_HEIGHT, Nahoo_iterations);    //returns map from this gen so initial call in init is served a good map
+    }
+	
 	// Place player
 	do {
 		playerPos.x = irandom(w - 2) + 1;
