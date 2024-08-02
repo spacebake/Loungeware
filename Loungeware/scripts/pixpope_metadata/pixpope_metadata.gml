@@ -15,12 +15,12 @@ microgame_register("pixpope_hereticpurge", {
   view_width: -1,
   view_height: -1,
   time_seconds: 10,
-  music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
-  music_loops: true, // nullable, defaults to true
+  music_track: pixpope_hp_bgm, // nullable, defaults to noone. Accepts: sound name or false
+  music_loops: false, // nullable, defaults to true
   interpolation_on: false,
-  cartridge_col_primary: [50, 44, 63],
-  cartridge_col_secondary: [168, 84, 100],
-  cartridge_label: johndoe_examplegame_spr_label,
+  cartridge_col_primary: [116, 164, 60],
+  cartridge_col_secondary: [71, 136, 23],
+  cartridge_label: pixpope_hp_spr_label,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
   credits: ["Pixelated Pope"],
@@ -31,7 +31,7 @@ microgame_register("pixpope_hereticpurge", {
   },
 	is_enabled: true,
 	supports_html: true,
-	allow_subpixels: false,
+	allow_subpixels: true,
 	supports_pi: true,
 	show_on_website: true,
 	description: ["Build up enough holy energy to purge the heretics!"],

@@ -4,7 +4,6 @@ state = 0;
 activeLayer = layer_get_id("HereticsEasy");
 progress = 0;
 bestProgress = 0;
-goal = 1;
 gain = .03;
 decay = 0;
 autoDecay = 10;
@@ -32,12 +31,12 @@ switch(DIFFICULTY){
 
 layer_set_visible(activeLayer, true);
 var _hereticSprites = array_shuffle([
-  pixpope_spr_godot,
-  pixpope_spr_cry,
-  pixpope_spr_construct,
-  pixpope_spr_unity,
-  pixpope_spr_unreal,
-  pixpope_spr_monogame
+  pixpope_hp_spr_godot,
+  pixpope_hp_spr_cry,
+  pixpope_hp_spr_construct,
+  pixpope_hp_spr_unity,
+  pixpope_hp_spr_unreal,
+  pixpope_hp_spr_monogame
 ])
 hereticList = [];
 var _depth = layer_get_depth(activeLayer);
@@ -49,3 +48,4 @@ with(pixpope_hp_obj_heretic)
 }
 
 event_user(0);
+event_user(1);

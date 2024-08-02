@@ -1,4 +1,7 @@
 /// @description
+if(alarm[0] != -1)
+  image_alpha = 1 - (alarm[0] / 30);
+
 switch(state){
   
   case 0: 
@@ -17,13 +20,10 @@ switch(state){
     progress = clamp(progress, 0, 1);
     lastPressed = _pressed;
     checkProgressBreakpoint();
-
+    
+    part_emitter_stream(system, emitter, type, bestProgress == 0 ? 0 : lerp(-10, -1, bestProgress));
     if(progress >= 1){
-      microgame_win();
-      state++;
-      array_foreach(hereticList, function(_x){
-        with(_x) onPurge();  
-      })
+      onWin();
     }
     break;
 }
