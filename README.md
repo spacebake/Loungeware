@@ -2,7 +2,7 @@
 
 This is the official repository for the hit indie game Loungeware. Play it at https://loungeware.games/play
 
-## What Is Loungeware?
+### What Is Loungeware?
 Loungeware is a collection of microgames in the style of WarioWare created by volunteers all over the world. Anyone can contribute, that means you!
 
 ![image](https://github.com/user-attachments/assets/858b89ed-306d-44be-8248-179972508dc4)
