@@ -23,7 +23,7 @@ surface		= array_create(3, -1);
 
 alarm[0] = 30;
 remove_surfaces = function(){
-	array_foreach(surface, function(surf){
+	tfg_array_foreach(surface, function(surf){
 		if ( surface_exists(surf) ) surface_free(surf);
 	});
 }	
