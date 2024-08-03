@@ -28,12 +28,21 @@ function menu_jam(){
 			name = "JAMN'T";
 	} else {
 		audio_pause_sound(_p.jam_id);
-		name = "JAM"
+		name = "JAM";
 	}
 		
 }
 
 function menu_exit(){
+	
+	if (HTML_MODE) {
+		for (var i = 0; i < array_length(deactivated_instances); i++){
+			var _id = deactivated_instances[i];
+			instance_activate_object(_id);
+			instance_destroy(_id);
+		}
+	}
+	
 	if (___obj_pause.gallery_mode){
 		instance_create_layer(0, 0, ___obj_pause.layer, ___obj_menu_gallery);
 	} else {
@@ -106,10 +115,10 @@ difficulty_up = method(self, function() {
 });
 
 menu = [
-	{menu_type: OPTION, name:"RESUME", execute: function(){___obj_pause.state = "end";}},
-	{menu_type: OPTION, name:"JAM", execute: menu_jam},
-	{menu_type: SLIDER, name:"VOL", left: master_vol_down, right: master_vol_up, value: function(){ return string(round(VOL_MASTER * 100)) + "%" }},
-	{menu_type: OPTION, name:"EXIT", execute: menu_exit},
+	{menu_type: OPTION, name:"RESUME", execute: method(self, function(){___obj_pause.state = "end";})},
+	{menu_type: OPTION, name:"JAM", execute: method(self, menu_jam)},
+	{menu_type: SLIDER, name:"VOL", left: master_vol_down, right: master_vol_up, value: method(self, function(){ return string(round(VOL_MASTER * 100)) + "%" })},
+	{menu_type: OPTION, name:"EXIT", execute: method(self, menu_exit)},
 
 ]
 
