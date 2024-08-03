@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Loungeware",
-    "path": "Loungeware.yyp",
+    "name": "Scripts",
+    "path": "folders/__Base Game (keep out)/Scripts.yy",
   },
 }
