@@ -8,6 +8,21 @@
  * There are other types of dynamic resources, but this will do for now :P
  * https://manual.gamemaker.io/beta/en/index.htm?#t=GameMaker_Language%2FGML_Overview%2FData_Types.htm
  */
+ 
+ // ------------------------------------------------------------------------------
+ // TEMP HTML FIX (sprite_delete crashes on LTS html. needs investigation)
+ // just gonna eat the leaks for now
+ // ------------------------------------------------------------------------------
+ #macro __SPRITE_DELETE sprite_delete
+ #macro sprite_delete __sprite_delete
+function __sprite_delete(_index) {
+	if (HTML_MODE) {
+		return true;
+	} else {
+    	return __SPRITE_DELETE(_index);
+	}
+}
+
 
 //create
 #macro __WORKSPACE_DS_GRID_CREATE ds_grid_create
