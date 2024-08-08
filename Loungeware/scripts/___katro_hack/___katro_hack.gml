@@ -1,5 +1,4 @@
 
-
 /* Workspaces for Data Structures
  * ------------------------------
  * Kat @katsaii
@@ -9,6 +8,21 @@
  * There are other types of dynamic resources, but this will do for now :P
  * https://manual.gamemaker.io/beta/en/index.htm?#t=GameMaker_Language%2FGML_Overview%2FData_Types.htm
  */
+ 
+ // ------------------------------------------------------------------------------
+ // TEMP HTML FIX (sprite_delete crashes on LTS html. needs investigation)
+ // just gonna eat the leaks for now
+ // ------------------------------------------------------------------------------
+ #macro __SPRITE_DELETE sprite_delete
+ #macro sprite_delete __sprite_delete
+function __sprite_delete(_index) {
+	if (HTML_MODE) {
+		return true;
+	} else {
+    	return __SPRITE_DELETE(_index);
+	}
+}
+
 
 //create
 #macro __WORKSPACE_DS_GRID_CREATE ds_grid_create
@@ -148,7 +162,7 @@ function workspace_end() {
     var ids = workspace.ids;
     for (var i = __WorkspaceDsTypes.__COUNT__ - 1; i > 0; i -= 1) {
         var ids_struct = ids[i];
-		var id_names = struct_get_names(ids_struct); // [ "3", "4", ... ]
+		var id_names = variable_struct_get_names(ids_struct); // [ "3", "4", ... ]
 		var names_len = array_length(id_names);
         for (var j = names_len - 1; j >= 0; j -= 1) {
 			var name = id_names[j]; // "4"
@@ -251,10 +265,9 @@ function __workspace_part_type_create() {
 
 /// @desc Creates a new surface.
 /// @param {real} width The width of the surface.
-/// @param {real} height The height of the surface.
-/// @param {Constant.SurfaceFormatType} format The data format of the surface.
-function __workspace_surface_create(w,h,format=surface_rgba8unorm) {
-    return __workspace_register(__WORKSPACE_SURFACE_CREATE(w,h,format), __WorkspaceDsTypes.SURFACE);
+/// @param {real} height The height of the surface
+function __workspace_surface_create(w,h) {
+    return __workspace_register(__WORKSPACE_SURFACE_CREATE(w,h), __WorkspaceDsTypes.SURFACE);
 }
 
 #endregion
@@ -346,4 +359,3 @@ function __workspace_surface_free(_ds) {
 
 
 #endregion
-

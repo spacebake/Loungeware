@@ -1,0 +1,1 @@
+stitch open --project "Loungeware\Loungeware.yyp" --ide 2022.0.2.51

@@ -33,7 +33,7 @@ drawInstructions = function(){
 onWin = function(){
   microgame_win();
   state++;
-  array_foreach(hereticList, function(_x){
+  tfg_array_foreach(hereticList, function(_x){
     with(_x) onPurge();  
   })
   instance_create_depth(0,0,depth-100,pixpope_hp_obj_blessed);
