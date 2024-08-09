@@ -45,7 +45,7 @@ microgame_register("baku_mine", {
 	credits							: [ "baku", "meseta" ],
 	date_added						: { day : 21, month : "July", year : 2021 },
 	is_enabled						: true,
-	supports_html					: true,
+	supports_html					: false,
 	supports_pi						: false,
 	show_on_website					: true,
 	description						: [ "Larold's dug too deep..." ],

@@ -82,12 +82,12 @@ function giz_delegate() constructor {
 }	
 function giz_hash() constructor {
 	
-	x = variable_get_hash("x");
-	y = variable_get_hash("y");
-	z = variable_get_hash("z");
+	//x = variable_get_hash("x");
+	//y = variable_get_hash("y");
+	//z = variable_get_hash("z");
 	
-	static get = function(struct, hash){ return struct_get_from_hash(struct, hash); };
-	static set = function(struct, hash, val){ return struct_set_from_hash(struct, hash, val); };
+	//static get = function(struct, hash){ return struct_get_from_hash(struct, hash); };
+	//static set = function(struct, hash, val){ return struct_set_from_hash(struct, hash, val); };
 
 }
 function giz_camera() constructor {
