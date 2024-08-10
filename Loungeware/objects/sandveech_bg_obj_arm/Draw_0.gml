@@ -1,0 +1,1 @@
+draw_sprite(sandveech_bg_spr_arm, sprite, x, y);

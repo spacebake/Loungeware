@@ -14,7 +14,7 @@ microgame_register("sandveech_bergur", {
   init_room: sandveech_bg_rm_main,
   view_width: -1,
   view_height: -1,
-  time_seconds: 5,
+  time_seconds: 10,
   music_track: noone,//sng_zandy_catjam, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,

@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "sandveech_bg_obj_arm",
+  "name": "sandveech_bg_obj_cheese",
   "spriteId": {
-    "name": "sandveech_bg_spr_arm",
-    "path": "sprites/sandveech_bg_spr_arm/sandveech_bg_spr_arm.yy",
+    "name": "sandveech_bg_spr_cheese",
+    "path": "sprites/sandveech_bg_spr_cheese/sandveech_bg_spr_cheese.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "sandveech_bg_obj_item",
+    "path": "objects/sandveech_bg_obj_item/sandveech_bg_obj_item.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -24,11 +27,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
