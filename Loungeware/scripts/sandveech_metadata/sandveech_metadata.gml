@@ -18,9 +18,9 @@ microgame_register("sandveech_bergur", {
   music_track: noone,//sng_zandy_catjam, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
-  cartridge_col_primary: [116, 164, 60],
-  cartridge_col_secondary: [71, 136, 23],
-  cartridge_label: pixpope_hp_spr_label,
+  cartridge_col_primary: [213, 141, 28],
+  cartridge_col_secondary: [102, 57, 49],
+  cartridge_label: sandveech_bg_spr_label,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
   credits: ["Sandveech", "Jet", "Hibari", "Elle", "Dar", "Akio", "Kio", "Ari", "Ishigami", "Ren", "Minty"],

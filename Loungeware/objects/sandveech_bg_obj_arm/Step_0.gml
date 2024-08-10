@@ -5,7 +5,7 @@ hspd = _input(ord("D")) - _input(ord("A"));
 vspd = _input(ord("S")) - _input(ord("W"));
 
 if (hspd != 0 || vspd != 0) {
-	arm_speed = lerp(arm_speed, 1.5, acceleration);
+	arm_speed = lerp(arm_speed, 2, acceleration);
 }
 else {
 	arm_speed = lerp(arm_speed, 0, acceleration);	
@@ -24,3 +24,6 @@ yy += vspd * arm_speed;
 
 x = lerp(x, xx, 0.3);
 y = lerp(y, yy, 0.3);
+
+xx = clamp(xx, 24, room_width - 24);
+yy = clamp(yy, 24, room_height - 16);
