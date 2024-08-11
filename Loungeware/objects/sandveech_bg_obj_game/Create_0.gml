@@ -4,30 +4,45 @@
 #region initialize
 
 	item_list = [
+		sandveech_bg_obj_buns,
 		sandveech_bg_obj_lettuce,
 		sandveech_bg_obj_cheese,
 		sandveech_bg_obj_tomato,
 		sandveech_bg_obj_mayo,
 		sandveech_bg_obj_onion,
+		sandveech_bg_obj_patty
 	];
 
 	order_list = [];
 	plate_list = [];
+	
+	indicator_spr = 0;
+	indicator_x = room_width / 2;
+	indicator_y = 0;
 
 #endregion
 
-check_win	= function() {
+check_win			= function() {
 	array_sort(order_list, true);
 	array_sort(plate_list, true);
 	
 	return array_equals(order_list, plate_list);
 };
-clear_game	= function() {
+clear_game			= function() {
 	instance_destroy(sandveech_bg_obj_item);
 	instance_destroy(sandveech_bg_obj_arm);	
+	indicator_y = 0;
+};
+indicator_correct	= function() {
+	indicator_spr = 0;
+	indicator_y = sprite_get_height(sandveech_bg_spr_indicator) + 32;
+};
+indicator_wrong		= function() {
+	indicator_spr = 1;
+	indicator_y = sprite_get_height(sandveech_bg_spr_indicator) + 32;
 };
 
-#region difficluty
+#region difficulty
 
 	add_items = function(_amount) {
 		repeat(_amount) {

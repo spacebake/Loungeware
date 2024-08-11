@@ -8,5 +8,6 @@ if (TIME_REMAINING_SECONDS == 2) {
 	else {
 		microgame_win();
 		clear_game();
+		instance_create_depth(0, 0, 0, sandveech_bg_obj_win_screen);
 	}
 }

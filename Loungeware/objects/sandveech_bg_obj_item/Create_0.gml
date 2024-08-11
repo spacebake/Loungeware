@@ -22,16 +22,27 @@
 	knockback = 4;
 	angle = 0;
 	
-	decelerate		= function() {
+	decelerate			= function() {
 		slide_speed = lerp(slide_speed, min_slide_speed, acceleration);
 		angle = lerp(angle, angle + max_slide_speed, slide_speed);
 	};
-	add_to_plate	= function() {
+	add_to_plate		= function() {
 		var _game = sandveech_bg_obj_game;
 		
 		if (instance_exists(_game)) {
 			array_push(_game.plate_list, object_index);	
 		}
-	}
+	};
+	check_correct_item	= function() {
+		var _game = sandveech_bg_obj_game;
+		
+		for (var i = 0; i < array_length(_game.order_list); i++) {
+			if (object_index == _game.order_list[i]) {
+				return true;	
+			}
+		}
+		
+		return false;
+	};
 
 #endregion

@@ -24,14 +24,24 @@ decelerate();
 
 // out of bounds prevention
 if (bbox_bottom < 0) {
-	y = room_height;	
-}
-if (bbox_top > room_height) {
 	if (x > (room_width / 2) - 64) && (x < (room_width / 2) +  64) {
+		var _game = sandveech_bg_obj_game;
+		
+		if (check_correct_item()) {
+			_game.indicator_correct();
+			sfx_play(sandveech_bg_snd_correct);
+		}
+		else {
+			_game.indicator_wrong();
+			sfx_play(sandveech_bg_snd_wrong);
+		}
 		add_to_plate();
 		instance_destroy();
 	}
 	
+	y = room_height;	
+}
+if (bbox_top > room_height) {
 	y = 0;
 }
 if (bbox_left > room_width) {
