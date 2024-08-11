@@ -1,29 +1,45 @@
-var _input = keyboard_check;
-var _input_pressed = keyboard_check_pressed;
+// sandveech_bg_obj_arm.step
 
-hspd = _input(ord("D")) - _input(ord("A"));
-vspd = _input(ord("S")) - _input(ord("W"));
+#region movement
 
-if (hspd != 0 || vspd != 0) {
-	arm_speed = lerp(arm_speed, 2, acceleration);
-}
-else {
-	arm_speed = lerp(arm_speed, 0, acceleration);	
-}
+	hspd = KEY_RIGHT - KEY_LEFT;
+	vspd = KEY_DOWN - KEY_UP;
+		
+	xx += hspd * arm_speed;
+	yy += vspd * arm_speed;
+	
+	// acceleration & deceleration
+	if (hspd != 0 || vspd != 0) {
+		accelerate();
+	}
+	else {
+		decelerate();	
+	}
+	
+	// out of bounds prevention
+	xx = clamp(xx, 24, room_width - 24);
+	yy = clamp(yy, 24, room_height - 16);
 
-if (_input_pressed(ord("L")) && state == HAND_STATE.FREE && held_item == noone) {
-	grab();	
-}
+	// smoother hand movement
+	x = lerp(x, xx, 0.3);
+	y = lerp(y, yy, 0.3);
 
-if (_input_pressed(ord("K")) && state == HAND_STATE.GRAB && held_item != noone) {
-	release();	
-}
+#endregion
 
-xx += hspd * arm_speed;
-yy += vspd * arm_speed;
+#region gamemplay
 
-x = lerp(x, xx, 0.3);
-y = lerp(y, yy, 0.3);
+	// grab item
+	if (KEY_PRIMARY_PRESSED) {
+		if (state_get() == HAND_STATE.FREE && held_item == noone) {
+			grab();	
+		}
+	}
 
-xx = clamp(xx, 24, room_width - 24);
-yy = clamp(yy, 24, room_height - 16);
+	// release item from hand
+	if (KEY_SECONDARY_PRESSED) {
+		if (state_get() == HAND_STATE.GRAB && held_item != noone) {
+			release();	
+		}
+	}
+
+#endregion

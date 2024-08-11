@@ -1,43 +1,42 @@
-if (grabbed && instance_exists(sandveech_bg_obj_arm)) {
+// sandveech_bg_obj_item.step
+
+if (isGrabbed && instance_exists(sandveech_bg_obj_arm)) {
 	var _arm = sandveech_bg_obj_arm;
-	
-	hdir = _arm.hspd;
-	vdir = _arm.vspd;
+
 	x = _arm.x;
 	y = _arm.y;
-	acceleration = _arm.arm_speed;
 	
-	var _inst = instance_place(x + hdir * acceleration, y + vdir * acceleration, sandveech_bg_obj_item);
-	if (_inst) {
-		_inst.hdir = hdir;
-		_inst.vdir = vdir;
-		_inst.acceleration = acceleration;
-		_inst.knockback = 2.1;
+	if (_arm.hspd != 0) || (_arm.vspd != 0) {
+		hdir = _arm.hspd;
+		vdir = _arm.vspd;
 	}
 }
 else if (hdir != 0 || vdir != 0){
-	if (place_meeting(x + hdir * acceleration, y, sandveech_bg_obj_wall)) {
-		hdir = !hdir;
-		knockback = 2.1;
-	}
-	if (place_meeting(x, y + vdir * acceleration, sandveech_bg_obj_wall)) {
-		vdir = !vdir;
-		knockback = 2.1;
-	}
+	var _dir = point_direction(x, y, x + hdir, y + vdir);
+	var _hspd = lengthdir_x(max_slide_speed, _dir) * slide_speed;
+	var _vspd = lengthdir_y(max_slide_speed, _dir) * slide_speed;
 	
-	var _dir = point_direction(x, y, x + hdir * 4, y + vdir * 4);
-	x += lengthdir_x(knockback, _dir) * acceleration;
-	y += lengthdir_y(knockback, _dir) * acceleration;
-	angle = lerp(angle, angle + irandom_range(1, 5), acceleration);
-	
-	var _inst = instance_place(x + hdir * acceleration, y + vdir * acceleration, sandveech_bg_obj_item);
-	if (_inst) {
-		_inst.hdir = hdir;
-		_inst.vdir = vdir;
-		_inst.acceleration = acceleration;
-		hdir = !hdir;
-		vdir = !vdir;
-	}
+	x += _hspd;
+	y += _vspd;
 }
 
-acceleration = lerp(acceleration, 0, 0.09);
+decelerate();
+
+// out of bounds prevention
+if (bbox_bottom < 0) {
+	y = room_height;	
+}
+if (bbox_top > room_height) {
+	if (x > (room_width / 2) - 64) && (x < (room_width / 2) +  64) {
+		add_to_plate();
+		instance_destroy();
+	}
+	
+	y = 0;
+}
+if (bbox_left > room_width) {
+	x = 0;
+}
+if (bbox_right < 0) {
+	x = room_width;	
+}

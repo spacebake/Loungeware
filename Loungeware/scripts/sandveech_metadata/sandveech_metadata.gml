@@ -10,12 +10,12 @@ microgame_register("sandveech_bergur", {
   config_version: 1,
   game_name: "Bergur",
   authors : "Nompang Studios",
-  prompt: "Make Good Bergur!",
+  prompt: "TOSS INGREDIENTS ONTO PLATE!",
   init_room: sandveech_bg_rm_main,
   view_width: -1,
   view_height: -1,
-  time_seconds: 10,
-  music_track: noone,//sng_zandy_catjam, // nullable, defaults to noone. Accepts: sound name or false
+  time_seconds: 12,
+  music_track: sng_zandy_catjam, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
   cartridge_col_primary: [213, 141, 28],
@@ -23,7 +23,7 @@ microgame_register("sandveech_bergur", {
   cartridge_label: sandveech_bg_spr_label,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
-  credits: ["Sandveech", "Jet", "Hibari", "Elle", "Dar", "Akio", "Kio", "Ari", "Ishigami", "Ren", "Minty"],
+  credits: ["Sandveech", "Jet", "Hibari", "Elle", "Dar", "Akio", "Kio", "Ari", "Ishigami", "Ren", "Minty, sfxr"],
   date_added:{
   	day : 10,
   	month : 8,
