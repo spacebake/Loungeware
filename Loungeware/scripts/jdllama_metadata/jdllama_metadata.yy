@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "jdllama_metadata",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "jdllama",
-    "path": "folders/Microgames/jdllama.yy",
+  "$GMScript":"",
+  "%Name":"jdllama_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"jdllama_metadata",
+  "parent":{
+    "name":"jdllama",
+    "path":"folders/Microgames/jdllama.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

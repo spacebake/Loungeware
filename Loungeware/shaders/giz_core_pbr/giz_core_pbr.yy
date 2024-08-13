@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "giz_core_pbr",
-  "type": 1,
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Microgames/giz/giz_core/Shaders.yy",
+  "$GMShader":"",
+  "%Name":"giz_core_pbr",
+  "name":"giz_core_pbr",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Microgames/giz/giz_core/Shaders.yy",
   },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

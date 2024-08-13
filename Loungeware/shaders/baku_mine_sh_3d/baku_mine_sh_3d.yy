@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "baku_mine_sh_3d",
-  "type": 1,
-  "parent": {
-    "name": "Shaders",
-    "path": "folders/Microgames/baku/mine/Shaders.yy",
+  "$GMShader":"",
+  "%Name":"baku_mine_sh_3d",
+  "name":"baku_mine_sh_3d",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Microgames/baku/mine/Shaders.yy",
   },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }
