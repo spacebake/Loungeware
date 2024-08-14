@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "tfg_metadata",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "tfg",
-    "path": "folders/Microgames/tfg.yy",
+  "$GMScript":"",
+  "%Name":"tfg_metadata",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tfg_metadata",
+  "parent":{
+    "name":"tfg",
+    "path":"folders/Microgames/tfg.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "array_shuffle",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Scripts",
-    "path": "folders/__Base Game (keep out)/Scripts.yy",
+  "$GMScript":"",
+  "%Name":"array_shuffle",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"array_shuffle",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/__Base Game (keep out)/Scripts.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }

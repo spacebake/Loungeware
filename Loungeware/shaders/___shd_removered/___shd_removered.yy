@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "___shd_removered",
-  "type": 1,
-  "parent": {
-    "name": "Scripts",
-    "path": "folders/__Base Game (keep out)/Scripts.yy",
+  "$GMShader":"",
+  "%Name":"___shd_removered",
+  "name":"___shd_removered",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/__Base Game (keep out)/Scripts.yy",
   },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }
