@@ -28,8 +28,8 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"90554aad-223f-46ba-a8d4-0e3084d452fb",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"45b3980a-d533-4fbc-8ae3-7e37f29deff7",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6d662f4a-34c1-472b-8dd2-7dda59b16080",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e7967d42-e14e-401e-a749-fa7f0d796097",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"67b6e58b-46cf-4517-9277-2633e7083850","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"90554aad-223f-46ba-a8d4-0e3084d452fb","path":"sprites/sandveech_bg_spr_arm/sandveech_bg_spr_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"6662cc01-d13d-4cf9-9bbe-6defb6beae90","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"45b3980a-d533-4fbc-8ae3-7e37f29deff7","path":"sprites/sandveech_bg_spr_arm/sandveech_bg_spr_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"d551f59d-bc56-4136-8349-fd7d6ee7ff27","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6d662f4a-34c1-472b-8dd2-7dda59b16080","path":"sprites/sandveech_bg_spr_arm/sandveech_bg_spr_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9e987985-497b-4479-a2a9-29b8e8a7b166","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e7967d42-e14e-401e-a749-fa7f0d796097","path":"sprites/sandveech_bg_spr_arm/sandveech_bg_spr_arm.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

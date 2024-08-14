@@ -4,7 +4,7 @@
 
 	// scatters item randomly around the play area
 	x		= irandom_range(32, room_width - 32);
-	y		= irandom_range(32, room_height - 32);
+	y		= irandom_range(32, room_height - 128);
 	
 	vdir	= 0;
 	hdir	= 0;

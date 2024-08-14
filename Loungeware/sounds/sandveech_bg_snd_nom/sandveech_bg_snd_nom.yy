@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "sandveech_bg_snd_nom.wav",
-  "duration": 0.389524,
+  "duration": 0.254771,
   "parent": {
     "name": "Sounds",
     "path": "folders/Microgames/sandveech/Bergur/Sounds.yy",

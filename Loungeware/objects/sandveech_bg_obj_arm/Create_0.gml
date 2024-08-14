@@ -55,16 +55,17 @@
 	arm_speed		= 0;
 	min_arm_speed	= 0;
 	max_arm_speed	= 8;
+	arm_randx		= 0;
+	arm_randy		= 0;
 	acceleration	= 0.09;
 	held_item		= noone;
+	near = noone;
+	item = noone;
 
 	grab		= function() {
-		var _near = instance_nearest(x, y, sandveech_bg_obj_item)
-		var _item = instance_place(x, y, sandveech_bg_obj_item);
-	
-		if (_item) {
-			_near.isGrabbed = true;
-			held_item = _near;
+		if (item) && (near) {
+			near.isGrabbed = true;
+			held_item = near;
 	
 			sprite_set(HAND_SPRITE.GRAB);
 			state_set(HAND_STATE.GRAB);

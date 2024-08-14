@@ -3,14 +3,30 @@
 
 #region initialize
 
+	enum ITEM {
+		BBQ,
+		BUN,
+		CHEESE,
+		KETCHUP,
+		LETTUCE,
+		MAYO,
+		ONION,
+		PATTY,
+		PICKLE,
+		TOMATO
+	}
+
 	item_list = [
+		sandveech_bg_obj_bbq,
 		sandveech_bg_obj_buns,
-		sandveech_bg_obj_lettuce,
 		sandveech_bg_obj_cheese,
-		sandveech_bg_obj_tomato,
+		sandveech_bg_obj_ketchup,
+		sandveech_bg_obj_lettuce,
 		sandveech_bg_obj_mayo,
 		sandveech_bg_obj_onion,
-		sandveech_bg_obj_patty
+		sandveech_bg_obj_patty,
+		sandveech_bg_obj_pickle,
+		sandveech_bg_obj_tomato
 	];
 
 	order_list = [];
