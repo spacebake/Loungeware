@@ -17,3 +17,4 @@ if randomic = 2
 	layer_set_visible("Background3",true);
 	layer_set_visible("FloorTurquoise",true);
 }
+microgame_set_timer_max(7);

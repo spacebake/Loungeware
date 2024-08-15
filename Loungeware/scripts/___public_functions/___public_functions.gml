@@ -7,7 +7,7 @@
 #macro CAMERA view_camera[VIEW_NUMBER]
 #macro VIEW_W camera_get_view_width(CAMERA)
 #macro VIEW_H camera_get_view_height(CAMERA)
-#macro VIEW_X camera_get_view_x(CAMERA)
+#macro VIEW_X camera_get_view_x(CAMERA) 
 #macro VIEW_Y camera_get_view_y(CAMERA)
 
 // returns the numbers of steps remaining on the timer (divide this by 60 to get seconds)
