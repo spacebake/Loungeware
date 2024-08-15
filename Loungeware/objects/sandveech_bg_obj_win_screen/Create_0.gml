@@ -1,5 +1,3 @@
-microgame_music_stop();
-
 offsety = 0;
 
 anchorY = ystart;

@@ -1,1 +1,0 @@
-microgame_music_stop();

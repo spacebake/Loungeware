@@ -32,6 +32,8 @@ if (TIME_REMAINING_SECONDS > 2) {
 				break;
 		}
 	
-		draw_sprite(sandveech_bg_spr_icon, _spr, 32 + 48 * i, room_height - 32);
+		draw_sprite_ext(sandveech_bg_spr_icon, _spr, 32 + 48 * i, room_height - 32, icon_size, icon_size, 0, c_white, 1);
 	}
 }
+
+icon_size = lerp(icon_size, 1, 0.09);

@@ -16,7 +16,7 @@ microgame_register("sandveech_bergur", {
   view_height: -1,
   time_seconds: 12,
   music_track: sandveech_bg_mus_borgor, // nullable, defaults to noone. Accepts: sound name or false
-  music_loops: false, // nullable, defaults to true
+  music_loops: noone, // nullable, defaults to true
   interpolation_on: false,
   cartridge_col_primary: [213, 141, 28],
   cartridge_col_secondary: [102, 57, 49],
