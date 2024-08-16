@@ -36,6 +36,7 @@
 	indicator_x = room_width / 2;
 	indicator_y = 0;
 	icon_size = 1.5;
+	isEnded = false;
 
 #endregion
 
