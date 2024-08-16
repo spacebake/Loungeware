@@ -1514,7 +1514,11 @@
   "isEcma": false,
   "configs": {
     "name": "Default",
-    "children": [],
+    "children": [
+      {"name":"Shipping","children":[
+          {"name":"RasPi","children":[],},
+        ],},
+    ],
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"___rm_init","path":"rooms/___rm_init/___rm_init.yy",},},
