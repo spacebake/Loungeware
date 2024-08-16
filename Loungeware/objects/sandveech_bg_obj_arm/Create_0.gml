@@ -54,7 +54,7 @@
 
 	arm_speed		= 0;
 	min_arm_speed	= 0;
-	max_arm_speed	= 8;
+	max_arm_speed	= 12;
 	arm_randx		= 0;
 	arm_randy		= 0;
 	acceleration	= 0.09;
@@ -63,7 +63,7 @@
 	item = noone;
 
 	grab		= function() {
-		if (item) && (near) {
+		if (item) && (near) && (!near.added){
 			near.isGrabbed = true;
 			held_item = near;
 	
@@ -72,12 +72,14 @@
 		}
 	};
 	release		= function() {
-		held_item.isGrabbed = false;
-		held_item.slide_speed = clamp(arm_speed, min_arm_speed, 6);
-		held_item = noone;
+		if (!held_item.added) {
+			held_item.isGrabbed = false;
+			held_item.slide_speed = clamp(arm_speed, min_arm_speed, 6);
+			held_item = noone;
 	
-		sprite_set(HAND_SPRITE.FREE);
-		state_set(HAND_STATE.FREE);	
+			sprite_set(HAND_SPRITE.FREE);
+			state_set(HAND_STATE.FREE);	
+		}
 	};
 	accelerate	= function() {
 		arm_speed = lerp(arm_speed, max_arm_speed, acceleration);

@@ -22,19 +22,15 @@ else if (hdir != 0 || vdir != 0){
 
 decelerate();
 
+if (slide_speed < 0.1) {
+	if (place_meeting(x, y, sandveech_bg_obj_plate_box)) {
+		add_to_plate();
+	}
+}
+
 // out of bounds prevention
 if (bbox_bottom < 8) {
 	if (x > (room_width / 2) - 64) && (x < (room_width / 2) +  64) {
-		var _game = sandveech_bg_obj_game;
-		
-		if (check_correct_item()) {
-			_game.indicator_correct();
-			sfx_play(sandveech_bg_snd_correct);
-		}
-		else {
-			_game.indicator_wrong();
-			sfx_play(sandveech_bg_snd_wrong);
-		}
 		add_to_plate();
 		instance_destroy();
 	}
@@ -49,4 +45,12 @@ if (bbox_left > room_width - 8) {
 }
 if (bbox_right < 8) {
 	x = room_width;	
+}
+
+if (added) {
+	alpha -= 0.05;	
+}
+
+if (alpha == 0) {
+	instance_destroy();	
 }

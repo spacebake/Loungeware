@@ -72,20 +72,25 @@ indicator_wrong		= function() {
 	};
 
 	switch (DIFFICULTY) {
-		case 2:
-			add_items(1);
-			break;
-		case 3:
+		case 1:
 			add_items(2);
 			break;
-		case 4:
+		case 2:
 			add_items(3);
 			break;
-		case 5:
+		case 3:
 			add_items(4);
+			break;
+		case 4:
+			add_items(5);
+			break;
+		case 5:
+			add_items(6);
 			break;
 	}
 	
-	add_items(2);
+	for (var i = 0; i < array_length(order_list); i++) {
+		order_list[i].isNeeded = true;
+	}
 
 #endregion

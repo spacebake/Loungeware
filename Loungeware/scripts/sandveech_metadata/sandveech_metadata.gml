@@ -35,5 +35,5 @@ microgame_register("sandveech_bergur", {
 	supports_pi: true,
 	show_on_website: true,
 	description: ["Make a bergur for yummy in your tummy."],
-	how_to_play: ["WASD to move the arm. Press B to grab. Press A to toss item."]
+	how_to_play: ["WASD to move the arm. Press B to grab. Release B to toss"]
 });

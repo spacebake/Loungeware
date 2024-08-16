@@ -47,7 +47,7 @@
 	}
 
 	// release item from hand
-	if (KEY_SECONDARY_PRESSED) {
+	if (KEY_PRIMARY_RELEASED) {
 		if (state_get() == HAND_STATE.GRAB && held_item != noone) {
 			release();	
 		}
