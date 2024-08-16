@@ -1,0 +1,3 @@
+/// @description
+self[$ "target"] ??= noone;
+

@@ -37,3 +37,35 @@ microgame_register("pixpope_hereticpurge", {
 	description: ["Build up enough holy energy to purge the heretics!"],
 	how_to_play: ["Press A and B alternating as quickly as possible!"]
 });
+
+microgame_register("pixpope_lockondragoon", {
+  config_version: 1,
+  game_name: "Lock-On Dragoon",
+  authors : {pixpope: "Pixelated Pope"},
+  prompt: "LOCK ON",
+  init_room: pixpope_lod_rm_main,
+  view_width: -1,
+  view_height: -1,
+  time_seconds: 10,
+  music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
+  music_loops: false, // nullable, defaults to true
+  interpolation_on: false,
+  cartridge_col_primary: [240, 240, 240],
+  cartridge_col_secondary: [32, 32, 32],
+  cartridge_label: pixpope_hp_spr_label,
+  default_is_fail: true, // nullable, defaults to true
+  supports_difficulty_scaling: true,
+  credits: ["Pixelated Pope"],
+  date_added:{
+  	day : 3,
+  	month : 8,
+  	year : 2024
+  },
+	is_enabled: true,
+	supports_html: true,
+	allow_subpixels: true,
+	supports_pi: true,
+	show_on_website: true,
+	description: ["Lock your weapons on to all the enemies and blow them out of the sky!"],
+	how_to_play: ["Hold A and use the direction keys to move the target reticle over all the enemies. Release to fire!"]
+});
