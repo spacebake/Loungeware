@@ -390,6 +390,7 @@ function ___MG_MNGR_declare_functions(){
 		// draw game view onto master surface
 		surface_set_target(surf_master);
 		
+		gpu_set_blendenable(false);
 		draw_surface_stretched(
 			application_surface, 
 			floor(canvas_x * window_scale), 
@@ -397,6 +398,7 @@ function ___MG_MNGR_declare_functions(){
 			floor(canvas_w * window_scale), 
 			floor(canvas_h * window_scale)
 		);
+		gpu_set_blendenable(true);
 		surface_reset_target();
 	
 		// set gui size (sets the gui scale to fit the gameboy)
@@ -432,7 +434,9 @@ function ___MG_MNGR_declare_functions(){
 		var _x = (window_get_width()/2) - (_size/2);
 		var _y = (window_get_height()/2) - (_size/2);
 		// draw master surface
+		gpu_set_blendenable(false);
 		draw_surface_stretched(surf_master, _x, _y, _size, _size);
+		gpu_set_blendenable(true);
 	}
 
 	//--------------------------------------------------------------------------------------------------------
