@@ -41,11 +41,11 @@ microgame_register("wae_HogginAHog", {
 	],
 });
 
-microgame_register("wae_MissleDefense", {
+microgame_register("wae_MissileDefense", {
     config_version: 1,
-    game_name: "Missle Defense",
+    game_name: "Missile Defense",
     authors : "Waesome",
-    prompt: "DESTROY MISSLES!",
+    prompt: "DESTROY MISSILES!",
     init_room: wae_missle_room,
     view_width: 240,
     view_height: 160,
@@ -68,9 +68,9 @@ microgame_register("wae_MissleDefense", {
 	supports_html: true,
 	show_on_website: true,
 	description: [
-		"Destroy missles headed to Larold's Crystal!", 
+		"Destroy missiles headed to Larold's Crystal!", 
 	],
 	how_to_play: [
-		"Angle the flak cannon with arrow keys and fire with either A or B. Destroy all missles to win!"
+		"Angle the flak cannon with arrow keys and fire with either A or B. Destroy all missiles to win!"
 	],
 });
