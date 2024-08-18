@@ -19,7 +19,9 @@ part_particles_create(wae_missle_flak.wae_missle_midground_partsystem,x+rdx,y,wa
 if y > room_height and not wae_missle_flak.wae_missle_lost
 {
 	microgame_fail()
-	
+	var _snd_id = sfx_play(wae_snd_missle_rumble, random_range(1.5,1.7), 0);
+	audio_sound_pitch(_snd_id, random_range(0.7,0.9));
+
 	wae_missle_flak.wae_missle_lost = true
 	layer_background_speed(layer_background_get_id(layer_get_id("Backgrounds3")), 5 )
 	layer_background_speed(layer_background_get_id(layer_get_id("Backgrounds4")), 6 )

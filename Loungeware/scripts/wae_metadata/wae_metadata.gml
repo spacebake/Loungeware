@@ -50,17 +50,17 @@ microgame_register("wae_MissleDefense", {
     view_width: 240,
     view_height: 160,
     time_seconds: 9,
-    music_track: sng_zandy_woodblocks, // nullable, defaults to noone. Accepts: sound name or false
+    music_track: wae_sng_missle2, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [54, 43, 43],
-    cartridge_col_secondary: [220, 55, 225],
-    cartridge_label: wae_hog_label,
+	cartridge_col_primary: [67, 100, 204],
+    cartridge_col_secondary: [153, 148, 255],
+    cartridge_label: wae_missle_label,
     default_is_fail: false, // nullable, defaults to true
     supports_difficulty_scaling: true,
     credits: ["Waesome"],
     date_added:{
-	  day : 17,
+	  day : 18,
 	  month : 8,
 	  year : 2024
 	},
@@ -68,9 +68,9 @@ microgame_register("wae_MissleDefense", {
 	supports_html: true,
 	show_on_website: true,
 	description: [
-		"Destroy missles headed to Larold's Power Crystal!", 
+		"Destroy missles headed to Larold's Crystal!", 
 	],
 	how_to_play: [
-		"Angle the flak cannon with arrow keys and destroy all missles."
+		"Angle the flak cannon with arrow keys and fire with either A or B. Destroy all missles to win!"
 	],
 });
