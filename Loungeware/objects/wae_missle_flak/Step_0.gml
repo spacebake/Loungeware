@@ -1,24 +1,32 @@
 /// @description Insert description here
 // You can write your code in this editor
 wae_missle_flak_rotspeed = 3.5
+wae_missle_arrowkeys.image_alpha = wae_missle_keys_alpha
 if (KEY_PRIMARY or KEY_SECONDARY)
 {
 	wae_missle_flak_rotspeed = 2
+	wae_missle_keys_pressed = true
 }
 if KEY_LEFT
 {
 	image_angle += wae_missle_flak_rotspeed
+	wae_missle_keys_pressed = true
 }
 if KEY_RIGHT
 {
 	image_angle -= wae_missle_flak_rotspeed
+	wae_missle_keys_pressed = true
+}
+if wae_missle_keys_pressed and wae_missle_keys_alpha > 0
+{
+	wae_missle_keys_alpha -= 0.01
 }
 
 wae_missle_counter += 1
 var addx =    wae_missle_cannondseparation[wae_missle_flak_index]*dcos(image_angle-45+90) + wae_missle_cannondist*dcos(image_angle-45)
 var addy = -1*wae_missle_cannondseparation[wae_missle_flak_index]*dsin(image_angle-45+90) - wae_missle_cannondist*dsin(image_angle-45)
 //if wae_missle_counter mod wae_missle_fire_delay == 0 and wae_missle_counter > 70 and not wae_missle_lost and instance_number(wae_missle_missle)
-if wae_missle_counter mod wae_missle_fire_delay == 0 and  not wae_missle_lost and (KEY_PRIMARY or KEY_SECONDARY)
+if wae_missle_counter mod wae_missle_fire_delay == 0 and  not wae_missle_lost and (KEY_PRIMARY or KEY_SECONDARY) and not (instance_number(wae_missle_missle) == 0 and wae_missle_counter > 571 -200)
 
 {
 	sprite_index = wae_missle_flakSprite
@@ -63,9 +71,15 @@ if wae_missle_lost
 }
 if instance_number(wae_missle_missle) == 0 and wae_missle_counter > 571 -200 and not wae_missle_lost
 {
+	if not wae_missle_won
+	{
+		microgame_music_stop()
+		sfx_play(wae_snd_missle_defense_victory)
+	}
+	wae_missle_won = true
 	sprite_index = wae_missle_flakSpriteHappy
 	wae_missle_lost_delay += 1
-	if wae_missle_lost_delay > 50
+	if wae_missle_lost_delay > 60
 	{
 		microgame_end_early()
 	}

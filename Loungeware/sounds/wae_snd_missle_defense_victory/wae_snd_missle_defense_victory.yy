@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "science_fiction_air_raid_alarm",
+  "name": "wae_snd_missle_defense_victory",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,8 +14,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "science_fiction_air_raid_alarm.mp3",
-  "duration": 16.117552,
+  "soundFile": "wae_snd_missle_defense_victory.wav",
+  "duration": 3.6635,
   "parent": {
     "name": "wae_missle_defense",
     "path": "folders/Microgames/wae/wae_missle_defense.yy",
