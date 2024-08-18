@@ -32,7 +32,7 @@ if wae_missle_armed
 part_type_direction(wae_missle_mytrail,image_angle,image_angle,0,0)
 part_particles_create(wae_missle_flak.wae_missle_partsystem,x,y,wae_missle_mytrail,1)
 
-if y < -room_height*0.2
+if y < 0
 {
 	instance_destroy(self)
 }

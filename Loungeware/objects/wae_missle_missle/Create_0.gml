@@ -21,3 +21,15 @@ part_type_speed(_p, 0, 0, 0, 0);
 part_type_direction(_p, 0, 360, 0, 0);
 part_type_gravity(_p, 0,0)
 wae_missle_mytrail = _p
+
+var _p = part_type_create()
+part_type_sprite(_p, wae_missle_missledebrisSprite,false,0,true)
+part_type_size(_p, 1, 1, 0, 0);
+part_type_alpha3(_p, 1, 0.2, 0);
+part_type_scale(_p, 1, 1);
+part_type_orientation(_p, 0, 360, 2, 0, 0);
+part_type_life(_p, 100, 100);
+part_type_speed(_p, 0.2, 1, 0, 0);
+part_type_direction(_p, 0, 360, -0.1, 0);
+part_type_gravity(_p, 0.1,270)
+wae_missle_mydebris = _p

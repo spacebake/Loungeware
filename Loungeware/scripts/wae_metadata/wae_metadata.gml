@@ -50,7 +50,7 @@ microgame_register("wae_MissleDefense", {
     view_width: 240,
     view_height: 160,
     time_seconds: 9,
-    music_track: sng_zandy_woohoo_kong, // nullable, defaults to noone. Accepts: sound name or false
+    music_track: sng_zandy_woodblocks, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
     cartridge_col_primary: [54, 43, 43],
@@ -71,6 +71,6 @@ microgame_register("wae_MissleDefense", {
 		"Destroy missles headed to Larold's Power Crystal!", 
 	],
 	how_to_play: [
-		"Angle the flak cannon with arrow keys and fire with A or B to hit the missles."
+		"Angle the flak cannon with arrow keys and destroy all missles."
 	],
 });
