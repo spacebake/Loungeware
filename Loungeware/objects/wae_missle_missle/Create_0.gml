@@ -27,6 +27,7 @@ part_type_sprite(_p, wae_missle_missledebrisSprite,false,0,true)
 part_type_size(_p, 1, 1, 0, 0);
 part_type_alpha3(_p, 1, 0.2, 0);
 part_type_scale(_p, 1, 1);
+part_type_blend(_p, 0);
 part_type_orientation(_p, 0, 360, 2, 0, 0);
 part_type_life(_p, 100, 100);
 part_type_speed(_p, 0.2, 1, 0, 0);

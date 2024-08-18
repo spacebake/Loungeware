@@ -9,7 +9,7 @@ image_yscale =  0.5 + wae_missle_age*0.01*0.4
 var rdx = random_range(-3,3)
 if instance_place(x,y,wae_missle_flak_explosiondamage)
 {
-	part_particles_create(wae_missle_flak.wae_missle_midground_partsystem,x+rdx,y,wae_missle_mydebris,3)
+	part_particles_create(wae_missle_flak.wae_missle_midground_partsystem2,x+rdx,y,wae_missle_mydebris,3)
 	instance_destroy(self)
 	
 }

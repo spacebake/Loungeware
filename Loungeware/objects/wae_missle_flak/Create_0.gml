@@ -15,6 +15,7 @@ wae_missle_flak_fired = false
 
 wae_missle_partsystem = part_system_create()
 wae_missle_midground_partsystem = part_system_create_layer("midground_particles",false)
+wae_missle_midground_partsystem2 = part_system_create_layer("midground_particles",false)
 wae_missle_background_partsystem = part_system_create_layer("background_particles",false)
 
 wae_missle_lost = false
