@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-wae_missle_flak_rotspeed = 3.5
+wae_missle_flak_rotspeed = 5
 wae_missle_arrowkeys.image_alpha = wae_missle_keys_alpha
 
 
@@ -12,7 +12,7 @@ else
 {
 	if (KEY_PRIMARY or KEY_SECONDARY)
 	{
-		wae_missle_flak_rotspeed = 2
+		wae_missle_flak_rotspeed = 2.5
 		wae_missle_keys_pressed = true
 	}
 }
