@@ -2,11 +2,21 @@
 // You can write your code in this editor
 wae_missle_flak_rotspeed = 3.5
 wae_missle_arrowkeys.image_alpha = wae_missle_keys_alpha
-if (KEY_PRIMARY or KEY_SECONDARY)
+
+
+if wae_missle_always_shoot
 {
-	wae_missle_flak_rotspeed = 2
-	wae_missle_keys_pressed = true
+	wae_missle_flak_rotspeed = 2.5
 }
+else
+{
+	if (KEY_PRIMARY or KEY_SECONDARY)
+	{
+		wae_missle_flak_rotspeed = 2
+		wae_missle_keys_pressed = true
+	}
+}
+
 if KEY_LEFT
 {
 	image_angle += wae_missle_flak_rotspeed
@@ -26,7 +36,7 @@ wae_missle_counter += 1
 var addx =    wae_missle_cannondseparation[wae_missle_flak_index]*dcos(image_angle-45+90) + wae_missle_cannondist*dcos(image_angle-45)
 var addy = -1*wae_missle_cannondseparation[wae_missle_flak_index]*dsin(image_angle-45+90) - wae_missle_cannondist*dsin(image_angle-45)
 //if wae_missle_counter mod wae_missle_fire_delay == 0 and wae_missle_counter > 70 and not wae_missle_lost and instance_number(wae_missle_missle)
-if wae_missle_counter mod wae_missle_fire_delay == 0 and  not wae_missle_lost and (KEY_PRIMARY or KEY_SECONDARY) and not (instance_number(wae_missle_missle) == 0 and wae_missle_counter > 571 -200)
+if wae_missle_counter mod wae_missle_fire_delay == 0 and  not wae_missle_lost and (KEY_PRIMARY or KEY_SECONDARY or wae_missle_always_shoot) and not (instance_number(wae_missle_missle) == 0 and wae_missle_counter > 571 -200) and (wae_missle_counter > 70 or not wae_missle_always_shoot)
 
 {
 	sprite_index = wae_missle_flakSprite

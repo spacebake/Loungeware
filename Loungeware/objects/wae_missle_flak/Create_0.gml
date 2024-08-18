@@ -27,4 +27,11 @@ layer_background_speed(layer_background_get_id(layer_get_id("Backgrounds3")), 0 
 layer_background_speed(layer_background_get_id(layer_get_id("Backgrounds4")), 0 )
 
 
+wae_missle_always_shoot = irandom(1)
+if wae_missle_always_shoot
+{
+	wae_missle_arrowkeys.sprite_index = wae_hog_arrowkeys_sprite
+}
+
+
 
