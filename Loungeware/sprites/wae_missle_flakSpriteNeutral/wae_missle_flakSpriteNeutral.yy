@@ -29,12 +29,6 @@
   "gridY": 0,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"576f48b4-c0ac-4f04-9f5f-c42f26e088f8",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8f6d92e4-74c9-4197-95d3-98f832640d56",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"16eaa961-311e-44af-80fc-47208a9a3693",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d91192d3-35a9-42c9-9721-ba7368fd55e4",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c6c91f46-a1e2-4e03-914b-be8ca331a0ea",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3f078031-5d7f-4c8a-9d03-6275ec092f34",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3cbdc2fc-713f-4333-ad4e-cc950e31c5fa",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,18 +40,12 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 7.0,
+    "length": 1.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"242b2c5d-7cce-4dc4-a00b-e7819b4fbfe5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"576f48b4-c0ac-4f04-9f5f-c42f26e088f8","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"8bbdc0c9-171e-4783-b695-25bed738c877","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8f6d92e4-74c9-4197-95d3-98f832640d56","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"91d6fa60-13b2-4efe-b1bd-fb38821c6f3e","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"16eaa961-311e-44af-80fc-47208a9a3693","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"fe49e688-7409-4b52-941f-0829f9e6119f","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d91192d3-35a9-42c9-9721-ba7368fd55e4","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"fed51410-94bc-4cc2-b863-3b719296ce92","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c6c91f46-a1e2-4e03-914b-be8ca331a0ea","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"d3b21676-3851-4c25-80f6-816540518367","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3f078031-5d7f-4c8a-9d03-6275ec092f34","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"a1c12d3a-6fd5-4cbd-82fd-a32397e4284c","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3cbdc2fc-713f-4333-ad4e-cc950e31c5fa","path":"sprites/wae_missle_flakSpriteNeutral/wae_missle_flakSpriteNeutral.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

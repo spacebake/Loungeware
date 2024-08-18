@@ -29,12 +29,6 @@
   "gridY": 0,
   "frames": [
     {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"576f48b4-c0ac-4f04-9f5f-c42f26e088f8",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8f6d92e4-74c9-4197-95d3-98f832640d56",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"16eaa961-311e-44af-80fc-47208a9a3693",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d91192d3-35a9-42c9-9721-ba7368fd55e4",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c6c91f46-a1e2-4e03-914b-be8ca331a0ea",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3f078031-5d7f-4c8a-9d03-6275ec092f34",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3cbdc2fc-713f-4333-ad4e-cc950e31c5fa",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -46,18 +40,12 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 7.0,
+    "length": 1.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"30083e37-a740-43cb-b6cb-aad95ce1b2fd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"576f48b4-c0ac-4f04-9f5f-c42f26e088f8","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"c05ee945-99c0-42df-9ada-a6310a08d5ac","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8f6d92e4-74c9-4197-95d3-98f832640d56","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"513f5d87-d434-43e8-8edb-7c0480ba2b9c","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"16eaa961-311e-44af-80fc-47208a9a3693","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"4e0d83b6-3352-4b75-b3d7-4226d36b5711","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"d91192d3-35a9-42c9-9721-ba7368fd55e4","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"ccaac692-277f-44eb-b0c6-4162bc9223df","Key":4.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c6c91f46-a1e2-4e03-914b-be8ca331a0ea","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"57eb7187-cbc2-4e93-9c16-9d4c29e34204","Key":5.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3f078031-5d7f-4c8a-9d03-6275ec092f34","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"53471a0f-4ca5-461d-bd25-3317ebbff93b","Key":6.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"3cbdc2fc-713f-4333-ad4e-cc950e31c5fa","path":"sprites/wae_missle_flakSpriteSad/wae_missle_flakSpriteSad.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
