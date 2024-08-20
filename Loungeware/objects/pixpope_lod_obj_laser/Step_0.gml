@@ -1,6 +1,6 @@
 timer++;
 if(timer < 0) exit;
-
+if(timer == 1) sfx_play(pixpope_lod_sfx_laser,,,irandom_range(1,1.25));
 var _prevPos = animcurve_channel_evaluate(curve, timer / length);
 if(instance_exists(target))
 	path_change_point(myPath, 2, target.x, target.y, 0);

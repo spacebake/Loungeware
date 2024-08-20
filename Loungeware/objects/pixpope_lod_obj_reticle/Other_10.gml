@@ -1,9 +1,9 @@
 /// @description Movement
-targetSpeed = 3.5;
-accel = .75;
+targetSpeed = 4.5;
+accel = .5;
 hspeed = 0;
 vspeed = 0;
-friction = .5;
+friction = .25;
 
 move = function(){
   var _hori = KEY_RIGHT - KEY_LEFT;

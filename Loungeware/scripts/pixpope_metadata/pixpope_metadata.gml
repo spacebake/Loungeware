@@ -55,7 +55,7 @@ microgame_register("pixpope_lockondragoon", {
   cartridge_label: pixpope_hp_spr_label,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
-  credits: ["Pixelated Pope"],
+  credits: ["Pixelated Pope", "zapsplat.com"],
   date_added:{
   	day : 3,
   	month : 8,

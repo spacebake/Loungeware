@@ -12,10 +12,12 @@
 /// @param {sound}  _snd_index  The sound index
 /// @param {number}  _vol        The volume relative to the game volume (0-1)
 /// @param {bool}   _loop       Whether or not to loop the sound (you can terminate the loop with stop_sfx
+/// @param {number} pitch       Alters the pitch for the sound. (Default 1)
 /// @description                Plays a sound effect relative to the game volume. Returns Sound ID
-function sfx_play(_snd_index, _vol=1, _loop=false){
+function sfx_play(_snd_index, _vol=1, _loop=false, _pitch=1){
 	_vol = _vol * audio_sound_get_gain(_snd_index) * VOL_SFX * VOL_MASTER;
 	var _snd_id = audio_play_sound(_snd_index, 0, _loop);
+	audio_sound_pitch(_snd_id, _pitch);
 	audio_sound_gain(_snd_id, _vol, 0);
 	ds_list_add(___global.___audio_active_list, _snd_id);
 	return _snd_id;
