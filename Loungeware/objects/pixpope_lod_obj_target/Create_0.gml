@@ -10,10 +10,17 @@ timer = 0;
 length = 75;
 fireRateMin = 30;
 fireRateMax = 120;
+pathSpeed = 2;
 alarm[0] = irandom(fireRateMin);
 if(path != noone){	
 	state = states.path;
-	path_start(path, 2, path_action_stop, true);
+	if(pathDelay > 0) {
+		call_later(pathDelay, time_source_units_frames, function(){
+			path_start(path, pathSpeed, path_action_stop, true);
+		})
+		exit;
+	}
+	path_start(path, pathSpeed, path_action_stop, true);
 	exit;
 }
 

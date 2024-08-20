@@ -7,6 +7,8 @@ var _hue = lerp(0, 255, (timer)/life);
 
 image_blend = make_color_hsv(_hue, _sat, 255);
 
+if(random(1) < .1)
+	part_particles_create(pixpope_lod_obj_reticle.partSystem, x, y, pixpope_lod_particle_laser_bits, 1);
 
 image_xscale = 1 - (timer / life);
 image_yscale = image_xscale;
