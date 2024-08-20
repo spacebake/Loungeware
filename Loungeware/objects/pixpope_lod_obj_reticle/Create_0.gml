@@ -8,6 +8,10 @@ event_user(1); //Targeting
 partSystem = part_system_create()
 part_system_depth(partSystem, depth - 10);
 
+
+partSystemBehind = part_system_create()
+part_system_depth(partSystemBehind, layer_get_depth("Backgrounds_1")-1);
+
 list = ds_list_create()
 enemies = [
 	[layer_get_id("Difficulty1A"), layer_get_id("Difficulty1B"), layer_get_id("Difficulty1C")],

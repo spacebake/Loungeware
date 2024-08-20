@@ -9,5 +9,14 @@ repeat(3){
 	instance_create_depth(_x, _y, depth-1, obj_pixpope_lod_obj_explosion);
 }
 
+instance_create_depth(x, y, depth, pixpope_lod_obj_target_destroyed, 
+	{
+		sprite_index: sprite_index, 
+		image_index: image_index, 
+		image_xscale: image_xscale, 
+		image_yscale: image_yscale, 
+		image_blend: image_blend,
+	}
+);
 
 
