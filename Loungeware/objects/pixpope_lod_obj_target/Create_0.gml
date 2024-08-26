@@ -4,14 +4,43 @@ states = {
   idle: 1,
   die: 2,
 	path: 3,
+	loopCenter: 4,
 }
 
 timer = 0;
 length = 75;
 fireRateMin = 30;
 fireRateMax = 120;
-pathSpeed = 2;
 alarm[0] = irandom(fireRateMin);
+
+loop = {
+	owner: id,
+	dist: 0,
+	targetX: room_width / 2,
+	targetY: room_height / 2,
+	curAngle: 0,
+	speed: loopSpeed,
+	updateStart: function(){
+		curAngle = point_direction(targetX, targetY, owner.x, owner.y);
+		dist = point_distance(targetX, targetY, owner.x, owner.y);
+	},
+	update: function() {
+		curAngle += speed;
+		owner.x = targetX + lengthdir_x(dist, curAngle);
+		owner.y = targetY + lengthdir_y(dist, curAngle);
+	}
+}
+
+onPathEnd = function(){	
+	switch(endPathBehavior){
+		case "None": break;
+		case "Loop Center": 
+			state = states.loopCenter;
+			loop.updateStart(x, y);
+		break;
+	}
+}
+
 if(path != noone){	
 	state = states.path;
 	if(pathDelay > 0) {
@@ -39,3 +68,4 @@ y = entryPoints.start[1];
 
 
 state = states.approach;
+

@@ -3,7 +3,8 @@ timer++;
 switch(state){
 	case states.path:
 		if(path_position >= pathMaxPosition){
-			path_end();	
+			path_end();
+			onPathEnd();
 		}
 	break;
   case states.approach: 
@@ -11,5 +12,8 @@ switch(state){
     y = lerp(entryPoints.start[1], entryPoints.finish[1], animcurve_channel_evaluate(vertCurve, timer/length));
     if(timer >= length) state = states.idle;
   break;
+	case states.loopCenter:
+		loop.update();
+	break;
 }
 

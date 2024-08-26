@@ -16,7 +16,7 @@ list = ds_list_create()
 enemies = [
 	[layer_get_id("Difficulty1A"), layer_get_id("Difficulty1B"), layer_get_id("Difficulty1C")],
 	[layer_get_id("Difficulty2A"), layer_get_id("Difficulty2B"), layer_get_id("Difficulty2C"), layer_get_id("Difficulty2D"), layer_get_id("Difficulty2E")],
-	[layer_get_id("Difficulty3")],
+	[layer_get_id("Difficulty3A")],
 	[layer_get_id("Difficulty4")],
 	[layer_get_id("Difficulty5")]
 ]
