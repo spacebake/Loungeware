@@ -1,4 +1,5 @@
 /// @description
-if(!instance_exists(target))
+if(!instance_exists(target)){
   instance_destroy();
-
+	exit;
+}

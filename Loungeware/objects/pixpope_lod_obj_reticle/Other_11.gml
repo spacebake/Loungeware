@@ -1,8 +1,6 @@
 /// @description Targeting
 targets = [];
 allTargets = [];
-baseScale = .5;
-smallScale = .4;
 fireCooldown = 60;
 win = false;
 total = instance_number(pixpope_lod_obj_target);
@@ -10,9 +8,9 @@ total = instance_number(pixpope_lod_obj_target);
 updateLockOn = function(){
   var _lockOn = (KEY_PRIMARY || KEY_SECONDARY) && alarm[0] == -1;
   
-  image_xscale = lerp(image_xscale, _lockOn ? smallScale : baseScale, .2);
+  image_angle = lerp(image_angle, _lockOn ? 90 : 0, .2);
   image_yscale = image_xscale;
-  image_blend = merge_color(image_blend, _lockOn ? c_red : c_white, .2);
+  image_blend = merge_color(image_blend, _lockOn ? #f45f5a : #f1f2db, .2);
   
 }
 

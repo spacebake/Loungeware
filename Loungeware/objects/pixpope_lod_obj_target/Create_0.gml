@@ -16,8 +16,8 @@ alarm[0] = irandom(fireRateMin);
 loop = {
 	owner: id,
 	dist: 0,
-	targetX: room_width / 2,
-	targetY: room_height / 2,
+	targetX: loopX,
+	targetY: loopY,
 	curAngle: 0,
 	speed: loopSpeed,
 	updateStart: function(){
@@ -33,7 +33,6 @@ loop = {
 
 onPathEnd = function(){	
 	switch(endPathBehavior){
-		case "None": break;
 		case "Loop Center": 
 			state = states.loopCenter;
 			loop.updateStart(x, y);

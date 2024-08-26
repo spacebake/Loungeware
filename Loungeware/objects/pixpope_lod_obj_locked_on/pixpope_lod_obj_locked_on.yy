@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "pixpope_lod_obj_locked_on",
   "spriteId": {
-    "name": "pixpope_lod_spr_label",
-    "path": "sprites/pixpope_lod_spr_label/pixpope_lod_spr_label.yy",
+    "name": "pixpope_lod_spr_locked_bracket",
+    "path": "sprites/pixpope_lod_spr_locked_bracket/pixpope_lod_spr_locked_bracket.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,6 +28,7 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":2,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],

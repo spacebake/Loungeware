@@ -16,4 +16,3 @@ switch(state){
 		loop.update();
 	break;
 }
-
