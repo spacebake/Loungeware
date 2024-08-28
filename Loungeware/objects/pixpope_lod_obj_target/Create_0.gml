@@ -7,11 +7,18 @@ states = {
 	loopCenter: 4,
 }
 
-timer = 0;
+timer = -pathDelay;
 length = 75;
 fireRateMin = 30;
 fireRateMax = 120;
 alarm[0] = irandom(fireRateMin);
+switch(image_index){
+	case 0: lockOffset = -9; break;
+	case 1: lockOffset = -2; break;
+	case 2: lockOffset = 8; break;
+	case 3: lockOffset = 4; break;
+}
+
 
 loop = {
 	owner: id,
@@ -31,24 +38,20 @@ loop = {
 	}
 }
 
-onPathEnd = function(){	
+onPathEnd = function(){
+	state = states.idle;
 	switch(endPathBehavior){
 		case "Loop Center": 
 			state = states.loopCenter;
+			
 			loop.updateStart(x, y);
+			loop.update();
 		break;
 	}
 }
 
 if(path != noone){	
 	state = states.path;
-	if(pathDelay > 0) {
-		call_later(pathDelay, time_source_units_frames, function(){
-			path_start(path, pathSpeed, path_action_stop, true);
-		})
-		exit;
-	}
-	path_start(path, pathSpeed, path_action_stop, true);
 	exit;
 }
 

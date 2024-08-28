@@ -31,11 +31,13 @@ pixpope_array_foreach(enemies, function(_diff, _i){
 
 tile_layer_id = layer_tilemap_get_id(layer_get_id("Tiles_1"))
 
-var _diffLayers = array_shuffle(enemies[DIFFICULTY-1]);
-instance_activate_layer(_diffLayers[0]);
-layer_set_visible(_diffLayers[0], true);
-show_debug_message("Activating: " + layer_get_name(_diffLayers[0]));
-
+startGame = function(){
+	visible = true;
+	var _diffLayers = array_shuffle(enemies[DIFFICULTY-1]);
+	instance_activate_layer(_diffLayers[0]);
+	layer_set_visible(_diffLayers[0], true);
+	show_debug_message("Activating: " + layer_get_name(_diffLayers[0]));
+}
 //switch(DIFFICULTY){
 //  case 2: 
 //    activeLayer = ; 

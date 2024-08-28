@@ -2,6 +2,9 @@
 timer++;
 switch(state){
 	case states.path:
+		if(timer >= 0 && path_position == 0){
+			path_start(path, pathSpeed, path_action_stop, true);
+		}
 		if(path_position >= pathMaxPosition){
 			path_end();
 			onPathEnd();

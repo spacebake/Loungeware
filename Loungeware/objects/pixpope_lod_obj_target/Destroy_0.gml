@@ -6,7 +6,7 @@ pixpope_lod_obj_camera.flash(10);
 repeat(3){
 	var _x = x + random_range(-sprite_width / 2, sprite_width / 2);
 	var _y = y + random_range(-sprite_height / 2, sprite_height / 2);
-	instance_create_depth(_x, _y, depth-1, obj_pixpope_lod_obj_explosion);
+	instance_create_depth(_x, _y, depth-1, pixpope_lod_obj_explosion);
 }
 
 instance_create_depth(x, y, depth, pixpope_lod_obj_target_destroyed, 

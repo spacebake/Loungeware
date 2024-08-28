@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_pixpope_lod_obj_explosion",
+  "name": "pixpope_lod_obj_player_ship",
   "spriteId": {
-    "name": "pixpope_lod_spr_diamond",
-    "path": "sprites/pixpope_lod_spr_diamond/pixpope_lod_spr_diamond.yy",
+    "name": "pixpope_loc_spr_player",
+    "path": "sprites/pixpope_loc_spr_player/pixpope_loc_spr_player.yy",
   },
   "solid": false,
   "visible": true,
@@ -27,6 +27,7 @@
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],

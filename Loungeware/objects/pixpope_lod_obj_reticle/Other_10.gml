@@ -6,6 +6,7 @@ vspeed = 0;
 friction = .25;
 
 move = function(){
+	if(!visible) return;
   var _hori = KEY_RIGHT - KEY_LEFT;
   var _vert = KEY_DOWN - KEY_UP;
   

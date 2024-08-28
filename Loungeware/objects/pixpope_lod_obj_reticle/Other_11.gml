@@ -6,7 +6,7 @@ win = false;
 total = instance_number(pixpope_lod_obj_target);
 
 updateLockOn = function(){
-  var _lockOn = (KEY_PRIMARY || KEY_SECONDARY) && alarm[0] == -1;
+  var _lockOn = (KEY_PRIMARY || KEY_SECONDARY) && !instance_exists(pixpope_lod_obj_laser);
   
   image_angle = lerp(image_angle, _lockOn ? 90 : 0, .2);
   image_yscale = image_xscale;
@@ -45,6 +45,7 @@ fire = function(){
 }
 
 checkWin = function(){	
+	if(!visible) return;
 	var _win = true
 	with(pixpope_lod_obj_target){
 		if(visible) _win = false;	
