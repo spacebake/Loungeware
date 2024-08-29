@@ -28,7 +28,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "grog",
-    "path": "folders/Microgames/grog.yy",
+    "name": "Spawner",
+    "path": "folders/Microgames/grog/Spawner.yy",
   },
 }

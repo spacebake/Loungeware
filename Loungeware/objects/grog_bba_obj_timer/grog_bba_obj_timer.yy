@@ -1,17 +1,20 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "grog_bba_obj_agnes",
+  "name": "grog_bba_obj_timer",
   "spriteId": {
-    "name": "grog_bba_spr_agnes",
-    "path": "sprites/grog_bba_spr_agnes/grog_bba_spr_agnes.yy",
+    "name": "grog_bba_spr_timer",
+    "path": "sprites/grog_bba_spr_timer/grog_bba_spr_timer.yy",
   },
   "solid": false,
   "visible": true,
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "grog_bba_obj_projectile",
+    "path": "objects/grog_bba_obj_projectile/grog_bba_obj_projectile.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -25,14 +28,14 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"grog_bba_obj_projectile","path":"objects/grog_bba_obj_projectile/grog_bba_obj_projectile.yy",},},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Agnes",
-    "path": "folders/Microgames/grog/Agnes.yy",
+    "name": "Spawner",
+    "path": "folders/Microgames/grog/Spawner.yy",
   },
 }

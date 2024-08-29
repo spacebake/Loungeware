@@ -12,6 +12,6 @@ gravity = .2
 var _buffer = 20
 if y > room_height + _buffer or y < 0 - _buffer
 {
-	microgame_fail()
-	microgame_end_early() 
+	//microgame_fail()
+	//microgame_end_early() 
 }
