@@ -1,9 +1,8 @@
 /// @description
-timer++;
 switch(state){
 	case states.path:
 		if(timer >= 0 && path_position == 0){
-			path_start(path, pathSpeed, path_action_stop, true);
+			path_start(path, pathSpeed, path_action_stop, path_is_absolute);
 		}
 		if(path_position >= pathMaxPosition){
 			path_end();
@@ -18,4 +17,12 @@ switch(state){
 	case states.loopCenter:
 		loop.update();
 	break;
+}
+timer++;
+if(timer mod 2 == 0) {
+	instance_create_depth(x, y, depth+1, pixpope_lod_obj_afterimage, {
+		sprite_index: sprite_index,
+		image_index: image_index,
+		image_angle: image_angle,
+	})
 }

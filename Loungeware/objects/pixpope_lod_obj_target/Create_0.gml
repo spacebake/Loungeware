@@ -49,10 +49,23 @@ onPathEnd = function(){
 		break;
 	}
 }
-
-if(path != noone){	
-	state = states.path;
-	exit;
+entryPoints = {start: [0,0], finish: [0,0]}
+state = states.approach;
+if(path != noone){
+	if(path_is_absolute){
+		state = states.path;
+		exit;
+	} else {
+		horiCurve = animcurve_get_channel(pixpope_lod_ac_approach, "expo");
+		vertCurve = animcurve_get_channel(pixpope_lod_ac_approach, "expo");
+		
+		entryPoints.start = [x, y];
+		var _endX = x + path_get_point_x(path, 1) - path_get_point_x(path, 0);
+		var _endY = y + path_get_point_y(path, 1) - path_get_point_y(path, 0);
+		entryPoints.finish = [_endX, _endY]
+		
+		exit;
+	}
 }
 
 var _arr = array_shuffle(animcurve_get(pixpope_lod_ac_approach).channels);
@@ -69,5 +82,4 @@ x = entryPoints.start[0];
 y = entryPoints.start[1];
 
 
-state = states.approach;
 

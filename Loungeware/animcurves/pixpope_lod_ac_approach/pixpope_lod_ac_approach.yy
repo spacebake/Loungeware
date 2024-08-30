@@ -32,7 +32,7 @@
       ],},
   ],
   "parent": {
-    "name": "Lock On Dragoon",
-    "path": "folders/Microgames/pixpope/Lock On Dragoon.yy",
+    "name": "Curves",
+    "path": "folders/Microgames/pixpope/Lock On Dragoon/Curves.yy",
   },
 }

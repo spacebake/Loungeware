@@ -31,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Lock On Dragoon",
-    "path": "folders/Microgames/pixpope/Lock On Dragoon.yy",
+    "name": "Background",
+    "path": "folders/Microgames/pixpope/Lock On Dragoon/Background.yy",
   },
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "pixpope_lod_obj_asteroid_spawner",
+  "name": "pixpope_lod_obj_afterimage",
   "spriteId": null,
   "solid": false,
   "visible": true,
@@ -22,13 +22,13 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Background",
-    "path": "folders/Microgames/pixpope/Lock On Dragoon/Background.yy",
+    "name": "Lock On Dragoon",
+    "path": "folders/Microgames/pixpope/Lock On Dragoon.yy",
   },
 }
