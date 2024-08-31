@@ -35,11 +35,11 @@ function menu_jam(){
 
 function menu_exit(){
 	
-	if (HTML_MODE) {
+	if (HTML_MODE) { // remove this code after LTS fixes cleanup not being called
 		for (var i = 0; i < array_length(deactivated_instances); i++){
 			var _id = deactivated_instances[i];
 			instance_activate_object(_id);
-			instance_destroy(_id);
+			instance_destroy(_id, false);
 		}
 	}
 	
