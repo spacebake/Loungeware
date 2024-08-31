@@ -1,5 +1,5 @@
 /// @description Draw corresponding sprites for key sequence generated 
-for (var i = 0; i < key_sequence_lenght; i++){
+for (var i = 0; i < key_sequence_length; i++){
 	switch(key_sequence[i]){
 		case vk_left:
 			sprite = spr_button_dpad;
@@ -46,8 +46,8 @@ for (var i = 0; i < key_sequence_lenght; i++){
 	
 	// Draw buttons
 	draw_sprite_ext(sprite, sprite_subimage, x + x_offset, y + i * 35, scale, scale, image_angle, sprite_color, sprite_alpha[i]);
-	
-	if (draw_x){ // Draw X sprite when wrong key is pressed
-		draw_sprite(chacon_not_enough_tacos_sprite_red_x, 0, x, y + key_count * 35)
-	}
+}
+
+if (draw_x){ // Draw X sprite when wrong key is pressed
+	draw_sprite(chacon_not_enough_tacos_sprite_red_x, 0, x, y + key_count * 35)
 }

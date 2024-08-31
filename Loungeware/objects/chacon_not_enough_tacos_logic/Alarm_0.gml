@@ -1,5 +1,5 @@
 /// @description Start and hide generated sequence
-for (var i = 0; i < key_sequence_lenght; i++){
+for (var i = 0; i < key_sequence_length; i++){
     sprite_alpha[i] -= fade_intensity; // Decrease alpha for each sprite
 }
 

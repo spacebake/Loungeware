@@ -1,10 +1,10 @@
-key_sequence_lenght = 4;
+key_sequence_length = 4;
 key_sequence = noone;
 key_count = 0;
 
 sprite_subimage = 0;
 
-sprite_alpha = array_create(key_sequence_lenght, 1);
+sprite_alpha = array_create(key_sequence_length, 1);
 fade_intensity = 0.3;
 
 show_sequence_time = 1.5;
@@ -19,11 +19,12 @@ scale = 1;
 draw_x = false;
 
 all_sequence_sprites[0] = noone;
+draw_correct_key = false;
 
 alarm[0] = game_get_speed(gamespeed_fps) * show_sequence_time;
 
 // Create sequence
-for (var i = 0; i < key_sequence_lenght; i++){
+for (var i = 0; i < key_sequence_length; i++){
 	key_sequence[i] = choose(vk_left, vk_right, vk_up, vk_down, ord("Z"), ord("X"));
 }
 
