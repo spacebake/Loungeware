@@ -52,7 +52,7 @@ microgame_register("pixpope_lockondragoon", {
   interpolation_on: false,
   cartridge_col_primary: [116, 164, 60],
   cartridge_col_secondary: [71, 136, 23],
-  cartridge_label: pixpope_hp_spr_label,
+  cartridge_label: pixpope_lod_spr_cartridge,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
   credits: ["Pixelated Pope", "Jamie Rowan", "Pixel Planet Generator", "zapsplat.com"],
