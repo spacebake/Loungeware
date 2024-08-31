@@ -2,10 +2,10 @@
 states = {
   approach: 0,
   idle: 1,
-  die: 2,
-	path: 3,
-	loopCenter: 4,
+	path: 2,
+	loopCenter: 3,
 }
+isDead = false;
 
 timer = -pathDelay;
 length = 75;
@@ -49,6 +49,7 @@ onPathEnd = function(){
 		break;
 	}
 }
+
 entryPoints = {start: [0,0], finish: [0,0]}
 state = states.approach;
 if(path != noone){
@@ -68,10 +69,15 @@ if(path != noone){
 	}
 }
 
-var _arr = array_shuffle(animcurve_get(pixpope_lod_ac_approach).channels);
-horiCurve = _arr[0];
-_arr = array_shuffle(_arr);
-vertCurve = _arr[0];
+if(curve = "random"){
+	var _arr = array_shuffle(animcurve_get(pixpope_lod_ac_approach).channels);
+	horiCurve = _arr[0];
+	_arr = array_shuffle(_arr);
+	vertCurve = _arr[0];
+} else {
+	horiCurve = animcurve_get_channel(pixpope_lod_ac_approach, curve);
+	vertCurve = animcurve_get_channel(pixpope_lod_ac_approach, curve);
+}
 
 var _dir = point_direction(room_width/2, room_height/2, x, y);
 entryPoints = {

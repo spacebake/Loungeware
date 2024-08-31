@@ -3,7 +3,7 @@
 spawn.update();
 if(spawn.done) shrink.update();
 
-if(!___MG_MNGR.microgame_won) {
+if(!victory) {
 	x = lerp(start, xstart, spawn.getPosition())
 } else {
 	escape.update();

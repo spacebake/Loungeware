@@ -2,10 +2,7 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "pixpope_lod_obj_asteroid",
-  "spriteId": {
-    "name": "pixpope_lod_spr_asteroid",
-    "path": "sprites/pixpope_lod_spr_asteroid/pixpope_lod_spr_asteroid.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,

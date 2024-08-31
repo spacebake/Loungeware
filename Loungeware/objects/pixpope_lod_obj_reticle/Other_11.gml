@@ -38,6 +38,7 @@ fire = function(){
   targets = array_shuffle(targets);
   if(array_length(targets) == 0) exit;
   pixpope_array_foreach(targets, function(_x, _i){
+			_x.isDead = true;
       instance_create_depth(xstart, ystart, depth-1, pixpope_lod_obj_laser, {target: _x, delay: _i * -10});
   });
 
@@ -46,14 +47,19 @@ fire = function(){
 
 checkWin = function(){	
 	if(!visible) return;
+	
 	var _win = true
+	var _allDead = true;
 	with(pixpope_lod_obj_target){
-		if(visible) _win = false;	
+		if(!isDead) {_win = false;}
+		if(visible) {_allDead = false;}
 	}
 
 	if(_win){
 	  microgame_win()
-	  if(alarm[1] == -1)
-	    alarm[1] = 90;
+	}
+	if(_allDead && alarm[1] == -1) {
+	  alarm[1] = 90;
+		pixpope_lod_obj_player_ship.victory = true;
 	}	
 }

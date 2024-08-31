@@ -2,7 +2,7 @@
 // You can write your code in this editor
 
 
-if(!___MG_MNGR.microgame_won) {
+if(!victory) {
 	draw_set_color(c_white);
 	draw_set_alpha(lerp(1, 0, shrink.getPosition()));
 	draw_rectangle(lerp(start, x, shrink.getPosition()), bbox_top+4, x, bbox_bottom-4, false);

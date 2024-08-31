@@ -7,6 +7,7 @@ escapeShrink = new pixpope_timer(10,30, animcurve_get_channel(pixpope_lod_ac_gen
 start = -50;
 x = start;
 
+victory = false;
 
 
 
