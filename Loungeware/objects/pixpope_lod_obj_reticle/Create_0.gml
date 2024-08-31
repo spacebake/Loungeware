@@ -15,8 +15,8 @@ part_system_depth(partSystemBehind, layer_get_depth("Backgrounds_1")-1);
 
 list = ds_list_create()
 enemies = [
-	[layer_get_id("Difficulty1A"), layer_get_id("Difficulty1B"), layer_get_id("Difficulty1C")],
-	[layer_get_id("Difficulty2A"), layer_get_id("Difficulty2B"), layer_get_id("Difficulty2C"), layer_get_id("Difficulty2D"), layer_get_id("Difficulty2E")],
+	[layer_get_id("Difficulty1A"), layer_get_id("Difficulty1B"), layer_get_id("Difficulty1C"), layer_get_id("Difficulty1D")],
+	[layer_get_id("Difficulty2A"), layer_get_id("Difficulty2B"), layer_get_id("Difficulty2C"), layer_get_id("Difficulty2D"), layer_get_id("Difficulty2E"), layer_get_id("Difficulty2F")],
 	[layer_get_id("Difficulty3A"), layer_get_id("Difficulty3B")],
 	[layer_get_id("Difficulty4A"), layer_get_id("Difficulty4B")],
 	[layer_get_id("Difficulty5A"),  layer_get_id("Difficulty5B")]
