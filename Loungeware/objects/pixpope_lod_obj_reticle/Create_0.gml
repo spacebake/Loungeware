@@ -19,7 +19,7 @@ enemies = [
 	[layer_get_id("Difficulty2A"), layer_get_id("Difficulty2B"), layer_get_id("Difficulty2C"), layer_get_id("Difficulty2D"), layer_get_id("Difficulty2E")],
 	[layer_get_id("Difficulty3A"), layer_get_id("Difficulty3B")],
 	[layer_get_id("Difficulty4A"), layer_get_id("Difficulty4B")],
-	[layer_get_id("Difficulty5")]
+	[layer_get_id("Difficulty5A"),  layer_get_id("Difficulty5B")]
 ]
 
 //Deactivate all layers

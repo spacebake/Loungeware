@@ -847,6 +847,7 @@
     {"id":{"name":"katsaii_witchcraft_wanda_mouth_flipped","path":"sprites/katsaii_witchcraft_wanda_mouth_flipped/katsaii_witchcraft_wanda_mouth_flipped.yy",},"order":15,},
     {"id":{"name":"jdllama_unscrew_obj_game","path":"objects/jdllama_unscrew_obj_game/jdllama_unscrew_obj_game.yy",},"order":0,},
     {"id":{"name":"n8fl_escape3_label","path":"sprites/n8fl_escape3_label/n8fl_escape3_label.yy",},"order":1,},
+    {"id":{"name":"pixpope_lod_target_path_15","path":"paths/pixpope_lod_target_path_15/pixpope_lod_target_path_15.yy",},"order":14,},
     {"id":{"name":"n8fl_penguin_blast_player","path":"objects/n8fl_penguin_blast_player/n8fl_penguin_blast_player.yy",},"order":8,},
     {"id":{"name":"jdllama_hammer_rm","path":"rooms/jdllama_hammer_rm/jdllama_hammer_rm.yy",},"order":5,},
     {"id":{"name":"tfg_collision_spr_confetti_green","path":"sprites/tfg_collision_spr_confetti_green/tfg_collision_spr_confetti_green.yy",},"order":1,},
