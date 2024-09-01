@@ -57,8 +57,8 @@ microgame_register("pixpope_lockondragoon", {
   supports_difficulty_scaling: true,
   credits: ["Pixelated Pope", "Zandy", "Jamie Rowan",  "Pixel Planet Generator", "zapsplat.com"],
   date_added:{
-  	day : 3,
-  	month : 8,
+  	day : 1,
+  	month : 9,
   	year : 2024
   },
 	is_enabled: true,
