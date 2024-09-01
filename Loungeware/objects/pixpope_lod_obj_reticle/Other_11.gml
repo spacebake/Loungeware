@@ -9,7 +9,7 @@ updateLockOn = function(_lockOn){
   image_angle = lerp(image_angle, _lockOn ? 90 : 0, .2);
   image_yscale = image_xscale;
   image_blend = merge_color(image_blend, _lockOn ? #f45f5a : #f1f2db, .2);
-  
+  return 90 - image_angle < 1;
 }
 
 aquireTargets = function(){

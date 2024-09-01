@@ -3,7 +3,7 @@ checkWin();
 
 move()
 var _isLockOn = (KEY_PRIMARY || KEY_SECONDARY) && !instance_exists(pixpope_lod_obj_laser);
-updateLockOn(_isLockOn);
+var _fully = updateLockOn(_isLockOn);
 
-if(_isLockOn) aquireTargets();
+if(_fully) aquireTargets();
 if(KEY_PRIMARY_RELEASED || KEY_SECONDARY_RELEASED) fire();
