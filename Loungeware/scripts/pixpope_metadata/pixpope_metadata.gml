@@ -47,7 +47,7 @@ microgame_register("pixpope_lockondragoon", {
   view_width: -1,
   view_height: -1,
   time_seconds: 10,
-  music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
+  music_track: pixpope_lod_bgm_pantser_laroldgoon, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
   cartridge_col_primary: [116, 164, 60],
@@ -55,7 +55,7 @@ microgame_register("pixpope_lockondragoon", {
   cartridge_label: pixpope_lod_spr_cartridge,
   default_is_fail: true, // nullable, defaults to true
   supports_difficulty_scaling: true,
-  credits: ["Pixelated Pope", "Jamie Rowan", "Pixel Planet Generator", "zapsplat.com"],
+  credits: ["Pixelated Pope", "Zandy", "Jamie Rowan",  "Pixel Planet Generator", "zapsplat.com"],
   date_added:{
   	day : 3,
   	month : 8,

@@ -17,7 +17,7 @@
   "soundFile": "pixpope_lod_sfx_laser.mp3",
   "duration": 2.184,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Microgames/pixpope/Lock On Dragoon/SFX.yy",
+    "name": "Sound",
+    "path": "folders/Microgames/pixpope/Lock On Dragoon/Sound.yy",
   },
 }

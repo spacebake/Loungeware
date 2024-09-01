@@ -17,7 +17,7 @@
   "soundFile": "pixpope_lod_sfx_explosion.wav",
   "duration": 2.157938,
   "parent": {
-    "name": "SFX",
-    "path": "folders/Microgames/pixpope/Lock On Dragoon/SFX.yy",
+    "name": "Sound",
+    "path": "folders/Microgames/pixpope/Lock On Dragoon/Sound.yy",
   },
 }
