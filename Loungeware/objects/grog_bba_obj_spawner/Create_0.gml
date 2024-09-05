@@ -28,7 +28,16 @@ for (var i = 0; i < array_length(_layers); i++)
 		for (var j = 0; j < array_length(_object_array); j++)
 		{
 			var _object = 	layer_instance_get_instance(_object_array[j])
-			array_push(_pattern, { x: _object.x, y: _object.y, object: _object.object_index, image_xscale: _object.image_xscale })	
+			array_push(_pattern, { 
+				x: _object.x, 
+				y: _object.y, 
+				object: _object.object_index, 
+				image_xscale: _object.image_xscale,
+				image_yscale: _object.image_yscale,
+				duration:   _object[$ "duration"],
+				min_offset: _object[$ "min_offset"],
+				max_offset: _object[$ "max_offset"],
+				})	
 			
 	
 			
@@ -50,7 +59,16 @@ spawn_next_pattern = function(){
 	var _patterns =  array_shuffle(pattern_array)
 	
 	var _pattern = _patterns[0]
+	array_sort(_pattern, function(a, b){
+		if a.object == grog_bba_vertical_offseter
+			return -1
+		if b.object == grog_bba_vertical_offseter
+			return 1
+			
+		return 0 
+	})
 
+	var _y_offset = 0
 	for (var i = 0; i < array_length(_pattern); i++)
 	{
 		
@@ -61,14 +79,29 @@ spawn_next_pattern = function(){
 		var _object = _inst.object
 		
 		
-		var _spawned_inst = instance_create_depth(room_width+_x, _y, 0, _object, { image_xscale: _inst.image_xscale })
+
+		
+		var _spawned_inst = instance_create_depth(room_width+_x, _y + _y_offset, 0, _object, { image_xscale: _inst.image_xscale })
 		_spawned_inst.image_xscale = _inst.image_xscale
+		_spawned_inst.image_yscale = _inst.image_yscale
+		_spawned_inst.min_offset = _inst.min_offset
+		_spawned_inst.max_offset = _inst.max_offset
+		_spawned_inst.duration   = _inst.duration
 
 
 		if _object = grog_bba_obj_timer
 		{
 
 			_spawned_inst.on_done = spawn_next_pattern
+		}
+		
+		if _object = grog_bba_vertical_offseter {
+			with _spawned_inst {
+				var _min_range = bbox_top - (room_height/2)
+				var _max_range = bbox_bottom - (room_height/2)
+				_y_offset = random_range(_min_range, _max_range)
+				instance_destroy()
+			}
 		}
 
 	}
