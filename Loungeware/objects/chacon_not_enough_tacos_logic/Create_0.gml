@@ -7,7 +7,7 @@ sprite_subimage = 0;
 sprite_alpha = array_create(key_sequence_length, 1);
 fade_intensity = 0.3;
 
-show_sequence_time = 1.5;
+show_sequence_time = 2.5;
 start_game = false;
 
 sprite = noone;
@@ -23,9 +23,27 @@ draw_correct_key = false;
 
 alarm[0] = game_get_speed(gamespeed_fps) * show_sequence_time;
 
+sfx_play(chacon_not_enough_tacos_sound_clock);
+
 // Create sequence
 for (var i = 0; i < key_sequence_length; i++){
-	key_sequence[i] = choose(vk_left, vk_right, vk_up, vk_down, ord("Z"), ord("X"));
+	switch(DIFFICULTY){
+		case 1:
+			key_sequence[i] = choose(vk_left, vk_right);
+			break;
+		case 2:
+			key_sequence[i] = choose(vk_left, vk_right, vk_up);
+			break;
+		case 3:
+			key_sequence[i] = choose(vk_left, vk_right, vk_up, vk_down);
+			break;
+		case 4:
+			key_sequence[i] = choose(vk_left, vk_right, vk_up, vk_down, ord("Z"));
+			break;
+		case 5:
+			key_sequence[i] = choose(vk_left, vk_right, vk_up, vk_down, ord("Z"), ord("X"));
+			break;	
+	}
 }
 
 // Check if key pressed matches the sequence
