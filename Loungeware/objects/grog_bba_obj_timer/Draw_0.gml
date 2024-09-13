@@ -10,4 +10,4 @@ event_inherited();
 
 
 
-draw_rectangle(x,0, bbox_right, 10, false)
+//draw_rectangle(x,0, bbox_right, 10, false)

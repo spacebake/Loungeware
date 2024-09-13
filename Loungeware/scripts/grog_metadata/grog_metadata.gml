@@ -15,11 +15,11 @@ microgame_register("grog_game", {
   init_room: grog_bba_room,
   view_width: -1,
   view_height: -1,
-  time_seconds: 10,
+  time_seconds: 8,
   music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
-  cartridge_col_primary: [116, 164, 60],
+  cartridge_col_primary:   [116, 164, 60],
   cartridge_col_secondary: [71, 136, 23],
   cartridge_label: pixpope_hp_spr_label,
   default_is_fail: false, // nullable, defaults to true
