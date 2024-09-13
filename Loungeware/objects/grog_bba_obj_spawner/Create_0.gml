@@ -34,9 +34,9 @@ for (var i = 0; i < array_length(_layers); i++)
 				object: _object.object_index, 
 				image_xscale: _object.image_xscale,
 				image_yscale: _object.image_yscale,
-				duration:   _object[$ "duration"],
-				min_offset: _object[$ "min_offset"],
-				max_offset: _object[$ "max_offset"],
+				//duration:   _object[$ "duration"],
+				//min_offset: _object[$ "min_offset"],
+				//max_offset: _object[$ "max_offset"],
 				})	
 			
 	
@@ -84,9 +84,7 @@ spawn_next_pattern = function(){
 		var _spawned_inst = instance_create_depth(room_width+_x, _y + _y_offset, 0, _object, { image_xscale: _inst.image_xscale })
 		_spawned_inst.image_xscale = _inst.image_xscale
 		_spawned_inst.image_yscale = _inst.image_yscale
-		_spawned_inst.min_offset = _inst.min_offset
-		_spawned_inst.max_offset = _inst.max_offset
-		_spawned_inst.duration   = _inst.duration
+
 
 
 		if _object = grog_bba_obj_timer

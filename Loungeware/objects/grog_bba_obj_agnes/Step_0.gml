@@ -4,8 +4,16 @@
 if KEY_PRIMARY and in_control
 {
 	vspeed -= 1
-	clamp(speed, 0, 2)
+
+	speed = clamp(speed, 0, 4)
 }
+
+//if vspeed < 0
+//		image_angle = 10
+//else image_angle = 0
+
+
+image_angle = lerp(0, -55, vspeed / 7)
 
 gravity = .2
 

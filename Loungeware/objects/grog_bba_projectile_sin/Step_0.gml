@@ -2,4 +2,7 @@
 // You can write your code in this editor
 
 
-y = ystart + grog_sin_oscillate(min_offset,max_offset, duration)
+var _offset = 30
+
+
+y = ystart + grog_sin_oscillate(-_offset , _offset, 3)
