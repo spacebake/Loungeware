@@ -81,7 +81,7 @@ spawn_next_pattern = function(){
 		
 
 		
-		var _spawned_inst = instance_create_depth(room_width+_x, _y + _y_offset, 0, _object, { image_xscale: _inst.image_xscale })
+		var _spawned_inst = instance_create_depth(room_width+_x, _y + _y_offset, depth, _object, { image_xscale: _inst.image_xscale })
 		_spawned_inst.image_xscale = _inst.image_xscale
 		_spawned_inst.image_yscale = _inst.image_yscale
 

@@ -4,6 +4,26 @@
 tick++
 
 
+if freeze  != 0{
+	
+	freeze--
+	if freeze = 0 {
+		direction = random_range(100, 115)
+		speed = 10
+		
+		hspeed *= choose(1,-1)
+		spin_speed = 10
+		
+		microgame_fail()
+		if alarm[0] = -1
+			alarm[0] = 120
+		
+		
+	}
+	
+	exit
+}
+
 
 if tick mod 5 = 0{
 	
@@ -47,15 +67,21 @@ if KEY_PRIMARY and in_control
 
 if in_control
 	image_angle = lerp(0, -55, vspeed / 7)
-else image_angle += spin_speed
+else {
+	
+	part_particles_create(ps,x,y,global.grog_bba_smoke,1)
+	image_angle += spin_speed
+}
 
 gravity = .2
 
 var _buffer = 20
 if y > room_height + _buffer or y < 0 - _buffer
 {
-	//microgame_fail()
-	//microgame_end_early() 
+	microgame_fail()
+	if alarm[0] = -1
+		alarm[0] = 120
 }
+
 
 

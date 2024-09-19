@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "grog_bba_obj_projectile",
   "spriteId": {
-    "name": "grog_collider8",
-    "path": "sprites/grog_collider8/grog_collider8.yy",
+    "name": "grog_bba_brick",
+    "path": "sprites/grog_bba_brick/grog_bba_brick.yy",
   },
   "solid": false,
   "visible": true,
@@ -25,7 +25,6 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
   ],
   "properties": [],
