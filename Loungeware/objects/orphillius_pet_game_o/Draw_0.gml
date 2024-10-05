@@ -7,14 +7,14 @@ if request!=noone and instance_exists(pet){
 	draw_sprite_ext(request,0,xx,yy,drawscale,drawscale,request_angle,c_white,1)
 }
 
+draw_set_color(c_white)
 draw_set_font(fnt_impendium)
-var mx=rmw-96
+var mx=rmw-128-16
 var my=32
-
 for (var menuc=0;menuc<array_length(menu_options);menuc++){
-	draw_text_ext_transformed(mx,my,menu_options[menuc],0,420,2,2,0)
+	draw_text_ext_transformed(mx,my,menu_options[menuc],0,420,4,4,0)
 	if menuc=menu_current{
-		draw_sprite_ext(orphillius_pet_menu_select_s,floor(anim_c),mx-32,my+16,drawscale,drawscale,0,c_white,1)
+		draw_sprite_ext(orphillius_pet_menu_select_s,floor(anim_c),mx-32,my+32,drawscale,drawscale,0,c_white,1)
 	}
 	my+=32
 }

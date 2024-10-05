@@ -17,7 +17,8 @@ if successes>=success_req and !MICROGAME_WON{
 			dir+=360/15
 		}
 	}
-	sfx_play(orphillius_win)
+	sfx_play(orphillius_sfx_fwooh,gain)
+	//sfx_play(orphillius_win,gain)
 }
 if MICROGAME_WON{
 	with orphillius_pet_egg_o{	//makes smoke bits spin and disappear
@@ -25,6 +26,15 @@ if MICROGAME_WON{
 		image_xscale-=.07
 		image_yscale-=.07
 		if image_xscale<=.1{instance_destroy(id)}
+	}
+	postwin_c+=1	//counter to delay adult sfx
+	if postwin_c=10{
+		switch pet.sprite_index{
+			case orphillius_pet_adult_s: var sfx=orphillius_sfx_adult1;break
+			case orphillius_pet_adult2_s: var sfx=orphillius_sfx_adult2;break
+			case orphillius_pet_adult3_s: var sfx=orphillius_sfx_adult3;break
+		}
+		sfx_play(sfx,gain*1.2)
 	}
 	exit
 }
@@ -34,13 +44,14 @@ switch game_phase{
 		egg=instance_create_depth(rmw/2,0,0,orphillius_pet_egg_o)
 		egg.yspd=2
 		egg.image_xscale=drawscale;		egg.image_yscale=drawscale
-
+		sfx_play(orphillius_sfx_item_throw,gain)
 		game_phase+=1
 	break;
 	case 1:	//eggs falls and explodes, create baby
 		egg.yspd+=.5
 		egg.y+=egg.yspd
 		if egg.y>=floory{
+			sfx_play(orphillius_sfx_egg_crack,gain)
 			////creates egg shell bits that go flying away
 			egg.image_index=1
 			var shell=instance_create_depth(egg.x,egg.y,egg.depth+5,orphillius_pet_egg_o)
@@ -66,7 +77,6 @@ switch game_phase{
 	break;
 	case 2:	//pet makes requests and creates poop
 		action_c+=1
-		show_debug_message(action_c)
 		if action_c>=action_timer{
 			pet.sprite_index=orphillius_pet_baby_s
 			action_c=0
@@ -74,12 +84,13 @@ switch game_phase{
 			if request=noone{
 				array_push(choices,"request","request")
 			}
-			if !instance_exists(orphillius_pet_poop_o){array_push(choices,"poop")}
+			if !instance_exists(orphillius_pet_poop_o) and poops_pooped<poops_possible{array_push(choices,"poop")}
 			var choice=noone
 			if array_length(choices)>0{choice=choices[irandom(array_length(choices)-1)]}
 			switch choice{
 				case "request":
 					request=choose(orphillius_pet_play_s,orphillius_pet_food_s)
+					sfx_play(orphillius_sfx_request_appears,gain)
 				break
 				case "poop":
 					with instance_create_depth(pet.x,pet.y,pet.depth+5,orphillius_pet_poop_o){
@@ -88,6 +99,8 @@ switch game_phase{
 						speed=irandom_range(6,8)
 						friction=.2
 					}
+					poops_pooped+=1
+					sfx_play(orphillius_sfx_poop,gain)
 				break
 			}
 		}
@@ -105,14 +118,22 @@ with orphillius_pet_egg_o if image_index!=0{	//destroying egg bits
 
 ////controls
 //menu scroll
-if KEY_DOWN_PRESSED{menu_current+=1;	if menu_current>=array_length(menu_options){menu_current=0}}
-if KEY_UP_PRESSED{menu_current-=1;		if menu_current<0{menu_current=array_length(menu_options)-1}}
+if KEY_DOWN_PRESSED{
+	menu_current+=1;	if menu_current>=array_length(menu_options){menu_current=0}
+	sfx_play(orphillius_sfx_menu_blip,gain)
+}
+if KEY_UP_PRESSED{
+	menu_current-=1;		if menu_current<0{menu_current=array_length(menu_options)-1}
+	sfx_play(orphillius_sfx_menu_blip,gain)
+}
 //menu select
 if instance_exists(pet) and (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED){
+	sfx_play(orphillius_sfx_menu_blip2,gain)
 	switch menu_options[menu_current]{
 		case "Feed":
 			if request!=noone and !instance_exists(orphillius_pet_item_o){
 				with instance_create_depth(0,0,-100,orphillius_pet_item_o){sprite_index=orphillius_pet_food_s}
+				sfx_play(orphillius_sfx_item_throw,gain)
 				action_c=0
 				if request=orphillius_pet_food_s{	//correct request chosen
 					successes+=1
@@ -124,7 +145,7 @@ if instance_exists(pet) and (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED){
 			}
 		break
 		case "Clean":
-			if instance_exists(orphillius_pet_poop_o){	//cleaning poop
+			if instance_exists(orphillius_pet_poop_o) and orphillius_pet_poop_o.anim=noone{	//cleaning poop
 				orphillius_pet_poop_o.anim=1
 				successes+=1
 				action_c=0
@@ -133,6 +154,7 @@ if instance_exists(pet) and (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED){
 		case "Play":
 			if request!=noone and !instance_exists(orphillius_pet_item_o){
 				with instance_create_depth(0,0,-100,orphillius_pet_item_o){sprite_index=orphillius_pet_play_s}
+				sfx_play(orphillius_sfx_item_throw,gain)
 				action_c=0
 				if request=orphillius_pet_play_s{	//correct request chosen
 					successes+=1

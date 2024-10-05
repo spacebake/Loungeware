@@ -3,6 +3,8 @@ rmh=320
 
 drawscale=4
 
+gain=1
+
 //game_phases:
 //	egg falling, cracks at floor
 //	creature care, player must perform tasks depending on creature's state
@@ -44,5 +46,8 @@ switch DIFFICULTY{
 		success_req=7
 	break;
 }
-
+poops_possible=max(1,round(success_req/3))	//max number of poops poopable
+if DIFFICULTY=5{poops_possible+=1}
+poops_pooped=0								//tracks poops pooped
 successes=0
+postwin_c=0

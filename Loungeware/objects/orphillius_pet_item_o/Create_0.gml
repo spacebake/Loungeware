@@ -2,6 +2,7 @@ game=orphillius_pet_game_o
 rmw=game.rmw
 rmh=game.rmh
 pet=game.pet
+gain=game.gain
 
 startx=choose(16,rmw-16)
 starty=irandom_range(rmh-32,32)
