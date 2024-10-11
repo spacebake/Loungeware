@@ -2,8 +2,6 @@
 // You can write your code in this editor
 
 
-hspeed = -2 - (DIFFICULTY*.35)
 
-
-image_blend = make_colour_hsv(irandom(255), 55, 255)
-
+if !grog_bba_obj_agnes.in_control
+	hspeed = 0

@@ -25,10 +25,10 @@ if freeze  != 0{
 }
 
 
-if tick mod 5 = 0{
+if tick mod 5 = 0 and on_broom {
 	
-	var _x = x+lengthdir_x(25,image_angle+170)
-	var _y = y+lengthdir_y(25,image_angle+170)
+	var _x = x+lengthdir_x(35,image_angle+180)
+	var _y = y+lengthdir_y(35,image_angle+180)
 	
 	var _sprite = choose(grog_bba_spr_sparkle1,grog_bba_spr_sparkle2, grog_bba_spr_sparkle3,grog_bba_spr_sparkle4, grog_bba_spr_sparkle5)
 	instance_create_depth(_x,_y,depth+1,grog_bba_fx, { sprite_index: _sprite, hspeed: random_range(-1,-3) })
@@ -69,6 +69,7 @@ if in_control
 	image_angle = lerp(0, -55, vspeed / 7)
 else {
 	
+
 	part_particles_create(ps,x,y,global.grog_bba_smoke,1)
 	image_angle += spin_speed
 }
@@ -78,9 +79,14 @@ gravity = .2
 var _buffer = 20
 if y > room_height + _buffer or y < 0 - _buffer
 {
+	
 	microgame_fail()
 	if alarm[0] = -1
+	{
+
 		alarm[0] = 120
+		
+	}
 }
 
 

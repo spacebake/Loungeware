@@ -9,9 +9,9 @@
 
 microgame_register("grog_game", {
   config_version: 1,
-  game_name: "Grog Game",
-  authors : {grog: "Grog"},
-  prompt: "PRESS BUTTON",
+  game_name: "Broom Breaker",
+  authors : {grog: "Grog, Pixelated Pope, Louie Ortiz"},
+  prompt: "FLY",
   init_room: grog_bba_room,
   view_width: -1,
   view_height: -1,
@@ -19,12 +19,12 @@ microgame_register("grog_game", {
   music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
-  cartridge_col_primary:   [116, 164, 60],
-  cartridge_col_secondary: [71, 136, 23],
-  cartridge_label: pixpope_hp_spr_label,
+  cartridge_col_primary:   [238, 150, 250],
+  cartridge_col_secondary: [118, 66, 138],
+  cartridge_label: grog_bba_cart,
   default_is_fail: false, // nullable, defaults to true
   supports_difficulty_scaling: true,
-  credits: ["Grog", "Pope"],
+  credits: ["Grog", "Pixelated Pope", "Louie Ortiz"],
   date_added:{
   	day : 22,
   	month : 8,

@@ -68,7 +68,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "grog",
-    "path": "folders/Microgames/grog.yy",
+    "name": "backgrounds",
+    "path": "folders/Microgames/grog/backgrounds.yy",
   },
 }

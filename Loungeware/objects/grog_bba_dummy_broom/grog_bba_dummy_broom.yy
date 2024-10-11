@@ -1,11 +1,8 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "grog_bba_obj_projectile",
-  "spriteId": {
-    "name": "grog_bba_brick",
-    "path": "sprites/grog_bba_brick/grog_bba_brick.yy",
-  },
+  "name": "grog_bba_dummy_broom",
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "managed": true,
@@ -24,14 +21,11 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "grog",
-    "path": "folders/Microgames/grog.yy",
+    "name": "Broom",
+    "path": "folders/Microgames/grog/Agnes/Broom.yy",
   },
 }

@@ -8,7 +8,7 @@ start_x = -59
 start_y = y - 60
 
 tick = 0 
-flyin_length = 1.2 * room_speed
+flyin_length = lerp(1.2, .8, (DIFFICULTY - 1) / 4) * room_speed
 
 
 freeze = 0
@@ -21,6 +21,10 @@ y = start_y
 
 
 in_control = true
+on_broom = true
+
+broom = choose(grog_bba_broom, grog_bba_lunar_broom, grog_bba_star_broom)
+broom_end = sprite_get_width(broom) - sprite_get_xoffset(broom)
 
 
 ps = part_system_create()

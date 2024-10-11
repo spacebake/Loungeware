@@ -3,10 +3,24 @@
 
 if !in_control exit
 in_control = false
+layer_hspeed("bg_foreground", -1.5)
+
 
 speed = 0
 gravity = 0
 freeze = 30
+
+
+var _x = x+lengthdir_x(broom_end,image_angle)
+var _y = y+lengthdir_y(broom_end,image_angle)
+
+if position_meeting(_x, _y, grog_bba_obj_projectile)
+{
+	on_broom = false
+	instance_create_depth(x,y, other.depth+1,grog_bba_dummy_broom, { sprite_index: broom, image_angle: image_angle }) 
+}
+
+
 
 pixpope_lod_obj_camera.flash(3)
 pixpope_lod_obj_camera.start(0, 20)

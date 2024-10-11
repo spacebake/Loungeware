@@ -77,6 +77,6 @@
   "nineSlice": null,
   "parent": {
     "name": "Sparkles",
-    "path": "folders/Microgames/grog/Agnes/Sparkles.yy",
+    "path": "folders/Microgames/grog/Agnes/Broom/Sparkles.yy",
   },
 }

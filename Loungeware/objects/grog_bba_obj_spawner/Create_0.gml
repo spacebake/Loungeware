@@ -109,3 +109,11 @@ spawn_next_pattern = function(){
 
 
 spawn_next_pattern()
+
+
+
+layer_hspeed("bg_foreground", lerp(-3, -5, DIFFICULTY/5))
+
+
+
+
