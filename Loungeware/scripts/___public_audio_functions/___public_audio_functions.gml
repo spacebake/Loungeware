@@ -86,3 +86,5 @@ function microgame_sfx_set_gain(_snd_id, _vol, _time=0){
 	audio_sound_gain(_snd_id, _vol * _mixer_vol * VOL_SFX * VOL_MASTER, _time);
 }
 
+
+

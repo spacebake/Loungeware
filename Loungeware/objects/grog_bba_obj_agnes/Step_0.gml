@@ -5,6 +5,8 @@ tick++
 
 var _ascend = (KEY_PRIMARY or KEY_SECONDARY or KEY_UP)
 
+var _ascend_press = (KEY_PRIMARY_PRESSED or KEY_PRIMARY_PRESSED or KEY_UP_PRESSED)
+
 
 if freeze  != 0{
 	
@@ -12,6 +14,8 @@ if freeze  != 0{
 	if freeze = 0 {
 		direction = random_range(100, 115)
 		speed = 10
+		
+		sfx_play(grog_bba_sfx_launch)
 		
 		hspeed *= choose(1,-1)
 		spin_speed = 10
@@ -62,13 +66,36 @@ var _curve = animcurve_get_channel(pixpope_lod_ac_approach, "back")
 	else exit
 }
 
+if _ascend_press {
+	
+	//if !audio_is_playing(grog_bba_sfx_ascend)
+	//{
+	
+		sfx_stop(sfx_id)
+		show_debug_message("start")
+		sfx_id = sfx_play(grog_bba_sfx_ascend,1,true)
+	//}
+	microgame_sfx_set_gain(sfx_id, 1, 0)
+}
+
 
 if _ascend and in_control
 {
+	
+
 	vspeed -= 1
 
 	speed = clamp(speed, 0, 4)
-	
+}
+else {
+	if audio_is_playing(sfx_id)
+	{
+		microgame_sfx_set_gain(sfx_id, 0, 300)
+		if audio_sound_get_gain(sfx_id) = 0
+		{
+			sfx_stop(sfx_id)
+		}
+	}
 }
 
 //if vspeed < 0

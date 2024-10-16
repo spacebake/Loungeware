@@ -20,7 +20,8 @@ x = start_x
 y = start_y
 
 
-
+sfx_id = noone
+sfx_vol = 1
 in_control = true
 on_broom = true
 

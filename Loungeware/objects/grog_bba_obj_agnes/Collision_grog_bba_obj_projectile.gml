@@ -12,6 +12,8 @@ speed = 0
 gravity = 0
 freeze = 30
 
+sfx_play(grog_bba_sfx_crash)
+
 
 var _x = x+lengthdir_x(broom_end,image_angle)
 var _y = y+lengthdir_y(broom_end,image_angle)
