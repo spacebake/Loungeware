@@ -3,6 +3,8 @@
 
 tick++
 
+var _ascend = (KEY_PRIMARY or KEY_SECONDARY or KEY_UP)
+
 
 if freeze  != 0{
 	
@@ -25,13 +27,20 @@ if freeze  != 0{
 }
 
 
-if tick mod 5 = 0 and on_broom {
+var _rate = 7 - (4 * _ascend)
+if tick mod _rate = 0 and on_broom {
 	
 	var _x = x+lengthdir_x(35,image_angle+180)
 	var _y = y+lengthdir_y(35,image_angle+180)
 	
 	var _sprite = choose(grog_bba_spr_sparkle1,grog_bba_spr_sparkle2, grog_bba_spr_sparkle3,grog_bba_spr_sparkle4, grog_bba_spr_sparkle5)
-	instance_create_depth(_x,_y,depth+1,grog_bba_fx, { sprite_index: _sprite, hspeed: random_range(-1,-3) })
+	instance_create_depth(_x,_y,depth+1,grog_bba_fx, { 
+		sprite_index: _sprite, 
+		hspeed: random_range(-1,-2) - (3*_ascend),
+		image_angle: choose(0, 90, 180, 270)
+		
+		
+		})
 	
 }
 
@@ -54,11 +63,12 @@ var _curve = animcurve_get_channel(pixpope_lod_ac_approach, "back")
 }
 
 
-if KEY_PRIMARY and in_control
+if _ascend and in_control
 {
 	vspeed -= 1
 
 	speed = clamp(speed, 0, 4)
+	
 }
 
 //if vspeed < 0

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "grog_bba_spr_agnes",
+  "name": "grog_bba_spr_agnes_hit",
   "bboxMode": 2,
   "collisionKind": 5,
   "type": 0,
@@ -33,7 +33,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "grog_bba_spr_agnes",
+    "name": "grog_bba_spr_agnes_hit",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -45,7 +45,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e326237f-b53b-4134-ba82-9ddde444bc3c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e0a9062-c371-4df2-b85d-9efd10f46d67","path":"sprites/grog_bba_spr_agnes/grog_bba_spr_agnes.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"99881e89-c438-44e4-9c59-1b689bde5b87","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8e0a9062-c371-4df2-b85d-9efd10f46d67","path":"sprites/grog_bba_spr_agnes_hit/grog_bba_spr_agnes_hit.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,

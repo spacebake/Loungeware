@@ -16,10 +16,10 @@ microgame_register("grog_game", {
   view_width: -1,
   view_height: -1,
   time_seconds: 8,
-  music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
+  music_track: grog_bba_bgm, // nullable, defaults to noone. Accepts: sound name or false
   music_loops: false, // nullable, defaults to true
   interpolation_on: false,
-  cartridge_col_primary:   [238, 150, 250],
+  cartridge_col_primary:   [215, 123, 186],
   cartridge_col_secondary: [118, 66, 138],
   cartridge_label: grog_bba_cart,
   default_is_fail: false, // nullable, defaults to true
