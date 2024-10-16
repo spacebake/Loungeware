@@ -82,10 +82,6 @@ else {
 
 	part_particles_create(ps,x,y,global.grog_bba_smoke,1)
 	image_angle += spin_speed
-	
-	
-	//bgm_pitch = lerp(bgm_pitch, .5, .35)
-	//audio_sound_pitch(___MG_MNGR.microgame_music, bgm_pitch)
 }
 
 gravity = .2

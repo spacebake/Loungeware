@@ -5,8 +5,6 @@ if !in_control exit
 in_control = false
 layer_hspeed("bg_foreground", -1.5)
 
-audio_sound_pitch(___MG_MNGR.microgame_music, .5)
-
 sprite_index = grog_bba_spr_agnes_hit
 speed = 0
 gravity = 0

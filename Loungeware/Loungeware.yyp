@@ -819,6 +819,7 @@
     {"id":{"name":"giz_laronin_snd_lose","path":"sounds/giz_laronin_snd_lose/giz_laronin_snd_lose.yy",},"order":1,},
     {"id":{"name":"sng_zandy_space_lullaby","path":"sounds/sng_zandy_space_lullaby/sng_zandy_space_lullaby.yy",},"order":23,},
     {"id":{"name":"space_scooter_snd_land","path":"sounds/space_scooter_snd_land/space_scooter_snd_land.yy",},"order":3,},
+    {"id":{"name":"grog_bba_obj_agnes343","path":"objects/grog_bba_obj_agnes343/grog_bba_obj_agnes343.yy",},"order":6,},
     {"id":{"name":"pixpope_lod_spr_target","path":"sprites/pixpope_lod_spr_target/pixpope_lod_spr_target.yy",},"order":2,},
     {"id":{"name":"wae_snd_missle_shoot","path":"sounds/wae_snd_missle_shoot/wae_snd_missle_shoot.yy",},"order":24,},
     {"id":{"name":"space_ll_snd_baku_land","path":"sounds/space_ll_snd_baku_land/space_ll_snd_baku_land.yy",},"order":1,},

@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-bgm_pitch = 1
 
 flyin = true
 
