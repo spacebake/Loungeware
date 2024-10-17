@@ -1,4 +1,4 @@
-/// @description
+ /// @description
 state = 0;
 
 activeLayer = layer_get_id("HereticsEasy");

@@ -1,8 +1,5 @@
 {
-  "extensionId": {
-    "name": "ImageLoadBar",
-    "path": "extensions/ImageLoadBar/ImageLoadBar.yy"
-  },
+  "extensionId": null,
   "resourceVersion": "1.0",
   "resourceType": "GMExtensionConfigSet",
   "configurables": null
