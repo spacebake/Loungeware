@@ -5,7 +5,7 @@ tick++
 
 var _ascend = (KEY_PRIMARY or KEY_SECONDARY or KEY_UP)
 
-var _ascend_press = (KEY_PRIMARY_PRESSED or KEY_PRIMARY_PRESSED or KEY_UP_PRESSED)
+var _ascend_press = (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED or KEY_UP_PRESSED)
 
 
 if freeze  != 0{
@@ -66,7 +66,7 @@ var _curve = animcurve_get_channel(pixpope_lod_ac_approach, "back")
 	else exit
 }
 
-if _ascend_press {
+if _ascend_press and in_control {
 	
 	//if !audio_is_playing(grog_bba_sfx_ascend)
 	//{

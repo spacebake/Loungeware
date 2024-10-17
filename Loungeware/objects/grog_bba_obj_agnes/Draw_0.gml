@@ -8,8 +8,8 @@ if on_broom
 
 draw_self()
 
-draw_set_colour(c_magenta)
-var _x = x+lengthdir_x(broom_end,image_angle)
-var _y = y+lengthdir_y(broom_end,image_angle)
+//draw_set_colour(c_magenta)
+//var _x = x+lengthdir_x(broom_end,image_angle)
+//var _y = y+lengthdir_y(broom_end,image_angle)
 
-draw_point(_x, _y)
+//draw_point(_x, _y)
