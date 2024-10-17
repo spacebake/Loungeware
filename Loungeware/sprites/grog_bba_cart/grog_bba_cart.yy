@@ -71,7 +71,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "grog",
-    "path": "folders/Microgames/grog.yy",
+    "name": "sprites",
+    "path": "folders/Microgames/grog/sprites.yy",
   },
 }

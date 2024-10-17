@@ -10,7 +10,7 @@
 microgame_register("grog_game", {
   config_version: 1,
   game_name: "Broom Breaker",
-  authors : {grog: "Grog, Pixelated Pope, Louie Ortiz"},
+  authors : {grog: "Grog", pixpope: "Pixelated Pope"},
   prompt: "FLY",
   init_room: grog_bba_room,
   view_width: -1,
@@ -26,8 +26,8 @@ microgame_register("grog_game", {
   supports_difficulty_scaling: true,
   credits: ["Grog", "Pixelated Pope", "Louie Ortiz"],
   date_added:{
-  	day : 22,
-  	month : 8,
+  	day : 17,
+  	month : 10,
   	year : 2024
   },
 	is_enabled: true,
@@ -35,6 +35,6 @@ microgame_register("grog_game", {
 	allow_subpixels: true,
 	supports_pi: true,
 	show_on_website: true,
-	description: ["Build up enough holy energy to purge the heretics!"],
-	how_to_play: ["Press A and B alternating as quickly as possible!"]
+	description: ["Fly between oncoming walls."],
+	how_to_play: ["Press A to ascend while avoiding oncoming walls."]
 });
