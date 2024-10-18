@@ -7,7 +7,7 @@
 //// https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
 
-microgame_register("grog_game", {
+microgame_register("grog_broombreaker", {
   config_version: 1,
   game_name: "Broom Breaker",
   authors : {grog: "Grog", pixpope: "Pixelated Pope"},
