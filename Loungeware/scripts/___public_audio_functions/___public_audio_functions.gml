@@ -31,7 +31,6 @@ function sfx_play(_snd_index, _vol=1, _loop=false, _pitch=1){
 /// @param {sound}  _snd     the unique sound id to stop
 /// @param {number}  _time    The time in milseconds it should take to fade the sound out (0 is instant)
 function sfx_stop(_snd_id, _time=0){
-	audio_stop_sound(_snd_id);
 	audio_sound_gain(_snd_id, 0, _time);
 	ds_list_add(___global.___song_stop_list, _snd_id);
 }

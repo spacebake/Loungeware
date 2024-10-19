@@ -10,7 +10,9 @@ for (var i = 0; i < ds_list_size(___song_stop_list); i++){
 	
 	var _vol = audio_sound_get_gain(_sng);
 	if (_vol <= 0){
-		audio_stop_sound(_sng);
+		if (os_browser != browser_not_a_browser) {
+			audio_stop_sound(_sng);
+		}
 		ds_list_delete(___song_stop_list, i--);
 	}
 }

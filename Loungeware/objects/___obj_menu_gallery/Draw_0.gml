@@ -32,7 +32,7 @@ if (state == "normal"){
 	if (difficulty != _store_diff) ___sound_menu_tick_horizontal();
 
 	// confirm button
-	if (KEY_PRIMARY_PRESSED){
+	if (KEY_PRIMARY_PRESSED || KEY_CONFIRM_PRESSED){
 		state = "move_cart";
 		// stop sound
 		audio_sound_gain(sng_id, 0, 300);

@@ -49,7 +49,7 @@ if (state == "begin"){
 	}
 	
 	// check for confirm
-	var _confirm = (KEY_PRIMARY_PRESSED || ___KEY_PAUSE_PRESSED) && (menu_active);
+	var _confirm = (KEY_PRIMARY_PRESSED || KEY_CONFIRM_PRESSED) && (menu_active);
 	if (_confirm){
 		if (menu[cursor].action != ___noop){
 			// stop sound

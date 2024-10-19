@@ -67,11 +67,11 @@ var _curve = animcurve_get_channel(pixpope_lod_ac_approach, "back")
 }
 
 if _ascend_press and in_control {
-	
 	//if !audio_is_playing(grog_bba_sfx_ascend)
 	//{
-	
+	if (sfx_id != noone) {
 		sfx_stop(sfx_id)
+	}
 		show_debug_message("start")
 		sfx_id = sfx_play(grog_bba_sfx_ascend,1,true)
 	//}

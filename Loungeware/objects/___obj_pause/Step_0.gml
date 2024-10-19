@@ -43,7 +43,7 @@ if (state == "wait"){
 if (state == "paused"){
 	
 	var _vmove = -KEY_UP + KEY_DOWN;
-	var _confirm = KEY_PRIMARY_PRESSED;
+	var _confirm = KEY_PRIMARY_PRESSED || KEY_CONFIRM_PRESSED;
 	var _menu_len = array_length(menu);
 	var _type = menu[cursor].menu_type;
 	

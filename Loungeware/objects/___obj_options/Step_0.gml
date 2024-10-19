@@ -11,7 +11,7 @@ if (state == "normal") {
 	cursor = (cursor + dy) % array_length(menu);
 	if (cursor < 0) {cursor = array_length(menu)-1;}
 	
-	if (KEY_PRIMARY_PRESSED) {
+	if (KEY_PRIMARY_PRESSED || KEY_CONFIRM_PRESSED) {
 		op_result = menu[cursor].op();
 		if (op_result != "noop") {
 			confirmed = true;

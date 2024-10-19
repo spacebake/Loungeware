@@ -14,6 +14,11 @@
 #macro KEY_SECONDARY_PRESSED ___macro_any_check_pressed("secondary")
 #macro KEY_SECONDARY_RELEASED ___macro_any_check_released("secondary")
 
+// key confirm ( ENTER ) 
+#macro KEY_CONFIRM ___macro_any_check("confirm")
+#macro KEY_CONFIRM_PRESSED ___macro_any_check_pressed("confirm")
+#macro KEY_CONFIRM_RELEASED ___macro_any_check_released("confirm")
+
 
 // key right
 #macro KEY_RIGHT ___macro_any_check("right")
