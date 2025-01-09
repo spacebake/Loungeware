@@ -1,10 +1,31 @@
 /// @description Init State and Timing
 
-var _gameDuration = 6; // total game time
+// ALL TIMES IN SECONDS
+
 state_timer = 0; // when this timer passes
-
-suspicion_threshold = 0.5; // the time in seconds 
-grace_period = 0.1; // the time in seconds between teacher turning and checking if you are mashing
+currently_sus = false;
 
 
-///TO DO: FIGURE OUT HOW TO MANAGE TEACHER STATE AND TIMING
+// max allowable time where you can keep mashing and not get caught while teacher is in sus state
+suspicion_threshold = 0.4;
+mashing_while_sus_stopwatch = 0;
+
+// time spent lost (only let player view loss screen for a few seconds)
+loss_timer = 0;
+loss_viewtime = 2;
+
+//// Todo: Make a function that randomly sets the timing array based on these params
+bookend_time = 0.25; // don't trigger suspicious state for the first or last X seconds of the game
+min_sus_duration = 0.4; 
+max_sus_duration = 1;
+min_gap_between_sus_states = 0.4; 
+max_gap_between_sus_states = 1.5;
+num_sus_states = 3;
+/* 
+if you change the above parameters, ensure that bookend_time * 2 + 
+num_sus_states * (max_gapbetween_sus_states + max_sus_duration) <= the microgame's total duration
+*/
+
+timeline_pos = 0;
+toggle_suspicion_times = generate_sus_timeline(); // This will contain each timestamp at which the sus state will swap
+max_timeline_pos = array_length(toggle_suspicion_times);

@@ -15,7 +15,7 @@ microgame_register("noah_cheat", {
     init_room: noah_cheat_rm_main,
     view_width: 480,
     view_height: 320,
-    time_seconds: 6,
+    time_seconds: 8,
     music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: true, // nullable, defaults to true
     interpolation_on: false,
