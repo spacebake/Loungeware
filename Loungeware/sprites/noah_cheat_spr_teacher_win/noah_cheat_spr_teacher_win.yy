@@ -10,16 +10,16 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 10,
-  "bbox_right": 81,
-  "bbox_top": 7,
-  "bbox_bottom": 238,
+  "bbox_left": 3,
+  "bbox_right": 71,
+  "bbox_top": 2,
+  "bbox_bottom": 217,
   "HTile": false,
   "VTile": false,
   "For3D": false,
   "DynamicTexturePage": false,
-  "width": 120,
-  "height": 239,
+  "width": 80,
+  "height": 219,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -28,8 +28,8 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0a227405-0669-4ab6-a00d-ed5045a43624",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"fb76dcb6-8cfe-4d74-b5b7-c44923a17387",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0598a171-753d-49f7-9c92-85a1a4c7282a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"caeb25f1-6953-460f-99c6-897ab6fceafe",},
   ],
   "sequence": {
     "resourceType": "GMSequence",
@@ -37,7 +37,7 @@
     "name": "noah_cheat_spr_teacher_win",
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 10.0,
+    "playbackSpeed": 5.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -46,8 +46,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"f302b893-fef7-4857-b216-be04713d437c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0a227405-0669-4ab6-a00d-ed5045a43624","path":"sprites/noah_cheat_spr_teacher_win/noah_cheat_spr_teacher_win.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-            {"id":"b55d0ab1-bb88-429f-bb95-6ef7473c3bf4","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fb76dcb6-8cfe-4d74-b5b7-c44923a17387","path":"sprites/noah_cheat_spr_teacher_win/noah_cheat_spr_teacher_win.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"f8a5eba7-4734-49c3-9eae-6f384e71494c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0598a171-753d-49f7-9c92-85a1a4c7282a","path":"sprites/noah_cheat_spr_teacher_win/noah_cheat_spr_teacher_win.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"c500621f-7a74-4297-b313-82e56a8c3ea1","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"caeb25f1-6953-460f-99c6-897ab6fceafe","path":"sprites/noah_cheat_spr_teacher_win/noah_cheat_spr_teacher_win.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
@@ -66,7 +66,7 @@
     "eventStubScript": null,
   },
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b1602545-5b08-4abb-9e57-8b0218866a86","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0921e26f-1fe1-49a1-8753-528effaab1aa","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {

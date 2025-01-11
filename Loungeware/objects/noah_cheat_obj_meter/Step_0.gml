@@ -4,7 +4,7 @@
 if (game_active)
 {
 	// handle input
-	if (KEY_ANY_PRESSED)
+	if (KEY_DOWN_PRESSED)
 	{
 		input_count ++;
 		input_count = clamp(input_count, 0, input_goal);
@@ -33,4 +33,14 @@ if (meter_fill == 1)
 	game_active = false;
 	game_result_win = true;
 	microgame_win();
+}
+
+if (currently_mashing and game_active)
+{
+	noah_cheat_scr_shake();
+}
+else
+{
+	x = init_x;
+	y = init_y;
 }

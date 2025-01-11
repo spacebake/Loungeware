@@ -11,6 +11,7 @@ if (noah_cheat_obj_meter.game_active)
 			timeline_pos ++;
 			currently_sus = !currently_sus;
 			// Update sprite
+			image_index = 0;
 			sprite_index = (currently_sus)?(noah_cheat_spr_teacher_sus):(noah_cheat_spr_teacher_idle);
 		}
 	}
@@ -24,6 +25,7 @@ if (noah_cheat_obj_meter.game_active)
 			{
 				// Enter lose state
 				microgame_fail();
+				image_index = 0;
 				sprite_index = noah_cheat_spr_teacher_watch;
 				noah_cheat_obj_meter.game_result_win = false;
 				noah_cheat_obj_meter.game_active = false;
@@ -39,7 +41,17 @@ else
 {
 	if (noah_cheat_obj_meter.game_result_win)
 	{
-		sprite_index = noah_cheat_spr_teacher_win;
+		if (!set_win_sprite)
+		{
+			image_index = 0;
+			sprite_index = noah_cheat_spr_teacher_win;
+			set_win_sprite = true;
+		}
+		loss_timer += delta_time / 1000000;
+		if (loss_timer >= loss_viewtime)
+		{
+			microgame_end_early(); // no need to wait around all day
+		}
 	}
 	else
 	{
@@ -51,3 +63,7 @@ else
 	}
 }
 
+if (sprite_index == noah_cheat_spr_teacher_rage)
+{
+	noah_cheat_scr_shake();
+}
