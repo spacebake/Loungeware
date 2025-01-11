@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "noah_cheat_obj_meter",
   "spriteId": {
-    "name": "noah_cheat_spr_meter_frame",
-    "path": "sprites/noah_cheat_spr_meter_frame/noah_cheat_spr_meter_frame.yy",
+    "name": "noah_cheat_spr_meter_paper",
+    "path": "sprites/noah_cheat_spr_meter_paper/noah_cheat_spr_meter_paper.yy",
   },
   "solid": false,
   "visible": true,

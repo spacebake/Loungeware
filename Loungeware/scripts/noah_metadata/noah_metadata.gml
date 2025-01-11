@@ -17,14 +17,14 @@ microgame_register("noah_cheat", {
     view_height: 320,
     time_seconds: 8,
     music_track: noone, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: true, // nullable, defaults to true
+    music_loops: false, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [50, 44, 63],
-    cartridge_col_secondary: [168, 84, 100],
-    cartridge_label: johndoe_examplegame_spr_label,
+    cartridge_col_primary: [80, 148, 80],
+    cartridge_col_secondary: [57, 104, 56],
+    cartridge_label: noah_cheat_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
-    credits: ["Noah R. - programming", "Water - graphics", "sidetilt - audio"],
+    credits: ["Noah R. - programming", "Water (Imp) - graphics", "sidetilt - audio"],
     date_added:{
 	  day : 7,
 	  month : 1,
@@ -38,6 +38,6 @@ microgame_register("noah_cheat", {
 		"You forgot to study! Cheat on your test, but don't let teacher catch you.", 
 	],
 	how_to_play: [
-		"Mash buttons to cheat. Don't cheat when teacher turns around."
+		"Mash the DOWN key to cheat. Don't cheat when teacher is watching."
 	]
 });

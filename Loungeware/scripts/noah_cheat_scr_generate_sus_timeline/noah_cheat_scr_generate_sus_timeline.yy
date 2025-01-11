@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "noah_cheat_sounds",
-    "path": "folders/Microgames/noah/noah_cheat/noah_cheat_sounds.yy",
+    "name": "noah_cheat_scripts",
+    "path": "folders/Microgames/noah/noah_cheat/noah_cheat_scripts.yy",
   },
 }
