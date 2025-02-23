@@ -1,7 +1,8 @@
 
 
-music_loop = audio_play_sound(noah_cheat_bgm_scribbling_1, 1, true);
-intense_music_layer = audio_play_sound(noah_cheat_bgm_scribbling_2, 1, true, 0);
+music_loop = microgame_music_start(noah_cheat_bgm_scribbling_1, 1, true);
+
+intense_music_layer = sfx_play(noah_cheat_bgm_scribbling_2, 0, true);
 fade_time = 0.01 * 1000;
 
 final_sfx_played = false;

@@ -16,3 +16,10 @@ game_result_win = false; // outcome of game
 
 init_x = x;
 init_y = y;
+
+noah_cheat_scr_shake = function()
+{
+	var _shakeAmp = 3;
+	x = init_x + random_range(-_shakeAmp, _shakeAmp);
+	y = init_y + random_range(-_shakeAmp, _shakeAmp);	
+}

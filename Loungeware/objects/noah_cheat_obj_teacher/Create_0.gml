@@ -28,6 +28,26 @@ num_sus_states * (max_gapbetween_sus_states + max_sus_duration) <= the microgame
 */
 
 timeline_pos = 0;
+generate_sus_timeline = function() {
+	var _numLoops = num_sus_states * 2;
+	var _timelinePos = bookend_time; // start time with cushion
+	var _currentlySus = false;
+	var _timeline = [];
+	for (var _i = 0; _i < _numLoops; _i++)
+	{
+		if (_currentlySus)
+		{
+			_timelinePos += random_range(min_sus_duration, max_sus_duration);
+		}
+		else
+		{
+			_timelinePos += random_range(min_gap_between_sus_states, max_gap_between_sus_states);
+		}
+		_timeline[_i] = _timelinePos;
+		_currentlySus = !_currentlySus;
+	}
+	return _timeline
+}
 toggle_suspicion_times = generate_sus_timeline(); // This will contain each timestamp at which the sus state will swap
 max_timeline_pos = array_length(toggle_suspicion_times);
 
@@ -35,3 +55,10 @@ init_x = x;
 init_y = y;
 
 set_win_sprite = false;
+
+noah_cheat_scr_shake = function()
+{
+	var _shakeAmp = 3;
+	x = init_x + random_range(-_shakeAmp, _shakeAmp);
+	y = init_y + random_range(-_shakeAmp, _shakeAmp);	
+}
