@@ -18,6 +18,7 @@
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_778AC250","properties":[],"isDnd":false,"objectId":{"name":"noah_cheat_obj_student","path":"objects/noah_cheat_obj_student/noah_cheat_obj_student.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":-33.0,"y":79.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E7FBCC","properties":[],"isDnd":false,"objectId":{"name":"noah_cheat_obj_chalkboard","path":"objects/noah_cheat_obj_chalkboard/noah_cheat_obj_chalkboard.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":269.0,"y":1.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_34CD7257","properties":[],"isDnd":false,"objectId":{"name":"noah_cheat_obj_teacher","path":"objects/noah_cheat_obj_teacher/noah_cheat_obj_teacher.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":32.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_63EB8C39","properties":[],"isDnd":false,"objectId":{"name":"noah_cheat_obj_meter","path":"objects/noah_cheat_obj_meter/noah_cheat_obj_meter.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":45.0,"y":16.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4E3E95E2","properties":[],"isDnd":false,"objectId":{"name":"noah_cheat_obj_prompt","path":"objects/noah_cheat_obj_prompt/noah_cheat_obj_prompt.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":202.0,"y":182.0,},
@@ -34,6 +35,7 @@
     {"name":"inst_63EB8C39","path":"rooms/noah_cheat_rm_main/noah_cheat_rm_main.yy",},
     {"name":"inst_4E3E95E2","path":"rooms/noah_cheat_rm_main/noah_cheat_rm_main.yy",},
     {"name":"inst_609A6F2B","path":"rooms/noah_cheat_rm_main/noah_cheat_rm_main.yy",},
+    {"name":"inst_5E7FBCC","path":"rooms/noah_cheat_rm_main/noah_cheat_rm_main.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

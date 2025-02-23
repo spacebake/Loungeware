@@ -9,14 +9,14 @@ if (noah_cheat_obj_meter.game_active)
 	
 		if (_layerGain < 1)
 		{
-			audio_sound_gain(intense_music_layer, 1, fade_time);
+			microgame_sfx_set_gain(intense_music_layer, 1, fade_time);
 		}
 	}
 	else
 	{
 		if (_layerGain > 0)
 		{
-			audio_sound_gain(intense_music_layer, 0, fade_time);
+			microgame_sfx_set_gain(intense_music_layer, 0, fade_time);
 		}
 	}
 }
@@ -24,15 +24,15 @@ else
 {
 	if (!final_sfx_played)
 	{
-		audio_stop_sound(intense_music_layer);
-		audio_stop_sound(music_loop);
+		sfx_stop(intense_music_layer, 0);
+		microgame_music_stop();
 		if (noah_cheat_obj_meter.game_result_win)
 		{
-			audio_play_sound(noah_cheat_sfx_victory, 1, false);
+			sfx_play(noah_cheat_sfx_victory, 1, false);
 		}
 		else
 		{
-			audio_play_sound(noah_cheat_sfx_fail_teacher, 1, false);
+			sfx_play(noah_cheat_sfx_fail_teacher, 1, false);
 		}
 		final_sfx_played = true;
 	}
