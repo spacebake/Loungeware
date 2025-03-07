@@ -1,10 +1,10 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "sng_zandy_clumsy",
+  "name": "noah_measureup_sfx_thud",
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.4,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -14,10 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sng_zandy_clumsy.wav",
-  "duration": 5.052646,
+  "soundFile": "noah_measureup_sfx_thud.wav",
+  "duration": 0.60415,
   "parent": {
-    "name": "Public Music",
-    "path": "folders/Public Music.yy",
+    "name": "sound",
+    "path": "folders/Microgames/noah/noah_measureup/sound.yy",
   },
 }

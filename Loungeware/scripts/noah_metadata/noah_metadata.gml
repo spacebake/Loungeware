@@ -6,6 +6,41 @@
 // for help with filling out your metadata see the wiki: 
 // https://github.com/spacebake/Loungeware/wiki/Microgame-Config
 
+microgame_register("noah_measureup", {
+    config_version: 1,
+    game_name: "Measure Up",
+    authors : {noah: "Noah Reeves"},
+    prompt: "STACK",
+    init_room: noah_measureup_rm_main,
+    view_width: 960,
+    view_height: 640,
+    time_seconds: 6,
+    music_track: sng_zandy_clumsy, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: true, // nullable, defaults to true
+    interpolation_on: false,
+    cartridge_col_primary: [198, 190, 132],
+    cartridge_col_secondary: [138, 111, 48],
+    cartridge_label: noah_cheat_spr_label,
+    default_is_fail: true, // nullable, defaults to true
+    supports_difficulty_scaling: true,
+    credits: ["Noah Reeves"],
+    date_added:{
+	  day : 3,
+	  month : 3,
+	  year : 2025
+	},
+	is_enabled: true,
+	supports_html: true,
+	supports_pi: true,
+	show_on_website: true,
+	description: [
+		"Pilot the rocket mech and neutralize the enemy.", 
+	],
+	how_to_play: [
+		"Aim with left and right and then press Z or X to fire."
+	]
+});
+
 microgame_register("noah_makimono", {
     config_version: 1,
     game_name: "Makimono",
