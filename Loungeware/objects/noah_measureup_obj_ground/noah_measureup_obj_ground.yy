@@ -30,7 +30,6 @@
     {"x":0.0,"y":1.0,},
   ],
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"noah_measureup_obj_block","path":"objects/noah_measureup_obj_block/noah_measureup_obj_block.yy",},},
   ],
   "properties": [],

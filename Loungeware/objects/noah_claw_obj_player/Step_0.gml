@@ -10,11 +10,10 @@ if (crane_active)
 var _bulletInst = instance_place(x, y, noah_claw_obj_bullet_parent)
 if (_bulletInst and !success and !falling)
 {
-	var _hitX = _bulletInst.x;
-	var _hitY = _bulletInst.y;
-	instance_create_depth(_hitX, _hitY, depth - 1, noah_claw_obj_hit_fx);
+	instance_create_depth(x, y, depth - 1, noah_claw_obj_hit_fx);
 	crane_active = false;
 	falling = true;
+	sfx_play(noah_claw_sfx_rip);
 	cable_stay_y = y;
 }
 
@@ -35,8 +34,9 @@ if (y == goal_y and !falling and !success)
 	}
 	with (noah_claw_obj_emitter_parent)
 	{
-		active = false;
+		instance_destroy();
 	}
+	sfx_play(noah_claw_sfx_win);
 	microgame_win();
 }
 

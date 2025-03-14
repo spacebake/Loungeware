@@ -2,8 +2,8 @@
 // You can write your code in this editor
 
 var _horInput = KEY_RIGHT - KEY_LEFT;
-var _jumpInput = (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED);
-var _jumpReleased = (KEY_PRIMARY_RELEASED or KEY_SECONDARY_RELEASED);
+var _jumpInput = (KEY_PRIMARY_PRESSED or KEY_SECONDARY_PRESSED or KEY_UP_PRESSED);
+var _jumpReleased = (KEY_PRIMARY_RELEASED or KEY_SECONDARY_RELEASED or KEY_UP_RELEASED);
 
 
 
@@ -13,13 +13,13 @@ if ((y_speed == 0 or !double_jumped)  and _jumpInput)
 {
 	if (!on_ground)
 	{
-		sfx_play(noah_makimoto_sfx_double_jump);
+		sfx_play(noah_makimono_sfx_double_jump);
 		double_jumped = true;
 		instance_create_depth(x, bbox_bottom, depth + 1, noah_makimono_obj_jump_fx);
 	}
 	else
 	{
-		sfx_play(noah_makimoto_sfx_jump);	
+		sfx_play(noah_makimono_sfx_jump);	
 	}
 	y_speed = -jump_force;
 	on_ground = false;
@@ -109,7 +109,7 @@ if (bbox_right < 0 or bbox_left > room_width or bbox_top > room_height)
 		scroll_speed = 0;	
 	}
 	noah_makimono_obj_brush.game_fail = true;
-	sfx_play(noah_makimoto_sfx_lose);
+	sfx_play(noah_makimono_sfx_lose);
 	instance_destroy();
 }
 

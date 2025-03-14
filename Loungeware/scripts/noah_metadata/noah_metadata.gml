@@ -8,24 +8,24 @@
 
 microgame_register("noah_claw", {
     config_version: 1,
-    game_name: "Claw",
+    game_name: "Draw Claw",
     authors : {noah: "Noah Reeves"},
     prompt: "DESCEND",
     init_room: noah_claw_rm_main,
     view_width: 960,
     view_height: 640,
     time_seconds: 6,
-    music_track: sng_zandy_clumsy, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: true, // nullable, defaults to true
-    interpolation_on: false,
-    cartridge_col_primary: [198, 190, 132],
-    cartridge_col_secondary: [138, 111, 48],
-    cartridge_label: noah_cheat_spr_label,
+    music_track: noah_claw_bgm, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: false, // nullable, defaults to true
+    interpolation_on: true,
+    cartridge_col_primary: [7, 137, 211],
+    cartridge_col_secondary: [4, 113, 176],
+    cartridge_label: noah_claw_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
     credits: ["Noah Reeves"],
     date_added:{
-	  day : 3,
+	  day : 6,
 	  month : 3,
 	  year : 2025
 	},
@@ -34,10 +34,10 @@ microgame_register("noah_claw", {
 	supports_pi: true,
 	show_on_website: true,
 	description: [
-		"Pilot the rocket mech and neutralize the enemy.", 
+		"Drop the claw to pluck a Larold plush from the pile!", 
 	],
 	how_to_play: [
-		"Aim with left and right and then press Z or X to fire."
+		"Press up and down to move the claw. Reach the bottom without getting hit."
 	]
 });
 
@@ -50,17 +50,17 @@ microgame_register("noah_measureup", {
     view_width: 960,
     view_height: 640,
     time_seconds: 6,
-    music_track: sng_zandy_clumsy, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: true, // nullable, defaults to true
-    interpolation_on: false,
-    cartridge_col_primary: [198, 190, 132],
-    cartridge_col_secondary: [138, 111, 48],
-    cartridge_label: noah_cheat_spr_label,
+    music_track: noah_measureup_bgm, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: false, // nullable, defaults to true
+    interpolation_on: true,
+    cartridge_col_primary: [0, 64, 161],
+    cartridge_col_secondary: [100, 126, 158],
+    cartridge_label: noah_measureup_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
     credits: ["Noah Reeves"],
     date_added:{
-	  day : 3,
+	  day : 5,
 	  month : 3,
 	  year : 2025
 	},
@@ -69,10 +69,10 @@ microgame_register("noah_measureup", {
 	supports_pi: true,
 	show_on_website: true,
 	description: [
-		"Pilot the rocket mech and neutralize the enemy.", 
+		"Use your tape measure to choose the block's length.", 
 	],
 	how_to_play: [
-		"Aim with left and right and then press Z or X to fire."
+		"Press any button to drop the block at the current length. Balance it on the blocks below to win."
 	]
 });
 
@@ -85,17 +85,17 @@ microgame_register("noah_makimono", {
     view_width: 960,
     view_height: 640,
     time_seconds: 6,
-    music_track: noah_makimoto_bgm, // nullable, defaults to noone. Accepts: sound name or false
-    music_loops: true, // nullable, defaults to true
-    interpolation_on: false,
-    cartridge_col_primary: [198, 190, 132],
-    cartridge_col_secondary: [138, 111, 48],
-    cartridge_label: noah_cheat_spr_label,
+    music_track: noah_makimono_bgm, // nullable, defaults to noone. Accepts: sound name or false
+    music_loops: false, // nullable, defaults to true
+    interpolation_on: true,
+    cartridge_col_primary: [254, 95, 85],
+    cartridge_col_secondary: [46, 40, 42],
+    cartridge_label: noah_makimono_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
     credits: ["Noah Reeves"],
     date_added:{
-	  day : 3,
+	  day : 4,
 	  month : 3,
 	  year : 2025
 	},
@@ -104,10 +104,10 @@ microgame_register("noah_makimono", {
 	supports_pi: true,
 	show_on_website: true,
 	description: [
-		"Pilot the rocket mech and neutralize the enemy.", 
+		"Froggerton never thought his home would start scrolling.", 
 	],
 	how_to_play: [
-		"Aim with left and right and then press Z or X to fire."
+		"Walk by pressing left and right. Jump and double jump by pressing A or B."
 	]
 });
 
@@ -123,9 +123,9 @@ microgame_register("noah_artillery", {
     music_track: noah_artillery_bgm, // nullable, defaults to noone. Accepts: sound name or false
     music_loops: false, // nullable, defaults to true
     interpolation_on: false,
-    cartridge_col_primary: [198, 190, 132],
-    cartridge_col_secondary: [138, 111, 48],
-    cartridge_label: noah_cheat_spr_label,
+    cartridge_col_primary: [90, 85, 66],
+    cartridge_col_secondary: [198, 190, 132],
+    cartridge_label: noah_artillery_spr_label,
     default_is_fail: true, // nullable, defaults to true
     supports_difficulty_scaling: true,
     credits: ["Noah Reeves"],
@@ -142,7 +142,7 @@ microgame_register("noah_artillery", {
 		"Pilot the rocket mech and neutralize the enemy.", 
 	],
 	how_to_play: [
-		"Aim with left and right and then press Z or X to fire."
+		"Aim with left and right and then press A or B to fire."
 	]
 });
 

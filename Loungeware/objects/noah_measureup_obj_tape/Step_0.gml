@@ -24,7 +24,7 @@ else if (_width <= 0 and !block_dropped)
 	microgame_fail();
 }
 
-if (!block_dropped and KEY_ANY)
+if (!block_dropped and KEY_ANY_PRESSED)
 {
 	_guide.create_block();
 	sfx_play(noah_measureup_sfx_drop, 1.5);

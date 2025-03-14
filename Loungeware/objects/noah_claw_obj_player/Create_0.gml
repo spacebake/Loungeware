@@ -1,6 +1,6 @@
 crane_active = true;
 crane_speed = 10;
-goal_y = room_height - sprite_height;
+goal_y = 540;
 
 // win condition
 success_y = room_height / 2 - sprite_height;
