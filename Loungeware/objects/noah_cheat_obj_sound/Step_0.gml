@@ -37,13 +37,3 @@ else
 		final_sfx_played = true;
 	}
 }
-
-//// Pencil sfx on button press
-//if (KEY_DOWN_PRESSED)
-//{
-//	var _trackPos = random(pencil_scratch_len);
-//	var _pencilSnd = audio_play_sound(noah_cheat_sfx_scratching_pencil, 1, false, 1, _trackPos);
-//	audio_sound_gain(_pencilSnd, 0, 0.5 * 1000);
-//}
-
-

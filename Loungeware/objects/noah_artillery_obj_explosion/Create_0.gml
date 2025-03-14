@@ -1,0 +1,1 @@
+sfx_play(choose(noah_artillery_sfx_explosion_1, noah_artillery_sfx_explosion_2));

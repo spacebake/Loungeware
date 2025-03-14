@@ -1,0 +1,1 @@
+image_angle = noah_artillery_obj_player.aim_direction;
