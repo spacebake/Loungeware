@@ -1313,6 +1313,7 @@
     {"id":{"name":"anti_dungeon_sp_button","path":"sprites/anti_dungeon_sp_button/anti_dungeon_sp_button.yy",},"order":8,},
     {"id":{"name":"sam_metadata","path":"scripts/sam_metadata/sam_metadata.yy",},"order":3,},
     {"id":{"name":"giz_laronin_rm_main","path":"rooms/giz_laronin_rm_main/giz_laronin_rm_main.yy",},"order":0,},
+    {"id":{"name":"noah_measureup_obj_block_windows","path":"objects/noah_measureup_obj_block_windows/noah_measureup_obj_block_windows.yy",},"order":5,},
     {"id":{"name":"katsaii_wandawhop_larl","path":"sprites/katsaii_wandawhop_larl/katsaii_wandawhop_larl.yy",},"order":5,},
     {"id":{"name":"katsaii_witchcraft_finish_bad_bg","path":"sprites/katsaii_witchcraft_finish_bad_bg/katsaii_witchcraft_finish_bad_bg.yy",},"order":4,},
     {"id":{"name":"pixpope_lod_rm_main","path":"rooms/pixpope_lod_rm_main/pixpope_lod_rm_main.yy",},"order":5,},
