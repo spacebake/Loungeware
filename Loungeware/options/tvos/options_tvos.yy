@@ -5,6 +5,7 @@
   "option_tvos_display_name": "Made in GameMaker",
   "option_tvos_bundle_name": "com.company.game",
   "option_tvos_version": "1.0.0.0",
+  "option_tvos_build_number": 0,
   "option_tvos_output_dir": "~/GameMakerStudio2/tvOS",
   "option_tvos_team_id": "",
   "option_tvos_min_version": "10.0",
