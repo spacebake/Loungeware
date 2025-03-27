@@ -293,7 +293,10 @@
     {"id":{"name":"orphillius_sfx_item_flyaway","path":"sounds/orphillius_sfx_item_flyaway/orphillius_sfx_item_flyaway.yy",},"order":9,},
     {"id":{"name":"tabi_gogogatsby_spr_car","path":"sprites/tabi_gogogatsby_spr_car/tabi_gogogatsby_spr_car.yy",},"order":7,},
     {"id":{"name":"objfrog_pp_s_lamp","path":"sprites/objfrog_pp_s_lamp/objfrog_pp_s_lamp.yy",},"order":4,},
-    {"id":{"name":"spr_billboard","path":"sprites/spr_billboard/spr_billboard.yy",},"order":12,},
+<<<<<<< Updated upstream
+=======
+    {"id":{"name":"tabi_gogogatsby_spr_billboard","path":"sprites/tabi_gogogatsby_spr_billboard/tabi_gogogatsby_spr_billboard.yy",},"order":12,},
+>>>>>>> Stashed changes
     {"id":{"name":"sandveech_metadata","path":"scripts/sandveech_metadata/sandveech_metadata.yy",},"order":1,},
     {"id":{"name":"sam_cd_spr_background","path":"sprites/sam_cd_spr_background/sam_cd_spr_background.yy",},"order":0,},
     {"id":{"name":"noah_makimono_spr_frog_jump","path":"sprites/noah_makimono_spr_frog_jump/noah_makimono_spr_frog_jump.yy",},"order":10,},
@@ -762,6 +765,7 @@
     {"id":{"name":"objfrog_ys_o_collision_parent","path":"objects/objfrog_ys_o_collision_parent/objfrog_ys_o_collision_parent.yy",},"order":4,},
     {"id":{"name":"tfg_guess_obj_answer","path":"objects/tfg_guess_obj_answer/tfg_guess_obj_answer.yy",},"order":0,},
     {"id":{"name":"n8fl_penguin_blast_projectile_spr","path":"sprites/n8fl_penguin_blast_projectile_spr/n8fl_penguin_blast_projectile_spr.yy",},"order":8,},
+    {"id":{"name":"tabi_gogogatsby_obj_character","path":"objects/tabi_gogogatsby_obj_character/tabi_gogogatsby_obj_character.yy",},"order":14,},
     {"id":{"name":"noah_artillery_sfx_explosion_2","path":"sounds/noah_artillery_sfx_explosion_2/noah_artillery_sfx_explosion_2.yy",},"order":2,},
     {"id":{"name":"katsaii_witchwanda_bgm_gameplay","path":"sounds/katsaii_witchwanda_bgm_gameplay/katsaii_witchwanda_bgm_gameplay.yy",},"order":1,},
     {"id":{"name":"___rm_main_menu","path":"rooms/___rm_main_menu/___rm_main_menu.yy",},"order":5,},
@@ -857,6 +861,7 @@
     {"id":{"name":"pixpope_lod_bgm_pantser_laroldgoon","path":"sounds/pixpope_lod_bgm_pantser_laroldgoon/pixpope_lod_bgm_pantser_laroldgoon.yy",},"order":5,},
     {"id":{"name":"baku_skate_spr_mimpy_rip_shadow","path":"sprites/baku_skate_spr_mimpy_rip_shadow/baku_skate_spr_mimpy_rip_shadow.yy",},"order":5,},
     {"id":{"name":"sam_cd_snd_you_didnt","path":"sounds/sam_cd_snd_you_didnt/sam_cd_snd_you_didnt.yy",},"order":9,},
+    {"id":{"name":"tabi_gogogatsby_spr_character","path":"sprites/tabi_gogogatsby_spr_character/tabi_gogogatsby_spr_character.yy",},"order":13,},
     {"id":{"name":"jdllama_hammer_spr_label","path":"sprites/jdllama_hammer_spr_label/jdllama_hammer_spr_label.yy",},"order":5,},
     {"id":{"name":"jdllama_target_spr_target","path":"sprites/jdllama_target_spr_target/jdllama_target_spr_target.yy",},"order":7,},
     {"id":{"name":"katsaii_wandaxplore_background","path":"objects/katsaii_wandaxplore_background/katsaii_wandaxplore_background.yy",},"order":0,},
@@ -956,7 +961,10 @@
     {"id":{"name":"___spr_larold_heads","path":"sprites/___spr_larold_heads/___spr_larold_heads.yy",},"order":14,},
     {"id":{"name":"katsaii_witchball_antony","path":"sprites/katsaii_witchball_antony/katsaii_witchball_antony.yy",},"order":1,},
     {"id":{"name":"giz_laronin_obj_control","path":"objects/giz_laronin_obj_control/giz_laronin_obj_control.yy",},"order":0,},
-    {"id":{"name":"anim_curve_gats_scale","path":"animcurves/anim_curve_gats_scale/anim_curve_gats_scale.yy",},"order":11,},
+<<<<<<< Updated upstream
+=======
+    {"id":{"name":"tabi_gogogatsby_acurve_gatsby_scale","path":"animcurves/tabi_gogogatsby_acurve_gatsby_scale/tabi_gogogatsby_acurve_gatsby_scale.yy",},"order":11,},
+>>>>>>> Stashed changes
     {"id":{"name":"___snd_score_powerup","path":"sounds/___snd_score_powerup/___snd_score_powerup.yy",},"order":15,},
     {"id":{"name":"mimpy_firealarm_spr_droplet_particle","path":"sprites/mimpy_firealarm_spr_droplet_particle/mimpy_firealarm_spr_droplet_particle.yy",},"order":6,},
     {"id":{"name":"___obj_name_entry","path":"objects/___obj_name_entry/___obj_name_entry.yy",},"order":8,},

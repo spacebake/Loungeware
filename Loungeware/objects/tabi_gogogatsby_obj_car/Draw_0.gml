@@ -17,8 +17,8 @@ if(draw_y_position != y){
 }
 
 //get values from the anmation curve
-var _channel = animcurve_get_channel(anim_curve_gats_scale, "curve1");
-var _channel_two = animcurve_get_channel(anim_curve_gats_scale, "curve2");
+var _channel = animcurve_get_channel(tabi_gogogatsby_acurve_gatsby_scale, "curve1");
+var _channel_two = animcurve_get_channel(tabi_gogogatsby_acurve_gatsby_scale, "curve2");
 var _val = current_time/1000;
 
 //keep those values between 0 and 1
