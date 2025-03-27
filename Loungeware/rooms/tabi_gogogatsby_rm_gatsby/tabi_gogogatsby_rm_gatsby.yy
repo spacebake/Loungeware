@@ -1,7 +1,7 @@
 {
   "resourceType": "GMRoom",
   "resourceVersion": "1.0",
-  "name": "username_gamename_rm_game",
+  "name": "tabi_gogogatsby_rm_gatsby",
   "isDnd": false,
   "volume": 1.0,
   "parentRoom": null,
@@ -17,15 +17,17 @@
   ],
   "layers": [
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2A98385C","properties":[],"isDnd":false,"objectId":{"name":"username_gamename_obj_button","path":"objects/username_gamename_obj_button/username_gamename_obj_button.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":55.0,"y":18.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_1B26D09F","properties":[],"isDnd":false,"objectId":{"name":"tabi_gogogatsby_obj_car","path":"objects/tabi_gogogatsby_obj_car/tabi_gogogatsby_obj_car.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":240.0,"y":230.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","spriteId":null,"colour":4278190080,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":15.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Backgrounds_1","spriteId":{"name":"tabi_gogogatsby_spr_road","path":"sprites/tabi_gogogatsby_spr_road/tabi_gogogatsby_spr_road.yy",},"colour":4294967295,"x":0,"y":0,"htiled":true,"vtiled":false,"hspeed":-5.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+    {"resourceType":"GMRBackgroundLayer","resourceVersion":"1.0","name":"Background","spriteId":{"name":"tabi_gogogatsby_spr_back","path":"sprites/tabi_gogogatsby_spr_back/tabi_gogogatsby_spr_back.yy",},"colour":4294967295,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
   ],
   "inheritLayers": false,
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_2A98385C","path":"rooms/username_gamename_rm_game/username_gamename_rm_game.yy",},
+    {"name":"inst_1B26D09F","path":"rooms/tabi_gogogatsby_rm_gatsby/tabi_gogogatsby_rm_gatsby.yy",},
+    {"name":"inst_6AA00A99","path":"rooms/tabi_gogogatsby_rm_gatsby/tabi_gogogatsby_rm_gatsby.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -49,7 +51,7 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "__GAME_NAME__",
-    "path": "folders/Microgames/__EXAMPLE_NAME__/__GAME_NAME__.yy",
+    "name": "tabi",
+    "path": "folders/Microgames/tabi.yy",
   },
 }
