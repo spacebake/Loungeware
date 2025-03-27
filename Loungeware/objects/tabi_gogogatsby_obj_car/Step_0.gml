@@ -13,8 +13,3 @@ if KEY_DOWN_PRESSED
 	alarm[0] = sprite_change_time;
 }
 
-if place_meeting(x,y,tabi_gogogatsby_obj_character)
-{
-	microgame_fail()
-	microgame_end_early()
-}
