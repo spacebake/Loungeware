@@ -1,0 +1,1 @@
+random_character_index = irandom_range(0,4);//start sprite at a random location

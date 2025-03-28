@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "username_gamename_bgm_game373",
+  "name": "tabi_gogogatsby_bgm_game373",
   "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
@@ -14,7 +14,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "username_gamename_bgm_game373.wav",
+  "soundFile": "tabi_gogogatsby_bgm_game373.wav",
   "duration": 8.648667,
   "parent": {
     "name": "tabi",
