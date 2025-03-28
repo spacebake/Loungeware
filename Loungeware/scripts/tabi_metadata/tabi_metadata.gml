@@ -19,14 +19,14 @@ microgame_register("tabi_gogogatsby", {
     music_track: false,
     music_loops: false,
     interpolation_on: true,
-    cartridge_col_primary: [50, 44, 63],
-    cartridge_col_secondary: [168, 84, 100],
+    cartridge_col_primary: [253, 244, 81],
+    cartridge_col_secondary: [231, 135, 21],
     cartridge_label: tabi_gogogatsby_spr_label,
     default_is_fail: false,
     supports_difficulty_scaling: false,
     credits: ["Tabicoh", "Gatsby"],
     date_added:{
-	  day : 25,
+	  day : 28,
 	  month : 3,
 	  year : 2025,
 	},
@@ -37,6 +37,6 @@ microgame_register("tabi_gogogatsby", {
 		"Drive down the freeway without hitting anyone you know", 
 	],
 	how_to_play: [
-		"Press left and right to dodge Gatsby's friends as he speeds down the highway!"
+		"Press up and down to dodge Gatsby's friends as he speeds down the highway!"
 	]
 });
