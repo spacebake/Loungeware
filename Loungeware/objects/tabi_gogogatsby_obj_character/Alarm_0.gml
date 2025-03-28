@@ -1,0 +1,1 @@
+instance_create_depth(500, lane_number = 1 ? 215 : 280, lane_number = 1 ? 100 : -100, tabi_gogogatsby_obj_character)
