@@ -6,4 +6,6 @@ if x < -150
 
 x -= character_speed
 
+
+
 	

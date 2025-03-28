@@ -1049,6 +1049,7 @@
     {"id":{"name":"username_gamename_rm_game","path":"rooms/username_gamename_rm_game/username_gamename_rm_game.yy",},"order":4,},
     {"id":{"name":"grog_bba_sfx_launch","path":"sounds/grog_bba_sfx_launch/grog_bba_sfx_launch.yy",},"order":1,},
     {"id":{"name":"wae_snd_missle_defense_victory","path":"sounds/wae_snd_missle_defense_victory/wae_snd_missle_defense_victory.yy",},"order":33,},
+    {"id":{"name":"tabi_gogogatsby_obj_controller","path":"objects/tabi_gogogatsby_obj_controller/tabi_gogogatsby_obj_controller.yy",},"order":15,},
     {"id":{"name":"tfg_swipe_spr_spacefloosh","path":"sprites/tfg_swipe_spr_spacefloosh/tfg_swipe_spr_spacefloosh.yy",},"order":15,},
     {"id":{"name":"jdllama_target_snd_shot_bad","path":"sounds/jdllama_target_snd_shot_bad/jdllama_target_snd_shot_bad.yy",},"order":1,},
     {"id":{"name":"josh_metadata","path":"scripts/josh_metadata/josh_metadata.yy",},"order":3,},
