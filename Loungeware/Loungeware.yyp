@@ -293,10 +293,7 @@
     {"id":{"name":"orphillius_sfx_item_flyaway","path":"sounds/orphillius_sfx_item_flyaway/orphillius_sfx_item_flyaway.yy",},"order":9,},
     {"id":{"name":"tabi_gogogatsby_spr_car","path":"sprites/tabi_gogogatsby_spr_car/tabi_gogogatsby_spr_car.yy",},"order":7,},
     {"id":{"name":"objfrog_pp_s_lamp","path":"sprites/objfrog_pp_s_lamp/objfrog_pp_s_lamp.yy",},"order":4,},
-<<<<<<< Updated upstream
-=======
     {"id":{"name":"tabi_gogogatsby_spr_billboard","path":"sprites/tabi_gogogatsby_spr_billboard/tabi_gogogatsby_spr_billboard.yy",},"order":12,},
->>>>>>> Stashed changes
     {"id":{"name":"sandveech_metadata","path":"scripts/sandveech_metadata/sandveech_metadata.yy",},"order":1,},
     {"id":{"name":"sam_cd_spr_background","path":"sprites/sam_cd_spr_background/sam_cd_spr_background.yy",},"order":0,},
     {"id":{"name":"noah_makimono_spr_frog_jump","path":"sprites/noah_makimono_spr_frog_jump/noah_makimono_spr_frog_jump.yy",},"order":10,},
@@ -961,10 +958,7 @@
     {"id":{"name":"___spr_larold_heads","path":"sprites/___spr_larold_heads/___spr_larold_heads.yy",},"order":14,},
     {"id":{"name":"katsaii_witchball_antony","path":"sprites/katsaii_witchball_antony/katsaii_witchball_antony.yy",},"order":1,},
     {"id":{"name":"giz_laronin_obj_control","path":"objects/giz_laronin_obj_control/giz_laronin_obj_control.yy",},"order":0,},
-<<<<<<< Updated upstream
-=======
     {"id":{"name":"tabi_gogogatsby_acurve_gatsby_scale","path":"animcurves/tabi_gogogatsby_acurve_gatsby_scale/tabi_gogogatsby_acurve_gatsby_scale.yy",},"order":11,},
->>>>>>> Stashed changes
     {"id":{"name":"___snd_score_powerup","path":"sounds/___snd_score_powerup/___snd_score_powerup.yy",},"order":15,},
     {"id":{"name":"mimpy_firealarm_spr_droplet_particle","path":"sprites/mimpy_firealarm_spr_droplet_particle/mimpy_firealarm_spr_droplet_particle.yy",},"order":6,},
     {"id":{"name":"___obj_name_entry","path":"objects/___obj_name_entry/___obj_name_entry.yy",},"order":8,},
@@ -1055,6 +1049,7 @@
     {"id":{"name":"username_gamename_rm_game","path":"rooms/username_gamename_rm_game/username_gamename_rm_game.yy",},"order":4,},
     {"id":{"name":"grog_bba_sfx_launch","path":"sounds/grog_bba_sfx_launch/grog_bba_sfx_launch.yy",},"order":1,},
     {"id":{"name":"wae_snd_missle_defense_victory","path":"sounds/wae_snd_missle_defense_victory/wae_snd_missle_defense_victory.yy",},"order":33,},
+    {"id":{"name":"tabi_gogogatsby_obj_controller","path":"objects/tabi_gogogatsby_obj_controller/tabi_gogogatsby_obj_controller.yy",},"order":15,},
     {"id":{"name":"tfg_swipe_spr_spacefloosh","path":"sprites/tfg_swipe_spr_spacefloosh/tfg_swipe_spr_spacefloosh.yy",},"order":15,},
     {"id":{"name":"jdllama_target_snd_shot_bad","path":"sounds/jdllama_target_snd_shot_bad/jdllama_target_snd_shot_bad.yy",},"order":1,},
     {"id":{"name":"josh_metadata","path":"scripts/josh_metadata/josh_metadata.yy",},"order":3,},
