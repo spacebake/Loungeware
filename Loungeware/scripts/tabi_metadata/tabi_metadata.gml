@@ -16,7 +16,7 @@ microgame_register("tabi_gogogatsby", {
     view_width: 480,
     view_height: 320,
     time_seconds: 6,
-    music_track: false,
+    music_track: tabi_gogogatsby_bgm_game373,
     music_loops: false,
     interpolation_on: true,
     cartridge_col_primary: [253, 244, 81],

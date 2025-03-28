@@ -19,3 +19,4 @@ part_type_direction(p_explode, 0, 359, 0, 20);
 part_type_life(p_explode, 30, 45);
 
 made_particle = false;
+play_sound_once = false;
