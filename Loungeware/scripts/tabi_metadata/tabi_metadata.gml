@@ -34,7 +34,7 @@ microgame_register("tabi_gogogatsby", {
 	supports_html: true,
 	show_on_website: true,
 	description: [
-		"Drive down the freeway without hitting anyone you know", 
+		"Drive down the freeway without hitting anyone.", 
 	],
 	how_to_play: [
 		"Press up and down to dodge Gatsby's friends as he speeds down the highway!"
