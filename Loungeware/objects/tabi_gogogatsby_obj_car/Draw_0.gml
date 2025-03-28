@@ -6,6 +6,8 @@ var _rot = 0;
 
 _anim_y = random_range(-2,2);
 
+var turn_animation = 0;
+
 //ease to the y location
 if(draw_y_position != y){
 	draw_y_position = lerp(draw_y_position,y,0.5);
@@ -14,6 +16,18 @@ if(draw_y_position != y){
 	if(abs(draw_y_position - y) <= 0.01){
 		draw_y_position = y;
 	}
+	
+	//point towards the spot you are turning
+	var _dir = -point_direction(0, draw_y_position, 0, y);
+	
+	turn_animation = angle_difference(turn_animation, _dir);
+	
+	//ease into it. become more like 0 the closer the car is to the position it should be
+	turn_animation = lerp(0, turn_animation, abs((draw_y_position/y)-1))*2.5;
+	
+	show_debug_message(turn_animation);
+	
+	image_angle = turn_animation;
 }
 
 //get values from the anmation curve
@@ -36,7 +50,7 @@ x+_anim_x,
 draw_y_position+_anim_y,
 image_xscale+_anim_x_scale,
 image_yscale,
-image_angle+_rot,
+image_angle + _rot,
 image_blend,
 image_alpha
 );
