@@ -74,7 +74,6 @@ function ___larold_get_credits(){
 		"baku",
 		"space",
 		"anti",
-		"meseta & the A.I",
 		"baku",
 		"space",
 		"baku",
